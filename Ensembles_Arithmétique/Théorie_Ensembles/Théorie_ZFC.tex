@@ -220,6 +220,31 @@ L'axiome de compréhension peut aussi être utilisé pour définir la différenc
 Soit $A$ et $B$ deux ensembles. 
 On note $A \setminus B$ l'ensemble $\lbrace x \in A \vert x \notin B \rbrace$.
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $A$ et $B$ deux ensembles tels que $B \in A$.
+    Alors, $(A \setminus B) \cup B = A$.
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+    Soit $x$ un élément de $A$. 
+    Si $x \in B$, alors $x \in (A \setminus B) \cup B$.
+    Sinon, $x \in A \setminus B$, donc $x \in (A \setminus B) \cup B$.
+    Donc, dans tous les cas, $x \in (A \setminus B) \cup B$.
+
+    Soit $x$ un élément de $x \in (A \setminus B) \cup B$.
+    Alors, $x \in A \setminus B$ ou $x \in B$. 
+    Si $ x \in A \setminus B$, alors $x \in A$ puisque $A \setminus B \subset A$.
+    Si $ x \in B$, alors $x \in A$ puisque $A \setminus A$.
+    Donc, dans tous les cas, $x \in A$.
+
+    On a donc montré que : $\forall x \, (x \in A) \Leftrightarrow (x \in (A \setminus B) \cup B)$, et donc que $(A \setminus B) \cup B = A$.
+
+    \done
+
+\medskip
+
 Notons qu'il s'agit bien d'un schéma d'axiomes, c'est-à-dire une méthode permettant de construire des axiomes, et non d'un seul axiome : puisqu'on ne peut pas quantifier les prédicats en logique du premier ordre, ce shéma définit un axiome pour chaque prédicat à un paramètre libre. 
 En théorie Z, on considère le prédicat obtenu à partir de tout prédicat $P$ à une variable libre comme vrai.
 

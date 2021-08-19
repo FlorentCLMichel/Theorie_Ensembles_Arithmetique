@@ -185,31 +185,35 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
 \medskip
 
-\noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles de même cardinal fini. 
+\noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles finis de même cardinal. 
     On suppose que $E \subset F$. 
     Alors $E = F$. 
-    (La réciproque est évidente.)
 
 \medskip
 
-\noindent\textbf{Démonstration :} 
+\noindent\textbf{Remarque :} La réciproque est évidente : Soit $E$ et $F$ deux ensembles finis, si $E = F$, alors $E \subset F$. 
+    On déduit donc le résultat suivant : si $E$ et $F$ sont finis et ont le même cardinal, alors $E \subset F \Leftrightarrow E = F$.
+
+\medskip
+
+\noindent\textbf{Démonstration du lemme :} 
     On procède par récurrence sur le cardinal $n$ de $E$ et $F$. 
     Si $n = 0$, on a $E = \emptyset$ et $F = \emptyset$, donc $E = F$. 
 
     Soit $n$ un entier naturel et supposons la propriété attendue vraie pour deux ensembles de cardinal $n$. 
     Soit $E$ et $F$ deux ensembles de cardinal $n+1$ tels que $E \subset F$. 
-    Puisque le cardinal de $E$ n'est pas $0$, $E$ admet au moins un élément (puisque $\emptyset$ est inclus dans tout entier). 
+    Puisque le cardinal de $E$ n'est pas $0$, $E$ admet au moins un élément (sans quoi $E$ serait égal à $\emptyset$, et donc de cardinal $0$). 
     Soit $e$ un élément de $E$. 
     Puisque $E \subset F$, on a $e \in F$. 
     Soit $E'$ et $F'$ les ensembles définis par $E' = E \setminus \lbrace e \rbrace$ et $F' = E \setminus \lbrace e \rbrace$. 
     Alors, d'après le lemme précédent, $E'$ et $F'$ sont de même cardinal $n$. 
-    En outre, pour tout élément $x$ de $E'$, on a $x \in F$ (puisque $E \subset F$) et $x \neq e$, donc $x \in F'$.
+    En outre, pour tout élément $x$ de $E'$, on a $x \in E$, donc $x \in F$, et $x \neq e$, donc $x \in F'$.
     Donc, $E' \subset F'$. 
-    On en déduit que $E' = F'$, et donc que $E = F$. 
+    On en déduit que $E' = F'$, et donc, puisque $E = E' \cup \lbrace e \rbrace$ et $F = F' \cup \lbrace e \rbrace$, que $E = F$. 
 
-    Par récurrence, ce résultat est vrai pour tout entier $n$.
+    Par récurrence, ce résultat est vrai pour tout entier naturel $n$.
 
-   \done 
+    \done 
 
 \medskip
 
