@@ -1,0 +1,43 @@
+\input{Preamblec.tex}
+ 
+\title{Théorie des Ensembles et Arithmétique}
+\date{\today}
+\author{%\calligra 
+%Florent Michel \\ 
+\Fstar} 
+
+\begin{document} 
+\date{}
+\maketitle 
+\begin{abstract}
+Ce document présente quelques bases de théorie des ensembles et d'arithmétique.
+\end{abstract}
+\bigskip
+\begin{multicols}{2}
+%\microtypesetup{protrusion=false}
+\renewcommand{\contentsname}{Table des matières}
+\tableofcontents 
+%\microtypesetup{protrusion=true}
+\end{multicols}
+
+\clearpage
+
+\input{Ensembles_Arithmétique/Théorie_Ensembles.tex}
+
+\clearpage
+
+\input{Ensembles_Arithmétique/Arithmétique.tex}
+
+\clearpage
+
+\appendix
+
+\input{Ensembles_Arithmétique/Codes.tex}
+
+\clearpage
+
+\section{Liste des 1000 premiers nombres premiers} 
+
+\noindent\textsf{\input{Ensembles_Arithmétique/First_Primes.dat}}
+
+\bye

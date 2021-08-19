@@ -1,0 +1,278 @@
+\subsection{Éléments de théorie des groupes}
+
+Dans cette sous-section, nous donnons quelques concepts de base de théorie des groupes. 
+
+\subsubsection{Définitions}
+
+\noindent\textbf{Définition (magma) :} Un \textit{magma} $\mathcal{M}$ est un couple formé par un ensemble $M$ et une \textit{loi de composition interne} $\cdot$ sur $M$ (parfois appelée \textit{opération}), c'est-à-dire une fonction de $M \times M$ vers $M$. 
+    On note souvent le magma $(M, \cdot)$. 
+    Si $a$ et $b$ sont deux éléments de $M$, on note $a \cdot b$ l'image de $(a,b)$ par $\cdot$.
+
+\medskip
+
+\noindent\textbf{Définition (élément neutre) :} Soit $(M,\cdot)$ un magma.
+    Un élément $e$ de $M$ est dit \textit{élément neutre} si 
+    \begin{equation*}
+        \forall m \in M, \, e \cdot m = m \wedge m \cdot e = m.
+    \end{equation*}
+    Un magma admettant un élément neutre est dit \textit{unifère}.
+
+\medskip
+
+\noindent\textbf{Lemme :} Un magma admet au plus un élément neutre.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $(M,\cdot)$ un magme et $e$ et $f$ deux éléments identités pour ce magma.
+    Puisque $e$ est un élément identité, $e \cdot f = f$.
+    Puisque $f$ est un élément identité, $e \cdot f = e$.
+    Par commutativité et transitivité de l'égalité, on en déduit $e = f$.
+
+    \hfill \square
+
+\medskip
+
+\noindent\textbf{Définition (morpisme de magmas) :} Soit $\left(M, \cdot \right)$ et $\left(N, \ast \right)$ deux magmas.
+    Une fonction $f$ de $M$ vers $N$ est dite \textit{morphisme de magmas} de $\left(M, \cdot \right)$ vers $\left(N, \ast \right)$ si elle satisfait : 
+    \begin{equation*}
+        \forall (a,b) \in M^2, \, f (a \cdot b) = f(a) \ast f(b) .
+    \end{equation*}
+
+\medskip
+
+\noindent\textbf{Définition (isomorpisme de magmas) :} Soit $\mathcal{M}$ et $\mathcal{N}$ deux magmas.
+    Un morphise de magmas $f$ de $\mathcal{M}$ vers $\mathcal{N}$ est dit \textit{isomorphisme de magmas} s'il est également une bijection.
+
+\medskip
+
+\noindent\textbf{Lemme :} L'image d'un élément neutre par un morphisme de magmas surjectif (et donc, en particulier, par un isomorphisme) est un élément neutre.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $\left(M, \cdot \right)$ et $\left(N, \ast \right)$ deux magmas et soit $f$ un morphisme surjectif du premier vers le second. 
+    Soit $e$ un élément neutre de $\left(M, \cdot \right)$. 
+    On a $f(e) \in N$. 
+    Soit $y$ un élément de $N$. 
+    Il s'agit de montrer que $f(e) \ast y = y$ et $y \ast f(e) = y$.
+
+    Puisque $f$ est surjectif, on peut choisir un élément $x$ de $M$ ten que $f(x) = y$. 
+    Donc, $f(e) \ast y = f(e) \ast f(x)$. 
+    Puisque $f$ est un morphisme de magmas, $f(e) \ast f(x) = f(e \cdot x)$. 
+    Puisque $e$ est un élément neutre pour $\cdot$, $e \cdot x = x$. 
+    Donc, $f(e) \ast f(x) = f(x)$.
+    Donc, $f(e) \ast y = y$. 
+
+    De même, puisque $f$ est un morphisme de magmas, $f(x) \ast f(e) = f(x \cdot e)$. 
+    Puisque $e$ est un élément neutre pour $\cdot$, $x \cdot e = x$. 
+    Donc, $f(x) \ast f(e) = f(x)$.
+    Donc, $y \ast f(x) = y$. 
+
+    \hfill \square
+
+\medskip
+
+\noindent\textbf{Corrolaire :} Soit $\mathcal{M}$ et $\mathcal{N}$ deux magmas. 
+    On suppose qu'il existe un morphisme de magmas surjectif de $\mathcal{M}$ vers $\mathcal{N}$. 
+    Si $\mathcal{M}$ est unifère, alors $\mathcal{N}$ l'est aussi. 
+    (Car l'image par le morphisme de l'élément neutre de $\mathcal{M}$ est un élément neutre pour $\mathcal{N}$.)
+
+\medskip
+
+\noindent\textbf{Lemme :} L'inverse d'un isomorphisme de magmas est un isomorphisme de magmas.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $\left(M, \cdot \right)$ et $\left(N, \ast \right)$ deux magmas et soit $f$ un isomorphisme du premier vers le second. 
+    Soit $g$ l'inverse de $f$ (qui existe et est une bijection puisque $f$ est une bijection). 
+    Montrons que $g$ est un morphisme de magmas. 
+    Puisque $g$ est également uen bijection, il s'agira alors d'un isomorphisme. 
+
+    Soit $a$ et $b$ deux éléments de $N$. 
+    Puisque $f$ est une bijection, elle est surjective, donc on peut choisir deux éléments $c$ et $d$ de $M$ tels que $a = f(c)$ et $b = f(d)$. 
+    On a alors : $g(a) \cdot g(b) = g(f(c)) \cdot g(f(d))$.
+    Puisque $g$ est l'inverse de $f$, cela donne : $g(a) \cdot g(b) = c \cdot d$. 
+
+    Par ailleurs, $g(a \ast b) = g(f(c) \ast f(d))$. 
+    Puisque $f$ est un morphisme, cela donne $g(a \ast b) = g(f(c \cdot d))$.
+    Puisque $g$ est l'inverse de $f$, cela donne : $g(a \ast b) = c \cdot d$. 
+    Donc, $g(a \ast b) = g(a) \cdot g(b)$. 
+
+    Cela étant vrai pour tout élément $(a,b)$ de $M^2$, on en déduit que $g$ est un morphisme de magmas, et donc un isomorphisme, de $\left(M, \cdot \right)$ vers $\left(N, \ast \right)$.
+
+    \hfill \square
+
+\medskip
+
+\noindent\textbf{Définition (associativité) :} Soit $(M,\cdot)$ un magma.
+    La loi de composition interne $\cdot$ est dite \textit{associative} si
+    \begin{equation*}
+        \forall a \in M, \, \forall b \in M, \, \forall c \in M , \,  
+        (a \cdot b) \cdot c = a \cdot (b \cdot c).
+    \end{equation*}
+    Le magma $(M, \cdot)$ est alors dit \textit{associatif}, ou \textit{demi-groupe}.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $\mathcal{M}_1$ et $\mathcal{M}_2$ deux magmas.
+    On suppose que $\mathcal{M}_1$ est associatif et qu'il existe un morphisme de magmas surjectif de $\mathcal{M}_1$ vers $\mathcal{M}_2$.
+    Alors $\mathcal{M}_2$ est associatif.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $(M,\cdot)$ et $(N,\ast)$ deux magmas. 
+    On suppose que le premier est associatif et qu'il existe un morphise de magmas surjectif, $f$, du premier vers le second. 
+    Soit $a$, $b$ et $c$ trois éléments de $N$. 
+    Puisque $f$ est surjectif, on peut choisir trois éléments $d$, $e$ et $g$ de $M$ tels que $f(d) = a$, $f(e) = b$ et $f(g) = c$.
+    On a alors : $(a \ast b) \ast c = (f(d) \ast f(e)) \ast f(g)$.
+    Puisque $f$ est un morphisme de magmas, $(f(d) \ast f(e)) \ast f(g) = f(d \cdot e) \ast f(g) = f((d \cdot e) \cdot g)$.
+    Puisque $\cdot$ est associative, $f((d \cdot e) \cdot g) = f(d \cdot (e \cdot g))$. 
+    En utilisant à nouveau le fait que $f$ est un morphisme de magmas, on obtient : $f(d \cdot (e \cdot g)) = f(d) \ast f(e \cdot g))$ et $f(d) \ast f(e \cdot g)) = f(d) \ast (f(e) \ast f(g))$. 
+    Enfin, puisque $d$, $e$ et $g$ sont des antécédents respectifs de $a$, $b$ et $c$ par $f$, on a $f(d) \ast (f(e) \ast f(g)) = a \ast (b \ast c)$. 
+    En combinant ces formules et en utilisant la transitivité de l'égalité, il vient : $(a \ast b) \ast c = a \ast (b \ast c)$.
+
+    \hfill \square
+
+\medskip
+
+\noindent\textbf{Définition (commutativité) :} Soit $(M,\cdot)$ un magma.
+    La loi de composition interne $\cdot$ est dite \textit{commutative} si
+    \begin{equation*}
+        \forall a \in M, \, \forall b \in M,  
+        a \cdot b = b \cdot a.
+    \end{equation*}
+    Le magma $(M, \cdot)$ est alors dit \textit{commutatif} ou \textit{abélien}.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $\mathcal{M}_1$ et $\mathcal{M}_2$ deux magmas.
+    On suppose que $\mathcal{M}_1$ est commutatif et qu'il existe un morphisme de magmas surjectif de $\mathcal{M}_1$ vers $\mathcal{M}_2$.
+    Alors $\mathcal{M}_2$ est commutatif.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $(M,\cdot)$ et $(N,\ast)$ deux magmas. 
+    On suppose que le premier est commutatif et qu'il existe un morphise de magmas surjectif, $f$, du premier vers le second. 
+    Soit $a$ et $b$ deux éléments de $N$. 
+    Puisque $f$ est surjectif, on peut choisir deux éléments $d$ et $e$ de $M$ tels que $f(d) = a$ et $f(e) = b$.
+    On a alors : $a \ast b = f(d) \ast f(e)$.
+    Puisque $f$ est un morphisme de magmas, $f(d) \ast f(e) = f(d \cdot e)$.
+    Puisque $\cdot$ est commutative, $(d \cdot e) = f(e \cdot d)$. 
+    En utilisant à nouveau le fait que $f$ est un morphisme de magmas, on obtient : $f(e \cdot d) = f(e) \ast f(d)$. 
+    Enfin, puisque $d$ et $e$ sont des antécédents respectifs de $a$ et $b$ par $f$, on a $f(e) \ast f(d) = b \ast a$. 
+    En combinant ces formules et en utilisant la transitivité de l'égalité, il vient : $a \ast b = b \ast a$.
+
+    \hfill \square
+
+\medskip
+
+\noindent\textbf{Définition (monoïde) :} Un magma unifère et associatif est appelé \textit{monoïde}.
+
+\medskip
+
+\noindent\textbf{Définition (monoïde abélien) :} Un magma unifère, associatif et abélien est dit \textit{monoïde abélien}.
+
+\medskip
+
+\noindent\textbf{Définition (morpisme de monoïdes) :} Un morphisme de magmas d'un monoïde vers un autre est dit \textit{morphisme de monoïdes}.
+
+\medskip
+
+\noindent\textbf{Définition (isomorpisme de monoïdes) :} Un isomorphisme de magmas d'un monoïde vers un autre est dit \textit{isomorphisme de monoïdes}.
+
+\medskip
+
+\noindent\textbf{Lemme :} L'inverse d'un isomorphisme de monoïdes est un isomorphisme de monoïdes.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Conséquence directe du même résultat pour un isomorphisle de magmas.
+
+\medskip
+
+\noindent\textbf{Définition (inverse) :} Soit $(M,\cdot)$ un monoïde et $e$ son élément neutre. 
+    Soit $m$ un élément de $M$. 
+    Un élément $n$ de $M$ est dit \textit{inverse} de $m$ (pour $\cdot$) si $m \cdot n = e \wedge  n \cdot m = e$.
+    
+\medskip
+
+\noindent\textbf{Lemme :} Soit $(M,\cdot)$ un monoïde et $m$ un élément de $M$.
+    Alors, $m$ admet au plus un seul inverse pour $\cdot$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $(M,\cdot)$ un monoïde et $e$ son élément neutre. 
+    Soit $m$ un élément de $M$. 
+    Soit $n$ et $o$ deux inverse de $m$ pour $\cdot$. 
+    Alors, $(n \cdot m) \cdot o = e \cdot o = o$.
+    Par ailleurs, $n \cdot (m \cdot o) = n \cdot e = n$.
+    Puisque $\cdot$ est associative, $(n \cdot m) \cdot o = n \cdot (m \cdot o)$. 
+    Donc, $n = o$.
+
+    \hfill \square
+
+\medskip
+
+\noindent\textbf{Définition (groupe) :} Soit $(M,\cdot)$ un monoïde. 
+    Si chaque élément de $M$ admet un inverse pour $\cdot$, alors $(M,\cdot)$ est appelé \textit{groupe}.
+
+\medskip
+
+\noindent\textbf{Définition (groupe) :} Soit $(M,\cdot)$ un monoïde abélien. 
+    Si chaque élément de $M$ admet un inverse pour $\cdot$, alors $(M,\cdot)$ est appelé \textit{groupe abélien}.
+
+\medskip
+
+\noindent\textbf{Définition (morpisme de groupes) :} Un morphisme de magmas d'un groupe vers un autre est dit \textit{morphisme de groupes}.
+
+\medskip
+
+\noindent\textbf{Définition (isomorpisme de groupes) :} Un isomorphisme de magmas d'un groupe vers un autre est dit \textit{isomorphisme de groupes}.
+
+\medskip
+
+\noindent\textbf{Lemme :} L'inverse d'un isomorphisme de groupes est un isomorphisme de groupes.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Conséquence direct du même résultat pour un isomorphisme de magmas.
+
+\medskip
+
+\noindent\textbf{Définition (puissance) :} Soit $(M,\cdot)$ un monoïde abélien et $e$ son élément neutre. 
+    On définit la suite de fonctions $\left( f_m \right)_{m \in m}$ de $M$ vers $M$ par récurrence de la manière suivante : 
+    \begin{itemize}[nosep]
+        \item Pour tout élément $m$ de $M$, $f_0(m) = e$.
+        \item Pour tout entier naturel $n$, pour tout élément $m$ de $M$, $f_{n+1}(m) = m \cdot f_n(m)$.
+    \end{itemize}
+    Soit $n$ un entier naturel et $m$ un élément de $M$. 
+    On notera $m^n$ l'élément $f_n(m)$.
+
+\medskip
+
+\noindent\textbf{Définition (cyclicité) :} Un groupe anélien $(G, \cdot)$ est dit $\textit{cyclique}$ s'il existe un élément $g$ de $G$ tel que : 
+    \begin{equation*}
+        \forall x \in G, \, \exists n \in \mathbb{N}, \, g^n = x.
+    \end{equation*}
+    Un tel élément $g$ est dit \textit{générateur} du groupe.
+
+\subsubsection{Quelques résultats}
+
+\noindent\textbf{Lemme :} Parmis les ensembles construits précédemment, 
+    \begin{itemize}[nosep]
+        \item $(\mathbb{N},+)$, $(\mathbb{N},\times)$ et $(\mathbb{Z},\times)$ sont des monoïdes abéliens,
+        \item $(\mathbb{Z},+)$ est un groupe abélien.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} Nous avons déjà démontré tous les éléments nécessaires. 
+    En effet, 
+    \begin{itemize}[nosep]
+        \item Les operations $+$ et $\times$ sont des lois de compositions internes sur $\mathbb{N}$ et $\mathbb{Z}$, donc $(\mathbb{N},+)$, $(\mathbb{N},\times)$, $(\mathbb{Z},+)$ et $(\mathbb{Z},\times)$ sont des magmas.
+        \item Les operations $+$ et $\times$ sont associatives et admettent chacune un élément neutre ($0$ pour la première et $1$ pour la seconde) dans $\mathbb{N}$ et $\mathbb{Z}$, donc $(\mathbb{N},+)$, $(\mathbb{N},\times)$, $(\mathbb{Z},+)$ et $(\mathbb{Z},\times)$ sont des monoïdes.
+        \item Les operations $+$ et $\times$ sont commutatives, donc $(\mathbb{N},+)$, $(\mathbb{N},\times)$, $(\mathbb{Z},+)$ et $(\mathbb{Z},\times)$ sont des monoïdes abéliens.
+        \item Pour tout élément $z$ de $\mathbb{Z}$, on a $z + (-z) = (-z) + z = 0$, donc $-z$ est un inverse de $z$ pour $+$. 
+            $(\mathbb{Z},+)$ est donc un groupe abélien.
+    \end{itemize}
+
+\medskip
