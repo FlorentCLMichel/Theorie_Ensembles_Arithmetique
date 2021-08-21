@@ -109,6 +109,8 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
    \done 
 
+\medskip 
+
 \noindent\textbf{Lemme :} Soit $E$ un ensemble de cardinal fini $n$. 
     Soit $x$ tel que $x \in E$.
     Alors $E \setminus \lbrace x \rbrace$ a pour cardinal $n-1$.
@@ -185,6 +187,94 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $n$ un entier naturel non nul. 
+    Soit $E$ un ensemble de cardinal $n$. 
+    Alors il existe un sous-ensemble $F$ de $E$, de cardinal $n-1$, et un élément $x$ de $E$, tels que $E = F \cup \lbrace x \rbrace$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Puisque $n \neq 0$, $E \neq \emptyset$. 
+    On peut donc choisir un élément $x$ de $E$. 
+    Soit $F = E \setminus \lbrace x \rbrace$. 
+    D'après le lemme précédent, le cardinal de $F$ est $n-1$. 
+    En outre, on a $E = F \cup \lbrace x \rbrace$, ce qui montre le lemme. 
+
+    Par soucis de complétude, montrons qu'on a bien $E = F \cup \lbrace x \rbrace$. 
+    \begin{itemize}[nosep]
+        \item Soit $y$ un élément de $E$. 
+            Si $y = x$, $y \in \lbrace x \rbrace$.
+            Sinon, $y \in F$. 
+            Dans les deux cas, $y \in F \cup \lbrace x \rbrace$. 
+            Donc, $E \subset F \cup \lbrace x \rbrace$.
+        \item Soit $y$ un élément de $F \cup \lbrace x \rbrace$. 
+            Alors, $y \in F$ ou $y \in \lbrace x \rbrace$.
+            Si $y \in F$, alors $y \in E$ puisque $F$ est un sous-ensemble de $E$.
+            Si $x \in \lbrace x \rbrace$, alors $y = x$, et donc $y \in E$. 
+            Ainsi, $F \cup \lbrace x \rbrace \subset E$.
+    \end{itemize}
+    On a donc bien $E = F \cup \lbrace x \rbrace$.
+
+    \done
+
+    \medskip
+
+\noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles finis tels que $E \cap F = \emptyset$.
+    Alors $E \cup F$ est fini et $\abs{E \cup F} = \abs{E} + \abs{F}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} On procède par récurrence sur le cardinal de $F$.
+    Si $\abs{F} = 0$, alors $F = \emptyset$, donc $E \cup F = E$ et $\abs{E \cup F} = \abs{E} = \abs{E} + \abs{F}$. 
+
+    Soit $n$ un entier naturel et supposons la propriété énoncée dans le lemme vraie pour tout ensemble $F$ de cardinal $n$.
+    Soit $F$ un ensemble fini de cardinal $n+1$ tel que $E \cap F = \emptyset$.
+    Puisque $n+1 \neq 0$, $F$ est non vide.
+    Soit $x$ un élément de $F$. 
+    Puisque $E \cap F = \emptyset$, $x$ ne peut être un élément de $E$. 
+    Donc, $x$ n'est pas un élément de $E \cup \left( F \setminus \lbrace x \rbrace \right)$.
+    Puisque $E \cup F = \left( E \cup \left( F \setminus \lbrace x \rbrace \right) \right) \cup \lbrace x \rbrace$, car $\abs{F \setminus \lbrace x \rbrace} = \abs{F} - 1 = n$ et car $E \cup \left( F \setminus \lbrace x \rbrace \right) = \emptyset$, on a donc : 
+    \begin{equation*}
+        \abs{E \cup F} = \abs{E \cup \left( F \setminus \lbrace x \rbrace \right)} + 1
+                       = \abs{E} + \abs{F \setminus \lbrace x \rbrace} + 1
+                       = \abs{E} + \abs{F} - 1 + 1
+                       = \abs{E} + \abs{F}.
+    \end{equation*}
+    La propriété attendue est donc vraie pour tout ensemble $F$ de cardial $n+1$. 
+    Par récurence, elle l'est pour tout ensemble $F$ fini.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $E$ un ensemble de cardinal fini $n$. 
+    Soit $F$ un sous-ensemble de $E$
+    Alors $E \setminus F$ est fini et $\abs{E \setminus F} = \abs{E} - \abs{F}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Notons d'abord que $F$ et $E \setminus F$ sont deux sous-ensembles de $E$, donc finis, et $\abs{F} \leq \abs{E}$.
+
+    Montrons le reste du lemme par récurrence sur $\abs{F}$.
+    Pour $\abs{F} = \emptyset$, $E \setminus F = E$, donc $\abs{E \setminus F} = \abs{E} = \abs{E} - \abs{F}$. 
+
+    Soit $n$ un entier naturel et supposons la propriété vraie pour tout sous-ensemble $F$ de $E$ de cardinal $n$. 
+    Soit $F$ un sous-ensemble de $E$ de cardinal $n+1$. 
+    Puisque $n+1 \neq 0$, on peut choisir un élément $x$ de $F$. 
+    Notons que $E \setminus F = \left( E \setminus \left( F \setminus \lbrace x \rbrace \right) \right) \setminus \lbrace x \rbrace$.
+    Donc, et puisque $x \in E \setminus \left( F \setminus \lbrace x \rbrace \right)$, 
+    \begin{equation*}
+        \abs{E \setminus F} = \abs{E \setminus \left( F \setminus \lbrace x \rbrace \right)} - 1
+                            = \abs{E} - n - 1
+                            = \abs{E} - (n+1)
+                            = \abs{E} - \abs{F}.
+    \end{equation*}
+    La propriété attendue est donc vraie pour tout sous-ensemble $F$ de cardial $n+1$. 
+    Par récurence, elle l'est pour tout sous-ensemble fini de $E$, et donc pour tout sous-ensemble de $E$.
+
+    \done
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles finis de même cardinal. 
     On suppose que $E \subset F$. 
     Alors $E = F$. 
@@ -220,7 +310,7 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 \noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles. 
     On suppose que $E$ est fini et $F \subset E$.
     Alors, $F$ est fini et $\abs{F} \leq \abs{E}$.
-    En outre, d'après le lemme précédent, $\abs{F} \leq \abs{E}$ si et seulement si $F = E$.
+    En outre, d'après le lemme précédent, $\abs{F} = \abs{E}$ si et seulement si $F = E$.
 
 \medskip
 
@@ -229,7 +319,8 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
     On veut montrer que le prédicat suivant est vrai : $\forall E \, \forall F \, (\mathcal{F}(E) \wedge \abs{E} = n \wedge F \subset E) \Rightarrow (\mathcal{F}(F) \wedge \abs{F} \leq \abs{E})$, où, pour tout ensemble $X$, $\mathcal{F}(X)$ est vrai si $X$ est fini et faux sinon.
 
     Si $\abs{E} = 0$, alors $E = \emptyset$.
-    Donc, $F = \emptyset$. 
+    Soit $F$ tel que $F \subset E$. 
+    Alors, $F = \emptyset$. 
     Donc, $F$ est fini et de cardinal égal à celui de $E$ ($0$).
     Ainsi, $P(0)$ est vrai.
 
@@ -239,7 +330,7 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
     Sinon, on peut choisir un élément $x$ de $F$. 
     Puisque $F$ et un sous-ensemble de $F$, on a $x \in E$. 
-    Donc, $E \setminus \lbrace x \rbrace$ est de cardinal $n-1$.
+    Donc, $E \setminus \lbrace x \rbrace$ est de cardinal $n$.
     En outre, $F \setminus \lbrace x \rbrace \subset E \setminus \lbrace x \rbrace$. 
     En effet, soit $y$ un élément de $F \setminus \lbrace x \rbrace$, on a $y \in F$, donc $y \in E$, et $y \neq x$.
     Puisque $P(n)$ est vrai, on en déduit que $F \setminus \lbrace x \rbrace$ est fini et de cadinal inférieur ou égal à $n$. 
@@ -251,7 +342,103 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
 \medskip
 
-\noindent\textbf{Lemme :} L'ensemble $\mathbb{N}$ a un cardinal infini. 
+\noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles. 
+    On suppose que $F$ est fini et qu'il existe une injection de $E$ vers $F$.
+    Alors $E$ est fini et $\abs{E} \leq \abs{F}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} ******
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles. 
+    On suppose que $E$ est fini et qu'il existe une surjection de $E$ vers $F$.
+    Alors $F$ est fini et $\abs{F} \leq \abs{E}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} ******
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles de même cardinal fini. 
+    Soit $f$ une injection de $E$ vers $F$.
+    Alors $f$ est une bijection. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} On procède par récurrence sur le cardinal de $E$, noté $n$.
+    Si $n = 0$, alors $E = F = \emptyset$. 
+    La seule fonction de $\emptyset$ vers lui-même est $\emptyset$, qui est une bijection. 
+    
+    Soit $n$ un entier naturel et supposons le résultat vrai pour des ensembles de cardinal $n$. 
+    Soit $E$ et $F$ deux ensembles de cardinal $n+1$ et $f$ une injection de $E$ vers $F$. 
+    Montrons que $f$ est une bijection.
+    Soit $e$ un élément de $E$ (un tel élément existe puisque $E$ n'est pas de cardinal $0$, et donc n'est pas l'ensemble vide). 
+    Soit $g$ l'ensemble défini par : $g = f \setminus \lbrace (e, f(e)) \rbrace$. 
+    Montrons que $g$ est une injection de $E \setminus \lbrace e \rbrace$ vers $F \setminus \lbrace f(e) \rbrace$. 
+    \begin{itemize}[nosep]
+        \item Montrons d'abord qu'il s'agit bien d'une fonction du premier ensemble vers le second. 
+            \begin{itemize}[nosep]
+                \item Soit $z$ un élément de $g$. 
+                    Alors $z$ est un élément de $f$, donc on peut choisir un élément $x$ de $E$ et un élément $y$ de $F$ tels que $z = (x,y)$.
+                    En outre, $z$ ne peut être égal à $(e,f(e))$. 
+                    Puisqu'un élément de $E$ ne peut avoir qu'une image par une fonction, $x$ doit être distinct de $e$ (sans quoi on aurait $y = f(e)$ par unicité de l'image et donc $z = (e,f(e))$).
+                    Puisque $f$ est injective, on doit donc avoir $y \neq f(e)$ (car le seul élément $w$ de $E$ satisfaisant $f(w) = f(e)$ est $e$).
+                    Donc, $z \in (E \setminus \lbrace e \rbrace) \times (F \setminus \lbrace f(e) \rbrace)$.
+                \item Soit $x$ un élément de $E \setminus \lbrace e \rbrace$. 
+                    Puisque $f$ est une fonction de $E$ vers $F$, on peut choisir un élément $y$ de $F$ tel que $(x,y) \in f$. 
+                    Puisque $x \neq e$, $(x,y) \neq (e,f(e))$, donc $(x,y) \in g$.
+                \item Soit $x$ un élément de $E$ et $y$ et $y'$ deux éléments de $F$ tels que $(x,y) \in g$ et $(x,y') \in g$.
+                    Alors, $(x,y) \in f$ et $(x,y') \in f$.
+                    Puisque $f$ est une fonction, on en déduit $y = y'$.
+            \end{itemize}
+        \item Montrons qu'elle est injective. 
+            Soit $x$ et $x'$ deux éléments de $E \setminus \lbrace e \rbrace$ tels que $g(x) = g(x')$. 
+            Puisque $(x,g(x)) \in g$ et $(x',g(x')) \in g$, on a $(x,g(x)) \in f$ et $(x',g(x')) \in f$, donc $f(x) = g(x)$ et $f(x') = g(x')$, donc $f(x) = f(x')$. 
+            Puisque $f$ est injective, on en déduit $x = x'$.
+    \end{itemize}
+
+    Ainsi, $g$ est une injection de $E \setminus \lbrace e \rbrace$ vers $F \setminus \lbrace f(e) \rbrace$. 
+    Puisque ces deux derniers ensembles sont de cardinal $n$, on en déduit que $g$ est une bijection. 
+    Montrons qu'alors $f$ est surjective. 
+    Soit $y$ un élément de $F$. 
+    Si $y = f(e)$, alors $y$ a un antécédent par $f$ (et cet antécédent est $e$). 
+    Sinon, $y \in F \setminus \lbrace f(e) \rbrace$. 
+    Puisque $g$ est une bijection, donc surjective, on peut choisir un élément $x$ de $E \setminus \lbrace e \rbrace$ tel que $g(x) = y$.
+    Donc, $(x,y) \in g$.
+    Puisque $g$ est un sous-ensemble de $f$, on a donc $(x,y) \in f$, et donc $y$ a un antécédent par $f$ (et cet antécédent est $x$). 
+    Ainsi, $f$ est surjective. 
+
+    La fonction $f$ est donc injective et surjective. 
+    C'est donc une bijection.
+
+   \done 
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles de même cardinal fini. 
+    Soit $f$ une surjection de $E$ vers $F$.
+    Alors $f$ est une bijection. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+
+    Si $\abs{E} = 0$, alors $\abs{F} = 0$ et $E = F = \emptyset$. 
+    La seule fonction de $\emptyset$ vers lui-même est $\emptyset$, qui est une bijection. 
+
+    Supposons maintennat $\abs{E} > 0$.
+    
+    ******
+
+    \textit{(supposer par l'absurde que ce n'est pas le cas, choisir un élément $y$ de $F$ ayant plus d'un antécédent pat $f$, appeler $E_y$ l'ensemble de ses antécédents montrer que $\abs{E \setminus E_y} < \abs{E} - 1$, définir $g$ par $g = f \setminus \lbrace z \in E \times F \vert \exists x \in E_y \, z = (x,y) \rbrace$, montrer que $g$ est une fonction de $E \setminus E_y$ vers $F \setminus \lbrace y \rbrace$ est qu'elle est surjective ; cela est contradictoire puisque $\abs{F \setminus \lbrace y \rbrace} = \abs{F} - 1 = \abs{E} - 1$, donc $\abs{F \setminus \lbrace y \rbrace} > \abs{E - E_y}$)} 
+
+
+\subsubsection{Cas de l'ensemble des entiers naturels}
+
+\noindent\textbf{Lemme :} L'ensemble $\mathbb{N}$ est infini. 
 
 \medskip
 
@@ -343,35 +530,6 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
 \medskip
 
-\noindent\textbf{Lemme :} Soit $n$ un entier naturel tel que $n \neq 0$. 
-    Soit $E$ un ensemble de cardinal $n$. 
-    Alors il existe un sous-ensemble $F$ de $E$, de cardinal $n-1$, et un élément $x$ de $E$, tels que $E = F \cup \lbrace x \rbrace$.
-
-\medskip
-
-\noindent\textbf{Démonstration :} Puisque $n \neq 0$, $E \neq \emptyset$. 
-    On peut donc choisir un élément $x$ de $E$. 
-    Soit $F = E \setminus \lbrace x \rbrace$. 
-    D'après un lemme précédent, le cardinal de $F$ est $n-1$. 
-    En outre, on a $E = F \cup \lbrace x \rbrace$, ce qui montre lemme. 
-
-    Par soucis de complétude, montrons qu'on a bien $E = F \cup \lbrace x \rbrace$. 
-    \begin{itemize}[nosep]
-        \item Soit $y$ un élément de $E$. 
-            Si $y = x$, $y \in \lbrace x \rbrace$.
-            Sinon, $y \in F$. 
-            Dans les deux cas, $y \in F \cup \lbrace x \rbrace$. 
-            Donc, $E \subset F \cup \lbrace x \rbrace$.
-        \item Soit $y$ un élément de $F \cup \lbrace x \rbrace$. 
-            Alors, $y \in F$ ou $y \in \lbrace x \rbrace$.
-            Si $y \in F$, alors $y \in E$ puisque $F$ est un sous-ensemble de $E$.
-            Si $x \in \lbrace x \rbrace$, qlors $y = x$, et donc $y \in E$. 
-            Ainsi, $F \cup \lbrace x \rbrace \subset E$.
-    \end{itemize}
-    On a donc bien $E = F \cup \lbrace x \rbrace$.
-
-\medskip
-
 \noindent\textbf{Lemme :} Soit $n$ un entier naturel et $\Sigma_n$ et $\Pi_n$ définis comme ci-dessus. 
     Soit $E$ un sous-ensemble de $\mathbb{N}$ de cardinal $n+1$. 
     Soit $F_1$ et $F_2$ deux sous-ensembles de $E$ de cardinal $n$ et $x_1$ et $x_2$ deux éléments de $E$ tels que $E = F_1 \cup \lbrace x_1 \rbrace = F_2 \cup \lbrace x_2 \rbrace$. 
@@ -411,7 +569,7 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
     Ainsi, $F_1 = F_2$ et le résultat attendu est évident (car $x_2 = x_2$ et $F_2 = F_1$). 
     Dans la suite, on suppose que $x_2 \neq x_1$.
 
-    Montrons maintennat que l'ensemble $G$ défini par $G = F_1 \setminus \lbrace x_2 \rbrace$ satisfait : $G = F_2 \setminus \lbrace x_1 \rbrace$. 
+    Montrons maintenant que l'ensemble $G$ défini par $G = F_1 \setminus \lbrace x_2 \rbrace$ satisfait : $G = F_2 \setminus \lbrace x_1 \rbrace$. 
     Soit $x$ un élément de $G$. 
     Puisque $F_1$ est un sous-ensemble de $E$, on a $x \in E$. 
     Puisque $x \neq x_2$ et puisque $E = F_2 \cup \lbrace x_2 \rbrace$, on en déduit $x \in F_2$. 
@@ -426,62 +584,6 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
     Donc, $x \in G$. 
     Cela montre que $F_2 \setminus \lbrace x_1 \rbrace \subset G$. 
     Ainsi, on a bien $G = F_2 \setminus \lbrace x_1 \rbrace$. 
-
-   \done 
-
-\medskip
-
-\noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles de même cardinal fini. 
-    Soit $f$ une injection de $E$ vers $F$.
-    Alors $f$ est une bijection. 
-
-\medskip
-
-\noindent\textbf{Démonstration :} On procède par récurrence sur le cardinal de $E$, noté $n$.
-    Si $n = 0$, alors $E = F = \emptyset$. 
-    La seule fonction de $\emptyset$ vers lui-même est $\emptyset$, qui est une bijection. 
-    
-    Soit $n$ un entier naturel et supposons le résultat vrai pour des ensembles de cardinal $n$. 
-    Soit $E$ et $F$ deux esembles de cardinal $n+1$ et $f$ une injection de $E$ vers $F$. 
-    Montrons que $f$ est une bijection.
-    Soit $e$ un élément de $E$ (un tel élément existe puisque $E$ n'est pas de cardinal $0$, et donc n'est pas l'ensemble vide). 
-    Soit $g$ l'ensemble défini par : $g = f \setminus \lbrace (e, f(e)) \rbrace$. 
-    Montrons que $g$ est une injection de $E \setminus \lbrace e \rbrace$ vers $F \setminus \lbrace f(e) \rbrace$. 
-    \begin{itemize}[nosep]
-        \item Montrons d'abord qu'il s'agit bien d'une fonction du premier ensemble vers le second. 
-            \begin{itemize}[nosep]
-                \item Soit $z$ un élément de $g$. 
-                    Alors $z$ est un élément de $f$, donc on peut choisir un élément $x$ de $E$ et un élément $y$ de $F$ tels que $z = (x,y)$.
-                    En outre, $z$ ne peut être égal à $(e,f(e))$. 
-                    Puisqu'un élément de $E$ ne peut avoir qu'une image par une fonction, $x$ doit être distinct de $e$ (sans quoi on aurait $y = f(e)$ par unicité de l'image et donc $z = (e,f(e))$).
-                    Puisque $f$ est injective, on doit donc avoir $y \neq f(e)$ (car le seul élément $w$ de $E$ satisfaisant $f(w) = f(e)$ est $e$).
-                    Donc, $z \in (E \setminus \lbrace e \rbrace) \times (F \setminus \lbrace f(e) \rbrace)$.
-                \item Soit $x$ un élément de $E \setminus \lbrace e \rbrace$. 
-                    Puisque $f$ est une fonction de $E$ vers $F$, on peut choisir un élément $y$ de $F$ tel que $(x,y) \in f$. 
-                    Puisque $x \neq e$, $(x,y) \neq (e,f(e))$, donc $(x,y) \in g$.
-                \item Soit $x$ un élément de $E$ et $y$ et $y'$ deux éléments de $F$ tels que $(x,y) \in g$ et $(x,y') \in g$.
-                    Alors, $(x,y) \in f$ et $(x,y') \in f$.
-                    Puisque $f$ est une fonction, on en déduit $y = y'$.
-            \end{itemize}
-        \item Montrons qu'elle est injective. 
-            Soit $x$ et $x'$ deux éléments de $E \setminus \lbrace e \rbrace$ tels que $g(x) = g(x')$. 
-            Puisque $(x,g(x)) \in g$ et $(x',g(x')) \in g$, on a $(x,g(x)) \in f$ et $(x',g(x')) \in f$, donc $f(x) = g(x)$ et $f(x') = g(x')$, donc $f(x) = f(x')$. 
-            Puisque $f$ est injective, on en déduit $x = x'$.
-    \end{itemize}
-
-    Ainsi, $g$ est une injection de $E \setminus \lbrace e \rbrace$ vers $F \setminus \lbrace f(e) \rbrace$. 
-    Puisque ces deux derniers ensembles sont de cardinal $n$, on en déduit que $g$ est une bijection. 
-    Montrons qu'alors $f$ est surjective. 
-    Soit $y$ un élément de $F$. 
-    Si $y = f(e)$, alors $y$ a un antécédent par $f$ (et cet antécédent est $e$). 
-    Sinon, $y \in F \setminus \lbrace f(e) \rbrace$. 
-    Puisque $g$ est une bijection, donc surjective, on peut choisir un élément $x$ de $E \setminus \lbrace e \rbrace$ tel que $g(x) = y$.
-    Donc, $(x,y) \in g$.
-    Puisque $g$ est un sous-ensemble de $f$, on a donc $(x,y) \in f$, et donc $y$ a un antécédent par $f$ (et cet antécédent est $x$). 
-    Ainsi, $f$ est surjective. 
-
-    La fonction $f$ est donc injective et surjective. 
-    C'est donc une bijection.
 
    \done 
 
