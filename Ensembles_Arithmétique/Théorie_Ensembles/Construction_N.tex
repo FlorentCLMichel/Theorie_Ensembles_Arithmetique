@@ -1303,7 +1303,7 @@ On montre ainsi que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow 
 \medskip
 
 \noindent\textbf{Lemme :} Soit $n$, $m$ et $k$ trois éléments de $\mathbb{N}$ tels que $n \geq m$ et $n \geq k$. 
-    Alors $(n-m \geq n-k) \Leftrightarrow (m \leq k)$.
+    Alors $(n-m \geq n-k) \Leftrightarrow (m \leq k)$, $(n-m = n-k) \Leftrightarrow (m = k)$ et $(n-m < n-k) \Leftrightarrow (m < k)$.
 
 \medskip
 
@@ -1316,8 +1316,14 @@ On montre ainsi que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow 
     Supposons mantenant $n-m \geq n-k$. 
     Alors, $m + ((n-m) - (n-k)) = (m + (n-m)) - (n-k) = n - (n-k) = k$. 
     Donc, $m \leq k$.
+    Cela montre que $(n-m \geq n-k) \Leftrightarrow (m \leq k)$.
+    
+    Par ailleurs, si $m = k$, alors $n-m = n-k$ et, si $n - m = n - k$, alors $n + k = n + m$ (obtenu en ajoutant $k+m$ des deux côtés) et donc $k = m$. 
+    Cela montre $(n-m = n-k) \Leftrightarrow (m = k)$. 
 
-   \done 
+    La troisième équivalence découle directement des deux précédentes en notant que, pour tous entiers naturels $a$ et $b$, $a < b \Leftrightarrow (a \leq b \wedge a \neq b)$. 
+    
+    \done 
 
 \subsubsection{Multiplication}
 \label{subsub:multiplication}

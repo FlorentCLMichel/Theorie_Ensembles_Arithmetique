@@ -57,6 +57,38 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles finis de même cardinal. 
+    On suppose que $E \subset F$. 
+    Alors $E = F$. 
+
+\medskip
+
+\noindent\textbf{Remarque :} La réciproque est évidente : Soit $E$ et $F$ deux ensembles finis, si $E = F$, alors $E \subset F$. 
+    On déduit donc le résultat suivant : si $E$ et $F$ sont finis et ont le même cardinal, alors $E \subset F \Leftrightarrow E = F$.
+
+\medskip
+
+\noindent\textbf{Démonstration du lemme :} 
+    On procède par récurrence sur le cardinal $n$ de $E$ et $F$. 
+    Si $n = 0$, on a $E = \emptyset$ et $F = \emptyset$, donc $E = F$. 
+
+    Soit $n$ un entier naturel et supposons la propriété attendue vraie pour deux ensembles de cardinal $n$. 
+    Soit $E$ et $F$ deux ensembles de cardinal $n+1$ tels que $E \subset F$. 
+    Puisque le cardinal de $E$ n'est pas $0$, $E$ admet au moins un élément (sans quoi $E$ serait égal à $\emptyset$, et donc de cardinal $0$). 
+    Soit $e$ un élément de $E$. 
+    Puisque $E \subset F$, on a $e \in F$. 
+    Soit $E'$ et $F'$ les ensembles définis par $E' = E \setminus \lbrace e \rbrace$ et $F' = E \setminus \lbrace e \rbrace$. 
+    Alors, d'après le lemme précédent, $E'$ et $F'$ sont de même cardinal $n$. 
+    En outre, pour tout élément $x$ de $E'$, on a $x \in E$, donc $x \in F$, et $x \neq e$, donc $x \in F'$.
+    Donc, $E' \subset F'$. 
+    On en déduit que $E' = F'$, et donc, puisque $E = E' \cup \lbrace e \rbrace$ et $F = F' \cup \lbrace e \rbrace$, que $E = F$. 
+
+    Par récurrence, ce résultat est vrai pour tout entier naturel $n$.
+
+    \done 
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $E$ un ensemble de cardinal fini $n$. 
     Soit $x$ tel que $x \notin E$.
     Alors $E \cup \lbrace x \rbrace$ a pour cardinal $n+1$.
@@ -218,6 +250,41 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
     \medskip
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles. 
+    On suppose que $E$ est fini et $F \subset E$.
+    Alors, $F$ est fini et $\abs{F} \leq \abs{E}$.
+    En outre, d'après le lemme précédent, $\abs{F} = \abs{E}$ si et seulement si $F = E$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    On procéde par récurrence sur le cardinal de $E$. 
+    On veut montrer que le prédicat suivant est vrai : $\forall E \, \forall F \, (\mathcal{F}(E) \wedge \abs{E} = n \wedge F \subset E) \Rightarrow (\mathcal{F}(F) \wedge \abs{F} \leq \abs{E})$, où, pour tout ensemble $X$, $\mathcal{F}(X)$ est vrai si $X$ est fini et faux sinon.
+
+    Si $\abs{E} = 0$, alors $E = \emptyset$.
+    Soit $F$ tel que $F \subset E$. 
+    Alors, $F = \emptyset$. 
+    Donc, $F$ est fini et de cardinal égal à celui de $E$ ($0$).
+    Ainsi, $P(0)$ est vrai.
+
+    Soit $n$ un entier naturel tel que $P(n)$ est vrai. 
+    Soit $E$ un ensemble de cardinal $n+1$ et $F$ un sous-ensemble de $E$. 
+    Si $F = \emptyset$, $F$ est bien fini et de cardinal $0$, donc $\abs{F} < n+1$, donc $\abs{F} \leq n+1$, donc $\abs{F} < \abs{E}$.
+
+    Sinon, on peut choisir un élément $x$ de $F$. 
+    Puisque $F$ et un sous-ensemble de $F$, on a $x \in E$. 
+    Donc, $E \setminus \lbrace x \rbrace$ est de cardinal $n$.
+    En outre, $F \setminus \lbrace x \rbrace \subset E \setminus \lbrace x \rbrace$. 
+    En effet, soit $y$ un élément de $F \setminus \lbrace x \rbrace$, on a $y \in F$, donc $y \in E$, et $y \neq x$.
+    Puisque $P(n)$ est vrai, on en déduit que $F \setminus \lbrace x \rbrace$ est fini et de cadinal inférieur ou égal à $n$. 
+    Soit $m$ le cardinal de $F \setminus \lbrace x \rbrace$. 
+    Puisque $x \notin F \setminus \lbrace x \rbrace$ et $F = \left( F \setminus \lbrace x \rbrace \right) \cup \lbrace x \rbrace$, on en déduit que $F$ est de cardinal $m+1$.
+    En outre, puisque $m \leq n$, on a $m+1 \leq n+1$, et donc $\abs{F} \leq \abs{E}$.
+
+    \done
+
 \noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles finis tels que $E \cap F = \emptyset$.
     Alors $E \cup F$ est fini et $\abs{E \cup F} = \abs{E} + \abs{F}$.
 
@@ -275,68 +342,49 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
 \medskip
 
-\noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles finis de même cardinal. 
-    On suppose que $E \subset F$. 
-    Alors $E = F$. 
-
-\medskip
-
-\noindent\textbf{Remarque :} La réciproque est évidente : Soit $E$ et $F$ deux ensembles finis, si $E = F$, alors $E \subset F$. 
-    On déduit donc le résultat suivant : si $E$ et $F$ sont finis et ont le même cardinal, alors $E \subset F \Leftrightarrow E = F$.
-
-\medskip
-
-\noindent\textbf{Démonstration du lemme :} 
-    On procède par récurrence sur le cardinal $n$ de $E$ et $F$. 
-    Si $n = 0$, on a $E = \emptyset$ et $F = \emptyset$, donc $E = F$. 
-
-    Soit $n$ un entier naturel et supposons la propriété attendue vraie pour deux ensembles de cardinal $n$. 
-    Soit $E$ et $F$ deux ensembles de cardinal $n+1$ tels que $E \subset F$. 
-    Puisque le cardinal de $E$ n'est pas $0$, $E$ admet au moins un élément (sans quoi $E$ serait égal à $\emptyset$, et donc de cardinal $0$). 
-    Soit $e$ un élément de $E$. 
-    Puisque $E \subset F$, on a $e \in F$. 
-    Soit $E'$ et $F'$ les ensembles définis par $E' = E \setminus \lbrace e \rbrace$ et $F' = E \setminus \lbrace e \rbrace$. 
-    Alors, d'après le lemme précédent, $E'$ et $F'$ sont de même cardinal $n$. 
-    En outre, pour tout élément $x$ de $E'$, on a $x \in E$, donc $x \in F$, et $x \neq e$, donc $x \in F'$.
-    Donc, $E' \subset F'$. 
-    On en déduit que $E' = F'$, et donc, puisque $E = E' \cup \lbrace e \rbrace$ et $F = F' \cup \lbrace e \rbrace$, que $E = F$. 
-
-    Par récurrence, ce résultat est vrai pour tout entier naturel $n$.
-
-    \done 
-
-\medskip
-
 \noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles. 
-    On suppose que $E$ est fini et $F \subset E$.
-    Alors, $F$ est fini et $\abs{F} \leq \abs{E}$.
-    En outre, d'après le lemme précédent, $\abs{F} = \abs{E}$ si et seulement si $F = E$.
+    On suppose que $E$ est fini et qu'il existe une surjection de $E$ vers $F$.
+    Alors $F$ est fini et $\abs{F} \leq \abs{E}$.
 
 \medskip
 
-\noindent\textbf{Démonstration :} 
-    On procéde par récurrence sur le cardinal de $E$. 
-    On veut montrer que le prédicat suivant est vrai : $\forall E \, \forall F \, (\mathcal{F}(E) \wedge \abs{E} = n \wedge F \subset E) \Rightarrow (\mathcal{F}(F) \wedge \abs{F} \leq \abs{E})$, où, pour tout ensemble $X$, $\mathcal{F}(X)$ est vrai si $X$ est fini et faux sinon.
+\noindent\textbf{Démonstration :} On procède par récurrence forte sur le cardinal de $E$. 
+    Si $\abs{E} = 0$, alors $E = \emptyset$. 
+    Puisqu'il existe une surjection de $E$ vers $F$, on en déduit que $F = \emptyset$. 
+    Donc, $F$ est fini et $\abs{F} = 0 = \abs{E}$, donc $\abs{F} \leq \abs{E}$.
 
-    Si $\abs{E} = 0$, alors $E = \emptyset$.
-    Soit $F$ tel que $F \subset E$. 
-    Alors, $F = \emptyset$. 
-    Donc, $F$ est fini et de cardinal égal à celui de $E$ ($0$).
-    Ainsi, $P(0)$ est vrai.
+    Soit $n$ un entier naturel et supposons le lemme vrai pour tout ensemble fini $E$ de cardinal infèrieur ou égal à $n$. 
+    Soit $E$ un ensemble de cardinal $n+1$. 
+    Soit $F$ un ensemble tel qu'il existe une surjection de $E$ vers $F$. 
+    Soit $f$ une telle surjection. 
+    Soit $x$ un élément de $E$ (un tel élément existe puisque $\abs{E} > 0$) et soit $y$ l'image de $x$ ar $f$.
+    Soit $E_y$ l'ensemble des antécédents de $y$ âr $f$. 
+    Alors, $E_y$ est un sous-esemble de $E$ et $E_y$ est non vide puisque $x \in E_y$.
+    Soit $g$ l'ensemble défini par $g = f \setminus \lbrace z \in f \vert \exists x \in E_y \, z = (x,y) \rbrace$.
+    Montrons que $g$ est une surjection de $E \setminus E_y$ vers $F \setminus \lbrace y \rbrace$.
+    Cela montrera que $F \setminus \lbrace y \rbrace$ est fini et $\abs{F \setminus \lbrace y \rbrace} \leq \abs{E \setminus E_y}$, et donc, puisque $F = F \setminus \lbrace y \rbrace \cup \lbrace y \rbrace$ et $y \notin F \setminus \lbrace y \rbrace$, que $F$ est fini et $\abs{F} = \abs{F \setminus \lbrace y \rbrace} + 1$, d'où $\abs{F} \leq \abs{E \setminus E_y} + 1$. 
+    Enfin, puisque $\abs{E \setminus E_y} = \abs{E} - \abs{E_y}$ et $\abs{E_y} \geq 1$, on en déduira $\abs{F} \leq \abs{E}$.
 
-    Soit $n$ un entier naturel tel que $P(n)$ est vrai. 
-    Soit $E$ un ensemble de cardinal $n+1$ et $F$ un sous-ensemble de $E$. 
-    Si $F = \emptyset$, $F$ est bien fini et de cardinal $0$, donc $\abs{F} < n+1$, donc $\abs{F} \leq n+1$, donc $\abs{F} < \abs{E}$.
+    Montrons que $g$ est une fonction de $E \setminus E_y$ vers $F \setminus \lbrace y \rbrace$.
+    \begin{itemize}[nosep]
+        \item Soit $z'$ un élément de $g$.
+            Puisque $g$ est un sous-ensemble de $f$, $z \in f$. 
+            Donc, on peut choisir un élément $x'$ de $E$ et un élément $y'$ de $F$ tels que $z' = (x',y')$.
+            En outre, $x'$ ne peut être un élément de $E_y$ (si c'était le cas, $y'$ serait égal à $y$, et donc $z$ serait égal à $(x,y)$ pour un élément $x$ de $E_y$).
+            Donc, $z \in f \setminus \lbrace z \in f \vert \exists x \in E_y \, z = (x,y) \rbrace$.
+        \item Soit $x'$ un élément de $E \setminus E_y$. 
+            Puisque $f$ est une fonction de $E$ vers $F$ et $x' \in E$, on peut choisir un élément $y'$ de $F$ tel que $(x',y') \in f$.
+            En outre, $x' \notin E_y$, donc $y' \in F \setminus \lbrace y \rbrace$ et $(x',y') \in g$.
+        \item Soit $y'$ et $y''$ deux éléments de $F \setminus \lbrace y \rbrace$ et $x'$ un élément de $E \setminus E_y$ tels que $(x',y') \in g$ et $(x', y'') \in g$. 
+            Puisque $g$ est un sous-ensemble de $f$, on a $(x',y') \in f$ et $(x', y'') \in f$.
+            Puisque $f$ est une fonction, on en déduit que $y' = y''$.
+    \end{itemize}
 
-    Sinon, on peut choisir un élément $x$ de $F$. 
-    Puisque $F$ et un sous-ensemble de $F$, on a $x \in E$. 
-    Donc, $E \setminus \lbrace x \rbrace$ est de cardinal $n$.
-    En outre, $F \setminus \lbrace x \rbrace \subset E \setminus \lbrace x \rbrace$. 
-    En effet, soit $y$ un élément de $F \setminus \lbrace x \rbrace$, on a $y \in F$, donc $y \in E$, et $y \neq x$.
-    Puisque $P(n)$ est vrai, on en déduit que $F \setminus \lbrace x \rbrace$ est fini et de cadinal inférieur ou égal à $n$. 
-    Soit $m$ le cardinal de $F \setminus \lbrace x \rbrace$. 
-    Puisque $x \notin F \setminus \lbrace x \rbrace$ et $F = \left( F \setminus \lbrace x \rbrace \right) \cup \lbrace x \rbrace$, on en déduit que $F$ est de cardinal $m+1$.
-    En outre, puisque $m \leq n$, on a $m+1 \leq n+1$, et donc $\abs{F} \leq \abs{E}$.
+    Montrons qu'elle est surjective. 
+    Soit $y'$ un élément de $F \setminus \lbrace y \rbrace$. 
+    On a $y' \in F$, donc, puisque $f$ est surjective, on peut choisir un élément $x'$ de $E$ tel que $(x',y') \in f$. 
+    En outre, $f(x') \neq y$, donc $x' \neq E_y$.
+    Donc, $x' \in E \setminus E_y$ et $(x',y') \in g$. 
 
     \done
 
@@ -348,17 +396,11 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
 \medskip
 
-\noindent\textbf{Démonstration :} ******
+\noindent\textbf{Démonstration :} Si $E = \emptyset$, alors $E$ est fini et $\abs{E} = 0$, donc $\abs{E} \leq \abs{F}$.
+    Sinon, puisqu'il existe une injection de $E$ vers $F$, alors il existe une surjection de $F$ vers $E$.
+    D'après le lemme précédent, $E$ est donc fini et $\abs{E} \leq \abs{F}$.
 
-\medskip
-
-\noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles. 
-    On suppose que $E$ est fini et qu'il existe une surjection de $E$ vers $F$.
-    Alors $F$ est fini et $\abs{F} \leq \abs{E}$.
-
-\medskip
-
-\noindent\textbf{Démonstration :} ******
+    \done
 
 \medskip
 
@@ -401,7 +443,7 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
     \end{itemize}
 
     Ainsi, $g$ est une injection de $E \setminus \lbrace e \rbrace$ vers $F \setminus \lbrace f(e) \rbrace$. 
-    Puisque ces deux derniers ensembles sont de cardinal $n$, on en déduit que $g$ est une bijection. 
+    Puisque $e \in E$ et $f(e) \in F$, ces deux ensembles sont de cardinal $n$, on en déduit que $g$ est une bijection. 
     Montrons qu'alors $f$ est surjective. 
     Soit $y$ un élément de $F$. 
     Si $y = f(e)$, alors $y$ a un antécédent par $f$ (et cet antécédent est $e$). 
@@ -425,16 +467,50 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 \medskip
 
 \noindent\textbf{Démonstration :} 
-
     Si $\abs{E} = 0$, alors $\abs{F} = 0$ et $E = F = \emptyset$. 
     La seule fonction de $\emptyset$ vers lui-même est $\emptyset$, qui est une bijection. 
 
-    Supposons maintennat $\abs{E} > 0$.
+    Supposons maintenant $\abs{E} > 0$. 
+    On supose par l'absurde que $f$ n'est pas bijective. 
+    Puisque $f$ est surjective, $f$ n'est donc pas injective. 
+    On peut donc choisir un élément $y$ de $F$ ayant au moins deux antécédents distincts par $f$. 
+    Notons $E_y$ l'ensemble de ses antécédents, \textit{i.e.}, $E_y = \lbrace x \in E \vert f(x) = y \rbrace$. 
+    Puisque $E_y$ est un sous-ensemble de $E$, lui-même fini, $E_y$ est fini. 
+    En outre, on sait qu'il existe deux éléments $x$ et $x'$ de $E_y$ tels que $x \neq x'$, donc $\lbrace x, x' \rbrace \subset E_y$.
+    Puisque $\abs{\lbrace x, x' \rbrace} = 2$ (en effet, $\lbrace (x, 0), (x', 1) \rbrace$ est une bijection de $\lbrace x, x' \rbrace$ vers $2$), on en déduit $\abs{E_y} \geq 2$.
+    En outre, puisque $E_y \subset E$, $\abs{E \setminus E_y} = \abs{E} - \abs{E_y}$. 
+    Donc, $\abs{E \setminus E_y} < \abs{E} - 1$. 
+    Donc, $\abs{E \setminus E_y} < \abs{F \setminus \lbrace y \rbrace}$ (puisque $\abs{F \setminus \lbrace y \rbrace} = \abs{F} - 1 = \abs{E} - 1$). 
+
+    Définissons l'ensemble $g$ par : $g = f \setminus \lbrace z \in f \vert \exists x \in E \, z = (x, y) \rbrace$. 
+    Montrons que $g$ est une surjection de $E \setminus E_y$ vers $F \setminus \lbrace y \rbrace$. 
+    Cela impliquera $\abs{F \setminus \lbrace y \rbrace} \leq \abs{E \setminus E_y}$, en contradiction avec le résultat précédent. 
+    On pourra alors conclure que l'hypothèse de départ est fausse, et que $f$ doit donc être une bijection.
     
-    ******
+    Montrons d'abord que $g$ et une fonction de $E \setminus E_y$ vers $F \setminus \lbrace y \rbrace$.
+    \begin{itemize}[nosep]
+        \item Soit $z$ un élément de $g$. 
+            Puisque $z \in f$, on peut choisir un élément $x'$ de $E$ et un élément $y'$ de $F$ tels que $z = (x',y')$.
+            Par ailleurs, on doit avoir $y' \neq y$, et donc $x' \notin E_y$ (sans quoi on aurait $f(x') = y$ et donc $y' = y$). 
+            Donc, $z \in \left( E \setminus E_y \right) \times \left( F \setminus \lbrace y \rbrace \right)$.
+        \item Soit $x'$ un élément de $E \setminus E_y$. 
+            On a $x' \in E$. 
+            Donc, on peut choisir un élément $y'$ de $F$ tel que $(x',y') \in f$.
+            On a alors $y' = f(x')$, donc (puisque $x' \notin E_y$) $y' \neq y$.
+            Donc, $(x',y') \in g$.
+        \item Soit $x'$, $y'$ et $y''$ trois ensembles tels que $(x', y') \in g$ et $(x', y'') \in g$. 
+            Alors, $(x', y') \in f$ et $(x', y'') \in f$.
+            Puisque $f$ est une fonction, on en déduit $y' = y''$.
+    \end{itemize}
+    Ainsi, $g$ est bien une fonction de $E \setminus E_y$ vers $F \setminus \lbrace y \rbrace$.
 
-    \textit{(supposer par l'absurde que ce n'est pas le cas, choisir un élément $y$ de $F$ ayant plus d'un antécédent pat $f$, appeler $E_y$ l'ensemble de ses antécédents montrer que $\abs{E \setminus E_y} < \abs{E} - 1$, définir $g$ par $g = f \setminus \lbrace z \in E \times F \vert \exists x \in E_y \, z = (x,y) \rbrace$, montrer que $g$ est une fonction de $E \setminus E_y$ vers $F \setminus \lbrace y \rbrace$ est qu'elle est surjective ; cela est contradictoire puisque $\abs{F \setminus \lbrace y \rbrace} = \abs{F} - 1 = \abs{E} - 1$, donc $\abs{F \setminus \lbrace y \rbrace} > \abs{E - E_y}$)} 
+    Montrons qu'elle est surjective. 
+    Soit $y'$ un élément de $F \setminus \lbrace y \rbrace$. 
+    Puisque $y' \in F$ et puisque $f$ est surjective, on peut choisir un élément $x'$ de $E$ tel que $f(x') = y'$. 
+    Puisque $y' \neq y$, $(x',y')$ est donc un élément de $g$, donc $g(x') = y'$. 
+    La fonction $g$ est donc bien surjective.
 
+    \done
 
 \subsubsection{Cas de l'ensemble des entiers naturels}
 
