@@ -519,18 +519,23 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 \medskip
 
 \noindent\textbf{Démonstration :} Montrons par récurrence qu'il n'existe aucune bijection entre un entier naturel $n$ et $\mathbb{N}$. 
-    Pour $n=0$, cela est évident car il n'existe pas de fonction vers l'ensemble vide.
+    Pour $n=0$, cela est évident car $\mathbb{N} \neq \emptyset$, donc il n'existe pas de bijection entre $\mathbb{N}$ et $0$.
     
-    Pour $n=1$, cela est évident car, s'il existe une bijection d'un ensemble $E$ vers $1$, alors il existe une bijection de $1$ vers $E$ ; puisque $1$ ne contient qu'un seul élément ($0$) $E$ ne peux alors contenir qu'un seul élément (l'image de $0$ par cette fonction), ce qui est impossible pour $\mathbb{N}$ puisque $0 \in \mathbb{N}$, $1 \in \mathbb{N}$ et $1 \neq 0$.
+    Traitons explicitement le cas $n=1$ (bien que cela ne soit pas strictement nécessaire pour la récurrence). 
+    Ce cas est évident car, s'il existe une bijection d'un ensemble $E$ vers $1$, alors il existe une bijection de $1$ vers $E$ ; puisque $1$ ne contient qu'un seul élément ($0$) $E$ ne peux alors contenir qu'un seul élément (l'image de $0$ par cette fonction), ce qui est impossible pour $\mathbb{N}$ puisque $0 \in \mathbb{N}$, $1 \in \mathbb{N}$ et $1 \neq 0$.%
+    \footnote{
+        En effet, il devrait exister deux éléments de $1$ dont les images sont $0$ et $1$. 
+        Si on note $f$ cette bijection, on aurait $f(0) = 0$ et $f(0) = 1$, ce qui est impossible par définition d'une fonction.
+    }
 
-    Soit $n$ un entier naturel non nul tel qu'il n'existe pas de bijection entre $n$ et $\mathbb{N}$. 
+    Soit $n$ un entier naturel tel qu'il n'existe pas de bijection entre $n$ et $\mathbb{N}$. 
     Montrons qu'il n'existe pas de bijection de $n+1$ vers $\mathbb{N}$. 
     Par récurrence, le résultat sera montré pour tout entier naturel.
 
-    On procède par l'absurde : on suppose qu'une telle bijection existe, notée $f$ dans la suite, et on montre que cela aboutie à une contradiction. 
+    On procède par l'absurde : on suppose qu'une telle bijection existe, notée $f$ dans la suite, et on montre que cela mène à une contradiction. 
     Définissons la fonction $g$ de $n$ vers $\mathbb{N}$ par : pour tout élément $x$ de $n$, $g(x) = f(x)$ si $f(x) < f(n)$ et $g(x) = f(x)-1$ sinon. 
-    (Cela est possible car, puisque $f$ est injective, on a $f(x) > f(n)$ dans le second cas, et donc $f(x) > 0$.)
-    Montrons que $g$ est une bijection, ce qui contredira l'hypothèse faite sur $n$.
+    (Cela est possible car, puisque $f$ est injective, on a $f(x) > f(n)$ dans le second cas\footnote{En effet, puisque $n \notin n$, on a $x \neq n$, donc $f(x) \neq f(n)$. Puisque, dans ce second cas, $f(x) < f(n)$ est faux, $f(x) \geq f(n)$ est vrai, et donc $f(x) > f(n)$.}, et donc $f(x) > 0$, donc $f(x) - 1$ est bien un entier naturel.)
+    Montrons que $g$ est une bijection, ce qui contredira l'hypothèse faite sur $n$. 
 
     Montrons d'abord qu'elle est injective. 
     Soit $x$ et $y$ deux éléments de $n$ tels que $g(x) = g(y)$. 
@@ -538,21 +543,28 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
     Donc, $f(x) = f(y)$.
     Puisque $f$ est injective, on a donc $x=y$. 
     Si $f(x) > f(n)$ et $f(y) > f(n)$, alors $g(x) = f(x)-1$ et $g(y) = f(y)-1$. 
-    Donc, $f(x)-1 = f(y)-1$, et donf $f(x) = f(y)$.
+    Donc, $f(x)-1 = f(y)-1$, et donc $f(x) = f(y)$.
     Puisque $f$ est injective, on a donc $x=y$. 
-    Si $f(x) < f(n)$ et $f(y) > f(n)$, alors $g(y) = f(y)-1$, d'où $g(y) \leq f(n)$, ce qui est impossible.
-    De même, $f(x) > f(n)$ et $f(y) < f(n)$ est impossible. 
+    Si $f(x) < f(n)$ et $f(y) > f(n)$, alors $g(x) = f(x)$, donc, $g(x) < f(n)$, alors que $g(y) = f(y)-1$, donc $g(y) \geq f(n)$, ce qui est impossible puisque $g(x) = g(y)$.
+    De même, $f(x) > f(n)$ et $f(y) < f(n)$ est impossible (même argument en échangeant les rôles de $x$ et $y$). 
     On a donc nécessairement $x=y$. 
     Cela montre que $g$ est injective. 
 
     Montrons maintenant qu'elle est surjective. 
     Soit $m$ un élément de $\mathbb{N}$. 
-    Si $m < f(n)$, on peut choisir un élément $x$ de $n+1$ tel que $f(x) = m$ et $x \neq m$, et donc $n \in n$ et $g(x) = m$.
-    Si $m \geq f(n)$, $m+1 > f(n)$, donc on peut choisir un élément $x$ de $n+1$ tel que $n \neq n$ $f(x) = m+1$, et donc $g(x) = m$.
+    Puisque $f$ est surjective, on peut choisir deux éléments $x$ et $y$ de $n+1$ tels que $f(x) = m$ et $f(y) = m+1$.
+    Si $m < f(n)$, alors $x \neq n$, donc $x \in n$ et $g(x) = m$. 
+    Si $m \geq f(n)$, alors $m+1 > f(n)$, donc $y \neq n$ et $g(y) = m$.
+    Dans les deux cas, $m$ a donc un antécédent par $g$.
     Ainsi, $g$ est surjective. 
-    C'est donc bien une bijection.
+    C'est donc bien une bijection. 
 
-   \done 
+    Cela est contradictoire avec l'hypothèse qu'il n'existe aucune bijection de $n$ sur $\mathbb{N}$. 
+    On en déduit qu'il n'existe aucune bijection de $n+1$ vers $\mathbb{N}$.
+    Par récurrence, on conclut que, pour tout entier naturel $n$, il n'existe aucune bijection de $n$ vers $\mathbb{N}$, et donc aucune bijection de $\mathbb{N}$ vers $n$. 
+    L'ensemble $\mathbb{N}$ est donc infini.
+
+    \done 
 
 \medskip
 
