@@ -576,28 +576,58 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
     Pour ce faire, on définit par récurrence une suite $u$ d'éléments de l'ensemble des parties de $\mathbb{N} \times E$ telle que : 
     \begin{itemize}[nosep]
         \item Pour tout entier naturel $n$, $v_n$ est une injection de $n$ dans $E$.
-        \item Si $n$, $m$ et $k$ sont trois entiers naturels tels que $k < n$ et $k < m$, alors $v_n(k) = v_m(k)$. 
+        \item Si $n$, $m$ et $k$ sont trois entiers naturels tels que $k < n$, $m \leq n$ et $k < m$, alors $v_n(k) = v_m(k)$. 
     \end{itemize}
     La suite $u$ définie par $u = \left( v_{n+1}(n) \right)_{n \in \mathbb{N}}$ sera alors une injection de $\mathbb{N}$ dans $E$. 
     En effet, si $n$ et $m$ sont deux entiers naturels tels que $u_n = u_m$, on a $v_{n+1}(n) = v_{m+1}(m)$. 
-    Si $n < m$, cela donnerait $v_{m+1}(n) = v_{m+1}(m)$, ce qui est impossible puisque $v_{m+1}$ est une injection.
-    Si $m < n$, cela donnerait $v_{n+1}(m) = v_{n+1}(n)$, ce qui est impossible puisque $v_{n+1}$ est une injection. 
+    Si $n < m$, alors $n < m+1$ et $n < n+1$, donc $v_{m+1}(n) = v_{n+1}(n)$, donc $v_{m+1}(n) = v_{m+1}(m)$, ce qui est impossible puisque $v_{m+1}$ est une injection.
+    Si $m < n$, cela donne (même argument en échangeant les rôles de $n$ et $m$) $v_{n+1}(m) = v_{n+1}(n)$, ce qui est impossible puisque $v_{n+1}$ est une injection. 
     On en déduit que $n=m$. 
-    La suite $u$ est donc bien une injection de $\mathbb{N}$ dans $\mathbb{E}$.
+    La suite $u$ sera donc bien une injection de $\mathbb{N}$ dans $\mathbb{E}$.
 
     Posons d'abord $v_0 = \emptyset$. 
     Il s'agit bien d'une injection de $0$ dans $E$.
 
     Soit $n$ un entier naturel et supposons $v_n$ définit. 
-    Puisque le cardinal de $E$ n'est pas $n$, $v_n$ ne peut être surjective (sans quoi elle serait une bijection). 
+    Puisque le cardinal de $E$ n'est pas $n$, $v_n$ ne peut être surjective (sans quoi elle serait une bijection de $n$ vers $E$, et donc $E$ serait de cardinal $n$, et donc fini). 
     Donc, on peut choisir un élément $x$ de $E$ tel que $x$ n'est pas dans l'image de $v_n$. 
     Posons $v_{n+1} = v_n \cup \lbrace (n, x) \rbrace$. 
     Alors, 
     \begin{itemize}[nosep]
-        \item Puisque $n+1 = n \cup \lbrace n \rbrace$, $v_{n+1}$ est bien une fonction de $n+1$ vers $E$.
-        \item Puisque $v_n$ est injective et que $x$ n'est pas dans son image, $v_{n+1}$ est injective. (Soit $a$ et $b$ deux éléments de $n+1$ tels que $v_{n+1}(a) = v_{n+1}(b)$, alors $a = b = n$ si $v_{n+1}(a) = x$ et $a$ et $b$ appartiennent à $n$ sinon, et don c$a = b$ car $v_n$ est injective.)
-        \item Soit $m$ et $k$ sont deux entiers naturels tels que $m \leq n + 1$ et $k < m$. 
-            Si $m \leq n$, alors $v_n(k) = v_m(k)$, et donc $v_m(k) = v_{n+1}(k)$. 
+        \item Puisque $n+1 = n \cup \lbrace n \rbrace$, $v_{n+1}$ est bien une fonction de $n+1$ vers $E$.%
+            \footnote{
+                Montrons cela explicitement : 
+                \begin{itemize}[nosep]
+                    \item Soit $z$ un éllément de $v_{n+1}$.
+                        Alors, soit $z \in v_n$, et donc $z \in n \times E$, soit $z = (n,x)$ et donc $z \in \lbrace n \rbrace \times E$.
+                        Puisque $n + 1 = n \cup \lbrace n \rbrace$, on a $z \in (n+1) \times E$ dans les deux cas.
+                    \item Soit $m$ un élémen de $n+1$.
+                        Alors $m \in n$ ou $m = n$.
+                        Dans le premier cas, puisque $v_n$ est une fonction de $n$ vers $E$, on peut choisir un élément $y$ de $E$ tel que $(m,y) \in v_n$, et donc $(m,y) \in v_{n+1}$.
+                        Dans le second cas, $(m,x) \in v_{n+1}$.
+                    \item Soit $m$ un élément de $n+1$ et $y$ et $z$ deux éléments de $E$ tels que $(m,y) \in v_{n+1}$ et $(m,y') \in v_{n+1}$.
+                        Si $m = n$, alors $m \notin n$, donc $(m,y) \notin v_n$ et $(m,y') \notin v_n$.
+                        Donc, $(m,y) = (n,x)$ et $(m,y') = (n,x)$.
+                        Donc, $y = x$ et $y' = x$, donc $y = y'$.
+                        Sinon, $(m,y) \neq (n,x)$ et $(m,y') \neq (n,x)$, donc $(m,y) \in v_n$ et $(m,y) \in v_n$.
+                        Puisque $v_n$ et une fonction, on en déduit que là aussi $y = y'$.
+                \end{itemize}
+            }
+        \item Puisque $v_n$ est injective et que $x$ n'est pas dans son image, $v_{n+1}$ est injective. (Soit $a$ et $b$ deux éléments de $n+1$ tels que $v_{n+1}(a) = v_{n+1}(b)$, alors $a = b = n$ si $v_{n+1}(a) = x$ et $a$ et $b$ appartiennent à $n$ sinon, et donc $a = b$ car $v_n$ est injective.%
+            \footnote{Détaillons un peu cet argument.
+            Si $v_{n+1}(a) = x$, alors $v_{n+1}(a)$ n'est pas dans l'image de $v_n$. 
+            Pour tout élément $m$ de $n$, on a donc $a \neq m$ (sans quoi on aurait $v_{n+1}(a) = v_{n+1}(m) = v_n(m)$).
+            Donc, $a \in (n+1) \setminus n$. 
+            Donc, $a = n$.
+            Puisque $v_{n+1}(b) = x$, on a aussi (même argument en remplaçant $a$ par $b$) $b = n$, donc $a = b$. 
+
+            Sinon, $(a,v_{n+1}(a)) \in v_n$ et $v_{n+1}(b) \neq x$, donc $(b,v_{n+1}(b)) \in v_n$, donc $(b,v_{n+1}(a)) \in v_n$. 
+            Puisque $v_n$ est injective, on en déduit $a = b$. 
+
+            Ainsi, $a = b$ dans tous les cas.
+            })
+        \item Soit $m$ et $k$ deux entiers naturels tels que $m \leq n + 1$ et $k < m$. 
+            Si $m \leq n$, alors $v_m(k) = v_n(k)$, et donc $v_m(k) = v_{n+1}(k)$. 
             Sinon, $m = n+1$, donc $v_m = v_{n+1}$, et donc $v_m(k) = v_{n+1}(k)$.
     \end{itemize}
 
