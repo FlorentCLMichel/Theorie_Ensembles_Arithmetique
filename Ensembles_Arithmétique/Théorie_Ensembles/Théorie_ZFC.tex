@@ -1056,9 +1056,11 @@ Alors l'ensemble $G$ définit par $G = \lbrace g \in E \times F \vert \exists e 
 Soit $E$ et $F$ deux ensembles et $f$ une fonction de $E$ vers $F$. 
 On dit que
 \begin{itemize}[nosep]
-    \item $f$ est \textit{injective} (ou \textit{une injection}) si $\forall x \in E \; \forall y \in E \, [f(x) = f(y) \Rightarrow x = y]$.
-    \item $f$ est \textit{surjective} (ou \textit{une surjection}) si $\forall y \in F \; \exists x \in E \, [f(x) = y]$.
-    \item $f$ est \textit{bijective} (ou \textit{une bijection}) si elle est à la fois injective et surjective.
+    \item $f$ est \textit{injective} (ou \textit{une injection}) si $\forall x \; \forall y \, [f(x) = f(y) \Rightarrow x = y]$.
+        Puisque chaque élément de $f$ est dans $E \times F$, cela est équivalent à : $\forall x \in E \; \forall y \in F \, [f(x) = f(y) \Rightarrow x = y]$.
+    \item $f$ est \textit{surjective} (ou \textit{une surjection}) si $\forall y \in F \; \exists x \, [f(x) = y]$.
+        Puisque chaque élément de $f$ est dans $E \times F$, cela est équivalent à : $\forall y \in F \; \exists x \in E \, [f(x) = y]$.
+    \item $f$ est \textit{bijective} (ou \textit{une bijection}) si elle est à la fois injective et surjective, ce qui est équivalent à : $\forall y \in F \; \exists ! x \, [f(x) = y]$ et à : $\forall y \in F \; \exists ! x \in E \, [f(x) = y]$.
 \end{itemize}
 L'\textit{image} de la fonction $f$, notée $\mathrm{Im}(f)$, est l'ensemble $\lbrace y \in F \vert \exists x \, (x \in E) \wedge f(x) = y \rbrace$. 
 Pour tout sous-ensemble $G$ de $F$, on note $f^{-1}(G)$ l'ensemble $\lbrace x \in E \vert f(x) \in G \rbrace$. 

@@ -29,6 +29,32 @@ Puisque l'inverse d'une bijection est une bijection, deux conséquences immédia
     \item Soit $E$ un ensemble et $n$ un entier naturel, $E$ est de cardinal $n$ si et seulement si il existe une bijection de $n$ vers $E$. 
 \end{itemize}
 
+\medskip
+
+\noindent\textbf{Lemme :} 
+    \begin{itemize}[nosep]
+        \item L'ensemble vide $\emptyset$ est le seul ensemble de cardinal $0$.
+        \item Soit $a$ un ensemble. 
+            Alors $\lbrace a \rbrace$ et de cardinal $1$.
+        \item Soit $a$ et $b$ deux ensembles tels que $a \neq b$. 
+            Alors $\lbrace a, b \rbrace$ et de cardinal $2$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+
+\begin{itemize}[nosep]
+    \item L'ensemble vide est le seu ensemble en bijection avec $0$, égal à $\emptyset$. 
+        Il est donc le seul ensemble de cardinal $0$.
+    \item Soit $a$ un ensemble. 
+        Alors, $\lbrace (a, 0) \rbrace$ est une fonction de $\lbrace a \rbrace$ vers $1$ (son unique élément est dans $\lbrace a \rbrace \times 1$ puisque $1 = \lbrace 0 \rbrace$ et le seul élément de $\lbrace a \rbrace$, $a$, a une unique image $0$) et elle est bijective (le seul élément de $1$, $0$, a un unique antécédent, $a$).
+    \item Soit $a$ et $b$ deux ensembles tels que $a \neq b$.
+        Alors, $\lbrace (a,0), (b,1) \rbrace$ est une fonction de $\lbrace a, b \rbrace$ vers $\lbrace 0, 1 \rbrace$, égal à $2$ (en effet, chacun de ses deux éléments est bien dans $\lbrace a, b \rbrace \times \lbrace 0, 1 \rbrace$ et chacun des deux éléments de $\lbrace a, b \rbrace$ a une unique image ($0$ pour $a$ et $1$ pour $b$)) et elle est bijective (chaqun des deux éléments de $2$ a un unique antécédent : $a$ pour $0$ et $b$ pour $1$).
+\end{itemize}
+
+\medskip
+
 Soit $n$ un entier naturel et $E$ un ensemble de cardinal $n$. 
 Soit $f$ une bijection de $n$ vers $E$. 
 On pourra noter l'ensemble $E$ par la liste de ses éléments, \textit{i.e.}, des $f(x)$ pour $x$ décrivant $[\![0, n-1]\!]$, séparés par des virgules, entre les crochets $\lbrace$ et $\rbrace$ : $E = \lbrace f(0), f(1), \dots, f(n-1) \rbrace$. 
@@ -635,13 +661,22 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
 \medskip
 
-\noindent\textbf{Définition :} Soit $\mathcal{E}$ l'ensemble des fonctions d'une partie de $\mathbb{N}$ (qui existe d'après l'axiome de l'ensemble des parties) vers $\mathbb{N}$. 
-    On définit par récurrence les deux suites d'éléments de $\mathcal{E}$, $\Sigma$ et $\Pi$ de la manière suivante : 
+\noindent\textbf{Définition :} Soit $\mathcal{E}$ l'ensemble des fonctions d'une partie de $\mathbb{N}$ vers $\mathbb{N}$. 
+    On définit par récurrence deux suites d'éléments de $\mathcal{E}$, notées $\Sigma$ et $\Pi$ de la manière suivante : 
     \begin{itemize}[nosep]
         \item $\Sigma_0$ et $\Pi_0$ sont les fonctions de $\lbrace \emptyset \rbrace$ vers $\mathbb{N}$ telles que $\Sigma_0(\emptyset) = 0$ et $\Pi_0(\emptyset) = 1$.
         \item Pour tout entier naturel $n$, $\Sigma_{n+1}$ et $\Pi_{n+1}$ sont les fonctions de l'ensemble des parties de $\mathbb{N}$ de cardinal $n+1$ vers $\mathbb{N}$ telles que, pour tout sous-ensemble $y$ de $\mathbb{N}$ de cardinal $n$ et tout élément $x$ de $\mathbb{N}$ tel que $x \notin y$, $\Sigma_{n+1} (y \cup \lbrace x \rbrace) = \Sigma_n (y) + x$ et $\Pi_{n+1} (y \cup \lbrace x \rbrace) = \Pi_n (y) \times x$. 
-        (Cela est une bonne définition pourvu que tout sous-ensemble de $\mathbb{N}$ de cardinal $n+1$ puisse s'écrire sous cette forme et que, s'il peut s'écrire sous cette forme de plusieurs manières différentes, le résultat n'en est pas affecté. 
-        Ces deux points sont démontrés ci-dessous.)
+        (Cela est une bonne définition car tout sous-ensemble de $\mathbb{N}$ de cardinal $n+1$ peut s'écrire sous cette forme%
+        \footnote{
+            Soit $E$ un ensemble de cardinal $n+1$. 
+            Puisque $n$ est un entier naturel, $n+1 \neq 0$. 
+            Donc, $E$ n'est pas l'ensemble vide.
+            On peut donc choisir un élément $x$ de $E$. 
+            Soit $F$ l'ensemble défini par $F = E \setminus \lbrace x \rbrace$.
+            On a alors $\abs{F} = n$, $E = F \cup \lbrace x \rbrace$ et $x \notin F$.
+        }
+        et car, s'il peut s'écrire sous cette forme de plusieurs manières différentes, le résultat n'en est pas affecté. 
+        Ce second point est démontré ci-dessous.)
     \end{itemize} 
     Soit $E$ un sous-ensemble de $\mathbb{N}$ de cardinal fini $n$. 
     On note $\sum E$ l'entier $\Sigma_n (E)$ et $\prod E$ l'entier $\Pi_n(E)$.
@@ -661,7 +696,7 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
         \item On montre d'abord que, si $x_2 = x_1$, alors $F_2 = F_1$. 
             Dans ce cas, le résultat est alors évident. 
         \item On suppose ensuite que $x_2 \neq x_1$. 
-            Alors, $n \geq 1$ (sans quoi $E$ n'aurait qu'un seul élément), $x_2 \in F_1$ (car $x_2 \in F_1 \cup \lbrace x_1 \rbrace$ et $x_2 \notin \lbrace x_1 \rbrace$) et $x_1 \in F_2$ (même argument en échangeant les indices $1$ et $2$).
+            Alors, $n \geq 1$ (car $\lbrace x_1, x_2 \rbrace \subset E$, donc $\abs{E} \geq \abs{\lbrace x_1, x_2 \rbrace}$, donc $\abs{E} \geq 2$, donc, puisque $n = \abs{E} - 1$, $n \geq 1$), $x_2 \in F_1$ (car $x_2 \in F_1 \cup \lbrace x_1 \rbrace$ et $x_2 \notin \lbrace x_1 \rbrace$) et $x_1 \in F_2$ (même argument en échangeant les indices $1$ et $2$).
             On définit l'ensemble $G$ par $G = F_1 \setminus \lbrace x_2 \rbrace$ et montre que $F_2 \setminus \lbrace x_1 \rbrace = G$. 
         \item On a alors $\Sigma_n (F_1) + x_1 = \Sigma_{n-1} (G) + x_2 + x_1$ et $\Sigma_n (F_2) + x_2 = \Sigma_{n-1} (G) + x_1 + x_2$.
             Puisque l'addition est commutative, on en déduit $\Sigma_n (F_1) + x_1 = \Sigma_n (F_2) + x_2$.
@@ -670,7 +705,7 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
     \end{itemize}
 
     Notons d'abords que $x_1 \notin F_1$ et $x_2 \notin F_2$. 
-    En effet, si $x_1 \in F_1$, on aurait $F_1 = E$, ce qui est impossible puisqu'ils sont de cardinal différent. 
+    En effet, si $x_1 \in F_1$, on aurait $F_1 = E$, ce qui est impossible puisqu'ils sont de cardinaux différents. 
     Donc, $x_1 \notin F_1$.
     De même, en remplaçant l'indice $1$ par $2$, on montre que $x_2 \notin F_2$.
 
@@ -684,7 +719,7 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
     On en déduit donc que $e_1 \in F_2$.
     Cela montre que $F_1 \subset F_2$. 
     De même, en échangeant les rôles des indices $1$ et $2$, on montre que $F_2 \subset F_1$. 
-    Ainsi, $F_1 = F_2$ et le résultat attendu est évident (car $x_2 = x_2$ et $F_2 = F_1$). 
+    Ainsi, $F_1 = F_2$ et le résultat attendu est évident (car $x_2 = x_1$ et $F_2 = F_1$). 
     Dans la suite, on suppose que $x_2 \neq x_1$.
 
     Montrons maintenant que l'ensemble $G$ défini par $G = F_1 \setminus \lbrace x_2 \rbrace$ satisfait : $G = F_2 \setminus \lbrace x_1 \rbrace$. 
@@ -707,12 +742,17 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
 \subsubsection{Ensemble dénombrable}
 
-\noindent\textbf{Définition :} Un ensemble $E$ est dit \textit{dénombrable} s'il existe une bijection de $\mathbb{N}$ vers $E$. 
-    (Un ensemble dénombrable est donc nécéssairement infini.)
+\noindent\textbf{Définition :} Un ensemble $E$ est dit \textit{dénombrable} s'il existe une bijection de $E$ vers $\mathbb{N}$. 
+    De manière équivaleente, un ensemle $E$ est dénombrable si et seulement si il existe une bijection de $\mathbb{N}$ vers $E$.
 
 \medskip
 
-Nous montrerons ci-dessous que, $\mathbb{N}^2$ est \hyperlink{N_to_N2}{dénombrable}, et que, en fait, $\mathbb{N}^n$ est dénombrable pour tout élément $n$ de $\mathbb{N}^*$.
+\noindent\textbf{Remarque :} Puisque $\mathbb{N}$ est infini, un ensemble dénombrable est nécéssairement infini.
+
+\medskip
+
+Nous montrerons ci-dessous que, $\mathbb{N}^2$ est \hyperlink{N_to_N2}{dénombrable}, et que, en fait, $\mathbb{N}^n$ est dénombrable pour tout élément $n$ de $\mathbb{N}^*$. 
+Par contre, l'ensemble $\mathcal{F}\left( \mathbb{N}, \lbrace 0, 1 \rbrace \right)$ \hyperlink{F_N_0_1_non_denombrable}{n'est pas dénombrable}.
 
 \subsubsection{Théorème de Cantor-Bernstein}
 
@@ -807,11 +847,18 @@ Nous montrerons ci-dessous que, $\mathbb{N}^2$ est \hyperlink{N_to_N2}{dénombra
 
 \medskip
 
-\noindent\textbf{Démonstration :} Supposons par l'absurde que ce n'est pas le cas, et ontrons qu'on aboutit à une contradiction. 
+\noindent\textbf{Démonstration :} Supposons par l'absurde que ce n'est pas le cas, et montrons qu'on aboutit à une contradiction. 
     Soit $n$ le cardinal de $E$. 
     Il existe une bijection $f$ de $E$ vers $n$. 
-    Puisque $n \subset \mathbb{N}$, $f$ est aussi une injection de $E$ vers $\mathbb{N}$. 
-    Puisqu'il existe aussi une injection de $\mathbb{N}$ vers $E$, on en déduit d'après le théorème de Cantor-Bernstein qu'il existe une bijection, notée $g$ dans la suite, de $\mathbb{N}$ vers $\mathbb{E}$. 
+    Puisque $n \subset \mathbb{N}$, $f$ est aussi une injection de $E$ vers $\mathbb{N}$.%
+    \footnote{En effet, 
+    \begin{itemize}[nosep]
+        \item Soit $z$ un élément de $f$, $z$ appartient à $E \times n$ et donc à $E \times \mathbb{N}$. 
+        \item Soit $x$ un élément de $E$, il existe un unique ensemble $y$ tel que $(x,y) \in f$ puisque $f$ est une fonction.
+        \item La fonction $f$ est injective par définition.
+    \end{itemize}
+    }
+    Puisqu'il existe aussi une injection de $\mathbb{N}$ vers $E$, on en déduit d'après le théorème de Cantor-Bernstein qu'il existe une bijection, notée $g$ dans la suite, de $\mathbb{N}$ vers $E$. 
     Alors, $f \circ g$ est une bijection de $\mathbb{N}$ vers $n$, ce qui est impossible puisque $\mathbb{N}$ a un cardinal infini. 
     On en déduit que l'hypothèse de départ ne peut qu'être fausse. 
 
@@ -825,7 +872,7 @@ Nous montrerons ci-dessous que, $\mathbb{N}^2$ est \hyperlink{N_to_N2}{dénombra
     \item Soit $f: \mathbb{N} \to \mathbb{N}^2$ la fonction définie par : $\forall x \in \mathbb{N} \; f(x) = (x,x)$. 
         Cette fonction est une injection de $\mathbb{N}$ dans $\mathbb{N}^2$. 
     \item Soit $g: \mathbb{N}^2 \to \mathbb{N}$ la fonction définie par : $\forall x \in \mathbb{N} \, \forall y \in \mathbb{N} \, g((x,y)) = 2^x 3^y$. 
-        D'après l'unicité de la décomposition d'un entier naturel en produits de facteurs premiers (voir section~\ref{subsub:dec_fact_prem}), la fonction $g$ est injective. 
+        D'après l'unicité de la décomposition d'un entier naturel en produit de facteurs premiers (voir section~\ref{subsub:dec_fact_prem}), la fonction $g$ est injective. 
         En effet, soit deux éléments $x$ et $y$ de $\mathbb{N}^2$ tels que $g(x) = g(y)$, la première composante de $x$ doit être égale à celle de $y$ par unicité de la décomposition en facteurs premiers, et de même pour leurs secondes composantes ; donc, $x = y$. 
 \end{itemize}
 Il existe donc une injection de $\mathbb{N}$ dans $\mathbb{N}^2$ et une injection de $\mathbb{N}^2$ dans $\mathbb{N}$. 
@@ -837,17 +884,20 @@ D'après le théorème de Cantor-Bernstein, on en déduit qu'il existe une bijec
 \begin{itemize}[nosep]
     \item Soit $f: \mathbb{N} \to \mathbb{N}^n$ la fonction définie par : $\forall x \in \mathbb{N} \; f(x) = (x, x, \dots, x)$. 
         Cette fonction est une injection de $\mathbb{N}$ dans $\mathbb{N}^n$. 
-    \item Puisqu'il existe une nfinité de nombres premiers distincts (voir section~\ref{subsub:defNombresPremiers}), on peut  en choisir $n$, par exemple les $n$ plus petits, notés $p_1$, $p_2$, ..., $p_n$.
-        Soit $g: \mathbb{N}^n \to \mathbb{N}$ la fonction définie par : $\forall x \in \mathbb{N} \, \forall y \in \mathbb{N} \, g((x_1, x_2, \dots, x_n)) = p_1^{x_1} p_2^{x_2} \cdots p_n^{x_n}$. 
-        D'après l'unicité de la décomposition d'un entier naturel en produits de facteurs premiers (voir section~\ref{subsub:dec_fact_prem}), la fonction $g$ est injective. 
+    \item Puisqu'il existe une infinité de nombres premiers distincts (voir section~\ref{subsub:defNombresPremiers}), on peut  en choisir $n$, par exemple les $n$ plus petits, notés $p_1$, $p_2$, ..., $p_n$.
+        Soit $g: \mathbb{N}^n \to \mathbb{N}$ la fonction définie par : $\forall x \in \mathbb{N}^n \, g((x_1, x_2, \dots, x_n)) = p_1^{x_1} p_2^{x_2} \cdots p_n^{x_n}$. 
+        D'après l'unicité de la décomposition d'un entier naturel en produits de facteurs premiers (voir section~\ref{subsub:dec_fact_prem}), la fonction $g$ est injective.%
+        \footnote{En effet, si $x$ et $y$ sont éléments de $\mathbb{N}^n$ tels que $g(x) = g(y)$, alors on doit avoir $x_i = y_i$ pour tout entier $i$ dans $[\![1,n]\!]$, et donc $x = y$.}
 \end{itemize}
 Il existe donc une injection de $\mathbb{N}$ dans $\mathbb{N}^n$ et une injection de $\mathbb{N}^n$ dans $\mathbb{N}$. 
 D'après le théorème de Cantor-Bernstein, on en déduit qu'il existe une bijection entre $\mathbb{N}$ et $\mathbb{N}^n$.
 
 \medskip
 
+\hypertarget{F_N_0_1_non_denombrable}
 \noindent\textbf{Contre-exemple :} En guise d'exemple d'ensembles qui ne sont pas en bijection, considérons les ensembles $\mathbb{N}$ et $\mathcal{F}(\mathbb{N}, \lbrace 0, 1 \rbrace)$. 
-Suposons par l'absurde qu'il existe une bijection $f$ du premier vers le second. 
+Nous allons montrer qu'il n'existe pas de surjection du premier vers le second.
+Suposons par l'absurde qu'au moins une telle surjection existe et appelons l'une d'entre elles $f$. 
 Considérons l'élément $g$ de $\mathcal{F}(\mathbb{N}, \lbrace 0, 1 \rbrace)$ défini par :%
 ~\footnote{Plus formellement, on peut définir $g$ par :
 \begin{equation*}
@@ -863,13 +913,10 @@ On montre facilement qu'il s'agit bien d'une fonction de $\mathbb{N}$ vers $\lbr
 \begin{equation*}
     \forall x \in \mathbb{N} \; g(x) = 1 - f(x)(x).
 \end{equation*}
-Puisque $f$ est une bijection, on peut choisir un élément $x$ de $\mathbb{N}$ tel que $g = f(x)$. 
+Puisque $f$ est une surjection, on peut choisir un élément $x$ de $\mathbb{N}$ tel que $g = f(x)$. 
 On a alors $g(x) = f(x)(x)$, d'où $1 - f(x)(x) = f(x)(x)$. 
-Mais cela est impossible puisque $f(x)(x) \in \lbrace 0, 1 \rbrace$, $1 - 0 = 1$ et $1 - 1 = 0$. 
+Mais cela est impossible puisque $f(x)(x) \in \lbrace 0, 1 \rbrace$, $1 - 0 = 1$ et $1 - 1 = 0$, et donc $1 - f(x)(x) \neq f(x)(x)$. 
 On en conclut que l'hypothèse de départ est fausse : il n'existe aucune bijection de $\mathbb{N}$ vers $\mathcal{F}(\mathbb{N}, \lbrace 0, 1 \rbrace)$. 
-
-Notons que ce raisonnement s'applique tel quel en remplaçant « bijection » par « surjection », et montre alors qu'il n'existe aucune surjection de $\mathbb{N}$ vers $\mathcal{F}(\mathbb{N}, \lbrace 0, 1 \rbrace)$. 
-
 
 \subsubsection{Ensemble défini par une liste d'éléments} 
 
