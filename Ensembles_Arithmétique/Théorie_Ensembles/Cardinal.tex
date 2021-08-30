@@ -782,21 +782,26 @@ Par contre, l'ensemble $\mathcal{F}\left( \mathbb{N}, \lbrace 0, 1 \rbrace \righ
     Puisque $g$ est injective, cela implique $f(x) = f(y)$. 
     Puisque $f$ est aussi injective, cela implique à son tour $x = y$. 
     Ainsi, $u$ est bien injective. 
+    Donc, il existe une injection de $E vers B$.
+
     D'après le lemme, il existe donc une bijection de $E$ vers $B$. 
     Notons-la $l$.
     Soit $h$ la fonction de $F$ vers $B$ définie par $h(x) = g(x)$ pour tout élément $x$ de $F$. 
     Puisque $g$ est une injection, $h$ en est aussi une. 
-    (Si $x$ et $y$ sont deux éléments de $F$ tels que $h(x)=h(y)$, on a $g(x) = g(y)$ et donx $x=y$.)
+    (Si $x$ et $y$ sont deux éléments de $F$ tels que $h(x)=h(y)$, on a $g(x) = g(y)$ et donc $x=y$.)
     En outre, elle est surjective par définition de $B$. 
     (Soit $y$ un élément de $B$, il existe un élément $x$ de $F$ tel que $g(x)=y$ et donc $h(x)=y$.)
-    Donc, $h$ est une bijection. 
+    Donc, $h$ est une bijection.
+    \footnote{Autrement dit, la fonction $g$ est une bijection de $F$ vers $B$.}
     Considérons la fonction $h^{-1} \circ l$. 
     Puisque $l$ est une bijection de $E$ vers $B$ et $h^{-1}$ une bijection de $B$ vers $F$, $h^{-1} \circ l$ est une bijection de $E$ vers $F$, ce qui montre le théorème.
 
     Montrons maintenant le lemme. 
     Soit $A$ et $B$ deux ensembles tels que $B \subset A$. 
     On suppose qu'il existe une injection $u$ de $A$ vers $B$. 
-    On définit alors par récurrence la suite $\left( C_n \right)_{n \in \mathbb{N}}$ de la manière suivante : 
+    On définit alors par récurrence la suite $\left( C_n \right)_{n \in \mathbb{N}}$ de sous-ensembles de $A$% 
+    \footnote{Il s'agit d'une suite d'éléments de l'ensemble des parties de $A$.}
+    de la manière suivante : 
     \begin{equation*}
         \left\lbrace \begin{aligned}
             & C_0 = A \setminus B \\
@@ -805,14 +810,14 @@ Par contre, l'ensemble $\mathcal{F}\left( \mathbb{N}, \lbrace 0, 1 \rbrace \righ
     \end{equation*}
     Notons $C$ la réunion de ces ensembles : $C = \lbrace y \in A \vert \, \exists n \in \mathbb{N} \, y \in C_n \rbrace$.%
     \footnote{Cet ensemble peut aussi être défini plus directement par : $C = \lbrace y \in A \vert \exists x \in A \setminus B \, \exists n \in \mathbb{N} \, u^n(x) = y \rbrace$.} 
-    Notons que $u(C) \subset C$. En effet, soit $x \in C$, il existe $n \in \mathbb{N}$ tel que $x \in C_n$, et donc $u(x) \in C_{n+1}$.
+    Notons que $u(C) \subset C$. En effet, soit $x$ un élément de $C$, il existe un élément $n$ de $\mathbb{N}$ tel que $x \in C_n$, donc $u(x) \in C_{n+1}$, et donc $u(x) \in C$.
     Définissons la fonction $v$ de $A$ vers $B$ par : pour tout élément $x$ de $A$, $v(x) = u(x)$ si $x \in C$ et $v(x) = x$ sinon. 
     (Cette définition est correcte car, pour tout $x \in A$, l'image $v(x)$ de $x$ ainsi définie est dans $B$. En effet, si $x \in C$, alors $v(x) = u(x)$ et, si $x \notin C$, $x \notin C_0$ et donc $x \in B$, d'où $v(x) \in B$.)
 
     Montrons que $v$ est injective. 
     Soit $x$ et $y$ deux éléments de $A$ tels que $v(x) = v(y)$. 
     Alors, 
-    \begin{itemize}
+    \begin{itemize}[nosep]
         \item Si $x \in C$, $v(x) = u(x)$. Donc, $v(y) = u(x)$. Puisque $u(C) \subset C$, cela implique $v(y) \in C$. 
             Si $y$ n'était pas dans $C$, on aurait $v(y) = y$, d'où $v(y) \notin C$, ce qui n'est pas le cas. 
             Donc, $y \in C$. 
@@ -820,19 +825,20 @@ Par contre, l'ensemble $\mathcal{F}\left( \mathbb{N}, \lbrace 0, 1 \rbrace \righ
             On a donc $u(x) = u(y)$. 
             Puisque $u$ est injective, on en déduit $x = y$.
         \item Si $x \notin C$, on a $v(x) = x$. Donc, $v(y) = x$. 
-            Par le même argument, $y$ ne peut être un élément de $C$ (car alors $u(y)$ devrait en être un également). 
+            En outre, $y$ ne peut être un élément de $C$ (en effet, si $y \in C$, alors $u(y) = y$ et donc $u(y) \in C$, ce qui n'est pas le cas). 
             Donc, $v(y) = y$. 
             On en déduit que $y = x$. 
     \end{itemize}
 
     Motrons maintenant que $v$ est surjective. 
     Soit $y$ un élément de $B$. 
-    \begin{itemize}
-        \item Si $y \in C$, on a $v(y) = y$, donc $y$ est bien dans l'image de $v$. 
-        \item Si $y \notin C$, on peut choisir un élément $n$ de $\mathbb{N}$ tel que $y \in C_n$. 
+    \begin{itemize}[nosep]
+        \item Si $y \notin C$, on a $v(y) = y$, donc $y$ est bien dans l'image de $v$. 
+        \item Si $y \in C$, on peut choisir un élément $n$ de $\mathbb{N}$ tel que $y \in C_n$. 
             Cet entier ne peut être égal à $0$ puisque $y \in B$ (et donc $y \notin A \setminus B$). 
-            Donc, par définition de $C_n$, il existe un élément $x$ de $C_{n-1}$ tel que $y = u(x)$. 
-            Puisque $x \in C$, on a $v(x) = u(x)$, et donc $v(x) = y$. 
+            Donc, $n-1$ est un entier naturel et $C_n = u(C_{n-1})$ par définition de $C_n$. 
+            Il existe donc un élément $x$ de $C_{n-1}$ tel que $y = u(x)$. 
+            Puisque $x \in C_{n-1}$, $x \in C$, donc $v(x) = u(x)$, et donc $v(x) = y$. 
     \end{itemize}
 
     Ainsi, la fonction $v$ est injective et surjective. 
