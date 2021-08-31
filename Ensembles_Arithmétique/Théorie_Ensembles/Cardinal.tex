@@ -740,6 +740,28 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
    \done 
 
+\subsubsection{Ensemble défini par une liste d'éléments} 
+
+Soit $p$ un entier naturel non nul et $a_1$, $a_2$, ..., $a_p$ des ensembles. 
+On note $\lbrace a_1, a_2, \dots, a_p \rbrace$ l'ensemble contenant exactement $a_1$, $a_2$, ..., $a_p$, \textit{i.e.}, 
+\begin{equation*}
+    \lbrace a_1, a_2, \dots, a_p \rbrace = \lbrace x \vert \exists i \, (i \in [\![1,p]\!]) \wedge (x = a_i) \rbrace.
+\end{equation*}
+
+Supposons les ensembles $a_1$, $a_2$, ..., $a_p$ sont deux-à-deux distincts. 
+Alors, l'ensemble $\lbrace a_1, a_2, \dots, a_p \rbrace$, noté $E$ dans la suite de ce paragraphe, a pour cardinal $p$. 
+En effet, la fonction $f$ de $p$ vers $E$ définie par : pour tout élément $i$ de $p$, $f(i) = a_{i+1}$ est
+\begin{itemize}[nosep]
+    \item surjective : Soit $y$ un élément de $E$, on peut choisir un entier naturel $j$ dans $[\![1,p]\!]$ tel que $y = a_j$.
+        Puisque $j \geq 1$, $j-1$ est un entier naturel.
+        Puisque $j \leq p$, $j-1 < p$, donc $j-1 \in p$. 
+        On a $f(j-1) = a_{(j-1)+1} = a_j = y$, donc $y$ a un antécédant par $f$.
+    \item injective : Soit $i$ et $j$ deux éléments de $p$ tels que $f(i) = f(j)$.
+        Alors, $a_{i+1} = a_{j+1}$.
+        Puisque les ensembles $a_1$, $a_2$, ..., $a_p$ sont deux-à-deux distincts (ce qui se traduit par : $\forall i \in [\![1,p]\!] \, i \neq j \Rightarrow a_i \neq a_j$), on a donc $i+1 = j+1$ (sans quoi $a_{i+1}$ serait différent de $a_{j+1}$) et donc $i = j$.
+\end{itemize}
+La fonction $f$ est donc bijective, ce qui montre que $\abs{E} = p$.
+
 \subsubsection{Ensemble dénombrable}
 
 \noindent\textbf{Définition :} Un ensemble $E$ est dit \textit{dénombrable} s'il existe une bijection de $E$ vers $\mathbb{N}$. 
@@ -923,13 +945,3 @@ Puisque $f$ est une surjection, on peut choisir un élément $x$ de $\mathbb{N}$
 On a alors $g(x) = f(x)(x)$, d'où $1 - f(x)(x) = f(x)(x)$. 
 Mais cela est impossible puisque $f(x)(x) \in \lbrace 0, 1 \rbrace$, $1 - 0 = 1$ et $1 - 1 = 0$, et donc $1 - f(x)(x) \neq f(x)(x)$. 
 On en conclut que l'hypothèse de départ est fausse : il n'existe aucune bijection de $\mathbb{N}$ vers $\mathcal{F}(\mathbb{N}, \lbrace 0, 1 \rbrace)$. 
-
-\subsubsection{Ensemble défini par une liste d'éléments} 
-
-Soit $p \in \mathbb{N}^*$ et $a_1$, $a_2$, ..., $a_p$ des ensembles. 
-On note $\lbrace a_1, a_2, \dots, a_p \rbrace$ l'ensemble contenant exactement $a_1$, $a_2$, ..., $a_p$, \textit{i.e.}, 
-\begin{equation*}
-    \lbrace a_1, a_2, \dots, a_p \rbrace = \lbrace x \vert \exists i \, (i \in [\![1,p]\!]) \wedge x = a_i \rbrace.
-\end{equation*}
-
-Cet ensemble a pour cardinal $p$. 
