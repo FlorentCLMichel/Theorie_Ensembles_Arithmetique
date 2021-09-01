@@ -1,11 +1,10 @@
 \subsection{Éléments de théorie des groupes}
 
-Dans cette sous-section, nous donnons quelques concepts de base de théorie des groupes. 
+Dans cette section, nous donnons quelques concepts de base de théorie des groupes. 
 
 \subsubsection{Définitions}
 
 \noindent\textbf{Définition (magma) :} Un \textit{magma} $\mathcal{M}$ est un couple formé par un ensemble $M$ et une \textit{loi de composition interne} $\cdot$ sur $M$ (parfois appelée \textit{opération}), c'est-à-dire une fonction de $M \times M$ vers $M$. 
-    On note souvent le magma $(M, \cdot)$. 
     Si $a$ et $b$ sont deux éléments de $M$, on note $a \cdot b$ l'image de $(a,b)$ par $\cdot$.
 
 \medskip
@@ -23,7 +22,7 @@ Dans cette sous-section, nous donnons quelques concepts de base de théorie des 
 
 \medskip
 
-\noindent\textbf{Démonstration :} Soit $(M,\cdot)$ un magme et $e$ et $f$ deux éléments identités pour ce magma.
+\noindent\textbf{Démonstration :} Soit $(M,\cdot)$ un magma et $e$ et $f$ deux éléments identités pour ce magma.
     Puisque $e$ est un élément identité, $e \cdot f = f$.
     Puisque $f$ est un élément identité, $e \cdot f = e$.
     Par commutativité et transitivité de l'égalité, on en déduit $e = f$.
@@ -32,7 +31,7 @@ Dans cette sous-section, nous donnons quelques concepts de base de théorie des 
 
 \medskip
 
-\noindent\textbf{Définition (morpisme de magmas) :} Soit $\left(M, \cdot \right)$ et $\left(N, \ast \right)$ deux magmas.
+\noindent\textbf{Définition (morphisme de magmas) :} Soit $\left(M, \cdot \right)$ et $\left(N, \ast \right)$ deux magmas.
     Une fonction $f$ de $M$ vers $N$ est dite \textit{morphisme de magmas} de $\left(M, \cdot \right)$ vers $\left(N, \ast \right)$ si elle satisfait : 
     \begin{equation*}
         \forall (a,b) \in M^2, \, f (a \cdot b) = f(a) \ast f(b) .
@@ -55,7 +54,7 @@ Dans cette sous-section, nous donnons quelques concepts de base de théorie des 
     Soit $y$ un élément de $N$. 
     Il s'agit de montrer que $f(e) \ast y = y$ et $y \ast f(e) = y$.
 
-    Puisque $f$ est surjectif, on peut choisir un élément $x$ de $M$ ten que $f(x) = y$. 
+    Puisque $f$ est surjectif, on peut choisir un élément $x$ de $M$ tel que $f(x) = y$. 
     Donc, $f(e) \ast y = f(e) \ast f(x)$. 
     Puisque $f$ est un morphisme de magmas, $f(e) \ast f(x) = f(e \cdot x)$. 
     Puisque $e$ est un élément neutre pour $\cdot$, $e \cdot x = x$. 
