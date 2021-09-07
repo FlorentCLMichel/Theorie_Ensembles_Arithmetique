@@ -84,7 +84,7 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 \noindent\textbf{Démonstration :} Soit $\left(M, \cdot \right)$ et $\left(N, \ast \right)$ deux magmas et soit $f$ un isomorphisme du premier vers le second. 
     Soit $g$ l'inverse de $f$ (qui existe et est une bijection puisque $f$ est une bijection). 
     Montrons que $g$ est un morphisme de magmas. 
-    Puisque $g$ est également uen bijection, il s'agira alors d'un isomorphisme. 
+    Puisque $g$ est également une bijection, il s'agira alors d'un isomorphisme. 
 
     Soit $a$ et $b$ deux éléments de $N$. 
     Puisque $f$ est une bijection, elle est surjective, donc on peut choisir deux éléments $c$ et $d$ de $M$ tels que $a = f(c)$ et $b = f(d)$. 
@@ -92,11 +92,11 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
     Puisque $g$ est l'inverse de $f$, cela donne : $g(a) \cdot g(b) = c \cdot d$. 
 
     Par ailleurs, $g(a \ast b) = g(f(c) \ast f(d))$. 
-    Puisque $f$ est un morphisme, cela donne $g(a \ast b) = g(f(c \cdot d))$.
+    Puisque $f$ est un morphisme de magmas on a $f(c) \ast f(d) = f (c \cdot d)$, donc cela donne $g(a \ast b) = g(f(c \cdot d))$.
     Puisque $g$ est l'inverse de $f$, cela donne : $g(a \ast b) = c \cdot d$. 
     Donc, $g(a \ast b) = g(a) \cdot g(b)$. 
 
-    Cela étant vrai pour tout élément $(a,b)$ de $M^2$, on en déduit que $g$ est un morphisme de magmas, et donc un isomorphisme, de $\left(M, \cdot \right)$ vers $\left(N, \ast \right)$.
+    Cela étant vrai pour tous éléments $a$ et $b$ de $M$, on en déduit que $g$ est un morphisme de magmas, et donc un isomorphisme, de $\left(M, \cdot \right)$ vers $\left(N, \ast \right)$.
 
     \hfill \square
 
@@ -108,7 +108,8 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
         \forall a \in M, \, \forall b \in M, \, \forall c \in M , \,  
         (a \cdot b) \cdot c = a \cdot (b \cdot c).
     \end{equation*}
-    Le magma $(M, \cdot)$ est alors dit \textit{associatif}, ou \textit{demi-groupe}.
+    Le magma $(M, \cdot)$ est alors dit \textit{associatif}. 
+    Un magma associatif est aussi appelé \textit{demi-groupe}.
 
 \medskip
 
@@ -119,13 +120,13 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 \medskip
 
 \noindent\textbf{Démonstration :} Soit $(M,\cdot)$ et $(N,\ast)$ deux magmas. 
-    On suppose que le premier est associatif et qu'il existe un morphise de magmas surjectif, $f$, du premier vers le second. 
+    On suppose que le premier est associatif et qu'il existe un morphisme de magmas surjectif, $f$, du premier vers le second. 
     Soit $a$, $b$ et $c$ trois éléments de $N$. 
     Puisque $f$ est surjectif, on peut choisir trois éléments $d$, $e$ et $g$ de $M$ tels que $f(d) = a$, $f(e) = b$ et $f(g) = c$.
     On a alors : $(a \ast b) \ast c = (f(d) \ast f(e)) \ast f(g)$.
     Puisque $f$ est un morphisme de magmas, $(f(d) \ast f(e)) \ast f(g) = f(d \cdot e) \ast f(g) = f((d \cdot e) \cdot g)$.
     Puisque $\cdot$ est associative, $f((d \cdot e) \cdot g) = f(d \cdot (e \cdot g))$. 
-    En utilisant à nouveau le fait que $f$ est un morphisme de magmas, on obtient : $f(d \cdot (e \cdot g)) = f(d) \ast f(e \cdot g))$ et $f(d) \ast f(e \cdot g)) = f(d) \ast (f(e) \ast f(g))$. 
+    En utilisant à nouveau le fait que $f$ est un morphisme de magmas, on obtient : $f(d \cdot (e \cdot g)) = f(d) \ast f(e \cdot g)$ et $f(d) \ast f(e \cdot g)) = f(d) \ast (f(e) \ast f(g))$. 
     Enfin, puisque $d$, $e$ et $g$ sont des antécédents respectifs de $a$, $b$ et $c$ par $f$, on a $f(d) \ast (f(e) \ast f(g)) = a \ast (b \ast c)$. 
     En combinant ces formules et en utilisant la transitivité de l'égalité, il vient : $(a \ast b) \ast c = a \ast (b \ast c)$.
 
@@ -155,7 +156,7 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
     Puisque $f$ est surjectif, on peut choisir deux éléments $d$ et $e$ de $M$ tels que $f(d) = a$ et $f(e) = b$.
     On a alors : $a \ast b = f(d) \ast f(e)$.
     Puisque $f$ est un morphisme de magmas, $f(d) \ast f(e) = f(d \cdot e)$.
-    Puisque $\cdot$ est commutative, $(d \cdot e) = f(e \cdot d)$. 
+    Puisque $\cdot$ est commutative, $d \cdot e = e \cdot d$, donc $f(d \cdot e) = f(e \cdot d)$. 
     En utilisant à nouveau le fait que $f$ est un morphisme de magmas, on obtient : $f(e \cdot d) = f(e) \ast f(d)$. 
     Enfin, puisque $d$ et $e$ sont des antécédents respectifs de $a$ et $b$ par $f$, on a $f(e) \ast f(d) = b \ast a$. 
     En combinant ces formules et en utilisant la transitivité de l'égalité, il vient : $a \ast b = b \ast a$.
@@ -205,7 +206,7 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
     Alors, $(n \cdot m) \cdot o = e \cdot o = o$.
     Par ailleurs, $n \cdot (m \cdot o) = n \cdot e = n$.
     Puisque $\cdot$ est associative, $(n \cdot m) \cdot o = n \cdot (m \cdot o)$. 
-    Donc, $n = o$.
+    Donc, $o = n$.
 
     \hfill \square
 
@@ -216,7 +217,7 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
-\noindent\textbf{Définition (groupe) :} Soit $(M,\cdot)$ un monoïde abélien. 
+\noindent\textbf{Définition (groupe abélien) :} Soit $(M,\cdot)$ un monoïde abélien. 
     Si chaque élément de $M$ admet un inverse pour $\cdot$, alors $(M,\cdot)$ est appelé \textit{groupe abélien}.
 
 \medskip
@@ -238,7 +239,7 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 \medskip
 
 \noindent\textbf{Définition (puissance) :} Soit $(M,\cdot)$ un monoïde abélien et $e$ son élément neutre. 
-    On définit la suite de fonctions $\left( f_m \right)_{m \in m}$ de $M$ vers $M$ par récurrence de la manière suivante : 
+    On définit la suite de fonctions $\left( f_m \right)_{m \in \mathbb{N}}$ de $M$ vers $M$ par récurrence de la manière suivante : 
     \begin{itemize}[nosep]
         \item Pour tout élément $m$ de $M$, $f_0(m) = e$.
         \item Pour tout entier naturel $n$, pour tout élément $m$ de $M$, $f_{n+1}(m) = m \cdot f_n(m)$.
