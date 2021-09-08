@@ -762,6 +762,82 @@ En effet, la fonction $f$ de $p$ vers $E$ définie par : pour tout élément $i
 \end{itemize}
 La fonction $f$ est donc bijective, ce qui montre que $\abs{E} = p$.
 
+\subsubsection{Intervalle de \texorpdfstring{$\mathbb{N}$}{N} ou \texorpdfstring{$\mathbb{Z}$}{Z}}
+
+\noindent\textbf{Lemme :} Soit $a$ et $b$ deux éléments de $\mathbb{N}$. 
+    Alors, $[\![a, b]\!]$ est fini et
+    \begin{itemize}[nosep]
+        \item si $a > b$, $\abs{[\![a, b]\!]} = 0$, 
+        \item sinon, $\abs{[\![a,b]\!]} = b - a + 1$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+    \begin{itemize}[nosep]
+        \item Supposons $a > b$. 
+            Soit $x$ un élément de $[\![a,b]\!]$, on a $x \geq a$, donc $x > b$, et $x \leq b$, ce qui est impossible.
+            On en déduit que $[\![a, b]\!] = \emptyset$, donc $[\![a, b]\!]$ est fini et de cardinal $0$.
+        \item Supposons $a \leq b$ et considérons la fonction $f$ de $[\![a, b]\!]$ vers $b-a+1$ définie par : pour tout élément $x$ de $[\![a, b]\!]$, $f(x) = x - a$. 
+            Cette fonction est bien définie car, soit $x$ un élément de $[\![a, b]\!]$, on a $x \geq a$, donc $x - a$ est bien un entier naturel, et $x \leq b$, donc $x - a \leq b - a$, donc $x-a \in b-a+1$. 
+            Montrons qu'elle est bijective.
+            \begin{itemize}[nosep]
+                \item Soit $x$ et $y$ deux éléments de $[\![a, b]\!]$ tels que $f(x) = f(y)$.
+                    Alors, $x-a = y-a$. 
+                    En ajoutant $a$ des deux côtés, on obtent $x = y$.
+                    Ainsi, $f$ est injective.
+                \item Soit $y$ un élément de $b-a+1$. 
+                    Alors, $y \leq b-a$. 
+                    Donc, $y + a \leq b$.
+                    En outre, puisque $y \geq 0$, $y + a \geq a$.
+                    Donc, $y+a \in [\![a,b]\!]$.
+                    On a  : $f(y+a) = y$. 
+                    Donc, $y+a$ est un antécédent de $y$ par $f$. 
+                    On en déduit que $f$ est surjective.
+            \end{itemize}
+    \end{itemize}
+
+    \hfill \square
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $a$ et $b$ deux éléments de $\mathbb{Z}$. 
+    Alors, $[\![a, b]\!]$ est fini et
+    \begin{itemize}[nosep]
+        \item si $a > b$, $\abs{[\![a, b]\!]} = 0$, 
+        \item sinon, $\abs{[\![a,b]\!]} = \abs{b - a} + 1$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+    \begin{itemize}[nosep]
+        \item Supposons $a > b$. 
+            Soit $x$ un élément de $[\![a,b]\!]$, on a $x \geq a$, donc $x > b$, et $x \leq b$, ce qui est impossible.
+            On en déduit que $[\![a, b]\!] = \emptyset$, donc $[\![a, b]\!]$ est fini et de cardinal $0$.
+        \item Supposons $a \leq b$ et considérons la fonction $f$ de $[\![a, b]\!]$ vers $\abs{b-a}+1$ définie par : pour tout élément $x$ de $[\![a, b]\!]$, $f(x) = \abs{x - a}$. 
+            Cette fonction est bien définie car, soit $x$ un élément de $[\![a, b]\!]$, on a $x \geq a$, donc $x - a$ est positif, et $x \leq b$, donc $x - a \leq b - a$, donc $\abs{x-a} \leq \abs{b-a}$, donc $\abs{x-a} \in \abs{b-a} + 1$. 
+            Montrons qu'elle est bijective.
+            \begin{itemize}[nosep]
+                \item Soit $x$ et $y$ deux éléments de $[\![a, b]\!]$ tels que $f(x) = f(y)$.
+                    Alors, $\abs{x-a} = \abs{y-a}$. 
+                    Puisque $x-a$ et $y-a$ sont tous deux positifs, cela implique $x - a = y - a$, et donc $x = y$.
+                    Ainsi, $f$ est injective.
+                \item Soit $y$ un élément de $\abs{b-a}+1$. 
+                    Alors, $y \leq \abs{b-a}$. 
+                    Donc, $(0,y) \leq (0, \abs{b-a})$. 
+                    Puisque $b-a$ est positif (puisque $b \geq a$), $b - a = (0, \abs{b-a})$, et donc $(0, y) \leq b-a$.
+                    Donc, $(0, y) + a \leq b$.
+                    En outre, puisque $(0,y) \geq 0$, $(0,y) + a \geq a$.
+                    Donc, $(0,y)+a \in [\![a,b]\!]$.
+                    On a  : $f((0,y)+a) = \abs{(0,y)} = y$. 
+                    Donc, $(0,y)+a$ est un antécédent de $y$ par $f$. 
+                    On en déduit que $f$ est surjective.
+            \end{itemize}
+    \end{itemize}
+
+    \hfill \square
+
 \subsubsection{Ensemble dénombrable}
 
 \noindent\textbf{Définition :} Un ensemble $E$ est dit \textit{dénombrable} s'il existe une bijection de $E$ vers $\mathbb{N}$. 
