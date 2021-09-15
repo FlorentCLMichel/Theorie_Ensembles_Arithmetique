@@ -216,6 +216,27 @@ Cet ensemble est unique d'après l'axiome d'extensionnalité.
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $E$ un ensemble. 
+    Alors $E \cup \emptyset = E$ et $E \cap \emptyset = \emptyset$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Soit $e$ un ensemble. 
+    Si $e \in E$, alors $(e \in E) \vee (e \in \emptyset)$  est vrai, donc $e \in (E \cup \emptyset)$.
+    Sinon, et puisque $e \in \emptyset$ est faux, alors $(e \in E) \vee (e \in \emptyset)$  est faux, donc $e \in (E \cup \emptyset)$ est faux.
+    On a donc : $\forall e \, (e \in E) \Leftrightarrow (e \in (E \cup \emptyset))$.
+    Donc, $E = E \cup \emptyset$.
+
+    Soit $e$ un ensemble. 
+    Puisque $e \in \emptyset$ est faux, $(e \in \emptyset) \wedge (e \in E)$ est faux. 
+    Donc, $e \in (E \cap \emptyset)$ est faux.
+    Cela montre que $E \cap \emptyset = \emptyset$.
+
+    \done
+
+\medskip
+
 L'axiome de compréhension peut aussi être utilisé pour définir la différence de deux ensembles. 
 Soit $A$ et $B$ deux ensembles. 
 On note $A \setminus B$ l'ensemble $\lbrace x \in A \vert x \notin B \rbrace$.

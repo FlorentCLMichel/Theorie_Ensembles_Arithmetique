@@ -21,7 +21,9 @@ Puisqu'il n'existe aucune bijection entre deux entiers naturels non égaux, pour
     Donc, $m = n$.
 }
 Un ensemble de cardinal fini admet donc au plus un unique cardinal.
-Soit $E$ un ensemble de cardinal fini, on note (s'il n'y a pas d'ambiguité avec d'autre notations) $\lvert E \rvert$ son cardinal.
+Soit $E$ un ensemble de cardinal fini, on note (s'il n'y a pas d'ambiguité avec d'autre notations) $\lvert E \rvert$ son cardinal. 
+Si $E$ est un ensemble et $n$ un entier naturel, la notation $\abs{E} = n$ est comprise comme : « $E$ est fini et son cardinal est $n$ ». 
+On notera parfois $\abs{E} = \infty$ le prédicat « $E$ est infini » et $\abs{E} \in \mathbb{N}$ le prédicat « $E$ est fini ».
 
 Puisque l'inverse d'une bijection est une bijection, deux conséquences immédiates de ces définitions sont : 
 \begin{itemize}[nosep]
@@ -537,6 +539,105 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
     La fonction $g$ est donc bien surjective.
 
     \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles finis. 
+    Alors les ensembles $E \cap F$ et $E \cup F$ sont finis, et $\abs{E \cup F} = \abs{E} + \abs{F} - \abs{E \cap F}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} On procède par récurrence sur le cardinal de $E$. 
+    On veux montrer le prédicat $P$ à un paramètre libre défini pour tout entier naturel $n$ par : $P(n): \forall E \, \forall F \, \abs{E} = n \wedge \abs{F} \in \mathbb{N} \Rightarrow \abs{E \cap F} \in \mathbb{N} \wedge \abs{E \cup F} = \abs{E} + \abs{F} - \abs{E \cap F}$. 
+
+    Montrons d'abord $P(0)$. 
+    Soit $E$ un ensemble de cardinal nul et $F$ un ensemble fini. 
+    Alors, $E = \emptyset$. 
+    Donc, $E \cap F = \emptyset$ et $E \cup F = F$. 
+    Donc, $E \cap F$ et $E \cup F$ sont finis, $\abs{E \cap F} = 0$ et $\abs{E \cup F} = \abs{F}$. 
+    Donc, $\abs{E \cup F} = \abs{E} + \abs{F} - \abs{E \cap F}$.
+    Cela montre que $P(0)$ est vrai.
+
+    Soit $n$ un entier naturel et supposons que $P(n)$ est vrai. 
+    Montrons qu'alors $P(n+1)$ est vrai.
+    Soit $E$ un ensemble fini de cardinal $n+1$ et $F$ un ensemble fini. 
+    Puisque $n+1 > 0$, $E$ n'est pas l'ensemble vide, donc on peut choisir un élément $e$ de $E$. 
+    Soit $E'$ l'ensemble $E \setminus \lbrace e \rbrace$. 
+    Puisque $e \in E$, $E'$ a pour cardinal $(n+1)-1$, c'est-à-dire $n$. 
+    Donc, $E' \cap F$ et $E' \cup F$ sont finis, et $\abs{E' \cup F} = n + \abs{F} - \abs{E' \cap F}$. 
+    Notons $m$ le cardinal de $F$ et $k'$ celui de $E' \cap F$.
+    Distinguons deux cas, selon que $e$ appartienne ou non à $F$. 
+    
+    Supposons d'abord $e \in F$. 
+    Alors, $E \cap F = (E' \cap F) \cup \lbrace e \rbrace$%
+    ~\footnote{En effet, 
+        \begin{itemize}[nosep]
+            \item Soit $x$ un élément de $E \cap F$. 
+                Puisque $x \in E$, $x \in E'$ ou $x = e$. 
+                Dans le premier cas, et puisque $x \in F$, $x \in E' \cap F$. 
+                Dans le second cas, $x \in \lbrace e \rbrace$.
+            \item Soit $x$ un élément de $(E' \cap F) \cup \lbrace e \rbrace$.
+                Alors, $x \in E' \cap F$ ou $x = e$. 
+                Dans le premier cas, $x \in E \cap F$ puisque $E'$ est un sous-ensemble de $E$.
+                Dans le second cas, $x \in E \cap F$ puisque $e$ est un élément de $E$ et de $F$.
+        \end{itemize}
+    }.
+    Puisque $E'$ ne contient pas $e$, $e \notin E' \cap F$, donc $E \cap F$ est fini et a pour cardinal $k' + 1$.
+    Par ailleurs, $E \cup F = E' \cup F$%
+    ~\footnote{En effet, 
+        \begin{itemize}[nosep]
+            \item $E' \cup F \subset E \cup F$ puisque $E' \subset E$.
+            \item Soit $x$ un élément de $E \cup F$. 
+                Alors, $x \in F$ ou $x \in E$.
+                Dans le premier cas, $x \in E' \cup F$.
+                Sinon, $x \in E$ et $x \neq e$, donc $x \in E'$, et donc $x \in E' \cup F$.
+        \end{itemize}
+    }.
+    Donc, $E \cup F$ est fini et a pour cardinal $n + m - k'$.
+    Puisque $n + m - k' = (n+1) + m - (k'+1)$, on en déduit que $\abs{E \cup F} = \abs{E} + \abs{F} - \abs{E \cap F}$.
+
+    Supposons maintenant que $e \notin F$. 
+    Alors, $E \cap F = E' \cap F$%
+    ~\footnote{En effet, 
+        \begin{itemize}[nosep]
+            \item Soit $x$ un élément de $E \cap F$. 
+                Puisque $x \in E$, $x \in E'$ ou $x = e$. 
+                Puisque $x \in F$, $x \neq E$. 
+                Donc, $x \in E'$ et $x \in F$, donc $x \in E' \cap F$.
+            \item Soit $x$ un élément de $E' \cap F$.
+                Puisque $E'$ est un sous-ensemble de $E$, $x \in E$.
+                Donc, $x \in E$ et $x \in F$, donc $x \in E \cap F$.
+        \end{itemize}
+    }.
+    Donc, $E \cap F$ est fini et a pour cardinal $k'$.
+    Par ailleurs, $E \cup F = (E' \cup F) \cup \lbrace e \rbrace$%
+    ~\footnote{En effet, 
+        \begin{itemize}[nosep]
+            \item Soit $x$ un élément de $E \cup F$. 
+                Alors, $x \in F$ ou $x \in E$.
+                Dans le premier cas, $x \in E' \cup F$.
+                Sinon, $x \in E$, donc $x \in E'$ ou $x = e$. 
+                Dans le premier cas, $x \in E' \cup F$. 
+                Dans le second, $x \in \lbrace e \rbrace$
+            \item Soit $x$ un élément de $(E' \cup F) \cup \lbrace e \rbrace$. 
+                Alors, $x$ appartient à $E'$, à $F$ ou à $\lbrace e \rbrace$. 
+                Dans le premier ou le troisième cas, $x$ appartient à $E$.
+                Dans le second cas, $x$ appartient à $F$. 
+                Donc, dans tous les cas, $x \in E \cup F$.
+        \end{itemize}
+    }.
+    Puisque $e$ n'est pas un élément de $E'$ ni de $F$, on en déduit $\abs{E \cup F} = \abs{E' \cup F} + 1 = (n + m - k') + 1$. 
+    Puisque $(n+1) + m - k' = (n + m - k') + 1$, on en déduit $\abs{E \cup F} = \abs{E} + \abs{F} - \abs{E \cap F}$.
+
+    Ainsi, pour tout entier naturel $n$, $P(n) \Rightarrow P(n+1)$.
+    On en conclut que $P(n)$ est vrai pour tout entier naturel $n$. 
+
+    Soit $E$ et $F$ deux ensemble finis. 
+    Puisque $\abs{E}$ est un entier naturel, $P(\abs{E})$ est vrai.
+    On en déduit que les ensembles $E \cap F$ et $E \cup F$ sont finis et que $\abs{E \cup F} = \abs{E} + \abs{F} - \abs{E \cap F}$.
+
+    \done
+
 
 \subsubsection{Cas de l'ensemble des entiers naturels}
 
