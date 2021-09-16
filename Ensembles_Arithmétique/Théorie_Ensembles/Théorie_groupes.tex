@@ -222,11 +222,11 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
-\noindent\textbf{Définition (morpisme de groupes) :} Un morphisme de magmas d'un groupe vers un autre est dit \textit{morphisme de groupes}.
+\noindent\textbf{Définition (morphisme de groupes) :} Un morphisme de magmas d'un groupe vers un autre est dit \textit{morphisme de groupes}.
 
 \medskip
 
-\noindent\textbf{Définition (isomorpisme de groupes) :} Un isomorphisme de magmas d'un groupe vers un autre est dit \textit{isomorphisme de groupes}.
+\noindent\textbf{Définition (isomorphisme de groupes) :} Un isomorphisme de magmas d'un groupe vers un autre est dit \textit{isomorphisme de groupes}.
 
 \medskip
 
@@ -255,6 +255,26 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
     \end{equation*}
     Un tel élément $g$ est dit \textit{générateur} du groupe.
 
+\medskip
+
+\noindent\textbf{Définition (sous-groupe) :} Soit $(G, \cdot)$ un groupe et $H$ un sous-ensemble non-vide de $G$.
+    Si $(H, \cdot)$ est un groupe, alors il est dit \textit{sous-groupe} de $(G, \cdot)$.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $(G, \cdot)$ un groupe et $H$ un sous-ensemble non-vide de $G$ tel que $(H, \cdot)$ est un groupe.
+    Soit $e$ lélément neutre de $(G, \cdot)$. 
+    Alors $e \in H$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Puisque $(H, \cdot)$ est un groupe, donc unifere, $H$ est non vide. 
+    Soit $h$ un élément de $H$. 
+    Puisque $(H, \cdot)$ est un groupe, l'inverse $l$ de $h$ appartient aussi à $H$, et donc $l \cdot h$ également. 
+    Puisque $l$ est l'inverse de $H$, $l \cdot h = e$, ce aui conclut la preuve.
+
+    \done
+
 \subsubsection{Quelques résultats}
 
 \noindent\textbf{Lemme :} Parmis les ensembles construits précédemment, 
@@ -274,5 +294,51 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
         \item Pour tout élément $z$ de $\mathbb{Z}$, on a $z + (-z) = (-z) + z = 0$, donc $-z$ est un inverse de $z$ pour $+$. 
             $(\mathbb{Z},+)$ est donc un groupe abélien.
     \end{itemize}
+
+\subsubsection{groupe quotient}
+
+\noindent\textbf{Définition :} Soit $(G, \cdot)$ un groupe abélien et $(H, \cdot)$ un sous-groupe de $(G, \cdot)$.
+    On définit l'ensemble $G \divshlash H$ comme l'ensemble des classes d'équivalences de $G$ pour la relation $R$ définie par : $\forall g \in G \, \forall g' \in G \, g R g' \Leftrightarrow g^{-1} \cdot g' \in H$, oú un exposant $-1$ indiaue l'inverse. 
+    Pour tout élément $g$ de $G$, on note $\bar{g}$ la classe d'équivalence de $g$ pour $R$.
+    On définit la loi de composition interne $\cdot$ sur $G \divslash H$ de la manière suivante : soit $c_1$ et $c_2$ deux éléments de $G \divslash H$, on peut choisir un éléments $g_1$ de $c_1$ et un élément $g_2$ de $c_2$ ; on pose alors $c_1 \cdot c_2 = \overbar{g_1 \cdot g_2}$. 
+    Alors, 
+    \begin{itemize}[nosep]
+        \item La loi de composition interne $\cdot$ sur $G \divslash H$ est bien définie.
+        \item $(G \divslash H, \cdot)$ est un groupe abélien, appelé \textit{groupe quotient} de $(G, \cdot)$ et $(H, \cdot)$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} Pour le premier point, il s'agit de montrer que le résultat ne dépends pas du choix de $g_1$ et $g_2$.
+    Soit $c_1$ et $c_2$ deux éléments de $G \divslash H$. 
+    Soit $g_1$ et $g_3$ deux éléments de $c_1$ et $g_2$ et $g_4$ deux éléments de $c_2$.
+    On a alors $g_1 R g_3$ et $g_2 R g_4$.
+    On peut donc choisir deux éléments $h_1$ et $h_2$ de $H$ tels que $g_1^{-1} \cdot g_3 = h_1$ et $g_2^{-1} \cdot g_4 = h_2$.
+    On a alors : $(g_1 \cdot g_2)^{-1} \cdot (g_3 \cdot g_4) = (g_2^{-1} \cdot g_1^{-1}) \cdot (g_3 \cdot g_4) = (g_1^{-1} \cdot g_3) \cdot \cdot (g_2^{-1} \cdot g_4) = h_1 \cdot h_2$. 
+    Puisque $(H, \cdot)$ est un groupe, on en déduit que $(g_1 \cdot g_2)^{-1} \cdot (g_3 \cdot g_4) \in H$, donc $(g_1 \cdot g_2) R (g_3 \cdot g_4)$, et donc $\overbar{g_1 \cdot g_2} = \overbar{g_3 \cdot g_4}$.
+
+    Montrons maintenant qu'il s'agit d'un groupe abélien : 
+    \begin{itemize}[nosep]
+        \item Par définition, $\cdot$ est une loi de composition interne sur $G \divslash H$.
+        \item Commutativité : Soit $c_1$ et $c_2$ deux éléments de $G \divslash H$.
+            Soit $g_1$ un élément de $c_1$ et $g_2$ un élément de $c_2$. 
+            On a : $c_1 \cdot c_2 = \overbar{g_1 \cdot g_2}$ et $c_2 \cdot c_1 = \overbar{g_2 \cdot g_1}$.
+            Puisque $(G, \cdot)$ est abélien, $g_1 \cdot g_2 = g_2 \cdot g_1$, donc $c_1 \cdot c_2 = c_2 \cdot c_1$.
+        \item Soit $e$ l'élément neutre de $(G, \cdot)$. 
+            Soit $c$ un élément de $G \divslash H$ et $g$ un élément de $c$. 
+            On a : $c \cdot \bar{e} = \overbar{g \cdot e} = \bar{g} = c$.
+            Par commutativité, cela implique également $\bar{e} \times c = c$.
+            Donc, $\bar{e}$ est un élément neutre de $G \divslash H$ pour $\cdot$.
+        \item Associativité : Soit $c_1$, $c_2$ et $c_3$ trois éléments de $G \divslash H$.
+            Soit $g_1$ un élément de $c_1$, $g_2$ un élément de $c_2$ et $g_3$ un élément de $c_3$.
+            On a : $c_1 \cdot (c_2 \cdot c_3) = c_1 \cdot \overbar{g_2 \cdot g_3} = \overbar{g_1 \cdot (g_2 \cdot g_3)} = \overbar{(g_1 \cdot g_2) \cdot g_3} = \overbar{g_1 \cdot g_2} \cdot c_3 = (c_1 \cdot c_2) \cdot c_3$.
+        \item Soit $c$ un élément de $G \divslash H$ et $g$ un élément de $c$. 
+            Notons $g^{-1}$ l'inverse de $g$ et $e$ l'élément neutre de $(G,\cdot)$. 
+            Alors, $c \cdot \bar{g^{-1}} = \overbar{g \cdot g^{-1}} = \bar{e}$.
+            Par commutativité, cela implique également $\bar{g^{-1}} \times c = \bar{e}$.
+            Puisque $\bar{e}$ est un élément neutre pour $\cdot$, on conclut que $\bar{g^{-1}}$ est un inverse de $c$.
+    \end{itemize}
+
+    \done
 
 \medskip
