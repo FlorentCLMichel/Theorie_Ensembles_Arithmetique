@@ -1,15 +1,33 @@
 \subsection{Division euclidienne}
 
-Soit $a$ un entiers naturels et $b$ un entier naturel non nul. 
-Soit $E = \lbrace a - k b \vert k \in \mathbb{N} \, \wedge \, a - k b \geq 0 \rbrace$. 
-L'ensemble $E$ est un sous-ensemble non vide (il contient au moins $a$, obtenu pour $k=0$) de $\mathbb{N}$, donc il admet un unique élément minimum $r$. 
+Soit $a$ un entier naturel et $b$ un entier naturel non nul. 
+Soit $E$ l'ensemble défini par : $E = \lbrace a - k b \vert k \in \mathbb{N} \, \wedge \, a \geq k b \rbrace$%
+~\footnote{Plus rigoureusement, on peut définir cet ensemble par : 
+\begin{equation*}
+    E = \lbrace
+        n \in \mathbb{N} 
+        \vert
+        \exists k \in \mathbb{N} \,  
+        a \geq k b \wedge a - k b = n
+    \rbrace .
+\end{equation*}}%
+. 
+L'ensemble $E$ est un sous-ensemble non vide (il contient au moins $a$, obtenu pour $k=0$) de $\mathbb{N}$, donc il admet un unique élément minimal $r$. 
 Cet élément est appelé \textit{reste de la division euclidienne de $a$ par $b$}. 
-L'unique entier naturel $q$ définit par $r = a - q b$ est appelé \textit{quotient de la division euclidienne de $a$ par $b$}. 
+L'unique entier naturel $q$ tel que $r = a - q b$%
+~\footnote{Un tel entier existe car $r$ est un élément de $E$. 
+    Montrons qu'il est bien unique. 
+    Soit $q$ et $q'$ deux entiers naturels tels que $a \geq q b$, $a \geq q' b$, $r = a - q b$ et $r = a - q' b$.
+    Alors, $a - q b = a - q' b$.
+    Donc, $q b = q' b$.
+    Puisque $b$ est non nul, on en déduit $q = q'$.
+}  
+est appelé \textit{quotient de la division euclidienne de $a$ par $b$}. 
 Notons que l'on a : $a = q b + r$. 
 
 En outre, $0 \leq r < b$. 
-En effet, $r$ est positif par définition de $E$ et, si $r$ était supérieur ou égal à $b$, on aurait $a - (q+1)b = r - b \geq 0$, et donc $r - b \in E$. 
-Puisque $b > 0$, $r - b < r$ ; cela contredirait donc la définition de $r$. 
+En effet, $r$ est un entier naturel par définition de $E$, donc $r \geq 0$ et, si $r$ était supérieur ou égal à $b$, on aurait $r - b = (a - q b) - b = a - (q b + b) = a - (q+1) b$, et donc $r - b \in E$. 
+Puisque $b > 0$, $r - b < r$ ; cela contredirait donc la définition de $r$ comme minimum de $E$. 
 
 Notons que $r$ est le seul élément de $E$ compris entre $0$ et $b-1$ (inclus). 
 En effet, si $s$ est un tel élément, alors les autres éléments de $E$ sont tous de la forme $s + k b$ avec $k \in \mathbb{Z}$. 
@@ -23,7 +41,7 @@ Notons que, si $a$ est non nul $b$ ne peut alors être strictement supérieur à
 Notons aussi que tout entier naturel divise $0$.
 
 Notons aussi que tout entier naturel non nul se divise lui-même. 
-En effet, soit $a$ un entier naturel non nul, on a $a - a = 0$, donc le minimum de l'ensemble $E$ définit ci-dessus pour $b=a$ est $0$.
+En effet, soit $a$ un entier naturel non nul, on a $a - a = 0$, donc le minimal de l'ensemble $E$ définit ci-dessus pour $b=a$ est $0$.
 
 Un entier naturel est dit \textit{pair} s'il est un multiple de $2$ et \textit{impair} sinon. 
 

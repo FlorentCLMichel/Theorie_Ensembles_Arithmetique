@@ -1147,7 +1147,7 @@ On montre ainsi que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow 
 
    \done 
 
-\medskip
+\subsubsection{Soustraction}
 
 \noindent\textbf{Lemme :} Soit $n$ et $m$ deux éléments de $\mathbb{N}$ tels que $m \leq n$. 
     Alors il existe un unique élément $k$ de $\mathbb{N}$ tel que $n=m+k$.
@@ -1202,9 +1202,7 @@ On montre ainsi que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow 
 \medskip
 
 \noindent\textbf{Remarque :} Soit $n$ et $m$ deux entiers naturels.
-    Alors par définition, $(n+m) - m  = n$.
-
-\medskip
+    Alors, par définition, $(n+m) - m  = n$.
 
 \noindent\textbf{Lemme :} Soit $n$, $m$ et $k$ trois entiers naturels tels que $n \leq m$.
     Alors, $k + (m-n) = (k+m) - n$.
@@ -1214,7 +1212,7 @@ On montre ainsi que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow 
 \noindent\textbf{Démonstration :} Tout d'abord, $k+m \geq m$ et $m \geq n$, donc $k+m \geq n$.
     On a : $(k + (m-n)) + n = k + ((n-m) + n)  k + m$.
 
-   \done 
+   \done  
 
 \medskip
 
@@ -1287,6 +1285,20 @@ On montre ainsi que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow 
     Dans les deux cas, on a bien $m + n \geq k + n$.
 
    \done 
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $n$, $m$ et $k$ trois entiers naturels tels que $n \geq m$, $n \geq k$ et $n - m = n - k$.
+    Alors, $m = k$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Puisque $n - m = n - k$, on a $n = (n - k) + m$.
+    Donc, $n = (n + m) - k$. 
+    Donc, $n + k = n + m$.
+    On en déduit que $k = m$.
+
+    \done
 
 \medskip
 
