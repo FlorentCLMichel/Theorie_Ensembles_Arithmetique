@@ -311,6 +311,48 @@ Les définitions données dans la suite de cette section sont compatibles avec c
 
     \done
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $n$ et $m$ deux éléments de $\mathbb{Z}$.
+    Alors, 
+    \begin{itemize}[nosep]
+        \item si $n = (0,0)$, $n + m = m$,
+        \item si $n > (0,0)$, $n + m > m$,
+        \item si $n < (0,0)$, $n + m < m$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Considérons les différents cas possibles : 
+    \begin{itemize}[nosep]
+        \item Si $n = (0,0)$, on a vu que $n + m = m$.
+        \item Supposons que $n > (0,0)$. Alors, on peut choisir un entier naturel non nul $a$ tel que $n = (0,a)$.
+            Distinguons deux cas : 
+            \begin{itemize}[nosep]
+                \item Si $m \geq 0$, on peut choisir un entier naturel $b$ tel que $m = (0,b)$.
+                    On a alors $n + m = (0, a + b)$. 
+                    Puisque $a > 0$, $a + b > b$, donc $n + m > m$.
+                \item Sinon, on peut choisir un entier naturel non nul $b$ tel que $m = (1,b)$.
+                    Si $b \leq a$, on a $n+m = (0, a-b)$, donc $n+m > m$.
+                    Sinon, $n+m = (1,b-a)$. 
+                    Puisque $a > 0$, $b-a < b$, donc $n+m > m$.
+            \end{itemize}
+        \item Supposons que $n < (0,0)$. Alors, on peut choisir un entier naturel non nul $a$ tel que $n = (1,a)$.
+            Distinguons deux cas : 
+            \begin{itemize}[nosep]
+                \item Si $m < 0$, on peut choisir un entier naturel non nul $b$ tel que $m = (1,b)$.
+                    On a alors $n + m = (1, a + b)$. 
+                    Puisque $a > 0$, $a + b > b$, donc $n + m < m$.
+                \item Sinon, on peut choisir un entier naturel $b$ tel que $m = (0,b)$.
+                    Si $b \leq a$, on a $n+m = (1, a-b)$, donc $n+m < m$.
+                    Sinon, $n+m = (0,b-a)$. 
+                    Puisque $a > 0$, $b-a < b$, donc $n+m < m$.
+            \end{itemize}
+    \end{itemize}
+
+    \done
+
 \subsubsection{Opposé}
 
 \noindent\textbf{Définition :} On définit l'opération $-$ sur $\mathbb{Z}$, vue comme une fonction de $\mathbb{Z}$ vers $\mathbb{Z}$, de la manière suivante : 
@@ -354,6 +396,41 @@ Dans tous les cas, on a donc bien $z + (-z) = (0,0)$.
 
 \done
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $n$ et $m$ deux éléments de $\mathbb{Z}$.
+    Alors, 
+    \begin{itemize}[nosep]
+        \item $n \leq m \Leftrightarrow (-n) \geq (-m)$,
+        \item $n < m \Leftrightarrow (-n) > (-m)$. 
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} Notons d'abord que $n = m$ est équivalent à $-m = -n$.
+    En effet, 
+    \begin{itemize}[nosep]
+        \item Si $n = m$, alors $-n = -m$ par propriété de l'égalité.
+        \item Si $-n = -m$, alors $-(-n) = -(-m)$, donc $n = m$.
+    \end{itemize}
+    La première proposition implique donc la seconde. 
+
+    Considérons les différents cas possibles : 
+    \begin{itemize}[nosep]
+        \item Si $n = (0,0)$ et $m = (0,0)$, alors $-n = (0,0)$ et $-m = (0,0)$, alors $n \leq m$ et $(-n) \geq (-m)$.
+        \item S'il existe un entier naturel $a$ tel que $n = (0,0)$ et $m = (0,a)$, alors $-n = (0,0)$ et $-m = (1,a)$, alors $n \leq m$ et $(-n) \geq (-m)$.
+        \item S'il existe un entier naturel $a$ tel que $n = (0,0)$ et $m = (1,a)$, alors $-n = (0,0)$ et $-m = (0,a)$, alors $n > m$ et $(-n) < (-m)$.
+        \item S'il existe un entier naturel $a$ tel que $n = (0,a)$ et $m = (0,0)$, alors $-n = (1,a)$ et $-m = (0,0)$, alors $n > m$ et $(-n) < (-m)$.
+        \item S'il existe un entier naturel $a$ tel que $n = (1,a)$ et $m = (0,0)$, alors $-n = (0,a)$ et $-m = (0,0)$, alors $n \leq m$ et $(-n) \geq (-m)$.
+        \item S'il existe deux entiers naturels on nuls $a$ et $b$ tels que $n = (0,a)$ et $m = (0,b)$, alors $-n = (1,a)$ et $-m = (1,b)$, alors $n \leq m \Leftrightarrow a \leq b$ et $(-n) \geq (-m) \Leftrightarrow a \leq b$.
+        \item S'il existe deux entiers naturels on nuls $a$ et $b$ tels que $n = (0,a)$ et $m = (1,b)$, alors $-n = (1,a)$ et $-m = (0,b)$, alors $n > m$ et $(-n) < (-m)$.
+        \item S'il existe deux entiers naturels on nuls $a$ et $b$ tels que $n = (1,a)$ et $m = (0,b)$, alors $-n = (0,a)$ et $-m = (1,b)$, alors $n \leq m$ et $(-n) \geq (-m)$.
+        \item S'il existe deux entiers naturels non nuls $a$ et $b$ tels que $n = (1,a)$ et $m = (1,b)$, alors $-n = (0,a)$ et $-m = (0,b)$, alors $n \leq m \Leftrightarrow b \leq a$ et $(-n) \geq (-m) \Leftrightarrow b \leq a$.
+    \end{itemize}
+    Dans tous les cas, $n \leq m$ est bien équivalent à $(-n) \leq (-m)$.
+
+    \done
+
 \subsubsection{Soustraction}
 
 \noindent\textbf{Définition :} 
@@ -385,6 +462,17 @@ Dans tous les cas, on a donc bien $z + (-z) = (0,0)$.
 
    \done 
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $n$ et $m$ deux éléments de $\mathbb{Z}$.
+    Alors $(n-m) + m = n$. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} On a : $(n-m) + m = (n + (-m)) + m = n + ((-m) + m) = n + 0 = n$.
+
+    \done
+
 \subsubsection{Multiplication}
 
 \noindent\textbf{Définition :} 
@@ -404,6 +492,8 @@ Dans tous les cas, on a donc bien $z + (-z) = (0,0)$.
         \item si $a = 0$, alors $a \times b = b \times a = 0$,
         \item si $a \neq 0$ et $b \neq 0$, $a \times b = (\ep, \abs{a} \times \abs{b})$, où $\ep$ est égal à $0$ si $\mathrm{sgn}(a) = \mathrm{sgn}(b)$ et $1$ sinon.
     \end{itemize}
+    Notons que, dans tous les cas, $\abs{n \times m} = \abs{n} \times \abs{m}$.
+    Notons aussi que, pour tout entier relatif $n$, $(1,1) \times n = -n$.
     Le symbole $\times$ est parfois omis quand il n'y a pas de confusion possible.
 
 \medskip
@@ -521,6 +611,80 @@ Dans tous les cas, on a donc bien $z + (-z) = (0,0)$.
 \end{itemize}
 
 \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $n$ et $m$ deux entiers relatifs. 
+    Alors, 
+    \begin{itemize}[nosep]
+        \item Si $n = 0$ ou $m = 0$, alors $n \times m = 0$.
+        \item Si $n > 0$ et $m > 0$, alors $n \times m > 0$.
+        \item Si $n > 0$ et $m < 0$, alors $n \times m < 0$.
+        \item Si $n < 0$ et $m > 0$, alors $n \times m < 0$.
+        \item Si $n < 0$ et $m < 0$, alors $n \times m > 0$.
+        \item Si $\abs{n} = 1$, alors $\abs{n \times m} = \abs{m}$.
+        \item Si $\abs{n} > 1$ et $m \neq 0$, alors $\abs{n \times m} > \abs{m}$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+
+    \begin{itemize}[nosep]
+        \item Le premier point est une conséquence irect d'un lemme précédent.
+        \item Les quatre points suivants sont des conséquences directes de la définition de la multiplication.
+        \item Les deux derniers points sont des conséquences diectes du fait que $\abs{n \times m} = \abs{n} \times \abs{m}$.
+    \end{itemize}
+    
+    \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $n$, $m$ et $k$ trois entiers relatifs. 
+    Alors, 
+    \begin{itemize}[nosep]
+        \item Si $n = 0$, $n \times m = n \times k$.
+        \item Si $n \neq 0$, $n \times m = n \times k \Leftrightarrow m = k$.
+        \item Si $n > 0$, $n \times m > n \times k \Leftrightarrow m > k$.
+        \item Si $n < 0$, $n \times m > n \times k \Leftrightarrow m < k$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    \begin{itemize}[nosep]
+        \item Si $n = 0$, $n \times m = 0$ et $n \times k = 0$, donc $n \times m = n \times k$.
+        \item Supposons $n \neq 0$. 
+            Si $n \times m = n \times k$, alors $n \times m - n \times k = 0$.
+            Puisque $n \times m - n \times k = n \times m + (-(n \times k)) = n \times m + ((1,1) \times (n \times k)) = n \times m + (n \times ((1,1) \times k)) = n \times m + n \times (-k) = n \times (m + (-k)) = n \times (m-k)$, on en déduit que $m-k = 0$, et donc $m = k$.
+            Réciproquement, si $m = k$, alors $n \times m = n \times k$.
+        \item Supposons que $n > 0$.
+            Alors, 
+            \begin{itemize}[nosep]
+                \item Si $m \geq 0$ et $k \geq 0$, $n \times m = (0, \abs{n} \times \abs{m})$ et $n \times k = (0, \abs{n} \times \abs{k})$.
+                    Donc, $n \times m > n \times k \Leftrightarrow \abs{n} \times \abs{m} > \abs{n} \times \abs{k}$.
+                    Puisque $\abs{n} > 0$, cela donne : $n \times m > n \times k \Leftrightarrow \abs{m} > \abs{k}$. 
+                    Puisque $m > k \Leftrightarrow \abs{m} > \abs{k}$, on en déduit $n \times m > n \times k \Leftrightarrow m > k$.
+                \item Si $m < 0$ et $k < 0$, $n \times m = (1, \abs{n} \times \abs{m})$ et $n \times k = (1, \abs{n} \times \abs{k})$.
+                    Donc, $n \times m > n \times k \Leftrightarrow \abs{n} \times \abs{m} < \abs{n} \times \abs{k}$.
+                    Puisque $\abs{n} > 0$, cela donne : $n \times m > n \times k \Leftrightarrow \abs{m} < \abs{k}$. 
+                    Puisque $m > k \Leftrightarrow \abs{m} < \abs{k}$, on en déduit $n \times m > n \times k \Leftrightarrow m > k$.
+            \end{itemize}
+        \item Supposons que $n < 0$.
+            Alors, 
+            \begin{itemize}[nosep]
+                \item Si $m \geq 0$ et $k \geq 0$, $n \times m = (1, \abs{n} \times \abs{m})$ et $n \times k = (1, \abs{n} \times \abs{k})$.
+                    Donc, $n \times m > n \times k \Leftrightarrow \abs{n} \times \abs{m} < \abs{n} \times \abs{k}$.
+                    Puisque $\abs{n} > 0$, cela donne : $n \times m > n \times k \Leftrightarrow \abs{m} < \abs{k}$. 
+                    Puisque $m < k \Leftrightarrow \abs{m} < \abs{k}$, on en déduit $n \times m > n \times k \Leftrightarrow m < k$.
+                \item Si $m < 0$ et $k < 0$, $n \times m = (0, \abs{n} \times \abs{m})$ et $n \times k = (0, \abs{n} \times \abs{k})$.
+                    Donc, $n \times m > n \times k \Leftrightarrow \abs{n} \times \abs{m} > \abs{n} \times \abs{k}$.
+                    Puisque $\abs{n} > 0$, cela donne : $n \times m > n \times k \Leftrightarrow \abs{m} > \abs{k}$. 
+                    Puisque $m < k \Leftrightarrow \abs{m} > \abs{k}$, on en déduit $n \times m > n \times k \Leftrightarrow m < k$.
+            \end{itemize}
+    \end{itemize}
+
+    \done
 
 \subsubsection{Puissance}
 

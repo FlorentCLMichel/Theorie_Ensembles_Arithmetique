@@ -30,10 +30,12 @@ En effet, $r$ est un entier naturel par définition de $E$, donc $r \geq 0$ et, 
 Puisque $b > 0$, $r - b < r$ ; cela contredirait donc la définition de $r$ comme minimum de $E$. 
 
 Notons que $r$ est le seul élément de $E$ compris entre $0$ et $b-1$ (inclus). 
-En effet, si $s$ est un tel élément, alors les autres éléments de $E$ sont tous de la forme $s + k b$ avec $k \in \mathbb{Z}$. 
-Si $k > 0$, $s + k b >= b$ car $k \geq 1$ et $s \geq 0$.
-Si $k < 0$, $s + k b < 0$ car $k b \leq -b$ et $s < b$, donc $s + k b \notin E$.
-On en déduit que $S$ est l'élément minimal de $E$, et donc que $s=r$. 
+En effet, considérons un élément $s$ de $E$ entre $0$ et $b-1$ (inclus). 
+Alors, on peut choisir deux éléments $q$ et $k$ de $\mathbb{N}$ tels que $r = a - q b$ et $s = a - k b$. 
+Donc, $s = r + (q-k) b$. 
+Si $q > k$, alors $q-k \in \mathbb{N}$, donc $(q-k) b \geq b$, et donc (puisque $r \geq 0$) $s \geq b$, ce qui est impossible.
+Si $q < k$, alors $k-q \in \mathbb{N}$, donc $(k-q) b \geq b$, donc $(q-k) b \leq -b$, et donc (puisque $r < b$) $s < 0$, ce qui est impossible. 
+Donc, $q = k$, et donc $s = r$.
 
 Si le reste de la division euclidienne de $a$ par $b$ est $0$, on dit que \textit{$b$ divise $a$}, ou encore que \textit{$b$ est un diviseur de $a$}, que \textit{$a$ admet $b$ pour diviseur} ou que \textit{$a$ est un multiple de $b$}. 
 Notons que, si $a$ est non nul $b$ ne peut alors être strictement supérieur à $a$. 

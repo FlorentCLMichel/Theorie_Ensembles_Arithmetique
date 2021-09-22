@@ -1204,6 +1204,21 @@ On montre ainsi que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow 
 \noindent\textbf{Remarque :} Soit $n$ et $m$ deux entiers naturels.
     Alors, par définition, $(n+m) - m  = n$.
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $n$, et $m$ deux éléments de $\mathbb{N}$ tels que $n > m$ et $m > 0$. 
+    Alors $n - m < n$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    On a : $n = (n-m) + m$.
+    Puisque $m > 0$, on en déduit $n > n-m$.
+
+    \done
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $n$, $m$ et $k$ trois entiers naturels tels que $n \leq m$.
     Alors, $k + (m-n) = (k+m) - n$.
 
@@ -1227,6 +1242,21 @@ On montre ainsi que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow 
     Donc, $n + m = n + (k + q)$. 
     Par associativité de l'addition, il vient $n + m = (n + k) + q$. 
     Puisque $q > 0$, on en déduit $n + m > n + k$.
+
+   \done 
+
+\medskip
+
+\noindent\textbf{Corrolaire :} Soit $n$, $m$ et $k$ trois éléments de $\mathbb{N}$ tels que $m \geq k$. 
+    Alors $m + n \geq k + n$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Puisque $m \geq k$, on a $m = k$ ou $m > k$.
+    Si $m = k$, on a $m + n = k + n$.
+    Si $m > k$, on a $m + n > k + n$ d'après le lemme précédent.
+    Dans les deux cas, on a bien $m + n \geq k + n$.
 
    \done 
 
@@ -1268,21 +1298,6 @@ On montre ainsi que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow 
     On a : $(k - (m-n)) + m = (k-(m-n)) + ((m-n) + n) = ((k-(m-n)) + (m-n))+n = k + n$
     et $((k+n)-m) + m = k + n$. 
     Donc, $(k - (m-n)) + m = (k+n) - m$.
-
-   \done 
-
-\medskip
-
-\noindent\textbf{Corrolaire :} Soit $n$, $m$ et $k$ trois éléments de $\mathbb{N}$ tels que $m \geq k$. 
-    Alors $m + n \geq k + n$.
-
-\medskip
-
-\noindent\textbf{Démonstration :} 
-    Puisque $m \geq k$, on a $m = k$ ou $m > k$.
-    Si $m = k$, on a $m + n = k + n$.
-    Si $m > k$, on a $m + n > k + n$ d'après le lemme précédent.
-    Dans les deux cas, on a bien $m + n \geq k + n$.
 
    \done 
 
