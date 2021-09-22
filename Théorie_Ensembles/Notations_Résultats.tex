@@ -1,0 +1,96 @@
+\subsection{Quelques notations et résultats}
+
+\subsubsection{Résumé des notations}
+
+Résumons ici quelques notations utiles pour la suite, de manière informelle :
+
+\begin{itemize}
+\item Le symbole $\neg$ représente la négation : si $P$ est une proposition, la proposition $\neg P$ est fausse si $P$ est vraie et inversement. 
+Sa table de vérité est donnée ci-dessous, où « V » indique « vraie » et « F » indique « fausse » : 
+\begin{center}
+\begin{tabular}{c | c}
+    $P$ & $\neg P$ \\
+    \hline
+    V & F \\
+    F & V
+\end{tabular} .
+\end{center}
+\item Les symboles $\wedge$ et $\vee$ représentent respectivement les connecteurs « et » et « ou ». 
+Les symboles $\Rightarrow$ et $\Leftarrow$ représentent l'implication vers la droite et vers la gauche. 
+Le symbole $\Leftrightarrow$ représente l'équivalence. 
+Soit $P$ et $Q$ deux propositions, on a ainsi la table de vérité suivante, où « V » indique « vraie » et « F » indique « fausse » : 
+\begin{center}
+\begin{tabular}{c c | c c c c c}
+    $P$ & $Q$ & $P \wedge Q$ & $P \vee Q$ & $P \Rightarrow Q$ & $P \Leftarrow Q$ & $P \Leftrightarrow Q$ \\
+    \hline
+    V & V & V & V & V & V & V \\
+    V & F & F & V & F & V & F \\
+    F & V & F & V & V & F & F \\
+    F & F & F & F & V & V & V \\
+\end{tabular} .
+\end{center}
+\item Les symboles $\forall$ et $\exists$ représentent respectivement les quantificateurs universel (« pour tout ») et existentiel (« il existe »). 
+\item On note $\in$ la relation d'appartenance et $\notin$ sa négation : $\forall x \forall y \, x \notin y \Leftrightarrow \not (x _in y)$.
+\item L'ensemble vide est noté $\emptyset$.
+\item Soit $a$ un ensemble. 
+    On note $\lbrace a \rbrace$ l'ensemble contenant uniquement $a$. 
+\item Soit $a$ et $b$ deux ensembles.
+    On note $\lbrace a, b \rbrace$ la paire de $a$ et $b$, \textit{i.e.} l'ensemble définit par : 
+\begin{equation*}
+    \forall x \, x \in \lbrace a, b \rbrace \Leftrightarrow ((x = a) \wedge (x = b))
+\end{equation*}
+\item Soit $E$ un ensemble et $P$ un prédicat à un paramètre libre. 
+    L'ensemble $\lbrace x \in E \vert P x \rbrace$ (noté $F$ dans la formule ci-dessous) est le sous-ensemble de $E$ défini par : 
+\begin{equation*}
+    \forall x \, x \in F \Leftrightarrow x \in E \wedge P x. 
+\end{equation*}
+    On note $(a,b)$ le couple formé par $a$ et $b$, définit par : $(a,b) = \lbrace \lbrace a \rbrace, \lbrace a, b \rbrace \rbrace$.
+\item Soit $E$ et $F$ deux ensembles. 
+L'\textit{union} de $E$ et $F$, notée $E \cup F$, est l'ensemble défini par : 
+\begin{equation*}
+    E \cup F = \lbrace x \vert (x \in E) \vee (x \in F)  \rbrace . 
+\end{equation*}
+L'\textit{intersection} de $E$ et $F$, notée $E \cap F$, est l'ensemble défini par :
+\begin{equation*}
+    E \cap F = \lbrace x \vert (x \in E) \wedge (x \in F)  \rbrace. 
+\end{equation*}
+La \textit{différence} de $E$ et $F$, notée $E \setminus F$, est l'ensemble défini par :
+\begin{equation*}
+    E \setminus F = \lbrace x \vert (x \in E) \wedge (x \notin F)  \rbrace. 
+\end{equation*}
+\item Soit $E$ et $F$ deux ensembles.
+On dit que $E$ est inclus dans $F$, et on note $E \subset F$ ou $F \supset E$, si la proposition suivante est vraie : $\forall \, x \, x \in E \Rightarrow x \in F$. 
+\end{itemize}
+
+\subsubsection{Ensemble de tous les ensembles} 
+
+\noindent\textbf{Lemme :} Il n'existe pas d'ensemble de tous les ensembles. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} Supposons par l'absurde que l'ensemble de tous les ensembles existe, et notons-le $U$. 
+Définissons l'ensemble $X$ par : $X = \lbrace e \in U \vert e \notin e \rbrace$%
+~\footnote{
+    Cet ensemble existe d'après le schéma d'axiomes de compréhensions. 
+    En ré-utilisant les notations de l'énoncé de cet axiomes, il s'agit de l'ensemble obtenu en prenant $a = U$ et $P x: x \notin x$.
+}%
+, et considérons la propriété $P: X \in X$. 
+Alors, 
+\begin{itemize}[nosep]
+    \item Si $P$ est vraie, $X \in X$, donc, par définition de cet ensemble, $X$ n'est pas un élément de $X$, et donc $P$ est fausse. 
+    \item Si $P$ est fausse, $X \notin X$, donc, par définition de cet ensemble, $X$ est un élément de $X$, et donc $P$ est vraie. 
+\end{itemize}
+Ainsi, la propriété $P$ ne peut être ni vraie ni fausse, ce qui constitue une contradiction. 
+On en déduit que l'hypothèse de départ est fausse. 
+
+\hfill\square
+
+\medskip
+
+\noindent\textbf{NB:} Si on inclus la valeur de vérite « indéfinie » dans la théorie, alors cette démonstration montre seulement que, avec les mêmes notations, la propriété $P$ est indéfinie.
+
+\medskip
+
+\noindent\textbf{NB:} Le résultat est évident si l'on inclus l'axiome de fondation dans la théorie, puisqu'alors aucun ensemble ne peut être élément de lui-même.
+
+

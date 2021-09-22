@@ -1,0 +1,97 @@
+\section{Codes Haskell, C/C++ et Rust}
+
+\subsection{Écriture d'un entier naturel en base \texorpdfstring{$b$}{b}}
+\label{app:Haskell_baseb}
+
+\begin{lstlisting}[language=Haskell]
+-- read a non-negative integer (first argument) in base b
+from_base_acc :: Integer -> [Integer] -> Integer -> Integer
+from_base_acc acc [] b = acc
+from_base_acc acc (x:l) b = from_base_acc (x + b*acc) l b 
+from_base = from_base_acc 0
+
+-- conversion of a non-negative integer n in base b
+to_base_acc :: [Integer] -> Integer -> Integer -> [Integer]
+to_base_acc acc x b | x == 0 = acc
+                    | otherwise = let y = (mod x b) in 
+                         to_base_acc (y:acc) (div (x-y) b) b
+to_base = to_base_acc []
+\end{lstlisting}
+
+\subsection{Test de primalité}
+\label{app:Haskell_primalité}
+
+\noindent 
+La fonction \texttt{isPrime} ci-dessous teste si un entier $p$ est un nombre premier. 
+Sa complexité est $O \left( p^{1/2} \right)$.
+
+\begin{lstlisting}[language=Haskell]
+-- test if an integer is divisible by another
+isDivisible :: Integer -> Integer -> Bool
+isDivisible a b = b * (div a b) == a
+
+-- check that p is not divisible by an integer between q and the square root of p
+testNonDivisible :: Integer -> Integer -> Bool
+testNonDivisible p q | q*q > p = True
+                     | isDivisible p q = False
+                     | otherwise = testNonDivisible p (q+1)
+
+-- check if a non-negative integer p is prime
+isPrime :: Integer -> Bool
+isPrime p | p <= 1 = False
+          |otherwise = testNonDivisible p 2
+\end{lstlisting}
+
+\noindent
+La fonction \texttt{findNPrimes} ci-dessous prend un entier naturel $N$ en argument et retourne la liste des $N$ premiers nombres premiers. 
+\lstinputlisting[language=Haskell]{Ensembles_Arithmétique/Code/FindNPrimes.hs}
+
+\medskip
+
+\noindent Version C du test de primalité: 
+\lstinputlisting[language=C]{Ensembles_Arithmétique/Code/is_prime.c}
+
+\medskip
+
+\noindent Version Rust du test de primalité: 
+\lstinputlisting[language=Rust]{Ensembles_Arithmétique/Code/is_prime.rs}
+
+\subsection{PGCD}
+\label{app:Haskell_pgcd}
+
+\noindent 
+La fonction \texttt{pgcd} ci-dessous prend comme arguments deux enters naturels et donne leur pgcd.
+\begin{lstlisting}[language=Haskell]
+pgcd :: Integer -> Integer -> Integer
+pgcd n 0 = n
+pgcd n m | n < m = pgcd m n
+         | otherwise = pgcd m (n - (m * (div n m)))
+\end{lstlisting}
+
+\medskip
+
+\noindent Version C: 
+\lstinputlisting[language=C]{Ensembles_Arithmétique/Code/pgcd.c}
+
+\medskip
+
+\noindent Version Rust: 
+\lstinputlisting[language=Rust]{Ensembles_Arithmétique/Code/pgcd.rs}
+
+\subsection{Crible d'Érastosthène}
+
+Il s'agit d'un algorithme permettant de trouver tous les nombres premiers infèrieurs ou égaux à un entier naturel donné.
+
+\bigskip
+
+\noindent Version C++: 
+\lstinputlisting[language=C++]{Ensembles_Arithmétique/Code/Érastosthène.cpp}
+
+\bigskip
+
+\noindent Version Rust\footnote{
+    Cette version est sensiblement plus longue car le compilateur rustc 1.51.0, utilisé pour tester la version Rust, n'optimise pas les vecteurs de type \texttt{bool}—chaque entrée prend ainsi un octet en mémoire. 
+    Nous définissons donc des fonctions auxiliaires afin de pouvoir représenter huit \texttt{bool} pour chaque octet, afin de ne pas utiliser plus de mémoire que nécessaire.
+    Le compilateur g++ 7.5.0 avec lequel la version C++ a été testée optimise les vecteurs de type \texttt{bool} pour que chaque entrée ne prenne (en moyenne et pour de grands vecteurs) qu'un bit de mémoire ; il n'est donc pas besoin, pour cette version, d'employer des fonctions auxiliaires. 
+}: 
+\lstinputlisting[language=Rust]{Ensembles_Arithmétique/Code/Érastosthène.rs}
