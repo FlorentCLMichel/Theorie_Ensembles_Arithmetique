@@ -1,8 +1,7 @@
 \subsection{Division euclidienne}
 
 Soit $a$ un entier naturel et $b$ un entier naturel non nul. 
-Soit $E$ l'ensemble défini par : $E = \lbrace a - k b \vert k \in \mathbb{N} \, \wedge \, a \geq k b \rbrace$%
-~\footnote{Plus rigoureusement, on peut définir cet ensemble par : 
+Soit $E$ l'ensemble défini par : 
 \begin{equation*}
     E = \lbrace
         n \in \mathbb{N} 
@@ -10,15 +9,15 @@ Soit $E$ l'ensemble défini par : $E = \lbrace a - k b \vert k \in \mathbb{N} \
         \exists k \in \mathbb{N} \,  
         a \geq k b \wedge a - k b = n
     \rbrace .
-\end{equation*}}%
-. 
-L'ensemble $E$ est un sous-ensemble non vide (il contient au moins $a$, obtenu pour $k=0$) de $\mathbb{N}$, donc il admet un unique élément minimal $r$. 
+\end{equation*}
+L'ensemble $E$ est un sous-ensemble non vide (il contient au moins $a$, obtenu pour $k=0$) de $\mathbb{N}$, donc il admet un unique élément minimal (et donc un minimum) $r$. 
 Cet élément est appelé \textit{reste de la division euclidienne de $a$ par $b$}. 
 L'unique entier naturel $q$ tel que $r = a - q b$%
 ~\footnote{Un tel entier existe car $r$ est un élément de $E$. 
     Montrons qu'il est bien unique. 
     Soit $q$ et $q'$ deux entiers naturels tels que $a \geq q b$, $a \geq q' b$, $r = a - q b$ et $r = a - q' b$.
     Alors, $a - q b = a - q' b$.
+    Donc, $a + q' b = a + q b$.
     Donc, $q b = q' b$.
     Puisque $b$ est non nul, on en déduit $q = q'$.
 }  
@@ -26,43 +25,71 @@ est appelé \textit{quotient de la division euclidienne de $a$ par $b$}.
 Notons que l'on a : $a = q b + r$. 
 
 En outre, $0 \leq r < b$. 
-En effet, $r$ est un entier naturel par définition de $E$, donc $r \geq 0$ et, si $r$ était supérieur ou égal à $b$, on aurait $r - b = (a - q b) - b = a - (q b + b) = a - (q+1) b$, et donc $r - b \in E$. 
+En effet, $r$ est un entier naturel par définition de $E$, donc $r \geq 0$ et, si $r$ était supérieur ou égal à $b$, on aurait $r - b \in \mathbb{N}$ et $r - b = (a - q b) - b = a - (q b + b) = a - (q+1) b$, et donc $r - b \in E$. 
 Puisque $b > 0$, $r - b < r$ ; cela contredirait donc la définition de $r$ comme minimum de $E$. 
 
-Notons que $r$ est le seul élément de $E$ compris entre $0$ et $b-1$ (inclus). 
+Notons aussi que $r$ est le seul élément de $E$ compris entre $0$ et $b-1$ (inclus). 
 En effet, considérons un élément $s$ de $E$ entre $0$ et $b-1$ (inclus). 
 Alors, on peut choisir deux éléments $q$ et $k$ de $\mathbb{N}$ tels que $r = a - q b$ et $s = a - k b$. 
 Donc, $s = r + (q-k) b$. 
-Si $q > k$, alors $q-k \in \mathbb{N}$, donc $(q-k) b \geq b$, et donc (puisque $r \geq 0$) $s \geq b$, ce qui est impossible.
-Si $q < k$, alors $k-q \in \mathbb{N}$, donc $(k-q) b \geq b$, donc $(q-k) b \leq -b$, et donc (puisque $r < b$) $s < 0$, ce qui est impossible. 
+Si $q > k$, alors $q-k$ est un entier naturel non nul, donc $(q-k) b \geq b$, et donc (puisque $r \geq 0$) $s \geq b$, ce qui est impossible.
+Si $q < k$, alors $k-q$ est un entier naturel non nul, donc $(k-q) b \geq b$, donc $(q-k) b \leq -b$, et donc (puisque $r < b$) $s < 0$, ce qui est impossible. 
 Donc, $q = k$, et donc $s = r$.
 
 Si le reste de la division euclidienne de $a$ par $b$ est $0$, on dit que \textit{$b$ divise $a$}, ou encore que \textit{$b$ est un diviseur de $a$}, que \textit{$a$ admet $b$ pour diviseur} ou que \textit{$a$ est un multiple de $b$}. 
-Notons que, si $a$ est non nul $b$ ne peut alors être strictement supérieur à $a$. 
+Notons que, si $a$ est non nul, un diviseur $b$ de $a$ satisfait $b \leq a$. 
 (En effet, soit $q$ le quotient de la division Euclidienne de $a$ par $b$, on a $a = q \times b$, donc soit $q = 0$ et $a = 0$, soit $q \geq 1$ et $a \geq b$.)
-Notons aussi que tout entier naturel divise $0$.
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $a$ et $b$ deux entiers naturels. 
+    Alors $b$ divise $a$ si et seulement si il existe un entier naturel $q$ tel que $q b = a$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    \begin{itemize}[nosep]
+        \item Supposons qur $b$ divise $a$. 
+            Soit $q$ le quotient de la division Euclidienne de $a$ par $b$. 
+            Puisque $b$ divise $a$, le reste de la division Euclidienne de $a$ par $b$ est $0$, donc $a = q b$.
+        \item Soit $q$ un entier naturel tel que $a = q b$ et $E$ l'ensemble définit comme ci-dessus.
+            Alors, $a \geq q b$.
+            Donc, $a - q b \in E$.
+            Puisque $a = q b$, $a - q b = 0$, donc $0 \in E$. 
+            En outre, pour tout élément $e$ de $E$, on a $e \in \mathbb{N}$, donc $0 \leq e$.
+            Donc, $0$ est un élément minimal de $E$. 
+            Puisque $E$ admet un seul élément minimal, on en déduit que le reste de la division Euclidienne de $a$ par $b$ est $0$.
+    \end{itemize}
+
+    \done
+
+\medskip
+
+Notons que tout entier naturel divise $0$.
+(Soit $b$ un entier naturel, on a $0 \times b = 0$, donc $0$ divise b.)
 Notons aussi que tout entier naturel non nul se divise lui-même. 
-En effet, soit $a$ un entier naturel non nul, on a $a - a = 0$, donc le minimal de l'ensemble $E$ définit ci-dessus pour $b=a$ est $0$.
+En effet, soit $a$ un entier naturel non nul, on a $a = 1 \times a$.
 
-Un entier naturel est dit \textit{pair} s'il est un multiple de $2$ et \textit{impair} sinon. 
+\medskip
 
-\bigskip
+\noindent\textbf{Définition :} Un entier naturel est dit \textit{pair} s'il est un multiple de $2$ et \textit{impair} sinon. 
+
+\medskip
 
 \noindent\textbf{Définition :} On définit les deux opérations $\divslash\!\divslash$ et $\%$ de $\mathbb{N} \times \mathbb{N}^*$ vers $\mathbb{N}$ de la manire suivante : pour tout entier naturel $a$ et tout entier naturel $b$ non nul $a \mathrel{\divslash\!\divslash} b$ est le quotient de la division Euclidienne de $a$ par $b$ et $a \mathrel{\%} b$ est son reste. 
 
-\bigskip
+\medskip
 
 \noindent\textbf{Définition :} Soit $a$ et $b$ deux entiers naturels non nuls. L'ensemble de leurs diviseurs communs est un sous-ensemble de $\mathbb{N}$ non vide (il contient au moins $1$) et borné supérieurement par le minimum de $a$ et $b$. Il admet donc un unique élément maximal, appelé \textit{plus grand diviseur commun}, ou \textit{pgcd}, de $a$ et $b$. 
     Notons que cet entier est toujours supérieur ou égal à $1$. 
     Si $n$ est un entier naturel, on considère que le pgcd de $n$ et $0$ (ou de $0$ et $n$) est $n$.
     (Ainsi, le pgcd de $0$ et $0$ est $0$.)
 
-\bigskip
+\medskip
 
 \noindent\textbf{Définition :} Deux entiers naturels $a$ et $b$ sont dits \textit{premiers entre eux} si leur pgcd est $1$.
 
-\bigskip
+\medskip
 
 \noindent\textbf{Lemme :} Soit $a$ et $b$ deux entiers naturels non nuls et $c$ leur pgcd.
     On note $d$ et $e$ les entiers $a \mathrel{\divslash\!\divslash} c$ et $b \mathrel{\divslash\!\divslash} c$. 
@@ -84,7 +111,7 @@ Un entier naturel est dit \textit{pair} s'il est un multiple de $2$ et \textit{i
 
    \done 
 
-\bigskip
+\medskip
 
 Une fonction Haskell calculant le pgcd de deux entiers naturels non nuls est donnée en appendice~\ref{app:Haskell_pgcd}. 
 
