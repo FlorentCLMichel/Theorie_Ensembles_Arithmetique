@@ -1,16 +1,24 @@
 \subsection{Division euclidienne}
 
-Soit $a$ un entier naturel et $b$ un entier naturel non nul. 
-Soit $E$ l'ensemble défini par : 
+\subsubsection{Définition et premiers résultats}
+
+On définit (dans cette section seulement) la fonction $E$ de $\mathbb{N} \times \mathbb{N}^*$ vers l'ensemble des parties de $\mathbb{N}$ par : 
 \begin{equation*}
-    E = \lbrace
+    \forall a \in \mathbb{N} \, 
+    \forall b \in \mathbb{N}^* \, 
+    E(a,b) = \lbrace
         n \in \mathbb{N} 
         \vert
         \exists k \in \mathbb{N} \,  
         a \geq k b \wedge a - k b = n
     \rbrace .
 \end{equation*}
-L'ensemble $E$ est un sous-ensemble non vide (il contient au moins $a$, obtenu pour $k=0$) de $\mathbb{N}$, donc il admet un unique élément minimal (et donc un minimum) $r$. 
+
+\medskip
+
+\noindent\textbf{Définition (division euclidienne) :}
+Soit $a$ un entier naturel et $b$ un entier naturel non nul.
+L'ensemble $E(a,b)$ est un sous-ensemble de $\mathbb{N}$ non vide (il contient au moins $a$ puisque $a \geq 0 \times b$ et $a - 0 \times b = a$), donc il admet un unique élément minimal (et donc un minimum) $r$. 
 Cet élément est appelé \textit{reste de la division euclidienne de $a$ par $b$}. 
 L'unique entier naturel $q$ tel que $r = a - q b$%
 ~\footnote{Un tel entier existe car $r$ est un élément de $E$. 
@@ -24,21 +32,69 @@ L'unique entier naturel $q$ tel que $r = a - q b$%
 est appelé \textit{quotient de la division euclidienne de $a$ par $b$}. 
 Notons que l'on a : $a = q b + r$. 
 
-En outre, $0 \leq r < b$. 
-En effet, $r$ est un entier naturel par définition de $E$, donc $r \geq 0$ et, si $r$ était supérieur ou égal à $b$, on aurait $r - b \in \mathbb{N}$ et $r - b = (a - q b) - b = a - (q b + b) = a - (q+1) b$, et donc $r - b \in E$. 
-Puisque $b > 0$, $r - b < r$ ; cela contredirait donc la définition de $r$ comme minimum de $E$. 
+\medskip
 
-Notons aussi que $r$ est le seul élément de $E$ compris entre $0$ et $b-1$ (inclus). 
-En effet, considérons un élément $s$ de $E$ entre $0$ et $b-1$ (inclus). 
-Alors, on peut choisir deux éléments $q$ et $k$ de $\mathbb{N}$ tels que $r = a - q b$ et $s = a - k b$. 
-Donc, $s = r + (q-k) b$. 
-Si $q > k$, alors $q-k$ est un entier naturel non nul, donc $(q-k) b \geq b$, et donc (puisque $r \geq 0$) $s \geq b$, ce qui est impossible.
-Si $q < k$, alors $k-q$ est un entier naturel non nul, donc $(k-q) b \geq b$, donc $(q-k) b \leq -b$, et donc (puisque $r < b$) $s < 0$, ce qui est impossible. 
-Donc, $q = k$, et donc $s = r$.
+\noindent\textbf{Définition :} On définit les deux opérations $\divslash\!\divslash$ et $\%$ de $\mathbb{N} \times \mathbb{N}^*$ vers $\mathbb{N}$ de la manière suivante : pour tout entier naturel $a$ et tout entier naturel non nul $b$, $a \mathrel{\divslash\!\divslash} b$ est le quotient de la division Euclidienne de $a$ par $b$ et $a \mathrel{\%} b$ est son reste. 
 
-Si le reste de la division euclidienne de $a$ par $b$ est $0$, on dit que \textit{$b$ divise $a$}, ou encore que \textit{$b$ est un diviseur de $a$}, que \textit{$a$ admet $b$ pour diviseur} ou que \textit{$a$ est un multiple de $b$}. 
-Notons que, si $a$ est non nul, un diviseur $b$ de $a$ satisfait $b \leq a$. 
-(En effet, soit $q$ le quotient de la division Euclidienne de $a$ par $b$, on a $a = q \times b$, donc soit $q = 0$ et $a = 0$, soit $q \geq 1$ et $a \geq b$.)
+\medskip
+
+\noindent\textbf{Lemme :} Soit $a$ un entier naturel et $b$ un entier naturel non nul.
+    Soit $r$ l'entier naturel défini par $r = a \mathrel{\%} b$.
+    Alors, $r \geq 0$ et $r < b$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+\begin{itemize}[nosep]
+    \item Puisque $E(a,b)$ est un sous-ensemble de $\mathbb{N}$ et puisque $r \in E(a,b)$, $r \in \mathbb{N}$, donc $r \geq 0$.
+    \item Supposons par l'absurde que $r \geq b$. 
+        Alors, $r - b \in \mathbb{N}$ et $r - b = (a - q b) - b = a - (q b + b) = a - (q+1) b$, et donc $r - b \in E$. 
+        Puisque $b > 0$, $r - b < r$ ; cela contredit donc la définition de $r$ comme minimum de $E$. 
+        On en déduit que l'hypothèse de départ est fausse, et donc que $r < b$.
+\end{itemize}
+
+\done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $a$ un entier naturel et $b$ un entier naturel non nul.
+    Soit $s$ un élément de $E(a,b)$ tel que $s < b$.
+    Alors, $s = a \mathrel{\%} b$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Notons $r$ l'entier $a \mathrel{\%} b$.
+    Puisque $r$ et $s$ sont deux éléments de $E(a,b)$, on peut choisir deux éléments $q$ et $k$ de $\mathbb{N}$ tels que $r = a - q b$ et $s = a - k b$. 
+    Donc, $s = r + (q-k) b$. 
+    Si $q > k$, alors $q-k$ est un entier naturel non nul, donc $(q-k) b \geq b$, et donc (puisque $r \geq 0$) $s \geq b$, ce qui est impossible.
+    Si $q < k$, alors $k-q$ est un entier naturel non nul, donc $(k-q) b \geq b$, donc $(q-k) b \leq -b$, et donc (puisque $r < b$) $s < 0$, ce qui est impossible. 
+    Donc, $q = k$, et donc $s = r$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Définition (diviseur, multiple) :} 
+    Soit $a$ et $b$ deux entiers naturels.
+    Si le reste de la division euclidienne de $a$ par $b$ est $0$, on dit que \textit{$b$ divise $a$}, ou encore que \textit{$b$ est un diviseur de $a$}, que \textit{$a$ admet $b$ pour diviseur} ou que \textit{$a$ est un multiple de $b$}. 
+    On note $b \vert a$ le prédicat « $b$ divise $a$ ».
+
+\medskip
+
+\noindent\textbf{Lemme :} 
+    Soit $a$ et $b$ deux entiers naturels tels que $b \vert a$.
+    Alors, $a = 0$ ou $b \leq a$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    En effet, soit $q$ le quotient de la division Euclidienne de $a$ par $b$. 
+    On a : $a = q \times b$.
+    Si $q = 0$, $q \times b = 0$, donc $a = 0$.
+    Sinon, $q$ est un entier naturel non nul, donc $q \times b \geq b$, donc $a \geq b$.
+
+    \done
 
 \medskip
 
@@ -65,18 +121,27 @@ Notons que, si $a$ est non nul, un diviseur $b$ de $a$ satisfait $b \leq a$.
 
 \medskip
 
-Notons que tout entier naturel divise $0$.
-(Soit $b$ un entier naturel, on a $0 \times b = 0$, donc $0$ divise b.)
-Notons aussi que tout entier naturel non nul se divise lui-même. 
-En effet, soit $a$ un entier naturel non nul, on a $a = 1 \times a$.
+\noindent\textbf{Lemme :} 
+\begin{itemize}[nosep]
+    \item Tout entier naturel divise $0$.
+    \item Tout entier naturel non nul se divise lui-même. 
+    \item Tout entier naturel est un multiple de $1$.
+\end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+Soit $a$ un entier naturel. 
+Alors, 
+\begin{itemize}[nosep]
+    \item $0 \times a = 0$, donc $a \vert 0$.
+    \item $1 \times a = a$, donc, si $a$ est non nul, $a \vert a$. 
+    \item $a \times 1 = a$, donc $1 \vert a$.
+\end{itemize}
 
 \medskip
 
 \noindent\textbf{Définition :} Un entier naturel est dit \textit{pair} s'il est un multiple de $2$ et \textit{impair} sinon. 
-
-\medskip
-
-\noindent\textbf{Définition :} On définit les deux opérations $\divslash\!\divslash$ et $\%$ de $\mathbb{N} \times \mathbb{N}^*$ vers $\mathbb{N}$ de la manire suivante : pour tout entier naturel $a$ et tout entier naturel $b$ non nul $a \mathrel{\divslash\!\divslash} b$ est le quotient de la division Euclidienne de $a$ par $b$ et $a \mathrel{\%} b$ est son reste. 
 
 \medskip
 
@@ -98,8 +163,8 @@ En effet, soit $a$ un entier naturel non nul, on a $a = 1 \times a$.
 \medskip
 
 \noindent\textbf{Démonstration :} 
-    Puisque $c$ est un diviseur de $a$, le reste de la divirion Euclidienne de $a$ par $c$ est $0$, donc $d \times c = a$.
-    De même, puisque $c$ est un diviseur de $b$, le reste de la divirion Euclidienne de $b$ par $c$ est $0$, donc $e \times c = a$.
+    Puisque $c$ est un diviseur de $a$, le reste de la division Euclidienne de $a$ par $c$ est $0$, donc $d \times c = a$.
+    De même, puisque $c$ est un diviseur de $b$, le reste de la division Euclidienne de $b$ par $c$ est $0$, donc $e \times c = b$.
 
     Supposons par l'absurde que $d$ et $e$ ne soient pas premiers entre eux. 
     Alors, $d$ et $e$ admettent un diviseur commun $f$ tel que $f > 1$.
@@ -113,7 +178,7 @@ En effet, soit $a$ un entier naturel non nul, on a $a = 1 \times a$.
 
 \medskip
 
-Une fonction Haskell calculant le pgcd de deux entiers naturels non nuls est donnée en appendice~\ref{app:Haskell_pgcd}. 
+Des fonctions Haskell, C et Rust calculant le pgcd de deux entiers naturels non nuls sont données en appendice~\ref{app:Haskell_pgcd}. 
 
 \subsubsection{Modulo}
 
