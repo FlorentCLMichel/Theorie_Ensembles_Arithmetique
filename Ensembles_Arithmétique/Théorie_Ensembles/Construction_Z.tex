@@ -14,11 +14,12 @@ On définit deux fonctions $\mathrm{sgn}: \mathbb{Z} \to \lbrace 0, 1 \rbrace$ e
 Soit $a$ un élément de $\mathbb{Z}$. 
 On peut choisir un élément $\ep$ de $\lbrace 0, 1 \rbrace$ et un élément $n$ de $\mathbb{N}$ tels que $a = (\ep,n)$. 
 On pose alors $\mathrm{sgn}(a) = \ep$ et $\mathrm{abs}(a) = n$. 
-Le permier est appelé \textit{signe} de l'entier $a$ et le second, aussi noté $\abs{a}$, sa \textit{valeur absolue}.
+Le premier est appelé \textit{signe} de l'entier $a$ et le second, aussi noté $\abs{a}$, sa \textit{valeur absolue}.
 
 Un entier est dit \textit{nul} s'il est égal à $(0,0)$.
 
 Quand il n'y a pas d'ambiguité, un entier naturel $n$ pourra être identifié à l'entier relatif $(0,n)$. 
+En particulier, $(0,0)$ est parfois simplement noté $0$.
 Les définitions données dans la suite de cette section sont compatibles avec cette identification.
 
 \subsubsection{Relation d'ordre}
@@ -361,6 +362,12 @@ Les définitions données dans la suite de cette section sont compatibles avec c
     \item soit $n$ un entier naturel non nul, $-(0,n) = (1,n)$.
     \item soit $n$ un entier naturel non nul, $-(1,n) = (0,n)$.
 \end{itemize}
+Notons que, pour tout entier $z$, on a : 
+\begin{itemize}[nosep]
+    \item $z = 0 \Rightarrow -z = 0$ ;
+    \item soit $n$ un entier naturel non nul, $-(0,n) = (1,n)$.
+    \item soit $n$ un entier naturel non nul, $-(1,n) = (0,n)$.
+\end{itemize}
 
 \medskip
 
@@ -431,6 +438,40 @@ Dans tous les cas, on a donc bien $z + (-z) = (0,0)$.
 
     \done
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $a$ et $b$ deux entiers. 
+    Alors, $-(a+b) = (-a) + (-b)$. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+Distinguons quatres cas possibles : 
+\begin{itemize}[nosep]
+    \item Si $\mathrm{sgn}(a) = 0$ et $\mathrm{sgn}(b) = 0$, alors $-(a+b) = -((0,\abs{a}) + (0, \abs{b})) = -(0, \abs{a}+\abs{b}) = (1, \abs{a} + \abs{b})$ et $(-a) + (-b) = (-(0,\abs{a})) + (-(0, \abs{b}))) = (1, \abs{a}) + (1, \abs{b}) = (1, \abs{a} + \abs{b})$.
+        Donc, $-(a+b) = (-a) + (-b)$.
+    \item Si $\mathrm{sgn}(a) = 0$ et $\mathrm{sgn}(b) = 1$, alors
+        \begin{itemize}[nosep]
+            \item Si $\abs{a} = \abs{b}$, $b = -a$, donc $a + b = 0$, donc $-(a+b) = 0$ et $(-a) + (-b) = (-a) + a = 0$.
+                Donc, $-(a+b) = (-a) + (-b)$.
+            \item Si $\abs{a} > \abs{b}$, $-(a+b) = -((0,\abs{a}) + (1, \abs{b})) = -(0, \abs{a} - \abs{b}) = (1, \abs{a} - \abs{b})$ et $(-a) + (-b) = (-(0, \abs{a})) + (-(1, \abs{b}))) = (1, \abs{a}) + (0, \abs{b}) = (1, \abs{a} - \abs{b})$.
+                Donc, $-(a+b) = (-a) + (-b)$.
+            \item Si $\abs{a} < \abs{b}$, $-(a+b) = -((0,\abs{a}) + (1, \abs{b})) = -(1, \abs{b} - \abs{a}) = (0, \abs{b} - \abs{a})$ et $(-a) + (-b) = (-(0, \abs{a})) + (-(1, \abs{b}))) = (1, \abs{a}) + (0, \abs{b}) = (0, \abs{b} - \abs{a})$.
+                Donc, $-(a+b) = (-a) + (-b)$.
+        \end{itemize}
+    \item Si $\mathrm{sgn}(a) = 1$ et $\mathrm{sgn}(b) = 0$, alors
+        \begin{itemize}[nosep]
+            \item Si $\abs{a} = \abs{b}$, $b = -a$, donc $a + b = 0$, donc $-(a+b) = 0$ et $(-a) + (-b) = (-a) + a = 0$.
+                Donc, $-(a+b) = (-a) + (-b)$.
+            \item Si $\abs{a} > \abs{b}$, $-(a+b) = -((1,\abs{a}) + (0, \abs{b})) = -(1, \abs{a} - \abs{b}) = (0, \abs{a} - \abs{b})$ et $(-a) + (-b) = (-(1, \abs{a})) + (-(0, \abs{b}))) = (0, \abs{a}) + (1, \abs{b}) = (0, \abs{a} - \abs{b})$.
+                Donc, $-(a+b) = (-a) + (-b)$.
+            \item Si $\abs{a} < \abs{b}$, $-(a+b) = -((1,\abs{a}) + (0, \abs{b})) = -(0, \abs{b} - \abs{a}) = (1, \abs{b} - \abs{a})$ et $(-a) + (-b) = (-(1, \abs{a})) + (-(0, \abs{b}))) = (0, \abs{a}) + (1, \abs{b}) = (1, \abs{b} - \abs{a})$.
+                Donc, $-(a+b) = (-a) + (-b)$.
+        \end{itemize}
+    \item Si $\mathrm{sgn}(a) = 1$ et $\mathrm{sgn}(b) = 1$, alors $-(a+b) = -((1,\abs{a}) + (1, \abs{b})) = -(1, \abs{a}+\abs{b}) = (0, \abs{a} + \abs{b})$ et $(-a) + (-b) = (-(1,\abs{a})) + (-(1, \abs{b}))) = (0, \abs{a}) + (0, \abs{b}) = (0, \abs{a} + \abs{b})$.
+        Donc, $-(a+b) = (-a) + (-b)$.
+\end{itemize}
+
 \subsubsection{Soustraction}
 
 \noindent\textbf{Définition :} 
@@ -470,6 +511,46 @@ Dans tous les cas, on a donc bien $z + (-z) = (0,0)$.
 \medskip
 
 \noindent\textbf{Démonstration :} On a : $(n-m) + m = (n + (-m)) + m = n + ((-m) + m) = n + 0 = n$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $a$ et $b$ deux élément de $\mathbb{Z}$. 
+    Alors 
+    \begin{itemize}[nosep]
+        \item Si $b > -a$, $a + b > 0$.
+        \item Si $b < -a$, $a + b < 0$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} Notons d'abords que le premier résultat implique le second. 
+    En effet, si $b < -a$, on a $-b > a$, donc, si le premier résultat est vrai, $(-a) + (-b) > 0$, donc $- (a+b) > 0$, donc $a + n < 0$.
+    Montrons donc seulement le premier résultat. 
+    Pour ce faire supposons $b > -a$ et distinguons quatre cas possibles : 
+    \begin{itemize}[nosep]
+        \item Si $a \geq 0$ et $b \geq 0$, alors $a$ et $b$ ne peuvent être tous deux nuls (sans quoi on aurait $b = -a$).
+            Donc, $\abs{a} + \abs{b} > 0$, donc $a + b$ (égal à $(0, \abs{a} + \abs{b})$) est strictement supérieur à $0$.
+        \item Si $a < 0$, alors $-a > 0$, donc $b > 0$. 
+            En outre, puisque $-a = (0, \abs{a})$ et $b = (0, \abs{b})$, on doit avoir $\abs{b} > \abs{a}$. 
+            Donc, $a + b = (0, \abs{b} - \abs{a})$ et $a + b > 0$.
+    \end{itemize}
+
+    \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $a$, $b$ et $c$ trois élément de $\mathbb{Z}$ tels que $b > c$.
+    Alors, $a + b > a + c$
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    On a  : $(a + b) - (a + c) = b - c$. 
+    Puisque $b > c$, $b - c > 0$, donc $(a + b) - (a + c) > 0$.
+    Si $a + b \leq a + c$ éait vrai, on aurait $a + b = a + c$, et donc $(a + b) - (a + c) = 0$, ou $a + b < a + c$, et donc $(a + b) - (a + c) < 0$. 
+    Puisqu'aucun de ces deux prédicats est vrai, $a + b \leq a + c$ est faux, donc $a + b > a + c$ est vrai.
 
     \done
 
