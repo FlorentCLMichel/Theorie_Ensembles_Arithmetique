@@ -762,12 +762,16 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
 \medskip
 
-\noindent\textbf{Définition :} Soit $\mathcal{E}$ l'ensemble des fonctions d'une partie de $\mathbb{N}$ vers $\mathbb{N}$. 
+Dans la suite de cette section, le symbole $\mathbb{Y}$ désigne $\mathbb{N}$ ou $\mathbb{Z}$.
+
+\medskip
+
+\noindent\textbf{Définition :} Soit $\mathcal{E}$ l'ensemble des fonctions d'une partie de $\mathbb{Y}$ vers $\mathbb{Y}$. 
     On définit par récurrence deux suites d'éléments de $\mathcal{E}$, notées $\Sigma$ et $\Pi$ de la manière suivante : 
     \begin{itemize}[nosep]
-        \item $\Sigma_0$ et $\Pi_0$ sont les fonctions de $\lbrace \emptyset \rbrace$ vers $\mathbb{N}$ telles que $\Sigma_0(\emptyset) = 0$ et $\Pi_0(\emptyset) = 1$.
-        \item Pour tout entier naturel $n$, $\Sigma_{n+1}$ et $\Pi_{n+1}$ sont les fonctions de l'ensemble des parties de $\mathbb{N}$ de cardinal $n+1$ vers $\mathbb{N}$ telles que, pour tout sous-ensemble $y$ de $\mathbb{N}$ de cardinal $n$ et tout élément $x$ de $\mathbb{N}$ tel que $x \notin y$, $\Sigma_{n+1} (y \cup \lbrace x \rbrace) = \Sigma_n (y) + x$ et $\Pi_{n+1} (y \cup \lbrace x \rbrace) = \Pi_n (y) \times x$. 
-        (Cela est une bonne définition car tout sous-ensemble de $\mathbb{N}$ de cardinal $n+1$ peut s'écrire sous cette forme%
+        \item $\Sigma_0$ et $\Pi_0$ sont les fonctions de $\lbrace \emptyset \rbrace$ vers $\mathbb{Y}$ telles que $\Sigma_0(\emptyset) = 0$ et $\Pi_0(\emptyset) = 1$.
+        \item Pour tout entier naturel $n$, $\Sigma_{n+1}$ et $\Pi_{n+1}$ sont les fonctions de l'ensemble des parties de $\mathbb{Y}$ de cardinal $n+1$ vers $\mathbb{Y}$ telles que, pour tout sous-ensemble $y$ de $\mathbb{Y}$ de cardinal $n$ et tout élément $x$ de $\mathbb{Y}$ tel que $x \notin y$, $\Sigma_{n+1} (y \cup \lbrace x \rbrace) = \Sigma_n (y) + x$ et $\Pi_{n+1} (y \cup \lbrace x \rbrace) = \Pi_n (y) \times x$. 
+        (Cela est une bonne définition car tout sous-ensemble de $\mathbb{Y}$ de cardinal $n+1$ peut s'écrire sous cette forme%
         \footnote{
             Soit $E$ un ensemble de cardinal $n+1$. 
             Puisque $n$ est un entier naturel, $n+1 \neq 0$. 
@@ -779,13 +783,13 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
         et car, s'il peut s'écrire sous cette forme de plusieurs manières différentes, le résultat n'en est pas affecté. 
         Ce second point est démontré ci-dessous.)
     \end{itemize} 
-    Soit $E$ un sous-ensemble de $\mathbb{N}$ de cardinal fini $n$. 
+    Soit $E$ un sous-ensemble de $\mathbb{Y}$ de cardinal fini $n$. 
     On note $\sum E$ l'entier $\Sigma_n (E)$ et $\prod E$ l'entier $\Pi_n(E)$.
 
 \medskip
 
 \noindent\textbf{Lemme :} Soit $n$ un entier naturel et $\Sigma_n$ et $\Pi_n$ définis comme ci-dessus. 
-    Soit $E$ un sous-ensemble de $\mathbb{N}$ de cardinal $n+1$. 
+    Soit $E$ un sous-ensemble de $\mathbb{Y}$ de cardinal $n+1$. 
     Soit $F_1$ et $F_2$ deux sous-ensembles de $E$ de cardinal $n$ et $x_1$ et $x_2$ deux éléments de $E$ tels que $E = F_1 \cup \lbrace x_1 \rbrace = F_2 \cup \lbrace x_2 \rbrace$. 
     Alors $\Sigma_n (F_1) + x_1 = \Sigma_n (F_2) + x_2$ et $\Pi_n (F_1) \times x_1 = \Pi_n (F_2) \times x_2$.
 
@@ -840,6 +844,57 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
     Ainsi, on a bien $G = F_2 \setminus \lbrace x_1 \rbrace$. 
 
    \done 
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $n$ et $E$ un sous-ensemble de $\mathbb{Y}$ de cardinal $n+1$. 
+    Soit $y$ un élément de $\mathbb{Y}$.
+    Soit $F$ l'ensemble définit par : $F = \lbrace x \in \mathbb{Y} \vert \exists e \in E \, x = y e \rbrace$.
+    Alors, $\sum F = y \sum E$.
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+    Supposons d'abord que $y \neq 0$.
+
+    On procède par récurrence sur $n$. 
+    Si $n = 0$, alors $E = \emptyset$, donc $F = \emptyset$ et $\sum E = \sum F = 0$.
+    Puisque $y \times 0 = 0$, on a bien $\sum F = y \sum E$.
+
+    Soit $n$ un entier naturel non nul et supposons le résutat vrai. 
+    Montrons qu'il reste vrai en remplaçant $n$ par $n+1$. 
+    Soit $E$ un sous-ensemble de $\mathbb{Y}$ de cardinal $n+1$. 
+    Soit $e$ un élément de $E$ (un tel élément existe puisque $n+1 > 0$, donc $E$ est non vide).
+    Soit $E'$ l'ensemble définit par $E' = E \setminus \lbrace e \rbrace$. 
+    Soit $F$ l'ensemble définit par : $F = \lbrace x \in \mathbb{Y} \vert \exists e \in E \, x = y e \rbrace$ et $F'$ l'ensemble définit par : $F' = \lbrace x \in \mathbb{Y} \vert \exists e \in E' \, x = y e \rbrace$.
+    Puisque $E'$ est de cardinal $n$, $\sum F' = y \sum E'$.
+    En outre, on a $F = F' \cup \lbrace y e \rbrace$ et $y e \notin F'$.
+    En effet, 
+    \begin{itemize}[nosep]
+        \item Soit $x$ un élément de $F$.
+            Alors, il existe un élémetnt $w$ de $E$ tel que $x = y w$.
+            Puisque $E = E' \cup \lbrace e \rbrace$, $w \in E'$ ou $w = e$.
+            Dans le premier cas, $y w \in F'$, donc $x \in F'$.
+            Dans le second cas, $y w = y e$, donc $x \in \lbrace y e \rbrace$.
+        \item Soit $x$ un élément de $F' \cup \lbrace y e \rbrace$. 
+            Si $x \in F'$, on peut choisir un élément $w$ de $E'$ tel que $x = y w$.
+            Puisque $E'$ est un sous-ensemble de $E$, $y w \in F$, donc $x \in F$.
+            Sinon, $x = y e$.
+            Puisque $e \in E$, on a alors $x \in F$.
+        \item Si $y e \in F'$, on pourrait choisir un élément $e'$ de $E'$ tel que $y e' = y e$.
+            Puisque $y > 0$, cela impliquerait $e' = e$, ce qui est impossible puisque $e \notin E'$.
+            DOnc, $ye \notin F$.
+    \end{itemize}
+    Donc, $\sum F = \sum F' + y e = y \sum E' + y e = y (\sum E' + e) = y \sum E$.
+
+    Par récurrece, on en déduit que le résultat est vrai pour tout entier naturel $n$.
+
+    Supposons maintenant $y = 0$.
+    Alors, $y \sum E = 0$.
+    En outre, $F$ est vide si $E$ est vide ou contient $0$ pour seul élément sinon.
+    Dand les deux cas, $\sum F = 0$, donc $\sum F = y \sum E$.
+
+    \done
 
 \subsubsection{Ensemble défini par une liste d'éléments} 
 
@@ -1122,3 +1177,14 @@ Puisque $f$ est une surjection, on peut choisir un élément $x$ de $\mathbb{N}$
 On a alors $g(x) = f(x)(x)$, d'où $1 - f(x)(x) = f(x)(x)$. 
 Mais cela est impossible puisque $f(x)(x) \in \lbrace 0, 1 \rbrace$, $1 - 0 = 1$ et $1 - 1 = 0$, et donc $1 - f(x)(x) \neq f(x)(x)$. 
 On en conclut que l'hypothèse de départ est fausse : il n'existe aucune bijection de $\mathbb{N}$ vers $\mathcal{F}(\mathbb{N}, \lbrace 0, 1 \rbrace)$. 
+
+\medskip
+
+\noindent\textbf{Définition :} Soit $n$ un entier naturel et $u$ une fonction de $n$ vers $\mathbb{Y}$. 
+    Alors, 
+    \begin{itemize}[nosep]
+        \item Si $n = 0$, on définit $\sum u$ par $0$ et $\prod u$ par $1$.
+        \item Si $n = 1$, on définit $\sum u$ par $u(0)$ et $\prod u$ par $u(0)$.
+        \item Si $n > 1$, on définit $\sum u$ par $u(0) + u(1) + \cdots + u(n-1)$ et $\prod u$ par $u(0) \times u(1) \times \cdots \times u(n-1)$.
+    \end{itemize}
+    On noteras aussi $\sum u$ par $\sum_{i=0}^{n-1} u(i)$ et $\prod u$ par $\prod_{i=0}^{n-1} u(i)$.
