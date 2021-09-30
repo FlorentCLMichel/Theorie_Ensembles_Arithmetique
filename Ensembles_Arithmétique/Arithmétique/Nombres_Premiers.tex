@@ -3,7 +3,7 @@
 \subsubsection{Définition}
 \label{subsub:defNombresPremiers}
 
-Un entier naturel $p$ est dit \textit{premier} s'il admet exactement deux entiers naturels pour diviseurs: $1$ et lui-même.
+Un entier naturel $p$ est dit \textit{premier} s'il admet exactement deux entiers naturels distincts pour diviseurs: $1$ et lui-même.
 On note $\mathbb{P}$ l'ensemble des nombres premiers.
 
 Les premiers nombres premiers sont $2$, $3$, $5$, $7$, $11$, $13$, $17$, $19$ et $23$.
@@ -20,20 +20,23 @@ Deux nombres premiers $p$ et $q$ sont dits \textit{jumeaux} si $p-q=2$ ou $q-p=2
 \medskip
 
 \noindent\textbf{Démonstration :} On procède par récurrence forte. 
-Le lemme est évidemment vrai pour le nombre $2$, qui est lui-même premier (et, comme tout entier naturel, divisible par lui-même). 
+Montrons que, pour tout entier naturel $n$, $n \leq 1$ ou $n$ est divisible par au moins un nombre premier.
+Le lemme est évidemment vrai pour les nombres $0$ et $1$ (qui sont tous deux inférieurs ou égaux à $1$) et pour $2$, qui est lui-même premier (et, comme tout entier naturel, divisible par lui-même). 
 
 Soit $n$ un entier naturel strictement supérieur à $2$ et supposons que tout entier compris entre $2$ et $n-1$ soit divisible par au moins un nombre premier. 
 
-Si $n$ est divisible par un entier $l$ compris entre $2$ et $n-1$, alors il existe un nombre permier $p$ divisant $l$. 
+Si $n$ est divisible par un entier $l$ compris entre $2$ et $n-1$ (inclus), alors il existe un nombre permier $p$ divisant $l$. 
 Il existe alors deux entiers naturels $k$ et $q$ tels que $n = k l$ et $l = q p$, d'où $n = (k q) p$. 
 Donc, $p$ divise $n$. 
 
-Si $n$ n'est divisible par aucun entier compris entre $2$ et $n-1$, alors $n$ n'est divisible que par $1$ et par lui-même. 
+Si $n$ n'est divisible par aucun entier compris entre $2$ et $n-1$, alors il n'est divisible par aucun entier strictement supérieur à $1$ autre que lui-même. 
+En effet, soit $m$ un tel entier, soit $m < n$, et donc $m$ ne divise pas $n$, soit $m > n$, auquel cas il ne peut être un diviseur de $n$.
+Donc, $n$ n'est divisible que par $1$ et par lui-même (qui sont bien distincts puisque $n > 1$). 
 Par définition, $n$ est donc un nombre premier. 
 Puisque $n$ est divisible par lui-même, il est divisible par un nombre premier. 
 
 Dans les deux cas, $n$ est divisible par un nombre premier. 
-Par récurrence forte, on en déduit que le résultat est vrai pour tout entier naturel supérieur ou égal à $2$.
+Par récurrence forte, on en déduit que le résultat est vrai pour tout entier naturel, et donc que tout entier naturel strictement supérieur à $1$ est divisible par au moins un nombre premier.
 
 \done
 
