@@ -46,36 +46,42 @@ Par récurrence forte, on en déduit que le résultat est vrai pour tout entier 
 
 \medskip
 
-\noindent\textbf{Démonstration :} On procède par l'absurde. 
-Supposons qu'il n'existe qu'un nombre fini $N \in \mathbb{N}^*$ de nombres premiers, notés $p_1$, $p_2$, ..., $p_N$. 
-Soit $q \equiv 1 + \prod_{i=1}^N p_i$. 
-On a $q > 1$.
-Pour tout $i \in [\![1, N]\!]$, on a $q = 1 \, [p_i]$, donc le reste de la division euclidienne de $q$ par $p_i$ est $1$, et $q$ n'est pas divisible par $p_i$.  
+\noindent\textbf{Démonstration :} Supposons par l'absurde que l'ensemble des nombres premiers et fini. 
+Soit $N$ le cardinal de $\mathbb{P}$ ; $N$ est donc un entier naturel. 
+Notons que $N \geq 3$ puisque $2$, $3$ et $5$ sont premiers.
+On peut choisir une bijection $b$ de $N$ vers $\mathbb{P}$. 
+Pour tout entier naturel $i$ strictement infèrieur à $N$, on note $p_{i+1}$ l'entier naturel $b(i)$.
+Ainsi, $\mathbb{P} = \lbrace p_1, p_2, \dots, p_N \rbrace$. 
+
+Soit $q$ l'entier définit par : $q \equiv 1 + \prod_{i=1}^N p_i$. 
+Puisque tout nombre premier est strictement supérieur à $0$, $\prod_{i=1}^N p_i > 0$~\footnote{Cela se démontre facilement par récurrence sur $N$.}, donc $q > 1$.
+Pour tout entier naturel $i$ tel que $i \in [\![1, N]\!]$, on a $q \equiv 1 \, [p_i]$, donc le reste de la division euclidienne de $q$ par $p_i$ est $1$, et $q$ n'est pas divisible par $p_i$.  
 Donc, $q$ n'est divisible par aucun nombre premier, ce qui contredit le lemme précédent. 
-On en conclut que l'hypothèse est fausse. 
+On en conclut que l'hypothèse de départ est fausse. 
 
 \done
 
 \bigskip
 
-\noindent\textbf{Lemme :} Soit $p$, $q$ et $r$ trois nombres premiers tels que $r > q > p$ et $r-q = q-p$. Alors $p=3$ ou $q-p$ est divisible par $3$.
+\noindent\textbf{Lemme :} Soit $p$, $q$ et $r$ trois nombres premiers tels que $r > q$, $q > p$ et $r-q = q-p$. Alors $p=3$ ou $q-p$ est divisible par $3$.
 
 \medskip
 
-\noindent\textbf{Démonstration :} Notons $a = q-p$. 
+\noindent\textbf{Démonstration :} Notons $a$ l'entier $q-p$. 
 Soit $b$ le reste de la division euclidienne de $p$ par $3$ et $c$ celui de la division euclidienne de $a$ par $3$. 
 Si $c = 0$, le résultat est immédiat.
-Si $b = 0$, p est divisible par $3$. 
+Si $b = 0$, $p$ est divisible par $3$. 
 Puisque $p$ est premier, on en déduit que $p=3$ et le résultat est établi. 
 Montrons que les autres cas, \textit{i.e.} ceux où $b$ et $c$ sont chacun égaux à $1$ ou $2$, sont impossibles. 
+Pour ce faire, on note que $r = p + (q - p) + (r - q) = p + 2 a$, donc $r \equiv b + 2 c \, [3]$.
 
-Si $b = c = 1$, alors $r = (1 + 1 + 1) \, [3] = 3 \, [3] = 0 \, [3]$. 
+Si $b = c = 1$, alors $r \equiv (1 + 2) \, [3] \equiv 3 \, [3] \equiv 0 \, [3]$. 
 Donc, $r$ est divisible par $3$. 
 Puisque $r$ est premier, on en déduit que $r=3$, ce qui est impossible car $p$ et $q$ sont deux nombres premiers distincts strictement inférieurs à $r$ et qu'il n'existe qu'un seul nombre premier ($2$) strictement inférieur à $3$. 
 
-De même, si $b = c = 2$, alors $r = (2 + 2 + 2) \, [3] = 6 \, [3] = 0 \, [3]$, ce qui est impossible comme nous venons de le voir.
+De même, si $b = c = 2$, alors $r \equiv (2 + 4) \, [3] \equiv 6 \, [3] \equiv 0 \, [3]$, ce qui est impossible comme nous venons de le voir.
 
-Si $b = 1$ et $c = 2$ ou si $b = 2$ et $c = 1$, alors $q = (1 + 2) \, [3] = 3 \, [3] = 0 \, [3]$. 
+Si $b = 1$ et $c = 2$ ou si $b = 2$ et $c = 1$, alors $q \equiv (1 + 2) \, [3] \equiv 3 \, [3] \equiv 0 \, [3]$. 
 Donc, $q$ est divisible par $3$.
 Puisque $q$ est premier, on en déduit que $q=3$. 
 Puisque $p$ est un nombre premier strictement inférieur à $q$, il ne peut qu'être égal à $2$. 
@@ -86,7 +92,9 @@ Mais $4$ n'est pas un nombre premier (puisque $4 = 2 \times 2$ est divisible par
 
 \bigskip
 
-Des fonctions Haskell détarminant si un entier naturel est premier et calculant les premier nombres premiers sont données en appendice~\ref{app:Haskell_primalité}.
+Des fonctions Haskell détarminant si un entier naturel est premier et calculant les premier nombres premiers sont données en appendice~\ref{app:Haskell_primalité}. 
+(Ces fonctions sont données à titre d'illustration uniquement, et ne sont pas particulièrement efficaces. 
+En particulier, il est en général plus rapide pour calculer les premiers nombre premiers d'utiliser le crible d'Érastosthène, dont une implémentation en C++ et Rust est donnée en appendice~\ref{app:code_erastosthene}.)
 
 \subsubsection{Théorème de Bachet-Bézout}
 

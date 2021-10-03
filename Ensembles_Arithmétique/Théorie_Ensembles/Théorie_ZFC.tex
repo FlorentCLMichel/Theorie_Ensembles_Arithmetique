@@ -916,6 +916,35 @@ En effet, on a $a \leq c$ par transitivité de la relation $\leq$ et $a \neq c$ 
         Dans tous les cas, on a bien $(x \leq y) \vee (y \leq x)$.
 \end{itemize}
 
+\medskip
+
+\noindent\textbf{Vocabulaire :} Soit $E$ un ensemble et $\leq$ une relation d'ordre sur $E$. 
+    Soit $\geq$, $<$ et $>$ les relations définies par : pour tous éléments $a$ et $b$ de $E$, 
+    \begin{itemize}[nosep]
+        \item $a \geq b \Leftrightarrow b \geq a$,
+        \item $a < b \Leftrightarrow ( a \leq b \wedge a \neq b )$,
+        \item $a > b \Leftrightarrow b < a$.
+    \end{itemize}
+    Alors, soit $a$ et $b$ deux éléments de $E$, et s'il n'y a pas d'ambiguité, 
+    \begin{itemize}[nosep]
+        \item si $a \leq b$, on dira que \textit{$a$ est inférieur ou égal à $b$}, 
+        \item si $a \geq b$, on dira que \textit{$a$ est supérieur ou égal à $b$}, 
+        \item si $a < b$, on dira que \textit{$a$ est strictement inférieur à $b$}, 
+        \item si $a > b$, on dira que \textit{$a$ est strictement supérieur à $b$}.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Notation :} Soit $E$ un ensemble, $\geq$ une relation d'ordre sur $E$, et $<$ la relation d'ordre strict sur $E$ définie par : pour tous éléments $a$ et $b$ de $E$, $a < b \Leftrightarrow ( a \leq b \wedge a \neq b )$. 
+    Si $a_0$, $a_1$, $a_2$, ..., $a_n$ sont des éléments de $E$ (avec $a_n$ possiblement absent) et $R_1$, $R_2$, ..., $R_n$ (où $R_n$ est absent si $a_n$ l'est) des symboles chacun identique à $\leq$ ou $<$, alors la formule
+    \begin{equation*}
+        a_0 \mathrel{R_1} a_1 \mathrel{R_2} a_2 \dots
+    \end{equation*}
+    signifie :
+    \begin{equation*}
+        (a_0 \mathrel{R_1} a_1) \wedge (a_1 \mathrel{R_2} a_2) \dots .
+    \end{equation*}
+
 \subsubsection{Partition} 
 
 Soit $E$ et $P$ deux ensembles. 

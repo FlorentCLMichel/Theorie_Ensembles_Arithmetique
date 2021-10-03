@@ -201,7 +201,7 @@ Des fonctions Haskell, C et Rust calculant le pgcd de deux entiers naturels non 
 \subsubsection{Modulo}
 
 Soit $p$, $q$ et $r$ trois entiers relatifs. 
-On écrit $p \equiv r \, [q]$, ou $p \equiv r \, \mathrm{mod} \, q$, ou encore $p \equiv r \, ( \mathrm{mod} \, q)$ le prédicat : il esxiste un entier relatif $k$ tel que $p = r + k q$, \textit{i.e.}, $\exists k \in \mathbb{Z} \, p = r + k q$. 
+On écrit $p \equiv r \, [q]$, ou $p \equiv r \, \mathrm{mod} \, q$, ou encore $p \equiv r \, ( \mathrm{mod} \, q)$ le prédicat : il existe un entier relatif $k$ tel que $p = r + k q$, \textit{i.e.}, $\exists k \in \mathbb{Z} \, p = r + k q$. 
 Si ce prédicat est vrai, on dit que \textit{$p$ est égal à $r$ modulo $q$}.
 Notons que, pour tout entier relatif $s$, on a alors aussi $p \equiv (r + s q) \, [q]$%
 ~\footnote{
@@ -213,22 +213,22 @@ Notons aussi que l'on a toujours $p \equiv p \, [q]$ (puisque $p = p + 0 q$).
 
 \medskip 
 
-\noindent\textbf{Lemme :} Soit $p$, $q$, $r$ et $s$ quatre entiers tels que $p = r \, [q]$ et $r = s \, [q]$.
-    Alors, $p = s \, [q]$.
+\noindent\textbf{Lemme :} Soit $p$, $q$, $r$ et $s$ quatre entiers tels que $p \equiv r \, [q]$ et $r \equiv s \, [q]$.
+    Alors, $p \equiv s \, [q]$.
 
 \medskip 
     
 \noindent\textbf{Démonstration :} 
-    Puisque $p = r \, [q]$, on peut choisir un entier $k$ tel que $p = r + k q$.
-    Puisque $r = s \, [q]$, on peut choisir un entier $l$ tel que $r = s + l q$.
+    Puisque $p \equiv r \, [q]$, on peut choisir un entier $k$ tel que $p = r + k q$.
+    Puisque $r \equiv s \, [q]$, on peut choisir un entier $l$ tel que $r = s + l q$.
     On a donc : $p = (s + l q) + k q = s + (l q + k q) = s + (l + k) q$.
-    Puisque $l \in \mathbb{Z}$ et $k \in \mathbb{Z}$, $l + k \in \mathbb{Z}$, et donc $p = s \, [q]$.
+    Puisque $l \in \mathbb{Z}$ et $k \in \mathbb{Z}$, $l + k \in \mathbb{Z}$, et donc $p \equiv s \, [q]$.
 
     \done
 
 \medskip 
 
-\noindent\textbf{Lemme :} Soit $p$, $q$ et $r$ trois entier naturels tels que $p = r \, [q]$ et $r < q$.
+\noindent\textbf{Lemme :} Soit $p$, $q$ et $r$ trois entier naturels tels que $p \equiv r \, [q]$ et $r < q$.
     Alors, $r$ est le reste de la division Enclidienne de $p$ par $q$.
 
 \medskip 
@@ -245,7 +245,17 @@ Notons aussi que l'on a toujours $p \equiv p \, [q]$ (puisque $p = p + 0 q$).
 
 \medskip 
 
-\noindent\textbf{Remarque :} Réciproquement, et par définition du reste de la division euclidienne, qi $p$ et $q$ sont deux entiers naturels, alors $p = (p \mathrel{\%} q) \, [q]$.
+\noindent\textbf{Remarque :} Réciproquement, et par définition du reste de la division euclidienne, si $p$ et $q$ sont deux entiers naturels, alors $p \equiv (p \mathrel{\%} q) \, [q]$.
+
+\medskip 
+
+\noindent\textbf{Corrolaire 1 :} Soit $p$, $q$ et $r$ trois entier naturels tels que $p = r \, [q]$ et $r < q$.
+    Si $r \neq 0$, alors $p$ n'est pas un multiple de $q$.
+
+\medskip 
+
+\noindent\textbf{Corrolaire 2 :} Soit $p$, et $q$ deux entier naturels tels que $q \neq 0$ et $q \vert p$.
+    Alors, $p \equiv 0 \, [q]$.
 
 \medskip 
 
@@ -269,7 +279,14 @@ On a :
 
 \done
 
-\bigskip
+\medskip
 
 \noindent\textbf{Définition :} Un entier naturel $n$ est pair si et seulement si $n \equiv 0 \, [2]$ et impair si et seulement si $n \equiv 1 \, [2]$. 
-On montre ainsi facilement que la somme de deux nombres pairs est paire, la somme de deux impairs est paire (puisque $1 + 1 = 2 et 2 = 0 \, [2]$), et la somme d'un pair et d'un impair est impaire.
+On montre ainsi facilement que la somme de deux nombres pairs est paire, la somme de deux impairs est paire (puisque $1 + 1 = 2$ et $2 = 0 \, [2]$), et la somme d'un pair et d'un impair est impaire.
+
+\medskip
+
+\noindent\textbf{Notation :} Soit $a$ un entier non nul, $n$ un entier naturel non nul et $c_0$, $c_1$, ..., $c_n$ des entiers.
+    On abrègera parfois la formule $(c_0 \equiv c_1 \, [a]) \wedge (c_1 \equiv c_2 \, [a]) \wedge \dots \wedge (c_{n-1} \equiv c_n \, [a])$ en $c_0 \equiv c_1 \, [a] \equiv c_2 \, [a] \equiv \cdots \equiv c_n \, [a]$.
+    
+    
