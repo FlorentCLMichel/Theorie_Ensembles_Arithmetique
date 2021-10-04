@@ -107,19 +107,19 @@ Il existe deux entiers relatifs $p$ et $q$ tels que $p a + q b = c$.
 \medskip
 
 \noindent\textbf{Démonstration :} 
-Soit $E = \lbrace p a + q b \vert (p,q) \in \mathbb{Z}^2 \, \wedge \, p a + q b > 0 \rbrace$. 
-$E$ est un sous-ensemble non vide (il contient au moins $a$, obtenu pour $p=1$ et $q=0$) de $\mathbb{N}$, donc il admet un plus petit élément $r$. 
+Soit $E = \lbrace n \in \mathbb{N}^* \vert \exists (p,q) \in \mathbb{Z}^2 \, p a + q b \rbrace$. 
+$E$ est un sous-ensemble non vide (il contient au moins $a$, obtenu pour $p=1$ et $q=0$) de $\mathbb{N}$, donc il admet un unique élément minimal $r$. 
 En outre, par définition de $E$, $r > 0$. 
 Montrons qu'il s'agit du plus grand diviseur commun de $a$ et $b$, ce qui prouvera le théorème. 
 Pour ce faire, nous procédons en deux temps. 
-Nous montrons d'abord que $r$ divise $a$ et $b$, puis qu'il n'existe ausun plus grand diviseur commun à ces deux nombres.
+Nous montrons d'abord que $r$ divise $a$ et $b$, puis qu'il n'existe aucun diviseur commun à ces deux nombres qui soit strictement supérieur à $r$.
 
 Notons $s$ le reste de la division euclidienne de $a$ par $r$. 
 Il existe un entier naturel $k$ tel que $a = k r + s$, et $0 \leq s < r$. 
 Soit $p$ et $q$ deux entiers relatifs tels que $p a + q b = r$. 
 On a: $p a + q b = k a + s$, et donc $(p-k) a + q b = s$. 
-Si $s > 0$, $s$ serait donc un élément de $E$. 
-Or, cela est impossible car $s < r$. 
+Si $s$ était strictement positif, $s$ serait un élément de $\mathbb{N}^*$ et donc de $E$. 
+Or, cela est impossible car $s < r$ et $r$ est un élément minimal de $E$. 
 On en déduit que $s = 0$, et donc que $r$ divise $a$. 
 On montre de même, par le même argument et en échangeant les rôles de $a$ et $b$, que $r$ divise $b$. 
 Ainsi, $r$ est un diviseur commun de $a$ et $b$. 
