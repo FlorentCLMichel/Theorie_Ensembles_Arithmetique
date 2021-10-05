@@ -151,40 +151,55 @@ D'après le théorème précédent, on peut donc choisir deux entiers relatifs $
 Multiplions cette équation par $b$. 
 Il vient : $q p b + r a b = b$. 
 Puisque $p$ divise $a b$, on peut choisir un entier naturel $k$ tel que $a b = k p$. 
-Donc, $q p b + k p = b$. 
-Cette équation peut se récrire : $(q b + k) p = b$. 
-Puisque $p$ et $b$ sont tous deux strictement positifs, $p b + k$ doit l'être aussi, et $p$ divise donc $b$.
+Donc, $q p b + r k p = b$. 
+Cette équation peut se récrire : $(q b + r k) p = b$. 
+Puisque $p$ et $b$ sont tous deux strictement positifs, $p b + r k$ doit l'être aussi, et $p$ divise donc $b$.
 
 \done
 
 \bigskip
 \noindent\textbf{Corrolaire :} 
-Soit $N \in \mathbb{N}$ tel que $N > 1$, $p$ un nombre premier, et $a_1$, $a_2$, ..., $a_N$ des entiers naturels. 
-Si $p$ divise $a_1 a_2 \cdots a_N$, alors il existe $i \in [\![1,N]\!]$ tel que $p$ divise $a_i$.
+Soit $p$ un nombre premier, $N$ un entier naturel, et $a_1$, $a_2$, ..., $a_N$ des entiers naturels (si $N \neq 0$). 
+Si $p$ divise $\prod_{i=1}^N a_i$ (pris égal à $1$ si $N = 0$), alors il existe un élément $i$ de $[\![1,N]\!]$ tel que $p$ divise $a_i$.
 
 \medskip
 
 \noindent\textbf{Démonstration :} 
 On procède par récurrence sur $N$. 
-Pour $N = 2$, il s'agit du lemme précédent. 
-Supposons maintenant $N > 2$ et l'assertion vraie au rang $N-1$. 
-Puisque $p$ divise $a_1 a_2 \cdots a_N$, égal à $(a_1 a_2 \cdots a_{N-1}) a_N$, d'après le lemme précédent, il divise $a_1 a_2 \cdots a_{N-1}$ ou $a_N$. 
-Dans le second cas, l'assertion est vraie. 
-Dans le premiers, par hypothèse de récurrence, il existe $i \in [\![1,N-1]\!]$, et donc $i \in [\![1,N]\!]$, tel que $p$ divise $a_i$ et l'assertion est vraie. 
-Par récurrence, elle est donc vraie pour tout $N \in \mathbb{N}$ tel que $N > 1$. 
+Soit $P$ le prédicat à un paramètre libre défini par : $P(N): \forall a \in \mathbb{N}^N \, p \vert \prod_{i=1}^N a_i \Rightarrow \exists i \in [\![1,N]\!] \, \vert a_i$.
+
+Puisque $p$ est premier, $p > 1$, donc $p$ ne divise pas $1$. 
+Donc, $P(0)$ est vrai.
+
+Si $N = 1$ et $p \vert \prod_{i = 1}^N a_i$, alors, puisque $ \prod_{i = 1}^N= a_1$, $p \vert a_1$.
+Donc, $P(1)$ est vrai.
+
+Le prédicat $P(2)$ est également vrai d'après le lemme précédent. 
+
+Soit $N$ un entier naturel tel que $P(N)$ est vrai. 
+Si $N = 0$ ou $N = 1$, alors $N+1 = 1$ ou $N+1 = 2$, donc $P(N+1)$ est vrai.
+Supposons maintenant $N \geq 2$.
+
+Soit $a_1$, $a_2$, ..., $a_{N+1}$ des entiers naturels tels que $p \vert a_1 a_2 \cdots a_{N+1}$.
+Puisque $p$ divise $a_1 a_2 \cdots a_{N+1}$, égal à $(a_1 a_2 \cdots a_N) a_{N+1}$, d'après le lemme précédent, il divise $a_1 a_2 \cdots a_N$ ou $a_{N+1}$. 
+Dans le second cas, il existe bien un élément $i$ de $[\![1, N+1]\!]$ ($N+1$) tel que $p \vert a_i$. 
+Dans le premiers, par hypothèse de récurrence, il existe un élément $i$ de $[\![1,N]\!]$, satisfaisant donc $i \in [\![1,N+1]\!]$, tel que $p$ divise $a_i$. 
+Ainsi, $P(N+1)$ est vrai.
+
+Par récurrence, $P(N)$ est donc vrai pour tout entier naturel $N$. 
 
 \done
 
 \medskip
 
 \noindent\textbf{Corrolaire :} 
-Soit $N \in \mathbb{N}$ tel que $N > 1$, $p$ un nombre premier, et $a$ un entier naturel.
+Soit $N$ un entier naturel, $p$ un nombre premier, et $a$ un entier naturel.
 Si $p$ divise $a^N$, alors $p$ divise $a$.
 
 \medskip
 
 \noindent\textbf{Démonstration :} 
-Application du corrolaire précédent avec $a_1 = a_2 = \cdots = a_N = a$.
+C'est une application directe du corrolaire précédent avec $a_1 = a_2 = \cdots = a_N = a$.
 
 \done
 
