@@ -205,13 +205,22 @@ C'est une application directe du corrolaire précédent avec $a_1 = a_2 = \cdots
 
 \medskip
 
-\noindent\textbf{Corrolaire :} Soit $a$, $b$, et $c$ trois entiers deux-à-deux premiers entre eux. Alors $ab$ et $c$ sont aussi premiers entre eux.
+\noindent\textbf{Corrolaire :} Soit $a$, $b$, et $c$ trois entiers tels que $a$ et $c$ sont premiers entre eux et $b$ et $c$ sont premiers entre eux. Alors $ab$ et $c$ sont aussi premiers entre eux.
 
 \medskip 
 
-\noindent\textbf{Démonstration :} Avec les mêmes notations, soit $d$ un diviseur de $ab$ et $c$. D'après le théorème de Bachet-Bézout, $d$ divise $a$ ou $b$. 
-Puisque $a$ et $c$ sont permiers entre eux et que $b$ et $c$ sont permiers entre eux, $d$ ne peut donc qu'être égal à $1$. 
-Réciproqiement, $1$ divise tout entier et donc $ab$ et $c$.
+\noindent\textbf{Démonstration :} Soit $d$ un diviseur de $ab$ et $c$. 
+On veut montrer que $d$ doit être égal à $1$. 
+Supposons par l'absurde que $d > 1$. 
+Alors, $d$ admet au moins un diviseur premier $e$.
+Puisque $e \vert d$ et $d \vert ab$, on a $e \vert ab$.
+Donc, $e \vert a$ ou $e \vert b$.
+De même, puisque $e \vert d$ et $d \vert c$, on a $e \vert c$.
+Donc, $(e \vert a \wedge e \vert c) \vee (e \vert b \wedge e \vert c)$.
+Cela est impossible puisque $e > 0$, $a$ et $c$ sont premiers entre eux et que $b$ et $c$ sont permiers entre eux. 
+On en déduit que l'hypothèse de départ est fausse et que $d$ doit être égal à $1$. 
+
+Réciproquement, $1$ divise tout entier et donc $ab$ et $c$.
 Donc, $1$ est le pgcd de $ab$ et $c$.
 
 \done
