@@ -645,7 +645,70 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
 \medskip
 
-\noindent\textbf{Démonstration :} XXXXXX \textit{(Par récurrence sur le cardinal de $F$ : $E \times \emptyset$ est égal à $\emptyset$, qui est de cardinal nul; si $F$ a pour cardinal $n+1$, trouver une bijection entre $(\abs{E} \times n) + \abs{E}$ et $\abs{F}$)}
+\noindent\textbf{Démonstration :} 
+On procède par récurrence sur le cardinal de $F$. 
+Supposons d'abord $\abs{F} = 0$.
+Alors, $E = \emptyset$.
+Donc, $E \times F = \emptyset$.
+Donc, $E \times F$ est fini et $\abs{E \times F} = 0$.
+En outre, $\abs{E} \times \abs{F} = \abs{E} \times 0 = 0$.
+Donc, $\abs{E \times F} = \abs{E} \times \abs{F}$.
+
+Soit $n$ un entier naturel. 
+On suppose l'énoncé du lemme vrai pour tout ensemble fini $E$ et tout ensemble fini $F$ de cardinal $n$.
+Soit $E$ un ensemble fini et $F$ un ensemble fini de cardinal $n+1$.
+Puisque $n+1 > 0$, $F \neq \emptyset$, donc on peut choisir un élément $x$ de $F$.
+Soit $F'$ l'ensemble défini par : $F' = F \setminus \lbrace x \rbrace$. 
+Alors, $F'$ est fini et de cardinal $n$. 
+Donc, $E \times F'$ est fini et de cardinal $\abs{E} \times n$.
+On peut donc choisir une bijection $f$ de $E \times F'$ vers $\abs{E} \times n$.
+Par ailleurs, par définition du cardinal, on peut choisir une bijection $g$ de $E$ vers $\abs{E}$. 
+Définissons la fonction $h$ de $E \times F$ vers $\abs{E} \times n + \abs{E}$ de la manière suivante : soit $a$ un élément de $E$ et $b$ un élément de $F$,
+\begin{itemize}[nosep]
+    \item si $b \neq x$, $h((a,b)) = f((a,b))$,
+    \item si $b = x$, $h((a,b)) = \abs{E} \times n + g(a)$.
+\end{itemize}
+Montrons maintenant que $h$ est une bijection. 
+Cela montrera que $E \times F$ est fini et de cardinal $\abs{E} \times n + \abs{E}$.
+Puisque $\abs{E} \times n + \abs{E} = \abs{E} \times (n+1) = \abs{E} \times \abs{F}$, cela montrera le résultat attendu.
+
+\begin{itemize}[nosep]
+    \item \textit{$f$ est surjective :}
+        Soit $m$ un élément de $\abs{E} \times n + \abs{E}$.
+        Alors, $m < \abs{E} \times n + \abs{E}$. 
+        \begin{itemize}[nosep]
+            \item Si $n < \abs{E} \times n$, $m$ est dans l'image de $f$, donc on peut choisir un élément $a$ de $E$ et un élément $b$ de $F'$ tel que $f((a,b)) = m$. 
+                Puisque $b \in F'$, $b \in F$ et $b \neq x$.
+                Donc, $h((a,b)) = f((a,b)) = m$.
+            \item Sinon, $m - \abs{E} \times n \in \mathbb{N}$. 
+                En outre, $n < \abs{E}$.
+                Donc, on peut choisir un élément $a$ de $E$ tel que $g(a) = m - \abs{E} \times n$.
+                On a donc $h((a,x)) = \abs{E} \times n + m - \abs{E} \times n = m$.
+        \end{itemize}
+    \item \textit{$f$ est injective :} Soit $u$ et $v$ deux éléments de $E \times F$ tels que $h(u) = h(v)$. 
+        Soit $a$ et $a'$ deux éléments de $E$ et $b$ et $b'$ deux éléments de $F$ tels que $u = (a,b)$ et $v = (a',b')$.
+        On a donc $h((a,b)) = h((a',b'))$.
+        Alors, 
+        \begin{itemize}[nosep]
+            \item Si $b = x$, alors $h((a,b)) \geq \abs{E} \times n$, donc $h((a,b')) \geq \abs{E} \times n$.
+                Donc, $b' = x$.
+                Donc, $b = b'$.
+                En outre, $h((a,b)) = g(a)$ et $h((a',b')) = g(a')$.
+                Donc, $g(a) = g(a')$.
+                Puisque $g$ est injective, on en déduit $a = a'$, donc $(a,b) = (a',b')$, et donc $u = b$.
+            \item Sinon, $h((a,b)) = f((a,b))$. 
+                Donc, $h((a,b)) < \abs{E} \times n$.
+                Donc, $h((a',b')) < \abs{E} \times n$.
+                Donc, $b' \neq x$, et donc $h((a',b')) = f((a',b'))$.
+                On a donc $h(u) = h(v)$.
+                Puisque $h$ est injective, on en déduit $u = v$.
+        \end{itemize}
+\end{itemize}
+
+Ainsi, le résultat attendu est vrai pour toues ensembles finis $E$ et $F$ tels que $\abs{F}= n+1$. 
+Par récurrence, il est donc vrai pour tous ensembles finis $E$ et $F$ tels que $\abs{F} \in \mathbb{N}$, et donc pour tous ensembles finis $E$ et $F$.
+
+\done
 
 \medskip
 
