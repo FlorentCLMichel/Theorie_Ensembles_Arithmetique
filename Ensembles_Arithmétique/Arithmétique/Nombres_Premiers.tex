@@ -136,7 +136,8 @@ Ainsi, $r$, qui est un élément de $E$ et peut donc s'écrire $q a + p b$ avec 
 
 \done
 
-\bigskip
+\medskip
+
 \noindent\textbf{Lemme :} 
 Soit $p$ un nombre premier et $a$ et $b$ deux entiers naturels. 
 Si $p$ divise $a b$, alors $p$ divise $a$ ou $p$ divise $b$.
@@ -227,6 +228,45 @@ Donc, $1$ est le pgcd de $ab$ et $c$.
 
 \medskip 
 
+\noindent\textbf{Corrolaire :} Soit $a$ et $b$ deux entier naturels non nuls, et $c$ un entier naturel non nul premier avec $a$ et avec $b$. 
+Alors, $c$ est premier avec $ab$.
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+    Soit $d$ un diviseur commun de $c$ et $a b$. 
+    Supposons par l'absurde que $d > 1$.
+    Alors $d$ est un entier naturel strictement supérieur à $1$, donc il admet un divideur premier $p$. 
+    Puisque $d \vert ab$ et $d \vert c$, $p \vert ab$, donc $p \vert a$ ou $p \vert b$, et $p \vert c$. 
+    Cela est impossible puisque $a$ et $c$ sont premiers entre eux (donc $p \vert a \wedge p \vert c$ est impossible) et $b$ et $c$ sont premiers entre eux (donc $p \vert b \wedge p \vert c$ est impossible). 
+    On en déduit que l'hypothèse est fausse, et donc que $d=1$.
+    
+    \done
+
+\medskip 
+
+\noindent\textbf{Corrolaire :} Soit $n$ un entier naturel non nul et $a_1$, $a_2$, ..., $a_n$ des entiers naturels non nuls (où $a_n$ est absent si $n \leq 2$ et $a_2$ est absent si $n = 1$). 
+    Soit $b$ un entier naturel non nul premier avec $a_1$, $a_2$, ..., $a_n$.
+    Alors, $b$ est premier avec $a_1 a_2 \dots a_n$.
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+    On procède par récurrence sur $n$. 
+    Pour $n$ égal à $1$, le résultat est évident puisque $a_1 a_2 \dots a_n = a_1$.
+
+    Soit $m$ un entier naturel non nul et supposons l'énoncé vrai pour $n = m$.
+    Soit $a_1$, $a_2$, ..., $a_m$, $a_{m+1}$ des entiers naturels non nul et $b$ un entier naturel non nul premier avec chacun d'entre eux.
+    Alors, $b$ est premier avec $a_1 a_2 \dots a_m$. 
+    Puisqu'il est également premier avec $a_{m+1}$, on en déduit d'après le corrolaire précédent que $b$ est premier avec $a_1 a_2 \dots a_m a_{m+1}$.
+    Donc, l'énoncé est vrai pour $n = m+1$. 
+    
+    Par récurrence, il l'est pour tout entier naturel non nul $n$.
+
+    \done
+
+\medskip 
+
 \noindent\textbf{Corrolaire :} Soit $a$ et $b$ deux entier premier entre eux, et $c$ un entier. Si $a$ et $b$ divisent $c$, alors $ab$ divise $c$.
 
 \medskip
@@ -243,13 +283,32 @@ Donc, $1$ est le pgcd de $ab$ et $c$.
 
 \done
 
+\medskip 
+
+\noindent\textbf{Corrolaire :} Soit $p$ un entier naturel strictement supérieur à $1$, $a_1$, $a_2$, ..., $a_p$ des entiers naturels deux-à-deux premier entre eux, et $b$ un entier. Si $a_i$ divise $b$ pour tout élément $i$ de $[\![1,p]\!]$, alors $a_1 \times a_2 \times \cdot \times a_p$ divise $b$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} On procède par récurrence sur $p$. 
+    Pour $p = 2$, il s'agit du corrolaire précédent.
+    Soit $p$ un entier naturel supérieur ou égal à $2$ et supposons l'énoncé vrai pour cette valeur. 
+    Soit $a_1$, $a_2$, ..., $a_p$, $a_{p+1}$ des entiers naturels deux-à-deux premiers entre eux et $b$ un entier tel que : $\forall i \in [\![1, p+1]\!] \, a_i \vert b$. 
+    Montrons que $a_1 \times a_2 \times \cdots \times a_p \times a_{p+1} \vert b$.
+
+    Puisque les nombres $a_1$, $a_2$, ..., $a_p$, $a_{p+1}$ sont deux-à-deux premiers entre eux, $a_1 \times a_2 \times \cdots \times a_p$ et $a_{p+1}$ sont premiers entre eux. 
+    Puisque $a_1 \times a_2 \times \cdots \times a_p \vert b$ (par hypothèse de récurrence) et $a_{p+1} \vert b$, on conclut d'après le corrolaire précédent que $a_1 \times a_2 \times \cdots \times a_p \times a_{p+1} \vert b$.
+
+    \done
+
+\done
+
 \subsubsection{Théorème du reste chinois}
 
 \medskip
 
 \noindent\textbf{Théorème :} Soit $p$ un entier naturel strictement supérieur à $1$. Soit $n_1$, $n_2$, ..., $n_p$ des entiers naturels strictement supérieurs à $1$ deux-à-deux premiers entre eux. 
-Soit $N = n_1 n_2 \cdots n_p$. 
-Pour tout $p$-uplets d'entiers naturels $(a_1, a_2, \dots, a_p)$ tel que $a_i < n_i$ pour chaque $i \in [\![1,p]\!]$, il existe un unique entier naturel $n$ tel que $n < N$ et, pour chaque $i \in [\![1,p]\!]$, $n \equiv a_i \, [n_i]$.
+Soit $N$ l'entier naturel défini par : $N = n_1 n_2 \cdots n_p$. 
+Pour tout $p$-uplet d'entiers naturels $(a_1, a_2, \dots, a_p)$ tel que $a_i < n_i$ pour chaque élément $i$ de $[\![1,p]\!]$, il existe un unique entier naturel $n$ tel que $n < N$ satisfaisant : $\forall i \in [\![1,p]\!] \, n \equiv a_i \, [n_i]$.
 
 \medskip
 
@@ -257,11 +316,11 @@ Pour tout $p$-uplets d'entiers naturels $(a_1, a_2, \dots, a_p)$ tel que $a_i < 
 \begin{itemize}
     \item \textit{Unicité :} Supposons avoir deux tels entiers $n$ et $m$. 
     Sans perte de généralité, on peut supposer $n \geq m$. 
-    (Si ce n'ets pas le cas, on se ramène à cette situation en inversant les noms de $n$ et $m$.)
-    Alors, pour tout $i \in [\![1,p]\!]$, $n-m \equiv 0 \, [n_i]$ ; autrement dit, $n_i$ divise $n-m$. 
+    (Si ce n'est pas le cas, on se ramène à cette situation en inversant les noms de $n$ et $m$.)
+    Alors, pour tout élément $i$ de $[\![1,p]\!]$, $n-m \equiv 0 \, [n_i]$ ; autrement dit, $n_i$ divise $n-m$. 
     D'après l'un des corrolaires du théorème de Bachet-Bézout, on en déduit que $N$ divise $n-m$. 
     Puisque $n-m \geq 0$ (par définition d'un entier naturel) et $n-m < N$, on en déduit que $n-m=0$, et donc $n=m$.
-    \item \textit{Existence :} Les deux ensembles $[\![0, N-1]\!]$ et $[\![0, n_1-1]\!] \times [\![0, n_2-1]\!] \times \cdots \times [\![0, n_p-1]\!]$ ont le même cardinal fini $N$. D'après le résultat précédent, la fonction du permiers vers le second qui à un entier $n \in [\![0,N-1]\!]$ associe le $p$-uplet de ses restes modulo $a_1$, $a_2$, ..., $a_p$ est injective. Donc, elle est aussi surjective.
+    \item \textit{Existence :} Les deux ensembles $[\![0, N-1]\!]$ et $[\![0, n_1-1]\!] \times [\![0, n_2-1]\!] \times \cdots \times [\![0, n_p-1]\!]$ ont le même cardinal fini $N$. D'après le résultat précédent, la fonction du premier vers le second qui à un entier $n$ apparteant à $[\![0,N-1]\!]$ associe $(n \mathrel{\%} n_1, n \mathrel{\%} n_2, \dots, n \mathrel{\%} n_p)$ est injective. Donc, elle est aussi surjective.
 \end{itemize}
 
 \done
@@ -288,7 +347,7 @@ Pour tout $p$-uplets d'entiers naturels $(a_1, a_2, \dots, a_p)$ tel que $a_i < 
 \done
 
 
-\subsubsection{Décomposition en facteurs premiers}
+\subsubsection{Décomposition en produit de facteurs premiers}
 \label{subsub:dec_fact_prem}
 
 \bigskip

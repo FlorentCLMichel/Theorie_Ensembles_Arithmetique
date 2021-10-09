@@ -594,6 +594,27 @@ On appelle \textit{domaine} de $c$ l'ensemble $\lbrace x \in a \vert \exists y \
 
    \done 
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $E$ un ensemble. 
+    On a : $E \times \emptyset = \emptyset$ et $\emptyset \times E = \emptyset$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+\begin{itemize}[nosep]
+    \item Supposons par l'absurde qu'il existe un ensemble $z$ tel que $z \in E \times \emptyset$.
+        Alors, il existe un élément $x$ de $E$ et un élément $y$ de $\emptyset$ tels que $z = (x,y)$. 
+        Puisque $y \in \emptyset$ est faux pour tout ensemble $y$, cela est impossible.
+        Ainsi, $z \in E \times \emptyset$ est faux pour tout ensemble $z$, et donc $E \times \emptyset = \emptyset$.
+    \item Supposons par l'absurde qu'il existe un ensemble $z$ tel que $z \in \emptyset \times E$.
+        Alors, il existe un élément $x$ de $\emptyset$ et un élément $y$ de $E$ tels que $z = (x,y)$. 
+        Puisque $x \in \emptyset$ est faux pour tout ensemble $x$, cela est impossible.
+        Ainsi, $z \in \emptyset \times E$ est faux pour tout ensemble $z$, et donc $\emptyset \times E = \emptyset$.
+\end{itemize}
+
+\done
+
 \subsubsection{Graphe de relation binaire}
 
 Soit $a$ et $b$ deux ensembles. 

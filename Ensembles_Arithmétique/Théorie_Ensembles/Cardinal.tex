@@ -638,6 +638,35 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
     \done
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles finis.
+    Alors, $E \times F$ est fini et $\abs{E \times F} = \abs{E} \times \abs{F}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} XXXXXX \textit{(Par récurrence sur le cardinal de $F$ : $E \times \emptyset$ est égal à $\emptyset$, qui est de cardinal nul; si $F$ a pour cardinal $n+1$, trouver une bijection entre $(\abs{E} \times n) + \abs{E}$ et $\abs{F}$)}
+
+\medskip
+
+\noindent\textbf{Corrolaire :} Soit $n$ un entier naturel supérieur ou égal à $2$ et $E_1$, $E_2$, ..., $E_n$ des ensembles finis.
+    Alors, $E_1 \times E_2 \times \cdots \times E_n$ est fini et $\abs{E_1 \times E_2 \times \cdots \times E_n} = \prod_{i=1}^n \abs{E_i}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} On procède par récurrence sur $n$. 
+    Pour $n = 2$, il s'agit du lemme précédent.
+
+    Soit $m$ un entier naturel supérieur ou égal à $2$ et supposons l'énoncé vrai pour $n=m$. 
+    Soit $E_1$, $E_2$, ..., $E_{m+1}$ des ensembles finis. 
+    Alors, $E_1 \times E_2 \times \cdots \times E_m$ est fini et de cardinal $\prod_{i=1}^m \abs{E_i}$.
+    Donc, d'après le lemme précédent, $\left( E_1 \times E_2 \times \cdots \times E_m \right) \times E_{m+1}$ est fini et de cardinal $\left( \prod_{i=1}^m E_i \right) \times \abs{E_{m+1}}$, qui est égal à $\prod_{i=1}^{m+1} \abs{E_i}$.
+    L'énoncé est donc vrai pour $n = m+1$. 
+
+    Par récurrence, il l'est pour tout entier naturel $n$ supérieur ou égal à $2$.
+
+    \done
+
 
 \subsubsection{Cas de l'ensemble des entiers naturels}
 
