@@ -47,7 +47,7 @@ Puisque l'inverse d'une bijection est une bijection, deux conséquences immédia
 \noindent\textbf{Démonstration :}
 
 \begin{itemize}[nosep]
-    \item L'ensemble vide est le seu ensemble en bijection avec $0$, égal à $\emptyset$. 
+    \item L'ensemble vide est le seul ensemble en bijection avec $0$, égal à $\emptyset$. 
         Il est donc le seul ensemble de cardinal $0$.
     \item Soit $a$ un ensemble. 
         Alors, $\lbrace (a, 0) \rbrace$ est une fonction de $\lbrace a \rbrace$ vers $1$ (son unique élément est dans $\lbrace a \rbrace \times 1$ puisque $1 = \lbrace 0 \rbrace$ et le seul élément de $\lbrace a \rbrace$, $a$, a une unique image $0$) et elle est bijective (le seul élément de $1$, $0$, a un unique antécédent, $a$).
@@ -432,6 +432,12 @@ On peu noter $\lbrace f(0), f(1), \dots, f(n-1) \rbrace$ l'ensemble $G$ défini 
 
 \medskip
 
+\noindent\textbf{Corolaire (contraposée) :} Soit $E$ et $F$ deux ensembles. 
+    On suppose qu'il existe une injection de $E$ vers $F$ et que $E$ est infini.
+    Alors $F$ est infini.
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $E$ et $F$ deux ensembles de même cardinal fini. 
     Soit $f$ une injection de $E$ vers $F$.
     Alors $f$ est une bijection. 
@@ -730,6 +736,27 @@ Par récurrence, il est donc vrai pour tous ensembles finis $E$ et $F$ tels que 
 
     \done
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $E$ un ensemble non vide et $F$ un ensemble infini.
+    Alors $E \times F$ et $F \times E$ sont infinis.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Montrons qu'il existe une injection de $F$ vers $E \times F$ et une injection de $F$ vers $F \times E$.
+    Puisque $E$ est non vide, on peut choisir un élément $e$ de $E$. 
+    Définissons les deux fonctions $f$ de $F$ vers $E \times F$ et $g$ de $F$ vers $F \times E$ par : pour tout élément $x$ de $F$, $f(x) = (e,x)$ et $g(x) = (x,e)$. 
+    Montrons qu'elles sont injectives. 
+    \begin{itemize}[nosep]
+        \item Soit $x$ et $y$ deux éléments de $F$ tels que $f(x) = f(y)$.
+            Alors, $(e,x) = (e,y)$, donc $x = y$.
+            Cela montre que $f$ est injective.
+        \item Soit $x$ et $y$ deux éléments de $F$ tels que $g(x) = g(y)$.
+            Alors, $(x,e) = (y,e)$, donc $x = y$.
+            Cela montre que $g$ est injective.
+    \end{itemize}
+
+    \done
 
 \subsubsection{Cas de l'ensemble des entiers naturels}
 
