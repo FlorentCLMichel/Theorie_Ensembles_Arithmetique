@@ -285,7 +285,7 @@ Alors, $c$ est premier avec $ab$.
 
 \medskip 
 
-\noindent\textbf{Corrolaire :} Soit $p$ un entier naturel strictement supérieur à $1$, $a_1$, $a_2$, ..., $a_p$ des entiers naturels deux-à-deux premier entre eux, et $b$ un entier. Si $a_i$ divise $b$ pour tout élément $i$ de $[\![1,p]\!]$, alors $a_1 \times a_2 \times \cdot \times a_p$ divise $b$.
+\noindent\textbf{Corrolaire :} Soit $p$ un entier naturel strictement supérieur à $1$, $a_1$, $a_2$, ..., $a_p$ des entiers naturels deux-à-deux premier entre eux, et $b$ un entier. Si $a_i$ divise $b$ pour tout élément $i$ de $[\![1,p]\!]$, alors $a_1 \times a_2 \times \cdots \times a_p$ divise $b$.
 
 \medskip
 
@@ -320,29 +320,30 @@ Pour tout $p$-uplet d'entiers naturels $(a_1, a_2, \dots, a_p)$ tel que $a_i < n
     Alors, pour tout élément $i$ de $[\![1,p]\!]$, $n-m \equiv 0 \, [n_i]$ ; autrement dit, $n_i$ divise $n-m$. 
     D'après l'un des corrolaires du théorème de Bachet-Bézout, on en déduit que $N$ divise $n-m$. 
     Puisque $n-m \geq 0$ (par définition d'un entier naturel) et $n-m < N$, on en déduit que $n-m=0$, et donc $n=m$.
-    \item \textit{Existence :} Les deux ensembles $[\![0, N-1]\!]$ et $[\![0, n_1-1]\!] \times [\![0, n_2-1]\!] \times \cdots \times [\![0, n_p-1]\!]$ ont le même cardinal fini $N$. D'après le résultat précédent, la fonction du premier vers le second qui à un entier $n$ apparteant à $[\![0,N-1]\!]$ associe $(n \mathrel{\%} n_1, n \mathrel{\%} n_2, \dots, n \mathrel{\%} n_p)$ est injective. Donc, elle est aussi surjective.
+    \item \textit{Existence :} Les deux ensembles $[\![0, N-1]\!]$ et $[\![0, n_1-1]\!] \times [\![0, n_2-1]\!] \times \cdots \times [\![0, n_p-1]\!]$ ont le même cardinal fini $N$. D'après le résultat précédent, la fonction du premier vers le second qui à un entier $n$ apparteant à $[\![0,N-1]\!]$ associe $(n \mathrel{\%} n_1, n \mathrel{\%} n_2, \dots, n \mathrel{\%} n_p)$ est injective. Donc, elle est bijective.
 \end{itemize}
 
 \done
 
 \medskip
 
-\noindent\textbf{Corrolaire :} Soit $a$ et $b$ deux entiers naturels premiers entre eux et strictemetnt supérieurs à $2$. Alors il existe au moins quatre entiers naturels $x_1$, $x_2$, $x_3$ et $x_4$ chacun strictement inférieur à $ab$ et tels que, pour tout $i \in \lbrace 1, 2, 3, 4 \rbrace$, $x_i^2 \equiv 1 \, [a b]$.
+\noindent\textbf{Corrolaire :} Soit $a$ et $b$ deux entiers naturels premiers entre eux et strictemetnt supérieurs à $2$. Alors il existe au moins quatre entiers naturels $x_1$, $x_2$, $x_3$ et $x_4$ deux à deux distincts, chacun strictement inférieur à $ab$ et tels que, pour tout élément $i$ de $\lbrace 1, 2, 3, 4 \rbrace$, $x_i^2 \equiv 1 \, [a b]$.
 
 \medskip
 
 \noindent\textbf{Démonstration :} 
-    D'après le théorème du reste chinois, on peut choisir quatre entiers $x_1$, $x_2$, $x_3$ et $x_4$ strictement inférieurs à $ab$ tels que $x_1 \equiv 1 \, [a]$, $x_1 \equiv 1 \, [b]$, $x_2 \equiv -1 \, [a]$, $x_2 \equiv 1 \, [b]$, $x_3 \equiv 1 \, [a]$, $x_3 \equiv -1 \, [b]$, $x_4 \equiv -1 \, [a]$, $x_4 \equiv -1 \, [b]$. 
-    (Ces quatre entiers sont bien deux à deux distincts car aucune paire de deux d'entre eux n'a le même reste par division euclidienne par $a$ ou $b$ ; en effet, puisque $a>2$, $-1$ n'est pas égal à $1$ modulo $a$ ni $b$.) 
-    Pour tout $i \in \lbrace 1, 2, 3, 4 \rbrace$, on a $x_i^2 \equiv 1 \, [a]$ et $x_i^2 \equiv 1 \, [b]$. 
+    D'après le théorème du reste chinois, on peut choisir quatre entiers $x_1$, $x_2$, $x_3$ et $x_4$ strictement inférieurs à $ab$ tels que $x_1 \equiv 1 \, [a]$, $x_1 \equiv 1 \, [b]$, $x_2 \equiv (a-1) \, [a]$, $x_2 \equiv 1 \, [b]$, $x_3 \equiv 1 \, [a]$, $x_3 \equiv (b-1) \, [b]$, $x_4 \equiv (a-1) \, [a]$, $x_4 \equiv (b-1) \, [b]$. 
+    (Ces quatre entiers sont bien deux à deux distincts car aucune paire de deux d'entre eux n'a les deux mêmes restes par les divisions euclidiennes par $a$ et par $b$ ; en effet, puisque $a>2$ et $b > 2$, $a-1$ n'est pas égal à $1$ modulo $a$ (ce sont deux entiers naturels strictements inférieurs à $a$ et distincts puisque $a-2 > 0$) et $b-1$ n'est pas égal à $1$ modulo $b$.) 
+    Puisque $(a-1) \times (a-1) = a^2 - 2 a + 1$ et $(b-1) \times (b-1) = b^2 - 2 b + 1$, on a $(a-1) \times (a-1) \equiv 1 \, [a]$ et $(b-1) \times (b-1) = 1 \, [b]$.
+    Donc, pour tout élément $i$ de $\lbrace 1, 2, 3, 4 \rbrace$, on a $x_i^2 \equiv 1 \, [a]$ et $x_i^2 \equiv 1 \, [b]$. 
     
-    Soit $i \in \lbrace 1, 2, 3, 4 \rbrace$. 
-    Soit $y$ le reste de la division euclidienne de $x^2$ par $ab$. 
-    On a $y \equiv x^2 \, [a]$ et $y \equiv x^2 \, [b]$. 
+    Soit $i$ un élément de $\lbrace 1, 2, 3, 4 \rbrace$. 
+    Soit $y$ le reste de la division euclidienne de $x_i^2$ par $ab$. 
+    On a $y \equiv x_i^2 \, [a]$ et $y \equiv x_i^2 \, [b]$. 
     Donc, $y \equiv 1 \, [a]$ et $y \equiv 1 \, [b]$. 
     Puisque $1 \equiv 1 \, [a]$ et $1 \equiv 1 \, [b]$ et que $1$ et $y$ sont deux entiers naturels strictement inférieurs à $a b$, on déduit du théorème du reste chinois que $y = 1$.  
 
-    Cela étant vrai pour chaque valeur de $i$, on en déduit : $\forall i \in \lbrace 1, 2, 3, 4 \rbrace \, x_i^1 \equiv 1 \, [a b]$.
+    Cela étant vrai pour chaque valeur de $i$, on en déduit : $\forall i \in \lbrace 1, 2, 3, 4 \rbrace \, x_i^2 \equiv 1 \, [a b]$.
 
 \done
 
@@ -353,13 +354,22 @@ Pour tout $p$-uplet d'entiers naturels $(a_1, a_2, \dots, a_p)$ tel que $a_i < n
 \bigskip
 
 \noindent\textbf{Théorème :} 
-Tout entier naturel non nul $a$ peut s'écrire comme un produit de facteurs premiers, \textit{i.e.}, il existe $N \in \mathbb{N}^*$, $\left( p_1, p_2, \dots, p_N \right) \in \mathbb{P}^{N}$ et $\left( n_1, n_2, \dots, n_N \right) \in \mathbb{N}^{* N}$ tels que
+Tout entier naturel non nul peut s'écrire comme un produit de facteurs premiers, \textit{i.e.}, pour tout entier naturel non nul $a$, il existe un entier naturel $N$, un $N$-uplet $\left( p_1, p_2, \dots, p_N \right)$ de nombres premiers deux-à-deux distincts et un $N$-uplet $\left( n_1, n_2, \dots, n_N \right)$ d'entiers naturels non nuls tels que
 \begin{equation*}
-    a = \prod_{i=1}^N p_i^{n_i},
+    a = \prod_{i=1}^N p_i^{n_i}.
 \end{equation*}
-où le produit vide correspond à l'entier naturel $1$.
-Cette décomposition est unique à l'ordre près des facteurs. 
-(Où un nombre élevé à une puissance $n \in \mathbb{N}$ est vu comme le produit de $n$ fois ce nombre.)
+Le couple $\left( \left( p_1, p_2, \dots, p_N \right), \left( n_1, n_2, \dots, n_N \right)\right)$ est appelé \textit{décomposition de $a$ en produit de facteurs premiers}.
+
+Cette décomposition est unique à l'ordre près des facteurs : soit $a$ un entier naturel non nul, si $N$ et $M$ sont deux entiers naturels, $\left( p_1, p_2, \dots, p_N \right)$ un $N$-uplet de nombres premiers deux-à-deux distincts, $\left( q_1, q_2, \dots, q_M \right)$ un $M$-uplet de nombres premiers deux-à-deux distincts, $\left( n_1, n_2, \dots, n_N \right)$ un $N$-uplet d'entiers naturels non nuls et $\left( m_1, m_2, \dots, m_m \right)$ un $M$-uplet d'entiers naturels non nuls tels que 
+\begin{equation*}
+    a = \prod_{i=1}^N p_i^{n_i} = \prod_{j=1}^M q_j^{m_j},
+\end{equation*}
+alors, pour tout élément $i$ de $[\![1,N]\!]$, on peut choisir un élément $j$ de $[\![1,M]\!]$ tel que $q_j = p_i$ et $m_j = n_i$.
+
+(Notons que l'entier $j$ ainsi définit est unique, et ne peut être le même pour deux valeurs différentes de $i$. 
+Cela définit donc une injection de $[\![1,N]\!]$ vers $[\![1,M]\!]$. 
+Puisque le premier est de cardinal $N$ et le second de cardinal $M$, cela implique $N \geq M$. 
+En échangeant les rôles des deux décompositions, on montre de même $M \leq N$, et donc $N = M$.)
 
 \medskip
 
