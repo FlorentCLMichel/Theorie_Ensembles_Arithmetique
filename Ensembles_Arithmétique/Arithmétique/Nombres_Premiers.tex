@@ -377,27 +377,30 @@ En échangeant les rôles des deux décompositions, on montre de même $M \leq N
 
 \begin{itemize}
     \item \textit{Existence :} On procède par récurrence forte sur $a$. 
-    Pour $a=1$, le produit vide convient. 
-    Supposons maintenant $a > 1$. 
-    Si $a$ n'admet aucun autre diviseur que $1$ et lui-même, il est premier et $a$ est une décomposition en facteurs premiers. 
-    Sinon, on peut choisir un entier naturel non nul $b$ tel que $b > 1$, $b < a$, et $b$ divise $a$. 
-    On peut aussi choisir un entier naturel non nul $k$ tel que $k b = a$. 
-    On a $k < a$. 
-    Par hypothèse de récurrence, $b$ et $k$ admettent chacun une décomposition en produit de facteurs premiers. 
-    Notons-les respectivement $B$ et $K$.
-    Alors, $B K$ est une décomposition en produit de facteurs premiers pour $a$. 
-    On conclut que $a$ admet une décomposition en produit de facteurs premiers. 
-    Par récurrence forte, cela est vrai pour tout $a \in \mathbb{N}^*$.
+        Pour $a=1$, $a$ est égal au produit vide, donc $(\emptyset, \emptyset)$ convient. 
+        Supposons maintenant $a > 1$ et le résultat vrai pour tout entier naturel strictement inférieur à $a$. 
+        Alors, on peut choisir un nombre premier $p$ tel que $p \vert a$.
+        On peut donc choisir un entier naturel non nul $q$ tel que $p q = a$. 
+        Puisque $p > 1$, $q < a$ (sans quoi on aurait $p q > a$).
+        Donc, $q$ admet une décomposition en produit de facteurs premiers. 
+        On peut donc choisir un entier naturel $N$, un $N$-uplet de nombres premiers $\left( p_1, p_2, \dots, p_N \right)$ deux-à-deux distincts, et un $N$-uplet d'entiers naturels non nuls $\left( n_1, n_2, \cdots n_N \right)$ tels que $k = \prod_{i=1}^N p_i^{n_i}$.
+        On a donc $p \prod_{i=1}^N p_i^{n_i} = a$. 
+        S'il existe un élément $i_0$ de $[\![1,N]\!]$ tel que $p_{i_0} = p$, alors, définissant, pour tout élément $i$ de $[\![1,N]\!]$, $n_i' = n_i + 1$ si $i = i_0$ et $n_i' = n_i$ sinon, on a : $\prod_{i_1}^N p_i^{n_i'} = p \prod_{i=1}^N p_i^{n_i} = a$, donc $\left(\left( p_1, pi2, \dots, p_N \right), \left(n_1', n_2', \dots, n_N' \right) \right)$ est une décomposition de $a$ et produit de facteurs premiers. 
+        Sinon, $\left( \left( p_1, p_2, \dots, p_N, p \right), \left( n_1, n_2, \dots, n_N, 1 \right) \right)$ est une décomposition de $a$ en produit de facteurs premiers.
+        Dans tous les cas, $a$ admet bien une décoposition en produit de facteurs premiers.
+        Par récurrence forte, on conclut que le résultat est vrai pour tout entier naturel non nul.
+
     \item \textit{Unicité :} 
-    Supposons par l'absurde que $a$ admette deux décompositions en produits de facteurs premiers différentes (autrement que par l'ordre des facteurs). 
-    Il existe au moins un nombre premier $p$ apparaissant avec des puissances différentes dans ces deux décompositions (cette puissance étant possiblement zéro dans une des deux décompositions si $p$ n'y apparaît pas). 
-    Notons ces deux puissances $n_1$ et $n_2$, avec $n_2 > n_1$. 
-    On peut choisir deux entiers naturels $k_1$ et $k_2$ tels que $a = p^{n_1} k_1 = p^{n_2} k_2$ et $k_1$ peut s'écrire comme produit de facteurs premiers distincts de $p$. 
-    On a: $p^{n_2 - n_1} k_2 = k_1$. 
-    Donc, $p$ divise $k_1$. 
-    En utilisant le corrolaire du lemme du théorème de Bachet-Bézout, on en déduit qu'il divise au moins l'un des facteurs premiers de l'écriture de $k_1$ sus-mentionnée. 
-    Mais cela est impossible car chacun d'eux est premier et distinct de $p$, et n'admet donc pas $p$ pour diviseur.
-    On en déduit que $a$ ne peut admettre deux décompositions en produits de facteurs premiers distinctes (sauf par l'ordre des facteurs).
+        Supposons par l'absurde que $a$ admette deux décompositions en produits de facteurs premiers différentes (autrement que par l'ordre des facteurs). 
+        Il existe au moins un nombre premier $p$ apparaissant avec des puissances différentes dans ces deux décompositions (cette puissance étant possiblement zéro dans une des deux décompositions si $p$ n'y apparaît pas), c'est-à-dire, avec les notations de l'énoncé, un élément $i$ de $[\![1,N]\!]$ tel que $p_i$ n'apparaisse pas dans la seconde décomposition ou, si $j$ désigne l'élément de $[\![1,M]\!]$ tel que $p_i = q_j$, $n_i \neq m_j$. 
+        Notons ces deux puissances $n_1$ et $n_2$, avec $n_2 > n_1$ (avec $n_1 = 0$ dans le premier cas). 
+        On peut choisir deux entiers naturels $k_1$ et $k_2$ tels que $a = p^{n_1} k_1 = p^{n_2} k_2$ et $k_1$ peut s'écrire comme produit de facteurs premiers distincts de $p$. 
+        On a: $p^{n_2 - n_1} k_2 = k_1$ (puisque $p^{n_1} p^{n_2 - n_1} k_2 = p^{n_2} k_2 = p^{n_1} k_1$ et $p^{n_1} \neq 0$). 
+        Puisque $n_2 > n_1$, $p^{n_2 - n_1} k_2 = p p^{n_2 - n_1 - 1} k_2$ et $p^{n_2 - n_1 - 1} k_2$ est un entier naturel.
+        Donc, $p$ divise $k_1$. 
+        En utilisant le corrolaire du lemme du théorème de Bachet-Bézout, on en déduit qu'il divise au moins l'un des facteurs premiers de l'écriture de $k_1$ sus-mentionnée. 
+        Mais cela est impossible car chacun d'eux est premier et distinct de $p$, et n'admet donc pas $p$ pour diviseur.
+    On en déduit que $a$ ne peut admettre deux décompositions en produits de facteurs premiers différent autrement que par l'ordre des facteurs.
 \end{itemize}
 
 \done
