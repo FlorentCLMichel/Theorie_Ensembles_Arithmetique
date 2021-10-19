@@ -412,22 +412,32 @@ Alors, $a^{p-1} \equiv 1 \, [p]$.
 
 \medskip
 
-\noindent\textbf{Démonstration :} Notons, pour tout $i \in [\![1, p-1]\!]$, $a_i = i a$ et $r_i$ le reste de la division euclidienne de $a_i$ par $p$. 
+\noindent\textbf{Démonstration :} Pour tout élément $i$ de $[\![1, p-1]\!]$, on définit l'entiers naturels $a_i$ par $a_i = i a$ et on note $r_i$ le reste de la division euclidienne de $a_i$ par $p$. 
 Montrons d'abords que les $r_i$ ainsi définis sont deux à deux distincts. 
+Cela montrera que la fonction de $p-1$ vers $\lbrace r_1, r_2, \dots, r_{p-1} \lbrace$ associant $r_{i+1}$ à tout élément $i$ de $p-1$ est injective.
+Elle est aussi surjective (pour tout élément $e$ de cet ensemble, il existe par définition un élément $i$ de $[\![1,p-1]\!]$ tel que $e = r_i$ ; en posant $j = i-1$, on a $j \in p-1$ et $e = r_{j+1}$). 
+Donc, cela démontrera qu'il s'agit d'une bijection, et donc que $[\![1, p-1]\!]$ et $\lbrace r_1, r_2, \dots, r_{p-1} \lbrace$ sont de même cardinal.
+
 On procède par l'absurde. 
-Soit $(i,j) \in [\![1, p-1]\!]^2$ tels que $j > i$ et $r_j = r_i$. 
+Soit $i$ et $j$ deux éléments de $[\![1, p-1]\!]$ tels que $j \neq i$ et $r_j = r_i$. 
+On suppose en outre que $j > i$. 
+(Si ce n'est pas le cas, alors $i > j$ et on se ramène à ce cas en échangeant les rôles de $i$ et $j$.)
 On a alors $a_j \equiv a_i \, [p]$, et donc $p$ divise $a_j - a_i$. 
 Puisque $a_j - a_i = a \, (j-i)$ et $p$ et $a$ sont premiers entre eux, d'après de lemme du théorème de Bachet-Bézout, $p$ divise $j-i$. 
 Mais cela est impossible puisque $j-i$ est un entier naturel non nul strictement inférieur à $p$. 
 Cela montre que les $r_i$ pour $i \in [\![1, p-1]\!]$ sont deux à deux distincts. 
 
-Puisque chacun d'eux appartient à $[\![1, p-1]\!]$ (aucun d'eux ne peut être nul d'après le lemme du théorème de Bachet-Bézout puisque, pour chacune des valeur de $i$, $p$ ne divise ni $i$ ni $a$, et donc pas $a_i$), l'ensemble $\lbrace r_i \vert i \in [\![1, p-1]\!] \rbrace$ est inclus dans $[\![1, p-1]\!]$ et a le même cardinal fini. 
+En outre, aucun d'eux ne peut être nul d'après le lemme du théorème de Bachet-Bézout puisque, pour chacune des valeur de $i$ dans $[\![1,p-1]\!]$, $p$ ne divise ni $i$ (puisque $i$ est un entier strictement positif et strictement inférieur à $p$) ni $a$, et donc pas $a_i$.
+Donc, chacun d'eux appartient à $[\![1, p-1]\!]$.
+
+Ainsi, l'ensemble $\lbrace r_1, r_2, \dots, r_{p-1} \rbrace$ est inclus dans $[\![1, p-1]\!]$ et a le même cardinal fini. 
 On en déduit que ces deux ensembles sont égaux. 
-On a donc : $\prod_{i=1}^{p-1} r_i = (p-1)!$, et donc, puisque $a_i \equiv r_i \, [p]$ pour tout $i \in [\![1, p-1]\!]$, $\prod_{i=1}^{p-1} a_i \equiv (p-1)! \, [p]$.
+On a donc : $\prod_{i=1}^{p-1} r_i = (p-1)!$, et donc, puisque $a_i \equiv r_i \, [p]$ pour tout élément $i$ de $[\![1, p-1]\!]$, $\prod_{i=1}^{p-1} a_i \equiv (p-1)! \, [p]$.
+Puisque $\prod_{i=1}^{p-1} a_i = (p-1)! a^{p-1}$, cela donne $(p-1)! a^{p-1} \equiv (p-1)! \, [p]$.
 
 Soustrayant puis factorisant $(p-1)!$, il vient : $(p-1)! \left( a^{p-1} - 1 \right) = 0 \, [p]$. 
 Donc, $p$ divise $(p-1)! \left( a^{p-1} - 1 \right)$. 
-Puisque $p$ ne divise ni $1$, ni $2$, ..., ni $p-1$, et d'après le second lemme du théorème de Bachet-Bézout, on en déduit que $p$ divise $a^{p-1} - 1$. 
+Puisque $p$ ne divise ni $1$, ni $2$, ..., ni $p-1$, et d'après le premier corrolaire du théorème de Bachet-Bézout, on en déduit que $p$ divise $a^{p-1} - 1$. 
 On a donc $a^{p-1} - 1 \equiv 0 \, [p]$, et donc $a^{p-1} = 1 \, [p]$.
 
 \done
