@@ -412,11 +412,11 @@ Alors, $a^{p-1} \equiv 1 \, [p]$.
 
 \medskip
 
-\noindent\textbf{Démonstration :} Pour tout élément $i$ de $[\![1, p-1]\!]$, on définit l'entiers naturels $a_i$ par $a_i = i a$ et on note $r_i$ le reste de la division euclidienne de $a_i$ par $p$. 
+\noindent\textbf{Démonstration :} Pour tout élément $i$ de $[\![1, p-1]\!]$, on définit l'entier naturels $a_i$ par $a_i = i a$ et on note $r_i$ le reste de la division euclidienne de $a_i$ par $p$. 
 Montrons d'abords que les $r_i$ ainsi définis sont deux à deux distincts. 
-Cela montrera que la fonction de $p-1$ vers $\lbrace r_1, r_2, \dots, r_{p-1} \lbrace$ associant $r_{i+1}$ à tout élément $i$ de $p-1$ est injective.
+Cela montrera que la fonction de $p-1$ vers $\lbrace r_1, r_2, \dots, r_{p-1} \rbrace$ associant $r_{i+1}$ à tout élément $i$ de $p-1$ est injective.
 Elle est aussi surjective (pour tout élément $e$ de cet ensemble, il existe par définition un élément $i$ de $[\![1,p-1]\!]$ tel que $e = r_i$ ; en posant $j = i-1$, on a $j \in p-1$ et $e = r_{j+1}$). 
-Donc, cela démontrera qu'il s'agit d'une bijection, et donc que $[\![1, p-1]\!]$ et $\lbrace r_1, r_2, \dots, r_{p-1} \lbrace$ sont de même cardinal.
+Donc, cela démontrera qu'il s'agit d'une bijection, et donc que $[\![1, p-1]\!]$ et $\lbrace r_1, r_2, \dots, r_{p-1} \rbrace$ sont de même cardinal $p-1$.
 
 On procède par l'absurde. 
 Soit $i$ et $j$ deux éléments de $[\![1, p-1]\!]$ tels que $j \neq i$ et $r_j = r_i$. 
@@ -433,7 +433,7 @@ Donc, chacun d'eux appartient à $[\![1, p-1]\!]$.
 Ainsi, l'ensemble $\lbrace r_1, r_2, \dots, r_{p-1} \rbrace$ est inclus dans $[\![1, p-1]\!]$ et a le même cardinal fini. 
 On en déduit que ces deux ensembles sont égaux. 
 On a donc : $\prod_{i=1}^{p-1} r_i = (p-1)!$, et donc, puisque $a_i \equiv r_i \, [p]$ pour tout élément $i$ de $[\![1, p-1]\!]$, $\prod_{i=1}^{p-1} a_i \equiv (p-1)! \, [p]$.
-Puisque $\prod_{i=1}^{p-1} a_i = (p-1)! a^{p-1}$, cela donne $(p-1)! a^{p-1} \equiv (p-1)! \, [p]$.
+Puisque $\prod_{i=1}^{p-1} a_i = (p-1)! \, a^{p-1}$, cela donne $(p-1)! \, a^{p-1} \equiv (p-1)! \, [p]$.
 
 Soustrayant puis factorisant $(p-1)!$, il vient : $(p-1)! \left( a^{p-1} - 1 \right) = 0 \, [p]$. 
 Donc, $p$ divise $(p-1)! \left( a^{p-1} - 1 \right)$. 

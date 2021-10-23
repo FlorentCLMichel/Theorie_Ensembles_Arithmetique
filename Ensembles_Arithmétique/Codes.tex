@@ -60,7 +60,7 @@ La fonction \texttt{findNPrimes} ci-dessous prend un entier naturel $N$ en argum
 \label{app:Haskell_pgcd}
 
 \noindent 
-La fonction \texttt{pgcd} ci-dessous prend comme arguments deux enters naturels et donne leur pgcd.
+La fonction \texttt{pgcd} ci-dessous prend comme arguments deux entiers naturels et donne leur pgcd.
 \begin{lstlisting}[language=Haskell]
 pgcd :: Integer -> Integer -> Integer
 pgcd n 0 = n
@@ -92,7 +92,7 @@ Il s'agit d'un algorithme permettant de trouver tous les nombres premiers infèr
 
 \noindent Version Rust\footnote{
     Cette version est sensiblement plus longue car le compilateur rustc 1.51.0, utilisé pour tester la version Rust, n'optimise pas les vecteurs de type \texttt{bool}—chaque entrée prend ainsi un octet en mémoire. 
-    Nous définissons donc des fonctions auxiliaires afin de pouvoir représenter huit \texttt{bool} pour chaque octet, afin de ne pas utiliser plus de mémoire que nécessaire.
+    Nous définissons donc des fonctions auxiliaires afin de pouvoir représenter huit \texttt{bool}s pour chaque octet, afin de ne pas utiliser plus de mémoire que nécessaire.
     Le compilateur g++ 7.5.0 avec lequel la version C++ a été testée optimise les vecteurs de type \texttt{bool} pour que chaque entrée ne prenne (en moyenne et pour de grands vecteurs) qu'un bit de mémoire ; il n'est donc pas besoin, pour cette version, d'employer des fonctions auxiliaires. 
 }: 
 \lstinputlisting[language=Rust]{Ensembles_Arithmétique/Code/Érastosthène.rs}

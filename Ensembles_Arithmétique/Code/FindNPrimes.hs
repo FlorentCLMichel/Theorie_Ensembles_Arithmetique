@@ -3,7 +3,8 @@ prepend :: a -> [a] -> [a]
 prepend x [] = [x]
 prepend x (y:l) = y : (prepend x l)
 
--- last element of a list (re-implementtaion; the default one should be used in real-world applications)
+-- last element of a list (Haskell also has a function for that, which should be used in real-world 
+-- applications)
 last_list :: [a] -> a
 last_list [x] = x
 last_list (x:l) = last_list l
