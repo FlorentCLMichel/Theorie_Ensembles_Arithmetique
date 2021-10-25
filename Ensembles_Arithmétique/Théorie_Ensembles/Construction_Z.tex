@@ -26,12 +26,10 @@ Les définitions données dans la suite de cette section sont compatibles avec c
 
 \noindent\textbf{Définition :} 
     On définit la relation binaire $\leq$ sur $\mathbb{Z}$ de la manière suivante. 
-    Soit $n$ et $m$ deux éléments de $\mathbb{N}$. 
-    Alors, 
     \begin{itemize}[nosep]
-        \item $(0,n) \leq (0,m)$ si et seulement si $n \leq m$,
-        \item $(1,n) \leq (1,m)$ si et seulement si $m \leq n$,
-        \item si $n \neq 0$, $(1,n) \leq (0,m)$ est vrai et $(0,m) \leq (1,n)$ est faux.
+        \item Soit $n$ et $m$ deux éléments de $\mathbb{N}$, $(0,n) \leq (0,m)$ si et seulement si $n \leq m$. 
+        \item Soit $n$ et $m$ deux éléments de $\mathbb{N}^*$,$(1,n) \leq (1,m)$ si et seulement si $m \leq n$,
+        \item Soit $n$ un élément de $\mathbb{N}^*$ et $m$ un élément de $\mathbb{N}$, $(1,n) \leq (0,m)$ est vrai et $(0,m) \leq (1,n)$ est faux.
     \end{itemize}
     On définit aussi la relation $<$ par : $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, a < b \Leftrightarrow ((a \leq b) \wedge (a \neq b))$, la relation $\geq$ par : $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, a \geq b \Leftrightarrow b \leq a$, et la relation $>$ par : $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, a > b \Leftrightarrow ((a \geq b) \wedge (a \neq b))$.
 
@@ -45,12 +43,12 @@ Les définitions données dans la suite de cette section sont compatibles avec c
 \begin{itemize}[nosep]
     \item \textit{Réflexivité :} Soit $x$ un entier relatif. 
         On peut choisir un élément $\ep$ de $\lbrace 0, 1 \rbrace$ et un entier naturel $n$ tel que $x = (\ep, n)$. 
-        Puisque $n = n$, on a $n \leq n$, donc $x \leq x$.
+        Puisque $n = n$, on a $n \leq n$ (dans les deux cas $\ep = 0$ ou $\ep = 1$), donc $x \leq x$.
     \item \textit{Antisymétrie :} Soit $x$ et $y$ deux éléments de $\mathbb{Z}$ tels que $x \leq y$ et $y \leq x$.
         On peut choisir deux éléments $\ep$ et $\eta$ de $\lbrace 0, 1 \rbrace$ et deux entiers naturels $n$ et $m$ tels que $x = (\ep, n)$ et $y = (\eta, m)$. 
         Montrons d'abord que $\ep = \eta$. 
-        Si $\ep = 0$, alors $n \leq m$ implique $\eta = 0$.
-        Si $\ep = 1$, alors $m \leq n$ implique $\eta = 1$. 
+        Si $\ep = 0$, alors $x \leq y$ implique $\eta = 0$ d'après la contraposée du troisième point de la définition.
+        Si $\ep = 1$, alors $y \leq x$ implique $\eta = 1$ par le même argument. 
         Dans les deux cas, on a bien $\ep = \eta$. 
         Donc, $y = (\ep, m)$. 
         D'après les deux premières lignes de la définition de la relation $\leq$ sur $\mathbb{Z}$ (et la commutativité du connecteur $\wedge$ dans le cas $\ep = 1$), $(x \leq y) \wedge (y \leq x)$ implique donc $(n \leq m) \wedge (m \leq n)$.%
@@ -68,7 +66,7 @@ Les définitions données dans la suite de cette section sont compatibles avec c
         \begin{itemize}[nosep]
             \item Si $\mathrm{sgn}(z) = 1$, on doit avoir $\mathrm{sgn}(y) = 1$ (puisque $y \leq z$) et $\mathrm{sgn(x)} = 1$ (puisque $x \leq y$). 
                 On peut donc choisir trois entiers naturels $n$, $m$ et $k$ tels que $x = (1,n)$, $y = (1,m)$ et $z = (1,k)$. 
-                En outre, on a $n \geq m$ puisque $x \geq y$ et $m \geq k$ puisque $y \geq z$. 
+                En outre, on a $n \geq m$ puisque $x \leq y$ et $m \geq k$ puisque $y \leq z$. 
                 Donc, $n \geq k$. 
                 Donc, $(1,n) \leq (1,k)$, et donc $x \leq z$.
             \item Si $\mathrm{sgn}(z) = 0$ et $\mathrm{sgn}(y) = 1$, on a $\mathrm{sgn}(x) = 1$ puisque $x \leq y$.
