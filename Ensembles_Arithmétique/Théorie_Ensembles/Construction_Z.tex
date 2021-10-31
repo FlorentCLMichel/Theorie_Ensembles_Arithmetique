@@ -118,6 +118,150 @@ Les définitions données dans la suite de cette section sont compatibles avec c
     \item \textit{strictement négatif} si $x < 0$.
 \end{itemize}
 
+\subsubsection{Addition}
+
+\noindent\textbf{Définition :} 
+    On définit l'opération $+$ sur $\mathbb{Z}$ (vue comme une fonction de $\mathbb{Z} \times \mathbb{Z}$ vers $\mathbb{Z}$) de la manière suivante.
+    Soit $n$ et $m$ deux élément de $\mathbb{N}$.
+    Alors, 
+    \begin{itemize}[nosep]
+        \item $(0,n) + (0,m) = (0, n+m)$,
+        \item si $n \neq 0$ et $m \neq 0$, $(1,n) + (1,m) = (1, n+m)$ ;
+        \item si $n \neq 0$ et $n \leq m$, $(1,n) + (0,m) = (0, m-n)$ ;
+        \item si $n \neq 0$ et $n > m$, $(1,n) + (0,m) = (1, n-m)$ ;
+        \item si $m \neq 0$ et $n < m$, $(0,n) + (1,m) = (1, m-n)$ ;
+        \item si $m \neq 0$ et $n \geq m$, $(0,n) + (1,m) = (0, n-m)$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $z$ un élément de $\mathbb{Z}$. 
+    Alors $z + 0 = z$ et $0 + z = z$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Éxaminons tour à tour les deux cas possibles, notant que $0 = (0,0)$ : 
+    \begin{itemize}[nosep]
+        \item S'il existe un entier naturel $n$ tel que $z = (0,n)$, alors $z + 0 = (0,n) + (0,0) = (0,n+0) = (0,n) = z$ et $0 + z = (0,0) + (0,n) = (0,0+n) = (0,n) = z$.
+        \item S'il existe un entier naturel non nul $n$ tel que $z = (1,n)$, alors $n > 0$, donc $z + 0 = (1,n) + (0,0) = (1,n-0) = (1,n) = z$ et $0 + z = (0,0) + (1,n) = (1,n-0) = (1,n) = z$.
+    \end{itemize}
+    
+   \done 
+
+\medskip
+
+\noindent\textbf{Lemme :} L'addition est commutative : pour tous éléments $a$ et $b$ de $\mathbb{Z}$, $a + b = b + a$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Éxaminons les différents cas possibles : 
+    \begin{itemize}[nosep]
+        \item Si $\mathrm{sgn}(a) = 0$ et $\mathrm{sgn}(b) = 0$, alors $a + b = (0, \abs{a} + \abs{b})$ et $b + a = (0, \abs{b} + \abs{a})$.
+            Puisque l'addition d'entiers naturels est commutative, on a $\abs{a} + \abs{b} = \abs{b} + \abs{a}$, et donc $a + b = b + a$.
+        \item Si $\mathrm{sgn}(a) = 1$ et $\mathrm{sgn}(b) = 1$, alors $a + b = (1, \abs{a} + \abs{b})$ et $b + a = (1, \abs{b} + \abs{a})$.
+            Puisque l'addition d'entiers naturels est commutative, on a $\abs{a} + \abs{b} = \abs{b} + \abs{a}$, et donc $a + b = b + a$.
+        \item Si $\mathrm{sgn}(a) = 0$, $\mathrm{sgn}(b) = 1$ et $\abs{a} \geq \abs{b}$, alors $a + b = (0, \abs{a} - \abs{b})$ et $b + a = (0, \abs{a} - \abs{b})$, donc $a + b = b + a$.
+        \item Si $\mathrm{sgn}(a) = 0$, $\mathrm{sgn}(b) = 1$ et $\abs{a} < \abs{b}$, alors $a + b = (1, \abs{b} - \abs{a})$ et $b + a = (1, \abs{b} - \abs{a})$, donc $a + b = b + a$.
+        \item Si $\mathrm{sgn}(a) = 1$, $\mathrm{sgn}(b) = 0$ et $\abs{a} > \abs{b}$, alors $a + b = (1, \abs{a} - \abs{b})$ et $b + a = (1, \abs{a} - \abs{b})$, donc $a + b = b + a$.
+        \item Si $\mathrm{sgn}(a) = 1$, $\mathrm{sgn}(b) = 0$ et $\abs{a} \leq \abs{b}$, alors $a + b = (0, \abs{b} - \abs{a})$ et $b + a = (0, \abs{b} - \abs{a})$, donc $a + b = b + a$.
+    \end{itemize}
+    Dans tous les cas, on a bien $a + b = b + a$.
+
+   \done 
+
+\medskip
+
+\noindent\textbf{Lemme :} L'addition est associative : pour tous éléments $a$, $b$ et $c$ de $\mathbb{Z}$, $a + (b + c) = (a + b) + c$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Soit $a$, $b$ et $c$ trois éléments de $\mathbb{Z}$. 
+    On peut choisir trois éléments $\kappa$, $\mu$ et $\nu$ de $\lbrace 0, 1 \rbrace$ et trois éléments $k$, $m$ et $n$ de $\mathbb{N}$ tels que $a = (\kappa, k)$, $b = (\mu, m)$ et $c = (\nu, n)$. 
+    Alors, 
+    \begin{itemize}[nosep]
+        \item Si $\kappa = \mu = \nu = 0$, on a $(a+b)+c = (0,k+m)+c = (0,(k+m)+n)$ et $a+(b+c) = a+(0,m+n) = (0,k+(m+n))$. 
+            Puisque l'addition d'entiers naturels est associative, $(k+m)+n = k+(m+n)$. 
+            Donc, $(0,(k+m)+n) = (0,k+(m+n))$, et donc $(a+b)+c = a+(b+c)$.
+        \item Si $\kappa = \mu = \nu = 1$, on a $(a+b)+c = (1,k+m)+c = (1,(k+m)+n)$ et $a+(b+c) = a+(1,m+n) = (1,k+(m+n))$. 
+            Puisque l'addition d'entiers naturels est associative, $(k+m)+n = k+(m+n)$. 
+            Donc, $(1,(k+m)+n) = (1,k+(m+n))$, et donc $(a+b)+c = a+(b+c)$.
+        \item Si $\kappa = \mu = 0$ et $\nu = 1$, on a $(a+b)+c = (0,k+m)+c$.
+            Donc, $(a+b)+c = (0,(k+m)-n)$ si $k+m \geq n$ et $(a+b)+c = (1,n-(k+m))$ sinon. 
+            Éxaminons les différentes possibilités pour $a+(b+c)$. 
+            \begin{itemize}[nosep]
+                \item Si $n > m$ et $(n-m) > k$, alors $n > k+m$ et $a + (b+c) = a + (1,n-m) = (1, (n-m)-k) = (1, n-(k+m))$.
+                    Donc, $a+(b+c) = (a+b)+c$.
+                \item Si $n > m$ et $(n-m) \leq k$, alors $n \leq k+m$ et $a + (b+c) = a + (1,n-m) = (0, k-(n-m)) = (0, (k+m)-n)$.
+                    Donc, $a+(b+c) = (a+b)+c$.
+                \item Si $n \leq m$, alors $n \leq k+m$ et $a+(b+c) = a + (0, m-n) = (0, k+(m-n)) = (0, (k+m)-n)$.
+                    Donc, $a+(b+c) = (a+b)+c$.
+            \end{itemize}
+        \item Si $\kappa = \mu = 1$ et $\nu = 0$, on a $(a+b)+c = (1,k+m)+c$.
+            Donc, $(a+b)+c = (1,(k+m)-n)$ si $k+m > n$ et $(a+b)+c = (0,n-(k+m))$ sinon. 
+            Éxaminons les différentes possibilités pour $a+(b+c)$. 
+            \begin{itemize}[nosep]
+                \item Si $n \geq m$ et $(n-m) \geq k$, alors $n \geq k+m$ et $a + (b+c) = a + (0,n-m) = (0, (n-m)-k) = (0, n-(k+m))$.
+                    Donc, $a+(b+c) = (a+b)+c$.
+                \item Si $n \geq m$ et $(n-m) < k$, alors $n < k+m$ et $a + (b+c) = a + (0,n-m) = (1, k-(n-m)) = (1, (k+m)-n)$.
+                    Donc, $a+(b+c) = (a+b)+c$.
+                \item Si $n < m$, alors $n < k+m$ et $a+(b+c) = a + (1, m-n) = (1, k+(m-n)) = (1, (k+m)-n)$.
+                    Donc, $a+(b+c) = (a+b)+c$.
+            \end{itemize}
+        \item Si $\mu = \nu$ et $\mu \neq \kappa$, on se ramène aux deux cas précédents en notant que $a$ et $c$ jouent des rôles interchangeables.
+            En effet, si on définit les trois entiers $\bar{a}$, $\bar{b}$ et $\bar{c}$ par $\bar{a} = c$, $\bar{b} = b$ et $\bar{c} = a$, on a $\bar{a} + (\bar{b} + \bar{c}) = (\bar{a} + \bar{b}) + \bar{c}$ d'après les deux cas précédents.
+            En utilisant quatre fois la commutativité de l'addition, cela donne $(\bar{c} + \bar{b}) + \bar{a} = \bar{c} + (\bar{b} + \bar{a})$, et donc $(a + b) + c = a + (b + c)$.
+        \item Si $\mu = \nu$ et $\mu \neq \kappa$, on se ramène au cas précédent de la manière suivante.
+            Puisque $\mathrm{sgn}(a) = \mathrm{sgn}(c)$ et $\mathrm{sgn}(a) \neq \mathrm{sgn}(b)$, et par commutativité de l'addition, on a : $(a+b) + c = (b+a) + c = b + (a+c)$. 
+            En utilisant la commutativité de l'addition, il vient : $(a + b) + c = (a + c) + b$. 
+            Puisque $\mathrm{sgn}(a) = \mathrm{sgn}(c)$, on a d'après les cas précédents : $(a + c) + b = a + (c + b) = a + (b + c)$.
+            Donc, $(a + b) + c = a + (b + c)$.
+    \end{itemize}
+
+    \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $n$ et $m$ deux éléments de $\mathbb{Z}$.
+    Alors, 
+    \begin{itemize}[nosep]
+        \item si $n = (0,0)$, $n + m = m$,
+        \item si $n > (0,0)$, $n + m > m$,
+        \item si $n < (0,0)$, $n + m < m$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Considérons les différents cas possibles : 
+    \begin{itemize}[nosep]
+        \item Si $n = (0,0)$, on a vu que $n + m = m$.
+        \item Supposons que $n > (0,0)$. Alors, on peut choisir un entier naturel non nul $a$ tel que $n = (0,a)$.
+            Distinguons deux cas : 
+            \begin{itemize}[nosep]
+                \item Si $m \geq 0$, on peut choisir un entier naturel $b$ tel que $m = (0,b)$.
+                    On a alors $n + m = (0, a + b)$. 
+                    Puisque $a > 0$, $a + b > b$, donc $n + m > m$.
+                \item Sinon, on peut choisir un entier naturel non nul $b$ tel que $m = (1,b)$.
+                    Si $b \leq a$, on a $n+m = (0, a-b)$, donc $n+m > m$.
+                    Sinon, $n+m = (1,b-a)$. 
+                    Puisque $a > 0$, $b-a < b$, donc $n+m > m$.
+            \end{itemize}
+        \item Supposons que $n < (0,0)$. Alors, on peut choisir un entier naturel non nul $a$ tel que $n = (1,a)$.
+            Distinguons deux cas : 
+            \begin{itemize}[nosep]
+                \item Si $m < 0$, on peut choisir un entier naturel non nul $b$ tel que $m = (1,b)$.
+                    On a alors $n + m = (1, a + b)$. 
+                    Puisque $a > 0$, $a + b > b$, donc $n + m < m$.
+                \item Sinon, on peut choisir un entier naturel $b$ tel que $m = (0,b)$.
+                    Si $b \leq a$, on a $n+m = (1, a-b)$, donc $n+m < m$.
+                    Sinon, $n+m = (0,b-a)$. 
+                    Puisque $a > 0$, $b-a < b$, donc $n+m < m$.
+            \end{itemize}
+    \end{itemize}
+
+    \done
+
 \medskip
 
 \noindent\textbf{Lemme :} Soit $a$, $b$ et $c$ trois éléments de $\mathbb{Z}$.
@@ -206,150 +350,6 @@ Les définitions données dans la suite de cette section sont compatibles avec c
     \end{itemize}
     Dans tous les cas, on a bien $(a+c \leq b+c) \Leftrightarrow a \leq b$ et $(a+c < b+c) \Leftrightarrow a < b$.
     
-    \done
-
-\subsubsection{Addition}
-
-\noindent\textbf{Définition :} 
-    On définit l'opération $+$ sur $\mathbb{Z}$ (vue comme une fonction de $\mathbb{Z} \times \mathbb{Z}$ vers $\mathbb{Z}$) de la manière suivante.
-    Soit $n$ et $m$ deux élément de $\mathbb{N}$.
-    Alors, 
-    \begin{itemize}[nosep]
-        \item $(0,n) + (0,m) = (0, n+m)$,
-        \item si $n \neq 0$ et $m \neq 0$, $(1,n) + (1,m) = (1, n+m)$ ;
-        \item si $n \neq 0$ et $n \leq m$, $(1,n) + (0,m) = (0, m-n)$ ;
-        \item si $n \neq 0$ et $n > m$, $(1,n) + (0,m) = (1, n-m)$ ;
-        \item si $m \neq 0$ et $n < m$, $(0,n) + (1,m) = (1, m-n)$ ;
-        \item si $m \neq 0$ et $n \geq m$, $(0,n) + (1,m) = (0, n-m)$.
-    \end{itemize}
-
-\medskip
-
-\noindent\textbf{Lemme :} Soit $z$ un élément de $\mathbb{Z}$. 
-    Alors $z + 0 = z$ et $0 + z = z$.
-
-\medskip
-
-\noindent\textbf{Démonstration :} Éxaminons tour à tour les deux cas possibles : 
-    \begin{itemize}[nosep]
-        \item S'il existe un entier naturel $n$ tel que $z = (0,n)$, alors $z + 0 = (0,n+0) = (0,n) = z$ et $0 + z = (0,0+n) = (0,n) = z$.
-        \item S'il existe un entier naturel non nul $n$ tel que $z = (1,n)$, alors $z + 0 = (1,n) + (0,0) = (1,n-0) = (1,n) = z$ et $0 + z = (0,0) + (1,n) = (1,n-0) = (1,n) = z$.
-    \end{itemize}
-    
-   \done 
-
-\medskip
-
-\noindent\textbf{Lemme :} L'addition est commutative : pour tous éléments $a$ et $b$ de $\mathbb{Z}$, $a + b = b + a$.
-
-\medskip
-
-\noindent\textbf{Démonstration :} Éxaminons les différents cas possibles : 
-    \begin{itemize}[nosep]
-        \item Si $\mathrm{sgn}(a) = 0$ et $\mathrm{sgn}(b) = 0$, alors $a + b = (0, \abs{a} + \abs{b})$ et $b + a = (0, \abs{b} + \abs{a})$.
-            Puisque l'addition d'entiers naturels est commutative, on a $\abs{a} + \abs{b} = \abs{b} + \abs{a}$, et donc $a + b = b + a$.
-        \item Si $\mathrm{sgn}(a) = 1$ et $\mathrm{sgn}(b) = 1$, alors $a + b = (1, \abs{a} + \abs{b})$ et $b + a = (1, \abs{b} + \abs{a})$.
-            Puisque l'addition d'entiers naturels est commutative, on a $\abs{a} + \abs{b} = \abs{b} + \abs{a}$, et donc $a + b = b + a$.
-        \item Si $\mathrm{sgn}(a) = 0$, $\mathrm{sgn}(b) = 1$ et $\abs{a} \geq \abs{b}$, alors $a + b = (0, \abs{a} - \abs{b})$ et $b + a = (0, \abs{a} - \abs{b})$, donc $a + b = b + a$.
-        \item Si $\mathrm{sgn}(a) = 0$, $\mathrm{sgn}(b) = 1$ et $\abs{a} < \abs{b}$, alors $a + b = (1, \abs{b} - \abs{a})$ et $b + a = (1, \abs{b} - \abs{a})$, donc $a + b = b + a$.
-        \item Si $\mathrm{sgn}(a) = 1$, $\mathrm{sgn}(b) = 0$ et $\abs{a} > \abs{b}$, alors $a + b = (1, \abs{a} - \abs{b})$ et $b + a = (1, \abs{a} - \abs{b})$, donc $a + b = b + a$.
-        \item Si $\mathrm{sgn}(a) = 1$, $\mathrm{sgn}(b) = 0$ et $\abs{a} \leq \abs{b}$, alors $a + b = (0, \abs{b} - \abs{a})$ et $b + a = (0, \abs{b} - \abs{a})$, donc $a + b = b + a$.
-    \end{itemize}
-    Dans tous les cas, on a bien $a + b = b + a$.
-
-   \done 
-
-\medskip
-
-\noindent\textbf{Lemme :} L'addition est associative : pour tous éléments $a$, $b$ et $c$ de $\mathbb{Z}$, $a + (b + c) = (a + b) + c$.
-
-\medskip
-
-\noindent\textbf{Démonstration :} 
-    Soit $a$, $b$ et $c$ trois éléments de $\mathbb{Z}$. 
-    On peut choisir trois éléments $\kappa$, $\mu$ et $\nu$ de $\lbrace 0, 1 \rbrace$ et trois éléments $k$, $m$ et $n$ de $\mathbb{N}$ tels que $a = (\kappa, k)$, $b = (\mu, m)$ et $c = (\nu, n)$. 
-    Alors, 
-    \begin{itemize}[nosep]
-        \item Si $\kappa = \mu = \nu = 0$, on a $(a+b)+c = (0,k+m)+c = (0,(k+m)+n)$ et $a+(b+c) = a+(0,m+n) = (0,k+(m+n))$. 
-            Puisque l'addition d'entiers naturels est associative, $(k+m)+n = k+(m+n)$. 
-            Donc, $(0,(k+m)+n) = (0,k+(m+n))$, et donc $(a+b)+c = a+(b+c)$.
-        \item Si $\kappa = \mu = \nu = 1$, on a $(a+b)+c = (1,k+m)+c = (1,(k+m)+n)$ et $a+(b+c) = a+(1,m+n) = (1,k+(m+n))$. 
-            Puisque l'addition d'entiers naturels est associative, $(k+m)+n = k+(m+n)$. 
-            Donc, $(1,(k+m)+n) = (0,k+(m+n))$, et donc $(a+b)+c = a+(b+c)$.
-        \item Si $\kappa = \mu = 0$ et $\nu = 1$, on a $(a+b)+c = (0,k+m)+c$.
-            Donc, $(a+b)+c = (0,(k+m)-n)$ si $k+m \geq n$ et $(a+b)+c = (1,n-(k+m))$ sinon. 
-            Éxaminons les différentes possibilités pour $a+(b+c)$. 
-            \begin{itemize}[nosep]
-                \item Si $n > m$ et $(n-m) > k$, alors $n > k+m$ et $a + (b+c) = a + (1,n-m) = (1, (n-m)-k) = (1, n-(m+k))$.
-                    Donc, $a+(b+c) = (a+b)+c$.
-                \item Si $n > m$ et $(n-m) \leq k$, alors $n \leq k+m$ et $a + (b+c) = a + (1,n-m) = (0, k-(n-m)) = (0, (k+m)-n)$.
-                    Donc, $a+(b+c) = (a+b)+c$.
-                \item Si $n \leq m$, alors $n \leq k+m$ et $a+(b+c) = a + (0, m-n) = (0, k+(m-n)) = (0, (k+m)-n)$.
-                    Donc, $a+(b+c) = (a+b)+c$.
-            \end{itemize}
-        \item Si $\kappa = \mu = 1$ et $\nu = 0$, on a $(a+b)+c = (1,k+m)+c$.
-            Donc, $(a+b)+c = (1,(k+m)-n)$ si $k+m > n$ et $(a+b)+c = (0,n-(k+m))$ sinon. 
-            Éxaminons les différentes possibilités pour $a+(b+c)$. 
-            \begin{itemize}[nosep]
-                \item Si $n \geq m$ et $(n-m) \geq k$, alors $n \geq k+m$ et $a + (b+c) = a + (0,n-m) = (0, (n-m)-k) = (0, n-(m+k))$.
-                    Donc, $a+(b+c) = (a+b)+c$.
-                \item Si $n \geq m$ et $(n-m) < k$, alors $n < k+m$ et $a + (b+c) = a + (0,n-m) = (1, k-(n-m)) = (1, (k+m)-n)$.
-                    Donc, $a+(b+c) = (a+b)+c$.
-                \item Si $n < m$, alors $n < k+m$ et $a+(b+c) = a + (1, m-n) = (1, k+(m-n)) = (1, (k+m)-n)$.
-                    Donc, $a+(b+c) = (a+b)+c$.
-            \end{itemize}
-        \item Si $\mu = \nu$ et $\mu \neq \kappa$, on se ramène au deux cas précédents en notant que $a$ et $c$ jouent des rôles interchangeables.
-            En effet, si on définit les trois entiers $\bar{a}$, $\bar{b}$ et $\bar{c}$ par $\bar{a} = c$, $\bar{b} = b$ et $\bar{c} = a$, on a $\bar{a} + (\bar{b} + \bar{c}) = (\bar{a} + \bar{b}) + \bar{c}$ d'après les deux cas précédents.
-            En utilisant quatre fois la commutativité de l'addition, cela donne $(\bar{c} + \bar{b}) + \bar{a} = \bar{c} + (\bar{b} + \bar{a})$, et donc $(a + b) + c = a + (b + c)$.
-        \item Si $\mu = \nu$ et $\mu \neq \kappa$, on se ramène au cas précédent de la manière suivante.
-            Puisque $\mathrm{sgn}(a) = \mathrm{sgn}(c)$ et $\mathrm{sgn}(a) \neq \mathrm{sgn}(b)$, on a : $(a+b) + c = (b+a) + c = b + (a+c)$. 
-            En utilisant la commutativité de l'addition, il vient : $(a + b) + c = (a + c) + b$. 
-            Puisque $\mathrm{sgn}(a) = \mathrm{sgn}(c)$, on a d'après les cas précédents : $(a + c) + b = a + (c + b) = a + (b + c)$.
-            Donc, $(a + b) + c = a + (b + c)$.
-    \end{itemize}
-
-    \done
-
-\medskip
-
-\noindent\textbf{Lemme :} Soit $n$ et $m$ deux éléments de $\mathbb{Z}$.
-    Alors, 
-    \begin{itemize}[nosep]
-        \item si $n = (0,0)$, $n + m = m$,
-        \item si $n > (0,0)$, $n + m > m$,
-        \item si $n < (0,0)$, $n + m < m$.
-    \end{itemize}
-
-\medskip
-
-\noindent\textbf{Démonstration :} 
-    Considérons les différents cas possibles : 
-    \begin{itemize}[nosep]
-        \item Si $n = (0,0)$, on a vu que $n + m = m$.
-        \item Supposons que $n > (0,0)$. Alors, on peut choisir un entier naturel non nul $a$ tel que $n = (0,a)$.
-            Distinguons deux cas : 
-            \begin{itemize}[nosep]
-                \item Si $m \geq 0$, on peut choisir un entier naturel $b$ tel que $m = (0,b)$.
-                    On a alors $n + m = (0, a + b)$. 
-                    Puisque $a > 0$, $a + b > b$, donc $n + m > m$.
-                \item Sinon, on peut choisir un entier naturel non nul $b$ tel que $m = (1,b)$.
-                    Si $b \leq a$, on a $n+m = (0, a-b)$, donc $n+m > m$.
-                    Sinon, $n+m = (1,b-a)$. 
-                    Puisque $a > 0$, $b-a < b$, donc $n+m > m$.
-            \end{itemize}
-        \item Supposons que $n < (0,0)$. Alors, on peut choisir un entier naturel non nul $a$ tel que $n = (1,a)$.
-            Distinguons deux cas : 
-            \begin{itemize}[nosep]
-                \item Si $m < 0$, on peut choisir un entier naturel non nul $b$ tel que $m = (1,b)$.
-                    On a alors $n + m = (1, a + b)$. 
-                    Puisque $a > 0$, $a + b > b$, donc $n + m < m$.
-                \item Sinon, on peut choisir un entier naturel $b$ tel que $m = (0,b)$.
-                    Si $b \leq a$, on a $n+m = (1, a-b)$, donc $n+m < m$.
-                    Sinon, $n+m = (0,b-a)$. 
-                    Puisque $a > 0$, $b-a < b$, donc $n+m < m$.
-            \end{itemize}
-    \end{itemize}
-
     \done
 
 \subsubsection{Opposé}
@@ -469,6 +469,35 @@ Distinguons quatres cas possibles :
     \item Si $\mathrm{sgn}(a) = 1$ et $\mathrm{sgn}(b) = 1$, alors $-(a+b) = -((1,\abs{a}) + (1, \abs{b})) = -(1, \abs{a}+\abs{b}) = (0, \abs{a} + \abs{b})$ et $(-a) + (-b) = (-(1,\abs{a})) + (-(1, \abs{b}))) = (0, \abs{a}) + (0, \abs{b}) = (0, \abs{a} + \abs{b})$.
         Donc, $-(a+b) = (-a) + (-b)$.
 \end{itemize}
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $a$ et $b$ deux entiers. 
+    Alors, $(a \leq b) \Leftrightarrow ((-b) \leq (-a))$. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+On peut choisir deux éléments $\alpha$ et $\beta$ de $\lbrace 0, 1 \rbrace$ et deux éléments $n$ et $m$ de $\mathbb{N}$ tels que $a = (\alpha, n)$ et $b = (\beta, m)$.
+Considérons les quatre cas possibles.
+\begin{itemize}[nosep]
+    \item Si $\alpha = \beta = 0$, alors $a \leq b$ est équivalent à $n \leq m$.
+        Puisque $-a = (1, n)$ et $-b = (1, m)$, $-b \leq -a$ est équivalent à $n \leq m$.
+        Donc, $a \leq b$ est équivalent à $-b \leq -a$.
+    \item Si $\alpha = 0$ et $\beta = 1$, alors $a \leq b$ est faux et $-b \leq -a$ est faux (puisque $\mathrm{sgn}(-b) = 0$ et $\mathrm{sgn}(-a) = 1$). 
+    \item Si $\alpha = 1$ et $\beta = 0$, alors $a \leq b$ est vrai et $-b \leq -a$ est vrai (puisque $\mathrm{sgn}(-b) = 1$ et $\mathrm{sgn}(-a) = 0$). 
+    \item Si $\alpha = \beta = 0$, alors $a \leq b$ est équivalent à $m \leq n$.
+        Puisque $-a = (0, n)$ et $-b = (0, m)$, $-b \leq -a$ est équivalent à $m \leq n$.
+        Donc, $a \leq b$ est équivalent à $-b \leq -a$.
+\end{itemize}
+Dans tous les cas, $a \leq b$ et $-b \leq -a$ ont bien la même valeur de vérité.
+
+\done
+
+\medskip
+
+\noindent\textbf{Corrolaire :} Soit $a$ et $b$ deux entiers. 
+    Puisque $(-a = -b) \Leftrightarrow a = b$, on a aussi $(a < b) \Leftrightarrow ((-b) < (-a))$.
 
 \subsubsection{Soustraction}
 

@@ -1219,6 +1219,22 @@ On montre ainsi que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow 
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $n$, $m$ et $k$ trois entiers naturels tels que $n \geq m$.
+    Alors, $n \geq m+k \Leftrightarrow (n-m) \geq k$ et, si $n \geq m+k$, $n - (m + k) = (n-m) - k$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+\begin{itemize}[nosep]
+    \item Si $n-m \geq k$, alors $(n-m) + m \geq k + m$, donc $n \geq k + m$.
+        Sinon, $n-m < k$, donc $(n-m)+m < k + m$, et donc $n < k + m$.
+    \item Si $n-m \geq k$, on a : $((n-m)-k) + (m+k) = ((n-m)-k) + (k+m) = (((n-m)-k) + k) + m = (n-m) = m = n$.
+\end{itemize}
+
+\done
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $n$, $m$ et $k$ trois entiers naturels tels que $n \leq m$.
     Alors, $k + (m-n) = (k+m) - n$.
 
