@@ -32,6 +32,34 @@ Les définitions données dans la suite de cette section sont compatibles avec c
         \item Soit $n$ un élément de $\mathbb{N}^*$ et $m$ un élément de $\mathbb{N}$, $(1,n) \leq (0,m)$ est vrai et $(0,m) \leq (1,n)$ est faux.
     \end{itemize}
     On définit aussi la relation $<$ par : $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, a < b \Leftrightarrow ((a \leq b) \wedge (a \neq b))$, la relation $\geq$ par : $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, a \geq b \Leftrightarrow b \leq a$, et la relation $>$ par : $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, a > b \Leftrightarrow ((a \geq b) \wedge (a \neq b))$.
+    On a alors: 
+    \begin{itemize}[nosep]
+        \item Soit $n$ et $m$ deux éléments de $\mathbb{N}$, 
+            \begin{itemize}[nosep]
+                \item $(0,n) < (0,m)$ si et seulement si $n < m$,
+                \item $(0,n) \geq (0,m)$ si et seulement si $n \geq m$,
+                \item $(0,n) > (0,m)$ si et seulement si $n > m$.
+            \end{itemize}
+        \item Soit $n$ et $m$ deux éléments de $\mathbb{N}^*$,
+            \begin{itemize}[nosep]
+                \item $(1,n) < (1,m)$ si et seulement si $n > m$,
+                \item $(1,n) \geq (1,m)$ si et seulement si $n \leq m$,
+                \item $(1,n) > (1,m)$ si et seulement si $n < m$.
+            \end{itemize}
+        \item Soit $n$ un élément de $\mathbb{N}^*$ et $m$ un élément de $\mathbb{N}$, 
+            \begin{itemize}[nosep]
+                \item $(1,n) < (0,m)$ est vrai,
+                \item $(0,m) < (1,n)$ est faus,
+                \item $(1,n) \geq (0,m)$ est faux,
+                \item $(0,m) \geq (1,n)$ est vrai,
+                \item $(1,n) > (0,m)$ est faux,
+                \item $(0,m) > (1,n)$ est vrai.
+            \end{itemize}
+    \end{itemize}
+
+\medskip
+
+Notons que, pour tous entiers $a$ et $b$, $a > b$ est équivalent à $\neg (a \leq b)$ et $a < b$ est équivalent à $a \geq b$.
 
 \medskip
 
@@ -243,7 +271,7 @@ Les définitions données dans la suite de cette section sont compatibles avec c
                     On a alors $n + m = (0, a + b)$. 
                     Puisque $a > 0$, $a + b > b$, donc $n + m > m$.
                 \item Sinon, on peut choisir un entier naturel non nul $b$ tel que $m = (1,b)$.
-                    Si $b \leq a$, on a $n+m = (0, a-b)$, donc $n+m > m$.
+                    Si $b \leq a$, on a $n+m = (0, a-b)$ et, puisque $b$ est non nul, donc $n+m > m$.
                     Sinon, $n+m = (1,b-a)$. 
                     Puisque $a > 0$, $b-a < b$, donc $n+m > m$.
             \end{itemize}
@@ -279,31 +307,32 @@ Les définitions données dans la suite de cette section sont compatibles avec c
             Puisque $(n+k < m+k) \Leftrightarrow (n < m)$, on en déduit $(a + c < b + c) \Leftrightarrow (a < b)$.
         \item Si $\alpha = \beta = \gamma = 1$, $a + c \leq b + c$ est équivalent à $n + k \geq m + k$ et $a \leq b$ à $n \geq m$.
             Puisque $(n+k \geq m+k) \Leftrightarrow (n \geq m)$, on en déduit $(a + c \geq b + c) \Leftrightarrow (a \geq b)$.
-            De même, $a + c > b + c$ est équivalent à $n + k > m + k$ et $a > b$ à $n > m$.
-            Puisque $(n+k > m+k) \Leftrightarrow (n > m)$, on en déduit $(a + c > b + c) \Leftrightarrow (a > b)$.
-        \item Si $\alpha = 0$ et $\beta = 1$, $a \leq b$ et $a < b$ sont faux. 
-            Si, $\gamma = 0$, on a deux possibilités : 
+            De même, $a + c < b + c$ est équivalent à $n + k > m + k$ et $a < b$ à $n > m$.
+            Puisque $(n+k > m+k) \Leftrightarrow (n > m)$, on en déduit $(a + c < b + c) \Leftrightarrow (a < b)$.
+        \item Si $\alpha = 0$, $\beta = 1$ (ce qui implique $m > 0$) et $\gamma = 0$, $a \leq b$ et $a < b$ sont faux. 
+            On a deux possibilités : 
             \begin{itemize}[nosep]
                 \item Si $k < m$, $a + c = (0, n+k)$ et $b + c = (1, m-k)$, donc $a+c \leq b+c$ et $a+c < b+c$ sont faux.
                 \item Si $k \geq m$, $a + c = (0, n+k)$ et $b + c = (0, k-m)$.
-                    Puisque $k-m \leq k$ (puisque $k = (k-m) + m$) et $k \leq k+n$, on a $k-m \leq k+n$, donc $b+c \leq a+c$, donc $a+c \leq b+c$ et $a+c < b+c$ sont faux.
+                    Puisque $m > 0$, $k-m < k$ (puisque $k = (k-m) + m$). 
+                    Puisque $k \leq k+n$, on a $k-m < k+n$, donc $b+c < a+c$, donc $a+c \leq b+c$ et $a+c < b+c$ sont faux.
             \end{itemize}
-        \item Si $\alpha = 0$ et $\beta = 1$, $a \leq b$ et $a < b$ sont faux. 
-            Si, $\gamma = 1$, on a deux possibilités : 
+        \item Si $\alpha = 0$, $\beta = 1$ et $\gamma = 1$, $a \leq b$ et $a < b$ sont faux. 
+            On a deux possibilités : 
             \begin{itemize}[nosep]
                 \item Si $k \leq n$, $a + c = (0, n-k)$ et $b + c = (1, m+k)$, donc $a+c \leq b+c$ et $a+c < b+c$ sont faux.
                 \item Si $k > n$, $a + c = (1, k-n)$ et $b + c = (1, m+k)$.
-                    Puisque $k-n \leq k$ (puisque $k = (k-n) + n$) et $k < k+m$ (puisque $m > 0$), on a $k-n < k+m$, donc $b+c \leq a+c$, donc $a+c \leq b+c$ et $a+c < b+c$ sont faux.
+                    Puisque $k-n \leq k$ (puisque $k = (k-n) + n$) et $k < k+m$ (puisque $m > 0$), on a $k-n < k+m$, donc $b+c < a+c$, donc $a+c \leq b+c$ et $a+c < b+c$ sont faux.
             \end{itemize}
-        \item Si $\alpha = 1$ et $\beta = 0$, $a \leq b$ et $a < b$ sont vrais. 
-            Si, $\gamma = 0$, on a deux possibilités : 
+        \item Si $\alpha = 1$, $\beta = 0$ et $\gamma = 0$, $a \leq b$ et $a < b$ sont vrais. 
+            On a deux possibilités : 
             \begin{itemize}[nosep]
                 \item Si $k < n$, $a + c = (1, n-k)$ et $b + c = (0, m+k)$, donc $a+c \leq b+c$ et $a+c \neq b+c$, et donc $a+c < b+c$, sont vrais.
                 \item Si $k \geq n$, $a + c = (0, k-n)$ et $b + c = (0, k+m)$.
                     Puisque $k-n < k+m$ ($k-n < k$ puisque $n > 0$ et $k \leq k+m$), on a donc $a+c \leq b+c$ et $a+c \neq b+c$, et donc $a+c < b+c$. 
             \end{itemize}
-        \item Si $\alpha = 1$ et $\beta = 0$, $a \leq b$ et $a < b$ sont vrais. 
-            Si, $\gamma = 1$, on a deux possibilités : 
+        \item Si $\alpha = 1$, $\beta = 0$ et $\gamma = 1$, $a \leq b$ et $a < b$ sont vrais. 
+            On a deux possibilités : 
             \begin{itemize}[nosep]
                 \item Si $k \leq m$, $a + c = (1, n+k)$ et $b + c = (0, m-k)$, donc $a+c \leq b+c$ et $a+c \neq b+c$, et donc $a+c < b+c$, sont vrais.
                 \item Si $k > m$, $a + c = (1, n+k)$ et $b + c = (1, k-m)$.
@@ -360,12 +389,7 @@ Les définitions données dans la suite de cette section sont compatibles avec c
     \item soit $n$ un entier naturel non nul, $-(0,n) = (1,n)$.
     \item soit $n$ un entier naturel non nul, $-(1,n) = (0,n)$.
 \end{itemize}
-Notons que, pour tout entier $z$, on a : 
-\begin{itemize}[nosep]
-    \item $z = 0 \Rightarrow -z = 0$ ;
-    \item soit $n$ un entier naturel non nul, $-(0,n) = (1,n)$.
-    \item soit $n$ un entier naturel non nul, $-(1,n) = (0,n)$.
-\end{itemize}
+Notons que, pour tout entier $z$, on a $z = 0 \Leftrightarrow -z = 0$.
 
 \medskip
 
@@ -377,8 +401,8 @@ Notons que, pour tout entier $z$, on a :
 \noindent\textbf{Démonstration :} Éxaminons tout à tour les trois cas possibles : 
 \begin{itemize}[nosep]
     \item Si $z = (0,0)$, alors $-z = z$, donc $-(-z) = -z = z$.
-    \item S'il existe un entier naturel non nul $n$ tel que $z = (0,n)$, alors $-z = (1,n)$, donc $-(-z)) = (0,n) = z$.
-    \item S'il existe un entier naturel non nul $n$ tel que $z = (1,n)$, alors $-z = (0,n)$, donc $-(-z)) = (1,n) = z$.
+    \item S'il existe un entier naturel non nul $n$ tel que $z = (0,n)$, alors $-z = (1,n)$, donc $-(-z) = (0,n) = z$.
+    \item S'il existe un entier naturel non nul $n$ tel que $z = (1,n)$, alors $-z = (0,n)$, donc $-(-z) = (1,n) = z$.
 \end{itemize}
 Dans tous les cas, on a donc bien $-(-z) = z$.
 
@@ -394,12 +418,27 @@ Dans tous les cas, on a donc bien $-(-z) = z$.
 \noindent\textbf{Démonstration :} Éxaminons tout à tour les trois cas possibles : 
 \begin{itemize}[nosep]
     \item Si $z = (0,0)$, alors $-z = z$, donc $z + (-z) = (0,0) + (0,0) = (0,0)$.
-    \item S'il existe un entier naturel non nul $n$ tel que $z = (0,n)$, alors $-z = (1,n)$, donc $z + (-z)) = (0,n) + (1,n) = (0,n-n) = (0,0)$.
-    \item S'il existe un entier naturel non nul $n$ tel que $z = (1,n)$, alors $-z = (0,n)$, donc $z + (-z)) = (1,n) + (0,n) = (0,n-n) = (0,0)$.
+    \item S'il existe un entier naturel non nul $n$ tel que $z = (0,n)$, alors $-z = (1,n)$, donc $z + (-z) = (0,n) + (1,n) = (0,n-n) = (0,0)$.
+    \item S'il existe un entier naturel non nul $n$ tel que $z = (1,n)$, alors $-z = (0,n)$, donc $z + (-z) = (1,n) + (0,n) = (0,n-n) = (0,0)$.
 \end{itemize}
 Dans tous les cas, on a donc bien $z + (-z) = (0,0)$.
 
 \done
+
+\medskip
+
+\noindent\textbf{Corrolaire :} Soit $n$ et $m$ deux éléments de $\mathbb{Z}$. 
+    Alors, $-n = -m \Leftrightarrow n = m$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    \begin{itemize}[nosep]
+        \item Si $n = m$, alors $-n = -m$ par propriété de l'égalité.
+        \item Si $-n = -m$, alors $-(-n) = -(-m)$, donc $n = m$.
+    \end{itemize}
+
+    \done
 
 \medskip
 
@@ -412,21 +451,16 @@ Dans tous les cas, on a donc bien $z + (-z) = (0,0)$.
 
 \medskip
 
-\noindent\textbf{Démonstration :} Notons d'abord que $n = m$ est équivalent à $-m = -n$.
-    En effet, 
-    \begin{itemize}[nosep]
-        \item Si $n = m$, alors $-n = -m$ par propriété de l'égalité.
-        \item Si $-n = -m$, alors $-(-n) = -(-m)$, donc $n = m$.
-    \end{itemize}
-    La première proposition implique donc la seconde. 
+\noindent\textbf{Démonstration :} 
+    Notons d'abord que, d'après le lemme précédent, la première proposition est équivalente à la seconde. 
 
     Considérons les différents cas possibles : 
     \begin{itemize}[nosep]
-        \item Si $n = (0,0)$ et $m = (0,0)$, alors $-n = (0,0)$ et $-m = (0,0)$, alors $n \leq m$ et $(-n) \geq (-m)$.
-        \item S'il existe un entier naturel $a$ tel que $n = (0,0)$ et $m = (0,a)$, alors $-n = (0,0)$ et $-m = (1,a)$, alors $n \leq m$ et $(-n) \geq (-m)$.
-        \item S'il existe un entier naturel $a$ tel que $n = (0,0)$ et $m = (1,a)$, alors $-n = (0,0)$ et $-m = (0,a)$, alors $n > m$ et $(-n) < (-m)$.
-        \item S'il existe un entier naturel $a$ tel que $n = (0,a)$ et $m = (0,0)$, alors $-n = (1,a)$ et $-m = (0,0)$, alors $n > m$ et $(-n) < (-m)$.
-        \item S'il existe un entier naturel $a$ tel que $n = (1,a)$ et $m = (0,0)$, alors $-n = (0,a)$ et $-m = (0,0)$, alors $n \leq m$ et $(-n) \geq (-m)$.
+        \item Si $n = (0,0)$ et $m = (0,0)$, alors $-n = (0,0)$ et $-m = (0,0)$, donc $n=m$ et $-n = -m$, donc $n \leq m$ et $(-n) \geq (-m)$.
+        \item S'il existe un entier naturel $a$ tel que $n = (0,0)$ et $m = (0,a)$, alors $-n = (0,0)$ et $-m = (1,a)$, donc $n \leq m$ et $(-n) \geq (-m)$.
+        \item S'il existe un entier naturel $a$ tel que $n = (0,0)$ et $m = (1,a)$, alors $-n = (0,0)$ et $-m = (0,a)$, donc $n > m$ et $(-n) < (-m)$.
+        \item S'il existe un entier naturel $a$ tel que $n = (0,a)$ et $m = (0,0)$, alors $-n = (1,a)$ et $-m = (0,0)$, donc $n > m$ et $(-n) < (-m)$.
+        \item S'il existe un entier naturel $a$ tel que $n = (1,a)$ et $m = (0,0)$, alors $-n = (0,a)$ et $-m = (0,0)$, donc $n \leq m$ et $(-n) \geq (-m)$.
         \item S'il existe deux entiers naturels on nuls $a$ et $b$ tels que $n = (0,a)$ et $m = (0,b)$, alors $-n = (1,a)$ et $-m = (1,b)$, alors $n \leq m \Leftrightarrow a \leq b$ et $(-n) \geq (-m) \Leftrightarrow a \leq b$.
         \item S'il existe deux entiers naturels on nuls $a$ et $b$ tels que $n = (0,a)$ et $m = (1,b)$, alors $-n = (1,a)$ et $-m = (0,b)$, alors $n > m$ et $(-n) < (-m)$.
         \item S'il existe deux entiers naturels on nuls $a$ et $b$ tels que $n = (1,a)$ et $m = (0,b)$, alors $-n = (0,a)$ et $-m = (1,b)$, alors $n \leq m$ et $(-n) \geq (-m)$.
@@ -444,60 +478,37 @@ Dans tous les cas, on a donc bien $z + (-z) = (0,0)$.
 \medskip
 
 \noindent\textbf{Démonstration :} 
+
+Si $a = 0$, on a $-(a+b) = -b$ et $(-a) + (-b) = 0 + (-b) = -b$. 
+Si $b = 0$, on a $-(a+b) = -a$ et $(-a) + (-b) = (-a) + 0 = -a$. 
+Dans les deux cas, on a bien $-(a+b) = (-a) + (-b)$.
+
+Supposons maintenant $a \neq 0$ et $b \neq 0$. 
 Distinguons quatres cas possibles : 
 \begin{itemize}[nosep]
-    \item Si $\mathrm{sgn}(a) = 0$ et $\mathrm{sgn}(b) = 0$, alors $-(a+b) = -((0,\abs{a}) + (0, \abs{b})) = -(0, \abs{a}+\abs{b}) = (1, \abs{a} + \abs{b})$ et $(-a) + (-b) = (-(0,\abs{a})) + (-(0, \abs{b}))) = (1, \abs{a}) + (1, \abs{b}) = (1, \abs{a} + \abs{b})$.
+    \item Si $\mathrm{sgn}(a) = 0$ et $\mathrm{sgn}(b) = 0$, alors $-(a+b) = -((0,\abs{a}) + (0, \abs{b})) = -(0, \abs{a}+\abs{b}) = (1, \abs{a} + \abs{b})$ et $(-a) + (-b) = (-(0,\abs{a})) + (-(0, \abs{b})) = (1, \abs{a}) + (1, \abs{b}) = (1, \abs{a} + \abs{b})$.
         Donc, $-(a+b) = (-a) + (-b)$.
     \item Si $\mathrm{sgn}(a) = 0$ et $\mathrm{sgn}(b) = 1$, alors
         \begin{itemize}[nosep]
             \item Si $\abs{a} = \abs{b}$, $b = -a$, donc $a + b = 0$, donc $-(a+b) = 0$ et $(-a) + (-b) = (-a) + a = 0$.
                 Donc, $-(a+b) = (-a) + (-b)$.
-            \item Si $\abs{a} > \abs{b}$, $-(a+b) = -((0,\abs{a}) + (1, \abs{b})) = -(0, \abs{a} - \abs{b}) = (1, \abs{a} - \abs{b})$ et $(-a) + (-b) = (-(0, \abs{a})) + (-(1, \abs{b}))) = (1, \abs{a}) + (0, \abs{b}) = (1, \abs{a} - \abs{b})$.
+            \item Si $\abs{a} > \abs{b}$, $-(a+b) = -((0,\abs{a}) + (1, \abs{b})) = -(0, \abs{a} - \abs{b}) = (1, \abs{a} - \abs{b})$ et $(-a) + (-b) = (-(0, \abs{a})) + (-(1, \abs{b})) = (1, \abs{a}) + (0, \abs{b}) = (1, \abs{a} - \abs{b})$.
                 Donc, $-(a+b) = (-a) + (-b)$.
-            \item Si $\abs{a} < \abs{b}$, $-(a+b) = -((0,\abs{a}) + (1, \abs{b})) = -(1, \abs{b} - \abs{a}) = (0, \abs{b} - \abs{a})$ et $(-a) + (-b) = (-(0, \abs{a})) + (-(1, \abs{b}))) = (1, \abs{a}) + (0, \abs{b}) = (0, \abs{b} - \abs{a})$.
+            \item Si $\abs{a} < \abs{b}$, $-(a+b) = -((0,\abs{a}) + (1, \abs{b})) = -(1, \abs{b} - \abs{a}) = (0, \abs{b} - \abs{a})$ et $(-a) + (-b) = (-(0, \abs{a})) + (-(1, \abs{b})) = (1, \abs{a}) + (0, \abs{b}) = (0, \abs{b} - \abs{a})$.
                 Donc, $-(a+b) = (-a) + (-b)$.
         \end{itemize}
     \item Si $\mathrm{sgn}(a) = 1$ et $\mathrm{sgn}(b) = 0$, alors
         \begin{itemize}[nosep]
             \item Si $\abs{a} = \abs{b}$, $b = -a$, donc $a + b = 0$, donc $-(a+b) = 0$ et $(-a) + (-b) = (-a) + a = 0$.
                 Donc, $-(a+b) = (-a) + (-b)$.
-            \item Si $\abs{a} > \abs{b}$, $-(a+b) = -((1,\abs{a}) + (0, \abs{b})) = -(1, \abs{a} - \abs{b}) = (0, \abs{a} - \abs{b})$ et $(-a) + (-b) = (-(1, \abs{a})) + (-(0, \abs{b}))) = (0, \abs{a}) + (1, \abs{b}) = (0, \abs{a} - \abs{b})$.
+            \item Si $\abs{a} > \abs{b}$, $-(a+b) = -((1,\abs{a}) + (0, \abs{b})) = -(1, \abs{a} - \abs{b}) = (0, \abs{a} - \abs{b})$ et $(-a) + (-b) = (-(1, \abs{a})) + (-(0, \abs{b})) = (0, \abs{a}) + (1, \abs{b}) = (0, \abs{a} - \abs{b})$.
                 Donc, $-(a+b) = (-a) + (-b)$.
-            \item Si $\abs{a} < \abs{b}$, $-(a+b) = -((1,\abs{a}) + (0, \abs{b})) = -(0, \abs{b} - \abs{a}) = (1, \abs{b} - \abs{a})$ et $(-a) + (-b) = (-(1, \abs{a})) + (-(0, \abs{b}))) = (0, \abs{a}) + (1, \abs{b}) = (1, \abs{b} - \abs{a})$.
+            \item Si $\abs{a} < \abs{b}$, $-(a+b) = -((1,\abs{a}) + (0, \abs{b})) = -(0, \abs{b} - \abs{a}) = (1, \abs{b} - \abs{a})$ et $(-a) + (-b) = (-(1, \abs{a})) + (-(0, \abs{b})) = (0, \abs{a}) + (1, \abs{b}) = (1, \abs{b} - \abs{a})$.
                 Donc, $-(a+b) = (-a) + (-b)$.
         \end{itemize}
-    \item Si $\mathrm{sgn}(a) = 1$ et $\mathrm{sgn}(b) = 1$, alors $-(a+b) = -((1,\abs{a}) + (1, \abs{b})) = -(1, \abs{a}+\abs{b}) = (0, \abs{a} + \abs{b})$ et $(-a) + (-b) = (-(1,\abs{a})) + (-(1, \abs{b}))) = (0, \abs{a}) + (0, \abs{b}) = (0, \abs{a} + \abs{b})$.
+    \item Si $\mathrm{sgn}(a) = 1$ et $\mathrm{sgn}(b) = 1$, alors $-(a+b) = -((1,\abs{a}) + (1, \abs{b})) = -(1, \abs{a}+\abs{b}) = (0, \abs{a} + \abs{b})$ et $(-a) + (-b) = (-(1,\abs{a})) + (-(1, \abs{b})) = (0, \abs{a}) + (0, \abs{b}) = (0, \abs{a} + \abs{b})$.
         Donc, $-(a+b) = (-a) + (-b)$.
 \end{itemize}
-
-\medskip
-
-\noindent\textbf{Lemme :} Soit $a$ et $b$ deux entiers. 
-    Alors, $(a \leq b) \Leftrightarrow ((-b) \leq (-a))$. 
-
-\medskip
-
-\noindent\textbf{Démonstration :} 
-On peut choisir deux éléments $\alpha$ et $\beta$ de $\lbrace 0, 1 \rbrace$ et deux éléments $n$ et $m$ de $\mathbb{N}$ tels que $a = (\alpha, n)$ et $b = (\beta, m)$.
-Considérons les quatre cas possibles.
-\begin{itemize}[nosep]
-    \item Si $\alpha = \beta = 0$, alors $a \leq b$ est équivalent à $n \leq m$.
-        Puisque $-a = (1, n)$ et $-b = (1, m)$, $-b \leq -a$ est équivalent à $n \leq m$.
-        Donc, $a \leq b$ est équivalent à $-b \leq -a$.
-    \item Si $\alpha = 0$ et $\beta = 1$, alors $a \leq b$ est faux et $-b \leq -a$ est faux (puisque $\mathrm{sgn}(-b) = 0$ et $\mathrm{sgn}(-a) = 1$). 
-    \item Si $\alpha = 1$ et $\beta = 0$, alors $a \leq b$ est vrai et $-b \leq -a$ est vrai (puisque $\mathrm{sgn}(-b) = 1$ et $\mathrm{sgn}(-a) = 0$). 
-    \item Si $\alpha = \beta = 0$, alors $a \leq b$ est équivalent à $m \leq n$.
-        Puisque $-a = (0, n)$ et $-b = (0, m)$, $-b \leq -a$ est équivalent à $m \leq n$.
-        Donc, $a \leq b$ est équivalent à $-b \leq -a$.
-\end{itemize}
-Dans tous les cas, $a \leq b$ et $-b \leq -a$ ont bien la même valeur de vérité.
-
-\done
-
-\medskip
-
-\noindent\textbf{Corrolaire :} Soit $a$ et $b$ deux entiers. 
-    Puisque $(-a = -b) \Leftrightarrow a = b$, on a aussi $(a < b) \Leftrightarrow ((-b) < (-a))$.
 
 \subsubsection{Soustraction}
 

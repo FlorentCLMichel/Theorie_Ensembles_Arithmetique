@@ -340,6 +340,11 @@ Les propriétés suivantes peuvent être facilement démontrées en écrivant le
     \item Le connecteur $\wedge$ est distributif sur $\vee$ : si $f$, $g$ et $h$ sont trois formules, les deux formules $f \wedge (g \vee h)$ et $(f \wedge g) \vee (f \wedge h)$ ont la même valeur de vérité (toutes deux sont vraies si et seulement si $f$ ainsi qu'au moins une des deux formules $g$ et $h$ sont vraies). 
     \item Le connecteur $\vee$ est distributif sur $\wedge$ : si $f$, $g$ et $h$ sont trois formules, les deux formules $f \vee (g \wedge h)$ et $(f \vee g) \wedge (f \vee h)$ ont la même valeur de vérité (toutes deux sont vraies si $f$ est vraie ou si $g$ et $h$ sont toutes deux vraies et fausses sinon).
     \item Soit $f$ et $g$ deux formules. Si $f \Rightarrow g$, alors $f \wedge g$ est équivalente à $f$ et $f \vee g$ est équivalente à $g$.
+    \item Soit $f$ et $g$ deux formules. Alors $f \Leftrightarrow g$ et $(\neq f) \Leftrightarrow (\neg g)$ sont équivalentes. 
+        (Elles sont toutes deux vraies si $f$ et $g$ ont la même valeur de vérité et fausses sinon.)
+    \item Soit $f$, $g$, $h$ et $i$ quatre formules. 
+        Si $f \Rightarrow g$ et $h \Rightarrow i$ sont vraies, alors $(f \wedge h) \Rightarrow (g \wedge i)$ et $(f \vee h) \Rightarrow (g \vee i)$ sont vraies.
+    \item Une conséquence de ces deux derniers points est que, avec les notations du second, si $f \Leftrightarrow g$ et $h \Leftrightarrow i$ sont vraies, alors $(f \wedge \neg h) \Leftrightarrow (g \wedge \neg i)$ est vraie.
 \end{itemize}
 
 \noindent \textbf{Attention :} Si $f$, $g$ et $h$ sont trois formules, savoir que $f \vee g$ et $g \vee h$ sont vraies n'implique pas que $f \vee h$ l'est également. 

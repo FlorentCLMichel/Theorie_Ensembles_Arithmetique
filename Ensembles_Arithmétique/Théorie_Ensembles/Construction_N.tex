@@ -1147,6 +1147,43 @@ On montre ainsi que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow 
 
    \done 
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $n$, $m$ et $k$ trois éléments de $\mathbb{N}$.
+    On a $(n + k \leq m + k) \Leftrightarrow (n \leq m)$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    On procède par récurrence sur $k$. 
+    Soit $n$ et $m$ deux entiers naturels.
+    Soit $P$ le prédicat à un paramètre libre $k$ définit par : $P(k): (n + k \leq m + k) \Leftrightarrow (n \leq m)$. 
+
+    $P(0)$ est évidemment vrai puisqu'il sécrit $(n \leq m) \Leftrightarrow (n \leq m)$.
+
+    Soit $k$ un entier naturel tel que $P(k)$ est vrai.
+    Si $n+(k+1) \leq m+(k+1)$, alors, par transitivité de l'addition, $(n+k)+1 \leq (m+k)+1$. 
+    Puisque $n+k < (n+k)+1$, on a donc $n+k < (m+k)+1$, et donc $n+k \leq m+k$.
+    
+    Sinon, et puisque $\leq$ est une relation d'ordre total, on a $m+(k+1) \leq n+(k+1)$.
+    Par le même argument (en échangeant le rôles de $n$ et $m$), il vient $m+k \leq n+k$.
+    En outre, $m+k \neq n+k$ (sans quoi on aurait $(m+k)+1 = (n+k)+1$, donc $n+(k+1) = m+(k+1)$, donc $n+(k+1) \leq m+(k+1)$).
+    Donc, $n+k \leq m+k$ est faux. 
+
+    On a donc : $(n+(k+1) \leq m+(k+1)) \Leftrightarrow (n+k \leq m+k)$. 
+    Puisque $P(k)$ est vrai, on en déduit $(n+(k+1) \leq m+(k+1)) \Leftrightarrow (n \leq m)$.
+    Donc, $P(k+1)$ est vrai.
+
+    Par récurrence, $P(k)$ est ainsi vrai pour tout entier naturel $k$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Corrolaire :} Avec les mêmes notations, en prenant la négation des deux côtés, il vient : $(n+k) \geq (m+k) \Leftrightarrow (n \geq m)$.
+    En outre, puisque $(n = m) \Rightarrow (n+k = m+k)$ et, d'après un lemme précédent, $(n+k = m+k) \Rightarrow (n=m)$, on a $(n+k = m+k) \Leftrightarrow (n = m)$. 
+    Donc, $(n+k) < (m+k) \Leftrightarrow (n<m)$ et $(n+k) \geq (m+k) \Leftrightarrow (n \geq m)$.
+
 \subsubsection{Soustraction}
 
 \noindent\textbf{Lemme :} Soit $n$ et $m$ deux éléments de $\mathbb{N}$ tels que $m \leq n$. 
