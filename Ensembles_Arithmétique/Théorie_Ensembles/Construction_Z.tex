@@ -564,12 +564,13 @@ Distinguons quatres cas possibles :
 \medskip
 
 \noindent\textbf{Démonstration :} Notons d'abords que le premier résultat implique le second. 
-    En effet, si $b < -a$, on a $-b > a$, donc, si le premier résultat est vrai, $(-a) + (-b) > 0$, donc $- (a+b) > 0$, donc $a + n < 0$.
+    En effet, si $b < -a$, on a $-b > -(-a)$, donc, si le premier résultat est vrai, $(-a) + (-b) > 0$, donc $- (a+b) > 0$, donc $a + b < 0$.
     Montrons donc seulement le premier résultat. 
-    Pour ce faire supposons $b > -a$ et distinguons quatre cas possibles : 
+    Pour ce faire supposons $b > -a$ et distinguons trois cas possibles : 
     \begin{itemize}[nosep]
         \item Si $a \geq 0$ et $b \geq 0$, alors $a$ et $b$ ne peuvent être tous deux nuls (sans quoi on aurait $b = -a$).
             Donc, $\abs{a} + \abs{b} > 0$, donc $a + b$ (égal à $(0, \abs{a} + \abs{b})$) est strictement supérieur à $0$.
+        \item Si $a \geq 0$ et $b < 0$, $b > -a$ implique $a \neq 0$ (sans quoi on aurait $-a = 0$ et donc $b > 0$) et $\abs{b} < \abs{a}$ (puisque $b = (1, \abs{b})$, $-a = (1, \abs{a})$, et $b > -a$), donc $a + b = (0, \abs{a} - \abs{b})$ et $a-b > 0$.
         \item Si $a < 0$, alors $-a > 0$, donc $b > 0$. 
             En outre, puisque $-a = (0, \abs{a})$ et $b = (0, \abs{b})$, on doit avoir $\abs{b} > \abs{a}$. 
             Donc, $a + b = (0, \abs{b} - \abs{a})$ et $a + b > 0$.
@@ -579,13 +580,30 @@ Distinguons quatres cas possibles :
 
 \medskip
 
+\noindent\textbf{Corrolaire :} Soit $a$ et $b$ deux élément de $\mathbb{Z}$. 
+    Alors 
+    \begin{itemize}[nosep]
+        \item Si $b > a$, $b + (-a) > 0$, donc $b - a > 0$.
+        \item Si $b < a$ $b + (-a) < 0$, $b - a < 0$.
+    \end{itemize}
+    Puisque, en outre, $b - a = 0$ est équivalent à $b = a$, on a : 
+    \begin{itemize}[nosep]
+        \item $b = a \Leftrightarrow b - a = 0$,
+        \item $b > a \Leftrightarrow b - a > 0$,
+        \item $b < a \Leftrightarrow b - a < 0$,
+        \item $b \geq a \Leftrightarrow b - a \geq 0$,
+        \item $b \leq a \Leftrightarrow b - a \leq 0$.
+    \end{itemize}
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $a$, $b$ et $c$ trois élément de $\mathbb{Z}$ tels que $b > c$.
     Alors, $a + b > a + c$
 
 \medskip
 
 \noindent\textbf{Démonstration :} 
-    On a  : $(a + b) - (a + c) = b - c$. 
+    On a  : $(a + b) - (a + c) = (a + b) + ((-a) + (-c)) = b - c$. 
     Puisque $b > c$, $b - c > 0$, donc $(a + b) - (a + c) > 0$.
     Si $a + b \leq a + c$ éait vrai, on aurait $a + b = a + c$, et donc $(a + b) - (a + c) = 0$, ou $a + b < a + c$, et donc $(a + b) - (a + c) < 0$. 
     Puisqu'aucun de ces deux prédicats est vrai, $a + b \leq a + c$ est faux, donc $a + b > a + c$ est vrai.
@@ -596,20 +614,18 @@ Distinguons quatres cas possibles :
 
 \noindent\textbf{Définition :} 
     On définit l'opération $\times$ sur $\mathbb{Z}$ (vue comme une fonction de $\mathbb{Z} \times \mathbb{Z}$ vers $\mathbb{Z}$) de la manière suivante.
-    Soit $n$ et $m$ deux élément de $\mathbb{N}$.
-    Alors, 
-    \begin{itemize}[nosep]
-        \item si $n = 0$, $(0,n) \times (0,m) = (0, 0)$ et $(0,n) \times (1,m) = (0,0)$ ;
-        \item si $m = 0$, $(0,n) \times (0,m) = (0, 0)$ et $(1,n) \times (0,m) = (0,0)$ ;
-        \item si $n \neq 0$ et $m \neq 0$, $(0,n) \times (0,m) = (0, n \times m)$ ;
-        \item si $n \neq 0$ et $m \neq 0$, $(1,n) \times (0,m) = (1, n \times m)$ ;
-        \item si $n \neq 0$ et $m \neq 0$, $(0,n) \times (1,m) = (1, n \times m)$ ;
-        \item si $n \neq 0$ et $m \neq 0$, $(1,n) \times (1,m) = (0, n \times m)$. 
-    \end{itemize}
-    Ces règles sont équivalentes à : soit $a$ et $b$ deux entiers,
+    Soit $a$ et $b$ deux entiers, alors
     \begin{itemize}[nosep]
         \item si $a = 0$, alors $a \times b = b \times a = 0$,
         \item si $a \neq 0$ et $b \neq 0$, $a \times b = (\ep, \abs{a} \times \abs{b})$, où $\ep$ est égal à $0$ si $\mathrm{sgn}(a) = \mathrm{sgn}(b)$ et $1$ sinon.
+    \end{itemize}
+    Ces règles sont équivalentes à : soit $n$ et $m$ deux élément de $\mathbb{N}$, alors 
+    \begin{itemize}[nosep]
+        \item $(0,n) \times (0,m) = (0, n \times m)$ ;
+        \item si $n \neq 0$, $(0,0) \times (1,n) = (0, 0)$ et $(1, n) \times (0, 0) = (0,0)$ ;
+        \item si $n \neq 0$ et $m \neq 0$, $(1,n) \times (0,m) = (1, n \times m)$ ;
+        \item si $n \neq 0$ et $m \neq 0$, $(0,n) \times (1,m) = (1, n \times m)$ ;
+        \item si $n \neq 0$ et $m \neq 0$, $(1,n) \times (1,m) = (0, n \times m)$. 
     \end{itemize}
     Notons que, dans tous les cas, $\abs{n \times m} = \abs{n} \times \abs{m}$.
     Notons aussi que, pour tout entier relatif $n$, $(1,1) \times n = -n$.
@@ -623,8 +639,8 @@ Distinguons quatres cas possibles :
 \medskip
 
 \noindent\textbf{Démonstration :}  
-    On peut choisir deux entiers naturels $n$ et $m$ et deux éléments $\ep$ et $\eta$ de $\lbrace 0, 1 \rbrace$ tel que $a = (\ep, n)$ et $b = (\eta, m)$. 
-    Donc, on peut choisir un élément $\mu$ de $\lbrace 0, 1 \rbrace$ tel que $a \times b = (\mu, n \times m)$.
+    On peut choisir deux entiers naturels $n$ et $m$ et deux éléments $\ep$ et $\eta$ de $\lbrace 0, 1 \rbrace$ tels que $a = (\ep, n)$ et $b = (\eta, m)$. 
+    On peut aussi choisir un élément $\mu$ de $\lbrace 0, 1 \rbrace$ tel que $a \times b = (\mu, n \times m)$.
     (Avec $\mu = 0$ si $\ep = \eta$ ou $n = 0$ ou $m = 0$, et $\mu = 1$ si $\ep \neq \eta$, $n \neq 0$ et $m \neq 0$.)
     Si $a \times b = (0,0)$, on a donc $n \times m = 0$, donc $n = 0$ ou $m = 0$.
     Si $n = 0$, $\ep$ doit être égal à $0$ (puisque $(\ep,n) \in \mathbb{Z}$), donc $a = (0,0)$.
@@ -642,7 +658,7 @@ Distinguons quatres cas possibles :
     Soit $n$ et $m$ deux entiers naturels et $\ep$ et $\eta$ deux éléments de $\lbrace 0, 1 \rbrace$ tels que $a = (\ep, n)$ et $b = (\eta, m)$. 
     Alors, 
     \begin{itemize}[nosep]
-        \item Si $n = 0$ ou $m = 0$, $a \times b = (0,0)$ et $b \times a = (0,0)$, donc $a \times b = b \times a$. 
+        \item Si $n = 0$ ou $m = 0$, alors $a=(0,0)$ ou $b=(0,0)$, donc $a \times b = (0,0)$ et $b \times a = (0,0)$, donc $a \times b = b \times a$. 
         \item Sinon, on a $a \times b = (\mu, n \times m)$ et $b \times a = (\mu, m \times n)$, où $\mu$ est égal à $0$ si $\ep = \eta$ et $1$ sinon.
             Puisque la multiplication d'entiers naturels est commutative, $n \times m = m \times n$, donc $a \times b = b \times a$.
     \end{itemize}
