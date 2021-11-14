@@ -14,9 +14,13 @@ On définit deux fonctions $\mathrm{sgn}: \mathbb{Z} \to \lbrace 0, 1 \rbrace$ e
 Soit $a$ un élément de $\mathbb{Z}$. 
 On peut choisir un élément $\ep$ de $\lbrace 0, 1 \rbrace$ et un élément $n$ de $\mathbb{N}$ tels que $a = (\ep,n)$. 
 On pose alors $\mathrm{sgn}(a) = \ep$ et $\mathrm{abs}(a) = n$. 
-Le premier est appelé \textit{signe} de l'entier $a$ et le second, aussi noté $\abs{a}$, sa \textit{valeur absolue}.
+Le premier est appelé \textit{signe} de l'entier $a$ et le second, aussi noté $\abs{a}$, sa \textit{valeur absolue}. 
+
+Notons que, si $a$ et $b$ sont deux entiers tels que $\abs{a} = \abs{b}$ et $\mathrm{sgn}(a) = \mathrm{sgn}(b)$, alors $a = b$. 
 
 Un entier est dit \textit{nul} s'il est égal à $(0,0)$.
+
+Soit $a$ et $b$ deux entiers, on a $\mathrm{sgn}(a) = \mathrm{sgn}(b)$ ou $\mathrm{sgn}(a) = 1 - \mathrm{sgn}(b)$.
 
 Quand il n'y a pas d'ambiguité, un entier naturel $n$ pourra être identifié à l'entier relatif $(0,n)$. 
 En particulier, $(0,0)$ est parfois simplement noté $0$.
@@ -627,8 +631,8 @@ Distinguons quatres cas possibles :
         \item si $n \neq 0$ et $m \neq 0$, $(0,n) \times (1,m) = (1, n \times m)$ ;
         \item si $n \neq 0$ et $m \neq 0$, $(1,n) \times (1,m) = (0, n \times m)$. 
     \end{itemize}
-    Notons que, dans tous les cas, $\abs{n \times m} = \abs{n} \times \abs{m}$.
-    Notons aussi que, pour tout entier relatif $n$, $(1,1) \times n = -n$.
+    Notons que, dans tous les cas, pour tous entiers relatifs $a$ et $b$, $\abs{a \times b} = \abs{a} \times \abs{b}$.
+    Notons aussi que, pour tout entier relatif $a$, $(1,1) \times a = -a$.
     Le symbole $\times$ est parfois omis quand il n'y a pas de confusion possible.
 
 \medskip
@@ -650,6 +654,31 @@ Distinguons quatres cas possibles :
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $a$ et $b$ deux entiers relatifs. 
+    Alors, 
+    \begin{itemize}[nosep]
+        \item Si $a = 0$ ou $b = 0$, alors $a \times b = 0$.
+        \item Si $a > 0$ et $b > 0$, alors $a \times b > 0$.
+        \item Si $a > 0$ et $b < 0$, alors $a \times b < 0$.
+        \item Si $a < 0$ et $b > 0$, alors $a \times b < 0$.
+        \item Si $a < 0$ et $b < 0$, alors $a \times b > 0$.
+        \item Si $\abs{a} = 1$, alors $\abs{a \times b} = \abs{b}$.
+        \item Si $\abs{a} > 1$ et $m \neq 0$, alors $\abs{a \times b} > \abs{b}$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+
+    \begin{itemize}[nosep]
+        \item Les six premiers points sont des conséquences directes de la définition de la multiplication.
+        \item Les deux derniers points sont des conséquences diectes du fait que $\abs{a \times b} = \abs{a} \times \abs{b}$.
+    \end{itemize}
+    
+    \done
+
+\medskip
+
 \noindent\textbf{Lemme :} La multiplication est commutative : pour tous éléments $a$ et $b$ de $\mathbb{Z}$, $a \times b = b \times a$.
 
 \medskip
@@ -667,6 +696,69 @@ Distinguons quatres cas possibles :
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $n$, $m$ et $k$ trois entiers relatifs. 
+    Alors, 
+    \begin{itemize}[nosep]
+        \item Si $n = 0$, $n \times m = n \times k$.
+        \item Si $n \neq 0$, $n \times m = n \times k \Leftrightarrow m = k$.
+        \item Si $n > 0$, $n \times m > n \times k \Leftrightarrow m > k$.
+        \item Si $n < 0$, $n \times m > n \times k \Leftrightarrow m < k$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    \begin{itemize}[nosep]
+        \item Si $n = 0$, $n \times m = 0$ et $n \times k = 0$, donc $n \times m = n \times k$.
+        \item Supposons $n \neq 0$. 
+            Supposons $n \times m = n \times k$.
+            \begin{itemize}[nosep]
+                \item On a $\abs{n \times m} = \abs{n \times k}$, donc $\abs{n} \times \abs{m} = \abs{n} \times \abs{k}$. 
+                    Puisque $n \neq 0$, $\abs{n} \neq 0$, donc cela implique $\abs{m} = \abs{k}$.
+                \item Si $\mathrm{sgn}(n \times m) = 0$, alors $\mathrm{sgn}(n \times k) = 0$, donc $\mathrm{sgn}(n) = \mathrm{sgn}(m)$ et $\mathrm{sgn}(n) = \mathrm{sgn}(k)$, donc $\mathrm{sgn}(m) = \mathrm{sgn}(k)$.
+                    Sinon, $\mathrm{sgn}(n \times m) = 1$, donc $\mathrm{sgn}(n \times k) = 1$, donc $\mathrm{sgn}(m) = 1 - \mathrm{sgn}(n)$ et $\mathrm{sgn}(k) = 1 - \mathrm{sgn}(n)$, donc $\mathrm{sgn}(m) = \mathrm{sgn}(k)$.
+            \end{itemize}
+            Donc, $m = k$.
+            
+            Réciproquement, si $m = k$, alors $n \times m = n \times k$.
+        \item Supposons que $n > 0$.
+            Alors, 
+            \begin{itemize}[nosep]
+                \item Si $m \geq 0$ et $k \geq 0$, $n \times m = (0, \abs{n} \times \abs{m})$ et $n \times k = (0, \abs{n} \times \abs{k})$.
+                    Donc, $n \times m > n \times k \Leftrightarrow \abs{n} \times \abs{m} > \abs{n} \times \abs{k}$.
+                    Puisque $n > 0$, $\abs{n} \neq 0$, donc $\abs{n} \times \abs{m} > \abs{n} \times \abs{k} \Leftrightarrow \abs{m} > \abs{k}$ donc cela donne : $n \times m > n \times k \Leftrightarrow \abs{m} > \abs{k}$. 
+                    Puisque $m > k \Leftrightarrow \abs{m} > \abs{k}$, on en déduit $n \times m > n \times k \Leftrightarrow m > k$.
+                \item Si $m \geq 0$ et $k < 0$, $m > k$ est vrai.
+                    En outre, $n \times m \geq 0$ et $n \times k < 0$, donc $n \times m > n \times k$ est vrai.
+                \item Si $m < 0$ et $k \geq 0$, $m > k$ est faux.
+                    En outre, $n \times m < 0$ et $n \times k \geq 0$, donc $n \times m > n \times k$ est faux.
+                \item Si $m < 0$ et $k < 0$, $n \times m = (1, \abs{n} \times \abs{m})$ et $n \times k = (1, \abs{n} \times \abs{k})$.
+                    Donc, $n \times m > n \times k \Leftrightarrow \abs{n} \times \abs{m} < \abs{n} \times \abs{k}$.
+                    Puisque $\abs{n} > 0$, cela donne : $n \times m > n \times k \Leftrightarrow \abs{m} < \abs{k}$. 
+                    Puisque $m > k \Leftrightarrow \abs{m} < \abs{k}$, on en déduit $n \times m > n \times k \Leftrightarrow m > k$.
+            \end{itemize}
+        \item Supposons que $n < 0$.
+            Alors, 
+            \begin{itemize}[nosep]
+                \item Si $m \geq 0$ et $k \geq 0$, $n \times m = (1, \abs{n} \times \abs{m})$ et $n \times k = (1, \abs{n} \times \abs{k})$.
+                    Donc, $n \times m > n \times k \Leftrightarrow \abs{n} \times \abs{m} < \abs{n} \times \abs{k}$.
+                    Puisque $\abs{n} > 0$, cela donne : $n \times m > n \times k \Leftrightarrow \abs{m} < \abs{k}$. 
+                    Puisque $m < k \Leftrightarrow \abs{m} < \abs{k}$, on en déduit $n \times m > n \times k \Leftrightarrow m < k$.
+                \item Si $m \geq 0$ et $k < 0$, $m > k$ est vrai.
+                    En outre, $n \times m \leq 0$ et $n \times k > 0$, donc $n \times m > n \times k$ est faux.
+                \item Si $m < 0$ et $k \geq 0$, $m > k$ est faux.
+                    En outre, $n \times m > 0$ et $n \times k \leq 0$, donc $n \times m > n \times k$ est vrai.
+                \item Si $m < 0$ et $k < 0$, $n \times m = (0, \abs{n} \times \abs{m})$ et $n \times k = (0, \abs{n} \times \abs{k})$.
+                    Donc, $n \times m > n \times k \Leftrightarrow \abs{n} \times \abs{m} > \abs{n} \times \abs{k}$.
+                    Puisque $\abs{n} > 0$, cela donne : $n \times m > n \times k \Leftrightarrow \abs{m} > \abs{k}$. 
+                    Puisque $m < k \Leftrightarrow \abs{m} > \abs{k}$, on en déduit $n \times m > n \times k \Leftrightarrow m < k$.
+            \end{itemize}
+    \end{itemize}
+
+    \done
+
+\medskip
+
 \noindent\textbf{Lemme :} La multiplication est associative : pour tous éléments $a$, $b$ et $c$ de $\mathbb{Z}$, $a \times (b \times c) = (a \times b) \times c$.
 
 \medskip
@@ -677,7 +769,7 @@ Distinguons quatres cas possibles :
         \item Si $b = 0$, $(a \times b) \times c = 0 \times c = 0$ et $a \times (b \times c) = a \times 0 = 0$.
         \item Si $c = 0$, $(a \times b) \times c = 0$ et $a \times (b \times c) = a \times 0 = 0$.
         \item Supposons que $a$, $b$ et $c$ sont non nuls. 
-            Distinguons alors selon les valaurs possibles de $(\mathrm{sgn}(a), \mathrm{sgn}(b), \mathrm{sgn}(c))$, qui est un élément de $\lbrace 0, 1 \rbrace^3$ :
+            Distinguons alors selon les valeurs possibles de $(\mathrm{sgn}(a), \mathrm{sgn}(b), \mathrm{sgn}(c))$, qui est un élément de $\lbrace 0, 1 \rbrace^3$ :
             \begin{itemize}[nosep]
                 \item S'il est égal à $(0,0,0)$, on a 
                     $(a \times b) \times c = (0,\abs{a} \times \abs{b}) \times c = (0, (\abs{a} \times \abs{b}) \times \abs{c})$ et 
@@ -686,8 +778,8 @@ Distinguons quatres cas possibles :
                     $(a \times b) \times c = (0,\abs{a} \times \abs{b}) \times c = (1, (\abs{a} \times \abs{b}) \times \abs{c})$ et 
                     $a \times (b \times c) = a \times (1, \abs{b} \times \abs{c}) = (1, \abs{a} \times (\abs{b} \times \abs{c}))$.
                 \item S'il est égal à $(0,1,0)$, on a 
-                    $(a \times b) \times c = (1,\abs{a} \times \abs{b}) \times c = (0, (\abs{a} \times \abs{b}) \times \abs{c})$ et 
-                    $a \times (b \times c) = a \times (1, \abs{b} \times \abs{c}) = (0, \abs{a} \times (\abs{b} \times \abs{c}))$.
+                    $(a \times b) \times c = (1,\abs{a} \times \abs{b}) \times c = (1, (\abs{a} \times \abs{b}) \times \abs{c})$ et 
+                    $a \times (b \times c) = a \times (1, \abs{b} \times \abs{c}) = (1, \abs{a} \times (\abs{b} \times \abs{c}))$.
                 \item S'il est égal à $(0,1,1)$, on a 
                     $(a \times b) \times c = (1,\abs{a} \times \abs{b}) \times c = (0, (\abs{a} \times \abs{b}) \times \abs{c})$ et 
                     $a \times (b \times c) = a \times (0, \abs{b} \times \abs{c}) = (0, \abs{a} \times (\abs{b} \times \abs{c}))$.
@@ -704,7 +796,7 @@ Distinguons quatres cas possibles :
                     $(a \times b) \times c = (0,\abs{a} \times \abs{b}) \times c = (1, (\abs{a} \times \abs{b}) \times \abs{c})$ et 
                     $a \times (b \times c) = a \times (0, \abs{b} \times \abs{c}) = (1, \abs{a} \times (\abs{b} \times \abs{c}))$.
             \end{itemize}
-            Notons que $(\abs{a} \times \abs{b}) \times \abs{c} = \abs{a} \times (\abs{b} \times \abs{c})$ puisque la multiplication d'entiers est associative.
+            Notons que $(\abs{a} \times \abs{b}) \times \abs{c} = \abs{a} \times (\abs{b} \times \abs{c})$ puisque la multiplication d'entiers naturels est associative, donc $(a \times b) \times c$ et $a \times (b \times c)$ sont égaux dans ces huit cas. 
     \end{itemize}
     Dans tous les cas, on a bien $(a \times b) \times c = a \times (b \times c)$.
 
@@ -746,80 +838,6 @@ Distinguons quatres cas possibles :
 \end{itemize}
 
 \done
-
-\medskip
-
-\noindent\textbf{Lemme :} Soit $n$ et $m$ deux entiers relatifs. 
-    Alors, 
-    \begin{itemize}[nosep]
-        \item Si $n = 0$ ou $m = 0$, alors $n \times m = 0$.
-        \item Si $n > 0$ et $m > 0$, alors $n \times m > 0$.
-        \item Si $n > 0$ et $m < 0$, alors $n \times m < 0$.
-        \item Si $n < 0$ et $m > 0$, alors $n \times m < 0$.
-        \item Si $n < 0$ et $m < 0$, alors $n \times m > 0$.
-        \item Si $\abs{n} = 1$, alors $\abs{n \times m} = \abs{m}$.
-        \item Si $\abs{n} > 1$ et $m \neq 0$, alors $\abs{n \times m} > \abs{m}$.
-    \end{itemize}
-
-\medskip
-
-\noindent\textbf{Démonstration :}
-
-    \begin{itemize}[nosep]
-        \item Le premier point est une conséquence irect d'un lemme précédent.
-        \item Les quatre points suivants sont des conséquences directes de la définition de la multiplication.
-        \item Les deux derniers points sont des conséquences diectes du fait que $\abs{n \times m} = \abs{n} \times \abs{m}$.
-    \end{itemize}
-    
-    \done
-
-\medskip
-
-\noindent\textbf{Lemme :} Soit $n$, $m$ et $k$ trois entiers relatifs. 
-    Alors, 
-    \begin{itemize}[nosep]
-        \item Si $n = 0$, $n \times m = n \times k$.
-        \item Si $n \neq 0$, $n \times m = n \times k \Leftrightarrow m = k$.
-        \item Si $n > 0$, $n \times m > n \times k \Leftrightarrow m > k$.
-        \item Si $n < 0$, $n \times m > n \times k \Leftrightarrow m < k$.
-    \end{itemize}
-
-\medskip
-
-\noindent\textbf{Démonstration :} 
-    \begin{itemize}[nosep]
-        \item Si $n = 0$, $n \times m = 0$ et $n \times k = 0$, donc $n \times m = n \times k$.
-        \item Supposons $n \neq 0$. 
-            Si $n \times m = n \times k$, alors $n \times m - n \times k = 0$.
-            Puisque $n \times m - n \times k = n \times m + (-(n \times k)) = n \times m + ((1,1) \times (n \times k)) = n \times m + (n \times ((1,1) \times k)) = n \times m + n \times (-k) = n \times (m + (-k)) = n \times (m-k)$, on en déduit que $m-k = 0$, et donc $m = k$.
-            Réciproquement, si $m = k$, alors $n \times m = n \times k$.
-        \item Supposons que $n > 0$.
-            Alors, 
-            \begin{itemize}[nosep]
-                \item Si $m \geq 0$ et $k \geq 0$, $n \times m = (0, \abs{n} \times \abs{m})$ et $n \times k = (0, \abs{n} \times \abs{k})$.
-                    Donc, $n \times m > n \times k \Leftrightarrow \abs{n} \times \abs{m} > \abs{n} \times \abs{k}$.
-                    Puisque $\abs{n} > 0$, cela donne : $n \times m > n \times k \Leftrightarrow \abs{m} > \abs{k}$. 
-                    Puisque $m > k \Leftrightarrow \abs{m} > \abs{k}$, on en déduit $n \times m > n \times k \Leftrightarrow m > k$.
-                \item Si $m < 0$ et $k < 0$, $n \times m = (1, \abs{n} \times \abs{m})$ et $n \times k = (1, \abs{n} \times \abs{k})$.
-                    Donc, $n \times m > n \times k \Leftrightarrow \abs{n} \times \abs{m} < \abs{n} \times \abs{k}$.
-                    Puisque $\abs{n} > 0$, cela donne : $n \times m > n \times k \Leftrightarrow \abs{m} < \abs{k}$. 
-                    Puisque $m > k \Leftrightarrow \abs{m} < \abs{k}$, on en déduit $n \times m > n \times k \Leftrightarrow m > k$.
-            \end{itemize}
-        \item Supposons que $n < 0$.
-            Alors, 
-            \begin{itemize}[nosep]
-                \item Si $m \geq 0$ et $k \geq 0$, $n \times m = (1, \abs{n} \times \abs{m})$ et $n \times k = (1, \abs{n} \times \abs{k})$.
-                    Donc, $n \times m > n \times k \Leftrightarrow \abs{n} \times \abs{m} < \abs{n} \times \abs{k}$.
-                    Puisque $\abs{n} > 0$, cela donne : $n \times m > n \times k \Leftrightarrow \abs{m} < \abs{k}$. 
-                    Puisque $m < k \Leftrightarrow \abs{m} < \abs{k}$, on en déduit $n \times m > n \times k \Leftrightarrow m < k$.
-                \item Si $m < 0$ et $k < 0$, $n \times m = (0, \abs{n} \times \abs{m})$ et $n \times k = (0, \abs{n} \times \abs{k})$.
-                    Donc, $n \times m > n \times k \Leftrightarrow \abs{n} \times \abs{m} > \abs{n} \times \abs{k}$.
-                    Puisque $\abs{n} > 0$, cela donne : $n \times m > n \times k \Leftrightarrow \abs{m} > \abs{k}$. 
-                    Puisque $m < k \Leftrightarrow \abs{m} > \abs{k}$, on en déduit $n \times m > n \times k \Leftrightarrow m < k$.
-            \end{itemize}
-    \end{itemize}
-
-    \done
 
 \subsubsection{Puissance}
 
