@@ -811,16 +811,16 @@ Distinguons quatres cas possibles :
 \noindent\textbf{Démonstration :} 
 \begin{itemize}[nosep]
     \item Si $\mathrm{sgn}(a) = \mathrm{sgn}(b) = \mathrm{sgn}(c) = 0$, alors $a \times (b + c) = a \times (0, \abs{b} + \abs{c}) = (0, \abs{a} \times (\abs{b} + \abs{c}))$ et $(a \times b) + (a \times c) = (0, \abs{a} \times \abs{b}) + (0, \abs{a} \times \abs{c}) = (0, (\abs{a} \times \abs{b}) + (\abs{a} \times \abs{c}))$.
-        Puisque, sur $\mathbb{N}$, la multiplication est distributive sur l'addition, on a $\abs{a} \times (\abs{b} + \abs{c}) = (\abs{a} \times \abs{b}) + (\abs{a} \times \abs{c})$, et donc $a \times (b + c) = (a \times b) + (a \times c)$.
+        Puisque, dans $\mathbb{N}$, la multiplication est distributive sur l'addition, on a $\abs{a} \times (\abs{b} + \abs{c}) = (\abs{a} \times \abs{b}) + (\abs{a} \times \abs{c})$, et donc $a \times (b + c) = (a \times b) + (a \times c)$.
     \item Si $\mathrm{sgn}(a) = \mathrm{sgn}(b) = \mathrm{sgn}(c) = 1$, alors $a \times (b + c) = a \times (1, \abs{b} + \abs{c}) = (0, \abs{a} \times (\abs{b} + \abs{c}))$ et $(a \times b) + (a \times c) = (0, \abs{a} \times \abs{b}) + (0, \abs{a} \times \abs{c}) = (0, (\abs{a} \times \abs{b}) + (\abs{a} \times \abs{c}))$.
-        Puisque, sur $\mathbb{N}$, la multiplication est distributive sur l'addition, on a $\abs{a} \times (\abs{b} + \abs{c}) = (\abs{a} \times \abs{b}) + (\abs{a} \times \abs{c})$, et donc $a \times (b + c) = (a \times b) + (a \times c)$.
+        Comme précédemment, on a donc $a \times (b + c) = (a \times b) + (a \times c)$.
     \item Si $a = (0,0)$, alors $a \times (b+c) = (0,0)$ et $(a \times b) + (a \times c) = 0 + 0 = 0$, donc $a \times (b + c) = (a \times b) + (a \times c)$.
     \item Si $b = (0,0)$, alors $a \times (b+c) = a \times c$ et $(a \times b) + (a \times c) = 0 + (a \times c) = a \times c$, donc $a \times (b + c) = (a \times b) + (a \times c)$.
     \item Si $c = (0,0)$, alors $a \times (b+c) = a \times b$ et $(a \times b) + (a \times c) = (a \times b) + 0 = a \times b$, donc $a \times (b + c) = (a \times b) + (a \times c)$.
     \item Si $\mathrm{sgn}(a) = 1$, $\mathrm{sgn}(b) = \mathrm{sgn}(c) = 0$, $b \neq 0$ et $c \neq 0$, alors $a \times (b + c) = a \times (0, \abs{b} + \abs{c}) = (1, \abs{a} \times (\abs{b} + \abs{c}))$ et $(a \times b) + (a \times c) = (1, \abs{a} \times \abs{b}) + (1, \abs{a} \times \abs{c}) = (1, (\abs{a} \times \abs{b}) + (\abs{a} \times \abs{c}))$.
-        Puisque, sur $\mathbb{N}$, la multiplication est distributive sur l'addition, on a $\abs{a} \times (\abs{b} + \abs{c}) = (\abs{a} \times \abs{b}) + (\abs{a} \times \abs{c})$, et donc $a \times (b + c) = (a \times b) + (a \times c)$.
+        Comme précédemment, on a donc $a \times (b + c) = (a \times b) + (a \times c)$.
     \item Si $\mathrm{sgn}(a) = 0$, $\mathrm{sgn}(b) = \mathrm{sgn}(c) = 1$ et $a \neq 0$, alors $a \times (b + c) = a \times (1, \abs{b} + \abs{c}) = (1, \abs{a} \times (\abs{b} + \abs{c}))$ et $(a \times b) + (a \times c) = (1, \abs{a} \times \abs{b}) + (1, \abs{a} \times \abs{c}) = (1, (\abs{a} \times \abs{b}) + (\abs{a} \times \abs{c}))$.
-        Puisque, sur $\mathbb{N}$, la multiplication est distributive sur l'addition, on a $\abs{a} \times (\abs{b} + \abs{c}) = (\abs{a} \times \abs{b}) + (\abs{a} \times \abs{c})$, et donc $a \times (b + c) = (a \times b) + (a \times c)$.
+        Comme précédemment, on a donc $a \times (b + c) = (a \times b) + (a \times c)$.
     \item Supposons $\mathrm{sgn}(a) = \mathrm{sgn}(c) = 0$, $\mathrm{sgn}(b) = 1$ et $a \neq 0$. 
         Alors, $(a \times b) + (a \times c) = (1, \abs{a} \times \abs{b}) + (0, \abs{a} \times \abs{c})$. 
         Cette quantité est égale à $(1, \abs{a} \times \abs{b} - \abs{a} \times \abs{c})$ si $\abs{a} \times \abs{b} > \abs{a} \times \abs{c}$, \textit{i.e.}, si $\abs{b} > \abs{c}$, et à $(0, \abs{a} \times \abs{c} - \abs{a} \times \abs{b})$ sinon.
@@ -831,10 +831,10 @@ Distinguons quatres cas possibles :
         Alors, $(a \times b) + (a \times c) = (1, \abs{a} \times \abs{b}) + (0, \abs{a} \times \abs{c})$. 
         Cette quantité est égale à $(1, \abs{a} \times \abs{b} - \abs{a} \times \abs{c})$ si $\abs{a} \times \abs{b} > \abs{a} \times \abs{c}$, \textit{i.e.}, si $\abs{b} > \abs{c}$, et à $(0, \abs{a} \times \abs{c} - \abs{a} \times \abs{b})$ sinon.
         Par ailleurs, $b + c$ est égal à $(0, \abs{b} - \abs{c})$ si $\abs{b} \geq \abs{c}$ et $(1, \abs{c} - \abs{b})$ sinon.
-        Donc, $a \times (b + c)$ est égal à $(1, \abs{a} (\abs{b} - \abs{c}))$ si $\abs{b} > \abs{c}$ et à $(0, \abs{a} (\abs{c} - \abs{b}))$ sinon (y compris si $\abs{b} = \abs{c}$, puisqu'alors $c = -b$).
-        Puisque $\abs{a} (\abs{b} - \abs{c}) = \abs{a} \abs{b} - \abs{a} \abs{c}$ dans le premier cas et $\abs{a} (\abs{b} - \abs{c}) = \abs{a} \abs{c} - \abs{a} \abs{b}$ dans le second, on en déduit $a \times (b + c) = (a \times b) + (a \times c)$.
-    \item Les deux derniers cas, où $a$ et $b$ sont de même signe et $c$ de signe différent avec $a$, $b$ et $c$ non nuls, se ramènent aux cas précédents par commutativité de l'addition.
-        En effet, les cas précédents montrent que $a \times (c + b) = (a \times c) + (a \times b)$, et donc, par commutativité de l'addition, $a \times (b + c) = (a \times b) + (a \times c)$.
+        Donc, $a \times (b + c)$ est égal à $(1, \abs{a} (\abs{b} - \abs{c}))$ si $\abs{b} > \abs{c}$ et à $(0, \abs{a} (\abs{c} - \abs{b}))$ sinon (y compris si $\abs{b} = \abs{c}$, puisqu'alors $(0, \abs{c} - \abs{b}) = (0,0)$).
+        Puisque $\abs{a} (\abs{b} - \abs{c}) = \abs{a} \abs{b} - \abs{a} \abs{c}$ dans le premier cas et $\abs{a} (\abs{c} - \abs{b}) = \abs{a} \abs{c} - \abs{a} \abs{b}$ dans le second, on en déduit $a \times (b + c) = (a \times b) + (a \times c)$.
+    \item Les deux derniers cas, où $a$ et $b$ sont de même signe et $c$ de signe différent avec $a$, $b$ et $c$ non nuls, se ramènent aux deux cas précédents par commutativité de l'addition.
+        En effet, ces derbiers montrent que $a \times (c + b) = (a \times c) + (a \times b)$, et donc, par commutativité de l'addition, $a \times (b + c) = (a \times b) + (a \times c)$.
 \end{itemize}
 
 \done
