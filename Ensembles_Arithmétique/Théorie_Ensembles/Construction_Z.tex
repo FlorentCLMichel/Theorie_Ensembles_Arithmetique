@@ -844,12 +844,12 @@ Distinguons quatres cas possibles :
 \noindent\textbf{Puissance d'entiers relatifs :} Soit $E$ l'ensemble des fonctions de $\mathbb{Z}$ dans $\mathbb{Z}$. 
     On définit la suite $\mathrm{Exp}$ d'éléments de $E$ par récurrence de la manière suivante : 
     \begin{itemize}[nosep]
-        \item Pour tout élément $m$ de $\mathbb{Z}$, $\mathrm{Exp}(0)(m) = (0,1)$.
-        \item Pour tout élément $n$ de $\mathbb{N}$, pour tout élément $m$ de $\mathbb{Z}$, $\mathrm{Exp}(n+1)(m) = \mathrm{Exp}(n)(m) \times m$.
+        \item Pour tout élément $m$ de $\mathbb{Z}$, $\mathrm{Exp}(0)(m) = (0,1)$ (cela définit $\mathrm{Exp}(0)$).
+        \item Pour tout élément $n$ de $\mathbb{N}$, pour tout élément $m$ de $\mathbb{Z}$, $\mathrm{Exp}(n+1)(m) = \mathrm{Exp}(n)(m) \times m$ (cela définit $\mathrm{Exp}(n+1)$ à partir de $\mathrm{Exp}(n)$).
     \end{itemize}
     Notons que, pour tout élément $m$ de $\mathbb{Z}$, on a $\mathrm{Exp}(1)(m) = m$. 
     Dans la suite, pour tous éléments $n$ et $m$ de $\mathbb{Z}$, on notera l'entier $\mathrm{Exp}(n)(m)$ par $m^n$. 
-    Pour touts éléments $n$ et $m$ de $\mathbb{Z}$, on a donc $m^0=1$, $m^1 = m$ et $m^{n+1} = m^n \times m$. 
+    Pour tous éléments $n$ et $m$ de $\mathbb{Z}$, on a donc $m^0=1$, $m^1 = m$ et $m^{n+1} = m^n \times m$. 
     L'exponentiation est prioritaire sur la multiplication et l'addition. 
     Par exemple, si $a$, $b$ et $c$ sont trois éléments de $\mathbb{Z}$, $a^b \times c$ est équivalent à $(a^b) \times c$ et $a^b + c$ est équivalent à $(a^b) + c$.
 
@@ -883,7 +883,7 @@ Distinguons quatres cas possibles :
     Soit $n$ un entier naurel tel que $(1,m)^{2n} = (0,m^{2 n})$ et $(1,m)^{2n+1} = (1,m^{2 n + 1})$. 
     Alors, $(1,m)^{2(n+1)} = (1,m)^{2n + 2} = (1,m)^{(2n+1)+1} = (1,m)^{2n+1} \times (1,m) = (1, m^{2n+1}) \times (1,m) = (0,m^{2n+1} \times m) = (0, m^{2n+1+1}) = (0, m^{2(n+1)})$ et $(1,m)^{2(n+1)+1} = (1,m)^{2(n+1)} \times (1,m) = (0, m^{2(n+1)}) \times (1,m) = (1,m^{2(n+1)} \times m) = (1, m^{2(n+1)+1})$. 
     Donc, $(1,m)^{2(n+1)} = (0, m^{2(n+1)})$ et $(1,m)^{2(n+1)+1} = (1, m^{2(n+1)+1})$. 
-    Par récurrence, on en le résultat attendu est vrai pour tout entier naturel $n$.
+    Par récurrence, le résultat attendu est vrai pour tout entier naturel $n$.
 
    \done 
 
