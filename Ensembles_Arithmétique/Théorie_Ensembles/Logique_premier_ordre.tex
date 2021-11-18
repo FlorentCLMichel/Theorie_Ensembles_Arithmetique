@@ -204,6 +204,12 @@ L'ordre d'évaluation des differents termes d'une formule est déterminé par le
     \item Lorsqu'une parenthèse ouvrante est atteinte, la formule se trouvant entre elle et la parenthèse fermante correspondante est évaluée en priorité.
 \end{itemize}
 
+Un connecteur binaire $C$ est dit \textit{transitif} si, pour toutes formules $f$, $g$ et $h$, les formules $(f C g) C h$ et $C (g C h)$ sont équivalentes.
+Un connecteur binaire $C$ est dit \textit{symmétriques} si, pour toutes formules $f$ et $g$, les formules $f C g$ et $g C f$ sont équivalentes.
+
+Dans la suite, si $C$ désigne un connecteur transitif et si $f$, $g$ et $h$ sont trois formules, on omettra parfois les parenthèses dans des formules de la forme $(f R g) R h$ ou $f R (g R h)$. 
+Plus généralement, on omettra parfois les parenthèses lorsque toutes les manières d'ajouter des parenthèses pour obtenir une formule correctement formée donnent des formules équivalentes.
+
 \subsubsection{Relations binaires} 
 
 Une théorie définie dans le cadre de la logique du premier ordre peut inclure des relations binaires entre les objets de son domaine de discours, chacune étant représentée par un symbole. 
@@ -260,8 +266,8 @@ Si $f$ et $g$ sont deux formules, alors $f \oplus g$ est équivalente à $f \Lef
 
 L'utilité du connecteur XOR découle des trois propriétés suivantes : 
 \begin{itemize}[nosep]
-    \item Il est symmétrique : si $f$ et $g$ sont deux formules, $f \oplus g$ est équivalente à $g \oplus f$ (en effet, toutes deux sont vraies si une des formules $f$ et $g$ est vraie et l'autre est fausse, et fausse sinon).
-    \item Il est transitif : si $f$, $g$ et $h$ sont trois formules, $(f \oplus g) \oplus h$ est équivalente à $f \oplus (g \oplus h)$ (en effet, toutes deux sont vraies soit si les trois formules $f$, $g$ et $h$ sont vraies ou si une d'entre elles est vraie et les deux autres sont fausses, et fausses sinon).
+    \item Il est \textit{symmétrique} : si $f$ et $g$ sont deux formules, $f \oplus g$ est équivalente à $g \oplus f$ (en effet, toutes deux sont vraies si une des formules $f$ et $g$ est vraie et l'autre est fausse, et fausse sinon).
+    \item Il est \textit{transitif} : si $f$, $g$ et $h$ sont trois formules, $(f \oplus g) \oplus h$ est équivalente à $f \oplus (g \oplus h)$ (en effet, toutes deux sont vraies soit si les trois formules $f$, $g$ et $h$ sont vraies ou si une d'entre elles est vraie et les deux autres sont fausses, et fausses sinon).
     \item Soit $f$ une formule, $f \oplus f$ est toujours fausse.
 \end{itemize}
 Notons aussi que, si $f$ est une formule, $f \oplus \mathsf{F}$ est équivalente à $f$ et $f \oplus \mathsf{V}$ à $\neg f$.
@@ -329,8 +335,13 @@ Les propriétés suivantes peuvent être facilement démontrées en écrivant le
     \item Le connecteur $\vee$ est symmétrique : Soit $f$ et $g$ deux formules ; si $f \vee g$ est vraie, alors au moins une des deux formules $f$ et $g$ est vraie, donc $g \vee f$ l'est également.
     \item Le connecteur $\vee$ est transitif : Soit $f$, $g$ et $h$ trois formules, $f \vee (g \vee h)$ a la même valeur de vérité que $(f \vee g) \vee h$. En effet, toutes deux son vraies si et seulement si au moins une des deux formules $f$, $g$ et $h$ est vraie.
     \item Le connecteur $\Leftrightarrow$ est symmétrique : Soit $f$ et $g$ deux formules ; si $f \Leftrightarrow g$ est vraie, alors $g \Leftrightarrow f$ l'est également.
-    \item Le connecteur $\Leftrightarrow$ est transitif : Soit $f$, $g$ et $h$ trois formules ; si $f \Leftrightarrow g$ et $g \Leftrightarrow h$ sont vraies, alors $f \Leftrightarrow h$ l'est également. 
-        Les connecteurs $\Leftarrow$ et $\Rightarrow$ sont également transitifs.
+    \item Le connecteur $\Leftrightarrow$ est transitif : Soit $f$, $g$ et $h$ trois formules, $f \Leftrightarrow (g \Leftrightarrow h)$ a la même valeur de vérité que $(f \Leftrightarrow g) \Leftrightarrow h$. En effet, toutes deux son vraies si et seulement si les trois formules $f$, $g$ et $h$ ont la même valeur de vérité.
+    \item Soit $f$, $g$ et $h$ trois formules. 
+        \begin{itemize}[nosep]
+            \item Si $f \Leftrightarrow g$ et $g \Leftrightarrow h$ sont vraies, alors $f \Leftrightarrow h$ l'est également. 
+            \item Si $f \Rightarrow g$ et $g \Rightarrow h$ sont vraies, alors $f \Rightarrow h$ l'est également. 
+            \item Si $f \Leftarrow g$ et $g \Leftarrow h$ sont vraies, alors $f \Leftarrow h$ l'est également. 
+        \end{itemize}
     \item Soit $f$ et $g$ deux formules. Alors, $\neg (f \wedge g)$ a la même valeur de vérité que $(\neg f) \vee (\neg g)$. 
         En effet, toutes deux sont vraies si au moins une des formules $f$ et $g$ est fausse, et fausses sinon.
     \item Soit $f$ et $g$ deux formules. Alors, $\neg (f \vee g)$ a la même valeur de vérité que $(\neg f) \wedge (\neg g)$. 
@@ -403,6 +414,16 @@ On se place dans le cadre d'une théorie comprenant la logique du premier ordre 
 \paragraph{Raisonnement par l'absurde :} 
     Un type de raisonnement revenant souvent est le raisonnement par l'absurde : si $f$ et $g$ sont deux formules, si $f \Rightarrow g$ est vraie et $g$ est fausse, alors $f$ est nécessairement fausse. 
     En pratique, pour montrer qu'une formule $f$ est fausse, on peut donc trouver une formule $g$ telle que $g$ est fausse et $f \Rightarrow g$.
+
+    Plus formellement, si $f$ et $g$ sont deux formules, on a : 
+    \begin{equation*}
+        \left((f \Rightarrow g) \wedge (\neg g) \right)
+        \Leftrightarrow \left( ((\neg f) \vee g) \wedge (\neg g) \right)
+        \Leftrightarrow \left( ((\neg f) \wedge (\neg g)) \vee (g \wedge (\neg g)) \right)
+        \Leftrightarrow \left( ((\neg f) \wedge (\neg g)) \vee \mathrm{F} \right)
+        \Leftrightarrow \left( (\neg f) \wedge (\neg g) \right) .
+    \end{equation*}
+    Donc, si $(f \Rightarrow g) \wedge (\neg g)$ est vraie, alors $\neg f$ est vraie, donc $f$ est fausse.
 
 \medskip
 
