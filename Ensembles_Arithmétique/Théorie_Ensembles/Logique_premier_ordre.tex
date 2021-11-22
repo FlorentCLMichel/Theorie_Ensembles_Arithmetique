@@ -62,6 +62,7 @@ Les symboles logiques incluent :
     La formule $P \Leftarrow Q$ est ainsi équivalente à $P \vee \neg Q$.
     \item Le connecteur biconditionnel $\Leftrightarrow$ (« est équivalent à ») : si $P$ et $Q$ sont deux formules, $P \Leftrightarrow Q$ est vraie si $P$ et $Q$ sont soit toutes deux vraies soit toutes deux fausses, et fausse sinon. 
     La formule $P \Leftrightarrow Q$ est ainsi équivalente à $(P \wedge Q) \vee (\neg P \wedge \neg Q)$.
+        Notons que, si $P$ et $Q$ sont deux prédicats, si $P \Leftrightarrow Q$ est vrai, alors $(\neg P) \Leftrightarrow (\neg Q)$ est vrai aussi.
     \item Un ensemble infini de \textit{variables}, souvent notées par des lettres grecques ou latines, éventuellement avec des indices ou exposants. 
     Les variables sont interprétées comme décrivant un domaine d'objets de base, qui ne peut être vide. 
     Elles sont aussi parfois appelées \textit{paramètres}. 
@@ -191,7 +192,18 @@ Trois autres règles sont :
 
 Si $f$ est une formule et $x$ une variable n'apparaissant pas comme variable liée dans $f$, la formule $\exists x f$ est vraie s'il existe au moins une valeur possible pour $x$ telle que la formule obtenue en remplaçant $x$ par cette valeur dans $f$ est vraie, et fausse si toutes les formules obtenues en remplaçant $x$ par chacune de ses valeurs possible sont fausses. 
 Sous les mêmes conditions, la formule $\forall x f$ est fausse s'il existe au moins une valeur possible pour $x$ telle que la formule obtenue en remplaçant $x$ par cette valeur dans $f$ est fausse, et vraie si toutes les formules obtenues en remplaçant $x$ par chacune de ses valeurs possible sont vraies. 
-Ainsi, pour toute variable $x$ et toute formule $f$, la formule $\forall x \, f$ est équivalente à $\neg (\exists x \, \neg f)$ et $\exists x \, f$ à $\neg (\forall x \, \neg f)$. 
+On impose ainsi les règles suivantes : 
+\begin{itemize}
+    \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\forall x \, f$ et $\forall x \, (f \Rightarrow g)$ sont vraies, alors $\forall x \, g$ est vraie ; 
+    \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\exists x \, f$ et $\exists x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie ; 
+    \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\forall x \, f$ et $\exists x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie ; 
+    \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\exists x \, f$ et $\forall x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie ; 
+    \item pour toute variable $x$ et toute formule $f$, la formule $\forall x \, f$ est équivalente à $\neg (\exists x \, \neg f)$ 
+\end{itemize}
+Une conséquences immédiats est (en remplaçant $f$ par $\neg f$ et en notant que $\neg (\neg f))$ est équivalente à $f$ : 
+\begin{itemize}
+    \item pour toute variable $x$ et toute formule $f$, la formule $\exists x \, f$ est équivalente à $\neg (\forall x \, \neg f)$.
+\end{itemize}
 
 \textit{Stricto sensu}, il est donc possible de se passer d'un de ces deux quantificateurs, ou de voir l'un d'eux comme fondamental et l'autre comme dérivé. 
 Par exemple, on peut voir le quantificateur $\exists$ comme le seul quantificateur fondamental, et définir $\forall$ \textit{via} l'équivalence de $\forall x \, f$ et $\neg \left( \exists x \, \neg f \right)$ pour toute variable $x$ et toute formule $f$. 
