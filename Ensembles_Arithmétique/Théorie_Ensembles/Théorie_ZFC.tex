@@ -44,12 +44,12 @@ On définit la relation $\neq$ par : $\forall a \, \forall b \, (a \neq b) \Lef
 \medskip
 
 \noindent\textbf{Lemme :} 
-    On définit la relation $R$ sur les ensembles par : $\forall a \, \forall b \, (a \mathrel{R} b) \Leftrightarrow (\forall x \, (x \in a) \Leftrightarrow (x \in b))$. 
+    On définit la relation $R$ sur les ensembles par : soit $a$ et $b$ deux ensembles $(a \mathrel{R} b)$ a la même valeur de vérité que $(\forall x \, (x \in a) \Leftrightarrow (x \in b))$. 
     Alors, les trois prédicats suivants sont vrais :
     \begin{itemize}[nosep]
         \item $\forall x \, (x \mathrel{R} x)$ (réciprocité)
         \item $\forall x \, \forall y \, (x \mathrel{R} y) \Rightarrow (y \mathrel{R} x)$ (réflexivité)
-        \item $\forall x \, \forall y \, \forall z \, ((x \mathrel{R} y) \wedge (y \mathrel{R} z)) \Rightarrow (x = z)$.
+        \item $\forall x \, \forall y \, \forall z \, ((x \mathrel{R} y) \wedge (y \mathrel{R} z)) \Rightarrow (x \mathrel{R} z)$.
     \end{itemize}
     Cela suggère que l'axiome d'extensionalité est compatible avec la définition de l'égalité en logique du premier ordre (même s'il manque le schéma d'axiomes de Leibniz pour assurer la cohérence).
 
@@ -69,6 +69,32 @@ On définit la relation $\neq$ par : $\forall a \, \forall b \, (a \neq b) \Lef
         Donc, par transitivité du connecteur $\Leftrightarrow$, $a \in x \Leftrightarrow a \in z$. 
         Cela étant valable pour tout ensemble $a$, on en déduit que $x \mathrel{R} z$.
 \end{itemize}
+\done
+
+\medskip
+
+\noindent\textbf{Démonstration bis :} À titre d'exercice, re-faisons ces courtes démonstrations de manière pus formelle.
+\begin{itemize}[nosep]
+    \item Soit $f$ la formule à deux paramètres libres $x$ et $y$ donnée par : $f: y \in x$. 
+        La formule $\forall x \, \forall y \, (f \Leftrightarrow f)$ est vraie. 
+        Donc, $\forall x \, \forall y \, (y \in x) \Leftrightarrow (y \in x)$ est vraie.
+        Donc, $\forall x \, x \mathrel{R} x$ est vraie.
+    \item Soit $f$ la formule à deux paramètres libres $a$ et $x$ donnée par : $f: a \in x$, et $g$ la formule à deux paramètres libres $a$ et $y$ donnée par : $g: a \in y$. 
+        Les deux formules $f \Leftrightarrow g$ et $g \Leftrightarrow f$ sont équivalentes (elles sont toutes deux vraies si $f$ et $g$ ont la même valeur de vérité et fausses sinon). 
+        Donc, les formules $\forall a \, (f \Leftrightarrow g)$ et $\forall a \, (g \Leftrightarrow f)$ sont équivalentes. 
+        Puisque $\forall a \, (f \Leftrightarrow g)$ est équivalente à $x \mathrel{R} y$ et $\forall a \, (g \Leftrightarrow f)$ à $y \mathrel{x}$, on en déduit que $x \mathrel{R} y$ et $y \mathrel{R} x$ sont équivalentes. 
+        Donc, $(x \mathrel{R} y) \Rightarrow (y \mathrel{R} x)$ est équivalente à $h \Rightarrow h$, où $h$ est la formule donnée par $h: x \mathrel{R} y$.
+        Puisque $h \Rightarrow h$ est vraie que $h$ soit vraie ou fausse, elle est vraie. 
+        Donc, $\forall x \forall y (h \Rightarrow h)$ est vraie.
+        Donc, $\forall x \forall y (x \mathrel{R} y) \Rightarrow (y \mathrel{R} x)$ est vraie.
+    \item Soit $f$ la formule à deux paramètres libres $a$ et $x$ donnée par : $f: a \in x$, $g$ la formule à deux paramètres libres $a$ et $y$ donnée par : $g: a \in y$, et $h$ la formule à deux paramètres libres $a$ et $z$ donnée par : $h: a \in z$. 
+        Alors, $((f \Leftrightarrow g) \wedge (g \Leftrightarrow h)) \Rightarrow (f \Leftrightarrow h)$ est vraie quelles que soient les valeurs de vérité de $f$, $g$ et $h$. 
+        Donc, si $\forall a \, ((f \Leftrightarrow g) \wedge (g \Leftrightarrow h))$ est vraie, alors $\forall a \, (f \Leftrightarrow h)$ est vraie.
+        Donc, si $\forall a \, (f \Leftrightarrow g)$ et $\forall a \, (g \Leftrightarrow h)$ sont vraies, alors $\forall a \, (f \Leftrightarrow h)$ est vraie.
+        Puisque $\forall a \, (f \Leftrightarrow g)$ est équivalente à $x \mathrel{R} y$, $\forall a \, (g \Leftrightarrow h)$ est équivalente à $y \mathrel{R} z$, et $\forall a \, (f \Leftrightarrow h)$ est équivalente à $x \mathrel{R} z$, on en déduit que $((x \mathrel{R} y) \wedge (y \mathrel{R} z)) \Rightarrow (x \mathrel{R} z)$ est toujours vraie.
+        Donc, $\forall x \, \forall y \, \forall z \, ((x \mathrel{R} y) \wedge (y \mathrel{R} z)) \Rightarrow (x \mathrel{R} z)$ est vraie .
+\end{itemize}
+
 \done
 
 \medskip
