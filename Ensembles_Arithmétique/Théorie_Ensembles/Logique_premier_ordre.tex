@@ -203,8 +203,9 @@ Sous les mêmes conditions, la formule $\forall x f$ est fausse s'il existe au m
 On formalise cela par les règles suivantes : 
 \begin{itemize}
     \item si $x$ est une variable, alors $\forall x \, \mathrm{V}$ est vraie ; 
+    \item si $x$ est une variable et $f$ une formule, si $\forall x \, f$ est vraie, alors $f$ est équivalente à $\mathrm{V}$ ; 
     \item pour toute variable $x$ et toute formule $f$, la formule $\forall x \, f$ est équivalente à $\neg (\exists x \, \neg f)$ 
-    \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\forall x \, f(x)) \wedge (\forall y g(y))$ et $\forall x \, (f(x) \wedge g(x))$ sont équivalentes ; 
+    \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ et $\forall x \, (f(x) \wedge g(x))$ sont équivalentes ; 
     \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\forall x \, f$ et $\forall x \, (f \Rightarrow g)$ sont vraies, alors $\forall x \, g$ est vraie ; 
     \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\exists x \, f$ et $\exists x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie ; 
     \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\forall x \, f$ et $\exists x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie ; 
@@ -248,8 +249,12 @@ Si $x$ et $y$ sont deux variables, et $R$ le symbole dénotant une relation bina
 L'égalité est un exemple de reation binaire, avec pour symbole $=$. 
 
 Soit $P$ un prédicat dépendant de deux variables. 
-On peut définir une relation binaire $R$ par la formule : $\forall x \forall y \, ((x \mathrel{R} y) \Leftrightarrow P x y)$. 
-Cela signifie que, pour chaque $x$ et chaque $y$, $x \mathrel{R} y$ est vrai si et seulement si $P x y$ est vrai. 
+On peut définir une relation binaire $R$ par la formule 
+\begin{equation*}
+    \forall x \forall y \, ((x \mathrel{R} y) \Leftrightarrow P x y),
+\end{equation*}
+ignifiant que, pour chaque $x$ et chaque $y$, $x \mathrel{R} y$ est vrai si et seulement si $P x y$ est vrai. 
+Autrement dit, cette formule signiie que les prédicats $P x y$ et $x \mathrel{R} y$ sont équivalents.
 
 Lors de l'évaluation d'une formule, et sauf mention contraire, les relations binaires autres que l'égalité sont prioritaires sur cette dernière, mais pas sur le connecteur $\neq$.
 
