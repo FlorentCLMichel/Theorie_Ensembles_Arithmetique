@@ -290,6 +290,21 @@ Cet ensemble est unique d'après l'axiome d'extensionnalité.
 
 \medskip
 
+\noindent\textbf{Démonstration bis :} La formule $x \subset \emptyset$ est équivalente à $\forall e \, (e \in x) \Rightarrow (e \in \emptyset)$. 
+    Puisque $e \notin \emptyset$ est équivalente à $\mathrm{V}$, $e \in \emptyset$ (sa négation) est équivalente à $\mathrm{F}$.
+    Donc, $x \subset \emptyset$ est équivalente à $\forall e \, (e \in x) \Rightarrow \mathrm{F}$. 
+    Pour toute formule $f$, $f \Rightarrow \mathrm{F}$ est équivalente à $\neg f$ (elles sont toute deux vraies si $f$ est fausse et fausses si $f$ est vraie).
+    Donc, $x \subset \emptyset$ est équivalente à $\forall e \, \neg (e \in x)$, \textit{i.e.}, à $\forall e \, (e \notin x)$. 
+    Puisque $(e \notin \emptyset)$ est vraie, $x \subset \emptyset$ est équivalente à $\forall e \, (e \notin x) \Leftrightarrow (e \notin \emptyset)$. 
+    Si $f$ et $g$ sont deux formules, $(\neg f) \Leftrightarrow (\neg g)$ sont équivalentes. 
+    En prenant $f: e \notin x$ et $g: e \notin \emptyset$, on obtient que $x \subset \emptyset$ est équivalente à $\forall e \, (e \in x) \Leftrightarrow (e \in \emptyset)$, et donc à $x = \emptyset$.
+    Donc, $x \subset \emptyset \Rightarrow x = \emptyset$ est toujours vraie.
+    Donc, $\forall x \, x \subset \emptyset \Rightarrow x = \emptyset$ est vraie.
+
+    \done
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $E$ un ensemble. 
     Alors $E \cup \emptyset = E$ et $E \cap \emptyset = \emptyset$.
 

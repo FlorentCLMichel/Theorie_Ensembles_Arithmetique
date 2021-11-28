@@ -203,7 +203,7 @@ Sous les mêmes conditions, la formule $\forall x f$ est fausse s'il existe au m
 On formalise cela par les règles suivantes : 
 \begin{itemize}
     \item si $x$ est une variable, alors $\forall x \, \mathrm{V}$ est vraie ; 
-    \item si $x$ est une variable et $f$ une formule, si $\forall x \, f$ est vraie, alors $f$ est équivalente à $\mathrm{V}$ ; 
+    \item si $x$ est une variable et $f$ une formule dans laquelle $x$ n'est pas une variable quantifiée, si $\forall x \, f$ est équivalente à $f$ ; 
     \item pour toute variable $x$ et toute formule $f$, la formule $\forall x \, f$ est équivalente à $\neg (\exists x \, \neg f)$ 
     \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ et $\forall x \, (f(x) \wedge g(x))$ sont équivalentes ; 
     \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\forall x \, f$ et $\forall x \, (f \Rightarrow g)$ sont vraies, alors $\forall x \, g$ est vraie ; 
@@ -214,7 +214,7 @@ On formalise cela par les règles suivantes :
 Trois conséquences immédiates sont (en remplaçant $f$ par $\neg f$ et en notant que $\neg (\neg f))$ est équivalente à $f$ pour toute formule $f$) : 
 \begin{itemize}
     \item si $x$ est une variable, alors $\exists x \, \mathrm{F}$ est fausse (en effet, sa négation est $\forall x \, \mathrm{V}$, qui est vraie) ; 
-    \item pour toute variable $x$ et toute formule $f$, la formule $\exists x \, f$ est équivalente à $\neg (\forall x \, \neg f)$.
+    \item pour toute variable $x$ et toute formule $f$ dans laquelle $x$ n'est pas une variable quantifiée, la formule $\exists x \, f$ est équivalente à $\neg (\forall x \, \neg f)$.
     \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\exists x \, f(x)) \vee (\exists y g(y))$ et $\exists x \, (f(x) \vee g(x))$ sont équivalentes.
 \end{itemize}
 
