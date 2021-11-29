@@ -211,6 +211,9 @@ On formalise cela par les règles suivantes :
     \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\forall x \, f$ et $\exists x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie ; 
     \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\exists x \, f$ et $\forall x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie ; 
 \end{itemize}
+Le premier point rend le quantificateur $\forall$ redondant, et il pourrait donc être omis. 
+En pratique, on l'utilise pour signifier que ce qu'il quantifie (le symbole suivant, ici $x$) désigne une variable. 
+
 Trois conséquences immédiates sont (en remplaçant $f$ par $\neg f$ et en notant que $\neg (\neg f))$ est équivalente à $f$ pour toute formule $f$) : 
 \begin{itemize}
     \item si $x$ est une variable, alors $\exists x \, \mathrm{F}$ est fausse (en effet, sa négation est $\forall x \, \mathrm{V}$, qui est vraie) ; 
