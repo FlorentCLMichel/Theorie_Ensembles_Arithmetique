@@ -202,23 +202,22 @@ Si $f$ est une formule et $x$ une variable n'apparaissant pas comme variable li�
 Sous les mêmes conditions, la formule $\forall x f$ est fausse s'il existe au moins une valeur possible pour $x$ telle que la formule obtenue en remplaçant $x$ par cette valeur dans $f$ est fausse, et vraie si toutes les formules obtenues en remplaçant $x$ par chacune de ses valeurs possible sont vraies. 
 On formalise cela par les règles suivantes : 
 \begin{itemize}
-    \item si $x$ est une variable, alors $\forall x \, \mathrm{V}$ est vraie ; 
-    \item si $x$ est une variable et $f$ une formule dans laquelle $x$ n'est pas une variable quantifiée, si $\forall x \, f$ est équivalente à $f$ ; 
+    \item si $x$ est une variable, alors $\forall x \, \mathrm{V}$ est vraie et $\forall x \, \mathrm{F}$ est fausse ; 
+    \item si $x$ est une variable et $f$ une formule dans laquelle $x$ n'apparait pas, $\forall x \, f$ est équivalente à $f$ ; 
     \item pour toute variable $x$ et toute formule $f$, la formule $\forall x \, f$ est équivalente à $\neg (\exists x \, \neg f)$ 
     \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ et $\forall x \, (f(x) \wedge g(x))$ sont équivalentes ; 
-    \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\forall x \, f$ et $\forall x \, (f \Rightarrow g)$ sont vraies, alors $\forall x \, g$ est vraie ; 
-    \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\exists x \, f$ et $\exists x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie ; 
-    \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\forall x \, f$ et $\exists x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie ; 
-    \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\exists x \, f$ et $\forall x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie ; 
+    \item en présence de l'égalité, si $f(x)$ est une formule à un paramètre libre éventuel $x$ et $a$ un objet, alors $\exists x \, (x = a) \wedge f(x)$ est équivalente à $f(a)$.
 \end{itemize}
-Le premier point rend le quantificateur $\forall$ redondant, et il pourrait donc être omis. 
-En pratique, on l'utilise pour signifier que ce qu'il quantifie (le symbole suivant, ici $x$) désigne une variable. 
 
 Trois conséquences immédiates sont (en remplaçant $f$ par $\neg f$ et en notant que $\neg (\neg f))$ est équivalente à $f$ pour toute formule $f$) : 
 \begin{itemize}
-    \item si $x$ est une variable, alors $\exists x \, \mathrm{F}$ est fausse (en effet, sa négation est $\forall x \, \mathrm{V}$, qui est vraie) ; 
+    \item si $x$ est une variable, alors $\exists x \, \mathrm{F}$ est fausse (en effet, sa négation est $\forall x \, \mathrm{V}$, qui est vraie) et $\exists x \, \mathrm{V}$ est vraie (en effet, sa négation est $\forall x \, \mathrm{F}$, qui est fausse) ; 
+    \item si $x$ est une variable et $f$ une formule dans laquelle $x$ n'apparait pas, $\exists x \, f$ est équivalente à $f$ (en effet, $x$ n'apparait pas dans $f$, donc $\forall x \, \neg f$ est équivalente à $\neg f$, donc $\neg (\forall x \, \neg f)$ est équivalente à $f$, et donc $\exists x \, f$ à $f$) ; 
     \item pour toute variable $x$ et toute formule $f$ dans laquelle $x$ n'est pas une variable quantifiée, la formule $\exists x \, f$ est équivalente à $\neg (\forall x \, \neg f)$.
-    \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\exists x \, f(x)) \vee (\exists y g(y))$ et $\exists x \, (f(x) \vee g(x))$ sont équivalentes.
+    \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\exists x \, f(x)) \vee (\exists y g(y))$ et $\exists x \, (f(x) \vee g(x))$ sont équivalentes ;
+    \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\forall x \, f$ et $\forall x \, (f \Rightarrow g)$ sont vraies, alors $\forall x \, g$ est vraie (puisqu'alors $\forall x \, (f \wedge (f \Rightarrow g))$ est vrais) ; 
+    \item soit $x$ une variable et $f(x)$ et $g(x)$ deux formules (faisant ou non intervenir $x$) ; si $\forall x \, f(x)$ et $\exists x \, (f(x) \Rightarrow g(x))$ sont vraies, alors $\exists x \, g(x)$ est vraie (en effet, $\forall x \, \neg (f(x) \Rightarrow g(x))$ est fausse, donc $\forall x \, (f(x) \wedge \neg g(x))$ est fausse, donc $(\forall y \, f(y)) \wedge (\forall x \neg g(x))$ est fausse ; puisque $\forall y \, f(y)$ est vraie, on en déduit que $\forall x \, \neg g(x)$ est fausse, et donc que $\exists x \, g(x)$ est vraie) ; 
+    \item soit $x$ une variable et $f(x)$ et $g(x)$ deux formules (faisant ou non intervenir $x$) ; si $\exists x \, f(x)$ et $\forall x \, (f(x) \Rightarrow g(x))$ sont vraies, alors $\exists x \, g(x)$ est vraie (en effet, $\forall x \, (g(x) \vee \neg f(x))$ est vraie, donc, si $\forall x \, g(x)$ était fausse, on aurait $\forall x \, ((g(x) \vee \neg f(x)) \wedge (\neg g(x)))$, donc $\forall x \, \neg f(x)$, ce qui n'est pas le cas puisque $\exists x \, f(x)$ est vraie). 
 \end{itemize}
 
 \textit{Stricto sensu}, il est donc possible de se passer d'un de ces deux quantificateurs, ou de voir l'un d'eux comme fondamental et l'autre comme dérivé. 

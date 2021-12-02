@@ -214,15 +214,30 @@ Puisque, pour tout $x$, la formule $(x = a) \vee (x=a)$ est équivalente à $x =
 \noindent\textit{\textbf{Axiome de la réunion :} Pour tout ensemble $a$, il existe un ensemble qui est l'union des éléments de $a$ :}
 \begin{equation*}
     \forall a \, \exists b \, \forall x \, (
-        (x \in b) \Leftrightarrow (\exists y \, ((y \in a) \vee (x \in y)))
+        (x \in b) \Leftrightarrow (\exists y \, ((y \in a) \wedge (x \in y)))
     ).
 \end{equation*}
-La réunion d'un ensemble $a$ est notée $\cup a$.
+La réunion d'un ensemble $a$ (noté $b$ dans la formule ci-dessus) est notée $\cup a$.
 Cet ensemble est unique d'après l'axiome d'extensionnalité.
 Si $a$ et $b$ sont deux ensembles, $\lbrace a, b \rbrace$ est aussi un ensemble d'après l'axiome de paire. 
 La réunion de cet ensemble est notée $a \cup b$. 
 Soit $a$, $b$ et $c$ trois ensembles. 
 On note $\lb a, b, c \rb$ l'ensemble $\lbrace a, b \rbrace \cup \lbrace c \rbrace$. 
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $a$, $b$ et $x$ trois ensembles. 
+    Le prédicat $x \in a \cup b$ est équivalent à $(x \in a) \vee (x \in b)$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Le prédicat $x \in a \cup b$ est équivalent à $\exists y \, y \in \lbrace a, b \rbrace \wedge x \in y$, donc à $\exists y \, (y = a \vee y = b) \wedge x \in y$, donc à $\exists y \, ((y = a \wedge x \in y) \vee (y = b \vee x \in y))$, donc à $(\exists y \, y = a \wedge x \in y) \vee (\exists z \, z = b \wedge x \in z))$.
+    Si $f$ est ue formule dépendant de deux paramètres libres $x$ et $y$ et si $a$ est un ensemble, alors $\exists (y = a) \wedge f(x,y)$ est équivalente à $f(x,a)$.
+    En effet, si $f(x,a)$ est fausse, alors $(y = a) \wedge f(x,y)$ est fausse pour toute valeur de $y$ et, si elle est vraie, alors elle est vraie pour une valeur de $y$ (et cette valeur est $a$). 
+    Donc, $x \in a \cup b$ est équivalente à $(x \in a) \vee (x \in b)$.
+
+    \done
 
 \medskip
 
@@ -305,27 +320,6 @@ Cet ensemble est unique d'après l'axiome d'extensionnalité.
 
 \medskip
 
-\noindent\textbf{Lemme :} Soit $E$ un ensemble. 
-    Alors $E \cup \emptyset = E$ et $E \cap \emptyset = \emptyset$.
-
-\medskip
-
-\noindent\textbf{Démonstration :} 
-    Soit $e$ un ensemble. 
-    Si $e \in E$, alors $(e \in E) \vee (e \in \emptyset)$  est vrai, donc $e \in (E \cup \emptyset)$.
-    Sinon, et puisque $e \in \emptyset$ est faux, alors $(e \in E) \vee (e \in \emptyset)$  est faux, donc $e \in (E \cup \emptyset)$ est faux.
-    On a donc : $\forall e \, (e \in E) \Leftrightarrow (e \in (E \cup \emptyset))$.
-    Donc, $E = E \cup \emptyset$.
-
-    Soit $e$ un ensemble. 
-    Puisque $e \in \emptyset$ est faux, $(e \in \emptyset) \wedge (e \in E)$ est faux. 
-    Donc, $e \in (E \cap \emptyset)$ est faux.
-    Cela montre que $E \cap \emptyset = \emptyset$.
-
-    \done
-
-\medskip
-
 L'axiome de compréhension peut aussi être utilisé pour définir la différence de deux ensembles. 
 Soit $A$ et $B$ deux ensembles. 
 On note $A \setminus B$ l'ensemble $\lbrace x \in A \vert x \notin B \rbrace$.
@@ -395,6 +389,27 @@ On pourra noter ce l'ensemble $a \cap (b \cap c)$ par $a \cap b \cap c$.
 De même, on a : $\forall x \, x \in a \cup b \Leftrightarrow (x \in a \vee x \in b)$. 
 On en déduit aisément que $a \cup b = b \cup a$ et, si $c$ est un ensemble, $(a \cup b) \cup c = a \cup (b \cup c)$. 
 On pourra noter ce l'ensemble $a \cup (b \cup c)$ par $a \cup b \cup c$. 
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $E$ un ensemble. 
+    Alors $E \cup \emptyset = E$ et $E \cap \emptyset = \emptyset$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Soit $e$ un ensemble. 
+    Si $e \in E$, alors $(e \in E) \vee (e \in \emptyset)$  est vrai, donc $e \in (E \cup \emptyset)$.
+    Sinon, et puisque $e \in \emptyset$ est faux, alors $(e \in E) \vee (e \in \emptyset)$  est faux, donc $e \in (E \cup \emptyset)$ est faux.
+    On a donc : $\forall e \, (e \in E) \Leftrightarrow (e \in (E \cup \emptyset))$.
+    Donc, $E = E \cup \emptyset$.
+
+    Soit $e$ un ensemble. 
+    Puisque $e \in \emptyset$ est faux, $(e \in \emptyset) \wedge (e \in E)$ est faux. 
+    Donc, $e \in (E \cap \emptyset)$ est faux.
+    Cela montre que $E \cap \emptyset = \emptyset$.
+
+    \done
 
 \subsubsection{Schéma d'axiomes de remplacement}
 
