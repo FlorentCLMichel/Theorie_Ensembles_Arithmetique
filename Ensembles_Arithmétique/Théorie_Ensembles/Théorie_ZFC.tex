@@ -28,6 +28,23 @@ On définit aussi la relation $\supset$ par :
     ). 
 \end{equation*}
 
+\medskip
+
+\textbf{Lemme :} Soit $\forall a \, \forall b \, (a = b) \Leftrightarrow ((a \subset b) \wedge (b \subset a))$.
+
+\medskip
+
+\textbf{Démonstration :} 
+    La formule $(a \subset b) \wedge (b \subset a)$ est équivalente à : $(\forall x (x \in a) \Rightarrow (x \in b)) \wedge (\forall y (y \in a) \Rightarrow (y \in b))$, et donc à $\forall x \, ((x \in a) \Rightarrow (x \in b)) \wedge ((x \in b) \Rightarrow (x \in a))$.
+    Si $f$ et $g$ sont deux formules, $(f \Rightarrow g) \wedge (g \Rightarrow a)$ est équivalente à $f \Leftrightarrow g$.
+    Donc, $(a \subset b) \wedge (b \subset a)$ est équivalente à $\forall x \, (x \in a) \Leftrightarrow (x \in b)$, et donc à $a = b$.
+    Donc, $((a \subset b) \wedge (b \subset a)) \Leftrightarrow (a = b)$ est équivalente à $\mathrm{V}$.
+    Donc, $\forall a \, \forall b \, ((a \subset b) \wedge (b \subset a)) \Leftrightarrow (a = b)$ est vraie.
+
+    \done
+
+\medskip
+
 La théorie Z comporte six axiomes (l'axiome d'extensionnalité et les cinq axiomes de construction) ainsi qu'un schéma d'axiomes, correspondant à un axiome par formule à un paramètre libre. 
 
 \medskip
@@ -83,7 +100,7 @@ On définit la relation $\neq$ par : $\forall a \, \forall b \, (a \neq b) \Lef
     \item Soit $f$ la formule à deux paramètres libres $a$ et $x$ donnée par : $f: a \in x$, et $g$ la formule à deux paramètres libres $a$ et $y$ donnée par : $g: a \in y$. 
         Les deux formules $f \Leftrightarrow g$ et $g \Leftrightarrow f$ sont équivalentes (elles sont toutes deux vraies si $f$ et $g$ ont la même valeur de vérité et fausses sinon). 
         Donc, les formules $\forall a \, (f \Leftrightarrow g)$ et $\forall a \, (g \Leftrightarrow f)$ sont équivalentes. 
-        Puisque $\forall a \, (f \Leftrightarrow g)$ est équivalente à $x \mathrel{R} y$ et $\forall a \, (g \Leftrightarrow f)$ à $y \mathrel{x}$, on en déduit que $x \mathrel{R} y$ et $y \mathrel{R} x$ sont équivalentes. 
+        Puisque $\forall a \, (f \Leftrightarrow g)$ est équivalente à $x \mathrel{R} y$ et $\forall a \, (g \Leftrightarrow f)$ à $y \mathrel{R} x$, on en déduit que $x \mathrel{R} y$ et $y \mathrel{R} x$ sont équivalentes. 
         Donc, $(x \mathrel{R} y) \Rightarrow (y \mathrel{R} x)$ est équivalente à $h \Rightarrow h$, où $h$ est la formule donnée par $h: x \mathrel{R} y$.
         Puisque $h \Rightarrow h$ est vraie que $h$ soit vraie ou fausse, elle est vraie. 
         Donc, $\forall x \forall y (h \Rightarrow h)$ est vraie.
@@ -182,7 +199,7 @@ On définit la relation $\neq$ par : $\forall a \, \forall b \, (a \neq b) \Lef
 
 \noindent\textbf{Démonstration bis :} 
     La formule $(a \subset b) \wedge (b \subset a)$ est équivalente à : $(\forall x \, (x \in a \Rightarrow x \in b)) \wedge (\forall y \, (y \in b \Rightarrow y \in a))$, et donc à $\forall x \, ((x \in a \Rightarrow x \in b) \wedge (x \in b \Rightarrow x \in a))$. 
-    Si $f$ et $g$ sot deux formules, $(f \Rightarrow g) \wedge (g \Rightarrow f)$ est équivalente à $f \Leftrightarrow g$ (toutes deux sont vraies si $f$ et $g$ sont toutes deux fausses et fausses sinon).
+    Si $f$ et $g$ sont deux formules, $(f \Rightarrow g) \wedge (g \Rightarrow f)$ est équivalente à $f \Leftrightarrow g$ (toutes deux sont vraies si $f$ et $g$ sont toutes deux fausses et fausses sinon).
     Donc, $(x \in a \Rightarrow x \in b) \wedge (x \in b \Rightarrow x \in a)$ est équivalente à $x \in a \Leftrightarrow x \in b$.
     Donc, la formule $(a \subset b) \wedge (b \subset a)$ est équivalente à $\forall x \, x \in a \Leftrightarrow x \in b$, et donc à $a = b$.
 
@@ -282,13 +299,10 @@ Cet ensemble est unique d'après l'axiome d'extensionnalité.
 \medskip
 
 \noindent\textbf{Démonstration bis :} 
-    Puisque $\forall e \, e \notin \emptyset$ est vraie, $e \notin \emptyset$ est équivalente à $\mathrm{V}$.
-    Donc, $e \in \emptyset$ (qui est sa négation) est équivalente à $\mathrm{F}$. 
-    Donc, si $f$ est une formule, $(e \in \emptyset) \Rightarrow f$ est toujours vraie.
-    Donc, $(e \in \emptyset) \Rightarrow (e \in x)$ est équivalente à $\mathrm{V}$.
-    Donc, $\forall e \, (e \in \emptyset) \Rightarrow (e \in x)$ est équivalente à $\mathrm{V}$.
-    Donc, $\forall x \, \forall e \, (e \in \emptyset) \Rightarrow (e \in x)$ est équivalente à $\mathrm{V}$.
-    Donc, $\forall x \'\emptyset \subset x$ est vraie.
+    On veut montrer que le prédicat $P: \forall x \, \forall e \, (e \in \emptyset \Rightarrow e \in x)$ est vrai. 
+    $P$ est équivalent à : $\forall x \, \forall e \, ((e \in x) \vee \neg (e \in \emptyset))$, c'est-à-dire, à : $\forall x \, \forall e \, ((e \in x) \vee (e \notin \emptyset))$.
+    Puisque $\forall e \'e \notin \emptyset$ est vrai, $\forall e \, ((e \in x) \vee (e \notin \emptyset))$ est équivalent à $\mathrm{V}$.
+    Donc, $P$ est vrai. 
 
     \done
 
@@ -305,16 +319,12 @@ Cet ensemble est unique d'après l'axiome d'extensionnalité.
 
 \medskip
 
-\noindent\textbf{Démonstration bis :} La formule $x \subset \emptyset$ est équivalente à $\forall e \, (e \in x) \Rightarrow (e \in \emptyset)$. 
-    Puisque $e \notin \emptyset$ est équivalente à $\mathrm{V}$, $e \in \emptyset$ (sa négation) est équivalente à $\mathrm{F}$.
-    Donc, $x \subset \emptyset$ est équivalente à $\forall e \, (e \in x) \Rightarrow \mathrm{F}$. 
-    Pour toute formule $f$, $f \Rightarrow \mathrm{F}$ est équivalente à $\neg f$ (elles sont toute deux vraies si $f$ est fausse et fausses si $f$ est vraie).
-    Donc, $x \subset \emptyset$ est équivalente à $\forall e \, \neg (e \in x)$, \textit{i.e.}, à $\forall e \, (e \notin x)$. 
-    Puisque $(e \notin \emptyset)$ est vraie, $x \subset \emptyset$ est équivalente à $\forall e \, (e \notin x) \Leftrightarrow (e \notin \emptyset)$. 
-    Si $f$ et $g$ sont deux formules, $(\neg f) \Leftrightarrow (\neg g)$ sont équivalentes. 
-    En prenant $f: e \notin x$ et $g: e \notin \emptyset$, on obtient que $x \subset \emptyset$ est équivalente à $\forall e \, (e \in x) \Leftrightarrow (e \in \emptyset)$, et donc à $x = \emptyset$.
-    Donc, $x \subset \emptyset \Rightarrow x = \emptyset$ est toujours vraie.
-    Donc, $\forall x \, x \subset \emptyset \Rightarrow x = \emptyset$ est vraie.
+\noindent\textbf{Démonstration bis :} 
+    On veux montrer le prédicat $P: \forall x \, (x \subset \emptyset) \Rightarrow (x = \emptyset)$.
+    Il est équivalent à : $\forall x \, (x \subset \emptyset) \Rightarrow ((x \subset \emptyset) \wedge (\emptyset \subset x))$, donc à $\forall x \, \neg (x \subset \emptyset) \vee ((x \subset \emptyset) \wedge (\emptyset \subset x))$, donc à $\forall x \, (\neg (x \subset \emptyset) \vee (x \subset \emptyset)) \wedge (\neg (x \subset \emptyset) \vee (\emptyset \subset x))$.
+    Puisque $\neg (x \subset \emptyset) \vee (x \subset \emptyset)$ est toujours vrai, $P$ est équivalent à $\forall x \, (\neg (x \subset \emptyset) \vee (\emptyset \subset x))$.
+    On a vu que $\forall x \, \emptyset \subset x$ est vrai.
+    Donc, $P$ est vrai.
 
     \done
 
