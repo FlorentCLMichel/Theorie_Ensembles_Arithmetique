@@ -83,6 +83,8 @@ Pour être plus formel, on peut ne définir dans un premiers temps que les varia
 On adoptera ce point de vue dans la suite. 
 Pour le moment, les symboles logiques (y compris l'égalité définie ci-dessous) ne sont donnés que comme une liste de symboles utilisés, qui prendront leur sens lorsque les formules et la sémantique seront définies.
 
+Si $P$ est un prédicat à un ou plusieurs paramètres libres $a_1 a_2 \dots$ et si $b_1 b_2 \dots$ sont un même nombre de variables, on notera $P b_1 b_2 \dots$, ou $P(b_1, b_2, \dots)$ la formule obtenue en remplaçant dans $P$ les paramètres $a_1 a_2 \dots$ par $b_1 b_2 \dots$.
+
 \subsubsection{Égalité} 
 
 La \textit{logique du premier ordre avec égalité} inclut un autre symbole logique, $=$, définissant une relation binaire, dite \textit{égalité}, satisfaisant les axiomes suivants : 
@@ -202,22 +204,29 @@ Si $f$ est une formule et $x$ une variable n'apparaissant pas comme variable li�
 Sous les mêmes conditions, la formule $\forall x f$ est fausse s'il existe au moins une valeur possible pour $x$ telle que la formule obtenue en remplaçant $x$ par cette valeur dans $f$ est fausse, et vraie si toutes les formules obtenues en remplaçant $x$ par chacune de ses valeurs possible sont vraies. 
 On formalise cela par les règles suivantes : 
 \begin{itemize}
-    \item si $x$ est une variable, alors $\forall x \, \mathrm{V}$ est vraie et $\forall x \, \mathrm{F}$ est fausse ; 
     \item si $x$ est une variable et $f$ une formule dans laquelle $x$ n'apparait pas, $\forall x \, f$ est équivalente à $f$ ; 
     \item pour toute variable $x$ et toute formule $f$, la formule $\forall x \, f$ est équivalente à $\neg (\exists x \, \neg f)$ 
-    \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ et $\forall x \, (f(x) \wedge g(x))$ sont équivalentes ; 
-    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors les formules $\forall x \, (f(x) \wedge g(x))$ et $\forall x \, g(x)$ sont équivalentes ; 
-    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\forall x \, f(x)$ est fausse, alors les formules $\forall x \, (f(x) \vee g(x))$ et $\forall x \, g(x)$ sont équivalentes ; 
-    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\forall x \, f(x)$ est fausse, alors la formule $\forall x \, (f(x) \wedge g(x))$ est fausse ; 
-    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors la formule $\forall x \, (f(x) \vee g(x))$ est vraie ; 
-    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\exists x \, f(x)$ est fausse, alors la formule $\forall x \, f(x)$ est fausse ; 
+    \item soit $f$ une formule à un paramètre libre éventuel ; si $\forall x \, f(x)$ est vraie, alors $f$ est équivalente à $\mathrm{V}$ ; 
     \item en présence de l'égalité, si $f(x)$ est une formule à un paramètre libre éventuel $x$ et $a$ un objet, alors $\exists x \, (x = a) \wedge f(x)$ est équivalente à $f(a)$.
 \end{itemize}
 
 Trois conséquences immédiates sont (en remplaçant $f$ par $\neg f$ et en notant que $\neg (\neg f))$ est équivalente à $f$ pour toute formule $f$) : 
 \begin{itemize}
-    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors la formule $\exists x \, f(x)$ est vraie ; 
     \item si $x$ est une variable, alors $\exists x \, \mathrm{F}$ est fausse (en effet, sa négation est $\forall x \, \mathrm{V}$, qui est vraie) et $\exists x \, \mathrm{V}$ est vraie (en effet, sa négation est $\forall x \, \mathrm{F}$, qui est fausse) ; 
+    \item soit $f$ une formule à un paramètre libre éventuel ; si $\exists x \, f(x)$ est fausse, alors $f$ est équivalente à $\mathrm{F}$ (en effet, $\forall x \, \neg f(x)$ est alors vraie, donc $\neg f$ est équivalente à $\mathrm{V}$) ; 
+    \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ et $\forall x \, (f(x) \wedge g(x))$ sont équivalentes~\footnote{
+            En effet, 
+            \begin{itemize}[nosep]
+                \item Si $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ est vraie, alors $\forall x \, f(x)$ et$ \forall y \, g(y)$ sont vraies, donc $f$ et $g$ sont équivalentes à $\mathrm{V}$, donc $f(x) \wedge g(x)$ également, donc $\forall x \, f(x) \wedge g(x)$ est vraie.
+                \item Si $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ est fausse, alors $\forall x \, f(x) \wedge g(x)$ doit être fausse. 
+                    En effet, si elle était vraie, alors $f(x) \wedge g(x)$ serait équivalente à $\mathrm{V}$, donc $f$ et $g$ également, et donc $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ serait vraie.
+            \end{itemize}
+        } ; 
+    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors les formules $\forall x \, (f(x) \wedge g(x))$ et $\forall x \, g(x)$ sont équivalentes ; 
+    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\exists x \, f(x)$ est fausse, alors les formules $\forall x \, (f(x) \vee g(x))$ et $\forall x \, g(x)$ sont équivalentes (en effet, $\forall x \, \neg f(x)$ est alors vraie, donc $f$ est équivalente à $\mathrm{F}$, et donc $f(x) \vee g(x)$ à $g(x)$) ; 
+    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\exists x \, f(x)$ est fausse, alors la formule $\forall x \, (f(x) \wedge g(x))$ est fausse ; 
+    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors la formule $\forall x \, (f(x) \vee g(x))$ est vraie ; 
+    \item soit $f$ une formule à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors la formule $\exists x \, f(x)$ est vraie ; 
     \item si $x$ est une variable et $f$ une formule dans laquelle $x$ n'apparait pas, $\exists x \, f$ est équivalente à $f$ (en effet, $x$ n'apparait pas dans $f$, donc $\forall x \, \neg f$ est équivalente à $\neg f$, donc $\neg (\forall x \, \neg f)$ est équivalente à $f$, et donc $\exists x \, f$ à $f$) ; 
     \item pour toute variable $x$ et toute formule $f$ dans laquelle $x$ n'est pas une variable quantifiée, la formule $\exists x \, f$ est équivalente à $\neg (\forall x \, \neg f)$.
     \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\exists x \, f(x)) \vee (\exists y g(y))$ et $\exists x \, (f(x) \vee g(x))$ sont équivalentes ;

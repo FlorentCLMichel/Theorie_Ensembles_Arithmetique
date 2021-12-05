@@ -30,11 +30,11 @@ On définit aussi la relation $\supset$ par :
 
 \medskip
 
-\textbf{Lemme :} Soit $\forall a \, \forall b \, (a = b) \Leftrightarrow ((a \subset b) \wedge (b \subset a))$.
+\noindent\textbf{Lemme :} Soit $\forall a \, \forall b \, (a = b) \Leftrightarrow ((a \subset b) \wedge (b \subset a))$.
 
 \medskip
 
-\textbf{Démonstration :} 
+\noindent\textbf{Démonstration :} 
     La formule $(a \subset b) \wedge (b \subset a)$ est équivalente à : $(\forall x (x \in a) \Rightarrow (x \in b)) \wedge (\forall y (y \in a) \Rightarrow (y \in b))$, et donc à $\forall x \, ((x \in a) \Rightarrow (x \in b)) \wedge ((x \in b) \Rightarrow (x \in a))$.
     Si $f$ et $g$ sont deux formules, $(f \Rightarrow g) \wedge (g \Rightarrow a)$ est équivalente à $f \Leftrightarrow g$.
     Donc, $(a \subset b) \wedge (b \subset a)$ est équivalente à $\forall x \, (x \in a) \Leftrightarrow (x \in b)$, et donc à $a = b$.
@@ -282,6 +282,8 @@ On peut en effet le définir par : $\emptyset = \lbrace x \in a \vert x \neq x \
 Puisque tout ensemble $x$ satisfait $x = x$, il n'existe aucun $x$ tel que $x \in \emptyset$ ; autrement dit, la formule suivante est vraie : $\forall x \, x \notin \emptyset$. 
 Cet ensemble est unique d'après l'axiome d'extensionnalité.
 
+Notons que, puisque $\forall x \, x \notin \emptyset$ est vraie, la formule $x \notin \emptyset$ est vraie.
+
 \medskip
 
 \noindent\textbf{Lemme :} Le prédicat suivant est vrai : $\forall x \, \emptyset \subset x$.
@@ -418,6 +420,27 @@ On pourra noter ce l'ensemble $a \cup (b \cup c)$ par $a \cup b \cup c$.
     Puisque $e \in \emptyset$ est faux, $(e \in \emptyset) \wedge (e \in E)$ est faux. 
     Donc, $e \in (E \cap \emptyset)$ est faux.
     Cela montre que $E \cap \emptyset = \emptyset$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Démonstration bis :} 
+    \begin{itemize}[nosep]
+        \item Notons $P_1$ et $P_2$ les prédicats à un paramètre libre suivants : $P_1(x): x \in E \cup \emptyset$, $P_2(x): x \in E$. 
+            $P_1$ est équivalent à $(x \in E) \vee (x \in \emptyset)$.
+            Puisque $\exists x \, x \in \emptyset$ est fausse, $P_1$ est équivalent à $x \in E$.
+            Donc, $P_1$ est équivalent à $P_2$.
+            Donc, $P_1 \Leftrightarrow P_2$ est éqiovalent à $\mathrm{V}$.
+            Donc, $\forall x \, P_1 \Leftrightarrow P_2$ est vrai.
+            Donc, $E \cup \emptyset = E$.
+        \item Notons $P_1$ le prédicat : $P_1(x): x \in E \cap \emptyset$. 
+            $P_1$ est équivalent à $(x \in E) \wedge (x \in \emptyset)$.
+            Puisque $\exists x \, x \in \emptyset$ est fausse, $P_1$ est équivalent à $\mathrm{F}$, et donc à $x \in \emptyset$.
+            Donc, $\P_1 \Leftrightarrow (x \in \emptyset)$ est équivalent à $\mathrm{V}$.
+            Donc, $\forall x \, \P_1 \Leftrightarrow (x \in \emptyset)$ est vrai.
+            Donc, $E \cap \emptyset = \emptyset$.
+    \end{itemize}
 
     \done
 
