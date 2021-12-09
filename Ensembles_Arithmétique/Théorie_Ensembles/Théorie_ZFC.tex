@@ -38,7 +38,7 @@ On définit aussi la relation $\supset$ par :
     La formule $(a \subset b) \wedge (b \subset a)$ est équivalente à : $(\forall x (x \in a) \Rightarrow (x \in b)) \wedge (\forall y (y \in a) \Rightarrow (y \in b))$, et donc à $\forall x \, ((x \in a) \Rightarrow (x \in b)) \wedge ((x \in b) \Rightarrow (x \in a))$.
     Si $f$ et $g$ sont deux formules, $(f \Rightarrow g) \wedge (g \Rightarrow a)$ est équivalente à $f \Leftrightarrow g$.
     Donc, $(a \subset b) \wedge (b \subset a)$ est équivalente à $\forall x \, (x \in a) \Leftrightarrow (x \in b)$, et donc à $a = b$.
-    Donc, $((a \subset b) \wedge (b \subset a)) \Leftrightarrow (a = b)$ est équivalente à $\mathrm{V}$.
+    Donc, $((a \subset b) \wedge (b \subset a)) \Leftrightarrow (a = b)$ est équivalente à $\mathsf{V}$.
     Donc, $\forall a \, \forall b \, ((a \subset b) \wedge (b \subset a)) \Leftrightarrow (a = b)$ est vraie.
 
     \done
@@ -303,7 +303,7 @@ Notons que, puisque $\forall x \, x \notin \emptyset$ est vraie, la formule $x \
 \noindent\textbf{Démonstration bis :} 
     On veut montrer que le prédicat $P: \forall x \, \forall e \, (e \in \emptyset \Rightarrow e \in x)$ est vrai. 
     $P$ est équivalent à : $\forall x \, \forall e \, ((e \in x) \vee \neg (e \in \emptyset))$, c'est-à-dire, à : $\forall x \, \forall e \, ((e \in x) \vee (e \notin \emptyset))$.
-    Puisque $\forall e \'e \notin \emptyset$ est vrai, $\forall e \, ((e \in x) \vee (e \notin \emptyset))$ est équivalent à $\mathrm{V}$.
+    Puisque $\forall e \'e \notin \emptyset$ est vrai, $\forall e \, ((e \in x) \vee (e \notin \emptyset))$ est équivalent à $\mathsf{V}$.
     Donc, $P$ est vrai. 
 
     \done
@@ -338,12 +338,22 @@ On note $A \setminus B$ l'ensemble $\lbrace x \in A \vert x \notin B \rbrace$.
 
 \medskip
 
-\noindent\textbf{Lemme :} Soit $A$ et $B$ deux ensembles tels que $B \in A$.
-    Alors, $(A \setminus B) \cup B = A$.
+\noindent\textbf{Lemme :} Soit $A$ et $B$ deux ensembles tels que $B \subset A$.
+    Alors, $A \cup B = A$ et $(A \setminus B) \cup B = A$.
 
 \medskip
 
 \noindent\textbf{Démonstration :}
+    
+    Soit $x$ un élément de $A \sup B$. 
+    Alors, $x \in A$ ou $x \in B$.
+    Si $x \in B$, et puisque $B \subset A$, $x \in A$.
+    Donc, $x \in A$.
+
+    Soit $x$ un élément de $A$, on a $x \in A \cup B$.
+
+    Ainsi, $A \cup B = A$.
+
     Soit $x$ un élément de $A$. 
     Si $x \in B$, alors $x \in (A \setminus B) \cup B$.
     Sinon, $x \in A \setminus B$, donc $x \in (A \setminus B) \cup B$.
@@ -358,6 +368,32 @@ On note $A \setminus B$ l'ensemble $\lbrace x \in A \vert x \notin B \rbrace$.
     On a donc montré que : $\forall x \, (x \in A) \Leftrightarrow (x \in (A \setminus B) \cup B)$, et donc que $(A \setminus B) \cup B = A$.
 
     \done
+
+\medskip
+
+\noindent\textbf{Démonstration bis :} 
+
+Puisque $B \subset A$, le prédicat $\forall x \, (x \in B) \Rightarrow (x \in A)$ est vrai.
+Donc, le prédicat $(x \in B) \Rightarrow (x \in A)$ est vrai.
+Donc, le prédicat $(x \in A) \vee (x \notin B)$ est vrai.
+
+\begin{itemize}[nosep]
+    \item Le prédicat $x \in A \cup B$ est équivalent à $(x \in A) \vee (x \in B)$.
+        Puisque, pour tout prédicat $P$, $P \wedge \mathsf{V}$ est équivalent à $P$, $x \in A \cup B$ est équivalent à $((x \in A) \vee (x \in B)) \wedge ((x \in A) \vee (x \notin B))$, et donc à $(x \in A) \vee ((x \in B) \wedge (x \notin B))$.
+        Puisque, pour tout prédicat $P$, $P \wedge \neg P$ est équivalent à $\mathsf{F}$, cela est équivalent à $(x \in A) \vee \mathsf{F}$, et donc à $x \in A$.
+        Donc, $x \in A \cup B$ est équivalent à $x \in A$.
+        Donc, $\forall x \, x \in A \cup B \Leftrightarrow x \in A$ est vrai.
+        Donc, $A \cup B = A$.
+    \item Le prédicat $x \in (A \setminus B) \cup B$ est équivalent à $x \in (A \setminus B) \vee x \in B$, donc à $(x \in A \wedge x \notin B) \vee x \in B$, et donc à $(x \in A \vee x \in B) \wedge (x \in B \vee x \notin B)$.
+        Pour tout prédicat $P$, $P \wedge \neg P$ est équivalent à $\mathsf{V}$.
+        Donc, $x \in B \vee x \notin B$ est équivalent à $\mathsf{V}$.
+        Donc, $(x \in A \vee x \in B) \wedge (x \in B \vee x \notin B)$ est équivalent à $x \in A \vee x \in B$, et donc à $x \in A \cup B$.
+        Donc, $x \in (A \setminus B) \cup B$ est équivalent à $x \in A \cup B$.
+        Donc, de même que précédemment, $(A \setminus B) \cup B = A \cup B$.
+        Puisque $A \cup B = A$, on en déduit $(A \setminus B) \cup B = A$.
+\end{itemize}
+
+\done
 
 \medskip
 
@@ -431,13 +467,13 @@ On pourra noter ce l'ensemble $a \cup (b \cup c)$ par $a \cup b \cup c$.
             $P_1$ est équivalent à $(x \in E) \vee (x \in \emptyset)$.
             Puisque $\exists x \, x \in \emptyset$ est fausse, $P_1$ est équivalent à $x \in E$.
             Donc, $P_1$ est équivalent à $P_2$.
-            Donc, $P_1 \Leftrightarrow P_2$ est éqiovalent à $\mathrm{V}$.
+            Donc, $P_1 \Leftrightarrow P_2$ est éqiovalent à $\mathsf{V}$.
             Donc, $\forall x \, P_1 \Leftrightarrow P_2$ est vrai.
             Donc, $E \cup \emptyset = E$.
         \item Notons $P_1$ le prédicat : $P_1(x): x \in E \cap \emptyset$. 
             $P_1$ est équivalent à $(x \in E) \wedge (x \in \emptyset)$.
-            Puisque $\exists x \, x \in \emptyset$ est fausse, $P_1$ est équivalent à $\mathrm{F}$, et donc à $x \in \emptyset$.
-            Donc, $\P_1 \Leftrightarrow (x \in \emptyset)$ est équivalent à $\mathrm{V}$.
+            Puisque $\exists x \, x \in \emptyset$ est fausse, $P_1$ est équivalent à $\mathsf{F}$, et donc à $x \in \emptyset$.
+            Donc, $\P_1 \Leftrightarrow (x \in \emptyset)$ est équivalent à $\mathsf{V}$.
             Donc, $\forall x \, \P_1 \Leftrightarrow (x \in \emptyset)$ est vrai.
             Donc, $E \cap \emptyset = \emptyset$.
     \end{itemize}
@@ -842,7 +878,7 @@ Un élément maximal d'un enemble totalement ordonné est dit le \textit{maximum
         Cette dernière formule peut se récrire en : $f = e \vee \neg (f \leq e)$.
         La conjonction de ces deux prédicats donne : $(e \leq f \vee f \leq e) \wedge (f = e \vee \neg (f \leq e))$.
         En développant cette formule, il vient : $(e \leq f \wedge f = e) \vee (e \leq f \wedge \neg (f \leq e)) \vee (f \leq e \wedge f = e) \vee (f \leq e \wedge \neg (f \leq e))$.
-        Cette formule peut être simplifiée en : $(f = e) \vee (e \leq f \wedge \neg (f \leq e)) \vee (f = e) \vee \mathrm{F}$, 
+        Cette formule peut être simplifiée en : $(f = e) \vee (e \leq f \wedge \neg (f \leq e)) \vee (f = e) \vee \mathsf{F}$, 
         ou en $(f = e) \vee (e \leq f \wedge \neg (f \neq e))$.
         Cette formule ne peut être vraie que si $e \leq f$ (sans quoi $f = e$ et $e \leq f$ deraient fausses).
         Donc, $e \leq f$.

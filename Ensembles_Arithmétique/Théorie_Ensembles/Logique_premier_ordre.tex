@@ -34,7 +34,7 @@ Plus formellement, une théorie définie dans le cadre de la logique du premier 
     \item Un \textit{alphabet}, c'est-à-dire un ensemble (au sens intuitif du terme) de symboles, dont certaines chaînes forment des \textit{termes}. 
           On divise généralement les symboles et deux catégories : les \textit{symboles logiques}, dont la signification est fixée, et les \textit{symboles non logiques}, dont le sens n'est pas univoquement défini par la théorie et doit être défini au cas par cas. 
           Certains de ces symboles sont définis par la logique du premier ordre ; d'autres peuvent être propres à la théorie. 
-    \item Un \textit{domaine de discours} non vide que les variables décrivent (si $x$ désigne une variable, la formule $\exists x \mathsf{V}$ est toujours vraie (voir ci-dessous pour sa signification)).
+    \item Un \textit{domaine de discours} non vide que les variables décrivent (si $x$ désigne une variable, la formule $\exists x \mathsf{V}$ est toujours vraie (voir ci-dessous pour la signification de cette formule)).
     \item Des \textit{règles de formation}, exprimant comment construire les termes et formules. 
           Là encore, certaines sont définies par la logique du premier ordre et d'autres peuvent être propres à la théorie.
     \item Des \textit{formules} (aussi appelées \textit{propositions}) obtenues à partir de ces règles, exprimant des prédicats. 
@@ -73,6 +73,8 @@ Les symboles logiques incluent :
 \end{itemize}
 
 On définit également les constantes de vérité $\mathsf{V}$ pour « vraie » et $\mathsf{F}$ pour « fausse ». 
+Elles sont deux formules, et $\mathsf{F}$ est équivalente à $\neg \mathsf{V}$.
+
 Si $f$ est une formule, ces deux constantes de vérité sont équivalentes, respectivements, aux formules $f \vee (\neg f)$ et $f \wedge (\neg f)$. 
 Enfin, on peut définir le connecteur (non standard) de vérité $\sharp$ : si $f$ est une formule, $\sharp f$ est vraie si $f$ est vraie et fausse sinon. 
 (Avec ces notations, $\sharp f$ a toujours la même valeur de vérité que $f$. 
@@ -116,16 +118,22 @@ Les termes sont définis comme suit :
     \item En présence de l'égalité, si $x$ et $y$ sont deux variables, alors $x = y$ est un terme.
 \end{itemize}
 
+\subsubsection{Parenthèses, symboles $($, $)$, $[$, $]$}
+
+Si $f$ est une formule, alors $(f)$ et $[f]$ sont deux formule équivalentes à $f$. 
+Nous omettrons parfois les parenthèses lorsque qu'i n'y a pas d'ambiguité sur la manière dont elles peuvent être incluses, ou lorsque les différentes manières de les inclure donnent des formules équivalentes.
+
 \subsubsection{Formules}
 
 Les formules sont définies de la manière suivante : 
 \begin{itemize}
     \item Tout terme est une formule. 
-    \item Si $x$ est une variable et $f$ une formule, alors $\exists x \, f$ et $\forall x \, f$ sont des formules. 
+    \item Si $x$ est une variable et $f$ une formule dans laquelle $x$ n'est pas quantifiée, alors $\exists x \, (f)$ et $\forall x \, (f)$ sont des formules. 
+        On les notera parfois respectivement $\exists x, \, f$ et $\forall x, \, f$ pour plus de lisibilité.
     \item D'autres formules sont construites à l'aide des autres symboles logiques : 
     \begin{itemize}
-        \item Si $f$ est une formule, alors $\neg f$ (et $\sharp f$, si on l'admet dans la théorie) sont des formules.
-        \item Si $f$ et $g$ sont deux formules n'ayant aucune variable liée en commun, alors $f \vee g$, $f \wedge g$, $f \Rightarrow g$, $f \Leftarrow g$ et $f \Leftrightarrow g$ sont des formules.
+        \item Si $f$ est une formule, alors $\neg (f)$ (et $\sharp (f)$, si on l'admet dans la théorie) sont des formules.
+        \item Si $f$ et $g$ sont deux formules telles qu'aucune variable quantifiée dans l'une n'apparaît dans l'autre, alors $(f) \vee (g)$, $(f) \wedge (g)$, $(f) \Rightarrow (g)$, $(f) \Leftarrow (g)$ et $(f) \Leftrightarrow (g)$ sont des formules.
     \end{itemize}
 \end{itemize}
 
@@ -147,11 +155,6 @@ Parfois, une virgule « $,$ » est utilisée pour séparer deux parties d'une 
 Chaque partie d'une formule ainsi définie doit être une formule à part entière. 
 
 Une formule faisant partie d'une autre formule est dite \textit{sous-formule}.
-
-\subsubsection{Parenthèses, symboles $($, $)$, $[$, $]$ et $,$}
-
-Une formule peut contenir des parenthèses ouvrantes $($ ou $[$ et fermantes $)$ ou $]$, pour peu qu'à chaque parenthèse ouvrante corresponde une parenthèse fermante (« $)$ » pour « $($ » ou « $]$ » pour « $[$ ») placée à sa droite et réciproquement, et que ce qui se trouve entre une parenthèse ouvrante et la parenthèse fermante correspondante constitue une formule. 
-Dans la suite, nous incluerons parfois des parenthèses qui ne sont pas strictement nécessaires (au sens où les enlever donnerait lieu à une formule équivalente, voir ci-dessous) par soucis de lisibilité.
 
 \subsubsection{Formule à nombre non spécifié de paramètres}
 
@@ -186,78 +189,85 @@ Ce dernier pourra être abrégé en :
 
 \subsubsection{Sémantique}
 
-Les règles énoncées ci-dessus, complétées par des règles propres à chaque théorie, permettent (au moins dans certains cas) d'attribuer une valeur de vérité (vraie ou fausse) à une formule. Les parenthèses $($ et $)$ (ou $[$ et $]$), indiquent que, pour évaluer la valeur d'une formule (vraie ou fausse), la formule délimitée par la premiere (à gauche) et la seconde (à droite) est évaluée en tant que formule indépendante. 
+Les règles énoncées ci-dessus, complétées par des règles propres à chaque théorie, permettent (au moins dans certains cas) d'attribuer une \textit{valeur de vérité} à une formule. Les parenthèses $($ et $)$ (ou $[$ et $]$), indiquent que, pour évaluer la valeur d'une formule (vraie ou fausse), la formule délimitée par la premiere (à gauche) et la seconde (à droite) est évaluée en tant que formule indépendante. 
 Si une formule est construite à partir d'autres formules, sa valeur peut dépendre des leurs, et peut être explicitée par une table de vérité (voir ci-dessous). 
 
 Cinq autres règles sont :
 \begin{itemize}
     \item Les variables n'ont pas de sens intrinsèque. 
-    Ainsi, si $f$ est une formule faisant intervenir une variable $x$, et si $y$ est une variable n'apparaissant pas dans $f$, alors remplacer toutes les occurrences de $x$ par $y$ dans $f$ ne peut modifier sa valeur de vérité. 
-    On considèrera que la formule obtenue est la même (ou que les deux séquences de symboles représentent la même formule). 
+    Ainsi, si $f$ est une formule faisant intervenir une variable $x$, et si $y$ est une variable n'apparaissant pas dans $f$, alors remplacer toutes les occurrences de $x$ par $y$ dans $f$ ne peut modifier sa valeur de vérité : la forule ainsi obtenue est équivalente à $f$.
+    On considèrera parfois que la formule obtenue est la même (ou que les deux séquences de symboles représentent la même formule). 
     \item Si $f$ est une formule et $x$ et $y$ deux variables qui ne sont pas quantifiées dans $f$, alors les formules $\forall x \, \forall y \, f$ et $\forall y \, \forall x \, f$ sont équivalentes.
-    \item Si $f$ est une formule et $x$ et $y$ deux variables qui ne sont pas quantifiées dans $f$, alors les formules $\exists x \, \exists y \, f$ et $\exists y \, \exists x \, f$ sont équivalentes.
     \item La valeur de vérité d'une formule est inchangée par le remplacement d'une sous-formule par une formule équivalente.
-    \item Si une formule peut s'écrire comme une séquence de sous-formules et de connecteurs telle qu'elle prend toujours la même valeur de vérité lorsque ces sous-formules sont remplaxées indépendamment par $\mathrm{V}$ ou $\mathrm{F}$, alors elle cette valeur de vérité.
+    \item Si une formule peut s'écrire comme une séquence de sous-formules et de connecteurs telle qu'elle prend toujours la même valeur de vérité lorsque ces sous-formules sont remplaxées indépendamment par $\mathsf{V}$ ou $\mathsf{F}$, alors elle prend cette valeur de vérité, et est équivalente à $\mathsf{V}$ si vraie ou à $\mathsf{F}$ si fausse.
 \end{itemize}
+
+On omet parois les parenthèses dans une formule lorsque celles-ci ne modifie pas sa valeur de vérité ; l'ordre d'évaluation des differents termes d'une formule est alors déterminé par les règles suivantes : 
+\begin{itemize}
+    \item L'évaluation s'effectue de gauche à droite sauf si cela est contraire à une des règles ci-dessous.
+    \item Les prédicats sont évalués en premier.
+    \item Lorsqu'une parenthèse ouvrante est atteinte, la formule se trouvant entre elle et la parenthèse fermante correspondante est évaluée en priorité.
+    \item Ordre d'évaluation des connecteurs et quantificateurs : d'abords les quantificateurs $\exists$ et $\forall$, puis $\neg$, puis (en présence de l'égalité) $=$, puis $\wedge$ et $\vee$ (avec la même priorité), puis $\Rightarrow$, $\Leftarrow$ et $\Leftrightarrow$ (avec la même priorité).
+\end{itemize}
+
+Un connecteur binaire $\mathrm{C}$ est dit \textit{transitif} si, pour toutes formules $f$, $g$ et $h$, les formules $(f \mathop{\mathrm{C}} g) \mathop{\mathrm{C}} h$ et $\mathop{\mathrm{C}} (g \mathop{\mathrm{C}} h)$ sont équivalentes.
+Un connecteur binaire $\mathrm{C}$ est dit \textit{symmétrique} si, pour toutes formules $f$ et $g$, les formules $f \mathop{\mathrm{C}} g$ et $g \mathop{\mathrm{C}} f$ sont équivalentes.
+
+Dans la suite, si $\mathrm{C}$ désigne un connecteur transitif et si $f$, $g$ et $h$ sont trois formules, on omettra parfois les parenthèses dans des formules de la forme $(f \mathop{\mathrm{C}} g) \mathop{\mathrm{C}} h$ ou $f \mathop{\mathrm{C}} (g \mathop{\mathrm{C}} h)$. 
+Plus généralement, on omettra parfois les parenthèses lorsque toutes les manières d'ajouter des parenthèses pour obtenir une formule correctement formée donnent des formules équivalentes.
 
 Si $f$ est une formule et $x$ une variable n'apparaissant pas comme variable liée dans $f$, la formule $\exists x f$ est vraie s'il existe au moins une valeur possible pour $x$ telle que la formule obtenue en remplaçant $x$ par cette valeur dans $f$ est vraie, et fausse si toutes les formules obtenues en remplaçant $x$ par chacune de ses valeurs possible sont fausses. 
 Sous les mêmes conditions, la formule $\forall x f$ est fausse s'il existe au moins une valeur possible pour $x$ telle que la formule obtenue en remplaçant $x$ par cette valeur dans $f$ est fausse, et vraie si toutes les formules obtenues en remplaçant $x$ par chacune de ses valeurs possible sont vraies. 
 On formalise cela par les règles suivantes : 
 \begin{itemize}
     \item si $x$ est une variable et $f$ une formule dans laquelle $x$ n'apparait pas, $\forall x \, f$ est équivalente à $f$ ; 
-    \item pour toute variable $x$ et toute formule $f$, la formule $\forall x \, f$ est équivalente à $\neg (\exists x \, \neg f)$ 
-    \item soit $f$ une formule à un paramètre libre éventuel ; si $\forall x \, f(x)$ est vraie, alors $f$ est équivalente à $\mathrm{V}$ ; 
+    \item pour toute variable $x$ et toute formule $f$, la formule $\forall x \, f$ est équivalente à $\neg (\exists x \, \neg f)$ ;
+    \item soit $f$ une formule admettant exactement $a_1 a_2 \dots a_n$ pour paramètres libres ; si $\forall a_1 \, \forall a_2 \cdots \forall a_n \, f$ est vraie, alors $f$ est équivalente à $\mathsf{V}$ ; 
     \item en présence de l'égalité, si $f(x)$ est une formule à un paramètre libre éventuel $x$ et $a$ un objet, alors $\exists x \, (x = a) \wedge f(x)$ est équivalente à $f(a)$.
-\end{itemize}
-
-Trois conséquences immédiates sont (en remplaçant $f$ par $\neg f$ et en notant que $\neg (\neg f))$ est équivalente à $f$ pour toute formule $f$) : 
-\begin{itemize}
-    \item si $x$ est une variable, alors $\exists x \, \mathrm{F}$ est fausse (en effet, sa négation est $\forall x \, \mathrm{V}$, qui est vraie) et $\exists x \, \mathrm{V}$ est vraie (en effet, sa négation est $\forall x \, \mathrm{F}$, qui est fausse) ; 
-    \item soit $f$ une formule à un paramètre libre éventuel ; si $\exists x \, f(x)$ est fausse, alors $f$ est équivalente à $\mathrm{F}$ (en effet, $\forall x \, \neg f(x)$ est alors vraie, donc $\neg f$ est équivalente à $\mathrm{V}$) ; 
-    \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ et $\forall x \, (f(x) \wedge g(x))$ sont équivalentes~\footnote{
-            En effet, 
-            \begin{itemize}[nosep]
-                \item Si $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ est vraie, alors $\forall x \, f(x)$ et$ \forall y \, g(y)$ sont vraies, donc $f$ et $g$ sont équivalentes à $\mathrm{V}$, donc $f(x) \wedge g(x)$ également, donc $\forall x \, f(x) \wedge g(x)$ est vraie.
-                \item Si $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ est fausse, alors $\forall x \, f(x) \wedge g(x)$ doit être fausse. 
-                    En effet, si elle était vraie, alors $f(x) \wedge g(x)$ serait équivalente à $\mathrm{V}$, donc $f$ et $g$ également, et donc $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ serait vraie.
-            \end{itemize}
-        } ; 
-    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors les formules $\forall x \, (f(x) \wedge g(x))$ et $\forall x \, g(x)$ sont équivalentes ; 
-    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\exists x \, f(x)$ est fausse, alors les formules $\forall x \, (f(x) \vee g(x))$ et $\forall x \, g(x)$ sont équivalentes (en effet, $\forall x \, \neg f(x)$ est alors vraie, donc $f$ est équivalente à $\mathrm{F}$, et donc $f(x) \vee g(x)$ à $g(x)$) ; 
-    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\exists x \, f(x)$ est fausse, alors la formule $\forall x \, (f(x) \wedge g(x))$ est fausse ; 
-    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors la formule $\forall x \, (f(x) \vee g(x))$ est vraie ; 
-    \item soit $f$ une formule à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors la formule $\exists x \, f(x)$ est vraie ; 
-    \item si $x$ est une variable et $f$ une formule dans laquelle $x$ n'apparait pas, $\exists x \, f$ est équivalente à $f$ (en effet, $x$ n'apparait pas dans $f$, donc $\forall x \, \neg f$ est équivalente à $\neg f$, donc $\neg (\forall x \, \neg f)$ est équivalente à $f$, et donc $\exists x \, f$ à $f$) ; 
-    \item pour toute variable $x$ et toute formule $f$ dans laquelle $x$ n'est pas une variable quantifiée, la formule $\exists x \, f$ est équivalente à $\neg (\forall x \, \neg f)$.
-    \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\exists x \, f(x)) \vee (\exists y g(y))$ et $\exists x \, (f(x) \vee g(x))$ sont équivalentes ;
-    \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\forall x \, f$ et $\forall x \, (f \Rightarrow g)$ sont vraies, alors $\forall x \, g$ est vraie (puisqu'alors $\forall x \, (f \wedge (f \Rightarrow g))$ est vrais) ; 
-    \item soit $x$ une variable et $f(x)$ et $g(x)$ deux formules (faisant ou non intervenir $x$) ; si $\forall x \, f(x)$ et $\exists x \, (f(x) \Rightarrow g(x))$ sont vraies, alors $\exists x \, g(x)$ est vraie (en effet, $\forall x \, \neg (f(x) \Rightarrow g(x))$ est fausse, donc $\forall x \, (f(x) \wedge \neg g(x))$ est fausse, donc $(\forall y \, f(y)) \wedge (\forall x \neg g(x))$ est fausse ; puisque $\forall y \, f(y)$ est vraie, on en déduit que $\forall x \, \neg g(x)$ est fausse, et donc que $\exists x \, g(x)$ est vraie) ; 
-    \item soit $x$ une variable et $f(x)$ et $g(x)$ deux formules (faisant ou non intervenir $x$) ; si $\exists x \, f(x)$ et $\forall x \, (f(x) \Rightarrow g(x))$ sont vraies, alors $\exists x \, g(x)$ est vraie (en effet, $\forall x \, (g(x) \vee \neg f(x))$ est vraie, donc, si $\forall x \, g(x)$ était fausse, on aurait $\forall x \, ((g(x) \vee \neg f(x)) \wedge (\neg g(x)))$, donc $\forall x \, \neg f(x)$, ce qui n'est pas le cas puisque $\exists x \, f(x)$ est vraie). 
-\end{itemize}
-
-\textit{Stricto sensu}, il est donc possible de se passer d'un de ces deux quantificateurs, ou de voir l'un d'eux comme fondamental et l'autre comme dérivé. 
-Par exemple, on peut voir le quantificateur $\exists$ comme le seul quantificateur fondamental, et définir $\forall$ \textit{via} l'équivalence de $\forall x \, f$ et $\neg \left( \exists x \, \neg f \right)$ pour toute variable $x$ et toute formule $f$. 
-
-L'ordre d'évaluation des differents termes d'une formule est déterminé par les règles suivantes : 
-\begin{itemize}
-    \item L'évaluation s'effectue de gauche à droite sauf si cela est contraire à une des règles ci-dessous.
-    \item Les prédicats sont évalués en premier.
-    \item Ordre d'évaluation des connecteurs et quantificateurs : d'abords les quantificateurs $\exists$ et $\forall$, puis $\neg$, puis (en présence de l'égalité) $=$, puis $\wedge$ et $\vee$ (avec la même priorité), puis $\Rightarrow$, $\Leftarrow$ et $\Leftrightarrow$ (avec la même priorité).
-    \item Lorsqu'une parenthèse ouvrante est atteinte, la formule se trouvant entre elle et la parenthèse fermante correspondante est évaluée en priorité.
 \end{itemize}
 
 Ainsi, par exemple, si $f$ est une formule et $x$ une variable, la formule $\forall x \, (f \Leftrightarrow f)$ est vraie. 
 En effet, 
 \begin{itemize}[nosep]
-    \item la formule $f \Leftrightarrow f$ est vraie que $f$ soit vraie ou fausse, donc elle est vraie,
-    \item la formule $\forall x \, (f \Leftrightarrow f)$ est donc vraie.
+    \item la formule $f \Leftrightarrow f$ est vraie que $f$ soit vraie ou fausse, donc elle est équivalente à $\mathsf{V}$,
+    \item la formule $\forall x \, (f \Leftrightarrow f)$ est donc éuivalente à $\forall x \, \mathsf{V}$, donc à $\mathsf{V}$, et donc vraie.
 \end{itemize}
 
-Un connecteur binaire $C$ est dit \textit{transitif} si, pour toutes formules $f$, $g$ et $h$, les formules $(f C g) C h$ et $C (g C h)$ sont équivalentes.
-Un connecteur binaire $C$ est dit \textit{symmétriques} si, pour toutes formules $f$ et $g$, les formules $f C g$ et $g C f$ sont équivalentes.
+Quelques conséquences immédiates sont (en remplaçant $f$ par $\neg f$ et en notant que $\neg (\neg f))$ est équivalente à $f$ pour toute formule $f$) : 
+\begin{itemize}
+    \item Si $f$ est une formule et $x$ et $y$ deux variables qui ne sont pas quantifiées dans $f$, alors les formules $\exists x \, \exists y \, f$ et $\exists y \, \exists x \, f$ sont équivalentes.
+    \item si $x$ est une variable, alors $\exists x \, \mathsf{F}$ est fausse (en effet, sa négation est $\forall x \, \mathsf{V}$, qui est vraie) et $\exists x \, \mathsf{V}$ est vraie (en effet, sa négation est $\forall x \, \mathsf{F}$, qui est fausse) ; 
+    \item soit $f$ une formule admettant exactement $a_1 a_2 \dots a_n$ pour paramètres libres ; si $\exists a_1 \, \exists a_2 \cdots \exists a_n \, f$ est fausse, alors $f$ est équivalente à $\mathsf{F}$ ; 
+    \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ et $\forall x \, (f(x) \wedge g(x))$ sont équivalentes~\footnote{
+            En effet, 
+            \begin{itemize}[nosep]
+                \item Si $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ est vraie, alors $\forall x \, f(x)$ et $\forall y \, g(y)$ sont vraies, donc $f$ et $g$ sont équivalentes à $\mathsf{V}$, donc $f(x) \wedge g(x)$ également, donc $\forall x \, f(x) \wedge g(x)$ est vraie.
+                \item Si $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ est fausse, alors $\forall x \, f(x) \wedge g(x)$ doit être fausse. 
+                    En effet, si elle était vraie, alors $f(x) \wedge g(x)$ serait équivalente à $\mathsf{V}$, donc $f$ et $g$ également, et donc $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ serait vraie.
+            \end{itemize}
+        } ; 
+    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors les formules $\forall x \, (f(x) \wedge g(x))$ et $\forall x \, g(x)$ sont équivalentes ; 
+    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\exists x \, f(x)$ est fausse, alors les formules $\forall x \, (f(x) \vee g(x))$ et $\forall x \, g(x)$ sont équivalentes (en effet, $\forall x \, \neg f(x)$ est alors vraie, donc $f$ est équivalente à $\mathsf{F}$, et donc $f(x) \vee g(x)$ à $g(x)$) ; 
+    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\exists x \, f(x)$ est fausse, alors la formule $\forall x \, (f(x) \wedge g(x))$ est fausse ; 
+    \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors la formule $\forall x \, (f(x) \vee g(x))$ est vraie ; 
+    \item soit $f$ une formule à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors la formule $\exists x \, f(x)$ est vraie ; 
+    \item si $x$ est une variable et $f$ une formule dans laquelle $x$ n'apparait pas, $\exists x \, f$ est équivalente à $f$ (en effet, $x$ n'apparait pas dans $f$, donc $\forall x \, \neg f$ est équivalente à $\neg f$, donc $\neg (\forall x \, \neg f)$ est équivalente à $f$, et donc $\exists x \, f$ à $f$) ; 
+    \item pour toute variable $x$ et toute formule $f$ dans laquelle $x$ n'est pas une variable quantifiée, la formule $\exists x \, f$ est équivalente à $\neg (\forall x \, \neg f)$.
+    \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\exists x \, f(x)) \vee (\exists y \, g(y))$ et $\exists x \, (f(x) \vee g(x))$ sont équivalentes ;
+    \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\forall x \, f$ et $\forall x \, (f \Rightarrow g)$ sont vraies, alors $\forall x \, g$ est vraie (puisqu'alors $\forall x \, (f \wedge (f \Rightarrow g))$ est vraie) ; 
+    \item soit $x$ une variable et $f$ et $g$ deux formules (faisant ou non intervenir $x$) ; si $\forall x \, f$ et $\exists x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie (en effet, $\forall x \, \neg (f \Rightarrow g)$ est fausse, donc $\forall x \, (f \wedge \neg g)$ est fausse, donc $(\forall y \, f) \wedge (\forall x \neg g)$ est fausse ; puisque $\forall y \, f$ est vraie, on en déduit que $\forall x \, \neg g$ est fausse, et donc que $\exists x \, g$ est vraie) ; 
+    \item soit $x$ une variable et $f$ et $g$ deux formules (faisant ou non intervenir $x$) ; si $\exists x \, f$ et $\forall x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie (en effet, $\forall x \, (g \vee \neg f)$ est vraie, donc, si $\exists x \, g$ était fausse, on aurait $\forall x \, ((g \vee \neg f) \wedge (\neg g))$, donc $\forall x \, \neg f$, ce qui n'est pas le cas puisque $\exists x \, f(x)$ est vraie). 
+\end{itemize}
 
-Dans la suite, si $C$ désigne un connecteur transitif et si $f$, $g$ et $h$ sont trois formules, on omettra parfois les parenthèses dans des formules de la forme $(f R g) R h$ ou $f R (g R h)$. 
-Plus généralement, on omettra parfois les parenthèses lorsque toutes les manières d'ajouter des parenthèses pour obtenir une formule correctement formée donnent des formules équivalentes.
+\textit{Stricto sensu}, il est donc possible de se passer d'un de ces deux quantificateurs, ou de voir l'un d'eux comme fondamental et l'autre comme dérivé. 
+Par exemple, on peut voir le quantificateur $\exists$ comme le seul quantificateur fondamental, et définir $\forall$ \textit{via} l'équivalence de $\forall x \, f$ et $\neg \left( \exists x \, \neg f \right)$ pour toute variable $x$ et toute formule $f$. 
+
+\medskip
+
+\noindent\textbf{Attention :} 
+    Une formule vraie (au sens où sa valeur de vérité est « vrai ») n'est pas nécessairement équivalente à $\mathsf{V}$.
+    De même, une formule faussee (au sens où sa valeur de vérité est « faux ») n'est pas nécessairement équivalente à $\mathsf{F}$.
+    Par contre, une formule équivalente à $\mathsf{V}$ est nécessairement vraie et une formule équivalente à $\mathsf{F}$ nécessairement fausse.
 
 \subsubsection{Relations binaires} 
 
@@ -473,7 +483,7 @@ On se place dans le cadre d'une théorie comprenant la logique du premier ordre 
         \left((f \Rightarrow g) \wedge (\neg g) \right)
         \Leftrightarrow \left( ((\neg f) \vee g) \wedge (\neg g) \right)
         \Leftrightarrow \left( ((\neg f) \wedge (\neg g)) \vee (g \wedge (\neg g)) \right)
-        \Leftrightarrow \left( ((\neg f) \wedge (\neg g)) \vee \mathrm{F} \right)
+        \Leftrightarrow \left( ((\neg f) \wedge (\neg g)) \vee \mathsf{F} \right)
         \Leftrightarrow \left( (\neg f) \wedge (\neg g) \right) .
     \end{equation*}
     Donc, si $(f \Rightarrow g) \wedge (\neg g)$ est vraie, alors $\neg f$ est vraie, donc $f$ est fausse.
