@@ -5,28 +5,35 @@
 Résumons ici quelques notations utiles pour la suite, de manière informelle :
 
 \begin{itemize}
+\item Valeurs de vérité : $\mathrm{V}$ (« vrai »), $\mathrm{I}$ (« indéfini »), $\mathrm{F}$ (« faux »).
 \item Le symbole $\neg$ représente la négation : si $P$ est une proposition, la proposition $\neg P$ est fausse si $P$ est vraie et inversement. 
-Sa table de vérité est donnée ci-dessous, où « V » indique « vraie » et « F » indique « fausse » : 
+    Sa table de vérité est donnée ci-dessous : 
 \begin{center}
 \begin{tabular}{c | c}
     $P$ & $\neg P$ \\
     \hline
-    V & F \\
-    F & V
+    $\mathsf{V}$ & $\mathsf{F}$ \\
+    $\mathsf{I}$ & $\mathsf{I}$ \\
+    $\mathsf{F}$ & $\mathsf{V}$ \\
 \end{tabular} .
 \end{center}
 \item Les symboles $\wedge$ et $\vee$ représentent respectivement les connecteurs « et » et « ou ». 
 Les symboles $\Rightarrow$ et $\Leftarrow$ représentent l'implication vers la droite et vers la gauche. 
 Le symbole $\Leftrightarrow$ représente l'équivalence. 
-Soit $P$ et $Q$ deux propositions, on a ainsi la table de vérité suivante, où « V » indique « vraie » et « F » indique « fausse » : 
+    Soit $P$ et $Q$ deux propositions, on a ainsi la table de vérité suivante : 
 \begin{center}
 \begin{tabular}{c c | c c c c c}
     $P$ & $Q$ & $P \wedge Q$ & $P \vee Q$ & $P \Rightarrow Q$ & $P \Leftarrow Q$ & $P \Leftrightarrow Q$ \\
     \hline
-    V & V & V & V & V & V & V \\
-    V & F & F & V & F & V & F \\
-    F & V & F & V & V & F & F \\
-    F & F & F & F & V & V & V \\
+    $\mathsf{V}$ & $\mathsf{V}$ & $\mathsf{V}$ & $\mathsf{V}$ & $\mathsf{V}$ & $\mathsf{V}$ & $\mathsf{V}$ \\
+    $\mathsf{V}$ & $\mathsf{I}$ & $\mathsf{I}$ & $\mathsf{V}$ & $\mathsf{I}$ & $\mathsf{V}$ & $\mathsf{I}$ \\
+    $\mathsf{V}$ & $\mathsf{F}$ & $\mathsf{F}$ & $\mathsf{V}$ & $\mathsf{F}$ & $\mathsf{V}$ & $\mathsf{F}$ \\
+    $\mathsf{I}$ & $\mathsf{V}$ & $\mathsf{I}$ & $\mathsf{V}$ & $\mathsf{V}$ & $\mathsf{I}$ & $\mathsf{I}$ \\
+    $\mathsf{I}$ & $\mathsf{I}$ & $\mathsf{I}$ & $\mathsf{I}$ & $\mathsf{I}$ & $\mathsf{I}$ & $\mathsf{I}$ \\
+    $\mathsf{I}$ & $\mathsf{F}$ & $\mathsf{F}$ & $\mathsf{I}$ & $\mathsf{I}$ & $\mathsf{V}$ & $\mathsf{I}$ \\
+    $\mathsf{F}$ & $\mathsf{V}$ & $\mathsf{F}$ & $\mathsf{V}$ & $\mathsf{V}$ & $\mathsf{F}$ & $\mathsf{F}$ \\
+    $\mathsf{F}$ & $\mathsf{I}$ & $\mathsf{F}$ & $\mathsf{I}$ & $\mathsf{V}$ & $\mathsf{I}$ & $\mathsf{I}$ \\
+    $\mathsf{F}$ & $\mathsf{F}$ & $\mathsf{F}$ & $\mathsf{F}$ & $\mathsf{V}$ & $\mathsf{V}$ & $\mathsf{V}$ \\
 \end{tabular} .
 \end{center}
 \item Les symboles $\forall$ et $\exists$ représentent respectivement les quantificateurs universel (« pour tout ») et existentiel (« il existe »). 

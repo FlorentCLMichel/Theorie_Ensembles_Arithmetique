@@ -121,7 +121,10 @@ Les termes sont définis comme suit :
 \subsubsection{Parenthèses, symboles $($, $)$, $[$, $]$}
 
 Si $f$ est une formule, alors $(f)$ et $[f]$ sont deux formule équivalentes à $f$. 
-Nous omettrons parfois les parenthèses lorsque qu'i n'y a pas d'ambiguité sur la manière dont elles peuvent être incluses, ou lorsque les différentes manières de les inclure donnent des formules équivalentes.
+Nous omettrons parfois les parenthèses lorsque qu'il n'y a pas d'ambiguité sur la manière dont elles peuvent être incluses, ou lorsque les différentes manières de les inclure donnent des formules équivalentes. 
+
+L'écriture d'une formule en terme de sous-formules contient toujours des arenthèses implicites. 
+Ainsi, si les symboles $f$ et $g$ désignent deux formules, si $\mathrm{C_u}$ est un connecteur unaire et $\mathrm{C_b}$ un connecteur binaire, alors la notation $\mathop{\mathrm{C_u}} f$ désigne $\mathop{\mathrm{C_u}} (f)$ et $f \mathop{\mathrm{C_b}} g$ désigne $(f) \mathop{\mathrm{C_b}} (g)$.
 
 \subsubsection{Formules}
 
@@ -462,9 +465,30 @@ On a alors les équivalences :
     \item $f \Leftrightarrow g$ est équivalente à $(f \wedge g) \vee ((\neg f) \wedge (\neg g))$.
 \end{itemize}
 
-Dans la suite, sauf mention contraire explicite, on considèrera que les deux seules valeurs de vérité possibles sont « vraie » et « fausse ». 
+On a aussi les règles additionelles : 
+\begin{itemize}[nosep]
+    \item toute formule vraie est équivalente à $\mathsf{V}$,
+    \item toute formule fausse est équivalente à $\mathsf{F}$,
+    \item toute formule indéfinie est équivalente à $\mathsf{I}$.
+\end{itemize}
+
+Si $f(x)$ est une formule dépendant d'un paramètre libre $x$, alors, 
+\begin{itemize}[nosep]
+    \item si $f(a)$ est vraie pour tout objet $a$ du domaine de a théorie, alors $\forall x \, f(x)$ est vraie,
+    \item si $f(a)$ est vraie ou indéfinie pour tout objet $a$ du domaine de a théorie et qu'il existe au moins un d'entre eux pour lequel $f(a)$ est indéfinie, alors $\forall x \, f(x)$ est indéfinie,
+    \item si $f(a)$ est fausse pour au moins un objet $a$ du domaine de a théorie, alors $\forall x \, f(x)$ est fausse.
+\end{itemize}
+Cela implique (en prenant la négation) : 
+\begin{itemize}[nosep]
+    \item si $f(a)$ est fausse pour tout objet $a$ du domaine de a théorie, alors $\exists x \, f(x)$ est fausse,
+    \item si $f(a)$ est fausse ou indéfinie pour tout objet $a$ du domaine de a théorie et qu'il existe au moins un d'entre eux pour lequel $f(a)$ est indéfinie, alors $\exists x \, f(x)$ est indéfinie,
+    \item si $f(a)$ est vraie pour au moins un objet $a$ du domaine de a théorie, alors $\exists x \, f(x)$ est vraie.
+\end{itemize}
+
+En général, on considèrera que les deux seules valeurs de vérité possibles sont « vraie » et « fausse ». 
 Un point de vue intermédiaire est de considérer que seules les formules ayant au moins une variable libre peuvent prendre la valeur indéfinie. 
-L'essentiel de ce qui suit reste valable sous ce point de vue. 
+Dans ce qui suit, on tâchera de ne tenir que des raisonnement valables avec ou sans la valeur de vérité indéfinie. 
+Sauf mention contraire explicite, on considèrera qu'une formule peut prendre une des trois valeurs de vérité.
 
 \subsubsection{Quelques schémas de raisonnement}
 
