@@ -91,10 +91,10 @@ On définit la relation $\neq$ par : $\forall a \, \forall b \, (a \neq b) \Lef
 
 \medskip
 
-\noindent\textbf{Démonstration bis :} À titre d'exercice, re-faisons ces courtes démonstrations de manière pus formelle.
+\noindent\textbf{Démonstration bis :} À titre d'exercice, re-faisons ces courtes démonstrations de manière plus formelle.
 \begin{itemize}[nosep]
     \item Soit $f$ la formule à deux paramètres libres $x$ et $y$ donnée par : $f: y \in x$. 
-        La formule $\forall x \, \forall y \, (f \Leftrightarrow f)$ est vraie. 
+        Puisque $f \Leftrightarrow f$ est équivalente à $\mathsf{V}$, la formule $\forall x \, \forall y \, (f \Leftrightarrow f)$ est vraie. 
         Donc, $\forall x \, \forall y \, (y \in x) \Leftrightarrow (y \in x)$ est vraie.
         Donc, $\forall x \, x \mathrel{R} x$ est vraie.
     \item Soit $f$ la formule à deux paramètres libres $a$ et $x$ donnée par : $f: a \in x$, et $g$ la formule à deux paramètres libres $a$ et $y$ donnée par : $g: a \in y$. 
@@ -102,7 +102,7 @@ On définit la relation $\neq$ par : $\forall a \, \forall b \, (a \neq b) \Lef
         Donc, les formules $\forall a \, (f \Leftrightarrow g)$ et $\forall a \, (g \Leftrightarrow f)$ sont équivalentes. 
         Puisque $\forall a \, (f \Leftrightarrow g)$ est équivalente à $x \mathrel{R} y$ et $\forall a \, (g \Leftrightarrow f)$ à $y \mathrel{R} x$, on en déduit que $x \mathrel{R} y$ et $y \mathrel{R} x$ sont équivalentes. 
         Donc, $(x \mathrel{R} y) \Rightarrow (y \mathrel{R} x)$ est équivalente à $h \Rightarrow h$, où $h$ est la formule donnée par $h: x \mathrel{R} y$.
-        Puisque $h \Rightarrow h$ est vraie que $h$ soit vraie ou fausse, elle est vraie. 
+        Puisque $h \Rightarrow h$ est vraie que $h$ soit vraie ou fausse, elle est équivalente à $\mathsf{V}$. 
         Donc, $\forall x \forall y (h \Rightarrow h)$ est vraie.
         Donc, $\forall x \forall y (x \mathrel{R} y) \Rightarrow (y \mathrel{R} x)$ est vraie.
     \item Soit $f$ la formule à deux paramètres libres $a$ et $x$ donnée par : $f: a \in x$, $g$ la formule à deux paramètres libres $a$ et $y$ donnée par : $g: a \in y$, et $h$ la formule à deux paramètres libres $a$ et $z$ donnée par : $h: a \in z$. 
