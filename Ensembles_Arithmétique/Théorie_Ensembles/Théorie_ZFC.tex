@@ -151,18 +151,19 @@ On définit la relation $\neq$ par : $\forall a \, \forall b \, (a \neq b) \Lef
 \noindent \textbf{Démonstration bis :} 
 \begin{itemize}[nosep]
     \item Soit $f$ la formule $f: e \in x$. 
-        La formule $f \Rightarrow f$ est vraie que $f$ soit vraie ou fausse, donc elle est vraie. 
-        Donc, $\forall e \, (f \Rightarrow f)$ est vraie.
-        Donc, $\forall e \, ((e \in x) \Rightarrow (x \in x))$ est vraie. 
-        Donc, $x \subset x$ est vraie. 
+        La formule $f \Rightarrow f$ est vraie que $f$ soit vraie ou fausse, donc elle est équivalente à $\mathsf{V}$. 
+        Donc, $\forall e \, (f \Rightarrow f)$ est équivalente à $\mathsf{V}$.
+        Donc, $\forall e \, ((e \in x) \Rightarrow (e \in x))$ est équivalente à $\mathsf{V}$. 
+        Donc, $x \subset x$ est équivalente à $\mathsf{V}$. 
+        Donc, $\forall x \, x \subset x$ est vraie. 
     \item La formule $(x \subset y) \wedge (y \subset x)$ est équivalente à : $(\forall e \, (e \in x \Rightarrow e \in y)) \wedge (\forall f \, (f \in y \Rightarrow f \in x))$, et donc à $\forall e \, ((e \in x \Rightarrow e \in y) \wedge (e \in y \Rightarrow e \in x))$. 
         Puisque $(e \in x \Rightarrow e \in y) \wedge (e \in y \Rightarrow e \in x)$ est équivalente à $(e \in x \Leftrightarrow e \in y)$, la formule $(x \subset y) \wedge (y \subset x)$ est équivalente à $x = y$.
-        Donc, $((x \subset y) \wedge (y \subset x)) \Rightarrow (x = y)$ est toujours vraie. 
+        Donc, $((x \subset y) \wedge (y \subset x)) \Rightarrow (x = y)$ est équivalente à $\mathsf{V}$. 
         Donc, $\forall x \, \forall y \, ((x \subset y) \wedge (y \subset x)) \Rightarrow (x = y)$ est vraie. 
     \item La formule $(x \subset y) \wedge (y \subset z)$ est équivalente à $(\forall e \, e \in x \Rightarrow e \in y) \wedge (\forall f \, f \in y \Rightarrow f \in z)$, donc à $\forall e \, ((e \in x \Rightarrow e \in y) \wedge (e \in y \Rightarrow e \in z))$. 
         Soit $f$, $g$ et $h$ trois formules, $((f \Rightarrow g) \wedge (g \Rightarrow h))$ est équivalente à $(f \Rightarrow h) \wedge (f \Rightarrow g)$.
-        Donc, la formule $(x \subset y) \wedge (y \subset z)$ est équivalente à $(\forall e \, e \in x \Rightarrow e \in y) \wedge (\forall f \, f \in y \Rightarrow f \in z)$, donc à $\forall e \, ((e \in x \Rightarrow e \in z) \wedge (e \in x \Rightarrow e \in y))$, et donc à $(\forall e \, (e \in x \Rightarrow e \in z)) \wedge (\forall f \, (f \in x \Rightarrow f \in y))$, et donc à $(x \subset z) \wedge (x \subset y)$. 
-        Puisque, si $g$ et $h$ sont deux formules, $g \wedge h \Rightarrow g$ est touours vraie, on en déduit que $((x \subset y) \wedge (y \subset z)) \Rightarrow (x \subset z)$ est vraie, donc $\forall x \, \forall y \, ((x \subset y) \wedge (y \subset z)) \Rightarrow (x \subset z)$ est vraie.
+        Donc, la formule $(x \subset y) \wedge (y \subset z)$ est équivalente à $\forall e \, ((e \in x \Rightarrow e \in z) \wedge (e \in x \Rightarrow e \in y))$, et donc à $(\forall e \, (e \in x \Rightarrow e \in z)) \wedge (\forall f \, (f \in x \Rightarrow f \in y))$, et donc à $(x \subset z) \wedge (x \subset y)$. 
+        Puisque, si $g$ et $h$ sont deux formules, $g \wedge h \Rightarrow g$ est toujours vraie, $((x \subset z) \wedge (x \subset y)) \Rightarrow (x \subset z)$ est équivalente à $\mathsf{V}$, donc on en déduit que $((x \subset y) \wedge (y \subset z)) \Rightarrow (x \subset z)$ est équivalente à $\mathsf{V}$, donc $\forall x \, \forall y \, ((x \subset y) \wedge (y \subset z)) \Rightarrow (x \subset z)$ est vraie.
 \end{itemize}
 
 \done
@@ -199,11 +200,11 @@ On définit la relation $\neq$ par : $\forall a \, \forall b \, (a \neq b) \Lef
 
 \noindent\textbf{Démonstration bis :} 
     La formule $(a \subset b) \wedge (b \subset a)$ est équivalente à : $(\forall x \, (x \in a \Rightarrow x \in b)) \wedge (\forall y \, (y \in b \Rightarrow y \in a))$, et donc à $\forall x \, ((x \in a \Rightarrow x \in b) \wedge (x \in b \Rightarrow x \in a))$. 
-    Si $f$ et $g$ sont deux formules, $(f \Rightarrow g) \wedge (g \Rightarrow f)$ est équivalente à $f \Leftrightarrow g$ (toutes deux sont vraies si $f$ et $g$ sont toutes deux fausses et fausses sinon).
+    Si $f$ et $g$ sont deux formules, $(f \Rightarrow g) \wedge (g \Rightarrow f)$ est équivalente à $f \Leftrightarrow g$ (toutes deux sont vraies si $f$ et $g$ sont toutes deux vraies ou toutes deux fausses, fausses si l'une est vraie et l'autre est fausse, et (en présence de la valeur de vérité $\mathsf{I}$) indéfinies si $f$ ou $g$ l'est).
     Donc, $(x \in a \Rightarrow x \in b) \wedge (x \in b \Rightarrow x \in a)$ est équivalente à $x \in a \Leftrightarrow x \in b$.
-    Donc, la formule $(a \subset b) \wedge (b \subset a)$ est équivalente à $\forall x \, x \in a \Leftrightarrow x \in b$, et donc à $a = b$.
+    Donc, la formule $(a \subset b) \wedge (b \subset a)$ est équivalente à $\forall x \, (x \in a \Leftrightarrow x \in b)$, et donc à $a = b$.
 
-    Donc, la formule $((a \subset b) \wedge (b \subset a)) \Leftrightarrow (a = b)$ est toujours vraie. 
+    Donc, la formule $((a \subset b) \wedge (b \subset a)) \Leftrightarrow (a = b)$ est équivalente à $(a = b) \Leftrightarrow (a = b)$, et donc toujours vraie, et donc équivalente à $\mathsf{V}$. 
     Donc, la formule $\forall a \, \forall b \, ((a \subset b) \wedge (b \subset a)) \Leftrightarrow (a = b)$ est vraie. 
 
     \done
@@ -303,7 +304,7 @@ Notons que, puisque $\forall x \, x \notin \emptyset$ est vraie, la formule $x \
 \noindent\textbf{Démonstration bis :} 
     On veut montrer que le prédicat $P: \forall x \, \forall e \, (e \in \emptyset \Rightarrow e \in x)$ est vrai. 
     $P$ est équivalent à : $\forall x \, \forall e \, ((e \in x) \vee \neg (e \in \emptyset))$, c'est-à-dire, à : $\forall x \, \forall e \, ((e \in x) \vee (e \notin \emptyset))$.
-    Puisque $\forall e \'e \notin \emptyset$ est vrai, $\forall e \, ((e \in x) \vee (e \notin \emptyset))$ est équivalent à $\mathsf{V}$.
+    Puisque $\forall e \, e \notin \emptyset$ est vrai, $e \notin \emptyset$ est équivalent à $\mathsf{V}$, donc $\forall e \, ((e \in x) \vee (e \notin \emptyset))$ est équivalent à $\forall e \, ((e \in x) \vee \mathsf{V})$, donc à $\forall e \, \mathsf{V}$, et donc à $\mathsf{V}$.
     Donc, $P$ est vrai. 
 
     \done
@@ -324,8 +325,10 @@ Notons que, puisque $\forall x \, x \notin \emptyset$ est vraie, la formule $x \
 \noindent\textbf{Démonstration bis :} 
     On veux montrer le prédicat $P: \forall x \, (x \subset \emptyset) \Rightarrow (x = \emptyset)$.
     Il est équivalent à : $\forall x \, (x \subset \emptyset) \Rightarrow ((x \subset \emptyset) \wedge (\emptyset \subset x))$, donc à $\forall x \, \neg (x \subset \emptyset) \vee ((x \subset \emptyset) \wedge (\emptyset \subset x))$, donc à $\forall x \, (\neg (x \subset \emptyset) \vee (x \subset \emptyset)) \wedge (\neg (x \subset \emptyset) \vee (\emptyset \subset x))$.
-    Puisque $\neg (x \subset \emptyset) \vee (x \subset \emptyset)$ est toujours vrai, $P$ est équivalent à $\forall x \, (\neg (x \subset \emptyset) \vee (\emptyset \subset x))$.
+    Puisque $\neg (x \subset \emptyset) \vee (x \subset \emptyset)$ est toujours vrai (soit $f$ la formule $x \subset \emptyset$, il s'agit de $\neg f \vee f$, qui est vrai que $f$ soit vraie ou fausse), $P$ est équivalent à $\forall x \, (\neg (x \subset \emptyset) \vee (\emptyset \subset x))$.
     On a vu que $\forall x \, \emptyset \subset x$ est vrai.
+    Donc, $\emptyset \subset x$ est équivalente à $\mathsf{V}$.
+    Donc, $P$ est équivalente à $\forall x \, (\neg (x \subset \emptyset) \vee \mathsf{V})$, donc à $\forall x \, \mathsf{V}$, et donc à $\mathsf{V}$.
     Donc, $P$ est vrai.
 
     \done

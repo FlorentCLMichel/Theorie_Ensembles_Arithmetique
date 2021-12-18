@@ -198,11 +198,11 @@ Si une formule est construite à partir d'autres formules, sa valeur peut dépen
 Cinq autres règles sont :
 \begin{itemize}
     \item Les variables n'ont pas de sens intrinsèque. 
-    Ainsi, si $f$ est une formule faisant intervenir une variable $x$, et si $y$ est une variable n'apparaissant pas dans $f$, alors remplacer toutes les occurrences de $x$ par $y$ dans $f$ ne peut modifier sa valeur de vérité : la forule ainsi obtenue est équivalente à $f$.
+    Ainsi, si $f$ est une formule faisant intervenir une variable $x$, et si $y$ est une variable n'apparaissant pas dans $f$, alors remplacer toutes les occurrences de $x$ par $y$ dans $f$ ne peut modifier sa valeur de vérité : la formule ainsi obtenue est équivalente à $f$.
     On considèrera parfois que la formule obtenue est la même (ou que les deux séquences de symboles représentent la même formule). 
     \item Si $f$ est une formule et $x$ et $y$ deux variables qui ne sont pas quantifiées dans $f$, alors les formules $\forall x \, \forall y \, f$ et $\forall y \, \forall x \, f$ sont équivalentes.
     \item La valeur de vérité d'une formule est inchangée par le remplacement d'une sous-formule par une formule équivalente.
-    \item Si une formule peut s'écrire comme une séquence de sous-formules et de connecteurs telle qu'elle prend toujours la même valeur de vérité lorsque ces sous-formules sont remplaxées indépendamment par $\mathsf{V}$ ou $\mathsf{F}$, alors elle prend cette valeur de vérité, et est équivalente à $\mathsf{V}$ si vraie ou à $\mathsf{F}$ si fausse.
+    \item Si une formule peut s'écrire comme une séquence de sous-formules et de connecteurs telle qu'elle prend toujours la même valeur de vérité lorsque ces sous-formules sont remplacées indépendamment par $\mathsf{V}$ ou par $\mathsf{F}$, alors elle prend cette valeur de vérité, et est équivalente à $\mathsf{V}$ si vraie ou à $\mathsf{F}$ si fausse.
 \end{itemize}
 
 On omet parois les parenthèses dans une formule lorsque celles-ci ne modifie pas sa valeur de vérité ; l'ordre d'évaluation des differents termes d'une formule est alors déterminé par les règles suivantes : 
