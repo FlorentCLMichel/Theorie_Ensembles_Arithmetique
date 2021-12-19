@@ -1,4 +1,4 @@
-\subsection{Les groupes \texorpdfstring{$\mathbb{Z}_n$}{Zn} et \texorpdfstring{$\mathbb{Z}_n^*$}{Zn*}}
+\subsection{Les groupes \texorpdfstring{$\mathbb{Z}_n$}{Zn} et \texorpdfstring{$\mathbb{Z}_p^*$}{Zp*}}
 
 \subsubsection{Définition de \texorpdfstring{$\mathbb{Z}_n$}{Zn}}
 
@@ -179,18 +179,25 @@ Montrons que c'est bien le cas.
 
 \done
 
-\subsubsection{Définition de \texorpdfstring{$\mathbb{Z}_n^*$}{Zn*}}
+\medskip
 
-***
+\noindent\textbf{Lemme :} Si $n$ n'est pas un nombre premier, le triplet $\left( \mathbb{Z}_n, +, \times \right)$ n'est pas un corps. 
 
-À faire : 
-\begin{itemize}[nosep]
-    \item Définition de l'ensemble $\left( \mathbb{Z} \divslash (n \mathbb{Z}) \right)^*$ (sans le zéro)
-    \item Définition du magma $\left( \mathbb{Z} \divslash (n \mathbb{Z}), \times \right)^*$ (sans le zéro)
-    \item preuve que la définition de $\times$ est une bonne définition (différent représentants de la même classe → même résutlat)
-    \item preuve qu'il s'agit d'un groupe
-    \item parfois noté simplement $\left( \mathbb{Z} \divslash (n \mathbb{Z}) \right) *$ quand il n'y a pas de confusion possible
-\end{itemize}
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Si $n = 1$, alors $\mathbb{Z}_n$ ne contient qu'un seul élément, donc l'anneau $\left(\mathbb{Z}_n, +, \times \right)$ est nul et n'est donc pas un corps.
+
+    Sinon, et si $n$ n'est pas premiers, on peut choisir deux entiers naturels $p$ et $q$ tels que $p < n$, $q < n$ et $p \times q = n$ (par example, on peut prendre pour $p$ un diviseur premier de $n$ et $q = n / p$).
+    On a alors $\bar{p} \neq \bar{0}$, $\bar{q} \neq \bar{0}$, et $\bar{p} \times \bar{q} = \bar{0}$, ce qui (puisque $\bar{0}$ est l'élément neutre de $+$) serait impossible si $\left(\mathbb{Z}_n, +, \times \right)$ était un corps.
+
+    \done
+
+\subsubsection{Définition de \texorpdfstring{$\mathbb{Z}_p^*$}{Zp*}}
+
+Soit $p$ un nombre premier. 
+On définit l'ensemble $\left( \mathbb{Z} \divslash (p \mathbb{Z}) \right)^*$, aussi noté $\mathbb{Z}_p^*$, par : $\mathbb{Z}_p^* = \mathbb{Z}_p \setminus \lbrace \bar{0} \rbrace$.
+Puisque $\left(\mathbb{Z}_p, +, \times \right)$ est un corps et puisque $\bar{0}$ est l'élément neutre de la loi de composition interne $+$, $\left( \mathbb{Z}_p^*, \times \right)$ est un groupe abélien, parfois noté simplement $\left( \mathbb{Z} \divslash (p \mathbb{Z}) \right)^*$ ou $\mathbb{Z}_p^*$ quand il n'y a pas de confusion possible.
 
 \subsubsection{Cyclicité de \texorpdfstring{$\left( \mathbb{Z} \divslash (p \mathbb{N}) \right)^*$}{(Z / p Z)*} pour \texorpdfstring{$p$}{p} premier}
 
