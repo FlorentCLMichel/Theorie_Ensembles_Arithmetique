@@ -14,7 +14,7 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
     \begin{equation*}
         \forall m \in M, \, e \cdot m = m \wedge m \cdot e = m.
     \end{equation*}
-    Un magma admettant un élément neutre est dit \textit{unifère}.
+    Un magma admettant un élément neutre est dit \textit{unifère} ou \textit{unitère}.
 
 \medskip
 
@@ -341,4 +341,57 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
     \done
 
+\subsubsection{Autres structures algèbriques}
+
+\noindent\textbf{Définition (anneau) :} Soit $A$ un ensemble et $+$ et $\times$ deux lois de composition interne sur $A$. 
+    Le triplet $(A, +, \times)$ est un \textit{anneau} si les propriétés suivantes sont satisfaites : 
+    \begin{itemize}[nosep]
+        \item $(A,+)$ est un groupe abélien,
+        \item $\times$ est distributive sur $+$ : pour tous éléments $a$, $b$ et $c$ de $A$, on a $a \times (b + c) = (a \times b) + (a \times c)$ et $(a + b) \times c = (a \times c) + (b \times c)$.
+    \end{itemize}
+
 \medskip
+
+\noindent\textbf{Définition (anneau unifère) :} Soit $A$ un ensemble et $+$ et $\times$ deux lois de composition interne sur $A$ tels que $(A, +, \times)$ est un anneau. 
+    L'anneau $(A, +, \times)$ est dit \textit{unifère}, ou \textit{unitaire}, si la loi de composition interne $\times$ admet un élément neutre.
+
+\medskip
+
+Soit $(A, +, \times)$ un anneau unifère, $0$ l'élément neutre de $+$, et $1$ l'élément neutre de $\times$. 
+Si $0 = 1$, alors $A$ ne contient qu'un seul élément. 
+En effet, pour tout élément $a$ de $A$, on a $a = 1 \times a$, donc $a = 0 \times a$, donc $a = 0$. 
+Un anneau ne contennat qu'un seul élément est dit \textit{nul}. 
+
+\medskip
+
+\noindent\textbf{Définition (anneau commutatif) :} Soit $A$ un ensemble et $+$ et $\times$ deux lois de composition interne sur $A$ tels que $(A, +, \times)$ est un anneau. 
+    L'anneau $(A, +, \times)$ est dit \textit{commutatif} si la loi de composition interne $\times$ est commutative.
+
+\medskip
+
+\noindent\textbf{Définition (corps) :} Soit $K$ un ensemble et $+$ et $\times$ deux lois de composition interne sur $K$. 
+    Le triplet $(K, +, \times)$ est un \textit{corps} si les propriétés suivantes sont satisfaites : 
+    \begin{itemize}[nosep]
+        \item $(A,+,\times)$ est un anneau commutatif, unifère, et non nul,
+        \item en notant $0$ l'élément neutre de $+$ et $1$ celui de $\times$, tout élément de $K$ distinct de $0$ admet un inverse pour $\times$, c'est-à-dire : $\forall k \in K \, (k \neq 0) \Rightarrow (\exists l \in K \, k \times l = l \times k = 1)$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Remarque :} Soit $K$ un ensemble et $+$ et $\times$ deux lois de composition interne sur $K$ tels que $(K, +, \times)$ est un corps. 
+    Soit $0$ l'élément neutre de $+$.
+    Notons $K^*$ l'ensemble $K \setminus \lbrace 0 \rbrace$.
+    Si $a$ et $b$ sont deux éléments de $K^*$, alors $a \times b$ est encore un élément de $K^*$. 
+    (En effet, il ne peut être égal à $0$ : puisque $a$ est non nul, il adet un inverse $c$ pout $\times$, et on a $c \times (a \times b) = b$, donc $c \times (a \times b) \neq 0$, donc $a \times b \neq 0$.)
+    Donc, $(K^*, \times)$ est un magma.
+    En outre, 
+    \begin{itemize}[nosep]
+        \item La loi de composition interne $\times$ est associative.
+        \item La loi de composition interne $\times$ est commutative.
+        \item La loi de composition interne $\times$ admet un élément neutre $1$ (qui est distinct de $0$ puisque l'anneau $(K, +, \times)$ est non nul, et donc apppartient à $K^*$).
+        \item Soit $a$ un élément de $K^*$. 
+            Puisque $a \in K$ et $a \neq 0$, $a$ admet un inverse $b$ pour $\times$ dans $K$.
+            Puisque $a \times b = 1$ et $1 \neq 0$, $b \neq 0$, donc $b \in K^*$.
+            Donc, $a$ admet un inverse pour $\times$ dans $K^*$.
+    \end{itemize}
+    Ainsi, $(K^*, \times)$ est un groupe abélien.
