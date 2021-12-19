@@ -283,7 +283,7 @@ On peut en effet le définir par : $\emptyset = \lbrace x \in a \vert x \neq x \
 Puisque tout ensemble $x$ satisfait $x = x$, il n'existe aucun $x$ tel que $x \in \emptyset$ ; autrement dit, la formule suivante est vraie : $\forall x \, x \notin \emptyset$. 
 Cet ensemble est unique d'après l'axiome d'extensionnalité.
 
-Notons que, puisque $\forall x \, x \notin \emptyset$ est vraie, la formule $x \notin \emptyset$ est vraie.
+Notons que, puisque $\forall x \, x \notin \emptyset$ est vraie, $\exists x \, x \in \emptyset$ est fausse et $x \notin \emptyset$ est équivalente à $\mathsf{V}$ et $x \in \emptyset$ à $\mathsf{F}$.
 
 \medskip
 
@@ -338,6 +338,19 @@ Notons que, puisque $\forall x \, x \notin \emptyset$ est vraie, la formule $x \
 L'axiome de compréhension peut aussi être utilisé pour définir la différence de deux ensembles. 
 Soit $A$ et $B$ deux ensembles. 
 On note $A \setminus B$ l'ensemble $\lbrace x \in A \vert x \notin B \rbrace$.
+
+\medskip
+
+Notons qu'il s'agit bien d'un schéma d'axiomes, c'est-à-dire une méthode permettant de construire des axiomes, et non d'un seul axiome : puisqu'on ne peut pas quantifier les prédicats en logique du premier ordre, ce shéma définit un axiome pour chaque prédicat à un paramètre libre. 
+En théorie Z, on considère le prédicat obtenu à partir de tout prédicat $P$ à une variable libre comme vrai.
+
+Ce schéma peut être reformulé en notant que, si $P$ est un prédicat à une variable libre $x$ et d'autres variables libres éventuelles $a_1 \cdots a_p$, et si $\alpha 1 \dots \alpha_p$ est une collection d'ensembles pouvant remplacer $a_1 \dots a_p$, alors le prédicat $Q$ défini par $Q: P x \alpha1 \cdots \alpha_p$ a une unique variable libre $x$. 
+Le schéma d'axiomes de compréhension peut ainsi être reformulé de la manière suivante : 
+\textit{Pour tout prédicat $P$ à une variable libre $x$ et d'éventuels autres variables libres collectivement notées $a_1 \dots a_p$, pour chaque valeur des variables $a_1 \cdots a_p$ et chaque ensemble $b$, il existe un ensemble qui a pour éléments l'ensemble des éléments de $b$ vérifiant la propriété $P x a_1 \dots a_p$, c'est-à-dire :}
+\begin{equation*}
+\forall a_1 \dots a_p \, \forall b \, \exists c \, \forall x \, [ (x \in c) \Leftrightarrow ((x \in b) \wedge P x a_1 \dots a_p)]. 
+\end{equation*}
+(Dans cette formule, il est entendu que le premier quantificateur est absent si $P$ n'a qu'une seule variable libre.) 
 
 \medskip
 
@@ -413,19 +426,6 @@ On note $A \setminus B$ l'ensemble $\lbrace x \in A \vert x \notin B \rbrace$.
 
 \medskip
 
-Notons qu'il s'agit bien d'un schéma d'axiomes, c'est-à-dire une méthode permettant de construire des axiomes, et non d'un seul axiome : puisqu'on ne peut pas quantifier les prédicats en logique du premier ordre, ce shéma définit un axiome pour chaque prédicat à un paramètre libre. 
-En théorie Z, on considère le prédicat obtenu à partir de tout prédicat $P$ à une variable libre comme vrai.
-
-Ce schéma peut être reformulé en notant que, si $P$ est un prédicat à une variable libre $x$ et d'autres variables libres éventuelles $a_1 \cdots a_p$, et si $\alpha 1 \dots \alpha_p$ est une collection d'ensembles pouvant remplacer $a_1 \dots a_p$, alors le prédicat $Q$ défini par $Q: P x \alpha1 \cdots \alpha_p$ a une unique variable libre $x$. 
-Le schéma d'axiomes de compréhension peut ainsi être reformulé de la manière suivante : 
-\textit{Pour tout prédicat $P$ à une variable libre $x$ et d'éventuels autres variables libres collectivement notées $a_1 \dots a_p$, pour chaque valeur des variables $a_1 \cdots a_p$ et chaque ensemble $b$, il existe un ensemble qui a pour éléments l'ensemble des éléments de $b$ vérifiant la propriété $P x a_1 \dots a_p$, c'est-à-dire :}
-\begin{equation*}
-\forall a_1 \dots a_p \, \forall b \, \exists c \, \forall x \, [ (x \in c) \Leftrightarrow ((x \in b) \wedge P x a_1 \dots a_p)]. 
-\end{equation*}
-(Dans cette formule, il est entendu que le premier quantificateur est absent si $P$ n'a qu'une seule variable libre.) 
-
-\medskip
-
 \noindent\textit{\textbf{Axiome de l'infini :} Il existe un ensemble contenant l'ensemble vide et clos par application du successeur $x \mapsto x \cup \lbrace x \rbrace$.} Formellement, cet axiome s'écrit : 
 \begin{equation*}
     \exists Y \, (\emptyset \in Y) \wedge (\forall y \, ((y \in Y) \Rightarrow (y \cup \lbrace y \rbrace \in Y))). 
@@ -481,16 +481,16 @@ On pourra noter ce l'ensemble $a \cup (b \cup c)$ par $a \cup b \cup c$.
     \begin{itemize}[nosep]
         \item Notons $P_1$ et $P_2$ les prédicats à un paramètre libre suivants : $P_1(x): x \in E \cup \emptyset$, $P_2(x): x \in E$. 
             $P_1$ est équivalent à $(x \in E) \vee (x \in \emptyset)$.
-            Puisque $\exists x \, x \in \emptyset$ est fausse, $P_1$ est équivalent à $x \in E$.
+            Puisque $x \in \emptyset$ est équivalent à $\mathsf{F}$, $P_1$ est équivalent à $x \in E$.
             Donc, $P_1$ est équivalent à $P_2$.
-            Donc, $P_1 \Leftrightarrow P_2$ est éqiovalent à $\mathsf{V}$.
+            Donc, $P_1 \Leftrightarrow P_2$ est équivalent à $\mathsf{V}$.
             Donc, $\forall x \, P_1 \Leftrightarrow P_2$ est vrai.
             Donc, $E \cup \emptyset = E$.
-        \item Notons $P_1$ le prédicat : $P_1(x): x \in E \cap \emptyset$. 
+        \item Notons $P_1$ le prédicat à un paramètre libre : $P_1(x): x \in E \cap \emptyset$. 
             $P_1$ est équivalent à $(x \in E) \wedge (x \in \emptyset)$.
-            Puisque $\exists x \, x \in \emptyset$ est fausse, $P_1$ est équivalent à $\mathsf{F}$, et donc à $x \in \emptyset$.
-            Donc, $\P_1 \Leftrightarrow (x \in \emptyset)$ est équivalent à $\mathsf{V}$.
-            Donc, $\forall x \, \P_1 \Leftrightarrow (x \in \emptyset)$ est vrai.
+            Puisque $x \in \emptyset$ est équivalent à $\mathsf{F}$, $P_1$ est équivalent à $\mathsf{F}$, et donc à $x \in \emptyset$.
+            Donc, $P_1 \Leftrightarrow (x \in \emptyset)$ est équivalent à $\mathsf{V}$.
+            Donc, $\forall x \, P_1 \Leftrightarrow (x \in \emptyset)$ est vrai.
             Donc, $E \cap \emptyset = \emptyset$.
     \end{itemize}
 
