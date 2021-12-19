@@ -341,14 +341,50 @@ On note $A \setminus B$ l'ensemble $\lbrace x \in A \vert x \notin B \rbrace$.
 
 \medskip
 
-\noindent\textbf{Lemme :} Soit $A$ et $B$ deux ensembles tels que $B \subset A$.
-    Alors, $A \cup B = A$ et $(A \setminus B) \cup B = A$.
+\noindent\textbf{Lemme :} Soit $A$ et $B$ deux ensembles.
+    Alors, $(A \setminus B) \cup B = A \cup B$.
 
 \medskip
 
 \noindent\textbf{Démonstration :}
-    
-    Soit $x$ un élément de $A \sup B$. 
+    Soit $x$ un élément de $A \cup B$. 
+    Si $x \in B$, alors $x \in (A \setminus B) \cup B$.
+    Sinon, $x \in A$, donc $x \in A \setminus B$, donc $x \in (A \setminus B) \cup B$.
+    Donc, dans tous les cas, $x \in (A \setminus B) \cup B$.
+
+    Soit $x$ un élément de $(A \setminus B) \cup B$.
+    Alors, $x \in A \setminus B$ ou $x \in B$. 
+    Si $x \in A \setminus B$, alors $x \in A$ puisque $A \setminus B \subset A$, donc $x \in A \cup B$.
+    Si $x \in B$, alors $x \in A \cup B$.
+    Donc, dans tous les cas, $x \in A \cup B$.
+
+    On a donc montré que : $\forall x \, (x \in A \cup B) \Leftrightarrow (x \in (A \setminus B) \cup B)$, et donc que $(A \setminus B) \cup B = A \cup B$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Démonstration bis :} 
+    Le prédicat $x \in A \cup B$ est équivalent à $(x \in A) \vee (x \in B)$.
+    Le prédicat $x \in (A \setminus B) \cup B$ est équivalent à $(x \in A \setminus B) \vee (x \in B)$, et donc à $((x \in A) \wedge (x \notin B)) \vee (x \in B)$.
+    Ce dernier est équivalent à $((x \in A) \vee (x \in B)) \wedge ((x \notin B) \vee (x \in B))$.
+    Pour toute formule $f$, $(\neg f) \vee f$ est vrai que $f$ soit vraie ou fausse, donc équivalent à $\mathsf{V}$.
+    Donc, $x \in (A \setminus B) \cup B$ est équivalent à $((x \in A) \vee (x \in B)) \wedge \mathsf{V}$, donc à $(x \in A) \vee (x \in B)$, et donc à $x \in A \cup B$.
+    Donc, $(x \in A \cup B) \Leftrightarrow (x \in (A \setminus B) \cup B)$ est équivalent à $(x \in A \cup B) \Leftrightarrow (x \in A \cup B)$.
+    Pour toute formule $f$, $f \Leftrightarrow f$ est vrai que $f$ soit vraie ou fausse, et donc équivalent à $\mathsf{V}$.
+    Donc, $\forall x \, (x \in A \cup B) \Leftrightarrow (x \in (A \setminus B) \cup B)$ est vrai.
+
+\done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $A$ et $B$ deux ensembles tels que $B \subset A$.
+    Alors, $A \cup B = A$.
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+    Soit $x$ un élément de $A \cup B$. 
     Alors, $x \in A$ ou $x \in B$.
     Si $x \in B$, et puisque $B \subset A$, $x \in A$.
     Donc, $x \in A$.
@@ -357,44 +393,21 @@ On note $A \setminus B$ l'ensemble $\lbrace x \in A \vert x \notin B \rbrace$.
 
     Ainsi, $A \cup B = A$.
 
-    Soit $x$ un élément de $A$. 
-    Si $x \in B$, alors $x \in (A \setminus B) \cup B$.
-    Sinon, $x \in A \setminus B$, donc $x \in (A \setminus B) \cup B$.
-    Donc, dans tous les cas, $x \in (A \setminus B) \cup B$.
-
-    Soit $x$ un élément de $x \in (A \setminus B) \cup B$.
-    Alors, $x \in A \setminus B$ ou $x \in B$. 
-    Si $ x \in A \setminus B$, alors $x \in A$ puisque $A \setminus B \subset A$.
-    Si $ x \in B$, alors $x \in A$ puisque $A \setminus A$.
-    Donc, dans tous les cas, $x \in A$.
-
-    On a donc montré que : $\forall x \, (x \in A) \Leftrightarrow (x \in (A \setminus B) \cup B)$, et donc que $(A \setminus B) \cup B = A$.
-
     \done
 
 \medskip
 
 \noindent\textbf{Démonstration bis :} 
-
-Puisque $B \subset A$, le prédicat $\forall x \, (x \in B) \Rightarrow (x \in A)$ est vrai.
-Donc, le prédicat $(x \in B) \Rightarrow (x \in A)$ est vrai.
-Donc, le prédicat $(x \in A) \vee (x \notin B)$ est vrai.
-
-\begin{itemize}[nosep]
-    \item Le prédicat $x \in A \cup B$ est équivalent à $(x \in A) \vee (x \in B)$.
-        Puisque, pour tout prédicat $P$, $P \wedge \mathsf{V}$ est équivalent à $P$, $x \in A \cup B$ est équivalent à $((x \in A) \vee (x \in B)) \wedge ((x \in A) \vee (x \notin B))$, et donc à $(x \in A) \vee ((x \in B) \wedge (x \notin B))$.
-        Puisque, pour tout prédicat $P$, $P \wedge \neg P$ est équivalent à $\mathsf{F}$, cela est équivalent à $(x \in A) \vee \mathsf{F}$, et donc à $x \in A$.
-        Donc, $x \in A \cup B$ est équivalent à $x \in A$.
-        Donc, $\forall x \, x \in A \cup B \Leftrightarrow x \in A$ est vrai.
-        Donc, $A \cup B = A$.
-    \item Le prédicat $x \in (A \setminus B) \cup B$ est équivalent à $x \in (A \setminus B) \vee x \in B$, donc à $(x \in A \wedge x \notin B) \vee x \in B$, et donc à $(x \in A \vee x \in B) \wedge (x \in B \vee x \notin B)$.
-        Pour tout prédicat $P$, $P \wedge \neg P$ est équivalent à $\mathsf{V}$.
-        Donc, $x \in B \vee x \notin B$ est équivalent à $\mathsf{V}$.
-        Donc, $(x \in A \vee x \in B) \wedge (x \in B \vee x \notin B)$ est équivalent à $x \in A \vee x \in B$, et donc à $x \in A \cup B$.
-        Donc, $x \in (A \setminus B) \cup B$ est équivalent à $x \in A \cup B$.
-        Donc, de même que précédemment, $(A \setminus B) \cup B = A \cup B$.
-        Puisque $A \cup B = A$, on en déduit $(A \setminus B) \cup B = A$.
-\end{itemize}
+    Puisque $B \subset A$, le prédicat $\forall x \, (x \in B) \Rightarrow (x \in A)$ est vrai.
+    Donc, le prédicat $(x \in B) \Rightarrow (x \in A)$ est équivaent à $\mathsf{V}$.
+    Donc, le prédicat $(x \in A) \vee (x \notin B)$ est équivalent à $\mathsf{V}$.
+    
+    Le prédicat $x \in A \cup B$ est équivalent à $(x \in A) \vee (x \in B)$.
+    Puisque, pour tout prédicat $P$, $P \wedge \mathsf{V}$ est équivalent à $P$, $x \in A \cup B$ est équivalent à $((x \in A) \vee (x \in B)) \wedge ((x \in A) \vee (x \notin B))$, et donc à $(x \in A) \vee ((x \in B) \wedge (x \notin B))$.
+    Puisque, pour tout prédicat $P$, $P \wedge \neg P$ est équivalent à $\mathsf{F}$, cela est équivalent à $(x \in A) \vee \mathsf{F}$, et donc à $x \in A$.
+    Donc, $x \in A \cup B$ est équivalent à $x \in A$.
+    Donc, $\forall x \, x \in A \cup B \Leftrightarrow x \in A$ est vrai.
+    Donc, $A \cup B = A$.
 
 \done
 
