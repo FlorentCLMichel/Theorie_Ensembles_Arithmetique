@@ -189,16 +189,18 @@ Montrons que c'est bien le cas.
     Si $n = 1$, alors $\mathbb{Z}_n$ ne contient qu'un seul élément, donc l'anneau $\left(\mathbb{Z}_n, +, \times \right)$ est nul et n'est donc pas un corps.
 
     Sinon, et si $n$ n'est pas premiers, on peut choisir deux entiers naturels $p$ et $q$ tels que $p < n$, $q < n$ et $p \times q = n$ (par example, on peut prendre pour $p$ un diviseur premier de $n$ et $q = n / p$).
-    On a alors $\bar{p} \neq \bar{0}$, $\bar{q} \neq \bar{0}$, et $\bar{p} \times \bar{q} = \bar{0}$, ce qui (puisque $\bar{0}$ est l'élément neutre de $+$) serait impossible si $\left(\mathbb{Z}_n, +, \times \right)$ était un corps.
+    On a alors $\bar{p} \neq \bar{0}$, $\bar{q} \neq \bar{0}$, et $\bar{p} \times \bar{q} = \bar{0}$, ce qui (puisque $\bar{0}$ est l'élément neutre de $+$) serait impossible si $\left(\mathbb{Z}_n, +, \times \right)$ était un corps. 
 
     \done
+
+\medskip
+
+\noindent\textbf{Remarque :} La dernière partie de la démonstration montre que, si $n$ est strictement supérieur à $1$ et n'est pas un nombre premier, alors $\times$ ne définit pas une loi de composition interne sur $\mathbb{Z}_n \setminus \lbrace \bar{0} \rbrace$.
 
 \subsubsection{Définition de \texorpdfstring{$\mathbb{Z}_p^*$}{Zp*}}
 
 Soit $p$ un nombre premier. 
 On définit l'ensemble $\left( \mathbb{Z} \divslash (p \mathbb{Z}) \right)^*$, aussi noté $\mathbb{Z}_p^*$, par : $\mathbb{Z}_p^* = \mathbb{Z}_p \setminus \lbrace \bar{0} \rbrace$.
-Puisque $\left(\mathbb{Z}_p, +, \times \right)$ est un corps et puisque $\bar{0}$ est l'élément neutre de la loi de composition interne $+$, $\left( \mathbb{Z}_p^*, \times \right)$ est un groupe abélien, parfois noté simplement $\left( \mathbb{Z} \divslash (p \mathbb{Z}) \right)^*$ ou $\mathbb{Z}_p^*$ quand il n'y a pas de confusion possible.
+Puisque $\left(\mathbb{Z}_p, +, \times \right)$ est un corps et puisque $\bar{0}$ est l'élément neutre de la loi de composition interne $+$, $\left( \mathbb{Z}_p^*, \times \right)$ (où $\times$ désigne la restriction de la loi de composition interne définie ci-dessus à $\mathbb{Z}_p^*$) est un groupe abélien, parfois noté simplement $\left( \mathbb{Z} \divslash (p \mathbb{Z}) \right)^*$ ou $\mathbb{Z}_p^*$ quand il n'y a pas de confusion possible.
 
 \subsubsection{Cyclicité de \texorpdfstring{$\left( \mathbb{Z} \divslash (p \mathbb{N}) \right)^*$}{(Z / p Z)*} pour \texorpdfstring{$p$}{p} premier}
-
-\subsubsection{Cyclicité de \texorpdfstring{$\left( \mathbb{Z} \divslash (p^m \mathbb{N}) \right)^*$}{(Z / p m Z)*} pour \texorpdfstring{$p$}{p} premier}
