@@ -223,6 +223,29 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $(M, \cdot)$ un monoïde abélien, $a$ et $b$ deux éléments de $M$, et $n$ un entier naturel. 
+    Alors, $(a \cdot b)^n = a^n \cdot b^n$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} On procéde par récurrence sur $n$.
+    Soit $P$ le prédicat à un paramètre libre définit par : $P(n): (a \cdot b)^n = a^n \cdot b^n$.
+    Notons $e$ l'élément neutre de $(M, \cdot)$.
+
+    On a : $(a \cdot b)^0 = e$ et $a^0 \cdot b^0 = e \cdot e = e$.
+    Donc, $(a \cdot b)^0 = a^0 \cdot b^0$.
+    Donc, $P(0)$ est vrai.
+
+    Soit $n$ un entier naturel tel que $P(n)$ est vrai. 
+    Alors, $(a \cdot b)^{n+1} = (a \cdot b)^n \cdot (a \cdot b) = (a^n \cdot b^n) \cdot (a \cdot b) = (a^n \cdot a) \cdot (b^n \cdot b) = a^{n+1} \cdot b^{n+1}$.
+    Donc, $P(n+1)$ est vrai.
+
+    Par récurrence, on en déduit que $P(n)$ est vrai pour tout entier naturel $n$.
+
+    \done
+
+\medskip
+
 \noindent\textbf{Définition (morphisme de monoïdes) :} Un morphisme de magmas d'un monoïde vers un autre est dit \textit{morphisme de monoïdes}.
 
 \medskip
@@ -259,6 +282,20 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
     Donc, $o = n$.
 
     \hfill \square
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $(M,\cdot)$ un monoïde et $a$ et $b$ deux éléments de $M$.
+    On suppose que $a$ a un inverse $c$ et $b$ a un inverse $d$. 
+    ALors, $a \cdot b$ a un inverse, et son inverse est $d \cdot c$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Notons $e$ l'élément neutre de $(M, \cdot)$.
+    On a : $(a \cdot b) \cdot (d \cdot c) = a \cdot (b \cdot (d \cdot c)) = a \cdot ((b \cdot d) \cdot c) = a \cdot (e \cdot c) = a \cdot c = e$.
+
+    \done
 
 \medskip
 
@@ -347,6 +384,24 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
         \item Si $a < 0$ et $b < 0$, on a $g^{a \times b} = g^{(-a) \times (-b)} = (g^{-a})^{-b}$ et $(g^a)^b$ est égal à $(g^{-a})^{-b}$ puisque $g^{-a}$ est l'inverse de $g^a$.
     \end{itemize}
     Dans tous les cas, on a bien $g^{a \times b} = (g^a)^b$.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $(G, \cdot)$ un groupe abélien, $a$ et $b$ deux éléments de $G$, et $n$ un entier. 
+    Alors, $(a \cdot b)^n = a^n \cdot b^n$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+\begin{itemize}[nosep]
+    \item Si $n \geq 0$, il s'agit d'un résultat déjà démontré.
+    \item Supposons $n < 0$. 
+        Soit $c$ l'inverse de $a$ et $d$ l'inverse de $b$.
+        Alors, $(a \cdot b)^n = (d \cdot c)^{-n} = d^{-n} \cdot c^{-n} = b^n \cdot a^n = a^n \cdot b^n$.
+\end{itemize}
+Dans les deux cas, on a bien $(a \cdot b)^n = a^n \cdot b^n$.
+
+\done
 
 \medskip
 
