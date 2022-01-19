@@ -1299,6 +1299,38 @@ On en conclut que l'hypothèse de départ est fausse : il n'existe aucune bijec
 
 \medskip
 
+\noindent\textbf{Généralisation :}  Soit $n$ un entier naturel supérieur ou égal à $2$. 
+    Soit $E$ un ensemble.
+    On suppose que l'on peut choisir une injection $h$ de $n$ vers $E$. 
+    Montrons qu'il n'existe pas de surjection de $\mathbb{N}$ vers $\mathcal{F}(\mathbb{N}, E)$. 
+
+    Suposons par l'absurde qu'au moins une telle surjection existe et appelons l'une d'entre elles $f$. 
+    Considérons l'élément $g$ de $\mathcal{F}(\mathbb{N}, E)$ défini par :%
+    \begin{equation*}
+        g = \lbrace
+            z \in \mathbb{N} \times E
+            \vert
+            \exists x \in \mathbb{N} \, 
+                z = \left\lbrace\begin{aligned}
+                    & h(1) & & \textrm{ si } f(x)(x) = h(0) \\
+                    & h(0) & & \textrm{ sinon }
+                \end{aligned}\right.
+        \rbrace .
+    \end{equation*}
+    On montre facilement qu'il s'agit bien d'une fonction de $\mathbb{N}$ vers $E$ .
+    Puisque $f$ est une surjection, on peut choisir un élément $x$ de $\mathbb{N}$ tel que $g = f(x)$. 
+    On a alors $g(x) = f(x)(x)$. 
+    Si $f(x)(x) = h(0)$, on a donc $g(x) = h(1)$ et $g(x) = h(0)$, ce qui est impossible puisque $h$ est injective.
+    Donc, $f(x)(x) \neq h(0)$, donc $g(x) = h(0)$, ce qui est impossible puisque $g(x) = f(x)(x)$.
+    On en déduit que l'hypothèses de départ est fausse : il n'existe pas de surjection de $\mathbb{N}$ vers $\mathcal{F}(\mathbb{N}, E)$. 
+
+\medskip
+
+\noindent\textbf{Corrolaire :}  On montre facilement que $\lbrace (0, 0), (1, 1) \rbrace$ est une injection de $2$ vers $\mathbb{N}$.
+    Il n'existe donc aucune surjection de $\mathbb{N}$ vers $\mathcal{F} (\mathbb{N}, \mathbb{N})$.
+
+\medskip
+
 \noindent\textbf{Définition :} Soit $n$ un entier naturel et $u$ une fonction de $n$ vers $\mathbb{Y}$. 
     Alors, 
     \begin{itemize}[nosep]

@@ -198,6 +198,48 @@ Alors,
 
 Des fonctions Haskell, C et Rust calculant le pgcd de deux entiers naturels non nuls sont données en appendice~\ref{app:Haskell_pgcd}. 
 
+\subsubsection{Plus petit commun multiple}
+
+\noindent\textbf{Définition :} Soit $a$ et $b$ deux entiers naturels non nuls. L'ensemble de leurs multiples communs non nuls est un sous-ensemble de $\mathbb{N}$ non vide (il contient au moins $a \times b$). Il admet donc un unique élément minimal, appelé \textit{plus petit commun multiple}, ou \textit{ppcm}, de $a$ et $b$. 
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $a$ et $b$ deux entiers naturels non nuls, $c$ leur pgcd, et $d$ leur ppcm.
+    Alors, $c \times d = a \times b$.
+
+\medskip
+
+\noindent\textbf{Lemme :}
+    Soit $q$ et $r$ le quotient et le reste de la division Euclidienne de $a \times b$ par $c$.
+    Puisque $c$ est un diviseur de $a$, il est aussi un diviseur de $a \times b$, donc $r = 0$.
+    Donc, $c \times q = a \times b$.
+    Il suffit donc de montrer que $q = d$. 
+
+    Puisque $c$ est un diviseur de $a$ et de $b$, on peut choisir deux entiers naturels $k$ et $l$ tels que $a = k c$ et $b = l c$.
+    On a donc $q c = k b c$ et $q c = l a c$.
+    Puisque $c$ est non nul, cela donne $q = k b$ et $q = l a$.
+    Donc, $q$ est un multiple de $a$ et de $b$. 
+    En outre, puisque $a \neq 0$ et $b \neq 0$, $a \times b \neq 0$, donc $q \neq 0$.
+    Donc, $q$ est un multiple non nul de $a$ et de $b$. 
+
+    Montrons que c'est le plus petit. 
+    Supposons par l'absurde que ce n'est pas le cas. 
+    Soit $m$ un entier naturel non nul et deux entiers naturels non nuls $n$ et $o$ tels que $m = n a$ et $m = o b$.
+    Soit $a'$ et $b'$ les quotients des divisions enclidiennes de $a$ et $b$ par $c$.
+    On a : $m = n c a' = o c b'$. 
+    Puisque $c \neq 0$, cela implique $n a' = o b'$.
+    Donc, $a'$ divise $o b'$.
+    Puisque $a'$ et $b'$ sont premiers entre eux, cela impique que $a$ divise $o$.
+    On peut donc choisir un entier naturel $t$ tel que $o = t a'$. 
+    En outre, $t$ est non nul puisque $o$ l'est.
+    On a alors $m = t c a' b'$.
+    Donc, $m c = t a b$.
+    Puisque $t > 0$, on a donc $m c \geq a b$, donc $m c \geq q c$. 
+    Puisque $c \neq 0$, cela implique $m \geq q$. 
+    Ainsi, $q$ est bien le plus petit multiple commun non nul de $a$ et $b$.
+
+    \done
+
 \subsubsection{Modulo}
 
 Soit $p$, $q$ et $r$ trois entiers relatifs. 
