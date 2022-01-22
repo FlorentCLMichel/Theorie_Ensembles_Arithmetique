@@ -1682,6 +1682,34 @@ La théorie ZF plus l'axiome du choix est appelée théorie ZFC.
 
 \subsubsection{Lemme de Zorn (en théorie ZFC)}
 
-\subsubsection{Ensembles et séquences ordonnées}
+Dans cette section seulement, on définit la notion de \textit{chaine} de la manière suivante.
+Soit $X$ un ensmble et $\leq$ une relation d'ordre sur $X$.
+Un sous-ensemble $C$ de $X$ est une \textit{chaine} de $X$ pour $\leq$ si $\leq$ est une relation d'ordre total sur $C$, autrement dit, si
+\begin{equation*}
+    \forall x \, C \, \forall y \in C \, x \leq y \vee y \leq x .
+\end{equation*}
+Pour toute chaine $C$ de $X$ pour $\leq$ et tout élément $x$ de $C$, on note $P(C, x)$ l'ensemble définit par
+\begin{equation*}
+    P(C, x) = \lbrace y \in C \vert y < x \rbrace ,
+\end{equation*}
+où $<$ est la relation d'ordre stricte définie par : pour tous éléments $x$ et $y$ de $C$, $x < y$ est équivalent à $(x \leq y) \wedge (x \neq y)$.
 
+\medskip
 
+\noindent\textbf{Énoncé :} Soit $X$ un ensemble et $\leq$ une relation d'ordre sur $X$.
+    On suppose que toute chaine de $X$ pour $\leq$ admet une borne supérieure dans $X$.
+    Alors $X$ admet un élément maximal pour la relation $\leq$.
+
+\medskip
+
+On se propose de montrer cet énoncé. 
+Pour ce faire, supposons par l'absurde que l'on puisse choisir un ensemble $X$ et une relation d'ordre $\leq$ sur $X$ tels que toute chaine de $X$ pour $\leq$ admet une borne supérieure dans $X$, mais que $X$ n'admet aucun élément maximal pour la relation $\leq$. 
+On définit la relation d'ordre $\geq$ et les deux relations d'ordre strict $<$ et $>$ sue $X$ comme suit : pour tous éléments $x$ et $y$ de $X$, 
+\begin{itemize}[nosep]
+    \item $x \geq y$ est équivalent à $y \leq x$,
+    \item $x < y$ est équivalet à $x \leq y \wedge x \neq y$,
+    \item $x > y$ est équivalent à $y < x$.
+\end{itemize}
+L'absence d'élément maximal implique que, pour tout élément $x$ de $X$, il existe un élément $y$ de $X$ tel que $x < y$.
+
+***
