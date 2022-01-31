@@ -5,7 +5,7 @@ use Érastosthène::primes_below_n;
 
 use std::io::Write;
 
-const N: usize = 200;
+const N: usize = 213;
 
 fn decomposition_prime_factors(mut n: usize, primes: &[usize]) -> Result<Vec<(usize, usize)>, NotEnoughPrimesError> {
     
