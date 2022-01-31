@@ -64,11 +64,10 @@ impl std::error::Error for NotEnoughPrimesError {}
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let primes = primes_below_n(N);
-    let mut string_to_write = "\\begin{equation*}\n\\begin{aligned}".to_string();
+    let mut string_to_write = "".to_string();
     for n in 2..=N {
-        string_to_write += &format!("\n& {} = {} \\\\", n, print_decomposition(&decomposition_prime_factors(n, &primes)?));
+        string_to_write += &format!("${} = {}$\n\n", n, print_decomposition(&decomposition_prime_factors(n, &primes)?));
     }
-    string_to_write += "\n\\end{aligned}\n\\end{equation*}";
     
     let f_name = "output_decomposition_prime_factors.tex";
     let mut output = std::fs::File::create(f_name)?;
