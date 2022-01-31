@@ -35,7 +35,7 @@ fn set_bool_array(array: &mut Vec<u8>, index: usize, val: bool) {
 
 // Sieve of Erastosthenes
 // return a vector with all the prime numbers no larger than n
-fn primes_below_n(n: Number) -> Vec<Number> {
+pub fn primes_below_n(n: Number) -> Vec<Number> {
     let mut is_prime = make_bool_array(n as usize);
     set_bool_array(&mut is_prime, 0, false);
     let mut index: Number = 1;
