@@ -1665,6 +1665,13 @@ En outre, cette fonction est bijective.
 \noindent\textbf{Définition :} Soit $E$ et $F$ deux ensembles, $E'$ un sous-ensemble de $E$, et $f$ une fonction de $E$ vers $F$. 
     On appelle \textit{restriction de $f$ à $E'$} la fonction $g$ de $E'$ vers $F$ définie par : pour tout élément $e$ de $E'$, $g(e) = f(e)$.
 
+\medskip
+
+\textbf{Notation:} Soit $E$, $F$ et $G$ trois ensembles. 
+    Soit $f$ une fonction de $E$ vers $F$ et $G$ une fonction de $E$ vers $G$.
+    On pourra noter $\lbrace (f(e), g(e)) \vert e \in E \rbrace$ l'ensemble $\lbrace x \in F \times G \vert \exists e \in E \, x = (f(e), g(e)) \rbrace$. 
+    Si $f(e)$ est donnée par une formule explicite, alors $f(e)$ peut être remplacée par cette formule, et de même pour $g(e)$.
+
 \subsubsection{Axiome du choix}
 
 \noindent\textit{\textbf{Énoncé :} Pour tout ensemble $X$ d'ensembles non vides, il existe une fonction sur $X$ qui à chaque ensemble $x$ appartenant à $X$ associe un élément de $x$ :}
@@ -1683,7 +1690,7 @@ La théorie ZF plus l'axiome du choix est appelée théorie ZFC.
 \subsubsection{Lemme de Zorn (en théorie ZFC)}
 
 Dans cette section seulement, on définit la notion de \textit{chaine} de la manière suivante.
-Soit $X$ un ensmble et $\leq$ une relation d'ordre sur $X$.
+Soit $X$ un ensemble et $\leq$ une relation d'ordre sur $X$.
 Un sous-ensemble $C$ de $X$ est une \textit{chaine} de $X$ pour $\leq$ si $\leq$ est une relation d'ordre total sur $C$, autrement dit, si
 \begin{equation*}
     \forall x \, C \, \forall y \in C \, x \leq y \vee y \leq x .
@@ -1712,4 +1719,22 @@ On définit la relation d'ordre $\geq$ et les deux relations d'ordre strict $<$ 
 \end{itemize}
 L'absence d'élément maximal implique que, pour tout élément $x$ de $X$, il existe un élément $y$ de $X$ tel que $x < y$.
 
-***
+Soit $C$ une chaine de $X$ pour $\leq$. 
+On peut choisir un élément maximal $u$ de $C$ dans $X$, et un élément $x$ de $X$, dit \textit{borne suprieure stricte de $C$} tel que $x > u$. 
+Alors, pour tout élément $e$ de $C$, on a $e \leq u$ (puisque $u$ est une borne supérieure de $C$) et $u < x$, donc $u \leq x$, donc $e \leq x$.
+En outre, avec les mêmes notations, on a $e \neq x$, sans quoi on aurait $x \leq u$ et $u < x$, donc $x \leq u$ et $u \leq x$, donc $u = x$, ce qui est impossible puisque $u < x$. 
+Donc, pour tout élément $e$ de $C$, on a $e < x$. 
+
+On note $\mathcal{X}$ l'ensemble des sous-ensembles de $X$.
+Soit $\mathcal{C}$ l'ensemble des chaines de $X$. 
+Il s'agit d'un sous-ensemble de l'ensemble des sous-ensembles de $X$, définit par : $\mathcal{C} = \lbrace e \in \mathcal{X} \vert \forall x \in x \, \forall y \in e \, x \leq y \vee y \leq x \rbrace$.
+Pour toute chaine $C$, on note $S_C$ l'ensemble des bornes supérieures strictes de $C$ (dans $X$). 
+Alors, $\lbrace \left( C, S_C \right) \vert C \in \mathcal{C} \rbrace$ est une fonction de $\mathcal{C}$ vers $\mathcal{X}$. 
+(En effet, chaque élément $C$ de $\mathcal{C}$ a une unique image $S_C$.)
+En outre, pour tout élément $C$ de $\mathcal{C}$, $S_C$ est non vide. 
+Soit $\mathcal{S}$ l'ensemble définit par : $\mathcal{S} = \lbrace S \in \mathcal{X} \vert \exists C \in \mathcal{C} \, S = S_C \rbrace$. 
+Alors, $\mathcal{S}$ est un ensemble d'ensembles non vide (puisque toute chaine admet au moins une borne supérieure stricte). 
+D'après l'axiome du choix, on peut donc choisir une fonction $g$ de $\mathcal{S}$ vers $X$ telle que, pout tout élément $S$.
+ de $\mathcal{S}$, $g(S) \in S$. 
+Soit $f = \lbrace (C, g(S_C)) \vert C \in \mathcal{C} \rbrace$. 
+Alors, $f$ est une fonction de $\mathcal{C}$ vers $X$ et, pour tout élément $C$ de $\mathcal{C}$, $f(C)$ est une borne supérieure stricte de $C$.
