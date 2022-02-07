@@ -822,9 +822,27 @@ Une relation binaire $\leq$ définie sur $E \times E$ est dite \textit{relation 
 \end{itemize}
 Une relation d'ordre $\leq$ sur $E$ est dite \textit{relation d'ordre total} si la formule suivante est vraie : $\forall x \in E \, \forall y \in E \, (x \leq y) \vee (y \leq x)$.
 Un élément $e$ de $E$ tel que : $\forall f \, f \in E \wedge f \leq e \Rightarrow f = e$ est dit \textit{minimal} (pour l'ensemble $E$ et pour la relation $\leq$) ; on dit aussi que $E$ admet $e$ pour élément minimal pour la relation $\leq$. 
+Un élément $e$ de $E$ tel que $\forall x \in E \, e \leq x$ est dit \textit{plus petit élément} de $E$ (pour la relation $\leq$).
 Un élément $e$ de $E$ tel que : $\forall f \, f \in E \wedge e \leq f \Rightarrow f = e$ est dit \textit{maximal} (pour l'ensemble $E$ et pour la relation $\leq$) ; on dit aussi que $E$ admet $e$ pour élément maximal pour la relation $\leq$. 
+Un élément $e$ de $E$ tel que $\forall x \in E \, x \leq e$ est dit \textit{plus grand élément} de $E$ (pour la relation $\leq$).
 Un ensemble muni d'une relation d'ordre est dit \textit{ordonné}.
 Un ensemble muni d'une relation d'ordre total est dit \textit{totalement ordonné}.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $E$ un ensemble et $\leq$ une relation d'ordre sur $E$. 
+    Alors, $E$ admet au plus un plus petit élément et au plus un plus grand élément. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Soit $x$ et $y$ deux plus petits élément de $E$. 
+    Alors, $x \leq y$ et $y \leq x$, donc $x = y$.
+    
+    Soit $x$ et $y$ deux plus grands élément de $E$. 
+    Alors, $y \leq x$ et $x \leq y$, donc $x = y$.
+
+    \done
 
 \medskip
 
@@ -1154,6 +1172,29 @@ En effet, on a $a \leq c$ par transitivité de la relation $\leq$ et $a \neq c$ 
     \begin{equation*}
         (a_0 \mathrel{R_1} a_1) \wedge (a_1 \mathrel{R_2} a_2) \dots .
     \end{equation*}
+
+\medskip
+
+\noindent\textbf{Définition :} Soit $E$ un ensemble et $\leq$ une relation d'ordre sur $E$. 
+    La relation $\leq$ est dit un \textit{bon ordre} sur $E$ si tout sous-ensemble non vide de $E$ admet un plus petit élément.
+    L'ensemble $E$ est alors dit \textit{bien ordonné}.
+
+\medskip
+
+\noindent\textbf{Définition :} Soit $E$ un ensemble et $\leq$ un bon order sur $E$. 
+    Alors $\leq$ est une relation d'ordre total sur $E$.
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+    Soit $x$ et $y$ deux éléments de $E$. 
+    Alors, $\lbrace x, y \rbrace$ est un sous-ensemble non vide de $E$ (il contient au moins $x$).
+    Donc, il contient un plus petit élément. 
+    Si ce plus petit élément est $x$, alors $x \leq y$.
+    Sinon, ce plus petit élément est $y$, donc $y \leq x$.
+    Dans tous les cas, on a $x \leq y \vee y \leq x$.
+
+    \done
 
 \subsubsection{Partition} 
 
@@ -1738,3 +1779,10 @@ D'après l'axiome du choix, on peut donc choisir une fonction $g$ de $\mathcal{S
  de $\mathcal{S}$, $g(S) \in S$. 
 Soit $f = \lbrace (C, g(S_C)) \vert C \in \mathcal{C} \rbrace$. 
 Alors, $f$ est une fonction de $\mathcal{C}$ vers $X$ et, pour tout élément $C$ de $\mathcal{C}$, $f(C)$ est une borne supérieure stricte de $C$.
+
+Pour toute chaine $C$ de $X$ et tout élément $x$ de $C$, on définit le sous-ensemble $P(C, x)$ de $C$ par : 
+\begin{equation*}
+    P(C, x) = \lbrace y \in C \vert y < x \rbrace.
+\end{equation*}
+Soit $C$ une chaine de $X$. 
+Un sous-ensemble $D$ de $C$ est dit \textit{segment initial} de $C$ s'il existe un élément $x$ de $C$ tel que $D = P(C, x)$.
