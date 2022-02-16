@@ -1755,9 +1755,14 @@ Pour ce faire, supposons par l'absurde que l'on puisse choisir un ensemble $X$ e
 On définit la relation d'ordre $\geq$ et les deux relations d'ordre strict $<$ et $>$ sue $X$ comme suit : pour tous éléments $x$ et $y$ de $X$, 
 \begin{itemize}[nosep]
     \item $x \geq y$ est équivalent à $y \leq x$,
-    \item $x < y$ est équivalet à $x \leq y \wedge x \neq y$,
+    \item $x < y$ est équivalent à $x \leq y \wedge x \neq y$,
     \item $x > y$ est équivalent à $y < x$.
 \end{itemize}
+(Notons que, pour tous éléments $x$ et $y$ de $X$, $x > y$ est équivalent à $x \geq y \wedge x \neq y$.%
+\footnote{
+    En effet, $x > y$ est équivalent à $y < x$, donc à $y \leq x \wedge x \neq y$. 
+    Puisque $y \leq x$ est équivalent à $x \geq y$, on en déduit que $x > y$ est équivalent à $x \leq y \wedge x \neq y$.
+})
 L'absence d'élément maximal implique que, pour tout élément $x$ de $X$, il existe un élément $y$ de $X$ tel que $x < y$.
 
 Soit $C$ une chaine de $X$ pour $\leq$. 
