@@ -1742,8 +1742,8 @@ Pour toute chaine $C$ de $X$ pour $\leq$ et tout élément $x$ de $C$, on note $
 \end{equation*}
 où $<$ est la relation d'ordre stricte définie par : pour tous éléments $x$ et $y$ de $C$, $x < y$ est équivalent à $(x \leq y) \wedge (x \neq y)$.
 
-Notons que tout sous-esnemble d'une chaine est une chaine.%
-\footnote{MOntrons cela. Avec les notations précédentes, soit $C$ une chaine et $C'$ un sous-ensemble de $C$.
+Notons que tout sous-ensemble d'une chaine est une chaine.%
+\footnote{Montrons cela. Avec les notations précédentes, soit $C$ une chaine et $C'$ un sous-ensemble de $C$.
     Soit $x$ et $y$ deux éléments de $C'$.
     Puisque $C'$ est un sous-ensemble de $C$, $x \in C$ et $y \in C$.
     Puisque $C$ est une chaine, on a donc $x \leq y \vee y \leq x$.
@@ -1754,24 +1754,25 @@ En particulier, pour toute chaine $C$ et tout élément $x$ de $C$, $P(C, x)$ es
 
 \noindent\textbf{Énoncé :} Soit $X$ un ensemble et $\leq$ une relation d'ordre sur $X$.
     On suppose que toute chaine de $X$ pour $\leq$ admet une borne supérieure dans $X$.
-    Alors $X$ admet un élément maximal pour la relation $\leq$.
+    Alors $X$ admet (au moins) un élément maximal pour la relation $\leq$.
 
 \medskip
 
 On se propose de montrer cet énoncé. 
-Pour ce faire, supposons par l'absurde que l'on puisse choisir un ensemble $X$ et une relation d'ordre $\leq$ sur $X$ tels que toute chaine de $X$ pour $\leq$ admet une borne supérieure dans $X$, mais que $X$ n'admet aucun élément maximal pour la relation $\leq$. 
+Pour ce faire, supposons par l'absurde que l'on puisse choisir un ensemble $X$ et une relation d'ordre $\leq$ sur $X$ tels que toute chaine de $X$ pour $\leq$ admet une borne supérieure dans $X$, mais que $X$ n'admet aucun élément maximal pour la relation $\leq$, et montrons que cela mène à une contradiction. 
+
 On définit la relation d'ordre $\geq$ et les deux relations d'ordre strict $<$ et $>$ sur $X$ comme suit : pour tous éléments $x$ et $y$ de $X$, 
 \begin{itemize}[nosep]
     \item $x \geq y$ est équivalent à $y \leq x$,
     \item $x < y$ est équivalent à $x \leq y \wedge x \neq y$,
     \item $x > y$ est équivalent à $y < x$.
 \end{itemize}
-(Notons que, pour tous éléments $x$ et $y$ de $X$, $x > y$ est équivalent à $x \geq y \wedge x \neq y$.%
+Notons que, pour tous éléments $x$ et $y$ de $X$, $x > y$ est équivalent à $x \geq y \wedge x \neq y$.%
 \footnote{
     En effet, $x > y$ est équivalent à $y < x$, donc à $y \leq x \wedge x \neq y$. 
-    Puisque $y \leq x$ est équivalent à $x \geq y$, on en déduit que $x > y$ est équivalent à $x \leq y \wedge x \neq y$.
-})
-L'absence d'élément maximal implique que, pour tout élément $x$ de $X$, il existe un élément $y$ de $X$ tel que $x < y$.
+    Puisque $y \leq x$ est équivalent à $x \geq y$, on en déduit que $x > y$ est donc équivalent à $x \geq y \wedge x \neq y$.
+}
+L'absence d'élément maximal implique que, pour tout élément $x$ de $X$, il existe un élément $y$ de $X$ tel que $x < y$ (sans quoi $x$ serait un élément maximal).
 
 Soit $C$ une chaine de $X$ pour $\leq$. 
 On peut choisir une borne supérieure $u$ de $C$ dans $X$, et un élément $x$ de $X$, dit \textit{borne suprieure stricte de $C$} tel que $x > u$. 
