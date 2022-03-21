@@ -822,11 +822,29 @@ Une relation binaire $\leq$ définie sur $E \times E$ est dite \textit{relation 
 \end{itemize}
 Une relation d'ordre $\leq$ sur $E$ est dite \textit{relation d'ordre total} si la formule suivante est vraie : $\forall x \in E \, \forall y \in E \, (x \leq y) \vee (y \leq x)$.
 Un élément $e$ de $E$ tel que : $\forall f \, f \in E \wedge f \leq e \Rightarrow f = e$ est dit \textit{minimal} (pour l'ensemble $E$ et pour la relation $\leq$) ; on dit aussi que $E$ admet $e$ pour élément minimal pour la relation $\leq$. 
-Un élément $e$ de $E$ tel que $\forall x \in E \, e \leq x$ est dit \textit{plus petit élément} de $E$ (pour la relation $\leq$).
+Un élément $e$ de $E$ tel que $\forall x \in E \, e \leq x$ est dit \textit{plus petit élément}, ou \textit{minimum}, de $E$ (pour la relation $\leq$).
 Un élément $e$ de $E$ tel que : $\forall f \, f \in E \wedge e \leq f \Rightarrow f = e$ est dit \textit{maximal} (pour l'ensemble $E$ et pour la relation $\leq$) ; on dit aussi que $E$ admet $e$ pour élément maximal pour la relation $\leq$. 
-Un élément $e$ de $E$ tel que $\forall x \in E \, x \leq e$ est dit \textit{plus grand élément} de $E$ (pour la relation $\leq$).
+Un élément $e$ de $E$ tel que $\forall x \in E \, x \leq e$ est dit \textit{plus grand élément}, ou \textit{maximum}, de $E$ (pour la relation $\leq$).
 Un ensemble muni d'une relation d'ordre est dit \textit{ordonné}.
 Un ensemble muni d'une relation d'ordre total est dit \textit{totalement ordonné}.
+
+\medskip
+
+\noindent\textbf{Remarque :} Un ensemble a au plus un minimum et au plus un maximum. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $E$ un ensemble et $\leq$ une relation d'ordre sur $E$. 
+\begin{itemize}[nosep]
+    \item Soit $a$ et $b$ deux minima de $E$ pour la relation $\leq$. 
+        Alors $a \leq b$ (puisque $a$ est un minimum) et $b \leq a$ (puisque $b$ est un minimum).
+        Donc, $a = b$.
+    \item Soit $a$ et $b$ deux maxima de $E$ pour la relation $\leq$. 
+        Alors $b \leq a$ (puisque $a$ est un maximum) et $a \leq x$ (puisque $b$ est un maximum).
+        Donc, $a = b$.
+\end{itemize}
+
+\done
 
 \medskip
 
@@ -870,8 +888,11 @@ Un ensemble muni d'une relation d'ordre total est dit \textit{totalement ordonn�
 
 \medskip
 
-Un élément minimal d'un enemble totalement ordonné est dit le \textit{minimum} de cet ensemble.
-Un élément maximal d'un enemble totalement ordonné est dit le \textit{maximum} de cet ensemble.
+\noindent \textbf{Remarques :} 
+\begin{itemize}[nosep]
+    \item Un élément minimal d'un ensemble totalement ordonné est aussi le minimum de cet ensemble.
+    \item Un élément maximal d'un ensemble totalement ordonné est aussi le maximum de cet ensemble.
+\end{itemize}
 
 \medskip
 
@@ -1176,12 +1197,12 @@ En effet, on a $a \leq c$ par transitivité de la relation $\leq$ et $a \neq c$ 
 \medskip
 
 \noindent\textbf{Définition :} Soit $E$ un ensemble et $\leq$ une relation d'ordre sur $E$. 
-    La relation $\leq$ est dit un \textit{bon ordre} sur $E$ si tout sous-ensemble non vide de $E$ admet un élément minimal.
+    La relation $\leq$ est dit un \textit{bon ordre} sur $E$ si tout sous-ensemble non vide de $E$ admet un plus petit élément.
     L'ensemble $E$ est alors dit \textit{bien ordonné}.
 
 \medskip
 
-\noindent\textbf{Définition :} Soit $E$ un ensemble et $\leq$ un bon ordre sur $E$. 
+\noindent\textbf{Lemme :} Soit $E$ un ensemble et $\leq$ un bon ordre sur $E$. 
     Alors $\leq$ est une relation d'ordre total sur $E$.
 
 \medskip
@@ -1772,7 +1793,7 @@ Notons que, pour tous éléments $x$ et $y$ de $X$, $x > y$ est équivalent à $
     En effet, $x > y$ est équivalent à $y < x$, donc à $y \leq x \wedge x \neq y$. 
     Puisque $y \leq x$ est équivalent à $x \geq y$, on en déduit que $x > y$ est donc équivalent à $x \geq y \wedge x \neq y$.
 }
-L'absence d'élément maximal implique que, pour tout élément $x$ de $X$, il existe un élément $y$ de $X$ tel que $x < y$ (sans quoi $x$ serait un élément maximal).
+L'absence d'élément maximal implique que, pour tout élément $x$ de $X$, il existe un élément $y$ de $X$ tel que $x \leq y$ et $x \neq y$ (sans quoi $x$ serait un élément maximal) $x < y$.
 
 Soit $C$ une chaine de $X$ pour $\leq$. 
 On peut choisir une borne supérieure $u$ de $C$ dans $X$, et un élément $x$ de $X$, dit \textit{borne suprieure stricte de $C$} tel que $x > u$. 
@@ -1789,7 +1810,7 @@ Alors, $\left\lbrace \left( C, S_C \right) \vert C \in \mathcal{C} \right\rbrace
 En outre, pour tout élément $C$ de $\mathcal{C}$, $S_C$ est non vide. 
 Soit $\mathcal{S}$ l'ensemble définit par : $\mathcal{S} = \lbrace S \in \mathcal{X} \vert \exists C \in \mathcal{C} \, S = S_C \rbrace$. 
 Alors, $\mathcal{S}$ est un ensemble d'ensembles non vide (puisque toute chaine admet au moins une borne supérieure stricte). 
-D'après l'axiome du choix, on peut donc choisir une fonction $g$ de $\mathcal{S}$ vers $X$ telle que, pout tout élément $S$.
+D'après l'axiome du choix, on peut donc choisir une fonction $g$ de $\mathcal{S}$ vers $X$ telle que, pour tout élément $S$
  de $\mathcal{S}$, $g(S) \in S$. 
 Soit $f = \lbrace (C, g(S_C)) \vert C \in \mathcal{C} \rbrace$. 
 Alors, $f$ est une fonction de $\mathcal{C}$ vers $X$ et, pour tout élément $C$ de $\mathcal{C}$, $f(C)$ est une borne supérieure stricte de $C$.
