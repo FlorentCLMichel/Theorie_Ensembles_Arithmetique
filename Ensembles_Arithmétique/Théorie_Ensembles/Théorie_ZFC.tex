@@ -1795,6 +1795,23 @@ Notons que, pour tous éléments $x$ et $y$ de $X$, $x > y$ est équivalent à $
 }
 L'absence d'élément maximal implique que, pour tout élément $x$ de $X$, il existe un élément $y$ de $X$ tel que $x \leq y$ et $x \neq y$ (sans quoi $x$ serait un élément maximal) $x < y$.
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $x$ et $y$ deux éléments de $X$.
+    Si $x > y$ est vrai, alors $x \leq y$ est faux.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Supposons que $x > y$ est vrai.
+    Alors, $x \geq y$ et $x \neq y$ sont vrais.
+    Si $x \leq y$ était vrai, on aurait $x \leq y \wedge y \leq x$, donc $x = y$, ce qui est faux.
+    On en déduit que $x \leq y$ est faux.
+
+    \done
+
+\medskip
+
 Soit $C$ une chaine de $X$ pour $\leq$. 
 On peut choisir une borne supérieure $u$ de $C$ dans $X$, et un élément $x$ de $X$, dit \textit{borne suprieure stricte de $C$} tel que $x > u$. 
 Alors, pour tout élément $e$ de $C$, on a $e \leq u$ (puisque $u$ est une borne supérieure de $C$) et $u < x$, donc $u \leq x$, donc $e \leq x$.
@@ -1841,6 +1858,7 @@ Montrons le résultat intermédiaire suivant :
     Supposons que $A \neq B$. 
     Alors, il existe un élément de $A$ qui n'est pas un élément de $B$ ou un élément de $B$ qui n'est pas un élément de $A$.
     Supposons qu'il existe un élément de $A$ qui n'est pas un élément de $B$. 
+    (Sinon, on se ramène à ce cas en échangeant les rôles de $A$ et $B$.)
     Alors, l'ensemble $A \setminus B$ est non vide. 
 
     L'ensemble $A \setminus B$ est un sous-ensemble non vide de $A$. 
@@ -1849,7 +1867,7 @@ Montrons le résultat intermédiaire suivant :
 
     Soit $y$ un élément de $P(A,x)$. 
     Alors, $y \in A$ et $y < x$.
-    Puisque $x$ est un élément minimal de $A \setminus B$ pour $\leq$, on en déduit que $y \neq A \setminus B$.
+    Puisque $x$ est un élément minimal de $A \setminus B$ pour $\leq$, on en déduit que $y \neq A \setminus B$ (sans quoi on aurait $x \leq y$).
     Donc, $y \in B$ (sans quoi on aurait $y \in A \wedge y \notin B$, et donc $y \in A \setminus B$).
     Ainsi, $P(A,x) \subset B$.
 
@@ -1863,15 +1881,11 @@ Montrons le résultat intermédiaire suivant :
     Donc, $x \in A \setminus P(B,y)$. 
     Donc, $A \setminus P(B,y)$ est non vide. 
     Puisqu'il s'agit d'un sous-ensemble de $A$, il admet donc un élément minimal, noté $z$ dans la suite. 
-    
-    Puisque $\leq$ est un bon ordre que $A$, il s'agit d'un ordre total que $A$. 
-    Puisque $x$ et $z$ sont deux éléments de $A$, on a $x \leq z$ ou $z \leq x$. 
-    Puisque $z$ est un élément minimal de $A \setminus P(B,y)$, qui contient $x$, si $x \leq z$, alors $x = z$, donc $z \leq x$.
-    On a donc toujours $z \leq x$. 
+    Puisque $z$ est un élément minimal de $A \setminus P(B,y)$, qui contient $x$, on a $z \leq x$. 
 
     Nous allons montrer que $P(A,z) = P(B,y)$. 
     Puisque $A$ et $B$ sont conformes, on a $z = f(P(A,z))$ et $y = f(P(B,y))$, et on aura donc $z = y$.
-    Puisque $y \in B$ et $x \notin B$, on aura donc $z \neq x$, donc $z < x$, donc (puisque $z \in A$) $z \in P(A,x)$, et donc $y \in P(A,x)$, ce qui est impossible puisque $y$ est un élément de $B \setminus P(A,x)$. 
+    Puisque $y \in B$ et $x \notin B$, $x \neq y$ ; on aura donc $z \neq x$, donc $z < x$, donc (puisque $z \in A$) $z \in P(A,x)$, et donc $y \in P(A,x)$, ce qui est impossible puisque $y$ est un élément de $B \setminus P(A,x)$. 
     cela montrera que l'hypothèse de départ est fausse et que $B \subset P(A,x)$. 
     On pourra alors conclure que $B = P(A,x)$.
 
