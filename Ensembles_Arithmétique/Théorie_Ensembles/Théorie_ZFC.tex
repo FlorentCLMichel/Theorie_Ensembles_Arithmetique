@@ -1071,6 +1071,23 @@ Alors, soit $x$, $y$ et $z$ trois éléments de $E$,
 
 \medskip
 
+\noindent\textbf{Lemme :} 
+    Soit $E$ un ensemble, $\leq$ une relation d'ordre sur $E$, et $<$ la relation d'ordre strict sur $E$ définie par : $\forall x \forall y \, (x \in E \wedge y \in E) \Rightarrow (x < y \Leftrightarrow (x \leq y \wedge x \neq y))$.
+    Soit $x$ et $y$ deux éléments de $E$.
+    Si $y < x$ est vrai, alors $x \leq y$ est faux.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Supposons que $y < x$ est vrai.
+    Alors, $y \leq x$ et $x \neq y$ sont vrais.
+    Si $x \leq y$ était vrai, on aurait $x \leq y \wedge y \leq x$, donc $x = y$, ce qui est faux.
+    On en déduit que $x \leq y$ est faux.
+
+    \done
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $E$ un ensemble, $\leq$ une relation d'ordre sur $E$, et $<$ la relation d'ordre strict sur $E$ définie par : $\forall x \forall y \, (x \in E \wedge y \in E) \Rightarrow (x < y \Leftrightarrow (x \leq y \wedge x \neq y))$.
 Alors, soit $x$ et $y$ deux éléments de $E$, les formules $x \leq y$ et $(x < y) \vee (x = y)$ sont équivalentes.
 
@@ -1797,21 +1814,6 @@ L'absence d'élément maximal implique que, pour tout élément $x$ de $X$, il e
 
 \medskip
 
-\noindent\textbf{Lemme :} Soit $x$ et $y$ deux éléments de $X$.
-    Si $x > y$ est vrai, alors $x \leq y$ est faux.
-
-\medskip
-
-\noindent\textbf{Démonstration :} 
-    Supposons que $x > y$ est vrai.
-    Alors, $x \geq y$ et $x \neq y$ sont vrais.
-    Si $x \leq y$ était vrai, on aurait $x \leq y \wedge y \leq x$, donc $x = y$, ce qui est faux.
-    On en déduit que $x \leq y$ est faux.
-
-    \done
-
-\medskip
-
 Soit $C$ une chaine de $X$ pour $\leq$. 
 On peut choisir une borne supérieure $u$ de $C$ dans $X$, et un élément $x$ de $X$, dit \textit{borne suprieure stricte de $C$} tel que $x > u$. 
 Alors, pour tout élément $e$ de $C$, on a $e \leq u$ (puisque $u$ est une borne supérieure de $C$) et $u < x$, donc $u \leq x$, donc $e \leq x$.
@@ -1891,16 +1893,16 @@ Montrons le résultat intermédiaire suivant :
 
     Soit $a$ un élément de $P(A,z)$. 
     Alors, $a \in A$ et $a < z$. 
-    Puisque $z$ est un élément minimal de $A \setminus P(B,y)$ et puisque $\leq$ est une relation d'ordre total sur $A$, le prédicat $a \in A \setminus P(B,y)$ est faux (sans quoi on aurait $z \leq a$).
-    Donc, $a \in P(B,y)$ (sans quoi on aurait $a \in A \setminus P(B,y)$ puisque $a \in A$).
+    Puisque $z$ est un élément minimal de $A \setminus P(B,y)$, le prédicat $a \in A \setminus P(B,y)$ est faux (sans quoi on aurait $z \leq a$, ce qui est impossible puisque $a < z$).
+    Donc, $a \in P(B,y)$ (sans quoi on aurait $a \in A \wedge a \notin P(B,y)$, et donc $a \in A \setminus P(B,y)$).
     Cela montre que $P(A,z) \subset P(B,y)$.
 
     Soit $b$ un élément de $P(B,y)$. 
     Alors, $b \in B$ et $b < y$.
-    Puisque $y$ est un élément minimal de $B \setminus P(A,x)$ et puisque $\leq$ est une relation d'ordre total sur $B$, $b$ ne peut appartenir à $B \setminus P(A,x)$, donc $b \in P(A,x)$, donc $b \in A$ et $b < x$.
+    Puisque $y$ est un élément minimal de $B \setminus P(A,x)$, $b$ ne peut appartenir à $B \setminus P(A,x)$ (sans quoi on aurait $y \leq b$, ce qui est impossible puisque $b < y$), donc $b \in P(A,x)$, donc $b \in A$ et $b < x$.
     Si $z = x$, alors $b < z$, donc $b \in P(A, z)$.
-    Sinon, $z < x$, donc, puisque $x$ est un élément minimal de $A \setminus B$ et puisque $\leq$ est une relation d'ordre total que $A$, on a $z \in B$. 
-    Dans ce cas, puisque $z \in A \setminus P(B, y)$, on a $z \geq y$ (sans quoi on aurait $z < y$ et donc $a \in P(B,y)$), donc, puisque $b < y$, $b < z$, et donc $b \in P(A, z)$.
+    Sinon, $z < x$, donc, puisque $x$ est un élément minimal de $A \setminus B$, on a $z \in B$ (sans quoi on aurait $z \in A \setminus B$ et donc $x \leq z$). 
+    Dans ce cas, puisque $z \in A \setminus P(B, y)$, on a $z \geq y$ (sans quoi on aurait $z \leq y$ puisque $\leq$ est une relation d'ordre total sur $B$, et $z \neq y$, donc $z < y$ et donc $z \in P(B,y)$), donc, puisque $b < y$, $b < z$, et donc $b \in P(A, z)$.
     Cela montre que $P(B, y) \subset P(A, z)$.
 
     Nous avons donc montré que $P(A, z) = P(B, y)$, ce qui conclut la preuve.
