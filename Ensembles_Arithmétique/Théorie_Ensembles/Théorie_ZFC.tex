@@ -1911,20 +1911,24 @@ Montrons le résultat intermédiaire suivant :
 
 \medskip
 
-Soit $A$ un sous-ensemble conforme de $X$ et $x$ un élémet de $A$. 
+Soit $A$ un sous-ensemble conforme de $X$ non vide et $x$ un élément de $A$. 
 Soit $y$ un élément de $X$ tel que $y < x$. 
-Si $y \notin A$, alors $y$ ne peut appartenir à aucun sous-ensemble conforme de $X$. 
+Supposons $y \notin A$. 
+Alors $y$ ne peut appartenir à aucun sous-ensemble conforme de $X$. 
+
 En effet, supposons par l'absurde qu'il existe un sous-ensemble conforme $B$ de $X$ tel que $y \in B$. 
 On a $A \neq B$ (puisque $y \notin A$ et $y \in B$), donc l'un des deux ensembles $A$ et $B$ est un segent initial de l'autre.
 Puisque $y \in B$ et $y \notin A$, $B$ ne peut être un sous-ensemble de $A$, dons $B$ n'est pas un segment initial de $A$. 
 Donc, $A$ est un segment initial de $B$. 
-On peut donc choisir un élément $z$ de $B$ tel que $A = \lbrace w \in B \vert w < z$. 
-Puisque $y \notin A$, $y < z$ doit être faux, donc $z = y$ ou $y \leq z$ est faux ; dans les deux cas (puisque $\leq$ est une relation d'ordre total sur $B$) $z \leq y$ est vrai. 
-Puisque $y < x$, on en déduit que $y \leq x$, donc $z \leq x$. 
-Mais, puisque $x \in A$, on a $x < z$, donc $x \leq z$ et $x \neq x$ sont vrais, donc $z \leq x$ est faux. 
-On en déduit que l'hypothèse de départ est fausse. 
+On peut donc choisir un élément $z$ de $B$ tel que $A = \lbrace w \in B \vert w < z \rbrace$. 
+Puisque $y \notin A$, $y < z$ doit être faux%
+~\footnote{En effet, si $y < z$ est vrai, on a $y \in B \wedge y < z$, donc $y \in A$.}%
+, donc $z = y$ ou $y \leq z$ est faux ; dans les deux cas (puisque $\leq$ est une relation d'ordre total sur $B$) $z \leq y$ est vrai. 
+Puisque $y < x$, on a $y \leq x$, donc $z \leq x$. 
+Mais, puisque $x \in A$, on a aussi $x < z$, donc $x \leq z$ et $x \neq x$ sont vrais, donc $z \leq x$ est faux. 
+On en déduit que $y$ ne peut appartenir à aucun sous-ensembele conforme de $X$. 
 
-Noton $U$ l'ensemble de tous les sous-ensembles conformes de $X$.%
+Noton $U$ l'union de tous les sous-ensembles conformes de $X$.%
 \footnote{
     Cet ensemble existe bien. 
     En effet, 
@@ -2032,8 +2036,9 @@ Notons $x$ l'élément $f(U)$.
 
 \medskip
 
-Par définition de $U$, on a donc $U \cup \lbrace x \rbrace \in U$, donc $x \in U$. 
-Par définition de $x$, on peut choisir une borne supérieure $u$ de $U$ dans $X$ tel que $x > u$, donc $u \leq x$. 
-Mais, puisque $x \in U$ et $u$ est un élément maximal de $U$, on a aussi $u \leq x \Rightarrow u = x$. 
+Par définition de $U$, on a donc $U \cup \lbrace x \rbrace \subset U$, donc $x \in U$. 
+Par définition, $x$ est une borne supérieure stricte de $U$, donc on peut choisir une borne supérieure $u$ de $U$ dans $X$ tel que $x > u$, et donc $u \leq x$. 
+Mais, puisque $x \in U$ et $u$ est une borne supérieure de $U$, on a aussi $x \leq u$. 
+Donc, $u \leq x \wedge x \leq u$, donc $x = u$.
 Donc, $u = x$ et $x > u$, ce qui est impossible. 
 On en déduit que l'hypothèse de départ est fausse, ce qui prouve le lemme de Zorn.
