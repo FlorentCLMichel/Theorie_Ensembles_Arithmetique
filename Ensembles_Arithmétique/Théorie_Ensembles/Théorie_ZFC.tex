@@ -849,18 +849,46 @@ Un ensemble muni d'une relation d'ordre total est dit \textit{totalement ordonn�
 \medskip
 
 \noindent\textbf{Lemme :} Soit $E$ un ensemble et $\leq$ une relation d'ordre sur $E$. 
-    Alors, $E$ admet au plus un plus petit élément et au plus un plus grand élément. 
+    Alors, $E$ admet au plus un plus minimum et au plus un maximum. 
 
 \medskip
 
 \noindent\textbf{Démonstration :} 
-    Soit $x$ et $y$ deux plus petits élément de $E$. 
+    Soit $x$ et $y$ deux minima de $E$. 
     Alors, $x \leq y$ et $y \leq x$, donc $x = y$.
     
-    Soit $x$ et $y$ deux plus grands élément de $E$. 
+    Soit $x$ et $y$ deux maxima de $E$. 
     Alors, $y \leq x$ et $x \leq y$, donc $x = y$.
 
     \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $E$ un ensemble et $\leq$ une relation d'ordre sur $E$. 
+    Soit $e$ un élément de $E$. 
+    Alors, 
+    \begin{itemize}
+        \item Si $e$ est un minimum de $E$ pour $\leq$, alors $e$ est un élément minimal de $E$ pour $\leq$.
+        \item Si $e$ est un maximum de $E$ pour $\leq$, alors $e$ est un élément maximal de $E$ pour $\leq$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    \begin{itemize}
+        \item Supposons que $e$ est un minimum de $E$ pour $\leq$..
+            Soit $x$ un élément de $E$ tel que $x \leq e$.
+            Alors, puisque $e$ est un minimum, $x \leq e \wedge e \leq x$.
+            Donc, $x = e$.
+        \item Supposons que $e$ est un maximum de $E$ pour $\leq$..
+            Soit $x$ un élément de $E$ tel que $e \leq x$.
+            Alors, puisque $e$ est un maximum, $e \leq x \wedge x \leq e$.
+            Donc, $x = e$.
+    \end{itemize}
+
+    \done
+
+\medskip
 
 \medskip
 
@@ -1815,7 +1843,7 @@ L'absence d'élément maximal implique que, pour tout élément $x$ de $X$, il e
 \medskip
 
 Soit $C$ une chaine de $X$ pour $\leq$. 
-On peut choisir une borne supérieure $u$ de $C$ dans $X$, et un élément $x$ de $X$, dit \textit{borne suprieure stricte de $C$} tel que $x > u$. 
+On peut choisir une borne supérieure $u$ de $C$ dans $X$, et un élément $x$ de $X$, dit \textit{borne supérieure stricte de $C$} tel que $x > u$. 
 Alors, pour tout élément $e$ de $C$, on a $e \leq u$ (puisque $u$ est une borne supérieure de $C$) et $u < x$, donc $u \leq x$, donc $e \leq x$.
 En outre, avec les mêmes notations, on a $e \neq x$, sans quoi on aurait $x \leq u$ et $u < x$, donc $x \leq u$ et $u \leq x$, donc $u = x$, ce qui est impossible puisque $u < x$. 
 Donc, pour tout élément $e$ de $C$, on a $e < x$. 
@@ -1946,17 +1974,21 @@ Noton $U$ l'union de tous les sous-ensembles conformes de $X$.%
 
 \noindent\textbf{Démonstration :} 
     \begin{itemize}
-        \item Montrons d'abord que $\leq$ est un bon ordre sur $U$, et donc que $U$ est une chaine.
+        \item Soit $u$ un élément de $U$. 
+            On peut choisir un sous-ensemble conforme $Y$ de $X$ tel que $u \in Y$. 
+            Puisque $Y$ est un sous-ensemble de $X$, cela implique $u \in X$.
+            Donc, $U$ et un sous-ensemble de $X$. 
+        \item Montrons que $\leq$ est un bon ordre sur $U$, et donc que $U$ est une chaine.
             Soit $V$ un sous-ensemble non vide de $U$. 
             Soit $v$ un élément de $V$. 
             Puisque $v \in V$, $v \in U$, donc on peut choisir un sous-ensemble conforme $A$ de $X$ tel que $v \in A$.
-            L'ensemble $A$ est donc non vide et est un sou-ensemble de lui-même.
-            Puisque $\leq$ est un bon ordre sur $A$, on en déduit que $A$ admet un plus petit élément $a$.
-            Alors, $a$ est un plus petit élément de $U$.
+            L'ensemble $A$ est donc non vide et est un sous-ensemble de lui-même.
+            Puisque $\leq$ est un bon ordre sur $A$, on en déduit que $A$ admet un minimum $a$.
+            Alors, $a$ est un minimum de $U$.
             En effet, soit $u$ un élément de $u$, 
             \begin{itemize}[nosep]
                 \item Si $u \in A$, alors $u < a$ est faux puisque $a$ est un plus petit élément de $A$.
-                \item Sinon, $u < a$ est faux, sans quoi $u$ n'appartiendrait à aucun sous-enemble coforme de $X$, et donc n'appartiendrait pas à $U$.
+                \item Sinon, $u < a$ est faux, sans quoi $u$ n'appartiendrait à aucun sous-enemble conforme de $X$, et donc n'appartiendrait pas à $U$.
             \end{itemize}
         \item Soit $x$ un élément de $U$.
             On peut choisir un sous-ensemble conforme $A$ de $X$ tel que $x \in A$. 
@@ -1965,12 +1997,12 @@ Noton $U$ l'union de tous les sous-ensembles conformes de $X$.%
             \begin{itemize}[nosep]
                 \item Soit $y$ un élément de $P(A, x)$.
                     Alors, $y \in A$ et $y < x$.
-                    Puisque $A$ est un sous-ensemble de $U$, on a donc $y \in U$ et $y \in x$.
+                    Puisque $A$ est un sous-ensemble de $U$, on a donc $y \in U$ et $y < x$.
                     Donc, $u \in P(U, x)$.
                 \item Soit $y$ un élément de $P(U, x)$.
                     Alors, $y < x$.
                     En outre, $y \in A$, sans quoi $y$ n'appartiendrait à aucun sous-ensemble conforme de $X$, et donc n'appartiendrait pas à $U$. 
-                    Donc, $x \in P(A, x)$.
+                    Donc, $y \in P(A, x)$.
             \end{itemize}
             On a donc bien $P(U,x) = P(A,x)$.
     \end{itemize}
@@ -1995,11 +2027,11 @@ Notons $x$ l'élément $f(U)$.
             \item Si $x \notin V$, $V$ est un sous-ensemble non vide de $U$, donc, puisque $\leq$ est un bon ordre sur $U$, $V$ admet un plus petit élément.
             \item Si $x \in V$, alors $V \setminus \lbrace x \rbrace$ est un sous-ensemble de $U$ (en effet, soit $y$ un élément de cet ensemble, $y \in V$, donc $y \in U \cup \lbrace x \rbrace$, et $y \neq x$, donc $y \in U$).
                 Si $V \setminus \lbrace x \rbrace$ est non vide, il admet un plus petit élément $v$. 
-                Puisque $x$ est une borne supérieure stricte de $U$, $x < v$ est faux. 
-                Donc, pour tout élément $y$ de $V$, $y < v$ est faux (par définition d'un plus petit élément si $y \neq x$ et par l'argument précédent sinon). 
+                Puisque $x$ est une borne supérieure stricte de $U$, on a $v < x$. 
+                Donc, pour tout élément $y$ de $V$, $v < y$ (par définition d'un plus petit élément si $y \neq x$ et par l'argument précédent sinon). 
                 Donc, $v$ est un plus petit élément de $V$.
                 Si $V \setminus \lbrace x \rbrace$ est vide, alors $V = \lbrace x \rbrace$, donc $x$ est un plus petit élément de $V$.
-                (En effet, pour tout élément de $V$, $x = x$.)
+                (En effet, pour tout élément $y$ de $V$, $y = x$.)
         \end{itemize}
     \item Soit $y$ un élément de $U \cup \lbrace x \rbrace$.
         \begin{itemize}[nosep]
@@ -2019,11 +2051,11 @@ Notons $x$ l'élément $f(U)$.
                 Ainsi, on a bien $P(U \cup \lbrace x \rbrace, y) = P(U, y)$.
             \item Sinon, $y = x$, donc $y = f(U)$. 
                 Montrons que $P(U \cup \lbrace x \rbrace, x) = U$.
-                On aura alors $y = f(P(U \cup \lbrace x \rbrace, y))$. 
+                On aura alors $y = f(P(U \cup \lbrace x \rbrace, x))$, et donc $y = f(P(U \cup \lbrace x \rbrace, y))$. 
                 \begin{itemize}[nosep]
                     \item Soit $z$ un élément de $U$.
                         Alors, $z \in U \cup \lbrace x \rbrace$.
-                        Soit $u$ une borne supérieure de $U$ dans $X$ telle que $x > u$.
+                        Soit $u$ une borne supérieure de $U$ dans $X$ telle que $x > u$ (un tel $u$ existe par définition de $x$).
                         Alors, $z \leq u$ et $u < x$, donc $u \leq x$, donc $z \leq x$ et $z \neq x$ (sans quoi on aurait $u < z$), donc $z < x$.
                         Donc, $z \in P(U \cup \lbrace x \rbrace, x)$.
                     \item Soit $z$ un élément de $P(U \cup \lbrace x \rbrace, x)$.
