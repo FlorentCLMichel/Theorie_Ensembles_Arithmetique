@@ -1,0 +1,292 @@
+\subsection{Concepts fondamentaux}
+
+\subsubsection{Division euclidienne}
+\label{subsec:divEuclidienne}
+
+On définit (dans cette section seulement) la fonction $E$ de $\mathbb{N} \times \mathbb{N}^*$ vers l'ensemble des parties de $\mathbb{N}$ par : 
+\begin{equation*}
+    \forall a \in \mathbb{N} \, 
+    \forall b \in \mathbb{N}^* \, 
+    E(a,b) = \lbrace
+        n \in \mathbb{N} 
+        \vert
+        \exists k \in \mathbb{N} \,  
+        a \geq k b \wedge a - k b = n
+    \rbrace .
+\end{equation*}
+
+\medskip
+
+\noindent\textbf{Définition (division euclidienne) :}
+Soit $a$ un entier naturel et $b$ un entier naturel non nul.
+L'ensemble $E(a,b)$ est un sous-ensemble de $\mathbb{N}$ non vide (il contient au moins $a$ puisque $a \geq 0 \times b$ et $a - 0 \times b = a$), donc il admet un unique élément minimal (et donc un minimum) $r$. 
+Cet élément est appelé \textit{reste de la division euclidienne de $a$ par $b$}. 
+L'unique entier naturel $q$ tel que $r = a - q b$%
+~\footnote{Un tel entier existe car $r$ est un élément de $E$. 
+    Montrons qu'il est bien unique. 
+    Soit $q$ et $q'$ deux entiers naturels tels que $a \geq q b$, $a \geq q' b$, $r = a - q b$ et $r = a - q' b$.
+    Alors, $a - q b = a - q' b$.
+    Donc, $a + q' b = a + q b$.
+    Donc, $q b = q' b$.
+    Puisque $b$ est non nul, on en déduit $q = q'$.
+}  
+est appelé \textit{quotient de la division euclidienne de $a$ par $b$}. 
+Notons que l'on a : $a = q b + r$. 
+
+\medskip
+
+\noindent\textbf{Définition :} On définit les deux opérations $\divslash\!\divslash$ et $\%$ de $\mathbb{N} \times \mathbb{N}^*$ vers $\mathbb{N}$ de la manière suivante : pour tout entier naturel $a$ et tout entier naturel non nul $b$, $a \mathrel{\divslash\!\divslash} b$ est le quotient de la division Euclidienne de $a$ par $b$ et $a \mathrel{\%} b$ est son reste. 
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $a$ un entier naturel et $b$ un entier naturel non nul.
+    Soit $r$ l'entier naturel défini par $r = a \mathrel{\%} b$.
+    Alors, $r \geq 0$ et $r < b$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+\begin{itemize}[nosep]
+    \item Puisque $E(a,b)$ est un sous-ensemble de $\mathbb{N}$ et puisque $r \in E(a,b)$, $r \in \mathbb{N}$, donc $r \geq 0$.
+    \item Supposons par l'absurde que $r \geq b$. 
+        Alors, $r - b \in \mathbb{N}$ et $r - b = (a - q b) - b = a - (q b + b) = a - (q+1) b$, et donc $r - b \in E$. 
+        Puisque $b > 0$, $r - b < r$ ; cela contredit donc la définition de $r$ comme minimum de $E$. 
+        On en déduit que l'hypothèse de départ est fausse, et donc que $r < b$.
+\end{itemize}
+
+\done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $a$ un entier naturel et $b$ un entier naturel non nul.
+    Soit $s$ un élément de $E(a,b)$ tel que $s < b$.
+    Alors, $s = a \mathrel{\%} b$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Notons $r$ l'entier $a \mathrel{\%} b$.
+    Puisque $r$ et $s$ sont deux éléments de $E(a,b)$, on peut choisir deux éléments $q$ et $k$ de $\mathbb{N}$ tels que $r = a - q b$ et $s = a - k b$. 
+    Donc, $s = r + (q-k) b$. 
+    Si $q > k$, alors $q-k$ est un entier naturel non nul, donc $(q-k) b \geq b$, et donc (puisque $r \geq 0$) $s \geq b$, ce qui est impossible.
+    Si $q < k$, alors $k-q$ est un entier naturel non nul, donc $(k-q) b \geq b$, donc $(q-k) b \leq -b$, et donc (puisque $r < b$) $s < 0$, ce qui est impossible. 
+    Donc, $q = k$, et donc $s = r$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Définition (diviseur, multiple) :} 
+    Soit $a$ et $b$ deux entiers naturels avec $b \neq 0$.
+    Si le reste de la division euclidienne de $a$ par $b$ est $0$, on dit que \textit{$b$ divise $a$}, ou encore que \textit{$b$ est un diviseur de $a$}, que \textit{$a$ admet $b$ pour diviseur} ou que \textit{$a$ est un multiple de $b$}. 
+    On note $b \vert a$ le prédicat « $b$ divise $a$ ».
+
+\medskip
+
+\noindent\textbf{Lemme :} 
+    Soit $a$ et $b$ deux entiers naturels tels que $b \vert a$.
+    Alors, $a = 0$ ou $b \leq a$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    En effet, soit $q$ le quotient de la division Euclidienne de $a$ par $b$. 
+    On a : $a = q \times b$.
+    Si $q = 0$, $q \times b = 0$, donc $a = 0$.
+    Sinon, $q$ est un entier naturel non nul, donc $q \times b \geq b$, donc $a \geq b$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $a$ et $b$ deux entiers naturels. 
+    Alors $b$ divise $a$ si et seulement si il existe un entier naturel $q$ tel que $q b = a$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    \begin{itemize}[nosep]
+        \item Supposons qur $b$ divise $a$. 
+            Soit $q$ le quotient de la division Euclidienne de $a$ par $b$. 
+            Puisque $b$ divise $a$, le reste de la division Euclidienne de $a$ par $b$ est $0$, donc $a = q b$.
+        \item Soit $q$ un entier naturel tel que $a = q b$ et $E$ l'ensemble définit comme ci-dessus.
+            Alors, $a \geq q b$.
+            Donc, $a - q b \in E$.
+            Puisque $a = q b$, $a - q b = 0$, donc $0 \in E$. 
+            En outre, pour tout élément $e$ de $E$, on a $e \in \mathbb{N}$, donc $0 \leq e$.
+            Donc, $0$ est un élément minimal de $E$. 
+            Puisque $E$ admet un seul élément minimal, on en déduit que le reste de la division Euclidienne de $a$ par $b$ est $0$.
+    \end{itemize}
+
+    \done
+
+\medskip
+
+\noindent\textbf{Lemme :} 
+\begin{itemize}[nosep]
+    \item Tout entier naturel divise $0$.
+    \item Tout entier naturel non nul se divise lui-même. 
+    \item Tout entier naturel est un multiple de $1$.
+\end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+Soit $a$ un entier naturel. 
+Alors, 
+\begin{itemize}[nosep]
+    \item $0 \times a = 0$, donc $a \vert 0$.
+    \item $1 \times a = a$, donc, si $a$ est non nul, $a \vert a$. 
+    \item $a \times 1 = a$, donc $1 \vert a$.
+\end{itemize}
+
+\medskip
+
+\noindent\textbf{Lemme :} 
+    Soit $a$, $b$ et $c$ trois entiers naturels tels que $a \vert b$ et $b \vert c$.
+    Alors, $a \vert c$.
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+    Puisque $a \vert b$, on peut choisir un entier naturel $n$ tel que $b = n a$.
+    Puisque $b \vert c$, on peut choisir un entier naturel $m$ tel que $c = m b$.
+    Donc, $c = m (n a) = (m n) a$.
+    Puisque $m$ et $n$ sont deux entiers naturels, $m n$ en est un aussi.
+    Donc, $a \vert c$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Définition :} Un entier naturel est dit \textit{pair} s'il est un multiple de $2$ et \textit{impair} sinon. 
+
+\medskip
+
+\noindent\textbf{Définition :} Soit $a$ et $b$ deux entiers naturels non nuls. L'ensemble de leurs diviseurs communs est un sous-ensemble de $\mathbb{N}$ non vide (il contient au moins $1$) et borné supérieurement par le minimum de $a$ et $b$. Il admet donc un unique élément maximal, appelé \textit{plus grand diviseur commun}, ou \textit{pgcd}, de $a$ et $b$. 
+    Notons que cet entier est toujours supérieur ou égal à $1$. 
+    Si $n$ est un entier naturel, on considère que le pgcd de $n$ et $0$ (ou de $0$ et $n$) est $n$.
+    (Ainsi, le pgcd de $0$ et $0$ est $0$.)
+
+\medskip
+
+\noindent\textbf{Définition :} Deux entiers naturels $a$ et $b$ sont dits \textit{premiers entre eux} si leur pgcd est $1$.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $a$ et $b$ deux entiers naturels non nuls et $c$ leur pgcd.
+    On note $d$ et $e$ les entiers $a \mathrel{\divslash\!\divslash} c$ et $b \mathrel{\divslash\!\divslash} c$. 
+    Alors, $a = d \times c$, $b = e \times c$, et $d$ et $e$ sont premiers entre eux.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Puisque $c$ est un diviseur de $a$, le reste de la division Euclidienne de $a$ par $c$ est $0$, donc $d \times c = a$.
+    De même, puisque $c$ est un diviseur de $b$, le reste de la division Euclidienne de $b$ par $c$ est $0$, donc $e \times c = b$.
+
+    Supposons par l'absurde que $d$ et $e$ ne soient pas premiers entre eux. 
+    Alors, $d$ et $e$ admettent un diviseur commun $f$ tel que $f > 1$.
+    On peut donc choisir deux entiers naturels non nuls $g$ et $h$ tels que $d = g \times f$ et $e = h \times f$.
+    Donc, $a = g \times f \times c$ et $b = h \times f \times c$. 
+    Donc, $f \times c$ est un diviseur commun à $a$ et $b$. 
+    Puisque $f > 0$ et $c > 0$, $f \times c > c$, ce qui contredit la définition du pgcd. 
+    On en déduit que l'hypothèse de départ est fausse et que $d$ et $e$ sont premiers entre eux. 
+
+   \done 
+
+\medskip
+
+Des fonctions Haskell, C et Rust calculant le pgcd de deux entiers naturels non nuls sont données en appendice~\ref{app:Haskell_pgcd}. 
+
+\subsubsection{Modulo}
+
+Soit $p$, $q$ et $r$ trois entiers relatifs. 
+On écrit $p \equiv r \, [q]$, ou $p \equiv r \, \mathrm{mod} \, q$, ou encore $p \equiv r \, ( \mathrm{mod} \, q)$ le prédicat : il existe un entier relatif $k$ tel que $p = r + k q$, \textit{i.e.}, $\exists k \in \mathbb{Z} \, p = r + k q$. 
+Si ce prédicat est vrai, on dit que \textit{$p$ est égal à $r$ modulo $q$}.
+Notons que, pour tout entier relatif $s$, on a alors aussi $p \equiv (r + s q) \, [q]$%
+~\footnote{
+    En effet, soit $p$, $q$ et $r$ trois entiers relatifs tels que $p = r \, [q]$ et soit $s$ un entier relatif, on peut choisir un entier relatif $k$ tel que $p = r + k q$, donc $p = (r + s q) + (k - s) q$. 
+    Puisque $k-s$ est un entier, on en déduit que $p = (r + s q) \, [q]$.
+}%
+.
+Notons aussi que l'on a toujours $p \equiv p \, [q]$ (puisque $p = p + 0 q$). 
+
+\medskip 
+
+\noindent\textbf{Lemme :} Soit $p$, $q$, $r$ et $s$ quatre entiers tels que $p \equiv r \, [q]$ et $r \equiv s \, [q]$.
+    Alors, $p \equiv s \, [q]$.
+
+\medskip 
+    
+\noindent\textbf{Démonstration :} 
+    Puisque $p \equiv r \, [q]$, on peut choisir un entier $k$ tel que $p = r + k q$.
+    Puisque $r \equiv s \, [q]$, on peut choisir un entier $l$ tel que $r = s + l q$.
+    On a donc : $p = (s + l q) + k q = s + (l q + k q) = s + (l + k) q$.
+    Puisque $l \in \mathbb{Z}$ et $k \in \mathbb{Z}$, $l + k \in \mathbb{Z}$, et donc $p \equiv s \, [q]$.
+
+    \done
+
+\medskip 
+
+\noindent\textbf{Lemme :} Soit $p$, $q$ et $r$ trois entier naturels tels que $p \equiv r \, [q]$ et $r < q$.
+    Alors, $r$ est le reste de la division Enclidienne de $p$ par $q$.
+
+\medskip 
+    
+\noindent\textbf{Démonstration :}
+    Puisque $p = r \, [q]$, on peut choisir un entier relatif $k$ tel que $p = r + k q$.
+    Donc, $p - k q = r$.
+    En outre, on doit avoir $k \geq 0$. 
+    En effet, si ce n'était pas le cas, on aurait $k q = - \abs{k} q$ et $\abs{k} \neq 0$, donc $k q \leq -q$, donc (puisque $-q > -r$) $k q < -r$, donc $r + k q < 0$, ce qui est impossible puisque $p$ est un entier naturel.
+    Donc, avec les notations de la section~\ref{subsec:divEuclidienne}, $r \in E_{p,q}$. 
+    Puisque $r < q$, on en déduit que $r$ est le reste de la division Enclidienne de $p$ par $q$.
+
+    \done
+
+\medskip 
+
+\noindent\textbf{Remarque :} Réciproquement, et par définition du reste de la division euclidienne, si $p$ et $q$ sont deux entiers naturels, alors $p \equiv (p \mathrel{\%} q) \, [q]$.
+
+\medskip 
+
+\noindent\textbf{Corrolaire 1 :} Soit $p$, $q$ et $r$ trois entier naturels tels que $p = r \, [q]$ et $r < q$.
+    Si $r \neq 0$, alors $p$ n'est pas un multiple de $q$.
+
+\medskip 
+
+\noindent\textbf{Corrolaire 2 :} Soit $p$, et $q$ deux entier naturels tels que $q \neq 0$ et $q \vert p$.
+    Alors, $p \equiv 0 \, [q]$.
+
+\medskip 
+
+\noindent\textbf{Lemme :} Soit $q$, $p_1$, $p_2$, $r_1$ et $r_2$ cinq entiers relatifs tels que $p_1 \equiv r_1 \, [q]$ et $p_2 \equiv r_2 \, [q]$.
+Alors, 
+\begin{itemize}[nosep]
+    \item $p_1 + p_2 \equiv (r_1 + r_2) \, [q]$, 
+    \item $p_1 - p_2 \equiv (r_1 - r_2) \, [q]$, 
+    \item $p_1 p_2 \equiv (r_1 r_2) \, [q]$.
+\end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} Choisissons deux entiers $k_1$ et $k_2$ tels que $p_1 = r_1 + k_1 q$ et $p_2 = r_2 + k_2 q$. 
+On a :
+\begin{itemize}[nosep]
+    \item $p_1 + p_2 = (r_1 + r_2) + (k_1 + k_2) \, q$, 
+    \item $p_1 - p_2 = (r_1 - r_2) + (k_1 - k_2) \, q$, 
+    \item $p_1 p_2 = (r_1 r_2) + (r_1 k_2 + r_2 k_1 + k_1 k_2) \, q$.
+\end{itemize}
+
+\done
+
+\medskip
+
+\noindent\textbf{Définition :} Un entier naturel $n$ est pair si et seulement si $n \equiv 0 \, [2]$ et impair si et seulement si $n \equiv 1 \, [2]$. 
+On montre ainsi facilement que la somme de deux nombres pairs est paire, la somme de deux impairs est paire (puisque $1 + 1 = 2$ et $2 = 0 \, [2]$), et la somme d'un pair et d'un impair est impaire.
+
+\medskip
+
+\noindent\textbf{Notation :} Soit $a$ un entier non nul, $n$ un entier naturel non nul et $c_0$, $c_1$, ..., $c_n$ des entiers.
+    On abrègera parfois la formule $(c_0 \equiv c_1 \, [a]) \wedge (c_1 \equiv c_2 \, [a]) \wedge \dots \wedge (c_{n-1} \equiv c_n \, [a])$ en $c_0 \equiv c_1 \, [a] \equiv c_2 \, [a] \equiv \cdots \equiv c_n \, [a]$.
+    
+    
