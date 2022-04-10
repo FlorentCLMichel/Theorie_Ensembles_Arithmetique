@@ -461,6 +461,49 @@ En échangeant les rôles des deux décompositions, on montre de même $M \leq N
 
 \done
 
+\subsubsection{Représentation schématique}
+
+(Cette section n'est pas destinée à être rigoureuse, mais seulement à donner une certaine intuition de la décomposition en facteurs premiers.)
+
+Un entier naturel strictement supérieur à $1$ peut être représenté schématiquement par une série de blocs représentant chacun de ses facteurs premiers (avec multiplicité). 
+D'après le résultat précédent, cette représentation est unique à l'ordre près des blocs, qui peuvent (puisque la multiplication est commutative) être réarrangés de manière quelconque. 
+L'entier $1$ pourra être représenté par la série vide.
+Notons que la série représentant un entier a un unique bloc si et seulement si ce nombre est premier.
+Puisque la multiplication est associative, accoler les séries représentant denx entiers naturels non nuls donne la série représentant leur produit.
+
+Quelques examples : 
+\begin{multicols}{3}
+\begin{itemize}[nosep]
+    \item $1$: 
+    \item $2$: \inbox{2}
+    \item $3$: \inbox{3}
+    \item $4$: \inbox{2}\inbox{2}
+    \item $5$: \inbox{5}
+    \item $6$: \inbox{2}\inbox{3}
+    \item $7$: \inbox{7}
+    \item $8$: \inbox{2}\inbox{2}\inbox{2}
+    \item $9$: \inbox{3}\inbox{3}
+    \item $10$: \inbox{2}\inbox{5}
+    \item $11$: \inbox{11}
+    \item $12$: \inbox{2}\inbox{2}\inbox{3}
+    \item $13$: \inbox{13}
+    \item $14$: \inbox{2}\inbox{7}
+    \item $15$: \inbox{3}\inbox{5}
+    \item $16$: \inbox{2}\inbox{2}\inbox{2}\inbox{2}
+    \item $17$: \inbox{17}
+    \item $18$: \inbox{2}\inbox{3}\inbox{3}
+    \item $19$: \inbox{19}
+    \item $20$: \inbox{2}\inbox{2}\inbox{5}
+    \item $21$: \inbox{3}\inbox{7}
+    \item $22$: \inbox{2}\inbox{11}
+    \item $23$: \inbox{23}
+    \item $24$: \inbox{2}\inbox{2}\inbox{2}\inbox{3}
+    \item $25$: \inbox{5}\inbox{5}
+    \item $26$: \inbox{2}\inbox{13}
+    \item $27$: \inbox{3}\inbox{3}\inbox{3}
+\end{itemize}
+\end{multicols}
+
 \subsubsection{Petit théorème de Fermat}
 
 \noindent\textbf{Théorème :} Soit $p$ un nombre premier et $a$ un entier naturel non multiple de $p$. 
