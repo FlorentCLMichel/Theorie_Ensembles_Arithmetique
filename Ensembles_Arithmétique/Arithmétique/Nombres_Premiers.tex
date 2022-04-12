@@ -471,7 +471,7 @@ L'entier $1$ pourra être représenté par la série vide.
 Notons que la série représentant un entier a un unique bloc si et seulement si ce nombre est premier.
 Puisque la multiplication est associative, accoler les séries représentant denx entiers naturels non nuls donne la série représentant leur produit.
 
-Quelques examples : 
+Quelques exemples : 
 \begin{multicols}{3}
 \begin{itemize}[nosep]
     \item $1$: 
@@ -504,7 +504,7 @@ Quelques examples :
 \end{itemize}
 \end{multicols}
 
-Examples de multiplications : 
+Exemples de multiplications : 
 \begin{multicols}{2}
 \begin{itemize}[nosep]
     \item $1 \times 2 = 2$: $\times \, \inbox{2} = \inbox{2}$
@@ -515,6 +515,30 @@ Examples de multiplications :
     \item $7 \times 3 = 21$: \inbox{7} \times \inbox{3} = \inbox{7}\inbox{3} = \inbox{3}\inbox{7}
 \end{itemize}
 \end{multicols}
+
+Notons que : 
+\begin{itemize}[nosep]
+    \item Soit $a$ et $b$ deux entiers naturels non nuls.
+        Alors, $a$ est un multiple de $b$ si et seulement si la représentation schématique de $b$ est (possiblement après réarrangements) include dans celle de $a$. \\
+        \textit{Exemple 1 :} $80$ est un multiple de $20$ :
+        \begin{itemize}[nosep]
+            \item $80$: \textcolor{blue}{\inbox{2}\inbox{2}\inbox{5}}\inbox{2}\inbox{2}
+            \item $20$: \textcolor{blue}{\inbox{2}\inbox{2}\inbox{5}}
+        \end{itemize}
+        \textit{Exemple 2 :} $80$ n'est pas un multiple de $60$ :
+        \begin{itemize}[nosep]
+            \item $80$: \textcolor{blue}{\inbox{2}\inbox{2}\inbox{5}}\inbox{2}\inbox{2}
+            \item $60$: \textcolor{blue}{\inbox{2}\inbox{2}\inbox{5}}\textcolor{red}{\inbox{3}}
+        \end{itemize}
+    \item Soit $a$ et $b$ deux entiers naturels non nuls et $c$ leur pgcd.
+        Alors, la représentation schématique de $c$ est donnée par la partie commune de celles de $a$ et $b$.
+        \textit{Exemple :} Le pgcd de $100$ et $30$ est $10$
+        \begin{itemize}[nosep]
+            \item $10$: \textcolor{blue}{\inbox{2}\inbox{5}}\textcolor{green!50!black}{\inbox{2}\inbox{5}}
+            \item $30$: \textcolor{blue}{\inbox{2}\inbox{5}}\textcolor{red}{\inbox{3}}
+            \item \textcolor{blue}{$2 \times 5 = 10$}
+        \end{itemize}
+\end{itemize}
 
 \subsubsection{Petit théorème de Fermat}
 
