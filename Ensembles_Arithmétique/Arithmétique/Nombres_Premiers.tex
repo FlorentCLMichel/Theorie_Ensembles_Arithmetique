@@ -25,7 +25,7 @@ Le lemme est évidemment vrai pour les nombres $0$ et $1$ (qui sont tous deux in
 
 Soit $n$ un entier naturel strictement supérieur à $2$ et supposons que tout entier compris entre $2$ et $n-1$ soit divisible par au moins un nombre premier. 
 
-Si $n$ est divisible par un entier $l$ compris entre $2$ et $n-1$ (inclus), alors il existe un nombre permier $p$ divisant $l$. 
+Si $n$ est divisible par un entier $l$ compris entre $2$ et $n-1$ (inclus), alors il existe un nombre premier $p$ divisant $l$. 
 Il existe alors deux entiers naturels $k$ et $q$ tels que $n = k l$ et $l = q p$, d'où $n = (k q) p$. 
 Donc, $p$ divise $n$. 
 
@@ -50,7 +50,7 @@ Par récurrence forte, on en déduit que le résultat est vrai pour tout entier 
 Soit $N$ le cardinal de $\mathbb{P}$ ; $N$ est donc un entier naturel. 
 Notons que $N \geq 3$ puisque $2$, $3$ et $5$ sont premiers.
 On peut choisir une bijection $b$ de $N$ vers $\mathbb{P}$. 
-Pour tout entier naturel $i$ strictement infèrieur à $N$, on note $p_{i+1}$ l'entier naturel $b(i)$.
+Pour tout entier naturel $i$ strictement inférieur à $N$, on note $p_{i+1}$ l'entier naturel $b(i)$.
 Ainsi, $\mathbb{P} = \lbrace p_1, p_2, \dots, p_N \rbrace$. 
 
 Soit $q$ l'entier définit par : $q \equiv 1 + \prod_{i=1}^N p_i$. 
@@ -92,7 +92,7 @@ Mais $4$ n'est pas un nombre premier (puisque $4 = 2 \times 2$ est divisible par
 
 \bigskip
 
-Des fonctions Haskell détarminant si un entier naturel est premier et calculant les premier nombres premiers sont données en appendice~\ref{app:Haskell_primalité}. 
+Des fonctions Haskell déterminant si un entier naturel est premier et calculant les premier nombres premiers sont données en appendice~\ref{app:Haskell_primalité}. 
 (Ces fonctions sont données à titre d'illustration uniquement, et ne sont pas particulièrement efficaces. 
 En particulier, il est en général plus rapide pour calculer les premiers nombre premiers d'utiliser le crible d'Érastosthène, dont une implémentation en C++ et Rust est donnée en appendice~\ref{app:code_erastosthene}.)
 
@@ -159,7 +159,7 @@ Puisque $p$ et $b$ sont tous deux strictement positifs, $p b + r k$ doit l'être
 \done
 
 \bigskip
-\noindent\textbf{Corrolaire :} 
+\noindent\textbf{Corolaire :} 
 Soit $p$ un nombre premier, $N$ un entier naturel, et $a_1$, $a_2$, ..., $a_N$ des entiers naturels (si $N \neq 0$). 
 Si $p$ divise $\prod_{i=1}^N a_i$ (pris égal à $1$ si $N = 0$), alors il existe un élément $i$ de $[\![1,N]\!]$ tel que $p$ divise $a_i$.
 
@@ -193,20 +193,20 @@ Par récurrence, $P(N)$ est donc vrai pour tout entier naturel $N$.
 
 \medskip
 
-\noindent\textbf{Corrolaire :} 
+\noindent\textbf{Corolaire :} 
 Soit $N$ un entier naturel, $p$ un nombre premier, et $a$ un entier naturel.
 Si $p$ divise $a^N$, alors $p$ divise $a$.
 
 \medskip
 
 \noindent\textbf{Démonstration :} 
-C'est une application directe du corrolaire précédent avec $a_1 = a_2 = \cdots = a_N = a$.
+C'est une application directe du corolaire précédent avec $a_1 = a_2 = \cdots = a_N = a$.
 
 \done
 
 \medskip
 
-\noindent\textbf{Corrolaire :} Soit $a$, $b$, et $c$ trois entiers tels que $a$ et $c$ sont premiers entre eux et $b$ et $c$ sont premiers entre eux. Alors $ab$ et $c$ sont aussi premiers entre eux.
+\noindent\textbf{Corolaire :} Soit $a$, $b$, et $c$ trois entiers tels que $a$ et $c$ sont premiers entre eux et $b$ et $c$ sont premiers entre eux. Alors $ab$ et $c$ sont aussi premiers entre eux.
 
 \medskip 
 
@@ -218,7 +218,7 @@ Puisque $e \vert d$ et $d \vert ab$, on a $e \vert ab$.
 Donc, $e \vert a$ ou $e \vert b$.
 De même, puisque $e \vert d$ et $d \vert c$, on a $e \vert c$.
 Donc, $(e \vert a \wedge e \vert c) \vee (e \vert b \wedge e \vert c)$.
-Cela est impossible puisque $e > 0$, $a$ et $c$ sont premiers entre eux et que $b$ et $c$ sont permiers entre eux. 
+Cela est impossible puisque $e > 0$, $a$ et $c$ sont premiers entre eux et que $b$ et $c$ sont premiers entre eux. 
 On en déduit que l'hypothèse de départ est fausse et que $d$ doit être égal à $1$. 
 
 Réciproquement, $1$ divise tout entier et donc $ab$ et $c$.
@@ -228,7 +228,7 @@ Donc, $1$ est le pgcd de $ab$ et $c$.
 
 \medskip 
 
-\noindent\textbf{Corrolaire :} Soit $a$ et $b$ deux entier naturels non nuls, et $c$ un entier naturel non nul premier avec $a$ et avec $b$. 
+\noindent\textbf{Corolaire :} Soit $a$ et $b$ deux entier naturels non nuls, et $c$ un entier naturel non nul premier avec $a$ et avec $b$. 
 Alors, $c$ est premier avec $ab$.
 
 \medskip
@@ -236,7 +236,7 @@ Alors, $c$ est premier avec $ab$.
 \noindent\textbf{Démonstration :}
     Soit $d$ un diviseur commun de $c$ et $a b$. 
     Supposons par l'absurde que $d > 1$.
-    Alors $d$ est un entier naturel strictement supérieur à $1$, donc il admet un divideur premier $p$. 
+    Alors $d$ est un entier naturel strictement supérieur à $1$, donc il admet un diviseur premier $p$. 
     Puisque $d \vert ab$ et $d \vert c$, $p \vert ab$, donc $p \vert a$ ou $p \vert b$, et $p \vert c$. 
     Cela est impossible puisque $a$ et $c$ sont premiers entre eux (donc $p \vert a \wedge p \vert c$ est impossible) et $b$ et $c$ sont premiers entre eux (donc $p \vert b \wedge p \vert c$ est impossible). 
     On en déduit que l'hypothèse est fausse, et donc que $d=1$.
@@ -245,7 +245,7 @@ Alors, $c$ est premier avec $ab$.
 
 \medskip 
 
-\noindent\textbf{Corrolaire :} Soit $n$ un entier naturel non nul et $a_1$, $a_2$, ..., $a_n$ des entiers naturels non nuls (où $a_n$ est absent si $n \leq 2$ et $a_2$ est absent si $n = 1$). 
+\noindent\textbf{Corolaire :} Soit $n$ un entier naturel non nul et $a_1$, $a_2$, ..., $a_n$ des entiers naturels non nuls (où $a_n$ est absent si $n \leq 2$ et $a_2$ est absent si $n = 1$). 
     Soit $b$ un entier naturel non nul premier avec $a_1$, $a_2$, ..., $a_n$.
     Alors, $b$ est premier avec $a_1 a_2 \dots a_n$.
 
@@ -258,7 +258,7 @@ Alors, $c$ est premier avec $ab$.
     Soit $m$ un entier naturel non nul et supposons l'énoncé vrai pour $n = m$.
     Soit $a_1$, $a_2$, ..., $a_m$, $a_{m+1}$ des entiers naturels non nul et $b$ un entier naturel non nul premier avec chacun d'entre eux.
     Alors, $b$ est premier avec $a_1 a_2 \dots a_m$. 
-    Puisqu'il est également premier avec $a_{m+1}$, on en déduit d'après le corrolaire précédent que $b$ est premier avec $a_1 a_2 \dots a_m a_{m+1}$.
+    Puisqu'il est également premier avec $a_{m+1}$, on en déduit d'après le corolaire précédent que $b$ est premier avec $a_1 a_2 \dots a_m a_{m+1}$.
     Donc, l'énoncé est vrai pour $n = m+1$. 
     
     Par récurrence, il l'est pour tout entier naturel non nul $n$.
@@ -267,13 +267,13 @@ Alors, $c$ est premier avec $ab$.
 
 \medskip 
 
-\noindent\textbf{Corrolaire :} Soit $a$ et $b$ deux entier premier entre eux, et $c$ un entier. Si $a$ et $b$ divisent $c$, alors $ab$ divise $c$.
+\noindent\textbf{Corolaire :} Soit $a$ et $b$ deux entier premier entre eux, et $c$ un entier. Si $a$ et $b$ divisent $c$, alors $ab$ divise $c$.
 
 \medskip
 
 \noindent\textbf{Démonstration :} 
     Soit $a$ et $b$ deux entiers naturels premiers entre eux, et $c$ un entier tel que $a$ et $b$ divisent $c$.
-    D'après le théorème de Bachet-Bézout, on peux choisir deux entiers relatifs $u$ et $v$ tels qur $u a + v b = 1$. 
+    D'après le théorème de Bachet-Bézout, on peux choisir deux entiers relatifs $u$ et $v$ tels que $u a + v b = 1$. 
     Multiplions cette expression par $c$. Il vient : $u a c + v b c = c$. 
     Puisque $a$ et $b$ divisent $c$, on peut choisir deux entiers naturels $d$ et $e$ tels que $a d = c$ et $b e = c$. 
     Remplaçant $c$ dans le membre de gauche de l'équation précédente donne alors : $u a b e + v b a d = c$. 
@@ -285,18 +285,18 @@ Alors, $c$ est premier avec $ab$.
 
 \medskip 
 
-\noindent\textbf{Corrolaire :} Soit $p$ un entier naturel strictement supérieur à $1$, $a_1$, $a_2$, ..., $a_p$ des entiers naturels deux-à-deux premier entre eux, et $b$ un entier. Si $a_i$ divise $b$ pour tout élément $i$ de $[\![1,p]\!]$, alors $a_1 \times a_2 \times \cdots \times a_p$ divise $b$.
+\noindent\textbf{Corolaire :} Soit $p$ un entier naturel strictement supérieur à $1$, $a_1$, $a_2$, ..., $a_p$ des entiers naturels deux-à-deux premier entre eux, et $b$ un entier. Si $a_i$ divise $b$ pour tout élément $i$ de $[\![1,p]\!]$, alors $a_1 \times a_2 \times \cdots \times a_p$ divise $b$.
 
 \medskip
 
 \noindent\textbf{Démonstration :} On procède par récurrence sur $p$. 
-    Pour $p = 2$, il s'agit du corrolaire précédent.
+    Pour $p = 2$, il s'agit du corolaire précédent.
     Soit $p$ un entier naturel supérieur ou égal à $2$ et supposons l'énoncé vrai pour cette valeur. 
     Soit $a_1$, $a_2$, ..., $a_p$, $a_{p+1}$ des entiers naturels deux-à-deux premiers entre eux et $b$ un entier tel que : $\forall i \in [\![1, p+1]\!] \, a_i \vert b$. 
     Montrons que $a_1 \times a_2 \times \cdots \times a_p \times a_{p+1} \vert b$.
 
     Puisque les nombres $a_1$, $a_2$, ..., $a_p$, $a_{p+1}$ sont deux-à-deux premiers entre eux, $a_1 \times a_2 \times \cdots \times a_p$ et $a_{p+1}$ sont premiers entre eux. 
-    Puisque $a_1 \times a_2 \times \cdots \times a_p \vert b$ (par hypothèse de récurrence) et $a_{p+1} \vert b$, on conclut d'après le corrolaire précédent que $a_1 \times a_2 \times \cdots \times a_p \times a_{p+1} \vert b$.
+    Puisque $a_1 \times a_2 \times \cdots \times a_p \vert b$ (par hypothèse de récurrence) et $a_{p+1} \vert b$, on conclut d'après le corolaire précédent que $a_1 \times a_2 \times \cdots \times a_p \times a_{p+1} \vert b$.
 
     \done
 
@@ -343,11 +343,11 @@ Alors, $c$ est premier avec $ab$.
     Montrons que c'est le plus petit. 
     Supposons par l'absurde que ce n'est pas le cas. 
     Soit $m$ un entier naturel non nul et deux entiers naturels non nuls $n$ et $o$ tels que $m = n a$ et $m = o b$.
-    Soit $a'$ et $b'$ les quotients des divisions enclidiennes de $a$ et $b$ par $c$.
+    Soit $a'$ et $b'$ les quotients des divisions euclidiennes de $a$ et $b$ par $c$.
     On a : $m = n c a' = o c b'$. 
     Puisque $c \neq 0$, cela implique $n a' = o b'$.
     Donc, $a'$ divise $o b'$.
-    Puisque $a'$ et $b'$ sont premiers entre eux, cela impique que $a$ divise $o$.
+    Puisque $a'$ et $b'$ sont premiers entre eux, cela implique que $a$ divise $o$.
     On peut donc choisir un entier naturel $t$ tel que $o = t a'$. 
     En outre, $t$ est non nul puisque $o$ l'est.
     On a alors $m = t c a' b'$.
@@ -374,22 +374,22 @@ Pour tout $p$-uplet d'entiers naturels $(a_1, a_2, \dots, a_p)$ tel que $a_i < n
     Sans perte de généralité, on peut supposer $n \geq m$. 
     (Si ce n'est pas le cas, on se ramène à cette situation en inversant les noms de $n$ et $m$.)
     Alors, pour tout élément $i$ de $[\![1,p]\!]$, $n-m \equiv 0 \, [n_i]$ ; autrement dit, $n_i$ divise $n-m$. 
-    D'après l'un des corrolaires du théorème de Bachet-Bézout, on en déduit que $N$ divise $n-m$. 
+    D'après l'un des corolaires du théorème de Bachet-Bézout, on en déduit que $N$ divise $n-m$. 
     Puisque $n-m \geq 0$ (par définition d'un entier naturel) et $n-m < N$, on en déduit que $n-m=0$, et donc $n=m$.
-    \item \textit{Existence :} Les deux ensembles $[\![0, N-1]\!]$ et $[\![0, n_1-1]\!] \times [\![0, n_2-1]\!] \times \cdots \times [\![0, n_p-1]\!]$ ont le même cardinal fini $N$. D'après le résultat précédent, la fonction du premier vers le second qui à un entier $n$ apparteant à $[\![0,N-1]\!]$ associe $(n \mathrel{\%} n_1, n \mathrel{\%} n_2, \dots, n \mathrel{\%} n_p)$ est injective. Donc, elle est bijective.
+    \item \textit{Existence :} Les deux ensembles $[\![0, N-1]\!]$ et $[\![0, n_1-1]\!] \times [\![0, n_2-1]\!] \times \cdots \times [\![0, n_p-1]\!]$ ont le même cardinal fini $N$. D'après le résultat précédent, la fonction du premier vers le second qui à un entier $n$ appartenant à $[\![0,N-1]\!]$ associe $(n \mathrel{\%} n_1, n \mathrel{\%} n_2, \dots, n \mathrel{\%} n_p)$ est injective. Donc, elle est bijective.
 \end{itemize}
 
 \done
 
 \medskip
 
-\noindent\textbf{Corrolaire :} Soit $a$ et $b$ deux entiers naturels premiers entre eux et strictemetnt supérieurs à $2$. Alors il existe au moins quatre entiers naturels $x_1$, $x_2$, $x_3$ et $x_4$ deux à deux distincts, chacun strictement inférieur à $ab$ et tels que, pour tout élément $i$ de $\lbrace 1, 2, 3, 4 \rbrace$, $x_i^2 \equiv 1 \, [a b]$.
+\noindent\textbf{Corolaire :} Soit $a$ et $b$ deux entiers naturels premiers entre eux et strictement supérieurs à $2$. Alors il existe au moins quatre entiers naturels $x_1$, $x_2$, $x_3$ et $x_4$ deux à deux distincts, chacun strictement inférieur à $ab$ et tels que, pour tout élément $i$ de $\lbrace 1, 2, 3, 4 \rbrace$, $x_i^2 \equiv 1 \, [a b]$.
 
 \medskip
 
 \noindent\textbf{Démonstration :} 
     D'après le théorème du reste chinois, on peut choisir quatre entiers $x_1$, $x_2$, $x_3$ et $x_4$ strictement inférieurs à $ab$ tels que $x_1 \equiv 1 \, [a]$, $x_1 \equiv 1 \, [b]$, $x_2 \equiv (a-1) \, [a]$, $x_2 \equiv 1 \, [b]$, $x_3 \equiv 1 \, [a]$, $x_3 \equiv (b-1) \, [b]$, $x_4 \equiv (a-1) \, [a]$, $x_4 \equiv (b-1) \, [b]$. 
-    (Ces quatre entiers sont bien deux à deux distincts car aucune paire de deux d'entre eux n'a les deux mêmes restes par les divisions euclidiennes par $a$ et par $b$ ; en effet, puisque $a>2$ et $b > 2$, $a-1$ n'est pas égal à $1$ modulo $a$ (ce sont deux entiers naturels strictements inférieurs à $a$ et distincts puisque $a-2 > 0$) et $b-1$ n'est pas égal à $1$ modulo $b$.) 
+    (Ces quatre entiers sont bien deux à deux distincts car aucune paire de deux d'entre eux n'a les deux mêmes restes par les divisions euclidiennes par $a$ et par $b$ ; en effet, puisque $a>2$ et $b > 2$, $a-1$ n'est pas égal à $1$ modulo $a$ (ce sont deux entiers naturels strictement inférieurs à $a$ et distincts puisque $a-2 > 0$) et $b-1$ n'est pas égal à $1$ modulo $b$.) 
     Puisque $(a-1) \times (a-1) = a^2 - 2 a + 1$ et $(b-1) \times (b-1) = b^2 - 2 b + 1$, on a $(a-1) \times (a-1) \equiv 1 \, [a]$ et $(b-1) \times (b-1) = 1 \, [b]$.
     Donc, pour tout élément $i$ de $\lbrace 1, 2, 3, 4 \rbrace$, on a $x_i^2 \equiv 1 \, [a]$ et $x_i^2 \equiv 1 \, [b]$. 
     
@@ -443,7 +443,7 @@ En échangeant les rôles des deux décompositions, on montre de même $M \leq N
         On a donc $p \prod_{i=1}^N p_i^{n_i} = a$. 
         S'il existe un élément $i_0$ de $[\![1,N]\!]$ tel que $p_{i_0} = p$, alors, définissant, pour tout élément $i$ de $[\![1,N]\!]$, $n_i' = n_i + 1$ si $i = i_0$ et $n_i' = n_i$ sinon, on a : $\prod_{i_1}^N p_i^{n_i'} = p \prod_{i=1}^N p_i^{n_i} = a$, donc $\left(\left( p_1, pi2, \dots, p_N \right), \left(n_1', n_2', \dots, n_N' \right) \right)$ est une décomposition de $a$ et produit de facteurs premiers. 
         Sinon, $\left( \left( p_1, p_2, \dots, p_N, p \right), \left( n_1, n_2, \dots, n_N, 1 \right) \right)$ est une décomposition de $a$ en produit de facteurs premiers.
-        Dans tous les cas, $a$ admet bien une décoposition en produit de facteurs premiers.
+        Dans tous les cas, $a$ admet bien une décomposition en produit de facteurs premiers.
         Par récurrence forte, on conclut que le résultat est vrai pour tout entier naturel non nul.
 
     \item \textit{Unicité :} 
@@ -454,7 +454,7 @@ En échangeant les rôles des deux décompositions, on montre de même $M \leq N
         On a: $p^{n_2 - n_1} k_2 = k_1$ (puisque $p^{n_1} p^{n_2 - n_1} k_2 = p^{n_2} k_2 = p^{n_1} k_1$ et $p^{n_1} \neq 0$). 
         Puisque $n_2 > n_1$, $p^{n_2 - n_1} k_2 = p p^{n_2 - n_1 - 1} k_2$ et $p^{n_2 - n_1 - 1} k_2$ est un entier naturel.
         Donc, $p$ divise $k_1$. 
-        En utilisant le corrolaire du lemme du théorème de Bachet-Bézout, on en déduit qu'il divise au moins l'un des facteurs premiers de l'écriture de $k_1$ sus-mentionnée. 
+        En utilisant le corolaire du lemme du théorème de Bachet-Bézout, on en déduit qu'il divise au moins l'un des facteurs premiers de l'écriture de $k_1$ susmentionnée. 
         Mais cela est impossible car chacun d'eux est premier et distinct de $p$, et n'admet donc pas $p$ pour diviseur.
     On en déduit que $a$ ne peut admettre deux décompositions en produits de facteurs premiers différent autrement que par l'ordre des facteurs.
 \end{itemize}
@@ -469,7 +469,7 @@ Un entier naturel strictement supérieur à $1$ peut être représenté schémat
 D'après le résultat précédent, cette représentation est unique à l'ordre près des blocs, qui peuvent (puisque la multiplication est commutative) être réarrangés de manière quelconque. 
 L'entier $1$ pourra être représenté par la série vide.
 Notons que la série représentant un entier a un unique bloc si et seulement si ce nombre est premier.
-Puisque la multiplication est associative, accoler les séries représentant denx entiers naturels non nuls donne la série représentant leur produit.
+Puisque la multiplication est associative, accoler les séries représentant deux entiers naturels non nuls donne la série représentant leur produit.
 
 Quelques exemples : 
 \begin{multicols}{3}
@@ -519,7 +519,7 @@ Exemples de multiplications :
 Notons que : 
 \begin{itemize}[nosep]
     \item Soit $a$ et $b$ deux entiers naturels non nuls.
-        Alors, $a$ est un multiple de $b$ si et seulement si la représentation schématique de $b$ est (possiblement après réarrangements) include dans celle de $a$. \\
+        Alors, $a$ est un multiple de $b$ si et seulement si la représentation schématique de $b$ est (possiblement après réarrangements) incluse dans celle de $a$. \\
         \textit{Exemple 1 :} $80$ est un multiple de $20$ :
         \begin{itemize}[nosep]
             \item $80$: \textcolor{blue}{\inbox{2}\inbox{2}\inbox{5}}\inbox{2}\inbox{2}
@@ -572,7 +572,7 @@ Puisque $\prod_{i=1}^{p-1} a_i = (p-1)! \, a^{p-1}$, cela donne $(p-1)! \, a^{p-
 
 Soustrayant puis factorisant $(p-1)!$, il vient : $(p-1)! \left( a^{p-1} - 1 \right) = 0 \, [p]$. 
 Donc, $p$ divise $(p-1)! \left( a^{p-1} - 1 \right)$. 
-Puisque $p$ ne divise ni $1$, ni $2$, ..., ni $p-1$, et d'après le premier corrolaire du théorème de Bachet-Bézout, on en déduit que $p$ divise $a^{p-1} - 1$. 
+Puisque $p$ ne divise ni $1$, ni $2$, ..., ni $p-1$, et d'après le premier corolaire du théorème de Bachet-Bézout, on en déduit que $p$ divise $a^{p-1} - 1$. 
 On a donc $a^{p-1} - 1 \equiv 0 \, [p]$, et donc $a^{p-1} = 1 \, [p]$.
 
 \done
