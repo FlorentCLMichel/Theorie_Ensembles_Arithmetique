@@ -229,3 +229,59 @@ $A \setminus B$
 
 $B \setminus A$
 \end{minipage}
+
+\bigskip
+\bigskip
+
+Certains résultats se voient aisément schématiquement : 
+
+\bigskip
+\bigskip
+
+\begin{minipage}{\linewidth}
+\centering
+\begin{tikzpicture}
+    \fill[white] (-0.5cm,0) circle (1cm);
+    \fill[black!20!white] (0.5cm,0) circle (1cm);
+    \draw (0.5cm,0) circle (1cm);
+    \draw (-0.5cm,0) circle (1cm);
+    \node[left] at (-1.5cm,0) {$A$};
+    \node[right] at (1.5cm,0) {$B$};
+\end{tikzpicture}
+
+$(B \setminus A) \cup (A \cap B) = B$
+\end{minipage}
+
+\bigskip
+\bigskip
+
+\begin{minipage}{\linewidth}
+\centering
+\begin{tikzpicture}
+    \fill[white] (-0.5cm,0) circle (1cm);
+    \fill[white] (0.5cm,0) circle (1cm);
+    \draw (0.5cm,0) circle (1cm);
+    \draw (-0.5cm,0) circle (1cm);
+    \node[left] at (-1.5cm,0) {$A$};
+    \node[right] at (1.5cm,0) {$B$};
+\end{tikzpicture}
+
+$(B \setminus A) \cap (A \cap B) = \emptyset$
+\end{minipage}
+
+\bigskip
+\bigskip
+
+\begin{minipage}{\linewidth}
+\centering
+\begin{tikzpicture}
+    \fill[black!20!white] (-0.5cm,0) circle (1cm);
+    \fill[white] (0.5cm,0) circle (1cm);
+    \draw (0.5cm,0) circle (1cm);
+    \draw (-0.5cm,0) circle (1cm);
+    \node[left] at (-1.5cm,0) {$A$};
+    \node[right] at (1.5cm,0) {$B$};
+\end{tikzpicture}
+
+$(A \cup B) \setminus B = A \setminus B$
+\end{minipage}
