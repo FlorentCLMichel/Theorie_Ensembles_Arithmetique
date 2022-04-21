@@ -285,3 +285,113 @@ $(B \setminus A) \cap (A \cap B) = \emptyset$
 
 $(A \cup B) \setminus B = A \setminus B$
 \end{minipage}
+
+\bigskip
+\bigskip
+
+Une fonction d'un ensemble $E$ vers un ensemble $F$ peut être représentée par des flèches allant de chaque élément de $E$ vers son image. 
+
+\bigskip
+\bigskip
+
+\begin{minipage}{\linewidth}
+\centering
+\begin{tikzpicture}
+    \draw (-1cm,0) ellipse (0.5cm and 1.5cm);
+    \draw (1cm,0) ellipse (0.5cm and 1.5cm);
+    \node[left] at (-1.5cm,0) {$E$};
+    \node[right] at (1.5cm,0) {$F$};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0.8cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,-0.8cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,-0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,-0.9cm) {};
+    \draw[-stealth] (-1cm,0.8cm) -- (1cm, 0.3cm);
+    \draw[-stealth] (-1cm,0) -- (1cm, -0.3cm);
+    \draw[-stealth] (-1cm,-0.8cm) -- (1cm, -0.9cm);
+\end{tikzpicture}
+
+Exemple d'injection
+\end{minipage}
+
+\bigskip
+\bigskip
+
+\begin{minipage}{\linewidth}
+\centering
+\begin{tikzpicture}
+    \draw (-1cm,0) ellipse (0.5cm and 1.5cm);
+    \draw (1cm,0) ellipse (0.5cm and 1.5cm);
+    \node[left] at (-1.5cm,0) {$E$};
+    \node[right] at (1.5cm,0) {$F$};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,-0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,-0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,0.8cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,0) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,-0.8cm) {};
+    \draw[-stealth] (-1cm,0.9cm) -- (1cm, 0.8cm);
+    \draw[-stealth] (-1cm,0.3cm) -- (1cm, 0.8cm);
+    \draw[-stealth] (-1cm,-0.3cm) -- (1cm, 0);
+    \draw[-stealth] (-1cm,-0.9cm) -- (1cm, -0.8cm);
+\end{tikzpicture}
+
+Exemple de surjection
+\end{minipage}
+
+\bigskip
+\bigskip
+
+\begin{minipage}{\linewidth}
+\centering
+\begin{tikzpicture}
+    \draw (-1cm,0) ellipse (0.5cm and 1.5cm);
+    \draw (1cm,0) ellipse (0.5cm and 1.5cm);
+    \node[left] at (-1.5cm,0) {$E$};
+    \node[right] at (1.5cm,0) {$F$};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,-0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,-0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,-0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,-0.9cm) {};
+    \draw[-stealth] (-1cm,0.9cm) -- (1cm, 0.9cm);
+    \draw[-stealth] (-1cm,0.3cm) -- (1cm, 0.3cm);
+    \draw[-stealth] (-1cm,-0.3cm) -- (1cm, -0.3cm);
+    \draw[-stealth] (-1cm,-0.9cm) -- (1cm, -0.9cm);
+\end{tikzpicture}
+
+Exemple de bijection
+\end{minipage}
+
+\bigskip
+\bigskip
+
+\begin{minipage}{\linewidth}
+\centering
+\begin{tikzpicture}
+    \draw (-1cm,0) ellipse (0.5cm and 1.5cm);
+    \draw (1cm,0) ellipse (0.5cm and 1.5cm);
+    \node[left] at (-1.5cm,0) {$E$};
+    \node[right] at (1.5cm,0) {$F$};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,-0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,-0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,-0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,-0.9cm) {};
+    \draw[-stealth] (-1cm,0.9cm) -- (1cm, 0.9cm);
+    \draw[-stealth] (-1cm,0.3cm) -- (1cm, 0.3cm);
+    \draw[-stealth] (-1cm,-0.3cm) -- (1cm, -0.3cm);
+    \draw[-stealth] (-1cm,-0.9cm) -- (1cm, -0.9cm);
+\end{tikzpicture}
+
+Exemple de fonction ni injective ni bijective
+\end{minipage}
