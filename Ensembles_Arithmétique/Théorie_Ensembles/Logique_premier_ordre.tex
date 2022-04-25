@@ -161,6 +161,10 @@ Chaque partie d'une formule ainsi définie doit être une formule à part entiè
 
 Une formule faisant partie d'une autre formule est dite \textit{sous-formule}.
 
+\medskip
+
+\noindent\textbf{NB :} Un prédicat ne peut référer à un prédicat que si ce dernier est déjà défini. En particulier, il ne peut référer à lui-même, sans quoi on arrive vite à des paradoxes. (Par exemple, si on pouvait definir in prédicat $P$ par $P: \neg P$, alors il serait vrai s'il est faux et faux s'il est vrai.)
+
 \subsubsection{Formule à nombre non spécifié de paramètres}
 
 Il est parfois utile de considérer des formules avec un nombre non spécifié de variables. 
