@@ -592,7 +592,7 @@ On peut l'énoncer de manière informelle comme suit :
 Pour le préciser, considérons une théorie dont l'alphabet contient les symboles suivants : 
 \begin{itemize}[nosep]
     \item Un symbole $0$ représentant une constante. 
-    \item Un symbole $x$ représentant une variable, ainsi qu'un symbole $\ast$ permettant de construire d'autres variables $x^\ast$, $x^{\ast\ast}$, $x^{\ast\ast\ast}$, ...
+    \item Un symbole $x$ représentant une variable, ainsi qu'un symbole $\ast$ permettant de construire d'autres variables $x^\ast$, $x^{\ast\ast}$, $x^{\ast\ast\ast}$, ... ces variables sont dites \emph{primaires}.
     \item Une fonction $S$ d'une variable, appelée \textit{successeur}. 
     \item Deux opérations binaires $+$ (addition) et $\times$ (multiplication).
     \item Les opérateurs logiques de conjonction $\wedge$, disjonction $\vee$ et négation $\neg$.
@@ -603,11 +603,12 @@ Pour le préciser, considérons une théorie dont l'alphabet contient les symbol
 Les formules de la théorie sont des chaines (finies) de symboles, avec les règles suivantes : 
 \begin{itemize}[nosep]
     \item Si $y$ désigne une constante, $S y$ est une constante.
+    \item Si $y$ désigne une variable, $S y$ est une variable, dite \emph{secondaire}.
     \item Si $y$ et $z$ sont chacune une constante ou une variable, alors $y = z$ et $y < z$ sont des formules.
     \item Si $f$ est une formule, alors $(f)$ en est une. 
     \item Si $f$ est une formule, alors $\neg f$ en est une. 
-    \item Si $f$ et $g$ sont deux formule n'ayant aucune variable quantifiée en commun, alors $f \wedge g$ et $f \vee g$ en sont également. 
-    \item Soit $f$ une formule et $v$ une variable telle que ni $\forall v$ ni $\exists v$ n'apparaît dans $f$. 
+    \item Si $f$ et $g$ sont deux formule n'ayant aucune variable primaire quantifiée en commun, alors $f \wedge g$ et $f \vee g$ en sont également. 
+    \item Soit $f$ une formule et $v$ une variable primaire telle que ni $\forall v$ ni $\exists v$ n'apparaît dans $f$. 
         Alors $\forall v \, f$ et $\exists v \, f$ sont des formules.
 \end{itemize}
 Notons que l'arithmétique usuelle satisfait ces propriétés (voir section~\ref{sub:constN}).
