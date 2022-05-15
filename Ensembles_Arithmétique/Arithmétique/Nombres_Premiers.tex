@@ -582,3 +582,52 @@ On a donc $a^{p-1} - 1 \equiv 0 \, [p]$, et donc $a^{p-1} = 1 \, [p]$.
 \noindent\textbf{Remarque :} Avec les mêmes notations, il n'est pas toujours vrai que $p-1$ est le plus petit entier naturel $n$ tel que $a^n \equiv 1 \, [p]$.
     Un contre-exemple est donné par $p = 17$ et $a = 2$: on a $2^8 = 256 = (15 \times 17) + 1$, donc, bien que $17$ est premier, $2$ n'est pas un multiple de $17$ et $8 < 17 - 1$, $2^8 \equiv 1 \, [17]$. 
     Une autre classe de contre-exemples est donnée par tout nombre premier $p$ strictement supérieur à $2$ et $a = 1$ : on a alors $a^n = 1 \, [p]$ pour tout entier naturel $p$.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $p$ un nombre premier. 
+    Soit $a$ et $b$ deux entiers naturels tel que $a$ n'est pas un multiplde de $p$ et soit $s$ un entier naturel non nul.
+    Soit $g$ le pgcd de $s$ et $p-1$.
+    On suppose que $a^s \equiv b^s \, [p]$.
+    Alors, $a^g \equiv b^g \, [p]$.
+
+    En partisulier, si $s$ et $p-1$ sont premiers entre eux, $g = 1$, donc $a \equiv b \, [p]$.
+    Si on impose en outre $a < p$ et $b < p$, cela implique $a = b$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+
+D'après le théorème de Bachet-Bézout, on peut choisir deux entiers relatifs $l$ et $m$ tels que $g = l s + m (p-1)$. 
+Puisque $a^s \equiv b^s \, [p]$, on a $a^{\abs{l} s} \equiv b^{\abs{l} s} \, [p]$.
+En outre, d'après le petit théorème de Fermat, $a^{p-1} \equiv 1 \, [p]$ et $b^{p-1} \equiv 1 \, [p]$, donc $a^{\abs{m} (p-1)} \equiv 1 \, [p]$ et $b^{\abs{m} (p-1)} \equiv 1 \, [p]$.
+Puisque $g > 0$, $s > 0$ et $p-1 > 0$, on ne peut avoir $l < 0$ et $m < 0$ (ce qui impliquerait $g < 0$).
+
+\begin{itemize}[nosep]
+    \item Si $l \geq 0$ et $m \geq 0$, on a $a^g = a^{\abs{l} s} \times a^{\abs{m} (p-1)}$, donc $a^g \equiv a^{\abs{l} s} \, [p]$.
+        De même, $b^g \equiv b^{\abs{l} s} \, [p]$.
+        Donc, $a^g \equiv b^g \, [p]$.
+    \item Si $m < 0$, on a $l \geq 0$, $a^g \times a^{\abs{m} (p-1)} = a^{\abs{l} s}$ et $b^g \times b^{\abs{m} (p-1)} = b^{\abs{l} s}$.
+        Donc, $a^g \times a^{\abs{m} (p-1)} \equiv b^g \times b^{\abs{m} (p-1)} \, [p]$.
+        Donc, $a^g \equiv b^g \, [p]$.
+    \item Si $l < 0$, on a $m \geq 0$, $a^g \times a^{\abs{l} s} = a^{\abs{m} (p-1)}$ et $b^g \times b^{\abs{l} s} = b^{\abs{m} (p-1)}$.
+        Donc, $a^g \times a^{\abs{l} s} \equiv 1 \, [p]$ et $b^g \times b^{\abs{l} s} \equiv 1 \, [p]$. 
+        Donc, $p$ divise $a^g \times a^{\abs{l} s} - b^g \times b^{\abs{l} s}$. 
+        En outre, puisque $a^{\abs{l} s} \equiv b^{\abs{l} s} \, [p]$, on peut choisir un entier $k$ tel que $b^{\abs{l} s} = a^{\abs{l} s} + k p$.
+        Donc, $p$ divise $a^g \times a^{\abs{l} s} - b^g \times a^{\abs{l} s}$~\footnote{
+            En effet, on peut choisir un entier $q$ tel que $a^g \times a^{\abs{l} s} - b^g \times b^{\abs{l} s} = q p$, et donc $a^g \times a^{\abs{l} s} - b^g \times a^{\abs{l} s} = q p + b^g \times k \times p = (q + b^g \times k) \times p$.
+        }%
+        , égal à $(a^g \times - b^g \times) a^{\abs{l} s}$. 
+        Puisque $p$ est premier et puisque $a$ n'est pas un multiple de $p$, $a^{\abs{l} s}$ n'en n'est pas un non plus.
+        Donc, $p$ divise $a^g \times - b^g \times$.
+\end{itemize}
+
+\done
+
+\medskip
+
+\noindent\textbf{Remarque :} Le dernier résultat n'est pas vrai en général si $s$ et $p-1$ ne sont pas premiers entre eux.
+    En effet, soit $g$ leurs pgcd et $l$ et $m$ deux entiers naturels tels que $s = l g$ et $p-1 = m g$, soit $r$ le reste de la division Euclidienne de $a^m$ par $p$ pour tout entier $a$ non multiple de $p$, on a $r^s \equiv 1 \, [p]$. 
+    Puisque $g > 1$, $m < p-1$. 
+    Puisque le groupe $(\mathbb{Z} \divslash (p \mathbb{Z}))^*$ est cyclique (voir section \ref{subsubsec:cyclicity_Z_pZ}), il admet au moins un générateur. 
+    Choisissant ce générateur pour $a$, on a ne peut avoir $a^m \equiv 1 \, [p]$, donc $r$ est un élément de $[\![0, p-1]\!]$ distinct de $1$ tel que $r^s \equiv 1 \, [p]$.
