@@ -213,7 +213,19 @@ Notons aussi que l'on a toujours $p \equiv p \, [q]$ (puisque $p = p + 0 q$).
 
 \medskip 
 
-\noindent\textbf{Lemme :} Soit $p$, $q$, $r$ et $s$ quatre entiers tels que $p \equiv r \, [q]$ et $r \equiv s \, [q]$.
+\noindent\textbf{Lemme (symétrie) :} Soit $p$, $q$ et $r$ trois entiers tels que $p \equiv r \, [q]$.
+    Alors, $r \equiv p \, [q]$.
+
+\medskip 
+    
+\noindent\textbf{Démonstration :} 
+    Puisque $p \equiv r \, [q]$, on peut choisir un entier $k$ tel que $p = k q + r$.
+    On a donc $r = p - k q = p + (-k) q$. 
+    Puisque $-k$ est aussi un entier, on en déduit $r = p \, [q]$.
+
+\medskip 
+
+\noindent\textbf{Lemme (transitivité) :} Soit $p$, $q$, $r$ et $s$ quatre entiers tels que $p \equiv r \, [q]$ et $r \equiv s \, [q]$.
     Alors, $p \equiv s \, [q]$.
 
 \medskip 
@@ -272,9 +284,9 @@ Alors,
 \noindent\textbf{Démonstration :} Choisissons deux entiers $k_1$ et $k_2$ tels que $p_1 = r_1 + k_1 q$ et $p_2 = r_2 + k_2 q$. 
 On a :
 \begin{itemize}[nosep]
-    \item $p_1 + p_2 = (r_1 + r_2) + (k_1 + k_2) \, q$, 
-    \item $p_1 - p_2 = (r_1 - r_2) + (k_1 - k_2) \, q$, 
-    \item $p_1 p_2 = (r_1 r_2) + (r_1 k_2 + r_2 k_1 + k_1 k_2) \, q$.
+    \item $p_1 + p_2 = (r_1 + r_2) + (k_1 + k_2) \, q$, donc $p_1 + p_2 \equiv (r_1 + r_2) \, [q]$, 
+    \item $p_1 - p_2 = (r_1 - r_2) + (k_1 - k_2) \, q$, donc $p_1 - p_2 \equiv (r_1 - r_2) \, [q]$, 
+    \item $p_1 p_2 = (r_1 r_2) + (r_1 k_2 + r_2 k_1 + k_1 k_2) \, q$, donc $p_1 p_2 \equiv (r_1 r_2) \, [q]$.
 \end{itemize}
 
 \done

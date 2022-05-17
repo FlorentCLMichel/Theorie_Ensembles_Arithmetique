@@ -590,8 +590,8 @@ On a donc $a^{p-1} - 1 \equiv 0 \, [p]$, et donc $a^{p-1} = 1 \, [p]$.
     Soit $g$ le pgcd de $s$ et $p-1$.
     On suppose que $a^s \equiv b^s \, [p]$.
     Alors, $a^g \equiv b^g \, [p]$.
-
-    En partisulier, si $s$ et $p-1$ sont premiers entre eux, $g = 1$, donc $a \equiv b \, [p]$.
+    
+    \noindent En particulier, si $s$ et $p-1$ sont premiers entre eux, $g = 1$, donc $a \equiv b \, [p]$.
     Si on impose en outre $a < p$ et $b < p$, cela implique $a = b$.
 
 \medskip
@@ -607,7 +607,9 @@ Puisque $g > 0$, $s > 0$ et $p-1 > 0$, on ne peut avoir $l < 0$ et $m < 0$ (ce q
         De même, $b^g \equiv b^{\abs{l} s} \, [p]$.
         Donc, $a^g \equiv b^g \, [p]$.
     \item Si $m < 0$, on a $l \geq 0$, $a^g \times a^{\abs{m} (p-1)} = a^{\abs{l} s}$ et $b^g \times b^{\abs{m} (p-1)} = b^{\abs{l} s}$.
-        Donc, $a^g \times a^{\abs{m} (p-1)} \equiv b^g \times b^{\abs{m} (p-1)} \, [p]$.
+        Donc, $a^g \times a^{\abs{m} (p-1)} \equiv b^g \times b^{\abs{m} (p-1)} \, [p]$. 
+        Puisque $a^{\abs{m} (p-1)} \equiv 1 \, [p]$, $a^g \times a^{\abs{m} (p-1)} \equiv a^g \, [p]$.
+        De même, puisque $b^{\abs{m} (p-1)} \equiv 1 \, [p]$, $b^g \times b^{\abs{m} (p-1)} \equiv b^g \, [p]$.
         Donc, $a^g \equiv b^g \, [p]$.
     \item Si $l < 0$, on a $m \geq 0$, $a^g \times a^{\abs{l} s} = a^{\abs{m} (p-1)}$ et $b^g \times b^{\abs{l} s} = b^{\abs{m} (p-1)}$.
         Donc, $a^g \times a^{\abs{l} s} \equiv 1 \, [p]$ et $b^g \times b^{\abs{l} s} \equiv 1 \, [p]$. 
@@ -616,9 +618,9 @@ Puisque $g > 0$, $s > 0$ et $p-1 > 0$, on ne peut avoir $l < 0$ et $m < 0$ (ce q
         Donc, $p$ divise $a^g \times a^{\abs{l} s} - b^g \times a^{\abs{l} s}$~\footnote{
             En effet, on peut choisir un entier $q$ tel que $a^g \times a^{\abs{l} s} - b^g \times b^{\abs{l} s} = q p$, et donc $a^g \times a^{\abs{l} s} - b^g \times a^{\abs{l} s} = q p + b^g \times k \times p = (q + b^g \times k) \times p$.
         }%
-        , égal à $(a^g \times - b^g \times) a^{\abs{l} s}$. 
+        , égal à $(a^g - b^g) \times a^{\abs{l} s}$. 
         Puisque $p$ est premier et puisque $a$ n'est pas un multiple de $p$, $a^{\abs{l} s}$ n'en n'est pas un non plus.
-        Donc, $p$ divise $a^g \times - b^g \times$.
+        Donc, $p$ divise $a^g - b^g$, donc $a^g - b^g \equiv 0 \, [p]$, et donc $a^g \equiv b^g \, [p]$.
 \end{itemize}
 
 \done
@@ -629,4 +631,4 @@ Puisque $g > 0$, $s > 0$ et $p-1 > 0$, on ne peut avoir $l < 0$ et $m < 0$ (ce q
     En effet, soit $g$ leurs pgcd et $l$ et $m$ deux entiers naturels tels que $s = l g$ et $p-1 = m g$, soit $r$ le reste de la division Euclidienne de $a^m$ par $p$ pour tout entier $a$ non multiple de $p$, on a $r^s \equiv 1 \, [p]$. 
     Puisque $g > 1$, $m < p-1$. 
     Puisque le groupe $(\mathbb{Z} \divslash (p \mathbb{Z}))^*$ est cyclique (voir section \ref{subsubsec:cyclicity_Z_pZ}), il admet au moins un générateur. 
-    Choisissant ce générateur pour $a$, on a ne peut avoir $a^m \equiv 1 \, [p]$, donc $r$ est un élément de $[\![0, p-1]\!]$ distinct de $1$ tel que $r^s \equiv 1 \, [p]$.
+    Choisissant ce générateur pour $a$, on ne peut avoir $a^m \equiv 1 \, [p]$, donc $r \neq 1$, donc $r$ est un élément de $[\![0, p-1]\!]$ distinct de $1$ tel que $r^s \equiv 1 \, [p]$.
