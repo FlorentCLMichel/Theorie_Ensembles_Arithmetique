@@ -629,11 +629,30 @@ La théorie est dite \emph{cohérente} si aucune formule ne peut être montrée 
 Elle est dite \emph{ω-cohérente} si, pour toute formule $f$ à une variable libre, il est impossible de montrer $\exists n \, f(n)$ si $\neg f(n)$ est démontrable pour toute constante $n$.
 
 Enfin, la théorie est supposée \textit{effective}, c'est-à-dire qu'il est théoriquement possible d'écrire un algorithme ayant un nombre fini d'instructions donnant un par un tous ses axiomes et uniquement ses axiomes. 
-(On peut donner à cette définition un sens plus précis dans le cadre de l'arithmétique usuelle, et en définissant un ensemble d'instructions qu'un tel algorithme peut avoir.)
+On peut donner à cette définition un sens plus précis dans le cadre de l'arithmétique usuelle, et en définissant un ensemble d'instructions qu'un tel algorithme peut avoir. 
+Dans la suite, on supposera que la théorie permet de définir un ensemble de nombre $\mathbb{N}$ ayant les mêmes propriétés que celui défini dan sles sections suivantes.
 
 \medskip
 
 \noindent \textbf{Premier théorème d'incomplétude de Gödel :} Sous ces conditions, il existe une formule $f$ de la théorie sans variable libre dont on ne peut montrer (par un algorithme fini) ni qu'ellle est vraie ni qu'elle est fausse.
+
+\medskip
+
+La démonstration de Gödel repose sur les \textit{nombres de Gödel} associés à chaque formule. 
+De manière générale (et une fois une théorie de l'arithmétique construite, voir section~\ref{sec:arithmetique} ; on se limite ici aux entiers naturels), une \textit{numérotation de Gödel} est une fonction injective (voir une définition rigoureuse des fonctions dans le cadre de la théorie des ensembles sera donnée section~\ref{sub:fonctions}) associant un nombre à chaque symbole ou formule. 
+
+La numérotation originelle de Gödel, que nous nommerons dans la suite simplement \textit{encodage de Gödel} par la suite, noté $\mathrm{enc}$, est obtenue de la manière suivante : 
+\begin{itemize}[nosep]
+    \item On choisit une suite de nombres premiers distincts $p$. 
+    \item À chaque symbole de la théorie et chaque variable primaire est associé un nombre distinct. 
+    \item Si $n$ est un entier naturel et $x_1$, $x_2$, ..., $x_n$ sont des symboles, le nombre associé à la formule $x_1 x_2 \dots x_n$ est $p_1^{x_1} \times p_2^{x_2} \times \cdots p_n^{x_n}$.
+        Plus formellement, $\mathrm{enc}(x_1 x_2 \dots x_n) = \prod_{i=1}^n p_i^{x_i}$. 
+\end{itemize}
+Cette fonction est bien injective d'après l'unicité de la décomposition en produits de facteurs premiers (voir section~\ref{subsub:dec_fact_prem}).
+
+\medskip
+
+\noindent \textbf{Exemple :} Si trois variables primaires $x$, $y$ et $z$ sont représentées respectivement par les nombres $1$, $2$ et $3$, si $+$ et $=$ sont respectivement représentée par les nombres $4$ et $5$, et si la suite $p$ commence par $(2, 3, 5, 7, 11)$, alors $\mathrm{enc}(x + y = z) = 2^1 \times 3^4 \times 5^2 \times 7^5 \times 11^3 = 90598973850$.
 
 \medskip
 
