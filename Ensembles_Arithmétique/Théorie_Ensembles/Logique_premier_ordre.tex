@@ -602,7 +602,7 @@ Pour le préciser, considérons une théorie dont l'alphabet contient les symbol
 
 Les formules de la théorie sont des chaines (finies) de symboles, avec les règles suivantes : 
 \begin{itemize}[nosep]
-    \item Si $y$ désigne une constante, $S y$ est une constante.
+    \item Si $y$ désigne une constante, $S y$ est une constante. On notera $1$ la constante $S 0$ et on supposera $1 \neq 0$.
     \item Si $y$ désigne une variable, $S y$ est une variable, dite \emph{secondaire}.
     \item Si $y$ et $z$ sont chacune une constante ou une variable, alors $y = z$ et $y < z$ sont des formules.
     \item Si $f$ est une formule, alors $(f)$ en est une. 
@@ -638,25 +638,68 @@ Dans la suite, on supposera que la théorie permet de définir un ensemble de no
 
 \medskip
 
+L'essence de la preuve est de construire, dans le cadre de cette théorie, un prédicat $G$ équivalent à l'impossibilité de le démontrer lui-même. 
+Ainsi, si $G$ est vrai, il n'est pas démontrable, et si $G$ est faux il est démontrable (ce qui est impossible si la théorie est cohérente). 
+Dans le langage usuel, de tels énoncés paradoxaux sont aisés à formuler car un énoncé peut référer directement à lui-même. 
+Par exemple, la phrase « Cette phrase n'est pas démontrable. » ne peut être démontrée que si elle n'est pas vraie~\footnote{Dans le même ordre d'idée, la phrase « Cette phrase est fausse. » ne peut être ni vraie ni fausse.} 
+Pour démontrer le premier théorème d'incomplétude de Gödel, il suffit en quelque sorte de montrer qu'un tel énoncé existe et forme un prédicat dans le cadre de toute théorie satisfaisant les propriétés éoncées ci-dessus.
+
 La démonstration de Gödel repose sur les \textit{nombres de Gödel} associés à chaque formule. 
 De manière générale (et une fois une théorie de l'arithmétique construite, voir section~\ref{sec:arithmetique} ; on se limite ici aux entiers naturels), une \textit{numérotation de Gödel} est une fonction injective (voir une définition rigoureuse des fonctions dans le cadre de la théorie des ensembles sera donnée section~\ref{sub:fonctions}) associant un nombre à chaque symbole ou formule. 
 
-La numérotation originelle de Gödel, que nous nommerons dans la suite simplement \textit{encodage de Gödel} par la suite, noté $\mathrm{enc}$, est obtenue de la manière suivante : 
+La numérotation originelle de Gödel, que nous nommerons dans la suite simplement \textit{encodage de Gödel} par la suite, noté $\mathbf{G}$, est obtenue de la manière suivante : 
 \begin{itemize}[nosep]
     \item On choisit une suite de nombres premiers distincts $p$. 
     \item À chaque symbole de la théorie et chaque variable primaire est associé un nombre distinct. 
     \item Si $n$ est un entier naturel et $x_1$, $x_2$, ..., $x_n$ sont des symboles, le nombre associé à la formule $x_1 x_2 \dots x_n$ est $p_1^{x_1} \times p_2^{x_2} \times \cdots p_n^{x_n}$.
-        Plus formellement, $\mathrm{enc}(x_1 x_2 \dots x_n) = \prod_{i=1}^n p_i^{x_i}$. 
+        Plus formellement, $\mathrm{G}(x_1 x_2 \dots x_n) = \prod_{i=1}^n p_i^{x_i}$. 
 \end{itemize}
 Cette fonction est bien injective d'après l'unicité de la décomposition en produits de facteurs premiers (voir section~\ref{subsub:dec_fact_prem}).
 
 \medskip
 
-\noindent \textbf{Exemple :} Si trois variables primaires $x$, $y$ et $z$ sont représentées respectivement par les nombres $1$, $2$ et $3$, si $+$ et $=$ sont respectivement représentée par les nombres $4$ et $5$, et si la suite $p$ commence par $(2, 3, 5, 7, 11)$, alors $\mathrm{enc}(x + y = z) = 2^1 \times 3^4 \times 5^2 \times 7^5 \times 11^3 = 90598973850$.
+\noindent \textbf{Exemple :} Si trois variables primaires $x$, $y$ et $z$ sont représentées respectivement par les nombres $1$, $2$ et $3$, si $+$ et $=$ sont respectivement représentée par les nombres $4$ et $5$, et si la suite $p$ commence par $(2, 3, 5, 7, 11)$, alors $\mathrm{G}(x + y = z) = 2^1 \times 3^4 \times 5^2 \times 7^5 \times 11^3 = 90598973850$.
 
 \medskip
 
-******
+Soit $F$ une formule. 
+Si $F$ est démontrable, alors il existe une formule $P$ qui prouve $F$. 
+On peut ainsi définir la fonction $\mathrm{Dem}$ de $\mathbb{N} \times \mathbb{N}$ vers ${0, 1}$ par, illustrant que « $n$ démontre $m$ » : pour tous entiers naturel $n$ et $m$, 
+\begin{itemize}[nosep]
+    \item Si $n$ est un nombre de Gödel associé à une formule $P$, $m$ est un nombre de Gödel associé à une formule $F$ et si $P$ démontre $F$, alors $\mathrm{Dem}(n, m) = 1$.
+    \item Sinon, $\mathrm{Dem}(n, m) = 0$. 
+\end{itemize}
+(Cette fonction ne sera pas utilisée dans la suite, mais sert d'illustration.)
+
+On définit la fonction $q$ de $\mathbb{N} \times \mathbb{N}$ vers ${0, 1}$ par : pour tous entiers naturel $n$ et $m$, 
+\begin{itemize}[nosep]
+    \item Si $n$ est un nombre de Gödel associé à une formule $P$, $m$ est un nombre de Gödel associé à une formule $F$ à un paramètre libre et si $P$ ne démontre pas $F(\mathbf{G}(F))$, alors $q(n, m) = 1$.
+    \item Si $n$ est un nombre de Gödel associé à une formule $P$, $m$ est un nombre de Gödel associé à une formule $F$ à un paramètre libre et si $P$ démontre $F(\mathbf{G}(F))$, alors $q(n, m) = 0$.
+    \item Sinon, $q(n, m) = 1$. 
+\end{itemize}
+Alors, pour toute formule $F$ à un paramètre libre, la formule $\forall y \, q(y, \mathbf{G}(F)) = 1$ est équivalente à : « il n'existe pas de preuve de $F(\mathbf{G}(F))$ ».
+
+Définissons le prédicat à un paramètre libre $P$ par : $P(x): \forall y \, q(y, x) = 1$. 
+Considérons maintenant le prédicat $Z$ défini par : $Z: P(\mathbf{G}(P))$. 
+De manière informelle, $Z$ est équivalent à $\forall y \, q(y, \mathbf{G}(P))$, et donc à « il n'existe pas de preuve de $Z$ ». 
+Nous avons donc construit un prédicat vrai si et seulement si il n'est pas démontrable. 
+
+Montrons un peu plus formellement que ni $Z$ est démontrable si et seulement si elle est fausse.
+\begin{itemize}[nosep]
+    \item Supposons que $Z$ est démontrable. 
+        Alors, il existe une formule $F$ démontrant $Z$. 
+        Donc, $F$ démontre $P(\mathbf{G}(P))$.
+        Donc, $q(\mathbf{G}(F), \mathbf{G}(P)) = 0$. 
+        Donc, $q(\mathbf{G}(F), \mathbf{G}(P)) = 1$ est faux. 
+        Donc, $\forall y \, q(y,\mathbf{G}(P)) = 1$ est faux.
+        Donc, $P(\mathbf{G}(P))$ est faux.
+        Donc, $Z$ est faux.
+    \item Supposons que $Z$ est faux.
+        ALors, $P(\mathbf{G}(P))$ est faux.
+        Donc, $\forall y \, q(y,\mathbf{G}(P)) = 1$ est faux.
+        Donc, $\exists y \, \neq (q(y,\mathbf{G}(P)) = 1)$ est vrai.
+        Puisque, dans cette expression, $q(y,\mathbf{G}(P))$ ne peut prendre que les valeurs $0$ et $1$, on en déduit qu'il existe un entier $y$ tel que $q(y,\mathbf{G}(P)) = 0$, et donc qu'il existe une formule $F$ telle que $y = \mathbf{G}(F)$ et $F$ prouve $P(\mathbf{G}(P))$, et donc $Z$. 
+\end{itemize}
 
 \subsubsection{Second théorème d'incomplétude de Gödel}
 
