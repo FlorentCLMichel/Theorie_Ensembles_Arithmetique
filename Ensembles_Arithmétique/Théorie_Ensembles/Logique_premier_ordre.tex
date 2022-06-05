@@ -579,7 +579,7 @@ Cela peut se récrire formellement :
 
 Les deux théorèmes d'incomplétude de Gödel énoncent, en un certain sens, des limites au pouvoir démontratif d'une théorie mathématique. 
 Plus précisément, ils indiquent que, sous certaines hypothèses, tous les prédicats vrais d'une théorie ne peuvent être démontrés comme tels. 
-Le premier d'entre eux exprime qu'il n'existe aucun système d'axiomes cohérent dont les résultats peuvent être obtenus par un algorithme permettant de démontrer tous les résultats vrais sur les nombres naturels. 
+Le premier d'entre eux exprime que, dans une théorie fondée sur la logique du premier ordre et suffisamment complexe pour y définir les entiers naturels, il existe des prédicats dont il est impossible de déterminer la valeur de vérité.
 On peut l'énoncer de manière informelle comme suit : 
 
 \medskip
@@ -589,11 +589,11 @@ On peut l'énoncer de manière informelle comme suit :
 \medskip
 
 \noindent Cet énoncé est imprécis, entre autres puisqu'il ne définit pas ce qu'est une arithmétique élémentaire. 
-Pour le préciser, considérons une théorie dont l'alphabet contient les symboles suivants : 
+Pour le préciser, considérons une théorie dont l'alphabet contient (au moins) les symboles suivants : 
 \begin{itemize}[nosep]
     \item Un symbole $0$ représentant une constante. 
     \item Un symbole $x$ représentant une variable, ainsi qu'un symbole $\ast$ permettant de construire d'autres variables $x^\ast$, $x^{\ast\ast}$, $x^{\ast\ast\ast}$, ... ces variables sont dites \emph{primaires}.
-    \item Une fonction $S$ d'une variable, appelée \textit{successeur}. 
+    \item Un symbole « successeur » $S$ définissant une fonction d'une seule variable. 
     \item Deux opérations binaires $+$ (addition) et $\times$ (multiplication).
     \item Les opérateurs logiques de conjonction $\wedge$, disjonction $\vee$ et négation $\neg$.
     \item Deux relations binaires $=$ (égalité) et $<$.
@@ -602,7 +602,8 @@ Pour le préciser, considérons une théorie dont l'alphabet contient les symbol
 
 Les formules de la théorie sont des chaines (finies) de symboles, avec les règles suivantes : 
 \begin{itemize}[nosep]
-    \item Si $y$ désigne une constante, $S y$ est une constante. On notera $1$ la constante $S 0$ et on supposera $1 \neq 0$.
+    \item Si $y$ désigne une constante, $S y$ est une constante, dite \textit{successeur} de $y$. 
+        On notera $1$ le successeur $0$ et on supposera $1 \neq 0$.
     \item Si $y$ désigne une variable, $S y$ est une variable, dite \emph{secondaire}.
     \item Si $y$ et $z$ sont chacune une constante ou une variable, alors $y = z$ et $y < z$ sont des formules.
     \item Si $f$ est une formule, alors $(f)$ en est une. 
@@ -624,17 +625,22 @@ Alternativement, on peut se limiter aux formules sans variable libre en remplaç
         Soit $g$ la chaine obtenue en remplaçant $c$ par $v$ dans $f$.
         Alors, $\forall v \, g$ et $\exists v \, g$ sont des formules.
 \end{itemize}
+Ces éléments permettent de définir un ensemble de nombres $\mathbb{N}$, contenant $0$ et stable par $S$, ayant les mêmes propriétés que celui défini dans les sections suivantes (notamment celles des opérations binaires $+$ et $\times$ et le fait de définir $<$ comme une relation d'ordre). 
+En particulier, $+$ et $\times$ sont des fonctions de $\mathbb{N} \times \mathbb{N}$ vers $\mathbb{N}$ et l'on peut définir les nombres premiers comme dans la section~\ref{subsub:defNombresPremiers}. 
+Pour fixer les idées, on pourra considérer que l'on se place dans le cadre de la théorie des ensembles et de l'arithmétiques définis dans les sections ci-dessous.
 
 La théorie est dite \emph{cohérente} si aucune formule ne peut être montrée à la fois vraie et fausse. 
-Elle est dite \emph{ω-cohérente} si, pour toute formule $f$ à une variable libre, il est impossible de montrer $\exists n \, f(n)$ si $\neg f(n)$ est démontrable pour toute constante $n$.
+Elle est dite \emph{ω-cohérente} si, pour toute formule $f$ et toute variable $n$, il est impossible de montrer $\exists n \, f$ si $\neg f$ est démontrable pour toute constante $n$. 
+Notons que la seconde notion implique la première (en choisissant pour $n$ une variable n'apparaissant pas dans $f$, $\exists n \, f$ est équivalente à $f$).
+Dans la suite, on suppose la théorie ω-cohérente.
 
 Enfin, la théorie est supposée \textit{effective}, c'est-à-dire qu'il est théoriquement possible d'écrire un algorithme ayant un nombre fini d'instructions donnant un par un tous ses axiomes et uniquement ses axiomes. 
 On peut donner à cette définition un sens plus précis dans le cadre de l'arithmétique usuelle, et en définissant un ensemble d'instructions qu'un tel algorithme peut avoir. 
-Dans la suite, on supposera que la théorie permet de définir un ensemble de nombre $\mathbb{N}$ ayant les mêmes propriétés que celui défini dan sles sections suivantes.
+On considère qu'un algorithme à un nombre fini d'instruction démontrant une formule $F$ peut être décrit par une formule de la théorie, de la forme $P \Rightarrow F$, où $P$ est soit un axiome de la théorie soit une formule démontrable.
 
 \medskip
 
-\noindent \textbf{Premier théorème d'incomplétude de Gödel :} Sous ces conditions, il existe une formule $f$ de la théorie sans variable libre dont on ne peut montrer (par un algorithme fini) ni qu'elle est vraie ni qu'elle est fausse.
+\noindent \textbf{Premier théorème d'incomplétude de Gödel :} Sous ces conditions, il existe une formule $f$ sans variable libre dont on ne peut montrer (par un algorithme fini) ni qu'elle est vraie ni qu'elle est fausse.
 
 \medskip
 
@@ -652,19 +658,19 @@ La numérotation originelle de Gödel, que nous nommerons dans la suite simpleme
     \item On choisit une suite de nombres premiers distincts $p$. 
     \item À chaque symbole de la théorie et chaque variable primaire est associé un nombre distinct. 
     \item Si $n$ est un entier naturel et $x_1$, $x_2$, ..., $x_n$ sont des symboles, le nombre associé à la formule $x_1 x_2 \dots x_n$ est $p_1^{x_1} \times p_2^{x_2} \times \cdots p_n^{x_n}$.
-        Plus formellement, $\mathrm{G}(x_1 x_2 \dots x_n) = \prod_{i=1}^n p_i^{x_i}$. 
+        Plus formellement, $\mathbf{G}(x_1 x_2 \dots x_n) = \prod_{i=1}^n p_i^{x_i}$. 
 \end{itemize}
 Cette fonction est bien injective d'après l'unicité de la décomposition en produits de facteurs premiers (voir section~\ref{subsub:dec_fact_prem}).
 
 \medskip
 
-\noindent \textbf{Exemple :} Si trois variables primaires $x$, $y$ et $z$ sont représentées respectivement par les nombres $1$, $2$ et $3$, si $+$ et $=$ sont respectivement représentée par les nombres $4$ et $5$, et si la suite $p$ commence par $(2, 3, 5, 7, 11)$, alors $\mathrm{G}(x + y = z) = 2^1 \times 3^4 \times 5^2 \times 7^5 \times 11^3 = 90598973850$.
+\noindent \textbf{Exemple :} Si trois variables primaires $x$, $y$ et $z$ sont représentées respectivement par les nombres $1$, $2$ et $3$, si $+$ et $=$ sont respectivement représentée par les nombres $4$ et $5$, et si la suite $p$ commence par $(2, 3, 5, 7, 11)$, alors $\mathbf{G}(x + y = z) = 2^1 \times 3^4 \times 5^2 \times 7^5 \times 11^3 = 90598973850$.
 
 \medskip
 
 Soit $F$ une formule. 
 Si $F$ est démontrable, alors il existe une formule $P$ qui prouve $F$. 
-On peut ainsi définir la fonction $\mathrm{Dem}$ de $\mathbb{N} \times \mathbb{N}$ vers ${0, 1}$ par, illustrant que « $n$ démontre $m$ » : pour tous entiers naturel $n$ et $m$, 
+On peut ainsi définir la fonction $\mathrm{Dem}$ de $\mathbb{N} \times \mathbb{N}$ vers ${0, 1}$, illustrant que « $n$ démontre $m$ », par : pour tous entiers naturel $n$ et $m$, 
 \begin{itemize}[nosep]
     \item Si $n$ est un nombre de Gödel associé à une formule $P$, $m$ est un nombre de Gödel associé à une formule $F$ et si $P$ démontre $F$, alors $\mathrm{Dem}(n, m) = 1$.
     \item Sinon, $\mathrm{Dem}(n, m) = 0$. 
@@ -684,7 +690,7 @@ Considérons maintenant le prédicat $Z$ défini par : $Z: P(\mathbf{G}(P))$.
 De manière informelle, $Z$ est équivalent à $\forall y \, q(y, \mathbf{G}(P))$, et donc à « il n'existe pas de preuve de $Z$ ». 
 Nous avons donc construit un prédicat vrai si et seulement si il n'est pas démontrable. 
 
-Montrons un peu plus formellement que ni $Z$ est démontrable si et seulement si elle est fausse.
+Montrons un peu plus formellement que $Z$ est démontrable si et seulement si elle est fausse.
 \begin{itemize}[nosep]
     \item Supposons que $Z$ est démontrable. 
         Alors, il existe une formule $F$ démontrant $Z$. 
@@ -695,10 +701,17 @@ Montrons un peu plus formellement que ni $Z$ est démontrable si et seulement si
         Donc, $P(\mathbf{G}(P))$ est faux.
         Donc, $Z$ est faux.
     \item Supposons que $Z$ est faux.
-        ALors, $P(\mathbf{G}(P))$ est faux.
+        Alors, $P(\mathbf{G}(P))$ est faux.
         Donc, $\forall y \, q(y,\mathbf{G}(P)) = 1$ est faux.
         Donc, $\exists y \, \neq (q(y,\mathbf{G}(P)) = 1)$ est vrai.
         Puisque, dans cette expression, $q(y,\mathbf{G}(P))$ ne peut prendre que les valeurs $0$ et $1$, on en déduit qu'il existe un entier $y$ tel que $q(y,\mathbf{G}(P)) = 0$, et donc qu'il existe une formule $F$ telle que $y = \mathbf{G}(F)$ et $F$ prouve $P(\mathbf{G}(P))$, et donc $Z$. 
+\end{itemize}
+
+Ainsi, la valeur de varité du prédicat $Z$ ne peut être déterminée. 
+En effet, 
+\begin{itemize}[nosep]
+    \item Si $Z$ et vrai, alors $Z$ n'est pas démontrable.
+    \item Si la théorie est cohérente, $Z$ ne peux être faux (car alors il serait démontrable).
 \end{itemize}
 
 \subsubsection{Second théorème d'incomplétude de Gödel}
