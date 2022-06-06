@@ -1,7 +1,7 @@
 \subsection{Logique du premier ordre}
 
 La logique du premier ordre, aussi appelée \textit{logique des prédicats} ou \textit{calcul des prédicats du premier ordre}, est un cadre semi-formel%
-\footnote{On adopte ici le point de vue que la logique du premier ordre ne repose pas sur une théorie vue comme plus fondamentale. Ses concepts fondamentaux sont ainsi définis intuitivement (puisque nous n'avons aucun concept plus fondamental qui permettrait de les définir formellement), d'où le qualificatif de « semi-formel », et non « formel ».} 
+\footnote{ On adopte ici le point de vue que la logique du premier ordre ne repose pas sur une théorie vue comme plus fondamentale. Ses concepts fondamentaux sont ainsi définis intuitivement (puisque nous n'avons aucun concept plus fondamental qui permettrait de les définir formellement), d'où le qualificatif de « semi-formel », et non « formel ».} 
 permettant de définir des théories. 
 On peut la voir comme un langage, ou comme un ensemble d'éléments de langage.
 Elle est utilisée tant en mathématiques qu'en philosophie, linguistique et informatique. 
@@ -13,7 +13,7 @@ On considère ici une notion très basique du terme \textit{langage}, que l'on c
     \item Des règles de formations de \textit{phrases} à partir des symboles.
 \end{itemize}
 Dans cette vision, les symboles constituent les fondations du langage, premettant de contruire les phrases, porteuses de sens.%
-\footnote{Ce sens étant défini, \textit{in fine}, par un élément extérieur au langage, par exemple l'intuition de qui l'utilise.} 
+\footnote{ Ce sens étant défini, \textit{in fine}, par un élément extérieur au langage, par exemple l'intuition de qui l'utilise.} 
 On sépare parfois les symboles en deux catégories : \textit{fondamentaux} s'ils forment un ensemble unsécable, ou \textit{composites} s'ils sont formés d'autres symboles.
 
 Intuitivement, la logique du premier ordre a pour symboles des variables (décrivant un domaine d'objets non logiques, c'est-à-dire non définis par la logique du premier ordre elle-même) quantifiées (par les quantificateurs « pour tout » et « il existe ») ou non, des symboles non logiques, ainsi que des connecteurs, utilisés pour construire des phrases, appelées \textit{formules}. 
@@ -40,7 +40,7 @@ Plus formellement, une théorie définie dans le cadre de la logique du premier 
     \item Des \textit{formules} (aussi appelées \textit{propositions}) obtenues à partir de ces règles, exprimant des prédicats. 
         (Le terme \textit{prédicat} est aussi utilisé pour désigner une formule elle-même.)
         Une proposition est toujours vraie ou fausse%
-        \footnote{À moins d'inclure la valeur de vérité indéfinie, voir section~\ref{subsub:Indéfinie}.}%
+        \footnote{ À moins d'inclure la valeur de vérité indéfinie, voir section~\ref{subsub:Indéfinie}.}%
         , et ne peut être simultanément vraie et fausse. 
         Deux formules seront dites \textit{équivalentes} si elles prennent toujours la même valeur de vérité. 
         \begin{itemize}[nosep]
@@ -644,23 +644,24 @@ On considère qu'un algorithme à un nombre fini d'instruction démontrant une f
 
 \medskip
 
-L'essence de la preuve est de construire, dans le cadre de cette théorie, un prédicat $G$ équivalent à l'impossibilité de le démontrer lui-même. 
-Ainsi, si $G$ est vrai, il n'est pas démontrable, et si $G$ est faux il est démontrable (ce qui est impossible si la théorie est cohérente). 
+L'essence de la preuve est de construire, dans le cadre de cette théorie, un prédicat $Z$ équivalent à l'impossibilité de le démontrer lui-même. 
+Ainsi, si $Z$ est vrai, il n'est pas démontrable, et si $Z$ est faux il est démontrable (ce qui est impossible si la théorie est cohérente). 
 Dans le langage usuel, de tels énoncés paradoxaux sont aisés à formuler car un énoncé peut référer directement à lui-même. 
-Par exemple, la phrase « Cette phrase n'est pas démontrable. » ne peut être démontrée que si elle n'est pas vraie~\footnote{Dans le même ordre d'idée, la phrase « Cette phrase est fausse. » ne peut être ni vraie ni fausse.} 
-Pour démontrer le premier théorème d'incomplétude de Gödel, il suffit en quelque sorte de montrer qu'un tel énoncé existe et forme un prédicat dans le cadre de toute théorie satisfaisant les propriétés éoncées ci-dessus.
+Par exemple, la phrase « Cette phrase n'est pas démontrable. » ne peut être démontrée que si elle n'est pas vraie~\footnote{ Dans le même ordre d'idée, la phrase « Cette phrase est fausse. » ne peut être ni vraie ni fausse.}.
+Pour démontrer le premier théorème d'incomplétude de Gödel, il suffit en quelque sorte de montrer qu'un tel énoncé existe et forme un prédicat dans le cadre de toute théorie satisfaisant les propriétés énoncées ci-dessus.
 
 La démonstration de Gödel repose sur les \textit{nombres de Gödel} associés à chaque formule. 
-De manière générale (et une fois une théorie de l'arithmétique construite, voir section~\ref{sec:arithmetique} ; on se limite ici aux entiers naturels), une \textit{numérotation de Gödel} est une fonction injective (voir une définition rigoureuse des fonctions dans le cadre de la théorie des ensembles sera donnée section~\ref{sub:fonctions}) associant un nombre à chaque symbole ou formule. 
+De manière générale (et une fois une théorie de l'arithmétique construite, voir section~\ref{sec:arithmetique} ; on se limite ici aux entiers naturels), une \textit{numérotation de Gödel} est une fonction injective (une définition rigoureuse des fonctions dans le cadre de la théorie des ensembles sera donnée section~\ref{sub:fonctions}) associant un nombre à chaque symbole ou formule. 
 
-La numérotation originelle de Gödel, que nous nommerons dans la suite simplement \textit{encodage de Gödel} par la suite, noté $\mathbf{G}$, est obtenue de la manière suivante : 
+La numérotation originelle de Gödel, que nous nommerons dans la suite simplement \textit{encodage de Gödel}, noté $\mathbf{G}$, est obtenue de la manière suivante : 
 \begin{itemize}[nosep]
     \item On choisit une suite de nombres premiers distincts $p$. 
-    \item À chaque symbole de la théorie et chaque variable primaire est associé un nombre distinct. 
-    \item Si $n$ est un entier naturel et $x_1$, $x_2$, ..., $x_n$ sont des symboles, le nombre associé à la formule $x_1 x_2 \dots x_n$ est $p_1^{x_1} \times p_2^{x_2} \times \cdots p_n^{x_n}$.
-        Plus formellement, $\mathbf{G}(x_1 x_2 \dots x_n) = \prod_{i=1}^n p_i^{x_i}$. 
+    \item À chaque symbole de la théorie ou variable primaire $x$ est associé un nombre $\mathbf{G}(x)$, de sorte que chaque nombre est associé à au plus un symbole ou une variable primaire. 
+    \item Si $n$ est un entier naturel et $x_1$, $x_2$, ..., $x_n$ sont des symboles, le nombre associé à la séquence de symboles $x_1 x_2 \dots x_n$ est $p_1^{\mathbf{G}(x_1)} \times p_2^{\mathbf{G}(x_2)} \times \cdots p_n^{\mathbf{G}(x_n)}$.
+        Plus formellement, $\mathbf{G}(x_1 x_2 \dots x_n) = \prod_{i=1}^n p_i^{\mathbf{G}(x_i)}$. 
 \end{itemize}
-Cette fonction est bien injective d'après l'unicité de la décomposition en produits de facteurs premiers (voir section~\ref{subsub:dec_fact_prem}).
+D'après l'unicité de la décomposition en produits de facteurs premiers (voir section~\ref{subsub:dec_fact_prem}), deux formules distinctes ne peuvent avoir le le même encodage.
+Puisque toute formule est une séquence finie de symboles, à chaque formule est ainsi associé un unique nombre.
 
 \medskip
 
@@ -668,29 +669,31 @@ Cette fonction est bien injective d'après l'unicité de la décomposition en pr
 
 \medskip
 
+\noindent Donnons une esquisse de preuve du premier théorème d'incomplétude.
 Soit $F$ une formule. 
 Si $F$ est démontrable, alors il existe une formule $P$ qui prouve $F$. 
-On peut ainsi définir la fonction $\mathrm{Dem}$ de $\mathbb{N} \times \mathbb{N}$ vers ${0, 1}$, illustrant que « $n$ démontre $m$ », par : pour tous entiers naturel $n$ et $m$, 
+On peut ainsi, par exemple, définir la fonction $\mathrm{Dem}$ de $\mathbb{N} \times \mathbb{N}$ vers ${0, 1}$, illustrant que « $n$ démontre $m$ », par : pour tous entiers naturel $n$ et $m$, 
 \begin{itemize}[nosep]
     \item Si $n$ est un nombre de Gödel associé à une formule $P$, $m$ est un nombre de Gödel associé à une formule $F$ et si $P$ démontre $F$, alors $\mathrm{Dem}(n, m) = 1$.
     \item Sinon, $\mathrm{Dem}(n, m) = 0$. 
 \end{itemize}
 (Cette fonction ne sera pas utilisée dans la suite, mais sert d'illustration.)
 
-On définit la fonction $q$ de $\mathbb{N} \times \mathbb{N}$ vers ${0, 1}$ par : pour tous entiers naturel $n$ et $m$, 
+On définit la fonction $q$ de $\mathbb{N} \times \mathbb{N}$ vers $\lbrace 0, 1 \rbrace$ par : pour tous entiers naturel $n$ et $m$, 
 \begin{itemize}[nosep]
     \item Si $n$ est un nombre de Gödel associé à une formule $P$, $m$ est un nombre de Gödel associé à une formule $F$ à un paramètre libre et si $P$ ne démontre pas $F(\mathbf{G}(F))$, alors $q(n, m) = 1$.
     \item Si $n$ est un nombre de Gödel associé à une formule $P$, $m$ est un nombre de Gödel associé à une formule $F$ à un paramètre libre et si $P$ démontre $F(\mathbf{G}(F))$, alors $q(n, m) = 0$.
     \item Sinon, $q(n, m) = 1$. 
 \end{itemize}
-Alors, pour toute formule $F$ à un paramètre libre, la formule $\forall y \, q(y, \mathbf{G}(F)) = 1$ est équivalente à : « il n'existe pas de preuve de $F(\mathbf{G}(F))$ ».
+Alors, pour toute formule $F$ à un paramètre libre, la formule $\forall y \, q(y, \mathbf{G}(F)) = 1$ est équivalente à : « il n'existe pas de preuve de $F(\mathbf{G}(F))$ ». 
+En effet, s'il existe un prédicat $P$ démontrant $F(\mathbf{G}(F))$, alors $q(\mathbf{G}(P), \mathbf{G}(F)) = 0$, donc $\exists y \, \neg (q(y, \mathbf{G}(F)) = 1)$ est vrai, donc $\forall y \, q(y, \mathbf{G}(F)) = 1$ est faux, et s'il n'en existe pas, alors, pour tout nombre $y$, soit $y$ encode un prédicat $P$ et $P$ ne peut montrer $F(\mathbf{G}(F))$, donc $q(y, \mathbf{G}(F)) = 1$, soit $y$ n'encode pas de formule, et donc $q(y, \mathbf{G}(F)) = 1$ également.
 
 Définissons le prédicat à un paramètre libre $P$ par : $P(x): \forall y \, q(y, x) = 1$. 
 Considérons maintenant le prédicat $Z$ défini par : $Z: P(\mathbf{G}(P))$. 
 De manière informelle, $Z$ est équivalent à $\forall y \, q(y, \mathbf{G}(P))$, et donc à « il n'existe pas de preuve de $Z$ ». 
 Nous avons donc construit un prédicat vrai si et seulement si il n'est pas démontrable. 
 
-Montrons un peu plus formellement que $Z$ est démontrable si et seulement si elle est fausse.
+Montrons un peu plus formellement que $Z$ est démontrable si et seulement si il est faux.
 \begin{itemize}[nosep]
     \item Supposons que $Z$ est démontrable. 
         Alors, il existe une formule $F$ démontrant $Z$. 
@@ -703,7 +706,7 @@ Montrons un peu plus formellement que $Z$ est démontrable si et seulement si el
     \item Supposons que $Z$ est faux.
         Alors, $P(\mathbf{G}(P))$ est faux.
         Donc, $\forall y \, q(y,\mathbf{G}(P)) = 1$ est faux.
-        Donc, $\exists y \, \neq (q(y,\mathbf{G}(P)) = 1)$ est vrai.
+        Donc, $\exists y \, \neg (q(y,\mathbf{G}(P)) = 1)$ est vrai.
         Puisque, dans cette expression, $q(y,\mathbf{G}(P))$ ne peut prendre que les valeurs $0$ et $1$, on en déduit qu'il existe un entier $y$ tel que $q(y,\mathbf{G}(P)) = 0$, et donc qu'il existe une formule $F$ telle que $y = \mathbf{G}(F)$ et $F$ prouve $P(\mathbf{G}(P))$, et donc $Z$. 
 \end{itemize}
 
