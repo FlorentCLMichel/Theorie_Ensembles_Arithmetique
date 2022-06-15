@@ -1,0 +1,68 @@
+\subsection{Polynômes}
+
+\subsubsection{Définition} 
+
+\noindent\textbf{Définition :} Soit $(A, +, \times)$ un anneau commutatif. 
+    On définit l'anneau (commutatif) des polynômes sur $(A, +, \times)$, $(\mathbf{A}, +, \times)$ de la manière suivante : 
+    \begin{itemize}[nosep]
+        \item Définition de $\mathbf{A}$ : Pour tout $x$, $x \in A$ si et seulement si on peut choisir un entier naturel $n$ et $n+1$ éléments $a_0, a_1, \dots, a_n$ de $A$ tels que $x = (a_0, a_1, \cdots, a_n)$.
+        \item Addition : Soit $\mathbf{a}$ et $\mathbf{b}$ deux éléments de $\mathbf{A}$, $n$ et $m$ deux entiers naturels, et $a_0$, $a_1$, ..., $a_n$, $b_0$, $b_1$, ..., $b_m$ des éléments de $A$ tels que $\mathbf{a} = (a_0, a_1, \dots, a_n)$ et $\mathbf{b} = (b_0, b_1, \dots, b_m)$.
+            Soit $k$ le maximum de $\lbrace n, m \rbrace$ et $l$ son minimum.
+            Alors, $\mathbf{a} + \mathbf{b}$ est le polynôme $(c_0, c_1, \cdots c_k)$ défini par : 
+            \begin{itemize}[nosep]
+                \item Pour tout $i$ dans $[\![0, l]\!]$, $c_i = a_i + b_i$.
+                    Notons que si $n = m$, alors $l = k$.
+                \item Si $n > m$ (alors, $k = n$ et $l = m$), pour tout $i$ dans $[\![l+1, k]\!]$, $c_i = a_i$.
+                \item Si $n < m$ (alors, $k = m$ et $l = n$), pour tout $i$ dans $[\![l+1, k]\!]$, $c_i = b_i$.
+            \end{itemize}
+        \item Multiplication : Avec les mêmes notations, $\mathbf{a} \times \mathbf{b}$ est le polynôme $(d_0, d_1, \dots d_{n+m})$ défini par : pour tout élément $i$ de $[\![0, n+m]\!]$, 
+            \begin{equation*}
+                d_i = \sum_{j=i}^n a_j \times b_{i-j}.
+            \end{equation*}
+    \end{itemize}
+    L'ensemble des polynômes peut être noté $A[X]$ ou de manière équivalente avec $X$ remplacé par un autre symbole non encore défini. 
+    Soit $n$ un entier naturel et $a_0$, $a_1$, ..., $a_n$ des éléments de $A$ tels que $n = 0$ ou $a_n \neq 0$.
+    Le polynôme $(a_0, a_1, \dots, a_n)$ pourra être noté $a_0 + a_1 X + \cdots + a_n X^n$.
+
+\medskip
+
+\noindent\textbf{Preuve qu'il s'agit bien d'un anneau commutatif :} ***
+
+\medskip
+
+\noindent\textbf{Évaluation d'un polynôme :} Soit $(A, +, \times)$ un anneau et $\mathbf{a}$ un polynôme sur $A$.
+    On peut choisir un entier naturel $n$ et $n+1$ éléments $a_0$, $a_2$, ..., $a_n$ de $A$ tels que $\mathbf{a} = (a_0, a_1, \dots, a_n)$.
+    Pour tout élément $a$ de $A$, on note $\mathbf{a}(a)$ l'élément $\sum_{i=0}^n a_i a^i$. 
+
+\subsubsection{Degré}
+
+\noindent\textbf{Définition (degré) :} Soit $(A, +, \times)$ un anneau commutatif et $\mathbf{a}$ un élément de $A[X]$.
+    On note $0_A$ l'élément neutre de $A$ pour $+$.
+    Soit $n$ un entier naturel et $a_0$, $a_1$, ..., $a_n$ des éléments de $A$ tels que $\mathbf{a} = (a_0, a_1, \dots, a_n)$.
+    Soit $E$ l'ensemble des éléments de $[\![0, n]\!]$ tels que $a_n \neq 0_A$.
+    L'ensemble $E$ est un sous-ensemble de $[\![0, n]\!]$, et donc de $\mathbb{N}$ (puisque $[\![0, n]\!]$ en est un), et borné supérieurement par $n$. 
+    Donc, soit $E$ est vide, soit il admet un unique élément maximal $d$. 
+    Si $E$ est non vide, $d$ est appelé \textit{degré} de $\mathbf{a}$. 
+    Si $E$ est vide, le degré de $\mathbf{a}$ est $0$.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $\mathcal{A}$ un anneau commmutatif et $\mathbf{a}$ et $\mathbf{b}$ deux polynômes sur $\mathcal{A}$, de degrés respectifs $d_a$ et $d_b$.
+    Alors, $\mathbf{a} \times \mathbf{b}$ a pour degré $d_a + d_b$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Soit $n$ et $m$ deux entiers naturels, et $a_0$, $a_1$, ..., $a_n$, $b_0$, $b_1$, ..., $b_m$ des éléments de $A$ tels que $\mathbf{a} = (a_0, a_1, \dots, a_n)$ et $\mathbf{b} = (b_0, b_1, \dots, b_m)$. 
+    Soit $c_0$, $c_1$, ..., $c_{n+m}$ des éléments de $A$ tels que $\mathbf{a} \times \mathbf{b} = (c_0, c_1, \dots, c_{n+m})$.
+    On procède en deux étapes : on montre d'abord que $c_{d_a + d_b} \neq 0$ puis, par l'absurde, qu'il ne peut exister d'entier $k$ tel que $k > d_a + d_b$ et $c_k \neq 0$.
+    \begin{itemize}[nosep]
+        \item ***
+        \item ***
+    \end{itemize}
+
+\subsubsection{Racines}
+
+\noindent\textbf{Définition (racine) :} Soit $(A, +, \times)$ un anneau commutatif et $\mathbf{a}$ un élément de $A[X]$.
+    On note $0_A$ l'élément neutre de $A$ pour $+$.
+    Un élément $r$ de $A$ est dit \textit{racine} de $\mathbf{a}$ si $\mathbf{a}(r) = 0_A$.
