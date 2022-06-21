@@ -461,6 +461,15 @@ En échangeant les rôles des deux décompositions, on montre de même $M \leq N
 
 \done
 
+\medskip
+
+\noindent\textbf{Remarque :} Soit $N$ un entier naturel non nul. 
+    On peut déterminer le nombre de ses diviseurs de la manière suivante. 
+    (Rapellons que $0$ a une infinité de diviseurs : tous les entiers naturels non nuls.) 
+    Soit $n$ un entier naturel, $p_1$, $p_2$, ..., $p_n$ des nombres premiers distincts, et $a_1$, $a_2$, ..., $a_n$ des entiers naturels non nuls tels que $N = \prod_{i=1}^n p_i^{a_i}$. 
+    Alors, $N$ possède exactement $\prod_{i=1}^n (a_i+1)$ diviseurs distincts : il s'agit des nombres de la forme $\prod_{i=1}^n p_i^{b_i}$ où, pout tout élément $i$ de $[\![1,n]\!]$, $b_i$ est un entier naturel inférieur ou égal à $a_i$. 
+    En effet, on montre facilement que tout entier de cette forme divise $N$ (puisque $N = \left( \prod_{i=1}^n p_i^{b_i} \right) \times \left( \prod_{i=1}^n p_i^{a_i-b_i} \right)$) et tout entier naturel non nul n'étant pas de cette forme a soit un facteur premier $q$ qui n'est pas un facteur de $N$ soit a pour facteur $p_i^{b_i}$ avec $b_i > a_i$ pour un élément $i$ de $[\![1,n]\!]$ ; dans les deux cas $N$ ne peut être un de ses multiples (car alors $q$ ou $p_i^c$ avec $c \geq b_i$ apparaitrait dans la décomposition de $N$ en produit de facteurs premiers).
+
 \subsubsection{Représentation schématique}
 
 (Cette section n'est pas destinée à être rigoureuse, mais seulement à donner une certaine intuition de la décomposition en facteurs premiers.)
