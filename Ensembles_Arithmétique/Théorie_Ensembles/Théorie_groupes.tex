@@ -582,7 +582,7 @@ Soit $f$ la fonction de $[\![0, n-1]\!]$ (égal à $n$) vers $G$ définie par :
 
     \done
 
-\subsubsection{Autres structures algèbriques}
+\subsubsection{Anneaus et corps}
 
 \noindent\textbf{Définition (anneau) :} Soit $A$ un ensemble et $+$ et $\times$ deux lois de composition interne sur $A$. 
     Le triplet $(A, +, \times)$ est un \textit{anneau} si les propriétés suivantes sont satisfaites : 
@@ -590,6 +590,46 @@ Soit $f$ la fonction de $[\![0, n-1]\!]$ (égal à $n$) vers $G$ définie par :
         \item $(A,+)$ est un groupe abélien,
         \item $\times$ est distributive sur $+$ : pour tous éléments $a$, $b$ et $c$ de $A$, on a $a \times (b + c) = (a \times b) + (a \times c)$ et $(a + b) \times c = (a \times c) + (b \times c)$.
     \end{itemize}
+
+\noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau. 
+On note $0$ l'élément neutre de $(A, +)$.
+Pour tout élément $a$ de $A$, $0 \times a = a \times 0 = 0$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Notons $b$ l'élément $0 \times a$. 
+    On a : $b + b = (0 \times a) + (0 \times a) = (0 + 0) \times a = 0 \times a = b$.
+    Soit $\bar{b}$ l'inverse de $b$ pour l'opération $+$ (qui existe car $(A, +)$ est un groupe).
+    Alors, $b = 0 + b = (\bar{b} + b) + b = \bar{b} + (b + b) = \bar{b} + b = 0$. 
+
+    Notons $d$ l'élément $a \times 0$. 
+    On a : $d + d = (a \times 0) + (a \times 0) = a \times (0 + 0) = a \times 0 = d$.
+    Soit $\bar{d}$ l'inverse de $d$ pour l'opération $+$ (qui existe car $(A, +)$ est un groupe).
+    Alors, $d = d + 0 = d + (d + \bar{d}) = (d + d) + \bar{d} = d + \bar{d} = 0$. 
+
+    \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau. 
+On note $0$ l'élément neutre de $(A, +)$.
+On suppose que tout élément de $A$ distinct de $0$ admet un inverse pour $\times$.
+Soit $a$ et $b$ deux éléments de $A$ tels que $a \times b = 0$.
+Alors $a = 0$ ou $b = 0$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Si $a = 0$, le résultat est vrai.
+Sinon, $a$ admet un inverse, pour $\times$, noté $\bar{a}$.
+Alors, $b = (\bar{a} \times a) \times b = \bar{a} \times (a \times b) = \bar{a} \times 0 = 0$.
+
+\done
+
+\noindent\textbf{Remarque :} Cela est faux en général si on enlève l'hypothèse sur $A$. 
+Considérons par exemple l'anneau $(\mathbb{Z}_N, +, \times)$ (voir section~\ref{sub:def_Z_nZ}) où $N$ est un entier naturel strictement supérieur à $1$ non premier. 
+Soit $d$ un diviseur de $N$ distinct de $1$ et $N$, et $k$ l'entier naturel tel que $d \times k = N$. 
+Alors $d > 1$, $d < N$, $k > 1$ et $k < N$, donc $\bar{d} \ neq \bar{0}$ et $\bar{k} \ neq \bar{0}$ mais $\bar{d} \times \bar{k} = \bar{N} = 0$.
 
 \medskip
 
