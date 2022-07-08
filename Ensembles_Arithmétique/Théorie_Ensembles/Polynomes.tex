@@ -73,7 +73,17 @@ Dans cette démonstration, $\mathbf{a}$, $\mathbf{b}$ et $\mathbf{c}$ sont trois
                 \end{itemize}
                 On a donc à nouveau $\mathbf{a} + \mathbf{b} = \mathbf{b} + \mathbf{a}$.
             \item \textit{L'opération $+$ est associative :}
-                ***
+                En principe, il y a six cas différents à traiter. 
+                Mais nous pouvons réduire ce nombre en notant que, pour prouver $\mathbf{a} + (\mathbf{b} + \mathbf{c}) = (\mathbf{a} + \mathbf{b}) + \mathbf{c}$, les rôles de $\mathbf{a}$ et $\mathbf{c}$ sont interchangeables. 
+                En effet, puisque l'addition est commutative (et par symétrie de l'égalité), cette équation est équivalente à $\mathbf{c} + (\mathbf{b} + \mathbf{a}) = (\mathbf{c} + \mathbf{b}) + \mathbf{a}$. 
+                Sans perte de généralité (et quitte à échanger les noms de $\mathbf{a}$ et $\mathbf{c}$), on peut donc supposer $d_a \leq d_c$. 
+                (Puisque, si ce n'est pas le cas, alors $d_c \leq d_a$.)
+                Il n'y a donc que trois cas à traiter : $d_b \leq d_a$, $d_a < d_b \leq d_c$ et $d_c < d_b$.
+                \begin{itemize}[nosep]
+                    \item Cas $d_b \leq d_a$ : ***
+                    \item Cas $d_a < d_b \leq d_c$ : ***
+                    \item Cas $d_c < d_b$ : ***
+                \end{itemize}
             \item \textit{Tout élément de $A[X]$ admet un inverse pour l'opération $+$ :}
                 Dans ce paragrahe seulement, pour tout élément $e$ de $A$, on note $\tilde{e}$ l'inverse de $e$ pour l'opération $+$ (qui existe puisque $(A, +)$ est un groupe). 
                 Montrons que le polynôme $(\tilde{a}_0, \tilde{a}_1, \dots, \tilde{a}_{n_a})$ (qui est bien un polynôme puisque soit $n_a = 0$ soit $a_{n_a} \neq 0_A$ et donc $\tilde{a}_{n_a} \neq 0_A$) est un inverse de $\mathbf{a}$ pour l'opération $+$.
