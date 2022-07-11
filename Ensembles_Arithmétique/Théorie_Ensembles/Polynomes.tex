@@ -79,6 +79,8 @@ Dans cette démonstration, $\mathbf{a}$, $\mathbf{b}$ et $\mathbf{c}$ sont trois
                 Sans perte de généralité (et quitte à échanger les noms de $\mathbf{a}$ et $\mathbf{c}$), on peut donc supposer $d_a \leq d_c$. 
                 (Puisque, si ce n'est pas le cas, alors $d_c \leq d_a$.)
                 Il n'y a donc que trois cas à traiter : $d_b \leq d_a$, $d_a < d_b \leq d_c$ et $d_c < d_b$.
+                Notons $d_{ab}$, $d_{bc}$, $d_{abc1}$ et $dd_{abc2}$ les quatre entiers naturels et $\mathrm{ab}_0$, $\mathrm{ab}_1$, ..., $\mathrm{ab}_{d_{ab}}$, $\mathrm{bc}_0$, $\mathrm{bc}_1$, ..., $\mathrm{ab}_{d_{bc}}$, $\mathrm{abc1}_0$, $\mathrm{abc1}_1$, ..., $\mathrm{abc1}_{d_{abc1}}$, $\mathrm{ab}_{d_{bc}}$, $\mathrm{abc2}_0$, $\mathrm{abc2}_1$, ..., $\mathrm{abc2}_{d_{abc2}}$ les éléments de $A$ tels que $\mathbf{a} + \mathbf{b} = \left( \mathrm{ab}_0, \mathrm{ab}_1, \dots, \mathrm{ab}_{d_{ab}} \right)$, $\mathbf{b} + \mathbf{c} = \left( \mathrm{bc}_0, \mathrm{bc}_1, \dots, \mathrm{bc}_{d_{bc}} \right)$, $\mathbf{a} + (\mathbf{b} + \mathbf{c}) = \left( \mathrm{abc1}_0, \mathrm{abc1}_1, \dots, \mathrm{abc1}_{d_{abc1}} \right)$ et $(\mathbf{a} + \mathbf{b}) + \mathbf{c} = \left( \mathrm{abc2}_0, \mathrm{abc2}_1, \dots, \mathrm{abc2}_{d_{abc2}} \right)$.
+                Il s'agit de montrer que $d_{abc1} = d_{abc2}$ et que, pour tout entier naturel $i$ inférieur ou égal à $d_{abc1}$, $\mathrm{abc1}_i = \mathrm{abc2}_i$.
                 \begin{itemize}[nosep]
                     \item Cas $d_b \leq d_a$ : ***
                     \item Cas $d_a < d_b \leq d_c$ : ***
