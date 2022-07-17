@@ -6,7 +6,7 @@
     On note $0_A$ l'élément neutre de $A$ pour $+$, dit \textit{nul}.
     On définit l'anneau (commutatif) des polynômes sur $(A, +, \times)$, $(\mathbf{A}, +, \times)$ de la manière suivante : 
     \begin{itemize}[nosep]
-        \item Définition de $\mathbf{A}$ : Pour tout $x$, $x \in A$ si et seulement si on peut choisir un entier naturel $n$ et $n+1$ éléments $a_0, a_1, \dots, a_n$ de $A$ tels que $x = (a_0, a_1, \cdots, a_n)$ et $a_n \neq 0_A \vee n = 0$.
+        \item Définition de $\mathbf{A}$ : Pour tout $x$, $x \in A$ si et seulement si on peut choisir un entier naturel $n$, appelé \textit{degré} de $x$, et $n+1$ éléments $a_0, a_1, \dots, a_n$ de $A$ tels que $x = (a_0, a_1, \cdots, a_n)$ et $a_n \neq 0_A \vee n = 0$.
             On note $0_{\mathbf{A}}$ le polynôme nul $(0_{\mathbf{A}})$.
             Le polynôme $(0_A)$ est dit \textit{nul}.
         \item Addition : Soit $\mathbf{a}$ et $\mathbf{b}$ deux éléments de $\mathbf{A}$, $n$ et $m$ deux entiers naturels, et $a_0$, $a_1$, ..., $a_n$, $b_0$, $b_1$, ..., $b_m$ des éléments de $A$ tels que $\mathbf{a} = (a_0, a_1, \dots, a_n)$ et $\mathbf{b} = (b_0, b_1, \dots, b_m)$.
@@ -19,17 +19,16 @@
                 \item Si $n < m$ (alors, $k = m$ et $l = n$), pour tout $i$ dans $[\![l+1, k]\!]$, $c_i = b_i$.
             \end{itemize}
             Si au moins un de ces éléments est différent de $0_A$, alors l'ensemble des éléments $i$ de $[\![0, k]\!]$ tels que $c_i \neq 0_A$ est un sous-ensemble non vide de $\mathbb{N}$, donc il admet un unique élément maximal $d$ ; sinon, on pose $d = 0$.
-            On définit alors $\mathbb{a} + \mathbb{b}$ par le polynôme $(c_0, c_1, \dots, c_d)$.
-            Sinon, on définit $\mathbb{a} + \mathbb{b}$ par le polynôme nul $(0_A)$.
+            On définit alors $\mathbf{a} + \mathbf{b}$ par le polynôme $(c_0, c_1, \dots, c_d)$.
+            Sinon, on définit $\mathbf{a} + \mathbf{b}$ par le polynôme nul $(0_A)$.
         \item Multiplication : Avec les mêmes notations, $\mathbf{a} \times \mathbf{b}$ est le polynôme $(d_0, d_1, \dots d_{n+m})$ défini par : pour tout élément $i$ de $[\![0, n+m]\!]$, on définit l'élément $d_i$ de $A$ par :
             \begin{equation*}
-                d_i = \sum_{j=i}^n a_j \times b_{i-j}.
+                d_i = \sum_{j=i}^{\mathrm{min}(i,n)} a_j \times b_{i-j}.
             \end{equation*}
             (Notons que $d_{n+m} = a_n \times b_m$.)
             Si au moins un de ces éléments est différent de $0_A$, alors l'ensemble des éléments $i$ de $[\![0, n+m]\!]$ tels que $d_i \neq 0_A$ est un sous-ensemble non vide de $\mathbb{N}$, donc il admet un unique élément maximal $d$ ; sinon, on pose $d = 0$.
             On définit alors $\mathbf{a} \times \mathbf{b}$ par le polynôme $(d_0, d_1, \dots, d_d)$.
             Sinon, on définit $\mathbf{a} \times \mathbf{b}$ par le polynôme nul $(0_A)$.
-
     \end{itemize}
     L'ensemble des polynômes peut être noté $A[X]$ ou de manière équivalente avec $X$ remplacé par un autre symbole non encore défini. 
     Soit $n$ un entier naturel et $a_0$, $a_1$, ..., $a_n$ des éléments de $A$ tels que $n = 0$ ou $a_n \neq 0$.
@@ -39,6 +38,46 @@
         \item si $l \geq k$, $\sum_{i=k}^l a_i X^i$ désigne $a_k X^k + a_{k+1} X^{k+1} + \cdots + a_l X^l$ ;
         \item si $l < k$, $\sum_{i=k}^l a_i X^i$ désigne le polynôme nul.
     \end{itemize}
+
+\medskip
+
+\noindent\textbf{Notation :} 
+    Soit $(A, +, \times)$ un anneau commutatif.
+    Pour tout élément $\mathbf{a}$ de $A[X]$, on définit la suite des coefficients de $\mathbf{a}$, également notée $\mathbf{a}$ quand il n'y a pas de confusion possible, de la manière suivante : pour tout entier naturel $i$, 
+\begin{itemize}[nosep]
+    \item Si $i$ est inférieur ou égal au degré de $\mathbf{a}$, alors $\mathbf{a}_i$ est le $i$ème coefficient de $\mathbf{a}$ en partant de $0$.
+    \item Sinon, on pose $\mathbf{a}_i = 0$.
+\end{itemize}
+Deux polynômes sont égaux si et seulement si les suites de leurs coefficients le sont.
+En effet, 
+\begin{itemize}[nosep]
+    \item S'ils sont égaux, ils ont la même suite de coefficients par construction.
+    \item Si les suites de leurs coefficients sont égales, alors ils ont alors le même degré (index du denier élément non nul, ou $0$ si tous les éléments sont nuls) et les mêmes éléments (élements de cette suite d'index inférieur ou égal au degré).
+\end{itemize}
+
+\medskip
+
+\noindent\textbf{Lemme :}
+    Soit $(A, +, \times)$ un anneau commutatif.
+    Soit $\mathbf{a}$ et $\mathbf{b}$ deux éléments de $A[X]$. 
+    Soit $\mathbf{c}$ et $\mathbf{d}$ les polynômes donnés par $\mathbf{c} = \mathbf{a} + \mathbf{b}$ et $\mathbf{d} = \mathbf{a} \times \mathbf{b}$.
+    Alors, les suites d'éléments de $\mathbf{c}$ et $\mathbf{d}$ sont données par : pour tout entier naturel $n$, 
+    \begin{equation*}
+        \mathbf{c}_n = \mathbf{a}_n + \mathbf{b}_n, 
+        \qquad
+        \mathbf{d}_n = \sum_{i=0}^n \mathbf{a}_i \times \mathbf{b}_{n-i}
+        .
+    \end{equation*}
+
+\medskip
+
+\noindent\textbf{Démonstration :} ***
+
+\medskip
+
+\noindent\textbf{Remarque :} 
+    Soit $(A, +, \times)$ un anneau commutatif.
+    L'ensemble $A[X]$ pourrait être défini de manière presque équivalente par l'ensemble des suites d'éléments de $A$ nulles à partir d'un certain rang.
 
 \medskip
 
@@ -80,10 +119,14 @@ Dans cette démonstration, $\mathbf{a}$, $\mathbf{b}$ et $\mathbf{c}$ sont trois
                 Sans perte de généralité (et quitte à échanger les noms de $\mathbf{a}$ et $\mathbf{c}$), on peut donc supposer $d_a \leq d_c$. 
                 (Puisque, si ce n'est pas le cas, alors $d_c \leq d_a$.)
                 Il n'y a donc que trois cas à traiter : $d_b \leq d_a$, $d_a < d_b \leq d_c$ et $d_c < d_b$.
-                Notons $d_{ab}$, $d_{bc}$, $d_{abc1}$ et $dd_{abc2}$ les quatre entiers naturels et $\mathrm{ab}_0$, $\mathrm{ab}_1$, ..., $\mathrm{ab}_{d_{ab}}$, $\mathrm{bc}_0$, $\mathrm{bc}_1$, ..., $\mathrm{ab}_{d_{bc}}$, $\mathrm{abc1}_0$, $\mathrm{abc1}_1$, ..., $\mathrm{abc1}_{d_{abc1}}$, $\mathrm{ab}_{d_{bc}}$, $\mathrm{abc2}_0$, $\mathrm{abc2}_1$, ..., $\mathrm{abc2}_{d_{abc2}}$ les éléments de $A$ tels que $\mathbf{a} + \mathbf{b} = \left( \mathrm{ab}_0, \mathrm{ab}_1, \dots, \mathrm{ab}_{d_{ab}} \right)$, $\mathbf{b} + \mathbf{c} = \left( \mathrm{bc}_0, \mathrm{bc}_1, \dots, \mathrm{bc}_{d_{bc}} \right)$, $\mathbf{a} + (\mathbf{b} + \mathbf{c}) = \left( \mathrm{abc1}_0, \mathrm{abc1}_1, \dots, \mathrm{abc1}_{d_{abc1}} \right)$ et $(\mathbf{a} + \mathbf{b}) + \mathbf{c} = \left( \mathrm{abc2}_0, \mathrm{abc2}_1, \dots, \mathrm{abc2}_{d_{abc2}} \right)$.
+                Notons $d_{ab}$, $d_{bc}$, $d_{abc1}$ et $d_{abc2}$ les quatre entiers naturels et $\mathrm{ab}_0$, $\mathrm{ab}_1$, ..., $\mathrm{ab}_{d_{ab}}$, $\mathrm{bc}_0$, $\mathrm{bc}_1$, ..., $\mathrm{ab}_{d_{bc}}$, $\mathrm{abc1}_0$, $\mathrm{abc1}_1$, ..., $\mathrm{abc1}_{d_{abc1}}$, $\mathrm{ab}_{d_{bc}}$, $\mathrm{abc2}_0$, $\mathrm{abc2}_1$, ..., $\mathrm{abc2}_{d_{abc2}}$ les éléments de $A$ tels que $\mathbf{a} + \mathbf{b} = \left( \mathrm{ab}_0, \mathrm{ab}_1, \dots, \mathrm{ab}_{d_{ab}} \right)$, $\mathbf{b} + \mathbf{c} = \left( \mathrm{bc}_0, \mathrm{bc}_1, \dots, \mathrm{bc}_{d_{bc}} \right)$, $\mathbf{a} + (\mathbf{b} + \mathbf{c}) = \left( \mathrm{abc1}_0, \mathrm{abc1}_1, \dots, \mathrm{abc1}_{d_{abc1}} \right)$ et $(\mathbf{a} + \mathbf{b}) + \mathbf{c} = \left( \mathrm{abc2}_0, \mathrm{abc2}_1, \dots, \mathrm{abc2}_{d_{abc2}} \right)$.
                 Il s'agit de montrer que $d_{abc1} = d_{abc2}$ et que, pour tout entier naturel $i$ inférieur ou égal à $d_{abc1}$, $\mathrm{abc1}_i = \mathrm{abc2}_i$.
                 \begin{itemize}[nosep]
-                    \item Cas $d_b \leq d_a$ : ***
+                    \item Cas $d_b \leq d_a$ : 
+                        On a alors $d_b \leq d_a \leq d_c$.
+                        Donc, $d_{ab} = d_a$, donc $d_{abc2} = d_c$ et $d_{bc} = d_c$, donc $d_{abc1} = d_c$. 
+                        Donc, $d_{abc2} = d_{abc1}$.
+                        ***
                     \item Cas $d_a < d_b \leq d_c$ : ***
                     \item Cas $d_c < d_b$ : ***
                 \end{itemize}
@@ -119,9 +162,9 @@ Dans cette démonstration, $\mathbf{a}$, $\mathbf{b}$ et $\mathbf{c}$ sont trois
 
 \subsubsection{Degré}
 
-\noindent\textbf{Définition (degré) :} Soit $(A, +, \times)$ un anneau commutatif et $\mathbf{a}$ un élément de $A[X]$.
+\noindent\textbf{Définition (degré) (rappel) :} Soit $(A, +, \times)$ un anneau commutatif et $\mathbf{a}$ un élément de $A[X]$.
     Soit $n$ un entier naturel et $a_0$, $a_1$, ..., $a_n$ des éléments de $A$ tels que $\mathbf{a} = (a_0, a_1, \dots, a_n)$.
-    L'entier naturel $n$ est appelé \textit{degré} de $\mathbf{a}$. 
+    L'entier naturel $n$ est appelé \textit{degré} de $\mathbf{a}$, et peut être noté $\mathrm{deg}(\mathbf{a})$. 
 \medskip
 
 \noindent\textbf{Lemme :} Soit $\mathcal{A}$ un anneau commmutatif et $\mathbf{a}$ et $\mathbf{b}$ deux polynômes sur $\mathcal{A}$, de degrés respectifs $d_a$ et $d_b$. 
