@@ -6,14 +6,14 @@
     On note $0_A$ l'élément neutre de $A$ pour $+$, dit \textit{nul}.
     On définit l'anneau (commutatif) des polynômes sur $(A, +, \times)$, $(\mathbf{A}, +, \times)$ de la manière suivante : 
     \begin{itemize}[nosep]
-        \item Définition de $\mathbf{A}$ : Pour tout $x$, $x \in A$ si et seulement si on peut choisir un entier naturel $n$, appelé \textit{degré} de $x$, et $n+1$ éléments $a_0, a_1, \dots, a_n$ de $A$ tels que $x = (a_0, a_1, \cdots, a_n)$ et $a_n \neq 0_A \vee n = 0$.
+        \item Définition de $\mathbf{A}[X]$ : Pour tout $x$, $x \in A$ si et seulement si on peut choisir un entier naturel $n$, appelé \textit{degré} de $x$, et $n+1$ éléments $a_0, a_1, \dots, a_n$ de $A$ tels que $x = (a_0, a_1, \cdots, a_n)$ et $a_n \neq 0_A \vee n = 0$.
             On note $0_{\mathbf{A}}$ le polynôme nul $(0_{\mathbf{A}})$.
             Le polynôme $(0_A)$ est dit \textit{nul}.
         \item Addition : Soit $\mathbf{a}$ et $\mathbf{b}$ deux éléments de $\mathbf{A}$, $n$ et $m$ deux entiers naturels, et $a_0$, $a_1$, ..., $a_n$, $b_0$, $b_1$, ..., $b_m$ des éléments de $A$ tels que $\mathbf{a} = (a_0, a_1, \dots, a_n)$ et $\mathbf{b} = (b_0, b_1, \dots, b_m)$.
             Soit $k$ le maximum de $\lbrace n, m \rbrace$ et $l$ son minimum.
             On définit les éléments $c_0$, $c_1$, ... $c_k$ de $A$ par : 
             \begin{itemize}[nosep]
-                \item Pour tout $i$ dans $[\![0, l]\!]$, $c_i = a_i + b_i$.
+                \item Pour tout élément $i$ de $[\![0, l]\!]$, $c_i = a_i + b_i$.
                     Notons que si $n = m$, alors $l = k$.
                 \item Si $n > m$ (alors, $k = n$ et $l = m$), pour tout $i$ dans $[\![l+1, k]\!]$, $c_i = a_i$.
                 \item Si $n < m$ (alors, $k = m$ et $l = n$), pour tout $i$ dans $[\![l+1, k]\!]$, $c_i = b_i$.
@@ -23,9 +23,10 @@
             Sinon, on définit $\mathbf{a} + \mathbf{b}$ par le polynôme nul $(0_A)$.
         \item Multiplication : Avec les mêmes notations, $\mathbf{a} \times \mathbf{b}$ est le polynôme $(d_0, d_1, \dots d_{n+m})$ défini par : pour tout élément $i$ de $[\![0, n+m]\!]$, on définit l'élément $d_i$ de $A$ par :
             \begin{equation*}
-                d_i = \sum_{j=i}^{\mathrm{min}(i,n)} a_j \times b_{i-j}.
+                d_i = \sum_{j=\mathrm{max}(0,i-m)}^{\mathrm{min}(i,n)} a_j \times b_{i-j}.
             \end{equation*}
-            (Notons que $d_{n+m} = a_n \times b_m$.)
+            (Notons que cette expression est bien définie puisque $j$ est toujours compris entre $0$ et $n$ inclus et $i-j$ entre $0$ et $m$ inclus.
+            Notons aussi que $d_{n+m} = a_n \times b_m$.)
             Si au moins un de ces éléments est différent de $0_A$, alors l'ensemble des éléments $i$ de $[\![0, n+m]\!]$ tels que $d_i \neq 0_A$ est un sous-ensemble non vide de $\mathbb{N}$, donc il admet un unique élément maximal $d$ ; sinon, on pose $d = 0$.
             On définit alors $\mathbf{a} \times \mathbf{b}$ par le polynôme $(d_0, d_1, \dots, d_d)$.
             Sinon, on définit $\mathbf{a} \times \mathbf{b}$ par le polynôme nul $(0_A)$.
@@ -42,18 +43,26 @@
 \medskip
 
 \noindent\textbf{Notation :} 
-    Soit $(A, +, \times)$ un anneau commutatif.
+    Soit $(A, +, \times)$ un anneau commutatif et $0_A$ son élément neutre pour $+$.
     Pour tout élément $\mathbf{a}$ de $A[X]$, on définit la suite des coefficients de $\mathbf{a}$, également notée $\mathbf{a}$ quand il n'y a pas de confusion possible, de la manière suivante : pour tout entier naturel $i$, 
 \begin{itemize}[nosep]
     \item Si $i$ est inférieur ou égal au degré de $\mathbf{a}$, alors $\mathbf{a}_i$ est le $i$ème coefficient de $\mathbf{a}$ en partant de $0$.
-    \item Sinon, on pose $\mathbf{a}_i = 0$.
+    \item Sinon, on pose $\mathbf{a}_i = 0_A$.
 \end{itemize}
 Deux polynômes sont égaux si et seulement si les suites de leurs coefficients le sont.
 En effet, 
 \begin{itemize}[nosep]
     \item S'ils sont égaux, ils ont la même suite de coefficients par construction.
-    \item Si les suites de leurs coefficients sont égales, alors ils ont alors le même degré (index du denier élément non nul, ou $0$ si tous les éléments sont nuls) et les mêmes éléments (élements de cette suite d'index inférieur ou égal au degré).
+    \item Si les suites de leurs coefficients sont égales, alors ils ont alors le même degré (indice du denier élément non nul, ou $0$ si tous les éléments sont nuls) et les mêmes éléments (élements de cette suite d'indice inférieur ou égal au degré).
 \end{itemize}
+Notons que toute suite $u$ d'éléments de $A$ telle qu'il existe un entier naturel $n_0$ tel que $\forall n \in \mathbb{N} \, n > n_0 \Rightarrow u_n = 0$ est la suite de coefficients d'un polynôme. 
+En effet, avec ces notations, soit $m$ le plus grand entier naturel tel que $u_m \neq 0_A$ si la suite $u$ a au moins un coefficient non nul ou $m = 0$ sinon, alors $u$ est la suite de coefficients du polynôme $(u_0, u_1, \dots, u_m)$.
+
+\medskip
+
+\noindent\textbf{Remarque :} 
+    Soit $(A, +, \times)$ un anneau commutatif.
+    L'ensemble $A[X]$ pourrait être défini de manière presque équivalente par l'ensemble des suites d'éléments de $A$ nulles à partir d'un certain indice, ou, de manière équivalente, pour lesquelles il existe un nombre fini d'indices donnant une valeur non nulle.
 
 \medskip
 
@@ -71,65 +80,30 @@ En effet,
 
 \medskip
 
-\noindent\textbf{Démonstration :} ***
-
-\medskip
-
-\noindent\textbf{Remarque :} 
-    Soit $(A, +, \times)$ un anneau commutatif.
-    L'ensemble $A[X]$ pourrait être défini de manière presque équivalente par l'ensemble des suites d'éléments de $A$ nulles à partir d'un certain rang.
+\noindent\textbf{Démonstration :} 
+\begin{itemize}[nosep]
+    \item \textit{Addition :} 
+        Définissons la suite $e$ d'éléments de $A$ par $e_n = \mathbf{a}_n + \mathbf{b}_n$ pour tout entier naturel $n$.
+        Montrons que, pour tout entier naturel $n$, $e_n = 0_A$ si $n > \mathrm{max}(\mathrm{deg}(\mathbf{a}), \mathrm{deg}(\mathbf{b}))$ et $e_n = c_n$ sinon, où $c_n$ est définit comme dans la définition de l'addition de polynômes. 
+        Cela montrera que le polynôme dont la suite de coefficients est $e_n$ existe, et que, soit $m$ le plus grand entier naturel tel que $c_m \neq 0_A$ si un tel entier existe, ou $m = 0$ sinon, ce polynôme est $(c_0, c_1, \dots, c_m)$, c'est à dire exactement $\mathbf{a} + \mathbf{b}$.
+        \begin{itemize}[nosep]
+            \item ***
+            \item ***
+        \end{itemize}
+    \item \textit{Multiplication :} ***
+\end{itemize}
 
 \medskip
 
 \noindent\textbf{Preuve qu'il s'agit bien d'un anneau commutatif :} Montrons qu'il s'agit bien d'un anneau, avec pour éléments neutres $(0_A)$ et $(1_A)$, où $1_A$ est l'élément neutre de $A$ pour $\times$. 
-Dans cette démonstration, $\mathbf{a}$, $\mathbf{b}$ et $\mathbf{c}$ sont trois éléments arbitraires de $A[X]$, $n_a$, $n_b$ et $n_c$ sont trois entiers naturels et $a_0$, $a_1$, ..., $a_{n_a}$, $b_0$, $b_1$, ..., $b_{n_b}$ et $c_0$, $c_1$, ..., $c_{n_c}$ sont des éléments de $A$ tels que $(a_{n_a} \neq 0) \vee (n_a = 0)$, $(b_{n_b} \neq 0) \vee (n_b = 0)$ et $(c_{n_c} \neq 0) \vee (n_c = 0)$, et $\mathbf{a} = (a_0, a_1, \dots, a_n)$, $\mathbf{b} = (b_0, b_1, \dots, b_n)$ et $\mathbf{c} = (c_0, c_1, \dots, c_n)$. 
+Dans cette démonstration, $\mathbf{a}$, $\mathbf{b}$ et $\mathbf{c}$ sont trois éléments arbitraires de $A[X]$.
 \begin{itemize}[nosep]
     \item \textit{$(A[X], +)$ est un groupe abélien :}
         \begin{itemize}[nosep]
             \item $(A[X], +)$ est un magma puisque $+$ est une loi de composition interne sur $A[X]$.
-            \item \textit{L'opération $+$ est commutative :}
-                Traitons séparément les deux cas $n_a \geq n_b$ et $_a < n_b$. 
-                Si $n_a \geq n_b$, alors $\mathbf{a} + \mathbf{b} = (c_0, c_1, \dots, c_{n_a})$ et $\mathbf{b} + \mathbf{a} = (d_0, d_1, \dots, d_{n_a})$ où, pour tout élément $i$ de $[\![0, n_a]\!]$,
-                \begin{itemize}[nosep]
-                    \item si $i \leq n_b$, $c_i = a_i + b_i$ et $d_i = b_i + a_i$, et donc $c_i = d_i$ puisque le groupe $(A, +)$ est abélien ;
-                    \item sinon, $c_i = a_i$ et $d_i = a_i$, donc $c_i = d_i$.
-                \end{itemize}
-                On a donc bien $\mathbf{a} + \mathbf{b} = \mathbf{b} + \mathbf{a}$.
-
-                Sinon, $n_a < n_b$. 
-                Alors $\mathbf{a} + \mathbf{b} = (c_0, c_1, \dots, c_{n_b})$ et $\mathbf{b} + \mathbf{a} = (d_0, d_1, \dots, d_{n_b})$ où, pour tout élément $i$ de $[\![0, n_b]\!]$,
-                \begin{itemize}[nosep]
-                    \item si $i \leq n_a$, $c_i = a_i + b_i$ et $d_i = b_i + a_i$, et donc $c_i = d_i$ puisque le groupe $(A, +)$ est abélien ;
-                    \item sinon, $c_i = b_i$ et $d_i = b_i$, donc $c_i = d_i$.
-                \end{itemize}
-                On a donc à nouveau $\mathbf{a} + \mathbf{b} = \mathbf{b} + \mathbf{a}$.
-            \item \textit{Le polynôme $(0_A)$ est neutre pour $+$ :}
-                Puisque $n_a$ est un entier naturel, $n_a \geq 0$.
-                Donc, le minimum de $\lbrace 0, n_a \rbrace$ est $0$ et son maximum est $n_a$.
-                Notons $\mathbf{d}$ le polynôme $\mathbf{a} + (0_A)$. 
-                Soit $n_d$ un entier naturel et $d_0$, $d_1$, ..., $d_{n_d}$ des éléments de $A$ tels que $\mathbf{d} = (d_0, d_1, \dots, d_{n_d})$.
-                Par définition de l'addition, on a $n_d = n_a$, $d_0 = a_0 + 0_A = a_0$ et, pour tout élément $i$ de $[\![1, n_d]\!]$, $d_i = a_i$.
-                Donc, $(d_0, d_1, \dots, d_{n_d}) = (a_0, a_1, \dots, a_{n_a})$.
-                Donc, $\mathbf{d} = \mathbf{a}$.
-                Puisque l'opération $+$ est commutative, on en déduit que $(0_A) + \mathbf{a} = \mathbf{a} + (0_A) = \mathbf{a}$.
-            \item \textit{L'opération $+$ est associative :}
-                En principe, il y a six cas différents à traiter. 
-                Mais nous pouvons réduire ce nombre en notant que, pour prouver $\mathbf{a} + (\mathbf{b} + \mathbf{c}) = (\mathbf{a} + \mathbf{b}) + \mathbf{c}$, les rôles de $\mathbf{a}$ et $\mathbf{c}$ sont interchangeables. 
-                En effet, puisque l'addition est commutative (et par symétrie de l'égalité), cette équation est équivalente à $\mathbf{c} + (\mathbf{b} + \mathbf{a}) = (\mathbf{c} + \mathbf{b}) + \mathbf{a}$. 
-                Sans perte de généralité (et quitte à échanger les noms de $\mathbf{a}$ et $\mathbf{c}$), on peut donc supposer $d_a \leq d_c$. 
-                (Puisque, si ce n'est pas le cas, alors $d_c \leq d_a$.)
-                Il n'y a donc que trois cas à traiter : $d_b \leq d_a$, $d_a < d_b \leq d_c$ et $d_c < d_b$.
-                Notons $d_{ab}$, $d_{bc}$, $d_{abc1}$ et $d_{abc2}$ les quatre entiers naturels et $\mathrm{ab}_0$, $\mathrm{ab}_1$, ..., $\mathrm{ab}_{d_{ab}}$, $\mathrm{bc}_0$, $\mathrm{bc}_1$, ..., $\mathrm{ab}_{d_{bc}}$, $\mathrm{abc1}_0$, $\mathrm{abc1}_1$, ..., $\mathrm{abc1}_{d_{abc1}}$, $\mathrm{ab}_{d_{bc}}$, $\mathrm{abc2}_0$, $\mathrm{abc2}_1$, ..., $\mathrm{abc2}_{d_{abc2}}$ les éléments de $A$ tels que $\mathbf{a} + \mathbf{b} = \left( \mathrm{ab}_0, \mathrm{ab}_1, \dots, \mathrm{ab}_{d_{ab}} \right)$, $\mathbf{b} + \mathbf{c} = \left( \mathrm{bc}_0, \mathrm{bc}_1, \dots, \mathrm{bc}_{d_{bc}} \right)$, $\mathbf{a} + (\mathbf{b} + \mathbf{c}) = \left( \mathrm{abc1}_0, \mathrm{abc1}_1, \dots, \mathrm{abc1}_{d_{abc1}} \right)$ et $(\mathbf{a} + \mathbf{b}) + \mathbf{c} = \left( \mathrm{abc2}_0, \mathrm{abc2}_1, \dots, \mathrm{abc2}_{d_{abc2}} \right)$.
-                Il s'agit de montrer que $d_{abc1} = d_{abc2}$ et que, pour tout entier naturel $i$ inférieur ou égal à $d_{abc1}$, $\mathrm{abc1}_i = \mathrm{abc2}_i$.
-                \begin{itemize}[nosep]
-                    \item Cas $d_b \leq d_a$ : 
-                        On a alors $d_b \leq d_a \leq d_c$.
-                        Donc, $d_{ab} = d_a$, donc $d_{abc2} = d_c$ et $d_{bc} = d_c$, donc $d_{abc1} = d_c$. 
-                        Donc, $d_{abc2} = d_{abc1}$.
-                        ***
-                    \item Cas $d_a < d_b \leq d_c$ : ***
-                    \item Cas $d_c < d_b$ : ***
-                \end{itemize}
+            \item \textit{L'opération $+$ est commutative :} ***
+            \item \textit{Le polynôme $(0_A)$ est neutre pour $+$ :} ***
+            \item \textit{L'opération $+$ est associative :} ***
             \item \textit{Tout élément de $A[X]$ admet un inverse pour l'opération $+$ :}
                 Dans ce paragrahe seulement, pour tout élément $e$ de $A$, on note $\tilde{e}$ l'inverse de $e$ pour l'opération $+$ (qui existe puisque $(A, +)$ est un groupe). 
                 Montrons que le polynôme $(\tilde{a}_0, \tilde{a}_1, \dots, \tilde{a}_{n_a})$ (qui est bien un polynôme puisque soit $n_a = 0$ soit $a_{n_a} \neq 0_A$ et donc $\tilde{a}_{n_a} \neq 0_A$) est un inverse de $\mathbf{a}$ pour l'opération $+$.
@@ -144,6 +118,70 @@ Dans cette démonstration, $\mathbf{a}$, $\mathbf{b}$ et $\mathbf{c}$ sont trois
     \item \textit{Le polynôme $(1_A)$ est neutre pour $\times$ :}
         ***
 \end{itemize}
+
+%\noindent\textbf{Preuve qu'il s'agit bien d'un anneau commutatif :} Montrons qu'il s'agit bien d'un anneau, avec pour éléments neutres $(0_A)$ et $(1_A)$, où $1_A$ est l'élément neutre de $A$ pour $\times$. 
+%Dans cette démonstration, $\mathbf{a}$, $\mathbf{b}$ et $\mathbf{c}$ sont trois éléments arbitraires de $A[X]$, $n_a$, $n_b$ et $n_c$ sont trois entiers naturels et $a_0$, $a_1$, ..., $a_{n_a}$, $b_0$, $b_1$, ..., $b_{n_b}$ et $c_0$, $c_1$, ..., $c_{n_c}$ sont des éléments de $A$ tels que $(a_{n_a} \neq 0) \vee (n_a = 0)$, $(b_{n_b} \neq 0) \vee (n_b = 0)$ et $(c_{n_c} \neq 0) \vee (n_c = 0)$, et $\mathbf{a} = (a_0, a_1, \dots, a_n)$, $\mathbf{b} = (b_0, b_1, \dots, b_n)$ et $\mathbf{c} = (c_0, c_1, \dots, c_n)$. 
+%\begin{itemize}[nosep]
+%    \item \textit{$(A[X], +)$ est un groupe abélien :}
+%        \begin{itemize}[nosep]
+%            \item $(A[X], +)$ est un magma puisque $+$ est une loi de composition interne sur $A[X]$.
+%            \item \textit{L'opération $+$ est commutative :}
+%                Traitons séparément les deux cas $n_a \geq n_b$ et $_a < n_b$. 
+%                Si $n_a \geq n_b$, alors $\mathbf{a} + \mathbf{b} = (c_0, c_1, \dots, c_{n_a})$ et $\mathbf{b} + \mathbf{a} = (d_0, d_1, \dots, d_{n_a})$ où, pour tout élément $i$ de $[\![0, n_a]\!]$,
+%                \begin{itemize}[nosep]
+%                    \item si $i \leq n_b$, $c_i = a_i + b_i$ et $d_i = b_i + a_i$, et donc $c_i = d_i$ puisque le groupe $(A, +)$ est abélien ;
+%                    \item sinon, $c_i = a_i$ et $d_i = a_i$, donc $c_i = d_i$.
+%                \end{itemize}
+%                On a donc bien $\mathbf{a} + \mathbf{b} = \mathbf{b} + \mathbf{a}$.
+%
+%                Sinon, $n_a < n_b$. 
+%                Alors $\mathbf{a} + \mathbf{b} = (c_0, c_1, \dots, c_{n_b})$ et $\mathbf{b} + \mathbf{a} = (d_0, d_1, \dots, d_{n_b})$ où, pour tout élément $i$ de $[\![0, n_b]\!]$,
+%                \begin{itemize}[nosep]
+%                    \item si $i \leq n_a$, $c_i = a_i + b_i$ et $d_i = b_i + a_i$, et donc $c_i = d_i$ puisque le groupe $(A, +)$ est abélien ;
+%                    \item sinon, $c_i = b_i$ et $d_i = b_i$, donc $c_i = d_i$.
+%                \end{itemize}
+%                On a donc à nouveau $\mathbf{a} + \mathbf{b} = \mathbf{b} + \mathbf{a}$.
+%            \item \textit{Le polynôme $(0_A)$ est neutre pour $+$ :}
+%                Puisque $n_a$ est un entier naturel, $n_a \geq 0$.
+%                Donc, le minimum de $\lbrace 0, n_a \rbrace$ est $0$ et son maximum est $n_a$.
+%                Notons $\mathbf{d}$ le polynôme $\mathbf{a} + (0_A)$. 
+%                Soit $n_d$ un entier naturel et $d_0$, $d_1$, ..., $d_{n_d}$ des éléments de $A$ tels que $\mathbf{d} = (d_0, d_1, \dots, d_{n_d})$.
+%                Par définition de l'addition, on a $n_d = n_a$, $d_0 = a_0 + 0_A = a_0$ et, pour tout élément $i$ de $[\![1, n_d]\!]$, $d_i = a_i$.
+%                Donc, $(d_0, d_1, \dots, d_{n_d}) = (a_0, a_1, \dots, a_{n_a})$.
+%                Donc, $\mathbf{d} = \mathbf{a}$.
+%                Puisque l'opération $+$ est commutative, on en déduit que $(0_A) + \mathbf{a} = \mathbf{a} + (0_A) = \mathbf{a}$.
+%            \item \textit{L'opération $+$ est associative :}
+%                En principe, il y a six cas différents à traiter. 
+%                Mais nous pouvons réduire ce nombre en notant que, pour prouver $\mathbf{a} + (\mathbf{b} + \mathbf{c}) = (\mathbf{a} + \mathbf{b}) + \mathbf{c}$, les rôles de $\mathbf{a}$ et $\mathbf{c}$ sont interchangeables. 
+%                En effet, puisque l'addition est commutative (et par symétrie de l'égalité), cette équation est équivalente à $\mathbf{c} + (\mathbf{b} + \mathbf{a}) = (\mathbf{c} + \mathbf{b}) + \mathbf{a}$. 
+%                Sans perte de généralité (et quitte à échanger les noms de $\mathbf{a}$ et $\mathbf{c}$), on peut donc supposer $d_a \leq d_c$. 
+%                (Puisque, si ce n'est pas le cas, alors $d_c \leq d_a$.)
+%                Il n'y a donc que trois cas à traiter : $d_b \leq d_a$, $d_a < d_b \leq d_c$ et $d_c < d_b$.
+%                Notons $d_{ab}$, $d_{bc}$, $d_{abc1}$ et $d_{abc2}$ les quatre entiers naturels et $\mathrm{ab}_0$, $\mathrm{ab}_1$, ..., $\mathrm{ab}_{d_{ab}}$, $\mathrm{bc}_0$, $\mathrm{bc}_1$, ..., $\mathrm{ab}_{d_{bc}}$, $\mathrm{abc1}_0$, $\mathrm{abc1}_1$, ..., $\mathrm{abc1}_{d_{abc1}}$, $\mathrm{ab}_{d_{bc}}$, $\mathrm{abc2}_0$, $\mathrm{abc2}_1$, ..., $\mathrm{abc2}_{d_{abc2}}$ les éléments de $A$ tels que $\mathbf{a} + \mathbf{b} = \left( \mathrm{ab}_0, \mathrm{ab}_1, \dots, \mathrm{ab}_{d_{ab}} \right)$, $\mathbf{b} + \mathbf{c} = \left( \mathrm{bc}_0, \mathrm{bc}_1, \dots, \mathrm{bc}_{d_{bc}} \right)$, $\mathbf{a} + (\mathbf{b} + \mathbf{c}) = \left( \mathrm{abc1}_0, \mathrm{abc1}_1, \dots, \mathrm{abc1}_{d_{abc1}} \right)$ et $(\mathbf{a} + \mathbf{b}) + \mathbf{c} = \left( \mathrm{abc2}_0, \mathrm{abc2}_1, \dots, \mathrm{abc2}_{d_{abc2}} \right)$.
+%                Il s'agit de montrer que $d_{abc1} = d_{abc2}$ et que, pour tout entier naturel $i$ inférieur ou égal à $d_{abc1}$, $\mathrm{abc1}_i = \mathrm{abc2}_i$.
+%                \begin{itemize}[nosep]
+%                    \item Cas $d_b \leq d_a$ : 
+%                        On a alors $d_b \leq d_a \leq d_c$.
+%                        Donc, $d_{ab} = d_a$, donc $d_{abc2} = d_c$ et $d_{bc} = d_c$, donc $d_{abc1} = d_c$. 
+%                        Donc, $d_{abc2} = d_{abc1}$.
+%                        ***
+%                    \item Cas $d_a < d_b \leq d_c$ : ***
+%                    \item Cas $d_c < d_b$ : ***
+%                \end{itemize}
+%            \item \textit{Tout élément de $A[X]$ admet un inverse pour l'opération $+$ :}
+%                Dans ce paragrahe seulement, pour tout élément $e$ de $A$, on note $\tilde{e}$ l'inverse de $e$ pour l'opération $+$ (qui existe puisque $(A, +)$ est un groupe). 
+%                Montrons que le polynôme $(\tilde{a}_0, \tilde{a}_1, \dots, \tilde{a}_{n_a})$ (qui est bien un polynôme puisque soit $n_a = 0$ soit $a_{n_a} \neq 0_A$ et donc $\tilde{a}_{n_a} \neq 0_A$) est un inverse de $\mathbf{a}$ pour l'opération $+$.
+%                ***
+%        \end{itemize}
+%    \item \textit{L'opération $\times$ est commutative :}
+%        ***
+%    \item \textit{L'opération $\times$ est distributive sur $+$ :} 
+%        Montrons que $\mathbf{a} \times (\mathbf{b} + \mathbf{c}) = (\mathbf{a} \times \mathbf{b}) + (\mathbf{a} \times \mathbf{c})$.
+%        Puisque l'opération $\times$ est commutative, cela montrera également $(\mathbf{b} + \mathbf{c}) \times \mathbf{a} = (\mathbf{b} \times \mathbf{a}) + (\mathbf{c} \times \mathbf{a})$.
+%        ***
+%    \item \textit{Le polynôme $(1_A)$ est neutre pour $\times$ :}
+%        ***
+%\end{itemize}
 
 \medskip
 
