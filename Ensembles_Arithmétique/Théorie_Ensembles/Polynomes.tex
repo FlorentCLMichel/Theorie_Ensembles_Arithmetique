@@ -86,8 +86,23 @@ En effet, avec ces notations, soit $m$ le plus grand entier naturel tel que $u_m
         Montrons que, pour tout entier naturel $n$, $e_n = 0_A$ si $n > \mathrm{max}(\mathrm{deg}(\mathbf{a}), \mathrm{deg}(\mathbf{b}))$ et $e_n = c_n$ sinon, où $c_n$ est définit comme dans la définition de l'addition de polynômes. 
         Cela montrera que le polynôme dont la suite de coefficients est $e_n$ existe, et que, soit $m$ le plus grand entier naturel tel que $c_m \neq 0_A$ si un tel entier existe, ou $m = 0$ sinon, ce polynôme est $(c_0, c_1, \dots, c_m)$, c'est à dire exactement $\mathbf{a} + \mathbf{b}$.
         \begin{itemize}[nosep]
-            \item ***
-            \item ***
+            \item Si $n > \mathrm{max}(\mathrm{deg}(\mathbf{a}), \mathrm{deg}(\mathbf{b}))$, alors $n > \mathrm{deg}(\mathbf{a})$, donc $\mathbf{a}_n = 0_A$, et $n > \mathrm{deg}(\mathbf{b})$, donc $\mathbf{b}_n = 0_A$.
+                Donc, $\mathbf{a}_n + \mathbf{b}_n = 0_A$.
+                Donc, $e_n = 0_A$.
+            \item Sinon, on a $n \leq \mathrm{deg}(\mathbf{a}) \vee n \leq \mathrm{deg}(\mathbf{b})$. 
+                On a alos trois possibilités.\footnote{
+                    On utilise ici le fait que, si $f$ et $g$ sont deux formules, alors $f \vee g$ est équivalente à $(f \wedge g) \vee (f \wedge (\not g)) \vee ((\not f) \wedge g)$.
+                    (Toutes deux sont vraies si $f$ est vraie ou $g$ est vraie et fausses si $f$ et $g$ sont fausses.)
+                }
+                \begin{itemize}[nosep]
+                    \item Si $n \leq \mathrm{deg}(\mathbf{a}) \vee n > \mathrm{deg}(\mathbf{b})$, alors $\mathbf{b}_n = 0$, donc $e_n = \mathbf{a}_n$. 
+                        Avec les notations de la définition, cela donne $e_n = a_n$.
+                    \item Si $n > \mathrm{deg}(\mathbf{a}) \vee n \leq \mathrm{deg}(\mathbf{b})$, alors $\mathbf{a}_n = 0$, donc $e_n = \mathbf{b}_n$. 
+                        Avec les notations de la définition, cela donne $e_n = b_n$.
+                    \item Si $n \leq \mathrm{deg}(\mathbf{a}) \vee n \leq \mathrm{deg}(\mathbf{b})$, alors $e_n = \mathbf{a}_n + \mathbf{b}_n$. 
+                        Avec les notations de la définition, cela donne $e_n = a_n + b_n$.
+                \end{itemize}
+                Dans les trois cas, on a bien $e_n = c_n$.
         \end{itemize}
     \item \textit{Multiplication :} 
         Définissons la suite $f$ d'éléments de $A$ par $f_n = \sum_{i=0}^n \mathbf{a}_i \times \mathbf{b}_{n-i}$ pour tout entier naturel $n$.
