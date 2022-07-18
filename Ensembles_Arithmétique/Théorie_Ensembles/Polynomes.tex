@@ -108,7 +108,11 @@ En effet, avec ces notations, soit $m$ le plus grand entier naturel tel que $u_m
         Définissons la suite $f$ d'éléments de $A$ par $f_n = \sum_{i=0}^n \mathbf{a}_i \times \mathbf{b}_{n-i}$ pour tout entier naturel $n$.
         Motrons que, pour tout entier naturel $n$, $f_n = 0$ si $n > \mathrm{deg}(\mathbf{a}) + \mathrm{deg}(\mathbf{b})$ (et donc $f_n = \mathbf{d}_n$) et $f_n = \mathbf{d}_n$ sinon.
         \begin{itemize}[nosep]
-            \item ***
+            \item Soit $n$ un entier naturel strictement supérieur à $\mathrm{deg}(\mathbf{a}) + \mathrm{deg}(\mathbf{b})$.
+                Soit $i$ un entier naturel inférieur ou égal à $n$. 
+                Alors, soit $i > \mathrm{deg}(\mathbf{a})$, donc $\mathbf{a}_n = 0_A$, soit $i \leq \mathrm{deg}(\mathbf{a})$, donc $n - i \geq n - \mathrm{deg}(\mathbf{a})$, donc $n - i > \mathrm{deg}(\mathbf{b})$, donc $\mathbf{b}_n = 0_A$.
+                Dans les deux cas, on a $\mathbf{a}_i \times \mathbf{b}_{n-i} = 0_A$.
+                Donc, $\sum_{i=0}^n \mathbf{a}_i \times \mathbf{b}_{n-i} = \sum_{i=0}^n 0_A = 0_A$.
             \item ***
         \end{itemize}
 \end{itemize}
