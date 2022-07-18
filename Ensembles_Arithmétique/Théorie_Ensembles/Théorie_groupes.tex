@@ -31,6 +31,28 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $(M, \cdot)$ un magma unifère et $e$ son élément neutre.
+    Soit $n$ un entier naturel non nul.
+    Alors, l'élément $(\cdots ((e+e) + e) + \cdots +e)$, où $e$ apparaît $n$ fois, est égal à $e$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} On procède par récurrence sur $n$. 
+    Pour $n = 1$, le résultat est évident puisque $e = e$.
+    Soit $n$ un entier naturel non nul tel que le résultat est vrai. 
+    Soit $x$ l'élément $(\cdots ((e+e) + e) + \cdots + e)$, où $e$ apparaît $n+1$ fois. 
+    Alors, on peut noter $x = (y + e)$, où $y$ est l'élément défini dans le lemme avec $e$ apparaissant $n$ fois. 
+    Donc, $y = e$.
+    Donc, $x = e$. 
+    On en déduit que le résultat attendu est vrai en remplaçant $n$ par $n+1$. 
+    Par récurrence, il est donc vrai pour tout entier naturel non nul $n$.
+
+    \done
+
+\medskip
+
 \noindent\textbf{Définition (morphisme de magmas) :} Soit $\left(M, \cdot \right)$ et $\left(N, \ast \right)$ deux magmas.
     Une fonction $f$ de $M$ vers $N$ est dite \textit{morphisme de magmas} de $\left(M, \cdot \right)$ vers $\left(N, \ast \right)$ si elle satisfait : 
     \begin{equation*}
@@ -692,3 +714,12 @@ Un anneau ne contennat qu'un seul élément est dit \textit{nul}.
     Donc, : $a \times b \neq 0$.
 
     \done
+
+\medskip
+
+\noindent\textbf{Notation :} Soit $(A, +, \times)$ un anneau, $0_A$ son élément neutre pour $+$ et $1_A$ son élément neutre pour $\times$.
+    Si $n$ et $m$ sont deux entiers naturels et $a_n$, $a_{n+1}$, ..., $a_m$ des éléents de $A$ (aucun élément si $m < n$), alors 
+    \begin{itemize}[nosep]
+        \item On pourra noter $\sum_{i=n}^m a_i$ (où $i$ est une variable) l'élément $a_0 + a_1 + \cdots + a_m$ (ou $0_A$ si $m < n$).
+        \item On pourra noter $\prod_{i=n}^m a_i$ (où $i$ est une variable) l'élément $a_0 \times a_1 \times \cdots \times a_m$ (ou $1_A$ si $m < n$).
+    \end{itemize}
