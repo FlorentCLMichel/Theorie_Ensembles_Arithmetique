@@ -113,9 +113,17 @@ En effet, avec ces notations, soit $m$ le plus grand entier naturel tel que $u_m
                 Alors, soit $i > \mathrm{deg}(\mathbf{a})$, donc $\mathbf{a}_n = 0_A$, soit $i \leq \mathrm{deg}(\mathbf{a})$, donc $n - i \geq n - \mathrm{deg}(\mathbf{a})$, donc $n - i > \mathrm{deg}(\mathbf{b})$, donc $\mathbf{b}_n = 0_A$.
                 Dans les deux cas, on a $\mathbf{a}_i \times \mathbf{b}_{n-i} = 0_A$.
                 Donc, $\sum_{i=0}^n \mathbf{a}_i \times \mathbf{b}_{n-i} = \sum_{i=0}^n 0_A = 0_A$.
-            \item ***
+            \item Soit $n$ un entier naturel inférieur ou égal à $\mathrm{deg}(\mathbf{a}) + \mathrm{deg}(\mathbf{b})$.
+                Pour tout entier naturel $i$ inférieur ou égal à $n$ et strictement supérieur à $\mathrm{deg}(\mathbf{a})$, on a $\mathbf{a}_i = 0_A$, donc $\mathbf{a}_i \times \mathbf{b}_{n-i} = 0_A$.
+                En outre, pour tout entier naturel $i$ strictement inférieur à $n - \mathrm{deg}(\mathbf{b})$, $n - i > \mathrm{deg}(\mathbf{b})$, donc $\mathbf{b}_{n-i} = 0_A$, donc $\mathbf{a}_i \times \mathbf{b}_{n-i} = 0_A$.
+                Pour tout entier naturel $i$ inférieur ou égal à $n$, $\mathbf{a}_i \times \mathbf{b}_{n-i}$ n epeut donc être non nul que si $n - \mathrm{deg}(\mathbf{b}) \leq i \leq \mathrm{deg}(\mathbf{a})$.
+                Puisque, avec les mêmes notations $0 \leq i$, l'inégalité de gauche implique $\mathrm{max}(0, n - \mathrm{deg}(\mathbf{b})) \leq i$.
+                Puisque, avec les mêmes notations $i \leq n$, l'inégalité de droite implique $i \leq \mathrm{min}(n, \mathrm{deg}(\mathbf{a}))$.
+                On a donc $\sum_{i = 0}^n \mathbf{a}_i \times \mathbf{b}_{n-i} = \sum_{i = \mathrm{max}(0, n - \mathrm{deg}(\mathbf{b}))}^{\mathrm{min}(n, \mathrm{deg}(\mathbf{a}))} \mathbf{a}_i \times \mathbf{b}_{n-i}$, ce qui montre que $\mathbf{d}_n$ est bien le coefficnet d'indice $n$ du polynôme $\mathbf{a} \times \mathbf{b}$.
         \end{itemize}
 \end{itemize}
+
+\done
 
 \medskip
 
