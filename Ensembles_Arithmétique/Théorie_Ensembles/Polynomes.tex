@@ -4,7 +4,7 @@
 
 \noindent\textbf{Définition :} Soit $(A, +, \times)$ un anneau commutatif. 
     On note $0_A$ l'élément neutre de $A$ pour $+$, dit \textit{nul}.
-    On définit l'anneau (commutatif) des polynômes sur $(A, +, \times)$, $(\mathbf{A}, +, \times)$ de la manière suivante : 
+    On définit l'anneau (commutatif)\footnote{Voir ci-dessous pour la démonstration qu'il s'agit bien d'un anneau commutatif.} des polynômes sur $(A, +, \times)$, $(\mathbf{A}, +, \times)$ de la manière suivante : 
     \begin{itemize}[nosep]
         \item Définition de $\mathbf{A}[X]$ : Pour tout $x$, $x \in A$ si et seulement si on peut choisir un entier naturel $n$, appelé \textit{degré} de $x$ et noté $\mathrm{deg}(x)$, et $n+1$ éléments $a_0, a_1, \dots, a_n$ de $A$ tels que $x = (a_0, a_1, \cdots, a_n)$ et $a_n \neq 0_A \vee n = 0$.
             Le polynôme $(0_A)$ est dit \textit{nul}.
@@ -84,29 +84,29 @@ En effet, avec ces notations, soit $m$ le plus grand entier naturel tel que $u_m
     \item \textit{Addition :} 
         Définissons la suite $e$ d'éléments de $A$ par $e_n = \mathbf{a}_n + \mathbf{b}_n$ pour tout entier naturel $n$.
         Montrons que, pour tout entier naturel $n$, $e_n = 0_A$ si $n > \mathrm{max}(\mathrm{deg}(\mathbf{a}), \mathrm{deg}(\mathbf{b}))$ et $e_n = c_n$ sinon, où $c_n$ est définit comme dans la définition de l'addition de polynômes. 
-        Cela montrera que le polynôme dont la suite de coefficients est $e_n$ existe, et que, soit $m$ le plus grand entier naturel tel que $c_m \neq 0_A$ si un tel entier existe, ou $m = 0$ sinon, ce polynôme est $(c_0, c_1, \dots, c_m)$, c'est à dire exactement $\mathbf{a} + \mathbf{b}$.
+        Cela montrera que le polynôme dont la suite de coefficients est $e_n$ existe et que, soit $m$ le plus grand entier naturel tel que $c_m \neq 0_A$ si un tel entier existe, ou $m = 0$ sinon, ce polynôme est $(c_0, c_1, \dots, c_m)$, c'est à dire exactement $\mathbf{a} + \mathbf{b}$.
         \begin{itemize}[nosep]
             \item Si $n > \mathrm{max}(\mathrm{deg}(\mathbf{a}), \mathrm{deg}(\mathbf{b}))$, alors $n > \mathrm{deg}(\mathbf{a})$, donc $\mathbf{a}_n = 0_A$, et $n > \mathrm{deg}(\mathbf{b})$, donc $\mathbf{b}_n = 0_A$.
                 Donc, $\mathbf{a}_n + \mathbf{b}_n = 0_A$.
                 Donc, $e_n = 0_A$.
             \item Sinon, on a $n \leq \mathrm{deg}(\mathbf{a}) \vee n \leq \mathrm{deg}(\mathbf{b})$. 
-                On a alos trois possibilités.\footnote{
-                    On utilise ici le fait que, si $f$ et $g$ sont deux formules, alors $f \vee g$ est équivalente à $(f \wedge g) \vee (f \wedge (\not g)) \vee ((\not f) \wedge g)$.
+                On a alors trois possibilités.\footnote{
+                    On utilise ici le fait que, si $f$ et $g$ sont deux formules, alors $f \vee g$ est équivalente à $(f \wedge g) \vee (f \wedge (\neg g)) \vee ((\neg f) \wedge g)$.
                     (Toutes deux sont vraies si $f$ est vraie ou $g$ est vraie et fausses si $f$ et $g$ sont fausses.)
                 }
                 \begin{itemize}[nosep]
-                    \item Si $n \leq \mathrm{deg}(\mathbf{a}) \vee n > \mathrm{deg}(\mathbf{b})$, alors $\mathbf{b}_n = 0$, donc $e_n = \mathbf{a}_n$. 
+                    \item Si $n \leq \mathrm{deg}(\mathbf{a}) \wedge n > \mathrm{deg}(\mathbf{b})$, alors $\mathbf{b}_n = 0_A$, donc $e_n = \mathbf{a}_n$. 
                         Avec les notations de la définition, cela donne $e_n = a_n$.
-                    \item Si $n > \mathrm{deg}(\mathbf{a}) \vee n \leq \mathrm{deg}(\mathbf{b})$, alors $\mathbf{a}_n = 0$, donc $e_n = \mathbf{b}_n$. 
+                    \item Si $n > \mathrm{deg}(\mathbf{a}) \wedge n \leq \mathrm{deg}(\mathbf{b})$, alors $\mathbf{a}_n = 0_A$, donc $e_n = \mathbf{b}_n$. 
                         Avec les notations de la définition, cela donne $e_n = b_n$.
-                    \item Si $n \leq \mathrm{deg}(\mathbf{a}) \vee n \leq \mathrm{deg}(\mathbf{b})$, alors $e_n = \mathbf{a}_n + \mathbf{b}_n$. 
+                    \item Si $n \leq \mathrm{deg}(\mathbf{a}) \wedge n \leq \mathrm{deg}(\mathbf{b})$, alors $e_n = \mathbf{a}_n + \mathbf{b}_n$. 
                         Avec les notations de la définition, cela donne $e_n = a_n + b_n$.
                 \end{itemize}
                 Dans les trois cas, on a bien $e_n = c_n$.
         \end{itemize}
     \item \textit{Multiplication :} 
         Définissons la suite $f$ d'éléments de $A$ par $f_n = \sum_{i=0}^n \mathbf{a}_i \times \mathbf{b}_{n-i}$ pour tout entier naturel $n$.
-        Motrons que, pour tout entier naturel $n$, $f_n = 0$ si $n > \mathrm{deg}(\mathbf{a}) + \mathrm{deg}(\mathbf{b})$ (et donc $f_n = \mathbf{d}_n$) et $f_n = \mathbf{d}_n$ sinon.
+        Montrons que, pour tout entier naturel $n$, $f_n = 0$ si $n > \mathrm{deg}(\mathbf{a}) + \mathrm{deg}(\mathbf{b})$ (et donc $f_n = \mathbf{d}_n$) et $f_n = \mathbf{d}_n$ sinon.
         \begin{itemize}[nosep]
             \item Soit $n$ un entier naturel strictement supérieur à $\mathrm{deg}(\mathbf{a}) + \mathrm{deg}(\mathbf{b})$.
                 Soit $i$ un entier naturel inférieur ou égal à $n$. 
@@ -116,14 +116,19 @@ En effet, avec ces notations, soit $m$ le plus grand entier naturel tel que $u_m
             \item Soit $n$ un entier naturel inférieur ou égal à $\mathrm{deg}(\mathbf{a}) + \mathrm{deg}(\mathbf{b})$.
                 Pour tout entier naturel $i$ inférieur ou égal à $n$ et strictement supérieur à $\mathrm{deg}(\mathbf{a})$, on a $\mathbf{a}_i = 0_A$, donc $\mathbf{a}_i \times \mathbf{b}_{n-i} = 0_A$.
                 En outre, pour tout entier naturel $i$ strictement inférieur à $n - \mathrm{deg}(\mathbf{b})$, $n - i > \mathrm{deg}(\mathbf{b})$, donc $\mathbf{b}_{n-i} = 0_A$, donc $\mathbf{a}_i \times \mathbf{b}_{n-i} = 0_A$.
-                Pour tout entier naturel $i$ inférieur ou égal à $n$, $\mathbf{a}_i \times \mathbf{b}_{n-i}$ n epeut donc être non nul que si $n - \mathrm{deg}(\mathbf{b}) \leq i \leq \mathrm{deg}(\mathbf{a})$.
-                Puisque, avec les mêmes notations $0 \leq i$, l'inégalité de gauche implique $\mathrm{max}(0, n - \mathrm{deg}(\mathbf{b})) \leq i$.
+                Pour tout entier naturel $i$ inférieur ou égal à $n$, $\mathbf{a}_i \times \mathbf{b}_{n-i}$ ne peut donc être non nul que si $n - \mathrm{deg}(\mathbf{b}) \leq i \leq \mathrm{deg}(\mathbf{a})$.
+                Puisque, avec les mêmes notations, on a $0 \leq i$ puisque $i$ est un entier naturel, l'inégalité de gauche implique $\mathrm{max}(0, n - \mathrm{deg}(\mathbf{b})) \leq i$.
                 Puisque, avec les mêmes notations $i \leq n$, l'inégalité de droite implique $i \leq \mathrm{min}(n, \mathrm{deg}(\mathbf{a}))$.
-                On a donc $\sum_{i = 0}^n \mathbf{a}_i \times \mathbf{b}_{n-i} = \sum_{i = \mathrm{max}(0, n - \mathrm{deg}(\mathbf{b}))}^{\mathrm{min}(n, \mathrm{deg}(\mathbf{a}))} \mathbf{a}_i \times \mathbf{b}_{n-i}$, ce qui montre que $\mathbf{d}_n$ est bien le coefficnet d'indice $n$ du polynôme $\mathbf{a} \times \mathbf{b}$.
+                On a donc $\sum_{i = 0}^n \mathbf{a}_i \times \mathbf{b}_{n-i} = \sum_{i = \mathrm{max}(0, n - \mathrm{deg}(\mathbf{b}))}^{\mathrm{min}(n, \mathrm{deg}(\mathbf{a}))} \mathbf{a}_i \times \mathbf{b}_{n-i}$, ce qui montre que $\mathbf{d}_n$ est bien le coefficient d'indice $n$ du polynôme $\mathbf{a} \times \mathbf{b}$.
         \end{itemize}
 \end{itemize}
 
 \done
+
+\medskip
+
+\noindent\textbf{Définition :} Soit $A$ un anneau commutatif et $\mathbf{a}$ un élément de $A[X]$.
+    Pour tout entier naturel $n$, le coefficient $\mathbf{a}_n$ est appelé \emph{coefficient d'ordre $n$} du polynôme $\mathbf{a}$.
 
 \medskip
 
