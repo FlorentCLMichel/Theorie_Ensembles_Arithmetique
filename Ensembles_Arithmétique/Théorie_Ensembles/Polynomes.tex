@@ -134,12 +134,19 @@ En effet, avec ces notations, soit $m$ le plus grand entier naturel tel que $u_m
 
 \noindent\textbf{Preuve qu'il s'agit bien d'un anneau commutatif :} Montrons qu'il s'agit bien d'un anneau, avec pour éléments neutres $(0_A)$ et $(1_A)$, où $1_A$ est l'élément neutre de $A$ pour $\times$. 
 Dans cette démonstration, $\mathbf{a}$, $\mathbf{b}$ et $\mathbf{c}$ sont trois éléments arbitraires de $A[X]$.
+Nous notons $\mathbf{0}$ le polynôme $(0_A)$ et $\mathbf{1}$ le polynôme $(1_A)$.
 \begin{itemize}[nosep]
     \item \textit{$(A[X], +)$ est un groupe abélien :}
         \begin{itemize}[nosep]
             \item $(A[X], +)$ est un magma puisque $+$ est une loi de composition interne sur $A[X]$.
             \item \textit{L'opération $+$ est commutative :} ***
-            \item \textit{Le polynôme $(0_A)$ est neutre pour $+$ :} ***
+            \item \textit{Le polynôme $(0_A)$ est neutre pour $+$ :} 
+                Soit $n$ un entier naturel.
+                On a  : $(\mathbf{a} + \mathbf{0})_n = \mathbf{a}_n + \mathbf{0}_n$.
+                En outre $\mathbf{0}_n = 0_A$ (en effet, cela est vrai pour $n = 0$ par définition de $\mathbf{0}$ et pour $n > 0$ car alors $n > \mathrm{deg}(\mathbf{0})$).
+                Donc, $(\mathbf{a} + \mathbf{0})_n = \mathbf{a}_n + 0_A = \mathbf{a}_n$.
+                Cela montre que la suite des coefficients de $\mathbf{a} + \mathbf{0}$ est identique à celle de $\mathbf{a}$, et donc que $\mathbf{a} + \mathbf{0} = \mathbf{a}$.
+                Puisque l'addition de polynômes est commutatives, cela implique en outre $\mathbf{0} + \mathbf{a} = \mathbf{a}$.
             \item \textit{L'opération $+$ est associative :} ***
             \item \textit{Tout élément de $A[X]$ admet un inverse pour l'opération $+$ :}
                 Dans ce paragrahe seulement, pour tout élément $e$ de $A$, on note $\tilde{e}$ l'inverse de $e$ pour l'opération $+$ (qui existe puisque $(A, +)$ est un groupe). 
