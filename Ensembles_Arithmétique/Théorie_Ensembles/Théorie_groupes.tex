@@ -733,6 +733,49 @@ Un anneau ne contennat qu'un seul élément est dit \textit{nul}.
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau, $n$ et $m$ deux entiers naturels, et $a$ une suite d'éléments de $A$ et $b$ un élément de $A$. 
+    Alors,
+    \begin{equation*}
+        \sum_{i=n}^m (a_i \times b) = \left( \sum_{i=n}^m a_i \right) \times b 
+    \end{equation*}
+    et
+    \begin{equation*}
+        \sum_{i=n}^m (b \times a_i) = b \times \left( \sum_{i=n}^m a_i \right) .
+    \end{equation*}
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Notons $0_A$ l'élément neutre de $(A, +)$.
+    Si $m < n$, on a $\sum_{i=n}^m (a_i \times b) = 0_A$, $\left( \sum_{i=n}^m a_i \right) \times b = 0_A \times b = 0_A$, $\sum_{i=n}^m (b \times a_i) = 0_A$ et $b \times \left( \sum_{i=n}^m a_i \right) = b \times 0_A = 0_A$, donc les deux formules sont vraies.
+    Montrons par récurrence qur $m$ que cela reste le cas pour $m \geq n$.
+
+    Pour $m = n$, $\sum_{i=n}^m (a_i \times b)$ et $\left( \sum_{i=n}^m a_i \right) \times b$ sont tous deux égaux à $a_n \times b$, donc égaux, et $\sum_{i=n}^m (b \times a_i)$ et $b \times \left( \sum_{i=n}^m a_i \right)$ sont tous deux égaux à $b \times a_n$, donc égaux.
+
+    Soit $m$ un entier tel que les deux formules du lemme sont vraies.
+    Alors, 
+    \begin{equation*}
+        \sum_{i=n}^{m+1} (a_i \times b) 
+        = \left( \sum_{i=n}^m (a_i \times b) \right) + a_{m+1} \times b
+        = \left( \sum_{i=n}^m a_i \right) \times b + a_{m+1} \times b
+        = \left( \left( \sum_{i=n}^m a_i \right) + a_{m+1} \right) \times b 
+        = \left( \sum_{i=n}^{m+1} a_i \right) \times b 
+    \end{equation*}
+    et
+    \begin{equation*}
+        \sum_{i=n}^{m+1} (b \times a_i) 
+        = \left( \sum_{i=n}^m (b \times a_i) \right) + b \times a_{m+1}
+        = b \times \left( \sum_{i=n}^m a_i \right) + b \times a_{m+1}
+        = b \times \left( \left( \sum_{i=n}^m a_i \right) + a_{m+1} \right)
+        = b \times \left( \sum_{i=n}^{m+1} a_i \right) .
+    \end{equation*}
+    Ce sont les deux formulles du lemme avec $m$ remplacé par $m+1$.
+    Par récurrence, ce résultat est vrai pour tout entier $m$ supérieur ou égal à $n$.
+
+    \done
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau, $n$ et $m$ deux entiers naturels, et $a$ et $b$ deux suites d'éléments de $A$. 
     Alors,
     \begin{equation*}
@@ -742,6 +785,7 @@ Un anneau ne contennat qu'un seul élément est dit \textit{nul}.
 \medskip
 
 \noindent\textbf{Démonstration :} 
+    Notons $0_A$ l'élément neutre de $(A, +)$.
     Si $m < n$, alors $\sum_{i=n}^m (a_i + b_i) = \left( \sum_{i=n}^m a_i \right) = \left( \sum_{i=n}^m b_i \right) = 0_A$, donc le résultat est évident.
     Montrons par récurrence sur $m$ que le lemme reste vrai pour $m \geq n$.
 
@@ -758,6 +802,9 @@ Un anneau ne contennat qu'un seul élément est dit \textit{nul}.
         \sum_{i=n}^{m+1} (a_i + b_i) 
         = \left( \sum_{i=n}^m (a_i + b_i) \right) + (a_{m+1} + b_{m+1})
         = \left( \left( \sum_{i=n}^m a_i \right) + \left( \sum_{i=n}^m b_i \right) \right) + (a_{m+1} + b_{m+1})
+    \end{equation*}
+    \begin{equation*}
+        \sum_{i=n}^{m+1} (a_i + b_i) 
         = \left( \left( \sum_{i=n}^m a_i \right) + a_{m+1} \right) + \left( \left( \sum_{i=n}^m b_i \right) + b_{m+1} \right)
         = \left( \sum_{i=n}^m a_i \right) + \left( \sum_{i=n}^m b_i \right) .
     \end{equation*}
@@ -776,4 +823,49 @@ Un anneau ne contennat qu'un seul élément est dit \textit{nul}.
 
 \medskip
 
-\noindent\textbf{Démonstration :} Identiue à la précédente en remplaçant $\sum$ par $\prod$ et $+$ par $\times$.
+\noindent\textbf{Démonstration :} Identique à la précédente en remplaçant $\sum$ par $\prod$ et $+$ par $\times$.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau, $n$, $m$, $k$ et $l$ quatre entiers naturels, et $a$ et $b$ deux suites d'éléments de $A$. 
+    Alors,
+    \begin{equation*}
+        \left( \sum_{i=n}^m a_i \right) \times \left( \sum_{j=k}^l b_j \right) = \sum_{i=n}^m \sum_{j=k}^l a_i \times b_j .
+    \end{equation*}
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Notons $0_A$ l'élément neutre de $(A, +)$.
+    Si $m < n$, on a $\sum_{i=n}^m a_i = 0_A$ et $\sum_{i=n}^m \sum_{j=k}^l a_i \times b_j = 0_A$, donc les deux membres de l'égalité sont égaux à $0_A$, et donc égaux.
+    Montrons par récurrence que le résultat reste vrai pour $m \geq n$. 
+
+    Si $m = n$, on a
+    \begin{equation*}
+        \left( \sum_{i=n}^m a_i \right) \times \left( \sum_{j=k}^l b_j \right) = a_n \times \sum_{j=k}^l b_j
+    \end{equation*}
+    et
+    \begin{equation*}
+        \sum_{i=n}^m \sum_{j=k}^l a_i \times b_j = \sum_{j=k}^l a_n \times b_j = a_n \times \sum_{j=k}^l b_j,
+    \end{equation*}
+    donc le résultat est vrai.
+
+    Supposons maontenant que, pour un certain netier $m$,
+    \begin{equation*}
+        \left( \sum_{i=n}^m a_i \right) \times \left( \sum_{j=k}^l b_j \right) = \sum_{i=n}^m \sum_{j=k}^l a_i \times b_j .
+    \end{equation*}
+    Alors, 
+    \begin{equation*}
+        \left( \sum_{i=n}^{m+1} a_i \right) \times \left( \sum_{j=k}^l b_j \right)
+        = \left( \left( \sum_{i=n}^m a_i \right) + a_{m+1} \right) \times \left( \sum_{j=k}^l b_j \right)
+        = \left( \sum_{i=n}^m a_i \right) \times \left( \sum_{j=k}^l b_j \right) + a_{m+1} \times \left( \sum_{j=k}^l b_j \right)
+    \end{equation*}
+    \begin{equation*}
+        \left( \sum_{i=n}^{m+1} a_i \right) \times \left( \sum_{j=k}^l b_j \right)
+        = \left( \sum_{i=n}^m \sum_{j=k}^l a_i \times b_j \right) + \left( \sum_{j=k}^l a_{m+1} \times b_j \right)
+        = \left( \sum_{i=n}^{m+1} \sum_{j=k}^l a_i \times b_j \right) .
+    \end{equation*}
+    Le résultat reste vrai au rang $m+1$.
+    Par récurrrence, il est vrai pour tout entier $m$ tel que $m \geq n$.
+
+    \done
