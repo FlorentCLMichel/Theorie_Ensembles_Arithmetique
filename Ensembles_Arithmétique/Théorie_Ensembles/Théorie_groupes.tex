@@ -718,11 +718,11 @@ Un anneau ne contennat qu'un seul élément est dit \textit{nul}.
 
 \medskip
 
-\noindent\textbf{Notation :} Soit $(A, +, \times)$ un anneau, $0_A$ son élément neutre pour $+$ et $1_A$ son élément neutre pour $\times$.
-    Si $n$ et $m$ sont deux entiers naturels et $a_n$, $a_{n+1}$, ..., $a_m$ des éléments de $A$ (aucun élément si $m < n$), alors 
+\noindent\textbf{Notation :} Soit $(A, +, \times)$ un anneau, $0_A$ son élément neutre pour $+$ et, si l'anneau est unifère $1_A$ son élément neutre pour $\times$.
+    Si $n$ et $m$ sont deux entiers tels que $n \geq 0$ et $a_n$, $a_{n+1}$, ..., $a_m$ des éléments de $A$ (aucun élément si $m < n$), alors 
     \begin{itemize}[nosep]
         \item On pourra noter $\sum_{i=n}^m a_i$ (où $i$ est une variable) l'élément $a_0 + a_1 + \cdots + a_m$ (ou $0_A$ si $m < n$).
-        \item On pourra noter $\prod_{i=n}^m a_i$ (où $i$ est une variable) l'élément $a_0 \times a_1 \times \cdots \times a_m$ (ou $1_A$ si $m < n$).
+        \item Si $(A, +, \times est unifère)$, on pourra noter $\prod_{i=n}^m a_i$ (où $i$ est une variable) l'élément $a_0 \times a_1 \times \cdots \times a_m$ (ou $1_A$ si $m < n$).
     \end{itemize}
     On peut définir ces notations plus rigoureusement de manière suivante. 
     Soit $a$ une suite d'éléments de $A$.
@@ -775,6 +775,71 @@ Un anneau ne contennat qu'un seul élément est dit \textit{nul}.
     \done
 
 \medskip
+
+\noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau, $n$, $m$ et $k$ trois entiers naturels et $a$ une suite d'éléments de $A$. 
+    On suppose que $n \leq k \leq m$
+    Alors,
+    \begin{equation*}
+        \left( \sum_{i=n}^k a_i \right) + \left( \sum_{i=k+1}^m a_i \right) = \sum_{i=n}^m a_i
+    \end{equation*}
+    et, si $(A, +, \times)$ est unifère,
+    \begin{equation*}
+        \left( \prod_{i=n}^k a_i \right) \times \left( \prod_{i=k+1}^m a_i \right) = \prod_{i=n}^m a_i.
+    \end{equation*}
+
+\medskip
+
+\noindent\textbf{Démonstration :}  
+    On procède par récurrence sur $m$.
+    Notons $0_A$ l'élément neutres de $(A, +)$ et, si l'anneau est unifère, $1_A$ celui de $(A, \times)$.
+    Pour $m = n$, on a nécessairement $k = n$, donc $k+1 > m$ et 
+    \begin{equation*}
+        \left( \sum_{i=n}^k a_i \right) + \left( \sum_{i=k+1}^m a_i \right) 
+        = \left( \sum_{i=n}^n a_i \right) + 0_A
+        = \sum_{i=n}^n a_i 
+        = \sum_{i=n}^m a_i .
+    \end{equation*}
+    De même, si $(A, +, \times)$ est unifère, 
+    \begin{equation*}
+        \left( \prod_{i=n}^k a_i \right) \times \left( \prod_{i=k+1}^m a_i \right) 
+        = \left( \prod_{i=n}^n a_i \right) \times 1_A
+        = \prod_{i=n}^n a_i 
+        = \prod_{i=n}^m a_i .
+    \end{equation*}
+
+    Soit $m$ un entier naturel supérieur ou égal à $n$ tel que le résultat soit vrai.
+    Soit $k$ un entier tel que $n \leq k \leq m+1$. 
+    Alors, $k \leq m$ ou $ = m+1$.
+    Si $k = m+1$, alors $k+1 > m+1$, donc 
+    \begin{equation*}
+        \left( \sum_{i=n}^k a_i \right) + \left( \sum_{i=k+1}^{m+1} a_i \right)
+        = \left( \sum_{i=n}^{m+1} a_i \right) + 0_A
+        = \sum_{i=n}^{m+1} a_i 
+    \end{equation*}
+    et, si $(A, +, \times)$ est unifère, 
+    \begin{equation*}
+        \left( \prod_{i=n}^k a_i \right) \times \left( \prod_{i=k+1}^{m+1} a_i \right)
+        = \left( \prod_{i=n}^{m+1} a_i \right) \times 1_A
+        = \prod_{i=n}^{m+1} a_i .
+    \end{equation*}
+    Sinon, on a
+    \begin{equation*}
+        \left( \sum_{i=n}^k a_i \right) + \left( \sum_{i=k+1}^{m+1} a_i \right)
+        = \left( \sum_{i=n}^k a_i \right) + \left( \sum_{i=k+1}^m a_i \right) + a_{m+1}
+        = \left( \sum_{i=n}^k a_m \right) + a_{m+1}
+        = \sum_{i=n}^{m+1} a_i
+    \end{equation*}
+    et, si $(A, +, \times)$ est unifère, 
+    \begin{equation*}
+        \left( \prod_{i=n}^k a_i \right) \times \left( \prod_{i=k+1}^{m+1} a_i \right)
+        = \left( \prod_{i=n}^k a_i \right) \times \left( \prod_{i=k+1}^m a_i \right) + a_{m+1}
+        = \left( \prod_{i=n}^k a_m \right) \times a_{m+1}
+        = \prod_{i=n}^{m+1} a_i .
+    \end{equation*}
+    Le résultat attendu est donc vrai au rang $m+1$.
+    Par récurrence, il l'est pour tout entier $m$ supérieur ou égal à $n$.
+
+    \done
 
 \noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau, $n$ et $m$ deux entiers naturels, et $a$ et $b$ deux suites d'éléments de $A$. 
     Alors,
@@ -869,3 +934,86 @@ Un anneau ne contennat qu'un seul élément est dit \textit{nul}.
     Par récurrrence, il est vrai pour tout entier $m$ tel que $m \geq n$.
 
     \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau, $n$ et $m$ deux entiers naturels tels que $m \geq n$, $a$ une suite d'éléments de $A$ et $f$ une bijection de $[\![n, m]\!]$ vers lui-même. 
+    Alors,
+    \begin{equation*}
+        \sum_{i=n}^m a_{f(i)} = \sum_{i=n}^m a_i.
+    \end{equation*}
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    On procède par récurrence sur $m$. 
+    Pour $m = n$, on a $[\![n, m]\!] = \lbrace n \rbrace$, donc la seule bijection (en fait, la seule fonction) de cet ensemble vers lui-même est la fonction identité $\lbrace (n, n) \rbrace$. 
+    En notant $f$ cette fonction, on a 
+    \begin{equation*}
+        \sum_{i=n}^m a_{f(i)} = a_n = \sum_{i=n}^m a_i.
+    \end{equation*}
+
+    Soit $m$ un entier naturel supérieur ou égal à $n$ pour lequel le résultat est vrai.
+    Soit $f$ une bijection de $[\![n, m+1]\!]$ vers lui-même.
+    Soit $k$ l'unique antécédent de $m+1$ par $f$.
+    Supposons d'abord $k \leq m$.
+    On a alors : 
+    \begin{equation*}
+        \sum_{i=n}^{m+1} a_{f(i)}
+        = \sum_{i=n}^k a_{f(i)} + \sum_{i=k+1}^{m+1} a_{f(i)}
+        = \sum_{i=n}^k a_{f(i)} + \sum_{i=k+1}^m a_{f(i)} + a_{f(m+1)}.
+    \end{equation*}
+    Puisque le groupe $(A, +)$ est abélien, cela donne : 
+    \begin{equation*}
+        \sum_{i=n}^{m+1} a_{f(i)}
+        = \sum_{i=n}^{k-1} a_{f(i)} + a_{f(m+1)} + \sum_{i=k+1}^m a_{f(i)} + a_{m+1} .
+    \end{equation*}
+    Définissons la fonction $g$ de $[\![n, m]\!]$ vers lui-même de la manière suivante : pour tout élément $x$ de $[\![n, m]\!]$, $g(x) = f(x)$ si $x \neq k$ et $g(k) = f(m+1)$. 
+    On a alors : 
+    \begin{equation*}
+        \sum_{i=n}^{m+1} a_{f(i)}
+        = \sum_{i=n}^{k-1} a_{g(i)} + a_{g(k)} + \sum_{i=k+1}^m a_{g(i)} + a_{m+1} 
+        = \sum_{i=n}^k a_{g(i)} + \sum_{i=k+1}^m a_{g(i)} + a_{m+1} 
+        = \sum_{i=n}^m a_{g(i)} + a_{m+1} .
+    \end{equation*}
+    En outre, $g$ est bijective. 
+    En effet, soit $y$ un élément de $[\![n, m]\!]$, 
+    \begin{itemize}[nosep]
+        \item Si $y \neq f(m+1)$, son unique antécédent par $g$ est $f^{-1}(y)$ (qui est bien dans $[\![n, m]\!]$ puisqu'il ne peut être égal à $m+1$).
+        \item Si $y = f(m+1)$, $k$ est un antécédent de $y$, et tout autre élément $x$ de $[\![n, m]\!]$ ne peut être un antécédent de $y$ (sans quoi on aurait $f(x) = f(m+1)$), donc $y$ admet à nouveau un unique antécédent.
+    \end{itemize}
+    Donc, 
+    \begin{equation*}
+        \sum_{i=n}^{m+1} a_{f(i)}
+        = \sum_{i=n}^m a_{i} + a_{m+1} 
+        = \sum_{i=n}^{m+1} a_{i} .
+    \end{equation*}
+
+    Sinon, $k = m+1$. 
+    Définissons la fonction $g$ de $[\![n, m]\!]$ vers lui-même par $g(x) = f(x)$ pour tout élément $x$ de cet ensemble. 
+    Cette fonction est bien définie puisque, pour tout tel élément $x$, $x \neq m+1$ donc $f(x) \leq m$, et est bojective puisque, pour tout élément $y$ de $[\![n, m]\!]$, il existe un unique antécédent $x$ de $y$ par $g$—il s'agit de son unique antécédent par $f$ (qui est bien dans cet ensemble puisqu'il ne peut être égal à $m+1$, puisque $f(m+1) = m+1$). 
+    On a alors : 
+    \begin{equation*}
+        \sum_{i=n}^{m+1} a_{f(i)}
+        = \sum_{i=n}^m a_{f(i)} + a_{f(m+1)}
+        = \sum_{i=n}^m a_{f(i)} + a_{m+1}
+        = \sum_{i=n}^m a_{i} + a_{m+1}
+        = \sum_{i=n}^{m+1} a_{i}.
+    \end{equation*}
+
+    Dans les deux cas, le résultat atttendu est vrai au rang $m+1$.
+    Par récurrence, il est vrai pour tout entier $m$ supérieur ou égal à $n$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau unifère et commutatif, $n$ et $m$ deux entiers naturels tels que $m \geq n$, $a$ une suite d'éléments de $A$ et $f$ une bijection de $[\![n, m]\!]$ vers lui-même. 
+    Alors,
+    \begin{equation*}
+        \prod_{i=n}^m a_{f(i)} = \prod_{i=n}^m a_i.
+    \end{equation*}
+
+\medskip
+
+\noindent\textbf{Démonstration :} Même que ci-dessus en remplaçant $\sum$ par $\prod$ et $+$ par $\times$.
