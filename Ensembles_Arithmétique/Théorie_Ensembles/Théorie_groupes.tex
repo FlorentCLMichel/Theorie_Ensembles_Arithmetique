@@ -610,6 +610,7 @@ Soit $f$ la fonction de $[\![0, n-1]\!]$ (égal à $n$) vers $G$ définie par :
     Le triplet $(A, +, \times)$ est un \textit{anneau} si les propriétés suivantes sont satisfaites : 
     \begin{itemize}[nosep]
         \item $(A,+)$ est un groupe abélien,
+        \item $(\times, \times)$ est un magma associatif,
         \item $\times$ est distributive sur $+$ : pour tous éléments $a$, $b$ et $c$ de $A$, on a $a \times (b + c) = (a \times b) + (a \times c)$ et $(a + b) \times c = (a \times c) + (b \times c)$.
     \end{itemize}
 
@@ -718,8 +719,49 @@ Un anneau ne contennat qu'un seul élément est dit \textit{nul}.
 \medskip
 
 \noindent\textbf{Notation :} Soit $(A, +, \times)$ un anneau, $0_A$ son élément neutre pour $+$ et $1_A$ son élément neutre pour $\times$.
-    Si $n$ et $m$ sont deux entiers naturels et $a_n$, $a_{n+1}$, ..., $a_m$ des éléents de $A$ (aucun élément si $m < n$), alors 
+    Si $n$ et $m$ sont deux entiers naturels et $a_n$, $a_{n+1}$, ..., $a_m$ des éléments de $A$ (aucun élément si $m < n$), alors 
     \begin{itemize}[nosep]
         \item On pourra noter $\sum_{i=n}^m a_i$ (où $i$ est une variable) l'élément $a_0 + a_1 + \cdots + a_m$ (ou $0_A$ si $m < n$).
         \item On pourra noter $\prod_{i=n}^m a_i$ (où $i$ est une variable) l'élément $a_0 \times a_1 \times \cdots \times a_m$ (ou $1_A$ si $m < n$).
     \end{itemize}
+    On peut définir ces notations plus rigoureusement de manière suivante. 
+    Soit $a$ une suite d'éléments de $A$.
+    Soit $n$ un entier naturel.
+    Pour tout entier strictement négatif $m$, on définit $\sum_{i=n}^{n+m} a_i$ comme égal à $0_A$ et $\prod_{i=n}^{n+m} a_i$ comme égal à $1_A$.
+    On définit $\sum_{i=n}^n a_i$ et $\prod_{i=n}^n a_i$ comme égaux à $a_n$.
+    Enfin, pour tout entier naturel $m$, on définit $\sum_{i=n}^{n+(m+1)} a_i$ comme égal à $\left( \sum_{i=n}^{n+m} a_i \right) + a_{n+(m+1)}$ et $\prod_{i=n}^{n+(m+1)} a_i$ comme égal à $\left( \prod_{i=n}^{n+m} a_i \right) \times a_{n+(m+1)}$.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau, $n$ et $m$ deux entiers naturels, et $a$ et $b$ deux suites d'éléments de $A$. 
+    Alors,
+    \begin{equation*}
+        \sum_{i=n}^m (a_i + b_i) = \left( \sum_{i=n}^m a_i \right) + \left( \sum_{i=n}^m b_i \right) .
+    \end{equation*}
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Si $m < n$, alors $\sum_{i=n}^m (a_i + b_i) = \left( \sum_{i=n}^m a_i \right) = \left( \sum_{i=n}^m b_i \right) = 0_A$, donc le résultat est évident.
+    Montrons par récurrence sur $m$ que le lemme reste vrai pour $m \geq n$.
+
+    Si $m = n$, alors 
+    \begin{equation*}
+        \left( \sum_{i=n}^m a_i \right) + \left( \sum_{i=n}^m b_i \right)
+        = a_n + b_n
+        = \sum_{i=n}^m (a_i + b_i).
+    \end{equation*}
+
+    Soit $n$ et $m$ deux entiers naturels tels que l'énoncé du lemme est vrai et $m \geq n$.
+    Alors, 
+    \begin{equation*}
+        \sum_{i=n}^{m+1} (a_i + b_i) 
+        = \left( \sum_{i=n}^m (a_i + b_i) \right) + (a_{m+1} + b_{m+1})
+        = \left( \left( \sum_{i=n}^m a_i \right) + \left( \sum_{i=n}^m b_i \right) \right) + (a_{m+1} + b_{m+1})
+        = \left( \left( \sum_{i=n}^m a_i \right) + a_{m+1} \right) + \left( \left( \sum_{i=n}^m b_i \right) + b_{m+1} \right)
+        = \left( \sum_{i=n}^m a_i \right) + \left( \sum_{i=n}^m b_i \right) .
+    \end{equation*}
+    L'énoncé du lemme reste vrai en remplaçant $m$ par $m+1$.
+    Par récurrence, il est donc vrai pour tout entier $m$ supérieur ou égal à $n$. 
+
+    \done
