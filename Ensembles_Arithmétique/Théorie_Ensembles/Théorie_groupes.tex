@@ -31,8 +31,6 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
-\medskip
-
 \noindent\textbf{Lemme :} Soit $(M, +)$ un magma unifère et $e$ son élément neutre.
     Soit $n$ un entier naturel non nul.
     Alors, l'élément $(\cdots ((e + e) + e) + \cdots +e)$, où $e$ apparaît $n$ fois, est égal à $e$.
@@ -58,6 +56,12 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
     \begin{equation*}
         \forall (a,b) \in M^2, \, f (a \cdot b) = f(a) \ast f(b) .
     \end{equation*}
+
+\medskip
+
+\noindent\textbf{Définition (noyau) :} Soit $(M_1, \dot)$ un magma et $\mathcal{M}_2$ un magma unifère.  
+    Soit $0$ l'élément neutres de $\mathcal{M}_2$ et $f$ un morphisme de magmas de $(M_1, \dot)$ vers $\mathcal{M}_2$.
+    On appelle \emph{noyau} de $f$, noté $\mathrm{Ker}(f)$, l'ensemble des antécéédants de $0$ par $f$: $\mathrm{Ker}(f) = \lbrace x \in M_1 \vert f(x) = 0 \rbrace$.
 
 \medskip
 
@@ -329,7 +333,7 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \noindent\textbf{Lemme :} Soit $(M,\cdot)$ un monoïde et $a$ et $b$ deux éléments de $M$.
     On suppose que $a$ a un inverse $c$ et $b$ a un inverse $d$. 
-    ALors, $a \cdot b$ a un inverse, et son inverse est $d \cdot c$.
+    Alors, $a \cdot b$ a un inverse, et son inverse est $d \cdot c$.
 
 \medskip
 
@@ -346,12 +350,65 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $(G, \cdot)$ un groupe, $1$ son élément neutre et $a$ un élément de $G$
+    Si $a \cdot b = 1$, alors $b$ est l'inverse de $a$.
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+    Soit $c$ l'inverse de $a$.
+    On a : $c \cdot (a \cdot b) = c \cdot 1$, donc $(c \cdot a) \cdot b = c$, donc $1 \cdot b = c$, donc $b = c$.
+
+    \done
+
+\medskip
+
 \noindent\textbf{Définition (groupe abélien) :} Soit $(M,\cdot)$ un monoïde abélien. 
     Si chaque élément de $M$ admet un inverse pour $\cdot$, alors $(M,\cdot)$ est appelé \textit{groupe abélien}.
 
 \medskip
 
 \noindent\textbf{Définition (morphisme de groupes) :} Un morphisme de magmas d'un groupe vers un autre est dit \textit{morphisme de groupes}.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $(A, +)$ et $(B, \oplus)$ deux groupes. 
+    Notosns $0_A$ l'élément neutre du premier et $0_B$ celui du second. 
+    Soit $f$ un morphisme de groupes de $(A, +)$ vers $(B, \oplus)$.
+    Alors, 
+    \begin{itemize}[nosep]
+        \item $f(0_A) = 0_B$,
+        \item soit $a$ un élément de $A$ et $b$ son inverse, alors $f(b)$ est l'inverse de $f(a)$, 
+        \item $f$ est injective si et seulement si son noyau est $\lbrace 0_A \rbrace$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+    \begin{itemize}[nosep]
+        \item On a : $f(0_A) = f(0_A + 0_A) = f(0_A) \oplus f(0_A)$. 
+            Soit $c$ l'inverse de $f(0_A)$.
+            On a : $c \oplus f(0_A) = c \oplus (f(0_A) \oplus f(0_A)) = (c \oplus f(0_A)) \oplus f(0_A)$.
+            Donc, $0_B = 0_B \oplus f(0_A) = f(0_A)$.
+        \item On a : $f(a) \oplus f(b) = f(a + b) = f(0_A) = 0_B$.
+            Donc, $f(b)$ est l'inverse de $f(a)$.
+        \item 
+            \begin{itemize}[nosep]
+                \item Si $f$ est injective, $0_B$ ne peut admettre au plus qu'un antécédant pat $f$. 
+                    Puisque $0_A$ est un tel antécédant, il ne peut y en avoir d'autre, donc son noyaux est $\lbrace 0_A \rbrace$.
+                \item Supposons que le noyau de $f$ est $\lbrace 0_A \rbrace$
+                    Alors, $0_A$ est le seul antécédant de $0_B$ par $f$.
+                    Soit $a$ et $b$ deux éléments de $A$ tels que $f(a) = f(b)$. 
+                    Soit $c$ l'inverse de $a$.
+                    On a : $f(c) \oplus f(a) = f(c + a) = 0_B$.
+                    Donc, $f(c) \oplus f(b) = 0_B$.
+                    Donc, $f(c + b) = 0_B$.
+                    Donc, $c + b = 0_A$, donc $a + (c + b) = a + 0_A$, donc $(a + c) + b = a$, donc $0_A + b = a$, donc $b = a$.
+                    Cela montre que $f$ est injective.
+            \end{itemize}
+    \end{itemize}
+
+    \done
 
 \medskip
 
@@ -614,6 +671,8 @@ Soit $f$ la fonction de $[\![0, n-1]\!]$ (égal à $n$) vers $G$ définie par :
         \item $\times$ est distributive sur $+$ : pour tous éléments $a$, $b$ et $c$ de $A$, on a $a \times (b + c) = (a \times b) + (a \times c)$ et $(a + b) \times c = (a \times c) + (b \times c)$.
     \end{itemize}
 
+\medskip
+
 \noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau. 
 On note $0$ l'élément neutre de $(A, +)$.
 Pour tout élément $a$ de $A$, $0 \times a = a \times 0 = 0$.
@@ -649,6 +708,8 @@ Alors, $b = (\bar{a} \times a) \times b = \bar{a} \times (a \times b) = \bar{a} 
 
 \done
 
+\medskip
+
 \noindent\textbf{Remarque :} Cela est faux en général si on enlève l'hypothèse sur $A$. 
 Considérons par exemple l'anneau $(\mathbb{Z}_N, +, \times)$ (voir section~\ref{sub:def_Z_nZ}) où $N$ est un entier naturel strictement supérieur à $1$ non premier. 
 Soit $d$ un diviseur de $N$ distinct de $1$ et $N$, et $k$ l'entier naturel tel que $d \times k = N$. 
@@ -665,6 +726,30 @@ Soit $(A, +, \times)$ un anneau unifère, $0$ l'élément neutre de $+$, et $1$ 
 Si $0 = 1$, alors $A$ ne contient qu'un seul élément. 
 En effet, pour tout élément $a$ de $A$, on a $a = 1 \times a$, donc $a = 0 \times a$, donc $a = 0$. 
 Un anneau ne contennat qu'un seul élément est dit \textit{nul}. 
+
+\medskip
+
+\noindent\textbf{Définition (morphisme d'anneaux) :} Soit $(A, +, \times)$ et $(B, \oplus, \otimes)$ deux anneaux unifères.
+    Notons $1_A$ l'élément neutre de $A$ pour $\times$ et $1_B$ celui de $B$ pour $\otimes$.
+    Soit $f$ une fonction de $A$ vers $B$. 
+    Alors, $f$ est un \emph{morphisme d'anneaux} de $(A, +, \times)$ vers $(B, \oplus, \otimes)$ si (et seulement si)
+    \begin{itemize}[nosep]
+        \item pour tous éléments $a$ et $b$ de $A$, $f(a + b) = f(a) \oplus f(b)$,
+        \item pour tous éléments $a$ et $b$ de $A$, $f(a \times b) = f(a) \otimes f(b)$,
+        \item $f(1_A) = 1_B$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Remarque :} Soit $(A, +, \times)$ et $(B, \oplus, \otimes)$ deux anneaux unifères.
+    Notons $0_A$ l'élément neutre de $A$ pour $+$ et $0_B$ celui de $B$ pour $\oplus$.
+    Soit $f$ un morphisme d'anneaux de $(A, +, \times)$ vers $(B, \oplus, \otimes)$.
+    Alors, $f$ est un morphisme de groupes de $(A, +)$ vers $(B, \oplus)$.
+    Donc, 
+    \begin{itemize}[nosep]
+        \item $f(0_A) = 0_B$, 
+        \item soit $a$ et $b$ deux éléments de $a$ tels que $b$ est l'inverse de $a$ pour $+$, alors $f(b)$ es l'inverse de $f(a)$ pour $\oplus$.
+    \end{itemize}
 
 \medskip
 
