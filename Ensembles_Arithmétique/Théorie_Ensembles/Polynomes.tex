@@ -318,14 +318,73 @@ Nous notons $\mathbf{0}$ le polynôme $(0_A)$ et, si $(A, +, \times)$ est unifè
 
 \medskip
 
-\noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau unifère commutatif et $a$ un élément de $A$.
-    La fonction de $A[X]$ vers $A$ qui à tout élément $\mathbf{a}$ de $A[X]$ associe $\mathbf{a}(a)$ est un morphisme d'anneaux.
+\noindent\textbf{Remarque :} Soit $\mathbf{a}$ un élément de $A[X]$, $a$ la suite de ses coefficients et $d$ son degré.
+    On note $0_A$ l'élément neutre de $A$ pour $+$.
+    Pour tout entier naturel $n$ tel que $n \geq d$, on a : 
+    \begin{equation*}
+        \sum_{i=0}^n a_i x^i = \left( \sum_{i=0}^d a_i x^i \right) + \left( \sum_{i=d+1}^n a_i x^i \right)
+        = \mathbf{a}(x) + \left( \sum_{i=d+1}^n 0_A \times x^i \right)
+        = \mathbf{a}(x) + \left( \sum_{i=d+1}^n 0_A \right)
+        = \mathbf{a}(x) + 0_A
+        = \mathbf{a}(x).
+    \end{equation*}
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau unifère commutatif et $x$ un élément de $A$.
+    La fonction de $A[X]$ vers $A$ qui à tout élément $\mathbf{a}$ de $A[X]$ associe $\mathbf{a}(x)$ est un morphisme d'anneaux.
 
 \medskip
 
 \noindent\textbf{Démonstration :} 
     Notons $f$ la fonction considérée et $1_A$ l'élément neutres de $A$ pour $\times$.  
-    ***
+    \begin{itemize}[nosep]
+        \item L'élément neutre de $A[X]$ pour $\times$, $\mathbf{1}$, est le polynôme $(1_A)$. 
+            On a donc : $\mathbf{1}(x) = 1_A \times x^0 = 1_A \times 1_A = 1_A$.
+        \item Soit $\mathbf{a}$ et $\mathbf{b}$ deux éléments de $A[X]$.
+            Notons $\mathbf{c}$ l'élément de $A[X]$ défini par $\mathbf{c} = \mathbf{a} + \mathbf{b}$ et $a$, $b$, $c$ les suites des coefficients de $\mathrm{a}$, $\mathrm{b}$ et $\mathrm{c}$.
+            Soit $d$ l'entier naturel défini par : $d = \mathrm{max}(\mathrm{max}(\mathrm{deg}(\mathrm{a}), \mathrm{deg}(\mathrm{b})), \mathrm{deg}(\mathrm{c}))$.
+            Alors, $d \geq \mathrm{deg}(\mathrm{a})$, $d \geq \mathrm{deg}(\mathrm{b})$ et $d \geq \mathrm{deg}(\mathrm{c})$.
+            On a donc $\mathrm{a}(x) = \sum_{i=0}^d a_i x^i$, $\mathrm{b}(x) = \sum_{i=0}^d b_i x^i$ et $\mathrm{c}(x) = \sum_{i=0}^d c_i x^i$. 
+            Par ailleurs
+            \begin{equation*}
+                \sum_{i=0}^d c_i x^i = \sum_{i=0}^d (a_i + b_i) x^i
+                    = \sum_{i=0}^d (a_i x^i + b_i x^i)
+                    = \left( \sum_{i=0}^d a_i x^i \right) + \left( \sum_{i=0}^d b_i x^i \right) .
+            \end{equation*}
+            So, $\mathrm{c}(x) = \mathrm{a}(x) + \mathrm{b}(x)$.
+        \item Soit $\mathbf{a}$ et $\mathbf{b}$ deux éléments de $A[X]$.
+            Notons $\mathbf{c}$ l'élément de $A[X]$ défini par $\mathbf{c} = \mathbf{a} \times \mathbf{b}$ et $a$, $b$, $c$ les suites des coefficients de $\mathrm{a}$, $\mathrm{b}$ et $\mathrm{c}$.
+            Soit $d_a$ le degré de $\mathbf{a}$ et $d_b$ celui de $\mathbf{b}$. 
+            Soit $d$ l'entier naturel défini par $d = d_a + d_b$.
+            Alors, $d$ est supérieur ou égal aux degrés de $\mathbf{a}$, $\mathbf{b}$ et $\mathbf{c}$ (ce dernier étant égal à $0$ si $\mathbf{a}$ ou $\mathbf{b}$ et à $d$ sinon).
+            On a donc $\mathrm{a}(x) = \sum_{i=0}^d a_i x^i$, $\mathrm{b}(x) = \sum_{i=0}^d b_i x^i$ et $\mathrm{c}(x) = \sum_{i=0}^d c_i x^i$. 
+            Par ailleurs
+            \begin{equation*}
+                \sum_{i=0}^d c_i x^i 
+                    = \sum_{i=0}^d \left( \sum_{j=0}^i a_j b_{i-j} \right) x^i
+                    = \sum_{i=0}^d \left( \sum_{j=0}^i a_j b_{i-j} x^i \right)
+                    = \sum_{i=0}^d \left( \sum_{j=0}^i a_j x^j b_{i-j} x^{i-j} \right)
+                    = \sum_{j=0}^d \left( \sum_{i=j}^d a_j x^j b_{i-j} x^{i-j} \right).
+            \end{equation*}
+            Donc, 
+            \begin{equation*}
+                \sum_{i=0}^d c_i x^i 
+                    = \sum_{j=0}^d a_j x^j \left( \sum_{i=j}^d b_{i-j} x^{i-j} \right)
+                    = \sum_{j=0}^d a_j x^j \left( \sum_{k=0}^{d-j} b_k x^k \right).
+            \end{equation*}
+            Pour tout élément $j$ de $[\![0, d]\!]$, soit $j > d_a$ et $a_j = 0$, soit $j \leq d_a$, donc $d - j \geq d_b$, donc $b_k = 0$, pour tout entier $k$ strictement supérieur à $d-j$. 
+            Dans les deux cas, on a $a_j x^j \left( \sum_{k=0}^{d-j} b_k x^k \right) = a_j x^j \left( \sum_{k=0}^{d} b_k x^k \right)$.
+            Donc, 
+            \begin{equation*}
+                \sum_{i=0}^d c_i x^i 
+                    = \sum_{j=0}^d a_j x^j \left( \sum_{k=0}^d b_k x^k \right)
+                    = \left( \sum_{j=0}^d a_j x^j \right) \left( \sum_{k=0}^d b_k x^k \right).
+            \end{equation*}
+            Donc, $\mathbf{c}(x) = \mathbf{a}(x) \times \mathbf{b}(x)$.
+    \end{itemize}
+
+    \done
 
 \subsubsection{Degré}
 

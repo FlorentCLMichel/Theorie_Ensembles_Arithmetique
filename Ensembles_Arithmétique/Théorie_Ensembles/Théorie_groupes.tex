@@ -673,6 +673,12 @@ Soit $f$ la fonction de $[\![0, n-1]\!]$ (égal à $n$) vers $G$ définie par :
 
 \medskip
 
+\noindent\textbf{Notation :} Soit $(A, +, \times)$ un anneau. 
+    Quand il n'y a pas de confusion possible, on peut omettre le symbole $\times$ dans les formules.
+    Ainsi, si $a$ et $b$ sont deux éléments de $A$, $a \times b$ pourra s'écrire $a b$.
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau. 
 On note $0$ l'élément neutre de $(A, +)$.
 Pour tout élément $a$ de $A$, $0 \times a = a \times 0 = 0$.
@@ -807,7 +813,7 @@ Un anneau ne contennat qu'un seul élément est dit \textit{nul}.
     Si $n$ et $m$ sont deux entiers tels que $n \geq 0$ et $a_n$, $a_{n+1}$, ..., $a_m$ des éléments de $A$ (aucun élément si $m < n$), alors 
     \begin{itemize}[nosep]
         \item On pourra noter $\sum_{i=n}^m a_i$ (où $i$ est une variable) l'élément $a_0 + a_1 + \cdots + a_m$ (ou $0_A$ si $m < n$).
-        \item Si $(A, +, \times est unifère)$, on pourra noter $\prod_{i=n}^m a_i$ (où $i$ est une variable) l'élément $a_0 \times a_1 \times \cdots \times a_m$ (ou $1_A$ si $m < n$).
+        \item Si $(A, +, \times)$ est unifère, on pourra noter $\prod_{i=n}^m a_i$ (où $i$ est une variable) l'élément $a_0 \times a_1 \times \cdots \times a_m$ (ou $1_A$ si $m < n$).
     \end{itemize}
     On peut définir ces notations plus rigoureusement de manière suivante. 
     Soit $a$ une suite d'éléments de $A$.
@@ -822,7 +828,7 @@ Un anneau ne contennat qu'un seul élément est dit \textit{nul}.
 \begin{itemize}[nosep]
     \item pour tout élément $m$ de $[\![0, n-1]\!]$, $a_m = b_m$, 
     \item pour $\sum$, pour tout entier $m$ supérieur ou égal à $n$, $a_m = 0_A$, 
-    \item si $(A? +, \times)$ est unifère, pour $\prod$, pour tout entier $m$ supérieur ou égal à $n$, $a_m = 1_A$.
+    \item si $(A, +, \times)$ est unifère, pour $\prod$, pour tout entier $m$ supérieur ou égal à $n$, $a_m = 1_A$.
 \end{itemize}
 On pose alors, pour tous entiers naturels $k$ et $l$ strictement : 
 \begin{equation*}
@@ -1119,3 +1125,38 @@ et, si $(A, +, \times)$ est unifère
 \medskip
 
 \noindent\textbf{Démonstration :} Même que ci-dessus en remplaçant $\sum$ par $\prod$ et $+$ par $\times$.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau, $a$ une suite d'éléments de $A$, $n$ et $m$ deux entiers naturels tels que $m \geq n$ et $f$ une fonction de $[\![n, m]\!]^2$ vers $\mathbb{N}$.
+    Alors
+    \begin{equation*}
+        \sum_{i=n}^m \sum_{j=n}^i a_{f(i,j)}
+             = \sum_{j=n}^m \sum_{i=j}^m a_{f(i,j)} .
+    \end{equation*}
+
+\medskip
+
+\noindent\textbf{Démonstration :} On procède par récurrece sur $m$. 
+    Pour $m = n$, on a $\sum_{i=n}^m \sum_{j=n}^i a_{f(i,j)} = \sum_{j=n}^n a_{f(n,j)} = a_{f(n,n)}$ et $\sum_{j=n}^m \sum_{i=j}^m a_{f(i,j)} = \sum_{i=n}^n a_{f(i,n)} = a_{f(n,n)}$.
+    Le résultat attendu est donc vrai. 
+
+    Soit $k$ un entier naturel supérieur ou égal ) $n$ tel que le résultat est vrai pour $m = k$.
+    On a alors : 
+    \begin{equation*}
+        \sum_{i=n}^{k+1} \sum_{j=n}^i a_{f(i,j)}
+        = \left( \sum_{i=n}^k \sum_{j=n}^i a_{f(i,j)} \right) + \sum_{j=n}^{k+1} a_{f(k+1,j)}
+        = \left( \sum_{j=n}^k \sum_{i=j}^k a_{f(i,j)} \right) + \sum_{j=n}^k a_{f(k+1,j)} + a_{f(k+1,k+1)}
+        = \left( \sum_{j=n}^k \sum_{i=j}^{k+1} a_{f(i,j)} \right) + a_{f(k+1,k+1)}
+        = \left( \sum_{j=n}^k \sum_{i=j}^{k+1} a_{f(i,j)} \right) + \sum_{i=k+1}^{k+1} a_{f(k+1,j)},
+    \end{equation*}
+    d'où
+    \begin{equation*}
+        \sum_{i=n}^{k+1} \sum_{j=n}^i a_{f(i,j)}
+        = \left( \sum_{j=n}^{k+1} \sum_{i=j}^{k+1} a_{f(i,j)} \right) .
+    \end{equation*}
+    Le résultat attendu est donc vrai pour $m = k+1$.
+
+    Par récurrence, il l'est pour tout entier naturel $m$ supérieur ou égal à $n$.
+
+    \done
