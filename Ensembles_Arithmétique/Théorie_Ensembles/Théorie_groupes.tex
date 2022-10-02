@@ -1144,11 +1144,14 @@ et, si $(A, +, \times)$ est unifère
     Soit $k$ un entier naturel supérieur ou égal ) $n$ tel que le résultat est vrai pour $m = k$.
     On a alors : 
     \begin{equation*}
-        \sum_{i=n}^{k+1} \sum_{j=n}^i a_{f(i,j)}
-        = \left( \sum_{i=n}^k \sum_{j=n}^i a_{f(i,j)} \right) + \sum_{j=n}^{k+1} a_{f(k+1,j)}
-        = \left( \sum_{j=n}^k \sum_{i=j}^k a_{f(i,j)} \right) + \sum_{j=n}^k a_{f(k+1,j)} + a_{f(k+1,k+1)}
-        = \left( \sum_{j=n}^k \sum_{i=j}^{k+1} a_{f(i,j)} \right) + a_{f(k+1,k+1)}
-        = \left( \sum_{j=n}^k \sum_{i=j}^{k+1} a_{f(i,j)} \right) + \sum_{i=k+1}^{k+1} a_{f(k+1,j)},
+        \begin{aligned}
+            \sum_{i=n}^{k+1} \sum_{j=n}^i a_{f(i,j)}
+            & = \left( \sum_{i=n}^k \sum_{j=n}^i a_{f(i,j)} \right) + \sum_{j=n}^{k+1} a_{f(k+1,j)}
+            = \left( \sum_{j=n}^k \sum_{i=j}^k a_{f(i,j)} \right) + \sum_{j=n}^k a_{f(k+1,j)} + a_{f(k+1,k+1)}
+            \\
+            & = \left( \sum_{j=n}^k \sum_{i=j}^{k+1} a_{f(i,j)} \right) + a_{f(k+1,k+1)}
+            = \left( \sum_{j=n}^k \sum_{i=j}^{k+1} a_{f(i,j)} \right) + \sum_{i=k+1}^{k+1} a_{f(k+1,j)},
+        \end{aligned}
     \end{equation*}
     d'où
     \begin{equation*}

@@ -50,6 +50,14 @@ fn print_decomposition(decomposition: &[(usize, usize)]) -> String {
     chars.as_str().to_string()
 }
 
+fn number_divisors(decomposition: &[(usize, usize)]) -> usize {
+    let mut result: usize = 1;
+    for (_, b) in decomposition.iter() {
+        result *= b+1;
+    }
+    result
+}
+
 #[derive(Debug, Clone)]
 struct NotEnoughPrimesError;
 
@@ -64,14 +72,21 @@ impl std::error::Error for NotEnoughPrimesError {}
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let primes = primes_below_n(N);
-    let mut string_to_write = "".to_string();
+    let mut string_to_write_1 = "".to_string();
+    let mut string_to_write_2 = "1 1\n".to_string();
     for n in 2..=N {
-        string_to_write += &format!("${} = {}$\n\n", n, print_decomposition(&decomposition_prime_factors(n, &primes)?));
+        let decomposition = decomposition_prime_factors(n, &primes)?;
+        string_to_write_1 += &format!("${} = {}$\n\n", n, print_decomposition(&decomposition));
+        string_to_write_2 += &format!("{} {}\n", n, number_divisors(&decomposition));
     }
     
     let f_name = "output_decomposition_prime_factors.tex";
     let mut output = std::fs::File::create(f_name)?;
-    write!(output, "{}", string_to_write)?;
+    write!(output, "{}", string_to_write_1)?;
+    
+    let f_name = "output_n_divisors.csv";
+    let mut output = std::fs::File::create(f_name)?;
+    write!(output, "{}", string_to_write_2)?;
     
     Ok(())
 }
