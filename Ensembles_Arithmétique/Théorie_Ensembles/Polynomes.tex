@@ -17,18 +17,26 @@
                 \item Si $n > m$ (alors, $k = n$ et $l = m$), pour tout $i$ dans $[\![l+1, k]\!]$, $c_i = a_i$.
                 \item Si $n < m$ (alors, $k = m$ et $l = n$), pour tout $i$ dans $[\![l+1, k]\!]$, $c_i = b_i$.
             \end{itemize}
-            Si au moins un de ces éléments est différent de $0_A$, alors l'ensemble des éléments $i$ de $[\![0, k]\!]$ tels que $c_i \neq 0_A$ est un sous-ensemble non vide de $\mathbb{N}$, donc il admet un unique élément maximal $d$ ; sinon, on pose $d = 0$.
+            Si au moins un de ces éléments est différent de $0_A$, alors l'ensemble des éléments $i$ de $[\![0, k]\!]$ tels que $c_i \neq 0_A$ est un sous-ensemble non vide de $\mathbb{N}$ borné supérieurement (par $k$), donc il admet un unique élément maximal $d$ ; sinon, on pose $d = 0$.
             On définit alors $\mathbf{a} + \mathbf{b}$ par le polynôme $(c_0, c_1, \dots, c_d)$.
-            Sinon, on définit $\mathbf{a} + \mathbf{b}$ par le polynôme nul $(0_A)$.
+            Notons que, si $d=0$, alors $\mathbf{a} + \mathbf{b}$ est le polynôme nul $(0_A)$.
         \item Multiplication : Avec les mêmes notations, $\mathbf{a} \times \mathbf{b}$ est le polynôme $(d_0, d_1, \dots d_{n+m})$ défini par : pour tout élément $i$ de $[\![0, n+m]\!]$, on définit l'élément $d_i$ de $A$ par :
             \begin{equation*}
                 d_i = \sum_{j=\mathrm{max}(0,i-m)}^{\mathrm{min}(i,n)} a_j \times b_{i-j}.
             \end{equation*}
-            (Notons que cette expression est bien définie puisque $j$ est toujours compris entre $0$ et $n$ inclus et $i-j$ entre $0$ et $m$ inclus.
+            (Notons que cette expression est bien définie puisque $j$ est toujours compris entre $0$ et $n$ inclus et $i-j$ entre $0$ et $m$ inclus.%
+            \footnote{
+                En effet, pour toutes les valeurs de $j$ apparaissant dans la somme, 
+                \begin{itemize}[nosep]
+                    \item $j \geq \mathrm{max}(0, i-m)$, donc $j \geq 0$ et $j \geq i-m$, donc $i-j \leq m$, 
+                    \item $j \leq \mathrm{min}(i, n)$, donc $j \leq n$ et $j \leq i$, donc $i-j \geq 0$, 
+                \end{itemize}
+                On a donc $0 \leq j \leq n$ et $0 \leq i-j \leq m$.
+            }
             Notons aussi que $d_{n+m} = a_n \times b_m$.)
-            Si au moins un de ces éléments est différent de $0_A$, alors l'ensemble des éléments $i$ de $[\![0, n+m]\!]$ tels que $d_i \neq 0_A$ est un sous-ensemble non vide de $\mathbb{N}$, donc il admet un unique élément maximal $d$ ; sinon, on pose $d = 0$.
+            Si au moins un de ces éléments est différent de $0_A$, alors l'ensemble des éléments $i$ de $[\![0, n+m]\!]$ tels que $d_i \neq 0_A$ est un sous-ensemble non vide de $\mathbb{N}$ borné supérieureent (par $n+m$), donc il admet un unique élément maximal $d$ ; sinon, on pose $d = 0$.
             On définit alors $\mathbf{a} \times \mathbf{b}$ par le polynôme $(d_0, d_1, \dots, d_d)$.
-            Sinon, on définit $\mathbf{a} \times \mathbf{b}$ par le polynôme nul $(0_A)$.
+            Notons que, si $d=0$, alors $\mathbf{a} \times \mathbf{b}$ est le polynôme nul $(0_A)$.
     \end{itemize}
     L'ensemble des polynômes peut être noté $A[X]$ ou de manière équivalente avec $X$ remplacé par un autre symbole non encore défini. 
     Soit $n$ un entier naturel et $a_0$, $a_1$, ..., $a_n$ des éléments de $A$ tels que $n = 0$ ou $a_n \neq 0$.
