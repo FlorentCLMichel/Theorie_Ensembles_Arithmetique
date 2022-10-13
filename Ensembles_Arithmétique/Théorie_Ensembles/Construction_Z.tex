@@ -909,3 +909,34 @@ On définit les deux fonctions $\mathrm{min}$ et $\mathrm{max}$ sur $\mathbb{Z}^
     \end{aligned} \right. 
     .
 \end{equation*}
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $a$, $b$ et $c$ trois éléments de $\mathbb{Z}$. 
+    Alors, 
+    \begin{itemize}[nosep]
+        \item Si $c \leq \mathrm{min}(a,b)$, alors $c \leq a$ et $c \leq b$.
+        \item Si $c < \mathrm{min}(a,b)$, alors $c < a$ et $c < b$.
+        \item Si $c \geq \mathrm{max}(a,b)$, alors $c \geq a$ et $c \geq b$.
+        \item Si $c > \mathrm{max}(a,b)$, alors $c > a$ et $c > b$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Considérons le cas où $a \leq b$. 
+    Si $b < a$, on se ramène à ce cas en échangeant les rôles de $a$ et $b$ (puisqu'on a alors $b \leq a$), le résultat étant symétrique par échange de ces deux nombres.
+    On a alors $\mathrm{min}(a, b) = a$ et $\mathrm{max}(a, b) = b$.
+    \begin{itemize}[nosep]
+        \item Si $c \leq \mathrm{min}(a,b)$, alors $c \leq a$.
+            Puisque $a \leq b$, cela donne $c \leq b$.
+        \item Si $c < \mathrm{min}(a,b)$, alors $c < a$.
+            Puisque $a \leq b$, cela donne $c < b$.
+        \item Si $c \geq \mathrm{max}(a,b)$, alors $c \geq b$.
+            Puisque $b \geq a$, cela donne $c \geq a$.
+        \item Si $c > \mathrm{max}(a,b)$, alors $c > b$.
+            Puisque $b \geq a$, cela donne $c > a$.
+    \end{itemize}
+
+    \hfill \square
+
