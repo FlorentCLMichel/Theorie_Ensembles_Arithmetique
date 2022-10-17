@@ -58,6 +58,11 @@
 
 \medskip
 
+\noindent\textbf{Définition :} Soit $A$ un anneau commutatif et $\mathbf{a}$ un élément de $A[X]$.
+    Pour tout entier naturel $n$, le coefficient $\mathbf{a}_n$ est appelé \emph{coefficient d'ordre $n$} du polynôme $\mathbf{a}$.
+
+\medskip
+
 \noindent\textbf{Notation :} 
     Soit $(A, +, \times)$ un anneau commutatif et $0_A$ son élément neutre pour $+$.
     Pour tout élément $\mathbf{a}$ de $A[X]$, on définit la suite des coefficients de $\mathbf{a}$, également notée $\mathbf{a}$ quand il n'y a pas de confusion possible, de la manière suivante : pour tout entier naturel $i$, 
@@ -144,7 +149,7 @@ En effet, avec ces notations, soit $m$ le plus grand entier naturel tel que $u_m
                 Pour tout entier naturel $i$ inférieur ou égal à $n$, $\mathbf{a}_i \times \mathbf{b}_{n-i}$ ne peut donc être non nul que si $n - \mathrm{deg}(\mathbf{b}) \leq i \leq \mathrm{deg}(\mathbf{a})$.
                 Puisque, avec les mêmes notations, on a $0 \leq i$ puisque $i$ est un entier naturel, l'inégalité de gauche implique $\mathrm{max}(0, n - \mathrm{deg}(\mathbf{b})) \leq i$.
                 Puisque, avec les mêmes notations $i \leq n$, l'inégalité de droite implique $i \leq \mathrm{min}(n, \mathrm{deg}(\mathbf{a}))$.
-                On a donc $\sum_{i = 0}^n \mathbf{a}_i \times \mathbf{b}_{n-i} = \sum_{i = \mathrm{max}(0, n - \mathrm{deg}(\mathbf{b}))}^{\mathrm{min}(n, \mathrm{deg}(\mathbf{a}))} \mathbf{a}_i \times \mathbf{b}_{n-i}$, ce qui montre que $\mathbf{d}_n$ est bien le coefficient d'indice $n$ du polynôme $\mathbf{a} \times \mathbf{b}$.
+                On a donc $\sum_{i = 0}^n \mathbf{a}_i \times \mathbf{b}_{n-i} = \sum_{i = \mathrm{max}(0, n - \mathrm{deg}(\mathbf{b}))}^{\mathrm{min}(n, \mathrm{deg}(\mathbf{a}))} \mathbf{a}_i \times \mathbf{b}_{n-i}$, ce qui montre que $\mathbf{d}_n$ est égal à $e_n$ avec les notations de la définition de la multiplication, et donc à $\mathbf{d}_n$.
         \end{itemize}
 \end{itemize}
 
@@ -154,11 +159,6 @@ En effet, avec ces notations, soit $m$ le plus grand entier naturel tel que $u_m
 
 \noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau commutatif et unifère. 
     Alors, $(A[X], +, \times)$ est unifère.
-
-\medskip
-
-\noindent\textbf{Définition :} Soit $A$ un anneau commutatif et $\mathbf{a}$ un élément de $A[X]$.
-    Pour tout entier naturel $n$, le coefficient $\mathbf{a}_n$ est appelé \emph{coefficient d'ordre $n$} du polynôme $\mathbf{a}$.
 
 \medskip
 
@@ -410,13 +410,18 @@ Nous notons $\mathbf{0}$ le polynôme $(0_A)$ et, si $(A, +, \times)$ est unifè
     L'entier naturel $n$ est appelé \textit{degré} de $\mathbf{a}$, et peut être noté $\mathrm{deg}(\mathbf{a})$. 
 \medskip
 
-\noindent\textbf{Lemme :} Soit $\mathcal{A}$ un anneau commmutatif et $\mathbf{a}$ et $\mathbf{b}$ deux polynômes sur $\mathcal{A}$, de degrés respectifs $d_a$ et $d_b$. 
+\noindent\textbf{Lemme :} Soit $\mathcal{A}$ un anneau commmutatif et intègre.
+    Soit $\mathbf{a}$ et $\mathbf{b}$ deux polynômes sur $\mathcal{A}$, de degrés respectifs $d_a$ et $d_b$. 
     On suppose que le produit de deux éléments de l'anneau ditincts de l'élément neutre pour l'addition l'est aussi.
     Alors, $\mathbf{a} \times \mathbf{b}$ a pour degré $d_a + d_b$ sauf si $\mathbf{a}$ ou $\mathbf{b}$ est le polynôme nul, auquel cas $\mathbf{a} \times \mathbf{b}$ a pour degré $0$.
 
 \medskip
 
-\noindent\textbf{Démonstration :} Évident d'après la définition de la multiplication (avec ces notations, si ni $\mathbf{a}$ ni $\mathbf{b}$ n'est le polynôme nul, alors $d_{n+m} \neq 0_A$.).
+\noindent\textbf{Démonstration :} Évident d'après la définition de la multiplication :
+    \begin{itemize}
+        \item avec ces notations, si ni $\mathbf{a}$ ni $\mathbf{b}$ n'est le polynôme nul, alors $a_n \neq 0_A$ et $b_m \neq 0_A$, donc $d_{n+m} \neq 0_A$, 
+        \item si $\mathbf{a}$ ou $\mathbf{b}$ est le polyôme nul, alors leur produit est nul, donc de degré $0$.
+    \end{itemize}
 
 \subsubsection{Racines}
 
