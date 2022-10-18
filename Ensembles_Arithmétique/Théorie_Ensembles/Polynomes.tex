@@ -2,11 +2,11 @@
 
 \subsubsection{Définition} 
 
-\noindent\textbf{Définition :} Soit $(A, +, \times)$ un anneau commutatif. 
+\noindent\textbf{Définition :\aindex{Polynôme}} Soit $(A, +, \times)$ un anneau commutatif. 
     On note $0_A$ l'élément neutre de $A$ pour $+$.
     On définit l'anneau (commutatif)\footnote{Voir ci-dessous pour la démonstration qu'il s'agit bien d'un anneau commutatif.} des polynômes sur $(A, +, \times)$, $(\mathbf{A}, +, \times)$ de la manière suivante : 
     \begin{itemize}[nosep]
-        \item Définition de $\mathbf{A}$ : Pour tout $x$, $x \in \mathbf{A}$ si et seulement si on peut choisir un entier naturel $n$, appelé \textit{degré} de $x$ et noté $\mathrm{deg}(x)$, et $n+1$ éléments $a_0, a_1, \dots, a_n$ de $A$ tels que $x = (a_0, a_1, \cdots, a_n)$ et $a_n \neq 0_A \vee n = 0$.
+        \item Définition de $\mathbf{A}$ : Pour tout $x$, $x \in \mathbf{A}$ si et seulement si on peut choisir un entier naturel $n$, appelé \textit{degré\index{Degré}} de $x$ et noté $\mathrm{deg}(x)$, et $n+1$ éléments $a_0, a_1, \dots, a_n$ de $A$ tels que $x = (a_0, a_1, \cdots, a_n)$ et $a_n \neq 0_A \vee n = 0$.
             Autrememnt dit, l'ensemble $\mathbf{A}$ est défini par : 
             \begin{equation}
                 \forall x \, x \in \mathbf{A} \Leftrightarrow 
@@ -172,19 +172,19 @@ Nous notons $\mathbf{0}$ le polynôme $(0_A)$ et, si $(A, +, \times)$ est unifè
             \item \textit{L'opération $+$ est commutative :} 
                 Pour tout entier naturel $n$, on a (puisque $(A, +)$ est commutatif)
                 $(\mathbf{a} + \mathbf{b})_n = \mathbf{a}_n + \mathbf{b}_n = \mathbf{b}_n + \mathbf{a}_n = (\mathbf{b} + \mathbf{a})_n$.
-                Donc, les suites des coeffcients de $\mathbf{a} + \mathbf{b}$ et $\mathbf{b} + \mathbf{a}$ sont identiques.
+                Donc, les suites des coefficients de $\mathbf{a} + \mathbf{b}$ et $\mathbf{b} + \mathbf{a}$ sont identiques.
                 Donc, $\mathbf{a} + \mathbf{b} = \mathbf{b} + \mathbf{a}$.
             \item \textit{Le polynôme $(0_A)$ est neutre pour $+$ :} 
                 Soit $n$ un entier naturel.
                 On a : $(\mathbf{a} + \mathbf{0})_n = \mathbf{a}_n + \mathbf{0}_n$.
-                En outre $\mathbf{0}_n = 0_A$ (en effet, cela est vrai pour $n = 0$ par définition de $\mathbf{0}$ et pour $n > 0$ car alors $n > \mathrm{deg}(\mathbf{0})$).
+                En outre $\mathbf{0}_n = 0_A$ (en effet, cela est vrai pour $n = 0$ puisque $\mathbf{0} = (0_A)$ et pour $n > 0$ car alors $n > \mathrm{deg}(\mathbf{0})$).
                 Donc, $(\mathbf{a} + \mathbf{0})_n = \mathbf{a}_n + 0_A = \mathbf{a}_n$.
                 Cela montre que la suite des coefficients de $\mathbf{a} + \mathbf{0}$ est identique à celle de $\mathbf{a}$, et donc que $\mathbf{a} + \mathbf{0} = \mathbf{a}$.
                 Puisque l'addition de polynômes est commutatives, cela implique en outre $\mathbf{0} + \mathbf{a} = \mathbf{a}$.
             \item \textit{L'opération $+$ est associative :} 
                 Notons $\mathbf{d}$ le polynôme $\mathbf{a} + (\mathbf{b} + \mathbf{c})$ et $\mathbf{e}$ le polynôme $(\mathbf{a} + \mathbf{b}) + \mathbf{c}$. 
-                Pour tout entier naturel $n$, on a : $\mathbf{d}_n = \mathbf{a}_n + (\mathbf{b} + \mathbf{c})_n = \mathbf{a}_n + (\mathbf{b}_n + \mathbf{c}_n = (\mathbf{a}_n + \mathbf{b}_n) + \mathbf{c}_n$ (puisque $(A, +)$ est associatif), donc $\mathbf{d}_n = (\mathbf{a} + \mathbf{b})_n + \mathbf{c}_n = \mathbf{e}_n$.
-                Donc, $\mathbf{d} = \mathbf{e}$.
+                Pour tout entier naturel $n$, on a : $\mathbf{d}_n = \mathbf{a}_n + (\mathbf{b} + \mathbf{c})_n = \mathbf{a}_n + (\mathbf{b}_n + \mathbf{c}_n) = (\mathbf{a}_n + \mathbf{b}_n) + \mathbf{c}_n$ (puisque $(A, +)$ est associatif), donc $\mathbf{d}_n = (\mathbf{a} + \mathbf{b})_n + \mathbf{c}_n = \mathbf{e}_n$.
+                Cela montre que $\mathbf{d} = \mathbf{e}$.
             \item \textit{Tout élément de $A[X]$ admet un inverse pour l'opération $+$ :}
                 Dans ce paragrahe seulement, pour tout élément $e$ de $A$, on note $\tilde{e}$ l'inverse de $e$ pour l'opération $+$ (qui existe puisque $(A, +)$ est un groupe). 
                 On note $n$ le degré de $\mathbf{a}$ et $a$ la suite de ses coefficients. 
@@ -405,7 +405,7 @@ Nous notons $\mathbf{0}$ le polynôme $(0_A)$ et, si $(A, +, \times)$ est unifè
 
 \subsubsection{Degré}
 
-\noindent\textbf{Définition (degré) (rappel) :} Soit $(A, +, \times)$ un anneau commutatif et $\mathbf{a}$ un élément de $A[X]$.
+\noindent\textbf{Définition (\aindex{Degré}) (rappel) :} Soit $(A, +, \times)$ un anneau commutatif et $\mathbf{a}$ un élément de $A[X]$.
     Soit $n$ un entier naturel et $a_0$, $a_1$, ..., $a_n$ des éléments de $A$ tels que $\mathbf{a} = (a_0, a_1, \dots, a_n)$.
     L'entier naturel $n$ est appelé \textit{degré} de $\mathbf{a}$, et peut être noté $\mathrm{deg}(\mathbf{a})$. 
 \medskip

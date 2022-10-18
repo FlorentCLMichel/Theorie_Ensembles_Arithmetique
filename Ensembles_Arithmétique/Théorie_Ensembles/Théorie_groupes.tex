@@ -4,12 +4,12 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \subsubsection{Définitions}
 
-\noindent\textbf{Définition (magma) :} Un \textit{magma} $\mathcal{M}$ est un couple formé par un ensemble $M$ et une \textit{loi de composition interne} $\cdot$ sur $M$ (parfois appelée \textit{opération}), c'est-à-dire une fonction de $M \times M$ vers $M$. 
+\noindent\textbf{Définition (\aindex{Magma}) :} Un \textit{magma} $\mathcal{M}$ est un couple formé par un ensemble $M$ et une \textit{loi de composition interne} $\cdot$ sur $M$ (parfois appelée \textit{opération}), c'est-à-dire une fonction de $M \times M$ vers $M$. 
     Si $a$ et $b$ sont deux éléments de $M$, on note $a \cdot b$ l'image de $(a,b)$ par $\cdot$.
 
 \medskip
 
-\noindent\textbf{Définition (élément neutre) :} Soit $(M,\cdot)$ un magma.
+\noindent\textbf{Définition (\aindex{Élément neutre}) :} Soit $(M,\cdot)$ un magma.
     Un élément $e$ de $M$ est dit \textit{élément neutre} si 
     \begin{equation*}
         \forall m \in M, \, e \cdot m = m \wedge m \cdot e = m.
@@ -51,7 +51,7 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
-\noindent\textbf{Définition (morphisme de magmas) :} Soit $\left(M, \cdot \right)$ et $\left(N, \ast \right)$ deux magmas.
+\noindent\textbf{Définition (\aindex{Morphisme de magmas}) :} Soit $\left(M, \cdot \right)$ et $\left(N, \ast \right)$ deux magmas.
     Une fonction $f$ de $M$ vers $N$ est dite \textit{morphisme de magmas} de $\left(M, \cdot \right)$ vers $\left(N, \ast \right)$ si elle satisfait : 
     \begin{equation*}
         \forall (a,b) \in M^2, \, f (a \cdot b) = f(a) \ast f(b) .
@@ -59,13 +59,13 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
-\noindent\textbf{Définition (noyau) :} Soit $(M_1, \dot)$ un magma et $\mathcal{M}_2$ un magma unifère.  
+\noindent\textbf{Définition (\aindex{Noyau}) :} Soit $(M_1, \dot)$ un magma et $\mathcal{M}_2$ un magma unifère.  
     Soit $0$ l'élément neutres de $\mathcal{M}_2$ et $f$ un morphisme de magmas de $(M_1, \dot)$ vers $\mathcal{M}_2$.
     On appelle \emph{noyau} de $f$, noté $\mathrm{Ker}(f)$, l'ensemble des antécéédants de $0$ par $f$: $\mathrm{Ker}(f) = \lbrace x \in M_1 \vert f(x) = 0 \rbrace$.
 
 \medskip
 
-\noindent\textbf{Définition (isomorpisme de magmas) :} Soit $\mathcal{M}$ et $\mathcal{N}$ deux magmas.
+\noindent\textbf{Définition (\aindex{Isomorpisme de magmas}) :} Soit $\mathcal{M}$ et $\mathcal{N}$ deux magmas.
     Un morphise de magmas $f$ de $\mathcal{M}$ vers $\mathcal{N}$ est dit \textit{isomorphisme de magmas} s'il est également une bijection.
 
 \medskip
@@ -128,7 +128,7 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
-\noindent\textbf{Définition (associativité) :} Soit $(M,\cdot)$ un magma.
+\noindent\textbf{Définition (\aindex{Associativité}) :} Soit $(M,\cdot)$ un magma.
     La loi de composition interne $\cdot$ est dite \textit{associative} si
     \begin{equation*}
         \forall a \in M, \, \forall b \in M, \, \forall c \in M , \,  
@@ -160,7 +160,7 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
-\noindent\textbf{Définition (commutativité) :} Soit $(M,\cdot)$ un magma.
+\noindent\textbf{Définition (\aindex{Commutativité}) :} Soit $(M,\cdot)$ un magma.
     La loi de composition interne $\cdot$ est dite \textit{commutative} si
     \begin{equation*}
         \forall a \in M, \, \forall b \in M,  
@@ -191,15 +191,15 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
-\noindent\textbf{Définition (monoïde) :} Un magma unifère et associatif est appelé \textit{monoïde}.
+\noindent\textbf{Définition (\aindex{Monoïde}) :} Un magma unifère et associatif est appelé \textit{monoïde}.
 
 \medskip
 
-\noindent\textbf{Définition (monoïde abélien) :} Un magma unifère, associatif et abélien est dit \textit{monoïde abélien}.
+\noindent\textbf{Définition (\aindex{Monoïde abélien}) :} Un magma unifère, associatif et abélien est dit \textit{monoïde abélien}.
 
 \medskip
 
-\noindent\textbf{Définition (puissance) :} Soit $(M,\cdot)$ un monoïde abélien et $1$ son élément neutre.
+\noindent\textbf{Définition (\aindex{Puissance}) :} Soit $(M,\cdot)$ un monoïde abélien et $1$ son élément neutre.
     On définit la suite $\mathrm{P}$ de fonctions de $M$ vers $M$ par : 
     \begin{itemize}[nosep]
         \item pour tout élément $m$ de $M$, $P_0(m) = 1$,
@@ -272,11 +272,11 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
-\noindent\textbf{Définition (morphisme de monoïdes) :} Un morphisme de magmas d'un monoïde vers un autre est dit \textit{morphisme de monoïdes}.
+\noindent\textbf{Définition (\aindex{Morphisme de monoïdes}) :} Un morphisme de magmas d'un monoïde vers un autre est dit \textit{morphisme de monoïdes}.
 
 \medskip
 
-\noindent\textbf{Définition (isomorpisme de monoïdes) :} Un isomorphisme de magmas d'un monoïde vers un autre est dit \textit{isomorphisme de monoïdes}.
+\noindent\textbf{Définition (\aindex{Isomorpisme de monoïdes}) :} Un isomorphisme de magmas d'un monoïde vers un autre est dit \textit{isomorphisme de monoïdes}.
 
 \medskip
 
@@ -288,7 +288,7 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
-\noindent\textbf{Définition (inverse) :} Soit $(M,\cdot)$ un monoïde et $e$ son élément neutre. 
+\noindent\textbf{Définition (\aindex{Inverse}) :} Soit $(M,\cdot)$ un monoïde et $e$ son élément neutre. 
     Soit $m$ un élément de $M$. 
     Un élément $n$ de $M$ est dit \textit{inverse} de $m$ (pour $\cdot$) si $m \cdot n = e \wedge  n \cdot m = e$.
 
@@ -345,7 +345,7 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
-\noindent\textbf{Définition (groupe) :} Soit $(M,\cdot)$ un monoïde. 
+\noindent\textbf{Définition (\aindex{Groupe}) :} Soit $(M,\cdot)$ un monoïde. 
     Si chaque élément de $M$ admet un inverse pour $\cdot$, alors $(M,\cdot)$ est appelé \textit{groupe}.
 
 \medskip
@@ -363,12 +363,12 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
-\noindent\textbf{Définition (groupe abélien) :} Soit $(M,\cdot)$ un monoïde abélien. 
+\noindent\textbf{Définition (\aindex{Groupe abélien}) :} Soit $(M,\cdot)$ un monoïde abélien. 
     Si chaque élément de $M$ admet un inverse pour $\cdot$, alors $(M,\cdot)$ est appelé \textit{groupe abélien}.
 
 \medskip
 
-\noindent\textbf{Définition (morphisme de groupes) :} Un morphisme de magmas d'un groupe vers un autre est dit \textit{morphisme de groupes}.
+\noindent\textbf{Définition (\aindex{Morphisme de groupes}) :} Un morphisme de magmas d'un groupe vers un autre est dit \textit{morphisme de groupes}.
 
 \medskip
 
@@ -412,7 +412,7 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
-\noindent\textbf{Définition (isomorphisme de groupes) :} Un isomorphisme de magmas d'un groupe vers un autre est dit \textit{isomorphisme de groupes}.
+\noindent\textbf{Définition (\aindex{Isomorphisme de groupes}) :} Un isomorphisme de magmas d'un groupe vers un autre est dit \textit{isomorphisme de groupes}.
 
 \medskip
 
@@ -424,7 +424,7 @@ Dans cette section, nous donnons quelques concepts de base de théorie des group
 
 \medskip
 
-\noindent\textbf{Définition (puissance négative) :} Soit $(G,\cdot)$ un groupe abélien. 
+\noindent\textbf{Définition (\aindex{Puissance négative}) :} Soit $(G,\cdot)$ un groupe abélien. 
     Pour tout entier $n$ strictement négatif et tout élément $g$ de $G$, on note $g^n$ l'élément $h^n$, où $h$ est l'inverse de $g$.
 
 \medskip
@@ -504,7 +504,7 @@ Dans les deux cas, on a bien $(a \cdot b)^n = a^n \cdot b^n$.
 
 \medskip
 
-\noindent\textbf{Définition (cyclicité) :} Un groupe abélien $(G, \cdot)$ est dit $\textit{cyclique}$ s'il existe un élément $g$ de $G$ tel que : 
+\noindent\textbf{Définition (\aindex{Cyclicité}) :} Un groupe abélien $(G, \cdot)$ est dit $\textit{cyclique}$ s'il existe un élément $g$ de $G$ tel que : 
     \begin{equation*}
         \forall x \in G, \, \exists n \in \mathbb{N}, \, g^n = x.
     \end{equation*}
@@ -512,7 +512,7 @@ Dans les deux cas, on a bien $(a \cdot b)^n = a^n \cdot b^n$.
 
 \medskip
 
-\noindent\textbf{Définition (sous-groupe) :} Soit $(G, \cdot)$ un groupe et $H$ un sous-ensemble non-vide de $G$.
+\noindent\textbf{Définition (\aindex{Sous-groupe}) :} Soit $(G, \cdot)$ un groupe et $H$ un sous-ensemble non-vide de $G$.
     Si $(H, \cdot)$ est un groupe, alors il est dit \textit{sous-groupe} de $(G, \cdot)$.
 
 \medskip
@@ -663,7 +663,7 @@ Soit $f$ la fonction de $[\![0, n-1]\!]$ (égal à $n$) vers $G$ définie par :
 
 \subsubsection{Anneaux et corps}
 
-\noindent\textbf{Définition (anneau) :} Soit $A$ un ensemble et $+$ et $\times$ deux lois de composition interne sur $A$. 
+\noindent\textbf{Définition (\aindex{Anneau}) :} Soit $A$ un ensemble et $+$ et $\times$ deux lois de composition interne sur $A$. 
     Le triplet $(A, +, \times)$ est un \textit{anneau} si les propriétés suivantes sont satisfaites : 
     \begin{itemize}[nosep]
         \item $(A,+)$ est un groupe abélien,
@@ -723,12 +723,12 @@ Alors $d > 1$, $d < N$, $k > 1$ et $k < N$, donc $\bar{d} \ neq \bar{0}$ et $\ba
 
 \medskip
 
-\noindent\textbf{Définition (anneau unifère) :} Soit $A$ un ensemble et $+$ et $\times$ deux lois de composition interne sur $A$ tels que $(A, +, \times)$ est un anneau. 
+\noindent\textbf{Définition (\aindex{Anneau unifère}) :} Soit $A$ un ensemble et $+$ et $\times$ deux lois de composition interne sur $A$ tels que $(A, +, \times)$ est un anneau. 
     L'anneau $(A, +, \times)$ est dit \textit{unifère}, ou \textit{unitaire}, si la loi de composition interne $\times$ admet un élément neutre.
 
 \medskip
 
-\noindent\textbf{Définition :} Un anneau ne contenant qu'un seul élément est dit \textit{nul}. 
+\noindent\textbf{Définition :} Un anneau ne contenant qu'un seul élément est dit \textit{nul}\index{Anneau nul}. 
 
 \medskip
 
@@ -746,7 +746,7 @@ En effet, pour tout élément $a$ de $A$, on a $a = 1 \times a$, donc $a = 0 \ti
 
 \medskip
 
-\noindent\textbf{Définition (morphisme d'anneaux) :} Soit $(A, +, \times)$ et $(B, \oplus, \otimes)$ deux anneaux unifères.
+\noindent\textbf{Définition (\aindex{Morphisme d'anneaux}) :} Soit $(A, +, \times)$ et $(B, \oplus, \otimes)$ deux anneaux unifères.
     Notons $1_A$ l'élément neutre de $A$ pour $\times$ et $1_B$ celui de $B$ pour $\otimes$.
     Soit $f$ une fonction de $A$ vers $B$. 
     Alors, $f$ est un \emph{morphisme d'anneaux} de $(A, +, \times)$ vers $(B, \oplus, \otimes)$ si (et seulement si)
@@ -770,12 +770,12 @@ En effet, pour tout élément $a$ de $A$, on a $a = 1 \times a$, donc $a = 0 \ti
 
 \medskip
 
-\noindent\textbf{Définition (anneau commutatif) :} Soit $A$ un ensemble et $+$ et $\times$ deux lois de composition interne sur $A$ tels que $(A, +, \times)$ est un anneau. 
+\noindent\textbf{Définition (\aindex{Anneau commutatif}) :} Soit $A$ un ensemble et $+$ et $\times$ deux lois de composition interne sur $A$ tels que $(A, +, \times)$ est un anneau. 
     L'anneau $(A, +, \times)$ est dit \textit{commutatif} si la loi de composition interne $\times$ est commutative.
 
 \medskip
 
-\noindent\textbf{Définition (corps) :} Soit $K$ un ensemble et $+$ et $\times$ deux lois de composition interne sur $K$. 
+\noindent\textbf{Définition (\aindex{Corps}) :} Soit $K$ un ensemble et $+$ et $\times$ deux lois de composition interne sur $K$. 
     Le triplet $(K, +, \times)$ est un \textit{corps} si les propriétés suivantes sont satisfaites : 
     \begin{itemize}[nosep]
         \item $(A,+,\times)$ est un anneau commutatif, unifère, et non nul,

@@ -1,4 +1,7 @@
 \input{Preamblec.tex}
+\usepackage{makeidx}
+\newcommand{\aindex}[1]{#1\index{#1}} % print something and add it to the index
+\makeindex
  
 \title{Théorie des Ensembles et Arithmétique}
 \date{\today}
@@ -85,5 +88,31 @@ Cela est représenté Figure~\ref{fig:varphi_n}.
              Notons que $\varphi(1) = 1$ et, pour tout entier naturel non nul $n$, $\varphi(n) = 2$ si et seulement si $n$ est premier.}
     \label{fig:varphi_n}
 \end{figure}
+
+\clearpage
+
+% index on 3 columns
+\makeatletter
+\renewenvironment{theindex}
+  {\if@twocolumn
+      \@restonecolfalse
+   \else
+      \@restonecoltrue
+   \fi
+   \setlength{\columnseprule}{0pt}
+   \setlength{\columnsep}{35pt}
+   \begin{multicols}{3}[\section*{\indexname}]
+   \addcontentsline{toc}{section}{Index}
+   \markboth{\MakeUppercase\indexname}%
+            {\MakeUppercase\indexname}%
+   \thispagestyle{plain}
+   \setlength{\parindent}{0pt}
+   \setlength{\parskip}{0pt plus 0.3pt}
+   \relax
+   \let\item\@idxitem}%
+  {\end{multicols}\if@restonecol\onecolumn\else\clearpage\fi}
+\makeatother
+
+\printindex
 
 \bye
