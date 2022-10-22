@@ -1,7 +1,9 @@
 \input{Preamblec.tex}
-\usepackage{makeidx}
+\usepackage{splitidx}
 \newcommand{\aindex}[1]{#1\index{#1}} % print something and add it to the index
 \makeindex
+\newindex[Index]{idx}
+\newindex[Liste des symboles]{isy}
  
 \title{Théorie des Ensembles et Arithmétique}
 \date{\today}
@@ -102,7 +104,7 @@ Cela est représenté Figure~\ref{fig:varphi_n}.
    \setlength{\columnseprule}{0pt}
    \setlength{\columnsep}{35pt}
    \begin{multicols}{3}[\section*{\indexname}]
-   \addcontentsline{toc}{section}{Index}
+   \addcontentsline{toc}{section}{\indexname}
    \markboth{\MakeUppercase\indexname}%
             {\MakeUppercase\indexname}%
    \thispagestyle{plain}
@@ -113,6 +115,6 @@ Cela est représenté Figure~\ref{fig:varphi_n}.
   {\end{multicols}\if@restonecol\onecolumn\else\clearpage\fi}
 \makeatother
 
-\printindex
+\printindex*
 
 \bye

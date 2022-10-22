@@ -2,7 +2,7 @@
 
 \subsubsection{Définition} 
 
-\noindent\textbf{Définition :\aindex{Polynôme}} Soit $(A, +, \times)$ un anneau commutatif. 
+\noindent\textbf{Définition (\aindex{Polynôme}) :} Soit $(A, +, \times)$ un anneau commutatif. 
     On note $0_A$ l'élément neutre de $A$ pour $+$.
     On définit l'anneau (commutatif)\footnote{Voir ci-dessous pour la démonstration qu'il s'agit bien d'un anneau commutatif.} des polynômes sur $(A, +, \times)$, $(\mathbf{A}, +, \times)$ de la manière suivante : 
     \begin{itemize}[nosep]
@@ -177,7 +177,7 @@ Nous notons $\mathbf{0}$ le polynôme $(0_A)$ et, si $(A, +, \times)$ est unifè
             \item \textit{Le polynôme $(0_A)$ est neutre pour $+$ :} 
                 Soit $n$ un entier naturel.
                 On a : $(\mathbf{a} + \mathbf{0})_n = \mathbf{a}_n + \mathbf{0}_n$.
-                En outre $\mathbf{0}_n = 0_A$ (en effet, cela est vrai pour $n = 0$ puisque $\mathbf{0} = (0_A)$ et pour $n > 0$ car alors $n > \mathrm{deg}(\mathbf{0})$).
+                En outre $\mathbf{0}_n = 0_A$.
                 Donc, $(\mathbf{a} + \mathbf{0})_n = \mathbf{a}_n + 0_A = \mathbf{a}_n$.
                 Cela montre que la suite des coefficients de $\mathbf{a} + \mathbf{0}$ est identique à celle de $\mathbf{a}$, et donc que $\mathbf{a} + \mathbf{0} = \mathbf{a}$.
                 Puisque l'addition de polynômes est commutatives, cela implique en outre $\mathbf{0} + \mathbf{a} = \mathbf{a}$.
@@ -193,9 +193,10 @@ Nous notons $\mathbf{0}$ le polynôme $(0_A)$ et, si $(A, +, \times)$ est unifè
                 Soit $n$ un entier naturel. 
                 Si $m > n$, alors $\mathbf{a}_m = 0_A$ et $\tilde{\mathbf{a}}_m = 0_A$, donc $d_m = 0_A + 0_A = 0_A$.
                 Sinon, $d_m = a_m + \tilde{a}_m = 0_A$.
-                Donc, $d_m = 0_a$ pour tout entier naturel $m$.
+                Donc, $d_m = 0_A$ pour tout entier naturel $m$.
                 On en déduit que $\mathbf{a} + \tilde{\mathbf{a}} = \mathbf{0}_A$.
         \end{itemize}
+    \item L'opération $\times$ est une fonction de $A[X] \times A[X]$ vers $A[X]$, donc $(A[X], \times)$ est un magma.
     \item \textit{L'opération $\times$ est commutative :}
         Soit $n$ un entier naturel.
         On a puisque l'anneau $(A, +, \times)$ est commutatif : 
@@ -216,7 +217,21 @@ Nous notons $\mathbf{0}$ le polynôme $(0_A)$ et, si $(A, +, \times)$ est unifè
         Cela étant vrai pour tout entier naturel $n$, on en déduit que $\mathbf{a} \times \mathbf{b} = \mathbf{b} \times \mathbf{a}$.
     \item \textit{L'opération $\times$ est associative :}
         Notons $\mathbf{d}$ le polynôme $\mathbf{a} \times (\mathbf{b} \times \mathbf{c})$ et $\mathbf{e}$ le polynôme $(\mathbf{a} \times \mathbf{b}) \times \mathbf{c}$. 
-        Pour tout entier naturel $n$, on a : $\mathbf{d}_n = \mathbf{a}_n \times (\mathbf{b} \times \mathbf{c})_n = \mathbf{a}_n \times (\mathbf{b}_n \times \mathbf{c}_n = (\mathbf{a}_n \times \mathbf{b}_n) \times \mathbf{c}_n$ (puisque $(A, \times)$ est associatif), donc $\mathbf{d}_n = (\mathbf{a} \times \mathbf{b})_n \times \mathbf{c}_n = \mathbf{e}_n$.
+        Pour tout entier naturel $n$, on a :  
+        \begin{equation*}
+            \mathbf{d}_n = \sum_{i = 0}^n \mathbf{a}_i \times \left( \mathbf{b} \times \mathbf{c} \right)_{n-i}
+            = \sum_{i = 0}^n \mathbf{a}_i \times \left( \sum_{j=0}^{n-i} \mathbf{b}_j \times \mathbf{c}_{n-i-j} \right)
+            = \sum_{i = 0}^n \mathbf{a}_i \times \left( \sum_{j=0}^{n-i} \mathbf{b}_{n-i-j} \times \mathbf{c}_j \right)
+            = \sum_{i = 0}^n \sum_{j=0}^{n-i} \mathbf{a}_i \times \left( \mathbf{b}_{n-i-j} \times \mathbf{c}_j \right),
+        \end{equation*}
+        où on a utilisé la bijection de $[\![0, n-i]\!]$ vers lui-même $x \mapsto n-i-x$ pour obteir la seconde égalité.
+        Puisque $(A, \times)$ est associatif, cela donne : 
+        \begin{equation*}
+            \mathbf{d}_n = \sum_{i = 0}^n \sum_{j=0}^{n-i} \left( \mathbf{a}_i \times \mathbf{b}_{n-i-j} \right) \times \mathbf{c}_j
+                         = \sum_{j = 0}^n \sum_{i=0}^{n-j} \left( \mathbf{a}_i \times \mathbf{b}_{n-i-j} \right) \times \mathbf{c}_j
+                         = \sum_{j = 0}^n \left( \mathbf{a} \times \mathbf{b} \right)_{n-j} \times \mathbf{c}_j
+                         = \mathbf{e}_n.
+        \end{equation*}
         Donc, $\mathbf{d} = \mathbf{e}$.
     \item \textit{L'opération $\times$ est distributive sur $+$ :} 
         Montrons que $\mathbf{a} \times (\mathbf{b} + \mathbf{c}) = (\mathbf{a} \times \mathbf{b}) + (\mathbf{a} \times \mathbf{c})$.
@@ -331,7 +346,7 @@ Nous notons $\mathbf{0}$ le polynôme $(0_A)$ et, si $(A, +, \times)$ est unifè
 
 \noindent\textbf{Évaluation d'un polynôme :} Soit $(A, +, \times)$ un anneau commutatif et $\mathbf{a}$ un polynôme sur $A$.
     On peut choisir un entier naturel $n$ et $n+1$ éléments $a_0$, $a_2$, ..., $a_n$ de $A$ tels que $\mathbf{a} = (a_0, a_1, \dots, a_n)$.
-    Pour tout élément $a$ de $A$, on note $\mathbf{a}(a)$ l'élément $\sum_{i=0}^n a_i a^i$. 
+    Pour tout élément $e$ de $A$, on note $\mathbf{a}(e)$ l'élément $\sum_{i=0}^n a_i e^i$. 
 
 \medskip
 
@@ -359,7 +374,7 @@ Nous notons $\mathbf{0}$ le polynôme $(0_A)$ et, si $(A, +, \times)$ est unifè
         \item L'élément neutre de $A[X]$ pour $\times$, $\mathbf{1}$, est le polynôme $(1_A)$. 
             On a donc : $\mathbf{1}(x) = 1_A \times x^0 = 1_A \times 1_A = 1_A$.
         \item Soit $\mathbf{a}$ et $\mathbf{b}$ deux éléments de $A[X]$.
-            Notons $\mathbf{c}$ l'élément de $A[X]$ défini par $\mathbf{c} = \mathbf{a} + \mathbf{b}$ et $a$, $b$, $c$ les suites des coefficients de $\mathrm{a}$, $\mathrm{b}$ et $\mathrm{c}$.
+            Notons $\mathbf{c}$ l'élément de $A[X]$ défini par $\mathbf{c} = \mathbf{a} + \mathbf{b}$ et $a$, $b$, $c$ les suites des coefficients de $\mathbf{a}$, $\mathbf{b}$ et $\mathbf{c}$.
             Soit $d$ l'entier naturel défini par : $d = \mathrm{max}(\mathrm{max}(\mathrm{deg}(\mathrm{a}), \mathrm{deg}(\mathrm{b})), \mathrm{deg}(\mathrm{c}))$.
             Alors, $d \geq \mathrm{deg}(\mathrm{a})$, $d \geq \mathrm{deg}(\mathrm{b})$ et $d \geq \mathrm{deg}(\mathrm{c})$.
             On a donc $\mathrm{a}(x) = \sum_{i=0}^d a_i x^i$, $\mathrm{b}(x) = \sum_{i=0}^d b_i x^i$ et $\mathrm{c}(x) = \sum_{i=0}^d c_i x^i$. 
@@ -369,13 +384,13 @@ Nous notons $\mathbf{0}$ le polynôme $(0_A)$ et, si $(A, +, \times)$ est unifè
                     = \sum_{i=0}^d (a_i x^i + b_i x^i)
                     = \left( \sum_{i=0}^d a_i x^i \right) + \left( \sum_{i=0}^d b_i x^i \right) .
             \end{equation*}
-            So, $\mathrm{c}(x) = \mathrm{a}(x) + \mathrm{b}(x)$.
+            Donc, $\mathbf{c}(x) = \mathbf{a}(x) + \mathbf{b}(x)$.
         \item Soit $\mathbf{a}$ et $\mathbf{b}$ deux éléments de $A[X]$.
-            Notons $\mathbf{c}$ l'élément de $A[X]$ défini par $\mathbf{c} = \mathbf{a} \times \mathbf{b}$ et $a$, $b$, $c$ les suites des coefficients de $\mathrm{a}$, $\mathrm{b}$ et $\mathrm{c}$.
+            Notons $\mathbf{c}$ l'élément de $A[X]$ défini par $\mathbf{c} = \mathbf{a} \times \mathbf{b}$ et $a$, $b$, $c$ les suites des coefficients de $\mathbf{a}$, $\mathbf{b}$ et $\mathbf{c}$.
             Soit $d_a$ le degré de $\mathbf{a}$ et $d_b$ celui de $\mathbf{b}$. 
             Soit $d$ l'entier naturel défini par $d = d_a + d_b$.
-            Alors, $d$ est supérieur ou égal aux degrés de $\mathbf{a}$, $\mathbf{b}$ et $\mathbf{c}$ (ce dernier étant égal à $0$ si $\mathbf{a}$ ou $\mathbf{b}$ et à $d$ sinon).
-            On a donc $\mathrm{a}(x) = \sum_{i=0}^d a_i x^i$, $\mathrm{b}(x) = \sum_{i=0}^d b_i x^i$ et $\mathrm{c}(x) = \sum_{i=0}^d c_i x^i$. 
+            Alors, $d$ est supérieur ou égal aux degrés de $\mathbf{a}$, $\mathbf{b}$ et $\mathbf{c}$ (ce dernier étant égal à $0$ si $\mathbf{a}$ ou $\mathbf{b}$ est le polynôme nul et à $d$ sinon).
+            On a donc $\mathbf{a}(x) = \sum_{i=0}^d a_i x^i$, $\mathbf{b}(x) = \sum_{i=0}^d b_i x^i$ et $\mathbf{c}(x) = \sum_{i=0}^d c_i x^i$. 
             Par ailleurs
             \begin{equation*}
                 \sum_{i=0}^d c_i x^i 
@@ -390,7 +405,8 @@ Nous notons $\mathbf{0}$ le polynôme $(0_A)$ et, si $(A, +, \times)$ est unifè
                     = \sum_{j=0}^d a_j x^j \left( \sum_{i=j}^d b_{i-j} x^{i-j} \right)
                     = \sum_{j=0}^d a_j x^j \left( \sum_{k=0}^{d-j} b_k x^k \right).
             \end{equation*}
-            Pour tout élément $j$ de $[\![0, d]\!]$, soit $j > d_a$ et $a_j = 0$, soit $j \leq d_a$, donc $d - j \geq d_b$, donc $b_k = 0$, pour tout entier $k$ strictement supérieur à $d-j$. 
+            (Où nous avons utilisé le fait que, pour tout élément $j$ de $[\![0, d]\!]$, la fonction définie par $i \mapsto i-j$ est une bijection de $[\![j, d]\!]$ vers $[\![0, d-j]\!]$.)
+            Pour tout élément $j$ de $[\![0, d]\!]$, soit $j > d_a$ et $a_j = 0$, soit $j \leq d_a$, donc $d - j \geq d_b$, donc $b_k = 0$ pour tout entier $k$ strictement supérieur à $d-j$. 
             Dans les deux cas, on a $a_j x^j \left( \sum_{k=0}^{d-j} b_k x^k \right) = a_j x^j \left( \sum_{k=0}^{d} b_k x^k \right)$.
             Donc, 
             \begin{equation*}
@@ -408,18 +424,19 @@ Nous notons $\mathbf{0}$ le polynôme $(0_A)$ et, si $(A, +, \times)$ est unifè
 \noindent\textbf{Définition (\aindex{Degré}) (rappel) :} Soit $(A, +, \times)$ un anneau commutatif et $\mathbf{a}$ un élément de $A[X]$.
     Soit $n$ un entier naturel et $a_0$, $a_1$, ..., $a_n$ des éléments de $A$ tels que $\mathbf{a} = (a_0, a_1, \dots, a_n)$.
     L'entier naturel $n$ est appelé \textit{degré} de $\mathbf{a}$, et peut être noté $\mathrm{deg}(\mathbf{a})$. 
+    Si $a$ est la suite des éléments de $a$ et $0_A$ l'élément neutre de $A$ pour l'opération $+$, alors $d$ est le plus grand entier naturel $i$ tel que $a_i \neq 0_A$, ou $0$ si $a_i = 0$ pour tout entier naturel $i$.
+
 \medskip
 
 \noindent\textbf{Lemme :} Soit $\mathcal{A}$ un anneau commmutatif et intègre.
     Soit $\mathbf{a}$ et $\mathbf{b}$ deux polynômes sur $\mathcal{A}$, de degrés respectifs $d_a$ et $d_b$. 
-    On suppose que le produit de deux éléments de l'anneau ditincts de l'élément neutre pour l'addition l'est aussi.
     Alors, $\mathbf{a} \times \mathbf{b}$ a pour degré $d_a + d_b$ sauf si $\mathbf{a}$ ou $\mathbf{b}$ est le polynôme nul, auquel cas $\mathbf{a} \times \mathbf{b}$ a pour degré $0$.
 
 \medskip
 
 \noindent\textbf{Démonstration :} Évident d'après la définition de la multiplication :
-    \begin{itemize}
-        \item avec ces notations, si ni $\mathbf{a}$ ni $\mathbf{b}$ n'est le polynôme nul, alors $a_n \neq 0_A$ et $b_m \neq 0_A$, donc $d_{n+m} \neq 0_A$, 
+    \begin{itemize}[nosep]
+        \item avec ces notations, si ni $\mathbf{a}$ ni $\mathbf{b}$ n'est le polynôme nul, alors $a_n \neq 0_A$ et $b_m \neq 0_A$, donc $d_{n+m} \neq 0_A$ (et $d_i = 0_A$ pour tout entier naturel $i$ strictement supérieur à $n+m$ par définition de la multiplication de polynômes) ; 
         \item si $\mathbf{a}$ ou $\mathbf{b}$ est le polyôme nul, alors leur produit est nul, donc de degré $0$.
     \end{itemize}
 
