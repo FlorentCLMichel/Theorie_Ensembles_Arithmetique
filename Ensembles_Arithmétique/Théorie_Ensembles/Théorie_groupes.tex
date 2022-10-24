@@ -667,7 +667,7 @@ Soit $f$ la fonction de $[\![0, n-1]\!]$ (égal à $n$) vers $G$ définie par :
     Le triplet $(A, +, \times)$ est un \textit{anneau} si les propriétés suivantes sont satisfaites : 
     \begin{itemize}[nosep]
         \item $(A,+)$ est un groupe abélien,
-        \item $(\times, \times)$ est un magma associatif,
+        \item $(A, \times)$ est un magma associatif,
         \item $\times$ est distributive sur $+$ : pour tous éléments $a$, $b$ et $c$ de $A$, on a $a \times (b + c) = (a \times b) + (a \times c)$ et $(a + b) \times c = (a \times c) + (b \times c)$.
     \end{itemize}
 
@@ -841,7 +841,7 @@ En effet, pour tout élément $a$ de $A$, on a $a = 1 \times a$, donc $a = 0 \ti
     \item pour $\sum$, pour tout entier $m$ supérieur ou égal à $n$, $a_m = 0_A$, 
     \item si $(A, +, \times)$ est unifère, pour $\prod$, pour tout entier $m$ supérieur ou égal à $n$, $a_m = 1_A$.
 \end{itemize}
-On pose alors, pour tous entiers naturels $k$ et $l$ strictement : 
+On pose alors, pour tous entiers naturels $k$ et $l$ strictement inférieurs à $n$ : 
 \begin{equation*}
     \sum_{i=k}^l b_i = \sum_{i=k}^l a_i
 \end{equation*}
@@ -1056,68 +1056,68 @@ et, si $(A, +, \times)$ est unifère
 
 \medskip
 
-\noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau, $n$ et $m$ deux entiers naturels tels que $m \geq n$, $a$ une suite d'éléments de $A$ et $f$ une bijection de $[\![n, m]\!]$ vers lui-même. 
+\noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau, $n$, $m$, $k$ et $l$ quatre entiers naturels tels que $m \geq n$ et $k \geq l$, $a$ une suite d'éléments de $A$ et $f$ une bijection de $[\![n, m]\!]$ vers $[\![k, l]\!]$. 
     Alors,
     \begin{equation*}
-        \sum_{i=n}^m a_{f(i)} = \sum_{i=n}^m a_i.
+        \sum_{i=n}^m a_{f(i)} = \sum_{i=k}^l a_i.
     \end{equation*}
 
 \medskip
 
 \noindent\textbf{Démonstration :} 
     On procède par récurrence sur $m$. 
-    Pour $m = n$, on a $[\![n, m]\!] = \lbrace n \rbrace$, donc la seule bijection (en fait, la seule fonction) de cet ensemble vers lui-même est la fonction identité $\lbrace (n, n) \rbrace$. 
+    Pour $m = n$, on a $[\![n, m]\!] = \lbrace n \rbrace$, donc on doit avoir $k = l$ (puisque le cardinal de $[\![k, l]\!]$ doit être $1$) la seule bijection (en fait, la seule fonction) de cet ensemble vers $\lbrace k \rbrace$ est la fonction $\lbrace (n, k) \rbrace$. 
     En notant $f$ cette fonction, on a 
     \begin{equation*}
-        \sum_{i=n}^m a_{f(i)} = a_n = \sum_{i=n}^m a_i.
+        \sum_{i=n}^m a_{f(i)} = a_k = \sum_{i=k}^l a_i.
     \end{equation*}
-
+    
     Soit $m$ un entier naturel supérieur ou égal à $n$ pour lequel le résultat est vrai.
-    Soit $f$ une bijection de $[\![n, m+1]\!]$ vers lui-même.
-    Soit $k$ l'unique antécédent de $m+1$ par $f$.
-    Supposons d'abord $k \leq m$.
+    Soit $k$ et $l$ deux entiers naturels et $f$ une bijection de $[\![n, m+1]\!]$ vers $[\![k, l]\!]$.
+    Soit $p$ l'unique antécédent de $l$ par $f$.
+    Supposons d'abord $p \leq m$.
     On a alors : 
     \begin{equation*}
         \sum_{i=n}^{m+1} a_{f(i)}
-        = \sum_{i=n}^k a_{f(i)} + \sum_{i=k+1}^{m+1} a_{f(i)}
-        = \sum_{i=n}^k a_{f(i)} + \sum_{i=k+1}^m a_{f(i)} + a_{f(m+1)}.
+        = \sum_{i=n}^p a_{f(i)} + \sum_{i=p+1}^{m+1} a_{f(i)}
+        = \sum_{i=n}^{p-1} a_{f(i)} + a_l + \sum_{i=p+1}^m a_{f(i)} + a_{f(m+1)}.
     \end{equation*}
     Puisque le groupe $(A, +)$ est abélien, cela donne : 
     \begin{equation*}
         \sum_{i=n}^{m+1} a_{f(i)}
-        = \sum_{i=n}^{k-1} a_{f(i)} + a_{f(m+1)} + \sum_{i=k+1}^m a_{f(i)} + a_{m+1} .
+        = \sum_{i=n}^{p-1} a_{f(i)} + a_{f(m+1)} + \sum_{i=k+1}^m a_{f(i)} + a_l .
     \end{equation*}
-    Définissons la fonction $g$ de $[\![n, m]\!]$ vers lui-même de la manière suivante : pour tout élément $x$ de $[\![n, m]\!]$, $g(x) = f(x)$ si $x \neq k$ et $g(k) = f(m+1)$. 
+    Définissons la fonction $g$ de $[\![n, m]\!]$ vers $[\![k, l-1]\!]$ de la manière suivante : pour tout élément $x$ de $[\![n, m]\!]$, $g(x) = f(x)$ si $x \neq p$ et $g(p) = f(m+1)$. 
     On a alors : 
     \begin{equation*}
         \sum_{i=n}^{m+1} a_{f(i)}
-        = \sum_{i=n}^{k-1} a_{g(i)} + a_{g(k)} + \sum_{i=k+1}^m a_{g(i)} + a_{m+1} 
-        = \sum_{i=n}^k a_{g(i)} + \sum_{i=k+1}^m a_{g(i)} + a_{m+1} 
-        = \sum_{i=n}^m a_{g(i)} + a_{m+1} .
+        = \sum_{i=n}^{p-1} a_{g(i)} + a_{g(p)} + \sum_{i=k+1}^m a_{g(i)} + a_l
+        = \sum_{i=n}^p a_{g(i)} + \sum_{i=p+1}^m a_{g(i)} + a_l 
+        = \sum_{i=n}^m a_{g(i)} + a_l .
     \end{equation*}
     En outre, $g$ est bijective. 
-    En effet, soit $y$ un élément de $[\![n, m]\!]$, 
+    En effet, soit $y$ un élément de $[\![k, l-1]\!]$, 
     \begin{itemize}[nosep]
         \item Si $y \neq f(m+1)$, son unique antécédent par $g$ est $f^{-1}(y)$ (qui est bien dans $[\![n, m]\!]$ puisqu'il ne peut être égal à $m+1$).
-        \item Si $y = f(m+1)$, $k$ est un antécédent de $y$, et tout autre élément $x$ de $[\![n, m]\!]$ ne peut être un antécédent de $y$ (sans quoi on aurait $f(x) = f(m+1)$), donc $y$ admet à nouveau un unique antécédent.
+        \item Si $y = f(m+1)$, $p$ est un antécédent de $y$, et tout autre élément $x$ de $[\![n, m]\!]$ ne peut être un antécédent de $y$ (sans quoi on aurait $f(x) = f(m+1)$), donc $y$ admet à nouveau un unique antécédent.
     \end{itemize}
     Donc, 
     \begin{equation*}
         \sum_{i=n}^{m+1} a_{f(i)}
-        = \sum_{i=n}^m a_{i} + a_{m+1} 
-        = \sum_{i=n}^{m+1} a_{i} .
+        = \sum_{i=k}^{l-1} a_i + a_l 
+        = \sum_{i=k}^l a_i .
     \end{equation*}
 
-    Sinon, $k = m+1$. 
-    Définissons la fonction $g$ de $[\![n, m]\!]$ vers lui-même par $g(x) = f(x)$ pour tout élément $x$ de cet ensemble. 
-    Cette fonction est bien définie puisque, pour tout tel élément $x$, $x \neq m+1$ donc $f(x) \leq m$, et est bojective puisque, pour tout élément $y$ de $[\![n, m]\!]$, il existe un unique antécédent $x$ de $y$ par $g$—il s'agit de son unique antécédent par $f$ (qui est bien dans cet ensemble puisqu'il ne peut être égal à $m+1$, puisque $f(m+1) = m+1$). 
+    Sinon, $p = m+1$. 
+    Définissons la fonction $g$ de $[\![n, m]\!]$ vers $[\![k, l-1]\!]$ par $g(x) = f(x)$ pour tout élément $x$ de cet ensemble. 
+    Cette fonction est bien définie puisque, pour tout tel élément $x$, $x \neq m+1$ donc $f(x) \neq l$, et est bijective puisque, pour tout élément $y$ de $[\![n, m]\!]$, il existe un unique antécédent $x$ de $y$ par $g$—il s'agit de son unique antécédent par $f$ (qui est bien dans cet ensemble puisqu'il ne peut être égal à $m+1$, puisque $f(m+1) = l$). 
     On a alors : 
     \begin{equation*}
         \sum_{i=n}^{m+1} a_{f(i)}
         = \sum_{i=n}^m a_{f(i)} + a_{f(m+1)}
-        = \sum_{i=n}^m a_{f(i)} + a_{m+1}
-        = \sum_{i=n}^m a_{i} + a_{m+1}
-        = \sum_{i=n}^{m+1} a_{i}.
+        = \sum_{i=n}^m a_{f(i)} + a_l
+        = \sum_{i=k}^{l-1} a_i + a_l
+        = \sum_{i=k}^l a_i.
     \end{equation*}
 
     Dans les deux cas, le résultat atttendu est vrai au rang $m+1$.
@@ -1139,6 +1139,51 @@ et, si $(A, +, \times)$ est unifère
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau, $a$ une suite d'éléments de $A$, $n$, $m$, $k$ et $l$ quatre entiers naturels tels que $m \geq n$ et $k \leq l$ et $f$ une fonction de $[\![n, m]\!] \times [\![k, l]\!]$ vers $\mathbb{N}$.
+    Alors
+    \begin{equation*}
+        \sum_{i=n}^m \sum_{j=k}^l a_{f(i,j)}
+             = \sum_{j=k}^l \sum_{i=n}^m a_{f(i,j)} .
+    \end{equation*}
+
+\medskip
+
+\noindent\textbf{Démonstration :} On procède par récurrence sur $m$. 
+    Pour $m = n$, on a $\sum_{i=n}^m \sum_{j=k}^l a_{f(i,j)} = \sum_{j=k}^l a_{f(n,j)}$ et $\sum_{j=k}^l \sum_{i=j}^m a_{f(i,j)} = \sum_{j=k}^l a_{f(n,j)}$.
+    Le résultat attendu est donc vrai. 
+
+    Soit $m$ un entier naturel supérieur ou égal à $n$ tel que le résultat est vrai.
+    On a alors : 
+    \begin{equation*}
+        \begin{aligned}
+            \sum_{i=n}^{m+1} \sum_{j=k}^l a_{f(i,j)}
+            & = \left[ \sum_{i=n}^m \sum_{j=k}^l a_{f(i,j)} \right] + \sum_{j=k}^l a_{f(m+1,j)}
+              = \left[ \sum_{j=k}^l \sum_{i=n}^m a_{f(i,j)} \right] + \sum_{j=k}^l a_{f(m+1,j)}
+              \\
+            & = \sum_{j=k}^l \left[ \sum_{i=n}^{m} a_{f(i,j)} + a_{f(m+1,j)} \right]
+              = \sum_{j=k}^l \sum_{i=n}^{m+1} a_{f(i,j)}.
+        \end{aligned}
+    \end{equation*}
+    Le résultat attendu est vrai au rang $m+1$. 
+    Par récurrence, il l'est pour tout entier naturel $m$ supérieur ou égal à $n$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau unifère et commutatif commutatif, $a$ une suite d'éléments de $A$, $n$, $m$, $k$ et $l$ quatre entiers naturels tels que $m \geq n$ et $k \leq l$ et $f$ une fonction de $[\![n, m]\!] \times [\![k, l]\!]$ vers $\mathbb{N}$.
+    Alors
+    \begin{equation*}
+        \prod_{i=n}^m \sum_{j=k}^l a_{f(i,j)}
+             = \prod_{j=k}^l \sum_{i=n}^m a_{f(i,j)} .
+    \end{equation*}
+
+\medskip
+
+\noindent\textbf{Démonstration :} Même que la précédente en remplaçant $\sum$ par $\prod$ et $+$ par $\times$.
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $(A, +, \times)$ un anneau, $a$ une suite d'éléments de $A$, $n$ et $m$ deux entiers naturels tels que $m \geq n$ et $f$ une fonction de $[\![n, m]\!]^2$ vers $\mathbb{N}$.
     Alors
     \begin{equation*}
@@ -1148,11 +1193,11 @@ et, si $(A, +, \times)$ est unifère
 
 \medskip
 
-\noindent\textbf{Démonstration :} On procède par récurrece sur $m$. 
+\noindent\textbf{Démonstration :} On procède par récurrence sur $m$. 
     Pour $m = n$, on a $\sum_{i=n}^m \sum_{j=n}^i a_{f(i,j)} = \sum_{j=n}^n a_{f(n,j)} = a_{f(n,n)}$ et $\sum_{j=n}^m \sum_{i=j}^m a_{f(i,j)} = \sum_{i=n}^n a_{f(i,n)} = a_{f(n,n)}$.
     Le résultat attendu est donc vrai. 
 
-    Soit $k$ un entier naturel supérieur ou égal ) $n$ tel que le résultat est vrai pour $m = k$.
+    Soit $k$ un entier naturel supérieur ou égal à $n$ tel que le résultat est vrai pour $m = k$.
     On a alors : 
     \begin{equation*}
         \begin{aligned}
@@ -1174,3 +1219,21 @@ et, si $(A, +, \times)$ est unifère
     Par récurrence, il l'est pour tout entier naturel $m$ supérieur ou égal à $n$.
 
     \done
+
+\medskip
+
+\noindent\textbf{Remarque :} Prenons les mâmes notations et supposons $n = 0$. 
+    Puisque la fonction de $[\![0, m]\!]$ vers lui-même qui à tout élément $x$ associe $m-x$ est une bijection (chaque élément $y$ a pour unique antécédent $m-y$), on a : 
+    \begin{equation*}
+        \sum_{i=0}^m \sum_{j=0}^{m-i} a_{f(i,j)}
+             = \sum_{i=0}^m \sum_{j=n}^i a_{f(m-i,j)}
+             = \sum_{j=0}^m \sum_{i=j}^m a_{f(m-i,j)}
+             = \sum_{j=0}^m \sum_{i=0}^{m-j} a_{f(i,j)},
+    \end{equation*}
+    où, pour obtenir la dernière égalité, on a utilisé le fait que $x \mapsto m - x$ est une bijection de $[\![j, m]\!]$ vers $[\![0, m-j]\!]$.\footnote{
+    En effet, 
+    \begin{itemize}[nosep]
+        \item L'image de chaque élément de $[\![j,m]\!]$ est supérieure ou égale à $m - m$, égal à $0$, et inférieure ou égale à $m-j$.
+        \item Chaque élément $x$ de $[\![0, m-j]\!]$ a un unique antécédent $m - x$.
+    \end{itemize}
+}
