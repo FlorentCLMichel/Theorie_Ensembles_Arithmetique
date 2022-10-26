@@ -3,16 +3,16 @@
 \subsubsection{La théorie de Zermelo}
 \label{sub:Zermelo}
 
-La théorie de Zermelo, aussi dite « théorie Z » est une axiomatisation, dans le cadre de la logique du premier ordre avec égalité, de la théorie des ensembles. 
-Elle fait intervenir des objets, appelés \textit{ensembles}, et leurs relations, notamment des relations binaires. 
+La théorie de \aindex{Zermelo}, aussi dite « théorie Z » est une axiomatisation, dans le cadre de la logique du premier ordre avec égalité, de la théorie des ensembles. 
+Elle fait intervenir des objets, appelés \textit{ensembles}\index{Ensemble}, et leurs relations, notamment des relations binaires. 
 Une de ces relations est l'\textit{appartenance}, désignée par le symbole $\in$. 
 Si $x$ et $y$ sont deux ensembles, alors $x \in y$ est une proposition bien formée (il s'agit d'un terme). 
-Si elle est vraie, on dira que \textit{$x$ est un élément de $y$}, que \textit{$x$ appartient à $y$}, que \textit{$x$ est dans $y$}, que \textit{$y$ contient $x$}, ou que \textit{$y$ possède $x$}.
+Si elle est vraie, on dira que \textit{$x$ est un élément de $y$}\index{Element@Élément}, que \textit{$x$ appartient à $y$}, que \textit{$x$ est dans $y$}, que \textit{$y$ contient $x$}, ou que \textit{$y$ possède $x$}.
 On définit aussi la relation $\ni$ par : $x \ni y$ est équivalente à $y \in x$. 
 On a donc : $\forall x \, \forall y \, (x \ni y) \Leftrightarrow (y \in x)$ et la relation $\notin$ par $\forall x \, \forall y \, (x \notin y) \Leftrightarrow \neg (x \in y)$. 
 Pour l'évaluation d'une formule, les relations $\in$ et $\ni$ sont (comme toute autre relation binaire) prioritaires par rapport à l'égalité, mais pas par rapport à $\neg$.
 
-On définit la relation d'inclusion $\subset$ par : $a \subset b$ est équivalent à $\forall x \, (x \in a) \Rightarrow (x \in b)$, autrement dit,
+On définit la relation d'inclusion\index{Inclusion} $\subset$\sindex[isy]{$\subset$} par : $a \subset b$ est équivalent à $\forall x \, (x \in a) \Rightarrow (x \in b)$, autrement dit,
 \begin{equation*}
     \forall a \, \forall b \, (
         (a \subset b) \Leftrightarrow (\forall x \, (x \in a) \Rightarrow (x \in b))
@@ -21,7 +21,7 @@ On définit la relation d'inclusion $\subset$ par : $a \subset b$ est équivale
 Si $a \subset b$, on dira que \textit{$a$ est un sous-ensemble de $b$}, ou que \textit{$a$ est inclus dans $b$}.
 Notons que, pour tout ensemble $a$, $a \subset a$ est vrai.%
 \footnote{En effet, soit $x$ un ensemble, $x \in a$ a toujours la même valeur de vérité que lui-même, donc $(x \in a) \Rightarrow (x \in a)$ est vrai.}
-On définit aussi la relation $\supset$ par :
+On définit aussi la relation $\supset$\sindex[isy]{$\supset$} par :
 \begin{equation*}
     \forall a \, \forall b \, (
         (a \supset b) \Leftrightarrow (\forall x \, (x \in a) \Leftarrow (x \in b))
@@ -235,10 +235,10 @@ Puisque, pour tout $x$, la formule $(x = a) \vee (x=a)$ est équivalente à $x =
         (x \in b) \Leftrightarrow (\exists y \, ((y \in a) \wedge (x \in y)))
     ).
 \end{equation*}
-La réunion d'un ensemble $a$ (noté $b$ dans la formule ci-dessus) est notée $\cup a$.
+La réunion d'un ensemble $a$ (noté $b$ dans la formule ci-dessus) est notée $\cup a$\sindex[isy]{$\cup$}.
 Cet ensemble est unique d'après l'axiome d'extensionnalité.
 Si $a$ et $b$ sont deux ensembles, $\lbrace a, b \rbrace$ est aussi un ensemble d'après l'axiome de paire. 
-La réunion de cet ensemble est notée $a \cup b$. 
+La réunion de cet ensemble est notée $a \cup b$, et appelé \textit{union} de $a$ et $b$\index{Union}. 
 Soit $a$, $b$ et $c$ trois ensembles. 
 On note $\lb a, b, c \rb$ l'ensemble $\lbrace a, b \rbrace \cup \lbrace c \rbrace$. 
 
@@ -437,8 +437,9 @@ L'ensemble ainsi défini contient $\emptyset$, $\lbrace \emptyset \rbrace$, $\lb
 
 \subsubsection{Intersection} 
 
+\index{Intersection}
 Soit $a$ et $b$ deux ensembles. 
-On appelle \textit{intersection} de $a$ et $b$, notée $a \cap b$, l'ensemble 
+On appelle \textit{intersection} de $a$ et $b$, notée $a \cap b$\sindex[isy]{\cap}, l'ensemble 
 \begin{equation*}
     a \cap b = \lbrace x \in a \vert x \in b \rbrace. 
 \end{equation*}
@@ -714,7 +715,7 @@ On a donc $x \cap z = \emptyset$, et donc, puisque $y \in z$, $y \notin x$.
 
 \subsubsection{Couples} 
 
-\noindent\textbf{Définition :} Soit deux ensembles $x$ et $y$. D'après l'axiome de la paire, $\lbrace x \rbrace$ et $\lbrace x, y \rbrace$ existent. En utilisant à nouveau l'axiome de la paire, l'ensemble $\lbrace \lbrace x \rbrace, \lbrace x, y \rbrace \rbrace$ existe. On l'appelle le \textit{couple} de $x$ et $y$, noté $(x,y)$. 
+\noindent\textbf{Définition :} Soit deux ensembles $x$ et $y$. D'après l'axiome de la paire, $\lbrace x \rbrace$ et $\lbrace x, y \rbrace$ existent. En utilisant à nouveau l'axiome de la paire, l'ensemble $\lbrace \lbrace x \rbrace, \lbrace x, y \rbrace \rbrace$ existe. On l'appelle le \textit{couple} de $x$ et $y$, noté $(x,y)$.\index{Couple}
 
 \medskip
 
@@ -760,7 +761,7 @@ Soit $P$ le prédicat à une variables $x$ définit par :
 \begin{equation*}
     P x: \exists \alpha \, \exists \beta \, (\alpha \in a) \wedge (\beta \in b) \wedge (x = (\alpha, \beta)).
 \end{equation*}
-On note $a \times b$ et on appelle \textit{produit Cartésien de $a$ et $b$} l'ensemble des éléments de $e$ satisfaisant la propriété $P$. 
+On note $a \times b$ et on appelle \textit{produit Cartésien de $a$ et $b$} l'ensemble des éléments de $e$ satisfaisant la propriété $P$. \index{Produit Cartésien}
 Cet ensemble existe d'après le schéma d'axiomes de compréhension. 
 
 Soit $a$ et $b$ deux ensembles et $c$ un sous-ensemble de $a \times b$. 
@@ -808,7 +809,7 @@ On appelle \textit{domaine} de $c$ l'ensemble $\lbrace x \in a \vert \exists y \
 
 Soit $a$ et $b$ deux ensembles. 
 Un \textit{graphe de relation binaire} sur $a$ et $b$ est un sous-ensemble de $a \times b$. 
-À un graphe de relation binaire $G$ est associé une relation binaire $R$ définie par : $\forall a \, \forall b \, (a R b) \Leftrightarrow ((a,b) \in G)$. 
+À un graphe de relation binaire $G$ est associé une relation binaire $R$ définie par : $\forall a \, \forall b \, (a R b) \Leftrightarrow ((a,b) \in G)$. \index{Graphe}
 On dira alors que la relation $R$ est \textit{définie sur $a$ et $b$}.
 
 \subsubsection{Relation d'ordre}
@@ -819,7 +820,7 @@ Une relation binaire $\leq$ définie sur $E \times E$ est dite \textit{relation 
     \item \textit{Réflexivité :} $\forall x \, x \in E \Rightarrow x \leq x$.
     \item \textit{Antisymétrie :} $\forall x \, \forall y \, x \in E \wedge y \in E \wedge (x \leq y) \wedge (y \leq x) \Rightarrow x = y$.
     \item \textit{Transitivité :} $\forall x \, \forall y \, \forall z \, x \in E \wedge y \in E \wedge z \in E \wedge (x \leq y) \mathrel{\wedge} (y \leq z) \Rightarrow x \leq z$.
-\end{itemize}
+\end{itemize} \index{Relation d'ordre}
 Une relation d'ordre $\leq$ sur $E$ est dite \textit{relation d'ordre total} si la formule suivante est vraie : $\forall x \in E \, \forall y \in E \, (x \leq y) \vee (y \leq x)$.
 Un élément $e$ de $E$ tel que : $\forall f \, f \in E \wedge f \leq e \Rightarrow f = e$ est dit \textit{minimal} (pour l'ensemble $E$ et pour la relation $\leq$) ; on dit aussi que $E$ admet $e$ pour élément minimal pour la relation $\leq$. 
 Un élément $e$ de $E$ tel que $\forall x \in E \, e \leq x$ est dit \textit{plus petit élément}, ou \textit{minimum}, de $E$ (pour la relation $\leq$).
@@ -1272,6 +1273,7 @@ On dit que \textit{$P$ est une partition de $E$} si les quatre propriétés suiv
     \item $\forall e \, (e \in E) \Rightarrow (\exists p \, p \in P \wedge e \in p)$
     \item $\forall p \, \forall q \, (p \in P) \wedge (q \in P) \wedge ((p \cap q) \neq \emptyset) \Rightarrow (p = q)$. 
 \end{itemize}
+\index{Partition}
 
 \subsubsection{Relation d'équivalence}
 
@@ -1282,6 +1284,7 @@ Une relation binaire $\sim$ définie sur $E \times E$ est dite \textit{relation 
     \item \textit{Symétrie :} $\forall x \, \forall y \, (x \in E) \wedge (y \in E) \wedge (x \sim y) \Rightarrow (y \sim x)$.
     \item \textit{Transitivité :} $\forall x \, \forall y \, \forall z \, (x \in E) \wedge (y \in E) \wedge (z \in E) \wedge (x \sim y) \wedge (y \sim z) \Rightarrow (x \sim z)$. 
 \end{itemize}
+\index{Relation d'equivalence@Relation d'équivalence}
 
 Soit $E$ un ensemble et $\sim$ une relation d'équivalence sur $E$. 
 Pour tout $x \in E$, on définit la \textit{classe d'équivalence} de $x$ pour $\sim$, notée ici $[x]$, par : $[x] = \lbrace y \in E \vert y \sim x \rbrace$. 
@@ -1329,6 +1332,8 @@ Vérifions qu'il satisfait les quatre propriétés d'une partition de $E$.
 
 \subsubsection{Fonctions}
 \label{sub:fonctions}
+
+\index{Fonction}
 
 Soit $a$ un ensemble. 
 La séquence de symboles « $\forall x \, (x \in a) \Rightarrow$ » incluse dans une formule est parfois simplifiée en « $\forall x \in a$ » ou en « $\forall x \in a,$ ».
