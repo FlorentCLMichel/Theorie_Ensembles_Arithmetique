@@ -49,26 +49,41 @@
 \definecolor{darkblue}{RGB}{0,0,100}
 \colorlet{linkcolor}{lblue}
 \tcbset{colback=white, colframe=black,
-        highlight math style= {enhanced, colframe=black,colback=white,boxsep=0pt}}
+        highlight math style= {enhanced, colframe=black, colback=white, boxsep=0pt}}
 \usepackage{textcomp}
+\usepackage[outputdir=build]{minted}
+\usemintedstyle{monokai}
+\definecolor{codeBg}{RGB}{0, 15, 30}
+\setminted{
+    breaklines=true,
+    encoding=utf8,
+    fontsize=\small,
+    bgcolor=codeBg
+}
 \usepackage{listings, listings-rust}
-\definecolor{codecomment}{rgb}{0,0.6,0}
-\definecolor{codenumber}{rgb}{0.5,0.5,0.5}
-\definecolor{codestring}{rgb}{0.58,0,0.82}
-\definecolor{codekey}{RGB}{16,77,147}
-\definecolor{codebackcolour}{rgb}{0.95,0.95,0.92}
+%\definecolor{codecomment}{rgb}{0,0.6,0}
+%\definecolor{codenumber}{rgb}{0.5,0.5,0.5}
+%\definecolor{codestring}{rgb}{0.58,0,0.82}
+%\definecolor{codekey}{RGB}{16,77,147}
+%\definecolor{codebackcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{codecomment}{RGB}{230, 219, 116}
+\definecolor{codenumber}{rgb}{0, 0, 0}
+\definecolor{codestring}{RGB}{230, 219, 116}
+\definecolor{codekey}{RGB}{255, 0, 255}
+\definecolor{codebackcolour}{RGB}{0, 10, 20}
+\definecolor{codenormalcolour}{RGB}{248, 248, 242}
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{codebackcolour},   
     commentstyle=\color{codecomment},
     keywordstyle=\color{codekey},
     numberstyle=\tiny\color{codenumber},
     stringstyle=\color{codestring},
-    basicstyle=\ttfamily\small,
+    rulecolor=\color{black},
     columns=fullflexible,
     breakatwhitespace=false,         
-    breaklines=true,                 
+    breaklines=true,
     captionpos=b,                    
-    keepspaces=true,                 
+    keepspaces=true,         
     %numbers=left,                    
     %numbersep=5pt,                  
     showspaces=false,                
@@ -83,7 +98,7 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
-\usetikzlibrary{calc,tikzmark,arrows.meta,shapes}
+\usetikzlibrary{calc, tikzmark, arrows.meta, shapes, positioning}
 \tikzstyle{na} = [baseline=-.5ex]
 \usepackage{caption}
 \usepackage{xr-hyper}
@@ -97,6 +112,9 @@
     \ref{#1}%
   \endgroup
 }
+
+% format for footnotes
+\deffootnote[\dimexpr1mm+7.5pt\relax]{\dimexpr1mm+0.5pt\relax}{1em}{\thefootnotemark~}
 
 \newcommand\mleft{\mathopen{}\mathclose\bgroup\left}
 \newcommand\mright{\aftergroup\egroup\right}
