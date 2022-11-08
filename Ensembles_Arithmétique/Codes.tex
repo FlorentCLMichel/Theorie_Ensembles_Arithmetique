@@ -49,11 +49,13 @@ La fonction \texttt{findNPrimes} ci-dessous prend un entier naturel $N$ en argum
 \medskip
 
 \noindent Version C du test de primalité: 
+\textattachfile{Ensembles_Arithmétique/Code/is_prime.c}{is\_prime.c}
 \inputminted{C}{Ensembles_Arithmétique/Code/is_prime.c}
 
 \medskip
 
 \noindent Version Rust du test de primalité: 
+\textattachfile{Ensembles_Arithmétique/Code/is_prime.rs}{is\_prime.rs}
 \inputminted{Rust}{Ensembles_Arithmétique/Code/is_prime.rs}
 
 \subsection{PGCD}
@@ -71,11 +73,13 @@ pgcd n m | n < m = pgcd m n
 \medskip
 
 \noindent Version C: 
+\textattachfile{Ensembles_Arithmétique/Code/pgcd.c}{pgcd.c}
 \inputminted{C}{Ensembles_Arithmétique/Code/pgcd.c}
 
 \medskip
 
 \noindent Version Rust: 
+\textattachfile{Ensembles_Arithmétique/Code/pgcd.rs}{pgcd.rs}
 \inputminted{Rust}{Ensembles_Arithmétique/Code/pgcd.rs}
 
 \subsection{Crible d'Érastosthène}
@@ -86,6 +90,7 @@ Il s'agit d'un algorithme permettant de trouver tous les nombres premiers infèr
 \bigskip
 
 \noindent Version C++: 
+\textattachfile{Ensembles_Arithmétique/Code/Érastosthène.cpp}{Érastosthène.cpp}
 \inputminted{C++}{Ensembles_Arithmétique/Code/Érastosthène.cpp}
 
 \bigskip
@@ -95,4 +100,5 @@ Il s'agit d'un algorithme permettant de trouver tous les nombres premiers infèr
     Nous définissons donc des fonctions auxiliaires afin de pouvoir représenter huit \texttt{bool}s pour chaque octet, afin de ne pas utiliser plus de mémoire que nécessaire.
     Le compilateur g++ 7.5.0 avec lequel la version C++ a été testée optimise les vecteurs de type \texttt{bool} pour que chaque entrée ne prenne (en moyenne et pour de grands vecteurs) qu'un bit de mémoire ; il n'est donc pas besoin, pour cette version, d'employer des fonctions auxiliaires. 
 }: 
+\textattachfile{Ensembles_Arithmétique/Code/Érastosthène.rs}{Érastosthène.rs}
 \inputminted{Rust}{Ensembles_Arithmétique/Code/Érastosthène.rs}
