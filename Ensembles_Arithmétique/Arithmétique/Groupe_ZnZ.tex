@@ -1,4 +1,4 @@
-\subsection{Les groupes \texorpdfstring{$\mathbb{Z}_n$}{Zn} et \texorpdfstring{$\mathbb{Z}_p^*$}{Zp*}}
+\subsection{Les groupes \texorpdfstring{$\mathbb{Z}_n$}{Zn} et \texorpdfstring{$\mathbb{Z}_n^*$}{Zn*}}
 
 \subsubsection{Définition de \texorpdfstring{$\mathbb{Z}_n$}{Zn}}
 \label{sub:def_Z_nZ}
@@ -31,7 +31,20 @@ On définit (dans cette section seulement) la relation $R_n$ sur $\mathbb{Z}$ de
 
 \medskip
 
-Dans cette section, pour tout entier $m$, on note $\bar{m}$ la classe d'équivalence de $n$ pour la relation $R_n$.
+Dans cette section et les deux suivantes, pour tout entier $m$, on note $\bar{m}$ la classe d'équivalence de $n$ pour la relation $R_n$.
+Notons que chaque classe d'équivalence a un unique représentant dans l'intervalle $[\![0, n-1]\!]$. 
+En effet,
+\begin{itemize}[nosep]
+    \item \emph{Existence :} Soit $x$ une classe d'équivalence et $k$ un de ses éléments.
+        Soit $r$ le reste de la division euclidienne de $k$ par $n$.
+        Alors, $k - r \equiv 0 \, [n]$, donc $r \in x$, et $r \in [\![0, n-1]\!]$ par définition.
+    \item \emph{Unicité :} Soit $k$ et $l$ deux éléments d'une même classe d'équivalence tels que $k \in [\![0, n-1]\!]$ et $k \in [\![0, n-1]\!]$.
+        Alors, $0 \leq k \leq n-1$ et $0 \leq l \leq n-1$, donc $1-n \leq k - l \leq n-1$.
+        Puisque $k$ et $l$ appartiennent à la même classe d'équivalence, on peut choisir un entier relatif $a$ tel que $k - l = a n$.
+        Si $a > 0$, alors $k - l \geq n$, ce qui est impossible.
+        Si $a < 0$, alors $k - l \leq -n$, ce qui est impossible.
+        Donc, $a = 0$, donc $k = l$.
+\end{itemize}
 
 \medskip
 
@@ -39,7 +52,7 @@ Dans cette section, pour tout entier $m$, on note $\bar{m}$ la classe d'équival
 
 \medskip
 
-\noindent\textbf{Lemme :} Le cadinal de $\mathbb{Z}_n$ est $n$.
+\noindent\textbf{Lemme :} Le cardinal de $\mathbb{Z}_n$ est $n$.
 
 \medskip
 
@@ -198,11 +211,62 @@ Montrons que c'est bien le cas.
 
 \noindent\textbf{Remarque :} La dernière partie de la démonstration montre que, si $n$ est strictement supérieur à $1$ et n'est pas un nombre premier, alors $\times$ ne définit pas une loi de composition interne sur $\mathbb{Z}_n \setminus \lbrace \bar{0} \rbrace$.
 
-\subsubsection{Définition de \texorpdfstring{$\mathbb{Z}_p^*$}{Zp*}}
+\subsubsection{Définition de \texorpdfstring{$\mathbb{Z}_n^*$}{Zn*}}
+
+Soit $n$ un entier naturel non nul. 
+On définit l'enemble $\left( \mathbb{Z} \divslash (n \mathbb{Z}) \right)^*$, aussi noté $\mathbb{Z}_n^*$, comme le sous-ensemble de $\mathbb{Z}_n$ défini comme suit : pour tout élément $z$ de $\mathbb{Z}_n$, soit $x$ un représentant de $z$, alors $z \in \mathbb{Z}_n^*$ si et seulement si $\mathrm{pgcd}(\abs{x}, n) = 1$.
+
+Montrons que cette définition ne dépend pas du représentant choisi. 
+Soit $k$ et $l$ deux représentants d'une même classe d'équivalence. 
+On suppose que $\mathrm{pgcd}(\abs{k}, n) = 1$.
+Soit $d$ un diviseur commun à $\abs{l}$ (et donc à $l$) et à $n$. 
+Puisque $k$ et $l$ sont dans la même classe d'équivalence, on peut choisir un entier relatif $m$ tel que $k = n + l m$.
+Donc, $d$ est un diviseur de $k$, et donc de $\abs{k}$. 
+Donc, $d$ est un diviseur commun à $k$ et à $n$. 
+Donc, $d$ ne peut qu'être égal à $1$.
+On en déduit que $\mathrm{pgcd}(\abs{l}, n) = 1$.
 
 Soit $p$ un nombre premier. 
-On définit l'ensemble $\left( \mathbb{Z} \divslash (p \mathbb{Z}) \right)^*$, aussi noté $\mathbb{Z}_p^*$, par : $\mathbb{Z}_p^* = \mathbb{Z}_p \setminus \lbrace \bar{0} \rbrace$.
+Alors $\left( \mathbb{Z} \divslash (p \mathbb{Z}) \right)^*$, aussi noté $\mathbb{Z}_p^*$, satisfait : $\mathbb{Z}_p^* = \mathbb{Z}_p \setminus \lbrace \bar{0} \rbrace$.
 Puisque $\left(\mathbb{Z}_p, +, \times \right)$ est un corps et puisque $\bar{0}$ est l'élément neutre de la loi de composition interne $+$, $\left( \mathbb{Z}_p^*, \times \right)$ (où $\times$ désigne la restriction de la loi de composition interne définie ci-dessus à $\mathbb{Z}_p^*$) est un groupe abélien, parfois noté simplement $\left( \mathbb{Z} \divslash (p \mathbb{Z}) \right)^*$ ou $\mathbb{Z}_p^*$ quand il n'y a pas de confusion possible.
+
+\medskip
+
+\noindent
+\textbf{Lemme :} Soit $n$ un entier naturel non nul. Alors $\left( \mathbb{Z}_n, \times \right)$ est un groupe abélien, d'élément neutre $\bar{1}$.
+
+\medskip
+
+\noindent
+\textbf{Démonstration :} Notons que $\bar{1} \in \mathbb{Z}_n^*$ puisque le plus grand diviseur de $1$ est $1$ lui-même, donc $\mathrm{pgcd}(1, n) = 1$. 
+\begin{itemize}[nosep]
+    \item \emph{L'opération $\times$ est une loi de composition interne :} Soit $\bar{a}$ et $\bar{b}$ deux éléments de $\mathbb{Z}$, $a$ un représentant de $\bar{a}$ et $b$ un représentant de $\bar{b}$.
+        Alors, $\abs{a}$ et $\abs{b}$ sont chacun premiers avec $n$.
+        Donc, $\abs{ab}$ est premier avec $n$.
+        Donc, $\overline{ab} \in \mathbb{Z}_n^*$.
+        Donc, $\bar{a} \times \bar{b} \in \mathbb{Z}_n^*$.
+    \item \emph{Associativité, commutativité et $\bar{1}$ comme élément neutre :} Ces propriétés découlent directement du fait que $(\mathbb{Z}_n, +, \times)$ est un anneau unifère d'élément neutre $\bar{1}$ pour l'opération $\times$. 
+    \item \emph{Existence d'un inverse pour tout élément de $\mathbb{Z}_n^*$ :}
+        Soit $\bar{a}$ un élément de $\mathbb{Z}_n$ et $a$ son unique représentant dans $[\![0, n-1]\!]$. 
+        Soit $f$ la fonction de $\mathbb{Z}_n$ vers lui-même définie par : pour tout élément $\bar{b}$ de $\mathbb{Z}_n$, $f(\bar{b}) = \bar{a} \times \bar{b}$.
+        Soit $\bar{b}$ et $\bar{c}$ deux éléments de $\mathbb{Z}_n$, $b$ et $c$ leurs représentants respectifs dans $[\![0, n-1]\!]$, et supposons que $f(\bar{b}) = f(\bar{c})$. 
+        Alors, $\bar{a} \times \bar{b} = \bar{a} \times \bar{c}$. Donc, $\overline{a \times b} = \overline{a \times c}$.
+        Donc, $a \times b - a \times c \equiv 0 \, [n]$.
+        Donc, $a \times (b - c) \equiv 0 \, [n]$.
+        Donc, $a \times \abs{b - c} \equiv 0 \, [n]$. (En effet, $a \times \abs{b - c} = a \times (b - c)$ si $b \geq c$ ou $a \times \abs{b - c} = -(a \times (b - c))$ si $b < c$.)
+        Puisque $a$ est premier avec $n$, on en déduit que $\abs{b - c}$ est un multiple de $n$.
+        Puisque $b-c$ est dans $[\![-(n-1), n-1]\!]$, $\abs{b-c} < n$. 
+        Le seul multiple de $n$ satisfaisant cette propriété est $0$.
+        (En effet, si $a$ est un entier relatif, alors $\abs{a n} = \abs{a} n$, donc $\abs{a n} \geq n$ sauf si $a = 0$.)
+        Donc, $b = c$, et donc $\bar{b} = \bar{c}$.
+        Cela montre que $f$ est injective. 
+        Puisque $\mathbb{Z}_n$ est fini (de cardinal $n$) et $\mathbb{Z}_n^*$ est un sous-ensemble de $\mathbb{Z}_n$, $\mathbb{Z}_n^*$ est également fini. 
+        Donc, $f$ est bijective. 
+        Donc, on peut choisir un élément $x$ de $\mathbb{Z}_n^*$ tel que $\bar{a} \times x = \bar{1}$. 
+        Puisque $\times$ est commutative, on en déduit que $x$ est un inverse de $\bar{a}$.
+\end{itemize}
+
+\done
 
 \subsubsection{Cyclicité de \texorpdfstring{$\left( \mathbb{Z} \divslash (p \mathbb{Z}) \right)^*$}{(Z / p Z)*} pour \texorpdfstring{$p$}{p} premier}
 \label{subsubsec:cyclicity_Z_pZ}
