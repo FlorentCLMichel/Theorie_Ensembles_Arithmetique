@@ -6,11 +6,11 @@ Dans cette section, nous présentons brièvement d'autres ensembles de nombres r
 
 \subsubsection{L'ensemble des nombres rationnels \texorpdfstring{$\mathbb{Q}$}{Q}}
 
-Définissons la relation binaire $\mathcal{R}$ sur $\mathbb{Z} \times \mathbb{Z}^*$ de la manière suivante : si $x$ et $y$ sont deux éléments de cet ensemble, soit $a$, $b$, $c$ et $d$ les quatre (unique) entiers relatifs (avec $b \neq 0$ et $d \neq 0$) tels que $x = (a, b)$ et $y = (b, c)$, alors $r \mathcal{R} y$ si et seulement si $a d = b c$. 
+Définissons (dans cette section seulement) la relation binaire $\mathcal{R}$ sur $\mathbb{Z} \times \mathbb{Z}^*$ de la manière suivante : si $x$ et $y$ sont deux éléments de cet ensemble, soit $a$, $b$, $c$ et $d$ les quatre (unique) entiers relatifs (avec $b \neq 0$ et $d \neq 0$) tels que $x = (a, b)$ et $y = (b, c)$, alors $r \, \mathcal{R} \, y$ si et seulement si $a d = b c$. 
 Autrement dit, 
 \begin{equation*}
     \forall (a, b, c, d) \in \mathbb{Z} \times \mathbb{Z}^* \times \mathbb{Z} \times \mathbb{Z}^*
-    (a, b) \mathop{\mathcal{R}} (c, d)
+    (a, b) \, \mathcal{R} \, (c, d)
     \Leftrightarrow a d = b c .
 \end{equation*}
 
@@ -20,13 +20,27 @@ Autrement dit,
 
 \medskip
 
-\noindent\textbf{Démonstration :} ***
+\noindent\textbf{Démonstration :} Montrons que $\mathcal{R}$ satisfait les trois propriétés d'une relation d'équivalence.
+    Dans toute cette démonstration, $x$, $y$ et $z$ sont trois éléments de $\mathbb{Z} \times \mathbb{Z}^*$ et $a$, $b$, $c$, $d$, $e$, $f$ sont six entiers tels que $b \neq 0$, $d \neq 0$, $f \neq 0$, $x = (a, b)$, $y = (c, d)$ et $z = (e, f)$.
+    \begin{itemize}[nosep]
+        \item \textit{Réflexivité :} Puisque la multiplication sur $\mathbb{Z}$ est commutative, $a b = b a$, donc $x \, \mathcal{R} \, x$.
+        \item \textit{Symétrie :} Supposons $x \, \mathcal{R} \, y$. 
+            Alors, $a d = b c$.
+            Donc, $c b = d a$.
+            Donc, $y \, \mathcal{R} \, x$.
+        \item \textit{Transitivité :} Supposons $x \, \mathcal{R} \, y$ et $y \, \mathcal{R} \, z$.
+            Alors, $a d = b c$ et $c f = d e$.
+            Multiplions les deux membres de la première égalité par $f$ : il vient $a d f = b c f$, donc (en utilisant la seconde égalité) $a d f = b d e$, donc $d a f = d b e$.
+            Puisque $d \neq 0$, on a donc $a f = b e$, et donc $x \, \mathcal{R} \, z$.
+    \end{itemize}
+    
+    \done
 
 \medskip
 
 On appelle \emph{ensemble des nombres rationnels}, noté $\mathbb{Q}$, l'ensemble des classes d'équivalences de $\mathcal{R}$, appelées \emph{nombres rationnels}. 
 \index{Nombre rationnel} \sindex[isy]{$\mathbb{Q}$}
-Soit $q$ un nombre rationnel et $a$ et $b$ dens entiers tels que $(a, b)$ est un élément de $q$. 
+Soit $q$ un nombre rationnel et $a$ et $b$ deus entiers tels que $(a, b)$ est un élément de $q$. 
 Alors, $a$ est appelé le \emph{numérateur} de la repsésentation $(a, b)$ et $b$ son \emph{dénominateur}.
 \index{Numérateur} \index{Dénominateur}
 Elle sera notée $a \divslash b$.
