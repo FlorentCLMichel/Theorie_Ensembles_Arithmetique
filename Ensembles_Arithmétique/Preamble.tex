@@ -2,27 +2,61 @@
 \pdfminorversion=5
 \pdfobjcompresslevel=3 
 \pdfcompresslevel=9
+
 \documentclass[fontsize=10pt, DIV=15]{scrartcl}
   \pdfprotrudechars1
   \pdfadjustspacing1
+
 \addtokomafont{author}{\color{black!50!white}}
 \addtokomafont{date}{\color{black!50!white}}
+
+% toc depth
+\setcounter{tocdepth}{3}
+
 \usepackage{fontspec}
   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
-\usepackage{pythontex}
 \usepackage{polyglossia}
 \setmainlanguage{french}
 \setotherlanguage{english}
-\usepackage{amsmath}
-\usepackage{amssymb}
+\usepackage{amsmath, amssymb, amsfonts}
 \usepackage{mathtools}
 \usepackage{enumitem}
+\usepackage{pythontex}
 \usepackage{soul}
 \usepackage[math-style=TeX]{unicode-math}
 \setmainfont[Microtype,Ligatures=TeX]{XITS}
 \setsansfont{Latin Modern Sans}
 \setmathfont{XITS Math}
 \setmonofont{DejaVu Sans Mono}
+%\usepackage[final]{microtype}
+
+\usepackage{multicol}
+\usepackage{graphicx}  
+\usepackage{xcolor}
+\usepackage{mathrsfs}
+\usepackage{calligra}
+\usepackage[many]{tcolorbox}
+\usepackage{textcomp}
+\usepackage{caption}
+\usepackage{xr-hyper}
+
+% for more customizable tables
+\usepackage{array}
+\usepackage{booktabs}
+
+% section ToCs
+\usepackage{etoc}
+\usepackage{tocloft}
+\newcommand{\localtoc}{
+    \renewcommand*{\cftsubsecindent}{0em}%
+    \renewcommand*{\cftsubsubsecindent}{1em}%
+    \etocsettocstyle
+        {\hrule\smallskip\vspace*{-2ex}\begin{multicols}{2}}
+        {\end{multicols}\vspace*{-2ex}\nobreak\medskip\hrule\bigskip}%
+    \localtableofcontents%
+}
+
+% Bazin characters
 \newfontfamily\bazin{Bazin}
 \newcommand*\love{{\bazin^^^^2e43}}
 \newcommand*\certainty{{\bazin^^^^2e44}}
@@ -30,13 +64,8 @@
 \newcommand*\irony{{\bazin^^^^2e46}}
 \newcommand*\acclaim{{\bazin^^^^2e47}}
 \newcommand*\doubt{{\bazin^^^^2e48}}
-%\usepackage[final]{microtype}
-\usepackage{multicol}
-\usepackage{graphicx}  
-\usepackage{xcolor}
-\usepackage{mathrsfs}
-\usepackage{calligra}
-\usepackage[many]{tcolorbox}
+
+% define some colours
 \definecolor{lblue}{rgb}{0.1,0.3,0.9}
 \definecolor{darkcyan}{rgb}{0,0.7,0.7}
 \definecolor{cYan}{rgb}{0.,1.,1.}
@@ -50,7 +79,11 @@
 \colorlet{linkcolor}{lblue}
 \tcbset{colback=white, colframe=black,
         highlight math style= {enhanced, colframe=black, colback=white, boxsep=0pt}}
-\usepackage{textcomp}
+
+% hyperref
+\usepackage[unicode=true,colorlinks=true,filecolor=linkcolor,linkcolor=linkcolor,citecolor=linkcolor,urlcolor=linkcolor,runcolor=linkcolor,linktoc=all]{hyperref}
+
+% code appearance
 \usepackage[outputdir=build]{minted}
 \usemintedstyle{monokai}
 \definecolor{codeBg}{RGB}{0, 15, 30}
@@ -63,6 +96,7 @@
     bgcolor=codeBg,
     breaklines,
 }
+
 %\usepackage{listings, listings-rust}
 %%\definecolor{codecomment}{rgb}{0,0.6,0}
 %%\definecolor{codenumber}{rgb}{0.5,0.5,0.5}
@@ -98,14 +132,13 @@
 %\usepackage[space=true]{accsupp}
 %\newcommand{\copyablespace}{\BeginAccSupp{method=hex,unicode,ActualText=00A0}\hphantom{x}\EndAccSupp{}}
 %\lstset{style=mystyle}
+
+% TIKZ
 \usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
 \usetikzlibrary{calc, tikzmark, arrows.meta, shapes, positioning}
 \tikzstyle{na} = [baseline=-.5ex]
-\usepackage{caption}
-\usepackage{xr-hyper}
-\usepackage[unicode=true,colorlinks=true,filecolor=linkcolor,linkcolor=linkcolor,citecolor=linkcolor,urlcolor=linkcolor,runcolor=linkcolor,linktoc=all]{hyperref}
 \definecolor{zcolor}{rgb}{0.2,0.4,1.}
 \newcommand*{\czref}[1]{%
   \begingroup
@@ -120,16 +153,15 @@
 \usepackage{attachfile2}
 \attachfilesetup{color = zcolor}
 
-% for more customizable tables
-\usepackage{array}
-\usepackage{booktabs}
-
 % format for footnotes
 \deffootnote[\dimexpr1mm+7.5pt\relax]{\dimexpr1mm+0.5pt\relax}{1em}{\thefootnotemark~}
 
+% To add section number to the equation numbers
+\numberwithin{equation}{section}
+
+% math commands
 \newcommand\mleft{\mathopen{}\mathclose\bgroup\left}
 \newcommand\mright{\aftergroup\egroup\right}
-
 \newcommand*{\nn}{\nonumber \\}
 \newcommand*{\eq}[1]{(\ref{#1})}
 \newcommand*{\eqs}[2]{Eqs.~(\ref{#1}) and~(\ref{#2})}
@@ -149,36 +181,6 @@
 \newcommand*{\lb}{\ensuremath{\left\lbrace}}
 \newcommand*{\rb}{\ensuremath{\right\rbrace}}
 \newcommand*{\abs}[1]{\ensuremath{\left\lvert #1 \right\rvert}} 
-
-% color in math mode
-\makeatletter
-\def\mathcolor#1#{\@mathcolor{#1}}
-\def\@mathcolor#1#2#3{%
-  \protect\leavevmode
-  \begingroup
-    \color#1{#2}#3%
-  \endgroup
-}
-\makeatother
-
-\newcommand{\colt}[2]{\tikz[baseline=(current bounding box.base)]\node [fill = #2, inner sep=0.1em, outer sep=0.1em, rounded corners=0.2em, anchor=base] at (0,0) {#1};}
-\newcommand{\cole}[2]{\tikz[baseline=(current bounding box.base)]\node [fill = #2, inner sep=0.1em, outer sep=0.1em, rounded corners=0.2em, anchor=base] at (0,0) {$\displaystyle#1$};}
-\newcommand{\deft}[1]{\colt{#1}{lgreen}}
-\newcommand{\hdeft}[1]{\sethlcolor{lgreen}\hl{#1}}
-\newcommand{\defe}[1]{\cole{#1}{lgreen}}
-\newcommand{\higt}[1]{\colt{#1}{lyellow}}
-\newcommand{\hhigt}[1]{\sethlcolor{lyellow}\hl{#1}}
-\newcommand{\hige}[1]{\cole{#1}{lyellow}}
-\newcommand{\rest}[1]{\colt{#1}{lightcyan}}
-\newcommand{\hrest}[1]{\sethlcolor{lightcyan}\hl{#1}}
-\newcommand{\rese}[1]{\cole{#1}{lightcyan}}
-\newcommand{\thisiscol}[2]{\textcolor{#1}{\boxed{\textcolor{black}{#2}}}}
-\newcommand{\smallres}[1]{\thisiscol{lightgray}{#1}}
-\newcommand{\thisisred}[1]{\thisiscol{red}{#1}}
-\newcommand{\thisisgreen}[1]{\thisiscol{green}{#1}}
-\newcommand{\thisisblue}[1]{\thisiscol{blue}{#1}}
-\newcommand{\blau}[1]{\thisiscol{darkblue}{#1}}
-
 \newcommand*{\mN}{\ensuremath{\mathbb{N}}}
 \newcommand*{\mZ}{\ensuremath{\mathbb{Z}}}
 \newcommand*{\mQ}{\ensuremath{\mathbb{Q}}}
@@ -208,6 +210,35 @@
 \DeclareMathOperator*{\oeq}{=}
 \DeclareMathOperator*{\oap}{\approx}
 \DeclareMathOperator*{\olongrightarrow}{\longrightarrow}
+
+% color in math mode
+\makeatletter
+\def\mathcolor#1#{\@mathcolor{#1}}
+\def\@mathcolor#1#2#3{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+\makeatother
+
+\newcommand{\colt}[2]{\tikz[baseline=(current bounding box.base)]\node [fill = #2, inner sep=0.1em, outer sep=0.1em, rounded corners=0.2em, anchor=base] at (0,0) {#1};}
+\newcommand{\cole}[2]{\tikz[baseline=(current bounding box.base)]\node [fill = #2, inner sep=0.1em, outer sep=0.1em, rounded corners=0.2em, anchor=base] at (0,0) {$\displaystyle#1$};}
+\newcommand{\deft}[1]{\colt{#1}{lgreen}}
+\newcommand{\hdeft}[1]{\sethlcolor{lgreen}\hl{#1}}
+\newcommand{\defe}[1]{\cole{#1}{lgreen}}
+\newcommand{\higt}[1]{\colt{#1}{lyellow}}
+\newcommand{\hhigt}[1]{\sethlcolor{lyellow}\hl{#1}}
+\newcommand{\hige}[1]{\cole{#1}{lyellow}}
+\newcommand{\rest}[1]{\colt{#1}{lightcyan}}
+\newcommand{\hrest}[1]{\sethlcolor{lightcyan}\hl{#1}}
+\newcommand{\rese}[1]{\cole{#1}{lightcyan}}
+\newcommand{\thisiscol}[2]{\textcolor{#1}{\boxed{\textcolor{black}{#2}}}}
+\newcommand{\smallres}[1]{\thisiscol{lightgray}{#1}}
+\newcommand{\thisisred}[1]{\thisiscol{red}{#1}}
+\newcommand{\thisisgreen}[1]{\thisiscol{green}{#1}}
+\newcommand{\thisisblue}[1]{\thisiscol{blue}{#1}}
+\newcommand{\blau}[1]{\thisiscol{darkblue}{#1}}
 
 \newcommand{\Fstar}{\includegraphics[width=1ex]{../../Pensées/M/geo/geo.pdf}}
 
@@ -288,6 +319,3 @@
 %\microtypesetup{protrusion=true}
 \end{multicols}}
 \def\bye{\end{document}}
-
-% To add section number to the equation numbers
-\numberwithin{equation}{section}
