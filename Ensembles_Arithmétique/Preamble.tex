@@ -10,8 +10,26 @@
 \addtokomafont{author}{\color{black!50!white}}
 \addtokomafont{date}{\color{black!50!white}}
 
+% section ToCs
+\usepackage{etoc}
+\usepackage{tocloft}
+\newcommand{\localtoc}{
+    \renewcommand*{\cftsubsecindent}{0em}%
+    \renewcommand*{\cftsubsubsecindent}{1em}%
+    \renewcommand{\cftsubsecfont}{\normalfont\bfseries}% 
+    \renewcommand{\cftsubsecpagefont}{\normalfont\bfseries}% 
+    \renewcommand{\cftsubsecdotsep}{\cftnodots}%
+    \renewcommand{\cftsubsecleader}{\bfseries\cftdotfill{\cftsecdotsep}}%
+    \setlength{\cftbeforesubsecskip}{1ex}%
+    \etocsettocstyle
+        {\hrule\smallskip\vspace*{-2ex}\begin{multicols}{2}}
+        {\end{multicols}\vspace*{-2ex}\nobreak\medskip\hrule\bigskip}%
+    \etocsettocdepth{3}%
+    \localtableofcontents%
+}
+
 % toc depth
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 
 \usepackage{fontspec}
   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
@@ -43,18 +61,6 @@
 % for more customizable tables
 \usepackage{array}
 \usepackage{booktabs}
-
-% section ToCs
-\usepackage{etoc}
-\usepackage{tocloft}
-\newcommand{\localtoc}{
-    \renewcommand*{\cftsubsecindent}{0em}%
-    \renewcommand*{\cftsubsubsecindent}{1em}%
-    \etocsettocstyle
-        {\hrule\smallskip\vspace*{-2ex}\begin{multicols}{2}}
-        {\end{multicols}\vspace*{-2ex}\nobreak\medskip\hrule\bigskip}%
-    \localtableofcontents%
-}
 
 % Bazin characters
 \newfontfamily\bazin{Bazin}
@@ -307,15 +313,3 @@
 \newcommand{\pythontexassign@i}[2]{%
   \pyc{#2=#1}}
 \makeatother
- 
- 
-\def\hi{\begin{document} 
-\date{}
-\maketitle 
-\begin{multicols}{2}
-%\microtypesetup{protrusion=false}
-\renewcommand{\contentsname}{Table des matières}
-\tableofcontents 
-%\microtypesetup{protrusion=true}
-\end{multicols}}
-\def\bye{\end{document}}
