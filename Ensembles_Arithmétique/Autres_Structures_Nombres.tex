@@ -153,7 +153,7 @@ Ce nombre rationnel est aussi sit \emph{nul}.
 
 \subsubsection{Structure de corps}
 
-\noindent\textbf{Définition :} On définit les trois opérations $+$, $-$ et $\times$ de $\mathbb{Q} \times \mathbb{Q}$ vers $\mathbb{Q}$ et $\divslash$ de $\mathbb{Q} \times \mathbb{Q}^*$ vers $\mathbb{Q}$ définies de la manière suivante.  
+\noindent\textbf{Définition :} On définit les trois opérations $+$ (\emph{\index{addition}}), $-$ (\emph{\index{soustraction}}) et $\times$ (\emph{\index{multiplication}}) de $\mathbb{Q} \times \mathbb{Q}$ vers $\mathbb{Q}$ et $\divslash$ (\emph{\index{division}}) de $\mathbb{Q} \times \mathbb{Q}^*$ vers $\mathbb{Q}$ définies de la manière suivante.  
 Soit $\bar{x}$ et $\bar{y}$ deux éléments de $\mathbb{Q}$. 
 On peut choisir un représentant $x$ de $\bar{x}$ et un représentant $y$ de $\bar{y}$, puis quatre entiers $a$, $b$, $c$ et $d$ tels que $b$ et $d$ sont non nuls, $x = (a, b)$ et $y = (c, d)$.
 \begin{itemize}[nosep]
@@ -220,11 +220,64 @@ et
 
 \medskip
 
-\noindent\textbf{Lemme :} Avec les notations ci-dessus, ces quatre définitions son indépendante des choix des représentants de $\bar{x}$ et $\bar{y}$.
+\noindent\textbf{Lemme :} Avec les notations ci-dessus, ces quatre définitions sont indépendantes des choix des représentants de $\bar{x}$ et $\bar{y}$.
 
 \medskip
 
-\noindent\textbf{Démonstration :} ***
+\noindent\textbf{Démonstration :} Avec les mêmes notations, soit $x$ et $x'$ deux représentants de $\bar{x}$, $y$ et $y'$ deux représentants de $\bar{y}$, et $a$, $a'$, $b$, $b'$, $c$, $c'$, $d$ et $d'$ huit entiers tels que $b \neq 0$, $b' \neq 0$, $d \neq 0$, $d' \neq 0$, $x = (a, b)$, $x' = (a', b')$, $y = (c, d)$ et $y' = (c', d')$. 
+Il s'agit de montrer que les nombres rationnels obtenus en calculant $\bar{x} + \bar{y}$, $\bar{x} - \bar{y}$, $\bar{x} \times \bar{y}$ et, si $\bar{y}$ est non nul, $\bar{x} \divslash \bar{y}$ en prenant soit les représentants $x$ et $y$ soit $x'$ et $y'$ sont identiques.
+Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \times d' = c' \times d$.
+
+\noindent\emph{Addition :}
+    \begin{equation*}
+        \begin{aligned}
+            (a \times d + b \times c) \times (b' \times d')
+            & = (a \times d \times b' \times d' + b \times c \times b' \times d')
+            = (a \times b' \times d \times d' + c \times d' \times b \times b') \\
+            & {} = (a' \times b \times d \times d' + c' \times d' \times b \times b') 
+            = (a' \times d' \times b \times d + b' \times c' \times b \times d) \\
+            & {} = (a' \times d' + b' \times c') \times (b \times d) .
+        \end{aligned}
+    \end{equation*}
+    Donc, $(a \times d + b \times c, b \times d) \mathrel{\mathcal{R}} (a' \times d' + b' \times c', b' \times d')$. 
+    Cela montre que $\overline{(a \times d + b \times c, b \times d)} = \overline{(a' \times d' + b' \times c', b' \times d')}$, et donc que le résultat de l'addition est le même que l'on choisisse les représentant $x$ et $y$ ou les représentants $x'$ et $y'$.
+
+\noindent\emph{Soustraction :}
+    \begin{equation*}
+        \begin{aligned}
+            (a \times d - b \times c) \times (b' \times d')
+            & = (a \times d \times b' \times d' - b \times c \times b' \times d')
+            = (a \times b' \times d \times d' - c \times d' \times b \times b') \\
+            & {} = (a' \times b \times d \times d' - c' \times d' \times b \times b') 
+            = (a' \times d' \times b \times d - b' \times c' \times b \times d) \\
+            & {} = (a' \times d' - b' \times c') \times (b \times d) .
+        \end{aligned}
+    \end{equation*}
+    Donc, $(a \times d - b \times c, b \times d) \mathrel{\mathcal{R}} (a' \times d' - b' \times c', b' \times d')$. 
+    Cela montre que $\overline{(a \times d - b \times c, b \times d)} = \overline{(a' \times d' - b' \times c', b' \times d')}$, et donc que le résultat de la soustraction est le même que l'on choisisse les représentant $x$ et $y$ ou les représentants $x'$ et $y'$.
+
+\noindent\emph{Multiplication :}
+    \begin{equation*}
+        (a \times c) \times (b' \times d')
+        = (a \times b') \times (c \times d')
+        = (a' \times b) \times (c' \times d)
+        (a \times c) \times (b' \times d') .
+    \end{equation*}
+    Donc, $(a \times c, b \times d) \mathrel{\mathcal{R}} (a' \times c', b' \times d')$. 
+    Cela montre que $\overline{(a \times c, b \times d)} = \overline{(a' \times c', b' \times d')}$, et donc que le résultat de la multiplication est le même que l'on choisisse les représentant $x$ et $y$ ou les représentants $x'$ et $y'$.
+
+\noindent\emph{Division :} Supposons $\bar{y}$ non nul. Alors, $c \neq 0$ et $c' \neq 0$.
+    On a :
+    \begin{equation*}
+        (a \times d) \times (b' \times c')
+        = (a \times b') \times (c' \times d)
+        = (a' \times b) \times (c \times d')
+        (a' \times d') \times (b \times c) .
+    \end{equation*}
+    Donc, $(a \times d, b \times c) \mathrel{\mathcal{R}} (a' \times d', b' \times c')$. 
+    Cela montre que $\overline{(a \times d, b \times c)} = \overline{(a' \times d', b' \times c')}$, et donc que le résultat de la division est le même que l'on choisisse les représentant $x$ et $y$ ou les représentants $x'$ et $y'$.
+
+\done
 
 \medskip
 
@@ -232,15 +285,138 @@ et
 
 \medskip
 
-\noindent\textbf{Démonstration :} ***
+\noindent\textbf{Démonstration :} Découle directement de la commutativité des opérations $+$ et $\times$ sur $\mathbb{Z}$. 
+
+\done
 
 \medskip
 
-\emph{À écrire...}
+\emph{À continuer...}
 
 \subsubsection{Relation d'ordre}
 
 \emph{À écrire...}
+
+\subsection{Le tore \texorpdfstring{$\mathbb{T}$}{T}}
+
+\noindent\textbf{Définition :} On définit dans cette section le \index{tore} $\mathbb{T}$ comme l'ensemble des suites d'éléments de $\lbrace 0, 1 \rbrace$ non constantes égale à $1$ à partir d'un certain rang : 
+\begin{equation*}
+    \mathbb{T} = \left\lbrace
+        x \in \lbrace 0, 1 \rbrace^{\mathbb{N}} 
+        \middle\vert
+        \forall n \in \mathbb{N} \, \exists m \in \mathbb{N} \, (m \geq n) \wedge (x_n = 0)
+    \right\rbrace .
+\end{equation*}
+Quand il n'y a pas d'ambiguité, on note $0$ l'élément de $\mathbb{T}$ dont tous les éléments sont égaux à $0$.
+
+\medskip
+
+\noindent\textbf{Addition :} On définit l'opération $+$ de $\mathbb{T} \times \mathbb{T}$ vers $\mathbb{T}$ comme suit. 
+    Soit $x$ et $y$ deux éléments de $\mathbb{T}$.
+    Soit $n$ un entier naturel. 
+    L'ensemble des éléments $m$ de $\mathbb{N}$ tels que $m \geq n$ et $x_m = 0$ est non vide (par définition de $\mathbb{T}$) et est un sous-ensemble de $\mathbb{N}$, donc il admet un minimum, noté $m_x$. 
+    De même, l'ensemble des éléments $m$ de $\mathbb{N}$ tels que $m \geq n$ et $y_m = 0$ admet un minimum, noté $m_y$. 
+    Soit $m$ le minimum de $m_x$ et $m_y$. 
+    On définit par récurrence finie la suite $(a_k, b_k)_{k \in [\![0, m-n]\!]}$ de la manière suivante :%
+    \footnote{On peut se ramener à une récurrence usuelle en posant cette définition si $k + 1 \leq m-n$ ou $a_{k+1} = b_{k+1} = 0$ sinon dans le second point.}
+    \begin{itemize}[nosep]
+        \item $b_0 = 0$ et $a_0 = 0$ si $x_m = y_m$ ou $a_0 = 1$ sinon.
+        \item Pour tout élément $k$ de $[\![0, m-n-1]\!]$, $a_{k+1}$ est égal à 
+            \begin{itemize}[nosep]
+                \item $0$ si $0$ ou $2$ des trois entiers $x_{m-k}$, $y_{m-k}$, $b_k$ est égal à $1$,
+                \item $1$ si $1$ ou $3$ des trois entiers $x_{m-k}$, $y_{m-k}$, $b_k$ est égal à $1$
+            \end{itemize}
+            et $b_{k+1}$ et égal à 
+            \begin{itemize}[nosep]
+                \item $0$ si $0$ ou $1$ des trois entiers $x_{m-k}$, $y_{m-k}$, $b_k$ est égal à $1$,
+                \item $1$ si $2$ ou $3$ des trois entiers $x_{m-k}$, $y_{m-k}$, $b_k$ est égal à $1$.
+            \end{itemize}
+    \end{itemize}
+    On pose alors $z_n = a_{m-n}$.
+    On définit ensuite $x + y$ comme suit : 
+    \begin{itemize}[nosep]
+        \item Si $z_n = 1$ pour tout entier naturel $n$, alors $x + y = 0$.
+        \item Sinon, s'il existe un entier naturel $m$ non nul tel que $z_k = 1$ pour tout entier naturel $k$ supérieur ou égal à $m$, on définit $m_0$ comme le minimum de l'ensemble des entiers naturels satisfaisant cette propriété. 
+            Notons que $m_0 > 0$ (sans quoi $z$ satisferait la propriété du point précédent).
+            On pose alors, pour tout entier naturel $n$ : 
+            \begin{itemize}[nosep]
+                \item Si $n < m_0 - 1$, $(x+y)_n = z_n$.
+                \item Si $n = m_0 - 1$, $(x+y)_n = 1$.
+                \item Si $n \geq m_0$, $(x+y)_n = 0$.
+            \end{itemize}
+        \item Sinon, $x + y = z$.
+    \end{itemize}
+    Notons que $x + y$ est alors bien un élément de $\mathbb{T}$.
+
+\medskip
+
+\noindent\textbf{Lemme :} L'addition ainsi définie est commutative.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Évident car, avec les notations ci-dessus, $x$ et $y$ jouent des rôles interchangeables.
+
+\done
+
+\medskip
+
+\noindent\textbf{Lemme :} Pour tout élément $x$ de $\mathbb{T}$, $0 + x = x$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $x$ un élément de $\mathbb{T}$ et $n$ un entier naturel.
+    En prenant les notations de la définition avec $y = 0$, on a $m_y = n$. 
+    (En effet, $0_n = 0$, $n \geq n$ et, pour tout entier naturel $m$ satisfaisant les deux propriétés, $m \geq n$ par définition.)
+    Puisque $m_x \geq n$ par définition, le minimum de $m_x$ et $m_y$ est $n$, donc $m = n$.
+    Donc, $m-n = 0$.
+    Donc, $a_{m-n} = a_0$.
+    Si $x_n = 0$, $x_n = y_n$, donc $a_0 = 0$.
+    Sinon, $x_n \neq y_n$, donc $a_0 = 1$.
+    Dans les deux cas, on a $a_0 = x_n$, et donc $z_n = x_n$.
+    Cela montre que $z = x$, donc que $z \in \mathbb{T}$, donc $0 + x = z$, et donc $0 + x = x$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Lemme :} L'addition ainsi définie est associative.
+
+\medskip
+
+\noindent\textbf{Démonstration :} ***
+
+\medskip
+
+\noindent\textbf{Multiplication par un entier :} On définit l'opération $\times$ de $\mathbb{N} \times \mathbb{T}$ vers $\mathbb{T}$ comme suit. 
+    Définissons d'abord par récurrence la suite $f$ de fonctions de $\mathbb{T}$ vers $\mathbb{T}$ de la manière suivante: 
+    \begin{itemize}[nosep]
+        \item Pour tout élément $x$ de $\mathbb{T}$, $f_0(x) = 0$.
+        \item Pour tout entier naturel $n$ et tout élément $x$ de $\mathbb{T}$, $f_{n+1}(x) = f_n(x) + x$.
+    \end{itemize}
+    Pour tout entier naturel $n$ et tout élément $x$ de $\mathbb{T}$, on pose alors $n \times x = f_n(x)$.
+
+\medskip
+
+\noindent\textbf{Remarque :} Avec cette définition, pour tout élément $x$ de $\mathbb{T}$, $0 \times x = 0$ et $1 \times x = x$.
+
+\medskip
+
+\noindent\textbf{Lemme :} La multiplication ainsi définie est distributive sur l'addition.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $x$ et $y$ deux éléments de $\mathbb{T}$.
+    Montrons par récurrence sur $n$ que, pour tout entier naturel $n$, $n \times (x + y) = (n \times x) + (n \times y)$.
+    
+    Pour $n = 0$, on a : $n \times (x + y) = 0 \times (x + y) = 0$ et $(n \times x) + (n \times y) = (0 \times x) + (0 \times y) = 0 + 0 = 0$.
+    Donc, $n \times (x + y) = (n \times x) + (n \times y)$. 
+    Soit $n$ un entier naturel tel que $n \times (x + y) = (n \times x) + (n \times y)$.
+    Alors, $(n + 1) \times (x + y) = (n \times (x + y)) + (x + y) = ((n \times x) + (n \times y)) + (x + y)$. 
+    En utilisant l'associativité et la commutativité de l'addition, cela donne : $(n + 1) \times (x + y) = ((n \times x) + x) + ((n \times y) + y) = ((n + 1) \times x) + ((n + 1) \times y)$. 
+
+    Par récurrence, la propriété attendue est donc vraie pour tout entier naturel $n$.
+
+    \done
 
 \subsection{Nombres réels}
 
