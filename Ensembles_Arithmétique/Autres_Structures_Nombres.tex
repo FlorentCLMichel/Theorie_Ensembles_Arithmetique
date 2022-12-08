@@ -379,7 +379,47 @@ Quand il n'y a pas d'ambiguité, on note $0$ l'élément de $\mathbb{T}$ dont to
 
 \medskip
 
-\noindent\textbf{Lemme :} L'addition ainsi définie est associative.
+\noindent\textbf{Lemme :} Dans la définition de l'addition, remplacer $m_0$ par un entier relatif $l$ tel que $l \geq m_0$ ne change pas le résultat.
+
+\medskip
+
+\noindent\textbf{Démonstration :} ***
+
+\medskip
+
+\noindent\textbf{Lemme :} On définit la suite de fonctions $\mathrm{pow2}$ de $\mathbb{T}$ vers $\mathbb{N}$ de la manière suivante : pour tout entier naturel $n$ et tout élément $x$ de $\mathbb{T}$, $\mathrm{pow2}_n(x) = \sum_{k=0}^n 2^{n-k} \times x_k$.
+Soit $x$ et $y$ deux éléments de $\mathbb{T}$ et $n$ un entier naturel tel que $x_{n+1} = 0$.
+Alors, 
+\begin{equation*}
+    \mathrm{pow2}_n(x+y) = (\mathrm{pow2}_n(x) + \mathrm{pow2}_n(y)) \mathrel{\%} 2^k. 
+\end{equation*}
+où $\%$ désigne le reste de la division Euclidienne.
+
+\medskip
+
+\noindent\textbf{Démonstration :} ***
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $x$ et $y$ deux éléments de $\mathbb{T}$. 
+    On suppose que, pour tout entier naturel $n$, il existe un entier naturel $m$ supérieur ou égal à $n$ tel que $\mathrm{pow2}_m(x) = \mathrm{pow2}_m(y)$.
+    Alors $x = y$. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} Supposons par l'absurde que $x \neq y$. 
+    Soit $n$ le plue petit  entier naturel tel que $x_n \neq y_n$, donc $(x_n = 0 \wedge y_n = 1) \vee (x_n = 1 \vee y_n = 0)$. 
+    (Cet entier existe puisque l'ensemble des entiers satisfaisant cette propriété est un sous-ensemble non vide (puisque $x \neq y$ de $\mathbb{N}$.))
+    Pour fixer les idées, supposons $x_n = 0$ et $y_n = 1$. 
+    (La démonstration est identique dans l'autre cas en échangeant les rôles de $x$ et $y$.)
+    Soit $m$ un entier naturel supérieur ou égal à $n$. 
+    Montrons que $\mathrm{pow2}_m(x) < \mathrm{pow2}_m(y)$, et donc $\mathrm{pow2}_m(x) \neq \mathrm{pow2}_m(y)$, ce qui constituera une contradiction.
+
+    ***
+
+\medskip
+
+\noindent\textbf{Lemme :} L'addition est associative.
 
 \medskip
 
