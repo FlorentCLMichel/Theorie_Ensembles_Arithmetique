@@ -69,7 +69,7 @@ Dans cette section, si $x$ est un élément de $\mathbb{Z} \times \mathbb{Z}^*$,
 \noindent\textbf{Lemme :} Soit $q$ un nombre rationnel. 
 Si $q$ admet une représentation dont le numérateur est nul, alors toutes ses représentations ont un numérateur nul. 
 Il existe donc une seule classe d'équivalence contenant un rerésentant de numérateur nul. 
-Ce nombre rationnel est aussi sit \emph{nul}.
+Ce nombre rationnel est aussi dit \emph{nul}.
 
 \medskip
 
@@ -150,6 +150,10 @@ Ce nombre rationnel est aussi sit \emph{nul}.
 \end{itemize}
 
 \done
+
+\medskip
+
+\noindent\textbf{Notation :} Pour tout entier $n$, le nombre rationnel $\overline{(n, 1)}$ est parfois simplement noté $n$ quand il n'y a pas d'ambiguité.
 
 \subsubsection{Structure de corps}
 
@@ -287,12 +291,64 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 \medskip
 
 \noindent\textbf{Démonstration :} Découle directement de la commutativité des opérations $+$ et $\times$ sur $\mathbb{Z}$. 
+    Montrons cependant cela explicitement par soucis de complétude. 
+    Soit $\bar{x}$ et $\bar{y}$ deux éléments de $\mathbb{Q}$. 
+    Soit $x$ un représentant de $\bar{x}$, $y$ un représentant de $\bar{y}$, et $a$, $b$, $c$, $d$ quatre entiers tels que $b \neq 0$, $d \neq 0$, $x = (a, b)$ et $y = (c, d)$.
+    On a : 
+    \begin{equation*}
+        \bar{x} + \bar{y} 
+            = \frac{a}{b} + \frac{c}{d} 
+            = \frac{(a \times d) + (b \times c)}{b \times d}
+            = \frac{(b \times c) + (a \times d)}{d \times b}
+            = \frac{(c \times b) + (d \times a)}{d \times b}
+            = \frac{c}{d} + \frac{a}{b}
+            = \bar{y} + \bar{x}
+    \end{equation*}
+    et 
+    \begin{equation*}
+        \bar{x} \times \bar{y} 
+            = \frac{a}{b} \times \frac{c}{d} 
+            = \frac{a \times c}{b \times d}
+            = \frac{c \times a}{d \times b}
+            = \frac{c}{d} \times \frac{a}{b}
+            = \bar{y} \times \bar{x} .
+    \end{equation*}
 
 \done
 
 \medskip
 
-\emph{À continuer...}
+\noindent\textbf{Lemme :} Le triplet $(\mathbb{Q}, +, \times)$ est un corps, d'éléments neutre $0$ pour $+$ et $1$ pour $\times$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Montrons qu'il satisfait toutes les propriétés requises.
+\begin{itemize}[nosep]
+    \item Montrons déjà que $(\mathbb{Q}, +)$ est un groupe abélien d'élément neutre $0$.
+        \begin{itemize}[nosep]
+            \item ***
+        \end{itemize}
+    \item Montrons que $(\mathbb{Q}, \times)$ est un magma associatif :
+        \begin{itemize}[nosep]
+            \item L'opération $+$ est commutative.
+            \item ***
+        \end{itemize}
+    \item L'opération $\times$ est commutative. 
+    \item \emph{L'opération $\times$ est distributive sur $+$ :} ***
+    \item \emph{Le nombre rationnel $1$ est neutre pour $\times$ :} ***
+    \item L'anneau $(Q, +, \times)$ est non nul puisque $0 \neq 1$ (puisque le nombre rationnel $1$ a pou représentant $(1,1)$, qui n'est pas un représentant de $0$ puisque don numérateur n'est pas nul).
+    \item \emph{Tout élément de $\mathbb{Q}$ distinct de $0$ admet un inverse pour $\times$ :} 
+        Soit $\bar{x}$ un nombre rationnel non nul. 
+        Soit $x$ un de ses représentants. 
+        On peut choisir deux entiers $a$ et $b$ tels que $b \neq 0$ et $x = (a, b)$.
+        Puisque $\bar{x}$ est non nul, $a \neq 0$. 
+        Soit $\bar{y}$ le nombre rationnel admettant $(b, a)$ pour représentant.
+        On a : $\bar{x} \times \bar{y} = \overline{(a, b)} \times \overline{(b, a)} = \overline{(a \times b, b \times a)} = \overline{(a \times b, a \times b)} = \overline{(1 \times (a \times b), 1 \times (a \times b))}$.
+        Puisque $a$ et $b$ sont non nuls, $a \times b$ l'est également.
+        Donc, $(1 \times (a \times b), 1 \times (a \times b)) \mathrel{\mathcal{R}} (1, 1)$.
+        Donc, $\bar{x} \times \bar{y} = 1$.
+        Puisque l'opération $\times$ est commutative, cela montre que $\bar{y}$ est un inverse de $\bar{x}$ pour $\times$.
+\end{itemize}
 
 \subsubsection{Relation d'ordre}
 
