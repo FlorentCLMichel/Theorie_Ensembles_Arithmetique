@@ -1262,6 +1262,41 @@ En effet, on a $a \leq c$ par transitivité de la relation $\leq$ et $a \neq c$ 
     Dans tous les cas, on a $x \leq y \vee y \leq x$.
 
     \done
+    
+\subsubsection{Induction transfinie}
+
+\noindent\textbf{Lemme (induction \aindex{transfinie}) :}
+    Soit $E$ un ensemble non vide, $\leq$ une relation de bon ordre sur $E$ et $P$ un prédicat à un paramètre libre.
+    On note $<$ la relation d'rodre strict sur $E$ définie par : 
+    \begin{equation*}
+        \forall x \in E \, \forall y \in E \, x < y \Leftrightarrow ((x \leq y) \wedge (x \neq y)) .
+    \end{equation*}
+    Soit $m$ le plus petit élément de $E$ pour $\leq$ (qui existe puisque $\leq$ est une relation de bon ordre sur $E$).
+    On suppose que les prédicats suivants sont vrais :
+    \begin{itemize}[nosep]
+        \item $P(m)$,
+        \item $\forall x \in E \, (\forall y \in E \, y < x \Rightarrow P(y)) \Rightarrow P(x)$.
+    \end{itemize}
+    Alors, $P(x)$ est vrai pour tout élément $x$ de $E$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Supposons par l'absurde que ce n'est pas le cas. 
+    Soit $S$ l'ensemble défini par : 
+    \begin{equation*}
+        S = \left\lbrace x \in E \middle \vert \neg P(x) \right\rbrace.
+    \end{equation*}
+    Alors, $S$ est un sous-ensemble de $E$ (par construction) et non vide (par hypothèse).
+    Il admet donc un plus petit élément, noté $n$.
+    Puisque $n$ est un élément de $S$, $P(n)$ est faux.
+
+    Mais, pour tout élément $y$ de $E$, si $x < n$, alors $x \notin S$ (puisaue $n$ est un élément minimal de $S$), donc $P(x)$ est vrai.
+    Donc, $\forall y \in E \, y < n \Rightarrow P(y)$ est vrai.
+    Donc, $P(n)$ est vrai.
+    On obtient donc une contradiction ($\neg P(n) \wedge P(n)$), montrant que l'hypothèse de départ est fausse.
+
+    \done
 
 \subsubsection{Partition} 
 

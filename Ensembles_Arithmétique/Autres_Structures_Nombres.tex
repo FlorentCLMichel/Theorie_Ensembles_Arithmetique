@@ -19,7 +19,7 @@ Autrement dit,
 \medskip
 
 \noindent\textbf{Lemme :} Soit $a$ un entier et $b$ et $\lambda$ deux entiers non nuls. 
-    ALors $(\lambda \times a, \lambda \times b) \mathrel{\mathcal{R}} (a, b)$.
+    Alors $(\lambda \times a, \lambda \times b) \mathrel{\mathcal{R}} (a, b)$.
 
 \medskip
 
@@ -53,11 +53,11 @@ Autrement dit,
 \medskip
 
 On appelle \emph{ensemble des nombres rationnels}, noté $\mathbb{Q}$, l'ensemble des classes d'équivalences de $\mathcal{R}$, appelées \emph{nombres rationnels}. 
-\index{Nombre rationnel} \sindex[isy]{$\mathbb{Q}$}
+\aindex{Nombre rationnel} \sindex[isy]{$\mathbb{Q}$}
 Soit $q$ un nombre rationnel et $a$ et $b$ deux entiers tels que $(a, b)$ est un élément de $q$. 
-Alors, $a$ est appelé le \emph{numérateur} de la repsésentation $(a, b)$ et $b$ son \emph{dénominateur}.
-\index{Numérateur} \index{Dénominateur}
-Elle sera notée $a \divslash b$.
+Alors, $a$ est appelé le \emph{numérateur} de la représentation $(a, b)$ et $b$ son \emph{dénominateur}.
+\aindex{Numérateur} \aindex{Dénominateur}
+Elle sera notée $a \divslash b$, ou $\frac{a}{b}$.
 
 Dans cette section, si $x$ est un élément de $\mathbb{Z} \times \mathbb{Z}^*$, on note $\bar{x}$ la classe d'équivalence de $x$ pour la relation $\mathcal{R}$, \emph{i.e.}
 \begin{equation*}
@@ -153,9 +153,10 @@ Ce nombre rationnel est aussi sit \emph{nul}.
 
 \subsubsection{Structure de corps}
 
-\noindent\textbf{Définition :} On définit les trois opérations $+$ (\emph{\index{addition}}), $-$ (\emph{\index{soustraction}}) et $\times$ (\emph{\index{multiplication}}) de $\mathbb{Q} \times \mathbb{Q}$ vers $\mathbb{Q}$ et $\divslash$ (\emph{\index{division}}) de $\mathbb{Q} \times \mathbb{Q}^*$ vers $\mathbb{Q}$ définies de la manière suivante.  
+\noindent\textbf{Définition :} On définit les trois opérations $+$ (\emph{addition}), $-$ (\emph{soustraction}) et $\times$ (\emph{multiplication}) de $\mathbb{Q} \times \mathbb{Q}$ vers $\mathbb{Q}$ et $\divslash$ (\emph{division}) de $\mathbb{Q} \times \mathbb{Q}^*$ vers $\mathbb{Q}$ de la manière suivante. \index{Addition}\index{Soustraction}\index{Multiplication}\index{Division} 
 Soit $\bar{x}$ et $\bar{y}$ deux éléments de $\mathbb{Q}$. 
 On peut choisir un représentant $x$ de $\bar{x}$ et un représentant $y$ de $\bar{y}$, puis quatre entiers $a$, $b$, $c$ et $d$ tels que $b$ et $d$ sont non nuls, $x = (a, b)$ et $y = (c, d)$.
+Alors, 
 \begin{itemize}[nosep]
     \item $\bar{x} + \bar{y}$ est la classe d'équivalence de $(a \times d + b \times c, b \times d)$,
     \item $\bar{x} - \bar{y}$ est la classe d'équivalence de $(a \times d - b \times c, b \times d)$,
@@ -166,8 +167,8 @@ Quand il n'y a pas d'ambiguité, on pourra omettre le symbole $\times$.
 
 \medskip
 
-Nous montrons ci-après que ces opérations sont bien définies, \emph{i.e.}, qu'elles ne dépendent pas des eprésentants choisis.
-Notons d'abord quelques propriétés découlant directement de leurs définitions : avec les mêmes nontations, 
+Nous montrons ci-après que ces opérations sont bien définies, \emph{i.e.}, qu'elles ne dépendent pas des représentants choisis pour $\bar{x}$ et $\bar{y}$.
+Notons d'abord quelques propriétés découlant directement de leurs définitions : avec les mêmes notations, 
 \begin{itemize}[nosep]
     \item $(\bar{x} + \bar{y}) - \bar{y} = \bar{x}$,
     \item $(\bar{x} - \bar{y}) + \bar{y} = \bar{x}$,
@@ -205,7 +206,7 @@ Si $\bar{y}$, est non nul, on a aussi :
         = \frac{a}{b}
         = \bar{x}.
 \end{equation*}
-(où on a utilisé le fait que $c \times d$ est non num puisque ni $c$ ni $d$ n'est nul)
+(où on a utilisé le fait que $c \times d$ est non nul puisque ni $c$ ni $d$ n'est nul)
 et
 \begin{equation*}
     (\bar{x} \divslash \bar{y}) \times \bar{y} 
@@ -234,13 +235,13 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
             (a \times d + b \times c) \times (b' \times d')
             & = (a \times d \times b' \times d' + b \times c \times b' \times d')
             = (a \times b' \times d \times d' + c \times d' \times b \times b') \\
-            & {} = (a' \times b \times d \times d' + c' \times d' \times b \times b') 
+            & {} = (a' \times b \times d \times d' + c' \times d \times b \times b') 
             = (a' \times d' \times b \times d + b' \times c' \times b \times d) \\
             & {} = (a' \times d' + b' \times c') \times (b \times d) .
         \end{aligned}
     \end{equation*}
     Donc, $(a \times d + b \times c, b \times d) \mathrel{\mathcal{R}} (a' \times d' + b' \times c', b' \times d')$. 
-    Cela montre que $\overline{(a \times d + b \times c, b \times d)} = \overline{(a' \times d' + b' \times c', b' \times d')}$, et donc que le résultat de l'addition est le même que l'on choisisse les représentant $x$ et $y$ ou les représentants $x'$ et $y'$.
+    Cela montre que $\overline{(a \times d + b \times c, b \times d)} = \overline{(a' \times d' + b' \times c', b' \times d')}$, et donc que le résultat de l'addition est le même que l'on choisisse les représentants $x$ et $y$ ou les représentants $x'$ et $y'$.
 
 \noindent\emph{Soustraction :}
     \begin{equation*}
@@ -248,23 +249,23 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
             (a \times d - b \times c) \times (b' \times d')
             & = (a \times d \times b' \times d' - b \times c \times b' \times d')
             = (a \times b' \times d \times d' - c \times d' \times b \times b') \\
-            & {} = (a' \times b \times d \times d' - c' \times d' \times b \times b') 
+            & {} = (a' \times b \times d \times d' - c' \times d \times b \times b') 
             = (a' \times d' \times b \times d - b' \times c' \times b \times d) \\
             & {} = (a' \times d' - b' \times c') \times (b \times d) .
         \end{aligned}
     \end{equation*}
     Donc, $(a \times d - b \times c, b \times d) \mathrel{\mathcal{R}} (a' \times d' - b' \times c', b' \times d')$. 
-    Cela montre que $\overline{(a \times d - b \times c, b \times d)} = \overline{(a' \times d' - b' \times c', b' \times d')}$, et donc que le résultat de la soustraction est le même que l'on choisisse les représentant $x$ et $y$ ou les représentants $x'$ et $y'$.
+    Cela montre que $\overline{(a \times d - b \times c, b \times d)} = \overline{(a' \times d' - b' \times c', b' \times d')}$, et donc que le résultat de la soustraction est le même que l'on choisisse les représentants $x$ et $y$ ou les représentants $x'$ et $y'$.
 
 \noindent\emph{Multiplication :}
     \begin{equation*}
         (a \times c) \times (b' \times d')
         = (a \times b') \times (c \times d')
         = (a' \times b) \times (c' \times d)
-        (a \times c) \times (b' \times d') .
+        = (a' \times c') \times (b \times d) .
     \end{equation*}
     Donc, $(a \times c, b \times d) \mathrel{\mathcal{R}} (a' \times c', b' \times d')$. 
-    Cela montre que $\overline{(a \times c, b \times d)} = \overline{(a' \times c', b' \times d')}$, et donc que le résultat de la multiplication est le même que l'on choisisse les représentant $x$ et $y$ ou les représentants $x'$ et $y'$.
+    Cela montre que $\overline{(a \times c, b \times d)} = \overline{(a' \times c', b' \times d')}$, et donc que le résultat de la multiplication est le même que l'on choisisse les représentants $x$ et $y$ ou les représentants $x'$ et $y'$.
 
 \noindent\emph{Division :} Supposons $\bar{y}$ non nul. Alors, $c \neq 0$ et $c' \neq 0$.
     On a :
@@ -272,10 +273,10 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
         (a \times d) \times (b' \times c')
         = (a \times b') \times (c' \times d)
         = (a' \times b) \times (c \times d')
-        (a' \times d') \times (b \times c) .
+        = (a' \times d') \times (b \times c) .
     \end{equation*}
     Donc, $(a \times d, b \times c) \mathrel{\mathcal{R}} (a' \times d', b' \times c')$. 
-    Cela montre que $\overline{(a \times d, b \times c)} = \overline{(a' \times d', b' \times c')}$, et donc que le résultat de la division est le même que l'on choisisse les représentant $x$ et $y$ ou les représentants $x'$ et $y'$.
+    Cela montre que $\overline{(a \times d, b \times c)} = \overline{(a' \times d', b' \times c')}$, et donc que le résultat de la division est le même que l'on choisisse les représentants $x$ et $y$ ou les représentants $x'$ et $y'$.
 
 \done
 
@@ -299,7 +300,7 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 
 \subsection{Le tore \texorpdfstring{$\mathbb{T}$}{T}}
 
-\noindent\textbf{Définition :} On définit dans cette section le \index{tore} $\mathbb{T}$ comme l'ensemble des suites d'éléments de $\lbrace 0, 1 \rbrace$ non constantes égale à $1$ à partir d'un certain rang : 
+\noindent\textbf{Définition :} On définit dans cette section le \emph{tore}\index{Tore} $\mathbb{T}$ comme l'ensemble des suites d'éléments de $\lbrace 0, 1 \rbrace$ non constantes égale à $1$ à partir d'un certain rang : 
 \begin{equation*}
     \mathbb{T} = \left\lbrace
         x \in \lbrace 0, 1 \rbrace^{\mathbb{N}} 
