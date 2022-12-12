@@ -326,16 +326,51 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 \begin{itemize}[nosep]
     \item Montrons déjà que $(\mathbb{Q}, +)$ est un groupe abélien d'élément neutre $0$.
         \begin{itemize}[nosep]
-            \item ***
-        \end{itemize}
+            \item Puisque $+$ est une loi de composition interne sur $\mathbb{Q}$, $(\mathbb{Q}, +)$ est un magma.
+            \item \emph{L'opération $+$ est associative :} ***
+            \item L'opération $+$ est commutative (voir ci-dessus).
+            \item \emph{Le nombre rationnel $0$ est neutre pour $+$ :} 
+                Soit $\bar{x}$ un nombre rationnel, $x$ un de ses représentants et $a$ et $b$ deux entiers tels que $b \neq 0$ et $x = (a, b)$. 
+                On a : 
+                \begin{equation*}
+                    0 + \bar{x} = \frac{0}{1} + \frac{a}{b}
+                        = \frac{(0 \times b) + (1 \times a)}{1 \times b}
+                        = \frac{0 + a}{b}
+                        = \frac{a}{b}
+                        = \bar{x}.
+                \end{equation*}
+                Puisque $+$ est comutative, cela implique également $\bar{x} + 0 = \bar{x}$.
+            \item \emph{Tout élément de $\mathbb{Q}$ admet un inverse pour $+$ :} 
+                Soit $\bar{x}$ un nombre rationnel et $x$ un de ses représentants. 
+                On peut choisir deux entiers $a$ et $b$ tels que $b \neq 0$ et $x = (a, b)$.
+                Soit $\bar{y}$ le nombre rationnel admettant $(-a, b)$ pour représentant.
+                \begin{equation*}
+                    \bar{x} + \bar{y} = \frac{a}{b} + \frac{-a}{b}
+                        = \frac{(a \times b) + (b \times (-a))}{b \times b}
+                        = \frac{(a + (-a)) \times b}{b \times b}
+                        = \frac{0 \times b}{b \times b}
+                        = \frac{0}{b \times b}
+                        = 0 .
+                \end{equation*}
+                Puisque l'opération $+$ est commutative, cela montre également que $\bar{y} + \bar{x} = 0$, et donc que $\bar{y}$ est un inverse de $\bar{x}$ pour $+$.
+                \end{itemize}
     \item Montrons que $(\mathbb{Q}, \times)$ est un magma associatif :
         \begin{itemize}[nosep]
-            \item L'opération $+$ est commutative.
-            \item ***
+            \item Puisque $\times$ est une loi de composition interne sur $\mathbb{Q}$, $(\mathbb{Q}, \times)$ est un magma.
+            \item \emph{L'opération $\times$ est associative :} ***
         \end{itemize}
-    \item L'opération $\times$ est commutative. 
+    \item L'opération $\times$ est commutative (voir ci-dessus). 
     \item \emph{L'opération $\times$ est distributive sur $+$ :} ***
-    \item \emph{Le nombre rationnel $1$ est neutre pour $\times$ :} ***
+    \item \emph{Le nombre rationnel $1$ est neutre pour $\times$ :} 
+        Soit $\bar{x}$ un nombre rationnel, $x$ un de ses représentants et $a$ et $b$ deux entiers tels que $b \neq 0$ et $x = (a, b)$. 
+        On a : 
+        \begin{equation*}
+            1 \times \bar{x} = \frac{1}{1} \times \frac{a}{b}
+                = \frac{1 \times a}{1 \times b}
+                = \frac{a}{b}
+                = \bar{x}.
+        \end{equation*}
+        Puisque $\times$ est comutative, cela implique également $\bar{x} \times 1 = \bar{x}$.
     \item L'anneau $(Q, +, \times)$ est non nul puisque $0 \neq 1$ (puisque le nombre rationnel $1$ a pou représentant $(1,1)$, qui n'est pas un représentant de $0$ puisque don numérateur n'est pas nul).
     \item \emph{Tout élément de $\mathbb{Q}$ distinct de $0$ admet un inverse pour $\times$ :} 
         Soit $\bar{x}$ un nombre rationnel non nul. 
@@ -347,7 +382,7 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
         Puisque $a$ et $b$ sont non nuls, $a \times b$ l'est également.
         Donc, $(1 \times (a \times b), 1 \times (a \times b)) \mathrel{\mathcal{R}} (1, 1)$.
         Donc, $\bar{x} \times \bar{y} = 1$.
-        Puisque l'opération $\times$ est commutative, cela montre que $\bar{y}$ est un inverse de $\bar{x}$ pour $\times$.
+        Puisque l'opération $\times$ est commutative, cela montre également que $\bar{y} \times \bar{x} = 1$, et donc que $\bar{y}$ est un inverse de $\bar{x}$ pour $\times$.
 \end{itemize}
 
 \subsubsection{Relation d'ordre}
