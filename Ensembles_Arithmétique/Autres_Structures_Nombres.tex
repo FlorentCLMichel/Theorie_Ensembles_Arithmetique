@@ -489,7 +489,22 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 
 \medskip
 
-\noindent\textbf{Démonstration :} ***
+\noindent\textbf{Démonstration :} Ce résultat découle essentiellement du fait que $\leq$ est une relation d'ordre total sur $\mathbb{Z}$.
+    Montrons cela explicitement.
+    Dans cette preuve, $x$, $y$ et $z$ sont trois éléments de $\mathbb{Q}$ arbitraires et $a$, $b$, $c$, $d$, $e$, $f$ sont six entiers tels que $b \neq 0$, $d \neq 0$, $f \neq 0$, $x = a \divslash b$, $y = c \divslash d$ et $z = e \divslash f$.
+    \begin{itemize}[nosep]
+        \item On a $a \, b \, d^2 = a \, b \, d^2$, donc $a \, b \, d^2 \leq a \, b \, d^2$, donc $x \leq x$.
+        \item Si $x \leq y$ et $y \leq x$, alors $a \, b \, d^2 \leq c \, d \, b^2$ et $c \, d \, b^2 \leq a \, b \, d^2$, donc $a \, b \, d^2 = c \, d \, b^2$.
+            Donc, $(a \times d) \times (b \times d) = (c \times b) \times (b \times d)$.
+            Puisque $b$ et $d$ sont non nuls, $b \times d \neq 0$, donc cela implique $a \times d = c \times b$, et donc $x = y$.
+        \item Si $x \leq y$ et $y \leq z$, alors $a \, b \, d^2 \leq c \, d \, b^2$ et $c \, d \, f^2 \leq e \, f \, d^2$.
+            Donc, $a \, b \, d^2 \, f^2 \leq c \, d \, b^2 \, f^2 \leq e \, f \, b^2 \, d^2$.
+            Puisque $d$ est non nul, $d^2$ est strictement positif.
+            Cela montre donc que $a \, b \, f^2 \leq e \, f \, b^2$, et donc $x \leq z$.
+        \item Puisque $\leq$ est une relation d'ordre total sur $\mathbb{Z}$, on a $a \, b \, d^2 \leq c \, d \, b^2$ ou $c \, d \, b^2 \leq a \, b \, d^2$, donc $x \leq y$ ou $y \leq x$.
+    \end{itemize}
+
+    \done
 
 \medskip
 
