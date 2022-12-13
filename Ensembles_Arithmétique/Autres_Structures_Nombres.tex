@@ -286,6 +286,31 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $a$ et $b$ deux entiers et $c$ un entier naturel non nul.
+    Alors,
+    \begin{equation*}
+        \frac{a}{c} + \frac{b}{c} = \frac{a + b}{c}.
+    \end{equation*}
+
+\medskip
+
+\noindent\textbf{Démonstration :} On a : 
+    \begin{equation*}
+        \frac{a}{c} + \frac{b}{c} 
+        = \frac{(a \times c) + (b \times c)}{c \times c}
+        = \frac{(a + b) \times c}{c \times c}.
+    \end{equation*}
+    Puisque $c \neq 0$, cela donne 
+    \begin{equation*}
+        \frac{a}{c} + \frac{b}{c} 
+        = \frac{(a \times c) + (b \times c)}{c \times c}
+        = \frac{a + b}{c}.
+    \end{equation*}
+
+    \done
+
+\medskip
+
 \noindent\textbf{Lemme :} Les opérations $+$ et $\times$ sont commutatives.
 
 \medskip
@@ -328,6 +353,20 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
         \begin{itemize}[nosep]
             \item Puisque $+$ est une loi de composition interne sur $\mathbb{Q}$, $(\mathbb{Q}, +)$ est un magma.
             \item \emph{L'opération $+$ est associative :} ***
+                Soit $\bar{x}$, $\bar{y}$ et $\bar{z}$ trois éléments de $\mathbb{Q}$. 
+                On peut choisir six entiers $a$, $b$, $c$, $d$, $e$, $f$ tels que $b \neq 0$, $d \neq 0$, $f \neq 0$, $\bar{x} = a \divslash b$, $\bar{y} = c \divslash d$ et $\bar{z} = e \divslash f$.
+                On a alors : 
+                \begin{equation*} \begin{aligned}
+                    (\bar{x} + \bar{y}) + \bar{z} 
+                    & = \Big( \frac{a}{b} + \frac{c}{d} \Big) + \frac{e}{f}
+                    = \frac{(a \times d) + (c \times b)}{b \times d} + \frac{e}{f}
+                    = \frac{((a \times d) + (c \times b)) \times f + e \times (b \times d)}{(b \times d) \times f} + \frac{e}{f} \\
+                    & = \frac{a \times (d \times f) + b \times (c \times f) + b \times (e \times d)}{b \times (d \times f)} 
+                    = \frac{a \times (d \times f) + b \times ((c \times f) + (e \times d))}{b \times (d \times f)} \\
+                    & = \frac{a}{b} + \frac{(c \times f) + (e \times d)}{d \times f} 
+                    = \frac{a}{b} + \Big( \frac{c}{d} + \frac{e}{f} \Big)
+                    = \bar{x} + (\bar{y} + \bar{z}) .
+                \end{aligned} \end{equation*}
             \item L'opération $+$ est commutative (voir ci-dessus).
             \item \emph{Le nombre rationnel $0$ est neutre pour $+$ :} 
                 Soit $\bar{x}$ un nombre rationnel, $x$ un de ses représentants et $a$ et $b$ deux entiers tels que $b \neq 0$ et $x = (a, b)$. 
@@ -339,7 +378,7 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
                         = \frac{a}{b}
                         = \bar{x}.
                 \end{equation*}
-                Puisque $+$ est comutative, cela implique également $\bar{x} + 0 = \bar{x}$.
+                Puisque $+$ est commutative, cela implique également $\bar{x} + 0 = \bar{x}$.
             \item \emph{Tout élément de $\mathbb{Q}$ admet un inverse pour $+$ :} 
                 Soit $\bar{x}$ un nombre rationnel et $x$ un de ses représentants. 
                 On peut choisir deux entiers $a$ et $b$ tels que $b \neq 0$ et $x = (a, b)$.
@@ -357,10 +396,45 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
     \item Montrons que $(\mathbb{Q}, \times)$ est un magma associatif :
         \begin{itemize}[nosep]
             \item Puisque $\times$ est une loi de composition interne sur $\mathbb{Q}$, $(\mathbb{Q}, \times)$ est un magma.
-            \item \emph{L'opération $\times$ est associative :} ***
+            \item \emph{L'opération $\times$ est associative :} 
+                Cette propriété découle directement de l'associativité de la multiplication d'entiers. 
+                Montrons cela explicitement. 
+                Soit $\bar{x}$, $\bar{y}$ et $\bar{z}$ trois éléments de $\mathbb{Q}$. 
+                On peut choisir six entiers $a$, $b$, $c$, $d$, $e$, $f$ tels que $b \neq 0$, $d \neq 0$, $f \neq 0$, $\bar{x} = a \divslash b$, $\bar{y} = c \divslash d$ et $\bar{z} = e \divslash f$.
+                On a alors : 
+                \begin{equation*} \begin{aligned}
+                    (\bar{x} \times \bar{y}) \times \bar{z} 
+                    & = \Big( \frac{a}{b} \times \frac{c}{d} \Big) \times \frac{e}{f}
+                    = \frac{a \times c}{b \times d} \times \frac{e}{f}
+                    = \frac{(a \times c) \times e}{(b \times d) \times f} \\
+                    & = \frac{a \times (c \times e)}{b \times (d \times f)} 
+                    = \frac{a}{b} \times \frac{c \times e}{d \times f} 
+                    = \frac{a}{b} \times \Big( \frac{c}{d} \times \frac{e}{f} \Big)
+                    = \bar{x} \times (\bar{y} \times \bar{z}) .
+                \end{aligned} \end{equation*}
         \end{itemize}
     \item L'opération $\times$ est commutative (voir ci-dessus). 
     \item \emph{L'opération $\times$ est distributive sur $+$ :} ***
+        Soit $\bar{x}$, $\bar{y}$ et $\bar{z}$ trois éléments de $\mathbb{Q}$. 
+        On peut choisir six entiers $a$, $b$, $c$, $d$, $e$, $f$ tels que $b \neq 0$, $d \neq 0$, $f \neq 0$, $\bar{x} = a \divslash b$, $\bar{y} = c \divslash d$ et $\bar{z} = e \divslash f$.
+        On a alors : 
+        \begin{equation*} \begin{aligned}
+            \bar{x} \times (\bar{y} + \bar{z})
+            & = \frac{a}{b} \times \Big( \frac{c}{d} + \frac{e}{f} \Big)
+            = \frac{a}{b} \times \frac{(c \times f) + (e \times d)}{d \times f}
+            = \frac{a \times ((c \times f) + (e \times d))}{b \times (d \times f)}
+            = \frac{(a \times (c \times f)) + (a \times (e \times d))}{b \times (d \times f)} \\
+            & = \frac{a \times (c \times f)}{b \times (d \times f)} + 
+                \frac{a \times (e \times d)}{b \times (d \times f)}
+            = \frac{(a \times c) \times f}{(b \times d) \times f} + 
+                \frac{(a \times e) \times d}{(b \times f) \times d}
+            = \frac{a \times c}{b \times d} + 
+                \frac{a \times e}{b \times f}
+            = \Big( \frac{a}{b} \times \frac{c}{d} \Big)
+                + \Big( \frac{a}{b} \times \frac{e}{f} \Big) \\
+            & = (\bar{x} \times \bar{y}) + (\bar{x} \times \bar{z}) .
+        \end{aligned} \end{equation*}
+        Puisque $\times$ est commutative, cela montre également (en échangeant les rôles de $\bar{x}$ et $\bar{z}$) que $(\bar{x} + \bar{y}) \times \bar{z} = (\bar{x} \times \bar{z}) + (\bar{y} \times \bar{z})$ pour tous rationnels $\bar{x}$, $\bar{y}$, $\bar{z}$.
     \item \emph{Le nombre rationnel $1$ est neutre pour $\times$ :} 
         Soit $\bar{x}$ un nombre rationnel, $x$ un de ses représentants et $a$ et $b$ deux entiers tels que $b \neq 0$ et $x = (a, b)$. 
         On a : 
@@ -384,6 +458,8 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
         Donc, $\bar{x} \times \bar{y} = 1$.
         Puisque l'opération $\times$ est commutative, cela montre également que $\bar{y} \times \bar{x} = 1$, et donc que $\bar{y}$ est un inverse de $\bar{x}$ pour $\times$.
 \end{itemize}
+
+\done
 
 \subsubsection{Relation d'ordre}
 
