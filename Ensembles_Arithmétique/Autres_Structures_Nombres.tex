@@ -515,6 +515,63 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
     \item $x > y$ si et seulement si $x < y$.
 \end{itemize}
 
+\medskip
+
+\noindent\textbf{Remarque :}
+    Soit $x$ et $y$ deux éléments de $\mathbb{Q}$ et $a$, $b$, $c$, $d$ quatre entiers tels que $b \neq 0$, $d \neq 0$, $x = a \divslash b$ et $y = c \divslash d$.
+    Si $x = y$, alors $a \, d = c \, b$, donc (en multipliant les deux côtés par $b \, d$), $a \, b \, d^2 = c \, d \, b^2$.
+    Réciproquement, si $a \, b \, d^2 = c \, d \, b^2$, alors $(a \, b) (b \, d) = (c \, d) \, (b \, d)$.
+    Puisque $b$ et $d$ sont non nuls, $b \, d$ l'est également, donc cela implique $a \, b = c \, d$, et donc $x = y$.
+    Ainsi, $x = y \Leftrightarrow a \, b \, d^2 = c \, d \, b^2$.
+    La condition $x < y$ est donc équivalente à $a \, b \, d^2 < c \, d \, b^2$.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $x$ et $y$ deux éléments de $\mathbb{Q}$. 
+    On suppose $a < b$. 
+    Alors, il existe un élément $z$ de $\mathbb{Q}$ satisfaisant $x < z < y$. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $a$ et $b$ les numérateur et dénominateur d'un représentant de $x$ et $c$ et $d$ ceux d'un représentant de $y$. 
+    Soit $e$ et $f$ les entiers naturels donnés par : $e = a \, d + b \, c$ et $f = 2 \, b \, d$.
+    Puisque $b$, $d$ et l'entier $2$ sont non nuls, $f$ l'est également.
+    Soit $z$ le nombre rationnel défini parK  : $z = e \divslash f$.
+    Montrons que $x < z < y$. 
+    Pour cela, on utilise le fait que, puisque $x < y$, $a \, b \, d^2 < c \, b^2 \, d$.
+
+    Tout d'abord, 
+    \begin{equation*}
+        a \, b \, f^2 
+        = 4 \, a \, b^3 \, d^2
+        = 2 \, a \, b^3 \, d^2 + 2 \, a \, b^3 \, d^2
+        < 2 \, a \, b^3 \, d^2 + 2 \, b^4 \, c \, d 
+    \end{equation*}
+    et 
+    \begin{equation*}
+        e \, f \, b^2
+        = (a \, d + b \, c) 2 \, b^3 \, d
+        = 2 \, a \, b^3 \, d^2 + 2 \, b^4 \, c \, d. 
+    \end{equation*}
+    Donc, $a \, b \, f^2 < e \, f \, b^2$, donc $x < z$.
+
+    En outre, 
+    \begin{equation*}
+        c \, d \, f^2 
+        = 4 \, c \, b^2 \, d^3
+        = 2 \, c \, b^2 \, d^3 + 2 \, c \, b^2 \, d^3
+        > 2 \, a \, b \, d^4 + 2 \, a \, b^3 \, d^2 
+    \end{equation*}
+    et 
+    \begin{equation*}
+        e \, f \, d^2
+        = (a \, d + b \, c) 2 \, b \, d^3
+        = 2 \, a \, b \, d^4 + 2 \, b^2 \, c \, d^3. 
+    \end{equation*}
+    Donc, $e \, f \, d^2 < c \, d \, f^2$, donc $z < y$.
+
+    \done
+
 \subsection{Le tore \texorpdfstring{$\mathbb{T}$}{T}}
 
 \noindent\textbf{Définition :} On définit dans cette section le \emph{tore}\index{Tore} $\mathbb{T}$ comme l'ensemble des suites d'éléments de $\lbrace 0, 1 \rbrace$ non constantes égale à $1$ à partir d'un certain rang : 
