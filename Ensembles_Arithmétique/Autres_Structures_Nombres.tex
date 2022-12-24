@@ -2,31 +2,19 @@
 
 \localtoc
 
-Dans cette section, nous présentons brièvement d'autres ensembles de nombres remarquables ainsi que leur structure.
+\noindent Dans cette section, nous présentons brièvement d'autres ensembles de nombres remarquables ainsi que leur structure.
 
 \subsection{Nombres rationnels}
 
 \subsubsection{L'ensemble des nombres rationnels \texorpdfstring{$\mathbb{Q}$}{Q}}
 
-Définissons (dans cette section seulement) la relation binaire $\mathcal{R}$ sur $\mathbb{Z} \times \mathbb{Z}^*$ de la manière suivante : si $x$ et $y$ sont deux éléments de cet ensemble, soit $a$, $b$, $c$ et $d$ les quatre (unique) entiers relatifs (avec $b \neq 0$ et $d \neq 0$) tels que $x = (a, b)$ et $y = (b, c)$, alors $r \, \mathcal{R} \, y$ si et seulement si $a d = b c$. 
+Définissons (dans cette section seulement) la relation binaire $\mathcal{R}$ sur $\mathbb{Z} \times \mathbb{Z}^*$ de la manière suivante : si $x$ et $y$ sont deux éléments de cet ensemble, soit $a$, $b$, $c$ et $d$ les quatre (uniques) entiers relatifs (avec $b \neq 0$ et $d \neq 0$) tels que $x = (a, b)$ et $y = (c, d)$, alors $r \, \mathcal{R} \, y$ si et seulement si $a d = b c$. 
 Autrement dit, 
 \begin{equation*}
-    \forall (a, b, c, d) \in \mathbb{Z} \times \mathbb{Z}^* \times \mathbb{Z} \times \mathbb{Z}^*
+    \forall (a, b, c, d) \in \mathbb{Z} \times \mathbb{Z}^* \times \mathbb{Z} \times \mathbb{Z}^* \;
     (a, b) \, \mathcal{R} \, (c, d)
     \Leftrightarrow a d = b c .
 \end{equation*}
-
-\medskip
-
-\noindent\textbf{Lemme :} Soit $a$ un entier et $b$ et $\lambda$ deux entiers non nuls. 
-    Alors $(\lambda \times a, \lambda \times b) \mathrel{\mathcal{R}} (a, b)$.
-
-\medskip
-
-\noindent\textbf{Démonstration :} Puisque $\lambda$ et $b$ sont non nuls, $\lambda \times b$ l'est également.
-    En outre, $a \times (\lambda \times b) = (a \times \lambda) \times b = (\lambda \times a) \times b$.
-
-    \done
 
 \medskip
 
@@ -52,11 +40,27 @@ Autrement dit,
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $a$ un entier et $b$ et $\lambda$ deux entiers non nuls. 
+    Alors $(\lambda \times a, \lambda \times b) \mathrel{\mathcal{R}} (a, b)$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Puisque $\lambda$ et $b$ sont non nuls, $\lambda \times b$ l'est également.
+    En outre, $a \times (\lambda \times b) = (a \times \lambda) \times b = (\lambda \times a) \times b$.
+
+    \done
+
+\medskip
+
 On appelle \emph{ensemble des nombres rationnels}, noté $\mathbb{Q}$, l'ensemble des classes d'équivalences de $\mathcal{R}$, appelées \emph{nombres rationnels}. 
 \aindex{Nombre rationnel} \sindex[isy]{$\mathbb{Q}$}
-Soit $q$ un nombre rationnel et $a$ et $b$ deux entiers tels que $(a, b)$ est un élément de $q$. 
+Autrement dit, $\mathbb{Q}$ est l'ensemble défini par : 
+\begin{equation*}
+    \mathbb{Q} = (\mathbb{Z} \times \mathbb{Z}^*) \divslash \mathcal{R} .
+\end{equation*}
+Soit $q$ un nombre rationnel et $a$ et $b$ deux entiers tels que $(a, b) \in q$. 
 Alors, $a$ est appelé le \emph{numérateur} de la représentation $(a, b)$ et $b$ son \emph{dénominateur}.
-\aindex{Numérateur} \aindex{Dénominateur}
+\index{Numérateur} \index{Dénominateur}
 Elle sera notée $a \divslash b$, ou $\frac{a}{b}$.
 
 Dans cette section, si $x$ est un élément de $\mathbb{Z} \times \mathbb{Z}^*$, on note $\bar{x}$ la classe d'équivalence de $x$ pour la relation $\mathcal{R}$, \emph{i.e.}
@@ -67,14 +71,12 @@ Dans cette section, si $x$ est un élément de $\mathbb{Z} \times \mathbb{Z}^*$,
 \medskip
 
 \noindent\textbf{Lemme :} Soit $q$ un nombre rationnel. 
-Si $q$ admet une représentation dont le numérateur est nul, alors toutes ses représentations ont un numérateur nul. 
-Il existe donc une seule classe d'équivalence contenant un rerésentant de numérateur nul. 
-Ce nombre rationnel est aussi dit \emph{nul}.
+Si $q$ admet une représentation dont le numérateur est nul, alors toutes ses représentations ont un numérateur nul et tous les éléments de $\mathbb{Z} \times \mathbb{Z}^*$ de première composante nulle sont des représentants de $q$. 
 
 \medskip
 
 \noindent\textbf{Démonstration :} On suppose que $q$ admet une représentation de numérateur nul. 
-    On peut donc choisir un entier $b$ non nul tel que $(0, b) \in q$. 
+    On peut alors choisir un entier $b$ non nul tel que $(0, b) \in q$. 
     Soit $r$ une représentation de $q$.
     Soit $c$ et $d$ deux entiers tels que $(c, d)  = r$.
     Alors, $0 \times d = b \times c$.
@@ -82,7 +84,16 @@ Ce nombre rationnel est aussi dit \emph{nul}.
     Puisque $b \neq 0$, on en déduit que $c = 0$.
     Donc, la représentation $r$ est de numérateur nul.
 
+    Soit $r$ un élément de $\mathbb{Z} \times \mathbb{Z}^*$ de première composante nulle.
+    On peut choisir un entier non nul $d$ tel que $r = (0, d)$.
+    Puisque $0 \times d = 0 = 0 \times b$, on a $r \mathrel{\mathcal{R}} (0, b)$, et donc $r \in q$.
+
     \done
+
+\medskip
+
+\noindent\textbf{Corrolaire :} Il existe donc une seule classe d'équivalence contenant un représentant de numérateur nul.%
+Ce nombre rationnel est aussi dit \emph{nul}.
 
 \medskip
 
