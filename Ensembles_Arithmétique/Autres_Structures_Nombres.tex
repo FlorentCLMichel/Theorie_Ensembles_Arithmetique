@@ -92,7 +92,7 @@ Si $q$ admet une représentation dont le numérateur est nul, alors toutes ses r
 
 \medskip
 
-\noindent\textbf{Corrolaire :} Il existe donc une seule classe d'équivalence contenant un représentant de numérateur nul.%
+\noindent\textbf{Corrolaire :} Il existe donc une seule classe d'équivalence contenant un représentant de numérateur nul. 
 Ce nombre rationnel est aussi dit \emph{nul}.
 
 \medskip
@@ -126,24 +126,25 @@ Ce nombre rationnel est aussi dit \emph{nul}.
 \begin{itemize}[nosep]
     \item Si $x$ admet une représentation de numérateur nul, alors toutes ses représentations le sont.
         Donc, $x$ ne peut avoir de représentation de la forme $(a, b)$ avec $a \neq 0$.
-        Il ne peut donc avoir que $(0, 1)$ commme représentation irréductible.
+        Il ne peut donc avoir que $(0, 1)$ comme représentation irréductible.
         Montrons que c'en est bien une. 
         Soit $r$ une représentation de $x$, $a$ son numérateur et $b$ son dénominateur. 
         Puisque $a = 0$, on a : $a \times 1 = 0 = b \times 0$. 
         Donc, $(0, 1)$ est bien une représentation de $x$, et donc sa représentation irréductible. 
-        Par ailleurs, ses représentations sont toutes de la forme $(0, k)$, égal à $(0 \times k, 1 \times k)$, pour un entier non nu $k$, et tous les éléments de $\mathbb{Z} \times \mathbb{Z}^*$ de cette forme sont des représentations de $x$ puisque $1 \times 0 = 0 = 0 \times k$.
+        Par ailleurs, ses représentations sont toutes de la forme $(0, k)$, égal à $(0 \times k, 1 \times k)$, pour un entier non nul $k$, et tous les éléments de $\mathbb{Z} \times \mathbb{Z}^*$ de cette forme sont des représentations de $x$ puisque $1 \times 0 = 0 = 0 \times k$.
     \item Sinon, toutes les représentations de $x$ ont un numérateur non nul. 
-        Soit $r$ une de ses repeésentations, $a$ son numerateur et $b$ son dénominateur. 
+        Soit $r$ une de ses représentations, $a$ son numerateur et $b$ son dénominateur. 
         Soit $l$ le pgcd de $\abs{a}$ et $\abs{b}$.
         On peut choisir deux entiers naturels $p$ et $x$ tels que $\abs{a} = p l$ et $\abs{b} = q l$.
-        En outre, puisque $\abs{b}$ est non nul, $q$ est non nul, donc $(\mathrm{sgn}(a) \mathrm{sgn}(b) p, q)$ est un élément de $\mathbb{Z} \times \mathbb{Z}^*$. 
-        Puisque $p$ et $q$ sont premiers entre eux, $p \neq 0$ (puisque $a \neq 0$), donc $\mathrm{sgn}(a) \mathrm{sgn}(b) p \neq 0$, et $q > 0$, il s'agit d'une représentation irreductible.
-        En outre, $a q = \mathrm{sgn}(a) \abs{a} q = \mathrm{sgn}(a) p q l = \abs{b} \mathrm{sgn}(a) p = b \mathrm{sgn}(a) \mathrm{sgn}(b) p$, donc $(\mathrm{sgn}(a) \mathrm{sgn}(b) p, q)$ est une représentation de $x$.
+        En outre, puisque $\abs{b}$ est non nul, $q$ est non nul, donc $(\mathrm{sgn}(a) \, \mathrm{sgn}(b) \, p, q)$ est un élément de $\mathbb{Z} \times \mathbb{Z}^*$. 
+        En outre, $p \neq 0$ (puisque $a \neq 0$), donc $\mathrm{sgn}(a) \, \mathrm{sgn}(b) \, p \neq 0$, et $q > 0$. 
+        Puisque les valeurs absolues du numérateur et du dénominateur (égales à $p$ et $q$) sont premières entre elles, il s'agit d'une représentation irreductible.
+        En outre, $a q = \mathrm{sgn}(a) \abs{a} q = \mathrm{sgn}(a) p q l = \abs{b} \mathrm{sgn}(a) p = b \, \mathrm{sgn}(a) \, \mathrm{sgn}(b) p$, donc $(\mathrm{sgn}(a) \, \mathrm{sgn}(b) \, p, q) \mathrel{\mathcal{R}} (a, b)$, donc $(\mathrm{sgn}(a) \, \mathrm{sgn}(b) \, p, q)$ est une représentation de $x$.
         Montrons que toutes ses seprésentations sont de la forme $(\lambda \mathrm{sgn}(a) \mathrm{sgn}(b) p, \lambda q)$ pour un entier non nul $\lambda$ et que tous les éléments de $\mathbb{Z} \times \mathbb{Z}^*$ de cette forme sont des représentations de $x$.
-        Cela montrera que $x$ n'admet aucune autre représentation irréductible (avec $\lambda \neq 1$) car le numérateur est négatif si $\lambda < 0$ ou les valeurs absolues des numérateur et dénominateur (égales à $\abs{\lambda} p$ et $\abs{\lambda} q$) ne pourraient être premiers entre eux pour $\lambda > 1$ (ayant un diviseur commun $\lambda$ strictement supérieur à $1$).
+        Cela montrera que $x$ n'admet aucune autre représentation irréductible (avec $\lambda \neq 1$) car le numérateur est négatif si $\lambda < 0$ ou les valeurs absolues des numérateur et dénominateur (égales à $\abs{\lambda} p$ et $\abs{\lambda} q$) ne pourraient être premières entre elles pour $\lambda > 1$ (ayant un diviseur commun $\lambda$ strictement supérieur à $1$).
         \begin{itemize}[nosep]
             \item \emph{Toutes les représentations de $x$ sont de cette forme :} Soit $r$ une représentation de $x$ et $c$ et $d$ deux entiers relatifs non nuls tels que $(c, d) = r$. 
-                Alors, $d \, \mathrm{sgn}(a) \mathrm{sgn}(b) p = c q$.
+                Alors, $d \, \mathrm{sgn}(a) \, \mathrm{sgn}(b) p = c q$.
                 En prenant la valeur absolue, il vient : $\abs{d} p = \abs{c} q$. 
                 Donc, $q$ divise $\abs{d} p$. 
                 Puisque $q$ est premier avec $p$, on en déduit que $q$ divise $\abs{d}$.
@@ -151,12 +152,12 @@ Ce nombre rationnel est aussi dit \emph{nul}.
                 Soit $\lambda$ l'entier relatif définit par $\lambda = \mathrm{sgn}(d) k$. 
                 Alors, $d = \lambda q$.
                 En outre, $d$ est non nul, donc $\lambda$ est non nul. 
-                Puisque $d \, \mathrm{sgn}(a) \mathrm{sgn}(b) p = c q$, on a : $\lambda q \, \mathrm{sgn}(a) \mathrm{sgn}(b) p = c q$.
-                Puisque $q$ est non nul, cela donne : $\lambda \, \mathrm{sgn}(a) \mathrm{sgn}(b) p = c$.
-                Donc, $r = (\lambda \, \mathrm{sgn}(a) \mathrm{sgn}(b) p, \lambda q)$.
+                Puisque $d \, \mathrm{sgn}(a) \mathrm{sgn}(b) p = c q$, on a : $\lambda q \, \mathrm{sgn}(a) \, \mathrm{sgn}(b) p = c q$.
+                Puisque $q$ est non nul, cela donne : $\lambda \, \mathrm{sgn}(a) \, \mathrm{sgn}(b) p = c$.
+                Donc, $r = (\lambda \, \mathrm{sgn}(a) \, \mathrm{sgn}(b) p, \lambda q)$.
             \item \emph{Tous les éléments de cette forme sont des représentations de $x$ :} Soit $\lambda$ un entier non nul.
-                Alors, $a \lambda q = \mathrm{sgn}(a) \abs{a} \lambda q = \mathrm{sgn}(a) \lambda p q l = \abs{b} \lambda \mathrm{sgn}(a) p = b \lambda \, \mathrm{sgn}(a) \mathrm{sgn}(b) p$.
-                Donc, $(\lambda \, \mathrm{sgn}(a) \mathrm{sgn}(b) p, \lambda q)$ est une représentation de $x$.
+                Alors, $a \lambda q = \mathrm{sgn}(a) \abs{a} \lambda q = \mathrm{sgn}(a) \lambda p q l = \abs{b} \lambda \mathrm{sgn}(a) p = b \lambda \, \mathrm{sgn}(a) \, \mathrm{sgn}(b) p$.
+                Donc, $(\lambda \, \mathrm{sgn}(a) \, \mathrm{sgn}(b) p, \lambda q)$ est une représentation de $x$.
         \end{itemize}
 \end{itemize}
 
