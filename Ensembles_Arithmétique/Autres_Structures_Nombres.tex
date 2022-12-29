@@ -169,7 +169,7 @@ Ce nombre rationnel est aussi dit \emph{nul}.
 
 \subsubsection{Structure de corps}
 
-\noindent\textbf{Définition :} On définit les trois opérations $+$ (\emph{addition}), $-$ (\emph{soustraction}) et $\times$ (\emph{multiplication}) de $\mathbb{Q} \times \mathbb{Q}$ vers $\mathbb{Q}$ et $\divslash$ (\emph{division}) de $\mathbb{Q} \times \mathbb{Q}^*$ vers $\mathbb{Q}$ de la manière suivante. \index{Addition}\index{Soustraction}\index{Multiplication}\index{Division} 
+\noindent\textbf{Définition :} On définit les trois opérations $+$ (\emph{addition}), $-$ (\emph{soustraction}) et $\times$ (\emph{multiplication}) de $\mathbb{Q} \times \mathbb{Q}$ vers $\mathbb{Q}$ et l'opération $\divslash$ (\emph{division}) de $\mathbb{Q} \times \mathbb{Q}^*$ vers $\mathbb{Q}$ de la manière suivante. \index{Addition}\index{Soustraction}\index{Multiplication}\index{Division} 
 Soit $\bar{x}$ et $\bar{y}$ deux éléments de $\mathbb{Q}$. 
 On peut choisir un représentant $x$ de $\bar{x}$ et un représentant $y$ de $\bar{y}$, puis quatre entiers $a$, $b$, $c$ et $d$ tels que $b$ et $d$ sont non nuls, $x = (a, b)$ et $y = (c, d)$.
 Alors, 
@@ -177,7 +177,8 @@ Alors,
     \item $\bar{x} + \bar{y}$ est la classe d'équivalence de $(a \times d + b \times c, b \times d)$,
     \item $\bar{x} - \bar{y}$ est la classe d'équivalence de $(a \times d - b \times c, b \times d)$,
     \item $\bar{x} \times \bar{y}$ est la classe d'équivalence de $(a \times c, b \times d)$,
-    \item si $\bar{y} \in \mathbb{Q}^*$ (et donc $c \neq 0$), $\bar{x} \divslash \bar{y}$ est la classe d'équivalence de $(a \times d, b \times c)$.
+    \item si $\bar{y} \in \mathbb{Q}^*$ (et donc $c \neq 0$), $\bar{x} \divslash \bar{y}$ est la classe d'équivalence de $(a \times d, b \times c)$.%
+        \footnote{Puisque $b \neq 0$ et $c \neq 0$, $b \times c \neq 0$, donc $(a \times d, b \times c)$ est bien un élément de $\mathbb{Z} \times \mathbb{Z}^*$.}
 \end{itemize}
 Quand il n'y a pas d'ambiguité, on pourra omettre le symbole $\times$. 
 
@@ -203,16 +204,16 @@ Notons d'abord quelques propriétés découlant directement de leurs définition
         = \frac{a}{b} 
         = \bar{x}.
 \end{equation*}
-
+(Où on a utilisé le fait que $d \times d \neq 0$ puisque $d \neq 0$.)
 De même, 
 \begin{equation*}
     (\bar{x} - \bar{y}) + \bar{y} 
         = \frac{a \times d - b \times c}{b \times d} + \frac{c}{d}
         = \frac{(a \times d - b \times c) \times d + c \times (b \times d)}{(b \times d) \times d}
         = \frac{a \times (d \times d)}{b \times (d \times d)}
+        = \frac{a}{b} 
         = \bar{x} .
 \end{equation*}
-
 Si $\bar{y}$, est non nul, on a aussi : 
 \begin{equation*}
     (\bar{x} \times \bar{y}) \divslash \bar{y} 
@@ -243,7 +244,7 @@ et
 
 \noindent\textbf{Démonstration :} Avec les mêmes notations, soit $x$ et $x'$ deux représentants de $\bar{x}$, $y$ et $y'$ deux représentants de $\bar{y}$, et $a$, $a'$, $b$, $b'$, $c$, $c'$, $d$ et $d'$ huit entiers tels que $b \neq 0$, $b' \neq 0$, $d \neq 0$, $d' \neq 0$, $x = (a, b)$, $x' = (a', b')$, $y = (c, d)$ et $y' = (c', d')$. 
 Il s'agit de montrer que les nombres rationnels obtenus en calculant $\bar{x} + \bar{y}$, $\bar{x} - \bar{y}$, $\bar{x} \times \bar{y}$ et, si $\bar{y}$ est non nul, $\bar{x} \divslash \bar{y}$ en prenant soit les représentants $x$ et $y$ soit $x'$ et $y'$ sont identiques.
-Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \times d' = c' \times d$.
+Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \times d' = c' \times d$ (reflétant les prédicats $(a, b) \mathrel{\mathcal{R}} (a', b')$ et $(c, d) \mathrel{\mathcal{R}} (c', d')$). 
 
 \noindent\emph{Addition :}
     \begin{equation*}
@@ -312,10 +313,9 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
         = \frac{(a \times c) + (b \times c)}{c \times c}
         = \frac{(a + b) \times c}{c \times c}.
     \end{equation*}
-    Puisque $c \neq 0$, cela donne 
+    Puisque $c \neq 0$ on a $((a + b) \times cn c \times c) \mathrel{\mathcal{R}} (a \times b, c)$, donc cela donne 
     \begin{equation*}
         \frac{a}{c} + \frac{b}{c} 
-        = \frac{(a \times c) + (b \times c)}{c \times c}
         = \frac{a + b}{c}.
     \end{equation*}
 
@@ -355,7 +355,7 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 
 \medskip
 
-\noindent\textbf{Lemme :} Le triplet $(\mathbb{Q}, +, \times)$ est un corps, d'éléments neutre $0$ pour $+$ et $1$ pour $\times$.
+\noindent\textbf{Lemme :} Le triplet $(\mathbb{Q}, +, \times)$ est un corps, d'éléments neutres $0$ pour $+$ et $1$ pour $\times$.
 
 \medskip
 
@@ -372,7 +372,7 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
                     (\bar{x} + \bar{y}) + \bar{z} 
                     & = \Big( \frac{a}{b} + \frac{c}{d} \Big) + \frac{e}{f}
                     = \frac{(a \times d) + (c \times b)}{b \times d} + \frac{e}{f}
-                    = \frac{((a \times d) + (c \times b)) \times f + e \times (b \times d)}{(b \times d) \times f} + \frac{e}{f} \\
+                    = \frac{((a \times d) + (c \times b)) \times f + e \times (b \times d)}{(b \times d) \times f} \\
                     & = \frac{a \times (d \times f) + b \times (c \times f) + b \times (e \times d)}{b \times (d \times f)} 
                     = \frac{a \times (d \times f) + b \times ((c \times f) + (e \times d))}{b \times (d \times f)} \\
                     & = \frac{a}{b} + \frac{(c \times f) + (e \times d)}{d \times f} 
@@ -426,7 +426,7 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
                 \end{aligned} \end{equation*}
         \end{itemize}
     \item L'opération $\times$ est commutative (voir ci-dessus). 
-    \item \emph{L'opération $\times$ est distributive sur $+$ :} ***
+    \item \emph{L'opération $\times$ est distributive sur $+$ :} 
         Soit $\bar{x}$, $\bar{y}$ et $\bar{z}$ trois éléments de $\mathbb{Q}$. 
         On peut choisir six entiers $a$, $b$, $c$, $d$, $e$, $f$ tels que $b \neq 0$, $d \neq 0$, $f \neq 0$, $\bar{x} = a \divslash b$, $\bar{y} = c \divslash d$ et $\bar{z} = e \divslash f$.
         On a alors : 
@@ -446,7 +446,8 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
                 + \Big( \frac{a}{b} \times \frac{e}{f} \Big) \\
             & = (\bar{x} \times \bar{y}) + (\bar{x} \times \bar{z}) .
         \end{aligned} \end{equation*}
-        Puisque $\times$ est commutative, cela montre également (en échangeant les rôles de $\bar{x}$ et $\bar{z}$) que $(\bar{x} + \bar{y}) \times \bar{z} = (\bar{x} \times \bar{z}) + (\bar{y} \times \bar{z})$ pour tous rationnels $\bar{x}$, $\bar{y}$, $\bar{z}$.
+        Puisque $\times$ est commutative, cela montre également (en échangeant les rôles de $\bar{x}$ et $\bar{z}$) que $(\bar{x} + \bar{y}) \times \bar{z} = (\bar{x} \times \bar{z}) + (\bar{y} \times \bar{z})$ pour tous rationnels $\bar{x}$, $\bar{y}$, $\bar{z}$.%
+            \footnote{En effet, puisque l'opération $\times$ est commutative, on a : $(\bar{x} + \bar{y}) \times \bar{z} = \bar{z} \times (\bar{x} + \bar{y}) = (\bar{z} \times \bar{x}) + (\bar{z} \times \bar{y}) = (\bar{x} \times \bar{z}) + (\bar{y} \times \bar{z})$.}
     \item \emph{Le nombre rationnel $1$ est neutre pour $\times$ :} 
         Soit $\bar{x}$ un nombre rationnel, $x$ un de ses représentants et $a$ et $b$ deux entiers tels que $b \neq 0$ et $x = (a, b)$. 
         On a : 
@@ -456,8 +457,8 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
                 = \frac{a}{b}
                 = \bar{x}.
         \end{equation*}
-        Puisque $\times$ est comutative, cela implique également $\bar{x} \times 1 = \bar{x}$.
-    \item L'anneau $(Q, +, \times)$ est non nul puisque $0 \neq 1$ (puisque le nombre rationnel $1$ a pou représentant $(1,1)$, qui n'est pas un représentant de $0$ puisque don numérateur n'est pas nul).
+        Puisque $\times$ est commutative, cela implique également $\bar{x} \times 1 = \bar{x}$.
+    \item L'anneau $(Q, +, \times)$ est non nul puisque $0 \neq 1$ (puisque le nombre rationnel $1$ a pour représentant $(1,1)$, qui n'est pas un représentant de $0$ puisque son numérateur n'est pas nul).
     \item \emph{Tout élément de $\mathbb{Q}$ distinct de $0$ admet un inverse pour $\times$ :} 
         Soit $\bar{x}$ un nombre rationnel non nul. 
         Soit $x$ un de ses représentants. 
@@ -470,6 +471,11 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
         Donc, $\bar{x} \times \bar{y} = 1$.
         Puisque l'opération $\times$ est commutative, cela montre également que $\bar{y} \times \bar{x} = 1$, et donc que $\bar{y}$ est un inverse de $\bar{x}$ pour $\times$.
 \end{itemize}
+
+\medskip
+
+\noindent\textbf{Remarque :} Soit $x$ un élément de $\mathbb{Q}^*$. 
+    Alors l'inverse de $x$ est $1 \divslash x$. 
 
 \done
 
