@@ -3,7 +3,7 @@
 
 \subsubsection{Définition}
 
-L'ensemble des entiers naturels, noté $\mathbb{N}$, est défini de la manière suivante. 
+L'ensemble des entiers naturels, noté $\mathbb{N}$\sindex[isy]{$\mathbb{N}$}, est défini de la manière suivante. 
 Notons $\mathrm{Cl}$ le prédicat à un paramètre libre défini par :
 \begin{equation*}
     \mathrm{Cl}(A): (\emptyset \in A) \wedge (\forall a \, (a \in A \Rightarrow a \cup \lbrace a \rbrace \in A)). 
@@ -153,6 +153,7 @@ On définit aussi la relation d'ordre $\geq$ et la relation d'ordre strict $>$ s
 \noindent\textbf{Lemme (principe de récurrence) :} Soit $P$ une formule à un paramètre libre. 
     On suppose que $P(0)$ est vraie et que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow P(n+1)$ est vraie. 
     Alors, $P(n)$ est vraie pour tout $n \in \mathbb{N}$.
+    \index{Récurrence}
 
 \medskip
 
@@ -171,6 +172,7 @@ On définit aussi la relation d'ordre $\geq$ et la relation d'ordre strict $>$ s
     Soit $P$ une formule à un paramètre libre. 
     On suppose que $P(0)$ est vraie et que, pour tout $n \in E$ tel que $n+1 \in E$, $P(n) \Rightarrow P(n+1)$ est vraie. 
     Alors, $P(n)$ est vraie pour tout $n \in E$.
+    \index{Récurrence finie}
 
 \medskip
 
@@ -625,6 +627,7 @@ On en déduit le lemme suivant :
 \noindent\textbf{Lemme (principe de récurrence forte) :} Soit $P$ une formule à un paramètre libre. 
     On suppose que $P(0)$ est vraie et que, pour tout élément $n$ de $\mathbb{N}$, la formule $(\forall m \in \mathbb{N} \, m \leq n \Rightarrow P(m)) \Rightarrow P(n+1)$ est vrai. 
     Alors, pour tout élément $n$ de $\mathbb{N}$, $P(n)$ est vraie. 
+    \index{Récurrence forte}
 
 \medskip
 
@@ -657,6 +660,7 @@ On en déduit le lemme suivant :
     Si $u$ est une suite d'éléments de $E$ et $n$ un élément de $\mathbb{N}$, l'élément $u(n)$ de $E$ est parfois noté $u_n$. 
     Si $f$ est une formule dépendant d'un paramètre libre telle que, pour tout élément $n$ de $\mathbb{N}$, $f(n) = u(n)$, la suite $u$ est parfois notée $\left( f(n) \right)_{n \in \mathbb{N}}$.
     Si $u$ est une suite et $n$ une variable, dans la formule $u_n$, $n$ est parfois appelé \textit{indice}.
+    \index{Suite} \index{Indice}
 
 \medskip
 
@@ -980,6 +984,7 @@ Ce résultat étant important, donnons-en un énoncé et une démonstration un p
     Notons que, pour tout élément $m$ de $\mathbb{N}$, on a $\mathrm{Add}(1)(m) = m + 1$. 
     Dans la suite, pour tous éléments $n$ et $m$ de $\mathbb{N}$, on notera l'entier $\mathrm{Add}(n)(m)$ par $m+n$. 
     Pour tous éléments $n$ et $m$ de $\mathbb{N}$, on a donc $m+0=m$ et $m+(n+1) = (m+n)+1$.
+    \index{Addition} \sindex[isy]{$+$}
 
 \medskip
 
@@ -1203,6 +1208,7 @@ On montre ainsi que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow 
 
 \noindent\textbf{Définition :} Soit $n$ et $m$ deux éléments de $\mathbb{N}$ tels que $m \leq n$. 
     On note $n-m$ l'élément $k$ de $\mathbb{N}$ tel que $n = m  + k$.
+    \index{Soustraction} \sindex[isy]{$-$}
 
 \medskip
 
@@ -1450,6 +1456,7 @@ On montre ainsi que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow 
     Par exemple, si $a$, $b$ et $c$ sont trois éléments de $\mathbb{N}$, $a \times b + c$ est équivalent à $(a \times b) + c$ et $a + b \times c$ à $a + (b \times c)$.
     Le symbole $\times$ est parfois omis quand il n'y a pas de confusion possible. 
     Ainsi, si $n$ et $m$ sont deux entiers naturels, $n \times m$ pourra s'écrire $n m$.
+    \index{Multiplication} \sindex[isy]{$\times$}
 
 \medskip
 
@@ -1685,6 +1692,7 @@ On montre ainsi que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow 
     \item Pour tout entier naturel $n$, on pose $(n+1)! = (n!) \times (n+1)$.
 \end{itemize}
 Le factoriel est prioritaire sur la multiplication et sur l'addition. 
+\index{Factoriel}
 
 \medskip
 
@@ -1729,6 +1737,7 @@ Le factoriel est prioritaire sur la multiplication et sur l'addition.
     Pour touts éléments $n$ et $m$ de $\mathbb{N}$, on a donc $m^0=1$, $m^1 = m$ et $m^{n+1} = m^n \times m$. 
     L'exponentiation est prioritaire sur la multiplication et l'addition. 
     Par exemple, si $a$, $b$ et $c$ sont trois éléments de $\mathbb{N}$, $a^b \times c$ est équivalent à $(a^b) \times c$ et $a^b + c$ est équivalent à $(a^b) + c$.
+    \index{Puissance}
 
 \medskip
 
@@ -1894,6 +1903,7 @@ On définit les puissances de $f$, $f^n$, pour $n \in \mathbb{N}$ de la manière
 Notons que, pour tout entier naturel $n$ tel que $n \neq 0$, on a $f^{n} = f \circ f^{n-1}$ (puisque n = (n-1) + 1).
 Notons aussi que $f^1 = f$. 
 La puissance est prioritaire sur $\circ$.
+\index{Puissance}
 
 \medskip
 
@@ -1994,6 +2004,7 @@ On note $E^n$ l'ensemble des fonctions de $n$ vers $E$.
 Soit $n$ éléments de $E$ notés $e_0$, $e_1$, ..., $e_{n-1}$. 
 On note (quand il n'y a pas d'ambiguité avec d'autres notations) $\left( e_0, e_1, \dots e_{n-1} \right)$ la fonction $f$ de $n$ vers $E$ telle que $f(0) = e_0$, $f(1) = e_1$, ..., $f(n-1) = e_{n-1}$. 
 Quand il n'y a pas d'ambiguité, si $f$ est une fonction de $n$ vers $E^{n}$ et $i$ un élément de $[\![1,n]\!]$, on note parfois $f_i$ l'élément $f(i-1)$ de $E$.
+\index{Puissance}
 
 Soit $n$ un entier naturel et $E$ un ensemble. 
 Une fonction de $n$ vers $E$ est parfois appelée \textit{séquence de $n$ éléments de $E$} ou \textit{$n$-uplet d'éléments de $E$}.
