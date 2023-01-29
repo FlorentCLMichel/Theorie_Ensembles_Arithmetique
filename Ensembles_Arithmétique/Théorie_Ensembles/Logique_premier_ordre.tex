@@ -598,25 +598,25 @@ Cela peut se récrire formellement :
 \subsubsection{Premier théorème d'incomplétude de Gödel}
 
 \index{Gödel}\index{Incomplétude}
-Les deux théorèmes d'incomplétude de Gödel énoncent, en un certain sens, des limites au pouvoir démontratif d'une théorie mathématique. 
-Plus précisément, ils indiquent que, sous certaines hypothèses, tous les prédicats vrais d'une théorie ne peuvent être démontrés comme tels. 
+Les deux théorèmes d'incomplétude de Gödel énoncent, en un certain sens, des limites au pouvoir démonstratif d'une théorie mathématique rigoureuse—autrement dit, si une théorie (suffisamment complexe, en un sens défini ci-dessous) est \emph{cohérente}, \emph{i.e.} si aucun prédicat faux ne peut être démontré, alors tous les prédicat vrais ne peuvent être démontrés. 
 Le premier d'entre eux exprime que, dans une théorie fondée sur la logique du premier ordre et suffisamment complexe pour y définir les entiers naturels, il existe des prédicats dont il est impossible de déterminer la valeur de vérité.
 On peut l'énoncer de manière informelle comme suit : 
 
 \medskip
 
-\noindent \textit{Tout système formel $F$ d'axiomes cohérent permetant de définir une arithmétique élémentaire est incomplet, au sens où il existe des prédicats exprimés dans le language de $F$ dont la valeur de vérité ne peut être démontrée vraie ni fausse à partir de $F$.}
+\noindent \textit{Tout système formel $F$ d'axiomes cohérent permettant de définir une arithmétique élémentaire est incomplet, au sens où il existe des prédicats exprimés dans le language de $F$ dont la valeur de vérité ne peut être démontrée vraie ni fausse à partir de $F$.}
 
 \medskip
 
-\noindent Cet énoncé est imprécis, entre autres puisqu'il ne définit pas ce qu'est une arithmétique élémentaire. 
+\noindent Cet énoncé est imprécis, entre autres puisqu'il ne définit pas ce qu'est une « arithmétique élémentaire ». 
 Pour le préciser, considérons une théorie dont l'alphabet contient (au moins) les symboles suivants : 
 \begin{itemize}[nosep]
     \item Un symbole $0$ représentant une constante. 
-    \item Un symbole $x$ représentant une variable, ainsi qu'un symbole $\ast$ permettant de construire d'autres variables $x^\ast$, $x^{\ast\ast}$, $x^{\ast\ast\ast}$, ... ces variables sont dites \emph{primaires}.
+    \item Un symbole $x$ représentant une variable, ainsi qu'un symbole $\ast$ permettant de construire d'autres variables $x^\ast$, $x^{\ast\ast}$, $x^{\ast\ast\ast}$, ... Ces variables sont dites \emph{primaires}.
     \item Un symbole « successeur » $S$ définissant une fonction d'une seule variable. 
     \item Deux opérations binaires $+$ (addition) et $\times$ (multiplication).
     \item Les opérateurs logiques de conjonction $\wedge$, disjonction $\vee$ et négation $\neg$.
+    \item Les quantificateurs $\exists$ et $\forall$.
     \item Deux relations binaires $=$ (égalité) et $<$.
     \item Les parenthèses $($ et $)$.
 \end{itemize}
@@ -624,31 +624,33 @@ Pour le préciser, considérons une théorie dont l'alphabet contient (au moins)
 Les formules de la théorie sont des chaines (finies) de symboles, avec les règles suivantes : 
 \begin{itemize}[nosep]
     \item Si $y$ désigne une constante, $S y$ est une constante, dite \textit{successeur} de $y$. 
-        On notera $1$ le successeur $0$ et on supposera $1 \neq 0$.
+        On note $1$ le successeur $0$ et on suppose $1 \neq 0$.
     \item Si $y$ désigne une variable, $S y$ est une variable, dite \emph{secondaire}.
     \item Si $y$ et $z$ sont chacune une constante ou une variable, alors $y = z$ et $y < z$ sont des formules.
     \item Si $f$ est une formule, alors $(f)$ en est une. 
     \item Si $f$ est une formule, alors $\neg f$ en est une. 
-    \item Si $f$ et $g$ sont deux formule n'ayant aucune variable primaire quantifiée en commun, alors $f \wedge g$ et $f \vee g$ en sont également. 
+    \item Si $f$ et $g$ sont deux formules n'ayant aucune variable quantifiée en commun, alors $f \wedge g$ et $f \vee g$ en sont également. 
     \item Soit $f$ une formule et $v$ une variable primaire telle que ni $\forall v$ ni $\exists v$ n'apparaît dans $f$. 
         Alors $\forall v \, f$ et $\exists v \, f$ sont des formules.
 \end{itemize}
 Notons que l'arithmétique usuelle satisfait ces propriétés (voir section~\ref{sub:constN}).
 
-Alternativement, on peut se limiter aux formules sans variable libre en remplaçant le règles ci-dessus par les suivantes :
+On peut se limiter aux formules sans variable libre en remplaçant les règles ci-dessus par les suivantes (cela n'aura pas d'incidence sur la suite) :
 \begin{itemize}[nosep]
     \item Si $y$ désigne une constante, $S y$ est une constante.
     \item Si $y$ et $z$ sont deux constantes, alors $y = z$ et $y < z$ sont des formules.
     \item Si $f$ est une formule, alors $(f)$ en est une. 
     \item Si $f$ est une formule, alors $\neg f$ en est une. 
-    \item Si $f$ et $g$ sont deux formule, alors $f \wedge g$ et $f \vee g$ en sont également. 
+    \item Si $f$ et $g$ sont deux formules, alors $f \wedge g$ et $f \vee g$ en sont également. 
     \item Soit $f$ une formule, $c$ une constante et $v$ une variable. 
-        Soit $g$ la chaine obtenue en remplaçant $c$ par $v$ dans $f$.
+        Soit $g$ la séquence de symboles obtenue en remplaçant $c$ par $v$ dans $f$.
         Alors, $\forall v \, g$ et $\exists v \, g$ sont des formules.
 \end{itemize}
-Ces éléments permettent de définir un ensemble de nombres $\mathbb{N}$, contenant $0$ et stable par $S$, ayant les mêmes propriétés que celui défini dans les sections suivantes (notamment celles des opérations binaires $+$ et $\times$ et le fait de définir $<$ comme une relation d'ordre). 
+Ces éléments permettent, sous certains axiomes, de définir un ensemble de nombres $\mathbb{N}$, contenant $0$ et stable par $S$, ayant les mêmes propriétés que celui défini dans les sections suivantes (notamment celles des opérations binaires $+$ et $\times$ et le fait de définir $<$ comme une relation d'ordre). 
+
+On suppose un système d'axiomes permettant de définir un ensemble de nombres $\mathbb{N}$ satisfaisnat les propriétés établies en section~\ref{sub:constN}. 
 En particulier, $+$ et $\times$ sont des fonctions de $\mathbb{N} \times \mathbb{N}$ vers $\mathbb{N}$ et l'on peut définir les nombres premiers comme dans la section~\ref{subsub:defNombresPremiers}. 
-Pour fixer les idées, on pourra considérer que l'on se place dans le cadre de la théorie des ensembles et de l'arithmétiques définis dans les sections ci-dessous.
+Pour fixer les idées, on pourra considérer que l'on se place dans le cadre de la théorie des ensembles et de l'arithmétique définies dans les sections ci-dessous.
 
 La théorie est dite \emph{cohérente} si aucune formule ne peut être montrée à la fois vraie et fausse. 
 Elle est dite \emph{ω-cohérente} si, pour toute formule $f$ et toute variable $n$, il est impossible de montrer $\exists n \, f$ si $\neg f$ est démontrable pour toute constante $n$. 
@@ -656,12 +658,12 @@ Notons que la seconde notion implique la première (en choisissant pour $n$ une 
 Dans la suite, on suppose la théorie ω-cohérente.
 
 Enfin, la théorie est supposée \textit{effective}, c'est-à-dire qu'il est théoriquement possible d'écrire un algorithme ayant un nombre fini d'instructions donnant un par un tous ses axiomes et uniquement ses axiomes. 
-On peut donner à cette définition un sens plus précis dans le cadre de l'arithmétique usuelle, et en définissant un ensemble d'instructions qu'un tel algorithme peut avoir. 
-On considère qu'un algorithme à un nombre fini d'instruction démontrant une formule $F$ peut être décrit par une formule de la théorie, de la forme $P \Rightarrow F$, où $P$ est soit un axiome de la théorie soit une formule démontrable.
+(On peut donner à cette définition un sens plus précis dans le cadre de l'arithmétique usuelle, et en définissant un ensemble d'instructions possibles pour un algorithme.) 
+On considère qu'un algorithme à un nombre fini d'instructions démontrant une formule $F$ peut être décrit par une formule de la théorie, de la forme $P \Rightarrow F$, où $P$ est soit un axiome de la théorie soit une formule démontrable.
 
 \medskip
 
-\noindent \textbf{Premier théorème d'incomplétude de Gödel :} Sous ces conditions, il existe une formule $f$ sans variable libre dont on ne peut montrer (par un algorithme fini) ni qu'elle est vraie ni qu'elle est fausse.
+\noindent \textbf{Premier théorème d'incomplétude de Gödel :} Sous ces conditions, il existe une formule $F$ sans variable libre dont on ne peut montrer (par un algorithme fini) ni qu'elle est vraie ni qu'elle est fausse.
 
 \medskip
 
@@ -674,14 +676,14 @@ Pour démontrer le premier théorème d'incomplétude de Gödel, il suffit en qu
 La démonstration de Gödel repose sur les \textit{nombres de Gödel} associés à chaque formule. 
 De manière générale (et une fois une théorie de l'arithmétique construite, voir section~\ref{sec:arithmetique} ; on se limite ici aux entiers naturels), une \textit{numérotation de Gödel} est une fonction injective (une définition rigoureuse des fonctions dans le cadre de la théorie des ensembles sera donnée section~\ref{sub:fonctions}) associant un nombre à chaque symbole ou formule. 
 
-La numérotation originelle de Gödel, que nous nommerons dans la suite simplement \textit{encodage de Gödel}, noté $\mathbf{G}$, est obtenue de la manière suivante : 
+La numérotation originelle de Gödel, que nous nommerons dans la suite \textit{encodage de Gödel}, noté $\mathbf{G}$, est obtenue de la manière suivante : 
 \begin{itemize}[nosep]
-    \item On choisit une suite de nombres premiers distincts $p$. 
-    \item À chaque symbole de la théorie ou variable primaire $x$ est associé un nombre $\mathbf{G}(x)$, de sorte que chaque nombre est associé à au plus un symbole ou une variable primaire. 
-    \item Si $n$ est un entier naturel et $x_1$, $x_2$, ..., $x_n$ sont des symboles, le nombre associé à la séquence de symboles $x_1 x_2 \dots x_n$ est $p_1^{\mathbf{G}(x_1)} \times p_2^{\mathbf{G}(x_2)} \times \cdots p_n^{\mathbf{G}(x_n)}$.
+    \item On choisit une suite (infinie) de nombres premiers distincts, notée $p$.\footnote{Cela est possible car il existe une infinité de nombres premiers (voir section~\ref{subsub:defNombresPremiers}).}
+    \item À chaque symbole de la théorie ou variable primaire $x$ est associé un nombre $\mathbf{G}(x)$, de sorte que chaque nombre est associé à au plus un symbole ou une variable primaire.\footnote{Cela est possible car l'ensemble des symboles est fini et celui des variables primaires est dénombrable, donc l'ensemble contenant les symboles et variables primaires est dénombrable (voir définition section~\ref{subsub:dénombrable}).}
+    \item Si $n$ est un entier naturel et $x_1$, $x_2$, ..., $x_n$ sont des symboles, le nombre associé à la séquence de symboles $x_1 x_2 \dots x_n$ est $p_1^{\mathbf{G}(x_1)} \times p_2^{\mathbf{G}(x_2)} \times \cdots \times p_n^{\mathbf{G}(x_n)}$.
         Plus formellement, $\mathbf{G}(x_1 x_2 \dots x_n) = \prod_{i=1}^n p_i^{\mathbf{G}(x_i)}$. 
 \end{itemize}
-D'après l'unicité de la décomposition en produits de facteurs premiers (voir section~\ref{subsub:dec_fact_prem}), deux formules distinctes ne peuvent avoir le le même encodage.
+D'après l'unicité de la décomposition en produits de facteurs premiers (voir section~\ref{subsub:dec_fact_prem}), deux formules distinctes ne peuvent avoir le même encodage.
 Puisque toute formule est une séquence finie de symboles, à chaque formule est ainsi associé un unique nombre.
 
 \medskip
