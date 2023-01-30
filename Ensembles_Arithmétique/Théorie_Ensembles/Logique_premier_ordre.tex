@@ -648,9 +648,17 @@ On peut se limiter aux formules sans variable libre en remplaçant les règles c
 \end{itemize}
 Ces éléments permettent, sous certains axiomes, de définir un ensemble de nombres $\mathbb{N}$, contenant $0$ et stable par $S$, ayant les mêmes propriétés que celui défini dans les sections suivantes (notamment celles des opérations binaires $+$ et $\times$ et le fait de définir $<$ comme une relation d'ordre). 
 
-On suppose un système d'axiomes permettant de définir un ensemble de nombres $\mathbb{N}$ satisfaisnat les propriétés établies en section~\ref{sub:constN}. 
+On suppose un système d'axiomes permettant de définir un ensemble de nombres $\mathbb{N}$ satisfaisant les propriétés établies en section~\ref{sub:constN}, constituant la base de l'arithmétique usuelle.
 En particulier, $+$ et $\times$ sont des fonctions de $\mathbb{N} \times \mathbb{N}$ vers $\mathbb{N}$ et l'on peut définir les nombres premiers comme dans la section~\ref{subsub:defNombresPremiers}. 
-Pour fixer les idées, on pourra considérer que l'on se place dans le cadre de la théorie des ensembles et de l'arithmétique définies dans les sections ci-dessous.
+Pour fixer les idées, on pourra considérer que l'on se place dans le cadre de la théorie des ensembles et de l'arithmétique définies dans les sections ci-dessous.%
+\footnote{
+    Pour faire le lien avec la section~\ref{sub:constN}, on peut poser l'équivalence suivante :
+    \begin{itemize}[nosep]
+        \item les constantes sont les entiers naturels, \emph{i.e.}, les éléments de $\mathbb{N}$ ;
+        \item les relations $=$ et $<$ sont, respectivement, la relation d'égalité et la première relation d'ordre sur $\mathbb{N}$ ;
+        \item $S$ est l'application succésseur : pour tout entier naturel $n$, $S n = n + 1$.
+    \end{itemize}
+} 
 
 La théorie est dite \emph{cohérente} si aucune formule ne peut être montrée à la fois vraie et fausse. 
 Elle est dite \emph{ω-cohérente} si, pour toute formule $f$ et toute variable $n$, il est impossible de montrer $\exists n \, f$ si $\neg f$ est démontrable pour toute constante $n$. 
@@ -659,7 +667,7 @@ Dans la suite, on suppose la théorie ω-cohérente.
 
 Enfin, la théorie est supposée \textit{effective}, c'est-à-dire qu'il est théoriquement possible d'écrire un algorithme ayant un nombre fini d'instructions donnant un par un tous ses axiomes et uniquement ses axiomes. 
 (On peut donner à cette définition un sens plus précis dans le cadre de l'arithmétique usuelle, et en définissant un ensemble d'instructions possibles pour un algorithme.) 
-On considère qu'un algorithme à un nombre fini d'instructions démontrant une formule $F$ peut être décrit par une formule de la théorie, de la forme $P \Rightarrow F$, où $P$ est soit un axiome de la théorie soit une formule démontrable.
+On considère qu'un algorithme à un nombre fini d'instructions démontrant une formule $F$ peut être décrit par une formule de la théorie, par exemple par une formule de la forme $P \Rightarrow F$, où $P$ est soit un axiome de la théorie soit une formule démontrable.
 
 \medskip
 
@@ -684,11 +692,11 @@ La numérotation originelle de Gödel, que nous nommerons dans la suite \textit{
         Plus formellement, $\mathbf{G}(x_1 x_2 \dots x_n) = \prod_{i=1}^n p_i^{\mathbf{G}(x_i)}$. 
 \end{itemize}
 D'après l'unicité de la décomposition en produits de facteurs premiers (voir section~\ref{subsub:dec_fact_prem}), deux formules distinctes ne peuvent avoir le même encodage.
-Puisque toute formule est une séquence finie de symboles, à chaque formule est ainsi associé un unique nombre.
+Puisque toute formule est une séquence finie de symboles, à chaque formule est ainsi associé un unique nombre et chaque nombre est associé à au plus une formule.
 
 \medskip
 
-\noindent \textbf{Exemple :} Si trois variables primaires $x$, $y$ et $z$ sont représentées respectivement par les nombres $1$, $2$ et $3$, si $+$ et $=$ sont respectivement représentée par les nombres $4$ et $5$, et si la suite $p$ commence par $(2, 3, 5, 7, 11)$, alors $\mathbf{G}(x + y = z) = 2^1 \times 3^4 \times 5^2 \times 7^5 \times 11^3 = 90598973850$.
+\noindent \textbf{Exemple :} Si trois variables primaires $x$, $y$ et $z$ sont représentées respectivement par les nombres $1$, $2$ et $3$, si $+$ et $=$ sont respectivement représentés par les nombres $4$ et $5$, et si la suite $p$ commence par $(2, 3, 5, 7, 11)$, alors $\mathbf{G}(x + y = z) = 2^1 \times 3^4 \times 5^2 \times 7^5 \times 11^3 = 90598973850$.
 
 \medskip
 
