@@ -612,11 +612,11 @@ On peut l'énoncer de manière informelle comme suit :
 Pour le préciser, considérons une théorie dont l'alphabet contient (au moins) les symboles suivants : 
 \begin{itemize}[nosep]
     \item Un symbole $0$ représentant une constante. 
-    \item Un symbole $x$ représentant une variable, ainsi qu'un symbole $\ast$ permettant de construire d'autres variables $x^\ast$, $x^{\ast\ast}$, $x^{\ast\ast\ast}$, ... Ces variables sont dites \emph{primaires}.
+    \item Un symbole $x$ représentant une variable, ainsi qu'un symbole $\ast$ permettant de construire d'autres variables $x^\ast$, $x^{\ast\ast}$, $x^{\ast\ast\ast}$, ... Ces variables sont dites \emph{primaires}, et aussi appelées \emph{paramètres}.
     \item Un symbole « successeur » $S$ définissant une fonction d'une seule variable. 
     \item Deux opérations binaires $+$ (addition) et $\times$ (multiplication).
     \item Les opérateurs logiques de conjonction $\wedge$, disjonction $\vee$ et négation $\neg$.
-    \item Les quantificateurs $\exists$ et $\forall$.
+    \item Les quantificateurs $\exists$ et $\forall$. 
     \item Deux relations binaires $=$ (égalité) et $<$.
     \item Les parenthèses $($ et $)$.
 \end{itemize}
@@ -634,6 +634,7 @@ Les formules de la théorie sont des chaines (finies) de symboles, avec les règ
         Alors $\forall v \, f$ et $\exists v \, f$ sont des formules.
 \end{itemize}
 Notons que l'arithmétique usuelle satisfait ces propriétés (voir section~\ref{sub:constN}).
+Une variable $x$ apparaissant dans une formule $F$ est dite \emph{libre} si ni $\exists x$ ni $\forall x$ n'apparaissent dans $F$.
 
 On peut se limiter aux formules sans variable libre en remplaçant les règles ci-dessus par les suivantes (cela n'aura pas d'incidence sur la suite) :
 \begin{itemize}[nosep]
@@ -702,19 +703,19 @@ Puisque toute formule est une séquence finie de symboles, à chaque formule est
 
 \noindent Donnons une esquisse de preuve du premier théorème d'incomplétude.
 Soit $F$ une formule. 
-Si $F$ est démontrable, alors il existe une formule $P$ qui prouve $F$. 
-On peut ainsi, par exemple, définir la fonction $\mathrm{Dem}$ de $\mathbb{N} \times \mathbb{N}$ vers ${0, 1}$, illustrant que « $n$ démontre $m$ », par : pour tous entiers naturel $n$ et $m$, 
+Si $F$ est démontrable, alors il existe un prédicat $P$ qui prouve $F$. 
+On peut ainsi, par exemple, définir la fonction $\mathrm{Dem}$ de $\mathbb{N} \times \mathbb{N}$ vers $\lbrace 0, 1 \rbrace$, illustrant que « $n$ démontre $m$ », par : pour tous entiers naturels $n$ et $m$, 
 \begin{itemize}[nosep]
     \item Si $n$ est un nombre de Gödel associé à une formule $P$, $m$ est un nombre de Gödel associé à une formule $F$ et si $P$ démontre $F$, alors $\mathrm{Dem}(n, m) = 1$.
     \item Sinon, $\mathrm{Dem}(n, m) = 0$. 
 \end{itemize}
 (Cette fonction ne sera pas utilisée dans la suite, mais sert d'illustration.)
 
-On définit la fonction $q$ de $\mathbb{N} \times \mathbb{N}$ vers $\lbrace 0, 1 \rbrace$ par : pour tous entiers naturel $n$ et $m$, 
+On définit la fonction $q$ de $\mathbb{N} \times \mathbb{N}$ vers $\lbrace 0, 1 \rbrace$ par : pour tous entiers naturels $n$ et $m$, 
 \begin{itemize}[nosep]
-    \item Si $n$ est un nombre de Gödel associé à une formule $P$, $m$ est un nombre de Gödel associé à une formule $F$ à un paramètre libre et si $P$ ne démontre pas $F(\mathbf{G}(F))$, alors $q(n, m) = 1$.
     \item Si $n$ est un nombre de Gödel associé à une formule $P$, $m$ est un nombre de Gödel associé à une formule $F$ à un paramètre libre et si $P$ démontre $F(\mathbf{G}(F))$, alors $q(n, m) = 0$.
-    \item Sinon, $q(n, m) = 1$. 
+    \item Sinon, $q(n, m) = 1$.%
+        \footnote{En particulier, si $n$ est un nombre de Gödel associé à un prédicat $P$, $m$ est un nombre de Gödel associé à une formule $F$ à un paramètre libre et si $P$ ne démontre pas $F(\mathbf{G}(F))$, alors $q(n, m) = 1$.}
 \end{itemize}
 Alors, pour toute formule $F$ à un paramètre libre, la formule $\forall y \, q(y, \mathbf{G}(F)) = 1$ est équivalente à : « il n'existe pas de preuve de $F(\mathbf{G}(F))$ ». 
 En effet, s'il existe un prédicat $P$ démontrant $F(\mathbf{G}(F))$, alors $q(\mathbf{G}(P), \mathbf{G}(F)) = 0$, donc $\exists y \, \neg (q(y, \mathbf{G}(F)) = 1)$ est vrai, donc $\forall y \, q(y, \mathbf{G}(F)) = 1$ est faux, et s'il n'en existe pas, alors, pour tout nombre $y$, soit $y$ encode un prédicat $P$ et $P$ ne peut montrer $F(\mathbf{G}(F))$, donc $q(y, \mathbf{G}(F)) = 1$, soit $y$ n'encode pas de formule, et donc $q(y, \mathbf{G}(F)) = 1$ également.
