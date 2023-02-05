@@ -713,7 +713,7 @@ On peut ainsi, par exemple, définir la fonction $\mathrm{Dem}$ de $\mathbb{N} \
 
 On définit la fonction $q$ de $\mathbb{N} \times \mathbb{N}$ vers $\lbrace 0, 1 \rbrace$ par : pour tous entiers naturels $n$ et $m$, 
 \begin{itemize}[nosep]
-    \item Si $n$ est un nombre de Gödel associé à une formule $P$, $m$ est un nombre de Gödel associé à une formule $F$ à un paramètre libre et si $P$ démontre $F(\mathbf{G}(F))$, alors $q(n, m) = 0$.
+    \item Si $n$ est un nombre de Gödel associé à un prédicat $P$, $m$ est un nombre de Gödel associé à une formule $F$ à un paramètre libre et si $P$ démontre $F(\mathbf{G}(F))$, alors $q(n, m) = 0$.
     \item Sinon, $q(n, m) = 1$.%
         \footnote{En particulier, si $n$ est un nombre de Gödel associé à un prédicat $P$, $m$ est un nombre de Gödel associé à une formule $F$ à un paramètre libre et si $P$ ne démontre pas $F(\mathbf{G}(F))$, alors $q(n, m) = 1$.}
 \end{itemize}
@@ -728,7 +728,7 @@ Nous avons donc construit un prédicat vrai si et seulement si il n'est pas dém
 Montrons un peu plus formellement que $Z$ est démontrable si et seulement si il est faux.
 \begin{itemize}[nosep]
     \item Supposons que $Z$ est démontrable. 
-        Alors, il existe une formule $F$ démontrant $Z$. 
+        Alors, il existe une formule, notons-là $F$, démontrant $Z$. 
         Donc, $F$ démontre $P(\mathbf{G}(P))$.
         Donc, $q(\mathbf{G}(F), \mathbf{G}(P)) = 0$. 
         Donc, $q(\mathbf{G}(F), \mathbf{G}(P)) = 1$ est faux. 
@@ -739,14 +739,14 @@ Montrons un peu plus formellement que $Z$ est démontrable si et seulement si il
         Alors, $P(\mathbf{G}(P))$ est faux.
         Donc, $\forall y \, q(y,\mathbf{G}(P)) = 1$ est faux.
         Donc, $\exists y \, \neg (q(y,\mathbf{G}(P)) = 1)$ est vrai.
-        Puisque, dans cette expression, $q(y,\mathbf{G}(P))$ ne peut prendre que les valeurs $0$ et $1$, on en déduit qu'il existe un entier $y$ tel que $q(y,\mathbf{G}(P)) = 0$, et donc qu'il existe une formule $F$ telle que $y = \mathbf{G}(F)$ et $F$ prouve $P(\mathbf{G}(P))$, et donc $Z$. 
+        Puisque, dans cette expression, $q(y,\mathbf{G}(P))$ ne peut prendre que les valeurs $0$ et $1$, on en déduit qu'il existe un entier $y$ tel que $q(y,\mathbf{G}(P)) = 0$\footnote{En effet, il existe un entier $y$ tel que $q(y,\mathbf{G}(P)) = 1$ est faux, et donc $q(y,\mathbf{G}(P)) = 0$ est vrai.}, et donc qu'il existe une formule $F$ telle que $y = \mathbf{G}(F)$ et $F$ prouve $P(\mathbf{G}(P))$, et donc $Z$. 
 \end{itemize}
 
-Ainsi, la valeur de varité du prédicat $Z$ ne peut être déterminée. 
+Ainsi, la valeur de vérité du prédicat $Z$ ne peut être déterminée. 
 En effet, 
 \begin{itemize}[nosep]
     \item Si $Z$ et vrai, alors $Z$ n'est pas démontrable.
-    \item Si la théorie est cohérente, $Z$ ne peux être faux (car alors il serait démontrable).
+    \item Si la théorie est cohérente, $Z$ ne peut être faux (car alors il serait démontrable).
 \end{itemize}
 
 \subsubsection{Second théorème d'incomplétude de Gödel}

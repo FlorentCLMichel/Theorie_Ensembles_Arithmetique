@@ -615,7 +615,7 @@ Quand il n'y a pas d'ambiguité, on note $0$ l'élément de $\mathbb{T}$ dont to
     On définit par récurrence finie la suite $(a_k, b_k)_{k \in [\![0, m-n]\!]}$ de la manière suivante :%
     \footnote{On peut se ramener à une récurrence usuelle en posant cette définition si $k + 1 \leq m-n$ ou $a_{k+1} = b_{k+1} = 0$ sinon dans le second point.}
     \begin{itemize}[nosep]
-        \item $b_0 = 0$ et $a_0 = 0$ si $x_m = y_m$ ou $a_0 = 1$ sinon.
+        \item $b_0 = 1$ si $x_m = y_m = 1$ ou $b_0 = 0$ sinon ; $a_0 = 0$ si $x_m = y_m$ ou $a_0 = 1$ sinon.
         \item Pour tout élément $k$ de $[\![0, m-n-1]\!]$, $a_{k+1}$ est égal à 
             \begin{itemize}[nosep]
                 \item $0$ si $0$ ou $2$ des trois entiers $x_{m-k}$, $y_{m-k}$, $b_k$ est égal à $1$,
@@ -672,9 +672,24 @@ Quand il n'y a pas d'ambiguité, on note $0$ l'élément de $\mathbb{T}$ dont to
 
     \done
 
+%\medskip
+%
+%\noindent\textbf{Lemme :} Dans la définition de l'addition, remplacer $m_0$ par un entier relatif $l$ tel que $l \geq m_0$ ne change pas le résultat.
+%
+%\medskip
+%
+%\noindent\textbf{Démonstration :} ***
+
 \medskip
 
-\noindent\textbf{Lemme :} Dans la définition de l'addition, remplacer $m_0$ par un entier relatif $l$ tel que $l \geq m_0$ ne change pas le résultat.
+\noindent\textbf{Lemme :} Soit $x$ un élément de $\mathbb{T}$ ayant au moins un élément égal à $1$.
+    Soit $i$ un entier naturel tel que $x_i = 1$.
+    Soit $y$ et $z$ les éléments de $\mathbb{T}$ défini par : pour tout entier naturel $j$, 
+    \begin{itemize}[nosep]
+        \item si $j = i$, $y_j = 0$ et $z_j = 1$,
+        \item sinon, $y_j = x_j$ et $z_j = 0$.
+    \end{itemize}
+    Alors, $y + z = x$.
 
 \medskip
 
@@ -686,7 +701,7 @@ Quand il n'y a pas d'ambiguité, on note $0$ l'élément de $\mathbb{T}$ dont to
 Soit $x$ et $y$ deux éléments de $\mathbb{T}$ et $n$ un entier naturel tel que $x_{n+1} = 0$.
 Alors, 
 \begin{equation*}
-    \mathrm{pow2}_n(x+y) = (\mathrm{pow2}_n(x) + \mathrm{pow2}_n(y)) \mathrel{\%} 2^k. 
+    \mathrm{pow2}_n(x+y) = (\mathrm{pow2}_n(x) + \mathrm{pow2}_n(y)) \mathrel{\%} 2^{n+1}. 
 \end{equation*}
 où $\%$ désigne le reste de la division Euclidienne.
 
@@ -750,6 +765,27 @@ où $\%$ désigne le reste de la division Euclidienne.
     En utilisant l'associativité et la commutativité de l'addition, cela donne : $(n + 1) \times (x + y) = ((n \times x) + x) + ((n \times y) + y) = ((n + 1) \times x) + ((n + 1) \times y)$. 
 
     Par récurrence, la propriété attendue est donc vraie pour tout entier naturel $n$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Lemme :} La multiplication ainsi définie est distributive sur l'addition d'entiers.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $x$ un élément de $\mathbb{T}$.
+    Montrons par récurrence sur $n$ que, pour tout entier naturel $n$, pour tout entier naturel $m$, $(m + n) \times = (m \times x) + (n \times x)$.
+
+    Pour $n = 0$, on a pour tout entier naturel $m$ : $(m + n) \times x = m \times x$ et $(m \times x) + (n \times x) = (m \times x) + (0 \times x) = (m \times x) + 0 = m \times x$. 
+    Donc, $(m + n) \times x = (m \times x) + (n \times x)$.
+
+    Soit $n$ un entier naturel tel que le résultat attendu est vrai.
+    Soit $m$ un entier naturel.
+    On a : $(m + (n+1)) \times x = ((m+1) + n) \times x = ((m+1) \times x) + (n \times x) = ((m \times x) + x) + (n \times x) = (m \times x) = (x + (n \times x)) = (m \times x) + ((n + 1) \times n)$.
+    Le résultat est donc vrai au rang $n + 1$.
+
+    Par récurrence, il l'est pour tout entier naturel $n$. 
 
     \done
 
