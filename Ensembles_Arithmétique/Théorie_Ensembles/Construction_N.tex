@@ -1439,6 +1439,36 @@ On montre ainsi que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow 
     
     \done 
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $n$ un entier naturel. 
+    On note (ici seulement) $\mathbb{N}_{\geq n}$ l'ensemble défini par : $\mathbb{N}_{\geq n} = \lbrace m \in \mathbb{N} \vert m \geq n \rbrace$.
+    Alors, il existe une bijection entre $\mathbb{N}$ et $\mathbb{N}_{\geq n}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+    Soit $f$ la fonction de $\mathbb{N}$ vers $\mathbb{N}_{\geq n}$ définie par : pour tout entier naturel $m$, $f(m) = n + m$.
+    (Notons que $n+m \geq n$ pour tout entier naturel $m$, donc $f(m)$ est bien un élément de $\mathbb{N}_{\geq n}$.)
+    Montrons que $f$ est une bijection.
+    
+    Soit $l$ et $k$ deux entier naturels tels que $f(l) = f(k)$.
+    Alors, $n + l = n + k$.
+    Donc, $l = k$.
+    Cela montre que $f$ est injective.
+
+    Soit $m$ un élément de $\mathbb{N}_{\geq n}$. 
+    Alors, $m \geq n$.
+    Soit $k$ l'entier naturel $m - n$.
+    On a : $f(k) = n + (m - n) = m$.
+    Donc, $m$ a un antécédant par $f$. 
+    Cela montre que $f$ est injective. 
+
+    La fonction $f$ est donc injective et surjective. 
+    Il s'agit donc d'une bijection.
+
+    \done
+
 \subsubsection{Multiplication}
 \label{subsub:multiplication}
 
