@@ -1469,6 +1469,38 @@ On montre ainsi que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow 
 
     \done
 
+\medskip
+
+La figure~\ref{fig:bij_N_N2} illustre la fonction décrite dans cette démonstration pour $n = 0$, $n = 1$ et $n = 2$.
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\def\paramVSep{-1.5}
+\def\paramHSep{1}
+\def\nPoints{10}
+\def\rPoint{0.08}
+\def\labelSep{0.1}
+\foreach \i in {0, ..., \nPoints} {
+    \fill (\i*\paramHSep, 0) circle[radius=\rPoint] node[below=\labelSep] {$\i$};
+    \draw[thick, ->] (\i*\paramHSep, 0) arc (-90:270:{0.25*\paramHSep});
+}
+\node at (\paramHSep*\nPoints+\paramHSep, -\labelSep) {$\dots$};
+\foreach \i in {0, ..., \nPoints} {
+    \fill (\i*\paramHSep, \paramVSep) circle[radius=\rPoint] node[below=\labelSep] {$\i$};
+    \draw[thick, ->] (\i*\paramHSep, \paramVSep) arc (150:30:{0.5*\paramHSep/sin(60)});
+}
+\node at (\paramHSep*\nPoints+\paramHSep, \paramVSep-\labelSep) {$\dots$};
+\foreach \i in {0, ..., \nPoints} {
+    \fill (\i*\paramHSep, 2*\paramVSep) circle[radius=\rPoint] node[below=\labelSep] {$\i$};
+    \draw[thick, ->] (\i*\paramHSep, 2*\paramVSep) arc (150:30:{\paramHSep/sin(60)});
+}
+\node at (\paramHSep*\nPoints+\paramHSep, 2*\paramVSep-\labelSep) {$\dots$};
+\end{tikzpicture}
+\caption{Illustration de bijections de $\mathbb{N}$ vers quelques-uns de ses sous-ensembles : la fonction identité sur $\mathbb{N}$ et les fonctions $f_1: \mathbb{N} \to \mathbb{N^*}$ et $f_2: \mathbb{N} \to \mathbb{N} \setminus \lbrace 0, 1 \rbrace$ définies par : pour tout entier naturel $x$, $f_1(x) = x + 1$ et $f_2(x) = x + 2$.}
+\label{fig:bij_N_N2}
+\end{figure}
+
 \subsubsection{Multiplication}
 \label{subsub:multiplication}
 
