@@ -274,6 +274,34 @@ Montrons que c'est bien le cas.
 
 \noindent\textbf{Remarque :} La dernière partie de la démonstration montre que, si $n$ est strictement supérieur à $1$ et n'est pas un nombre premier, alors $\times$ ne définit pas une loi de composition interne sur $\mathbb{Z}_n \setminus \lbrace \bar{0} \rbrace$.
 
+\begin{figure}
+    \centering
+    \def\maxN{8}
+    \begin{tikzpicture}
+        \def\figHSpace{4}
+        \def\figVSpace{4}
+        \def\figRadius{1}
+        \def\figRadiusL{1.3}
+        \def\figPointSize{0.1}
+        \def\nCirclesPerLine{4}
+        \foreach[evaluate=\i as \im using {Mod(\i-1, \nCirclesPerLine)}] \i in {1, ..., \maxN} {
+            \pgfmathsetmacro\line{(\i - 1 - \im) / \nCirclesPerLine}
+            \node at (\im*\figHSpace, -\line*\figVSpace) {$\mathbb{Z}_\i$};
+            \draw[gray] (\im*\figHSpace, -\line*\figVSpace) circle(\figRadius);
+            \foreach[evaluate=\j as \k using int(\j-1)] \j in {1, ..., \i} {
+                \fill[black] ({\im * \figHSpace + \figRadius * sin(360*\k/\i)}, {\figRadius * cos(360*\k/\i) - \line * \figVSpace}) circle(\figPointSize);
+                \node at ({\im * \figHSpace + \figRadiusL * sin(360*\k/\i)}, {\figRadiusL * cos(360*\k/\i) - \line * \figVSpace}) {$\k$};
+            }
+        }
+    \end{tikzpicture}
+    \caption{Illustration des groupes $\mathbb{Z}_n$ pour $n$ décrivant $[\![1, \maxN]\!]$. 
+        Pour chaque valeur de $n$, $\mathbb{Z}_n$ peut être représenté par $n$ points équidistants sur un cercle. 
+        (Ici, ses éléments sont représentés par leur unique représentant dans $[\![1, n]\!]$.) 
+        Pour tout élément $\bar{m}$ de $\mathbb{Z}_n$, la fonction $x \mapsto x + \bar{m}$ est alors équivalente à une rotation d'une fraction $m \divslash n$ de cercle (soit $2 \pi m \divslash n$ radians, ici dans le sens horaire), où $m$ est un représentant de $\bar{m}$.
+        }
+    \label{fig:ZqZ_circle}
+\end{figure}
+
 \subsubsection{Définition de \texorpdfstring{$\mathbb{Z}_n^*$}{Zn*}}
 
 Soit $n$ un entier naturel non nul. 
