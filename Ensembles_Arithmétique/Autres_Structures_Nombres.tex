@@ -604,190 +604,192 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 \end{equation*}
 Quand il n'y a pas d'ambiguité, on note $0$ l'élément de $\mathbb{T}$ dont tous les éléments sont égaux à $0$.
 
-\medskip
-
-\noindent\textbf{Addition :} On définit l'opération $+$ de $\mathbb{T} \times \mathbb{T}$ vers $\mathbb{T}$ comme suit. 
-    Soit $x$ et $y$ deux éléments de $\mathbb{T}$.
-    Soit $n$ un entier naturel. 
-    L'ensemble des éléments $m$ de $\mathbb{N}$ tels que $m \geq n$ et $x_m = 0$ est non vide (par définition de $\mathbb{T}$) et est un sous-ensemble de $\mathbb{N}$, donc il admet un minimum, noté $m_x$. 
-    De même, l'ensemble des éléments $m$ de $\mathbb{N}$ tels que $m \geq n$ et $y_m = 0$ admet un minimum, noté $m_y$. 
-    Soit $m$ le minimum de $m_x$ et $m_y$. 
-    On définit par récurrence finie la suite $(a_k, b_k)_{k \in [\![0, m-n]\!]}$ de la manière suivante :%
-    \footnote{On peut se ramener à une récurrence usuelle en posant cette définition si $k + 1 \leq m-n$ ou $a_{k+1} = b_{k+1} = 0$ sinon dans le second point.}
-    \begin{itemize}[nosep]
-        \item $b_0 = 1$ si $x_m = y_m = 1$ ou $b_0 = 0$ sinon ; $a_0 = 0$ si $x_m = y_m$ ou $a_0 = 1$ sinon.
-        \item Pour tout élément $k$ de $[\![0, m-n-1]\!]$, $a_{k+1}$ est égal à 
-            \begin{itemize}[nosep]
-                \item $0$ si $0$ ou $2$ des trois entiers $x_{m-k}$, $y_{m-k}$, $b_k$ est égal à $1$,
-                \item $1$ si $1$ ou $3$ des trois entiers $x_{m-k}$, $y_{m-k}$, $b_k$ est égal à $1$
-            \end{itemize}
-            et $b_{k+1}$ et égal à 
-            \begin{itemize}[nosep]
-                \item $0$ si $0$ ou $1$ des trois entiers $x_{m-k}$, $y_{m-k}$, $b_k$ est égal à $1$,
-                \item $1$ si $2$ ou $3$ des trois entiers $x_{m-k}$, $y_{m-k}$, $b_k$ est égal à $1$.
-            \end{itemize}
-    \end{itemize}
-    On pose alors $z_n = a_{m-n}$.
-    On définit ensuite $x + y$ comme suit : 
-    \begin{itemize}[nosep]
-        \item Si $z_n = 1$ pour tout entier naturel $n$, alors $x + y = 0$.
-        \item Sinon, s'il existe un entier naturel $m$ non nul tel que $z_k = 1$ pour tout entier naturel $k$ supérieur ou égal à $m$, on définit $m_0$ comme le minimum de l'ensemble des entiers naturels satisfaisant cette propriété. 
-            Notons que $m_0 > 0$ (sans quoi $z$ satisferait la propriété du point précédent).
-            On pose alors, pour tout entier naturel $n$ : 
-            \begin{itemize}[nosep]
-                \item Si $n < m_0 - 1$, $(x+y)_n = z_n$.
-                \item Si $n = m_0 - 1$, $(x+y)_n = 1$.
-                \item Si $n \geq m_0$, $(x+y)_n = 0$.
-            \end{itemize}
-        \item Sinon, $x + y = z$.
-    \end{itemize}
-    Notons que $x + y$ est alors bien un élément de $\mathbb{T}$.
-
-\medskip
-
-\noindent\textbf{Lemme :} L'addition ainsi définie est commutative.
-
-\medskip
-
-\noindent\textbf{Démonstration :} Évident car, avec les notations ci-dessus, $x$ et $y$ jouent des rôles interchangeables.
-
-\done
-
-\medskip
-
-\noindent\textbf{Lemme :} Pour tout élément $x$ de $\mathbb{T}$, $0 + x = x$.
-
-\medskip
-
-\noindent\textbf{Démonstration :} Soit $x$ un élément de $\mathbb{T}$ et $n$ un entier naturel.
-    En prenant les notations de la définition avec $y = 0$, on a $m_y = n$. 
-    (En effet, $0_n = 0$, $n \geq n$ et, pour tout entier naturel $m$ satisfaisant les deux propriétés, $m \geq n$ par définition.)
-    Puisque $m_x \geq n$ par définition, le minimum de $m_x$ et $m_y$ est $n$, donc $m = n$.
-    Donc, $m-n = 0$.
-    Donc, $a_{m-n} = a_0$.
-    Si $x_n = 0$, $x_n = y_n$, donc $a_0 = 0$.
-    Sinon, $x_n \neq y_n$, donc $a_0 = 1$.
-    Dans les deux cas, on a $a_0 = x_n$, et donc $z_n = x_n$.
-    Cela montre que $z = x$, donc que $z \in \mathbb{T}$, donc $0 + x = z$, et donc $0 + x = x$.
-
-    \done
-
-%\medskip
-%
-%\noindent\textbf{Lemme :} Dans la définition de l'addition, remplacer $m_0$ par un entier relatif $l$ tel que $l \geq m_0$ ne change pas le résultat.
+% WHAT FOLLOWS IS WRONG (the definition of the additio does not work, for instance, for (in binary) 101 + 011)
 %
 %\medskip
 %
-%\noindent\textbf{Démonstration :} ***
-
-\medskip
-
-\noindent\textbf{Lemme :} Soit $x$ un élément de $\mathbb{T}$ ayant au moins un élément égal à $1$.
-    Soit $i$ un entier naturel tel que $x_i = 1$.
-    Soit $y$ et $z$ les éléments de $\mathbb{T}$ défini par : pour tout entier naturel $j$, 
-    \begin{itemize}[nosep]
-        \item si $j = i$, $y_j = 0$ et $z_j = 1$,
-        \item sinon, $y_j = x_j$ et $z_j = 0$.
-    \end{itemize}
-    Alors, $y + z = x$.
-
-\medskip
-
-\noindent\textbf{Démonstration :} ***
-
+%\noindent\textbf{Addition :} On définit l'opération $+$ de $\mathbb{T} \times \mathbb{T}$ vers $\mathbb{T}$ comme suit. 
+%    Soit $x$ et $y$ deux éléments de $\mathbb{T}$.
+%    Soit $n$ un entier naturel. 
+%    L'ensemble des éléments $m$ de $\mathbb{N}$ tels que $m \geq n$ et $x_m = 0$ est non vide (par définition de $\mathbb{T}$) et est un sous-ensemble de $\mathbb{N}$, donc il admet un minimum, noté $m_x$. 
+%    De même, l'ensemble des éléments $m$ de $\mathbb{N}$ tels que $m \geq n$ et $y_m = 0$ admet un minimum, noté $m_y$. 
+%    Soit $m$ le minimum de $m_x$ et $m_y$. 
+%    On définit par récurrence finie la suite $(a_k, b_k)_{k \in [\![0, m-n]\!]}$ de la manière suivante :%
+%    \footnote{On peut se ramener à une récurrence usuelle en posant cette définition si $k + 1 \leq m-n$ ou $a_{k+1} = b_{k+1} = 0$ sinon dans le second point.}
+%    \begin{itemize}[nosep]
+%        \item $b_0 = 1$ si $x_m = y_m = 1$ ou $b_0 = 0$ sinon ; $a_0 = 0$ si $x_m = y_m$ ou $a_0 = 1$ sinon.
+%        \item Pour tout élément $k$ de $[\![0, m-n-1]\!]$, $a_{k+1}$ est égal à 
+%            \begin{itemize}[nosep]
+%                \item $0$ si $0$ ou $2$ des trois entiers $x_{m-k}$, $y_{m-k}$, $b_k$ est égal à $1$,
+%                \item $1$ si $1$ ou $3$ des trois entiers $x_{m-k}$, $y_{m-k}$, $b_k$ est égal à $1$
+%            \end{itemize}
+%            et $b_{k+1}$ et égal à 
+%            \begin{itemize}[nosep]
+%                \item $0$ si $0$ ou $1$ des trois entiers $x_{m-k}$, $y_{m-k}$, $b_k$ est égal à $1$,
+%                \item $1$ si $2$ ou $3$ des trois entiers $x_{m-k}$, $y_{m-k}$, $b_k$ est égal à $1$.
+%            \end{itemize}
+%    \end{itemize}
+%    On pose alors $z_n = a_{m-n}$.
+%    On définit ensuite $x + y$ comme suit : 
+%    \begin{itemize}[nosep]
+%        \item Si $z_n = 1$ pour tout entier naturel $n$, alors $x + y = 0$.
+%        \item Sinon, s'il existe un entier naturel $m$ non nul tel que $z_k = 1$ pour tout entier naturel $k$ supérieur ou égal à $m$, on définit $m_0$ comme le minimum de l'ensemble des entiers naturels satisfaisant cette propriété. 
+%            Notons que $m_0 > 0$ (sans quoi $z$ satisferait la propriété du point précédent).
+%            On pose alors, pour tout entier naturel $n$ : 
+%            \begin{itemize}[nosep]
+%                \item Si $n < m_0 - 1$, $(x+y)_n = z_n$.
+%                \item Si $n = m_0 - 1$, $(x+y)_n = 1$.
+%                \item Si $n \geq m_0$, $(x+y)_n = 0$.
+%            \end{itemize}
+%        \item Sinon, $x + y = z$.
+%    \end{itemize}
+%    Notons que $x + y$ est alors bien un élément de $\mathbb{T}$.
+%
 %\medskip
 %
-%\noindent\textbf{Lemme :} On définit la suite de fonctions $\mathrm{pow2}$ de $\mathbb{T}$ vers $\mathbb{N}$ de la manière suivante : pour tout entier naturel $n$ et tout élément $x$ de $\mathbb{T}$, $\mathrm{pow2}_n(x) = \sum_{k=0}^n 2^{n-k} \times x_k$.
-%Soit $x$ et $y$ deux éléments de $\mathbb{T}$ et $n$ un entier naturel tel que $x_{n+1} = 0$.
-%Alors, 
-%\begin{equation*}
-%    \mathrm{pow2}_n(x+y) = (\mathrm{pow2}_n(x) + \mathrm{pow2}_n(y)) \mathrel{\%} 2^{n+1}. 
-%\end{equation*}
-%où $\%$ désigne le reste de la division Euclidienne.
+%\noindent\textbf{Lemme :} L'addition ainsi définie est commutative.
+%
+%\medskip
+%
+%\noindent\textbf{Démonstration :} Évident car, avec les notations ci-dessus, $x$ et $y$ jouent des rôles interchangeables.
+%
+%\done
+%
+%\medskip
+%
+%\noindent\textbf{Lemme :} Pour tout élément $x$ de $\mathbb{T}$, $0 + x = x$.
+%
+%\medskip
+%
+%\noindent\textbf{Démonstration :} Soit $x$ un élément de $\mathbb{T}$ et $n$ un entier naturel.
+%    En prenant les notations de la définition avec $y = 0$, on a $m_y = n$. 
+%    (En effet, $0_n = 0$, $n \geq n$ et, pour tout entier naturel $m$ satisfaisant les deux propriétés, $m \geq n$ par définition.)
+%    Puisque $m_x \geq n$ par définition, le minimum de $m_x$ et $m_y$ est $n$, donc $m = n$.
+%    Donc, $m-n = 0$.
+%    Donc, $a_{m-n} = a_0$.
+%    Si $x_n = 0$, $x_n = y_n$, donc $a_0 = 0$.
+%    Sinon, $x_n \neq y_n$, donc $a_0 = 1$.
+%    Dans les deux cas, on a $a_0 = x_n$, et donc $z_n = x_n$.
+%    Cela montre que $z = x$, donc que $z \in \mathbb{T}$, donc $0 + x = z$, et donc $0 + x = x$.
+%
+%    \done
+%
+%%\medskip
+%%
+%%\noindent\textbf{Lemme :} Dans la définition de l'addition, remplacer $m_0$ par un entier relatif $l$ tel que $l \geq m_0$ ne change pas le résultat.
+%%
+%%\medskip
+%%
+%%\noindent\textbf{Démonstration :} ***
+%
+%\medskip
+%
+%\noindent\textbf{Lemme :} Soit $x$ un élément de $\mathbb{T}$ ayant au moins un élément égal à $1$.
+%    Soit $i$ un entier naturel tel que $x_i = 1$.
+%    Soit $y$ et $z$ les éléments de $\mathbb{T}$ défini par : pour tout entier naturel $j$, 
+%    \begin{itemize}[nosep]
+%        \item si $j = i$, $y_j = 0$ et $z_j = 1$,
+%        \item sinon, $y_j = x_j$ et $z_j = 0$.
+%    \end{itemize}
+%    Alors, $y + z = x$.
 %
 %\medskip
 %
 %\noindent\textbf{Démonstration :} ***
 %
+%%\medskip
+%%
+%%\noindent\textbf{Lemme :} On définit la suite de fonctions $\mathrm{pow2}$ de $\mathbb{T}$ vers $\mathbb{N}$ de la manière suivante : pour tout entier naturel $n$ et tout élément $x$ de $\mathbb{T}$, $\mathrm{pow2}_n(x) = \sum_{k=0}^n 2^{n-k} \times x_k$.
+%%Soit $x$ et $y$ deux éléments de $\mathbb{T}$ et $n$ un entier naturel tel que $x_{n+1} = 0$.
+%%Alors, 
+%%\begin{equation*}
+%%    \mathrm{pow2}_n(x+y) = (\mathrm{pow2}_n(x) + \mathrm{pow2}_n(y)) \mathrel{\%} 2^{n+1}. 
+%%\end{equation*}
+%%où $\%$ désigne le reste de la division Euclidienne.
+%%
+%%\medskip
+%%
+%%\noindent\textbf{Démonstration :} ***
+%%
+%%\medskip
+%%
+%%\noindent\textbf{Lemme :} Soit $x$ et $y$ deux éléments de $\mathbb{T}$. 
+%%    On suppose que, pour tout entier naturel $n$, il existe un entier naturel $m$ supérieur ou égal à $n$ tel que $\mathrm{pow2}_m(x) = \mathrm{pow2}_m(y)$.
+%%    Alors $x = y$. 
+%%
+%%\medskip
+%%
+%%\noindent\textbf{Démonstration :} Supposons par l'absurde que $x \neq y$. 
+%%    Soit $n$ le plue petit  entier naturel tel que $x_n \neq y_n$, donc $(x_n = 0 \wedge y_n = 1) \vee (x_n = 1 \vee y_n = 0)$. 
+%%    (Cet entier existe puisque l'ensemble des entiers satisfaisant cette propriété est un sous-ensemble non vide (puisque $x \neq y$ de $\mathbb{N}$.))
+%%    Pour fixer les idées, supposons $x_n = 0$ et $y_n = 1$. 
+%%    (La démonstration est identique dans l'autre cas en échangeant les rôles de $x$ et $y$.)
+%%    Soit $m$ un entier naturel supérieur ou égal à $n$. 
+%%    Montrons que $\mathrm{pow2}_m(x) < \mathrm{pow2}_m(y)$, et donc $\mathrm{pow2}_m(x) \neq \mathrm{pow2}_m(y)$, ce qui constituera une contradiction.
+%%
+%%    ***
+%
 %\medskip
 %
-%\noindent\textbf{Lemme :} Soit $x$ et $y$ deux éléments de $\mathbb{T}$. 
-%    On suppose que, pour tout entier naturel $n$, il existe un entier naturel $m$ supérieur ou égal à $n$ tel que $\mathrm{pow2}_m(x) = \mathrm{pow2}_m(y)$.
-%    Alors $x = y$. 
+%\noindent\textbf{Lemme :} L'addition est associative.
 %
 %\medskip
 %
-%\noindent\textbf{Démonstration :} Supposons par l'absurde que $x \neq y$. 
-%    Soit $n$ le plue petit  entier naturel tel que $x_n \neq y_n$, donc $(x_n = 0 \wedge y_n = 1) \vee (x_n = 1 \vee y_n = 0)$. 
-%    (Cet entier existe puisque l'ensemble des entiers satisfaisant cette propriété est un sous-ensemble non vide (puisque $x \neq y$ de $\mathbb{N}$.))
-%    Pour fixer les idées, supposons $x_n = 0$ et $y_n = 1$. 
-%    (La démonstration est identique dans l'autre cas en échangeant les rôles de $x$ et $y$.)
-%    Soit $m$ un entier naturel supérieur ou égal à $n$. 
-%    Montrons que $\mathrm{pow2}_m(x) < \mathrm{pow2}_m(y)$, et donc $\mathrm{pow2}_m(x) \neq \mathrm{pow2}_m(y)$, ce qui constituera une contradiction.
+%\noindent\textbf{Démonstration :} ***
 %
-%    ***
-
-\medskip
-
-\noindent\textbf{Lemme :} L'addition est associative.
-
-\medskip
-
-\noindent\textbf{Démonstration :} ***
-
-\medskip
-
-\noindent\textbf{Multiplication par un entier :} On définit l'opération $\times$ de $\mathbb{N} \times \mathbb{T}$ vers $\mathbb{T}$ comme suit. 
-    Définissons d'abord par récurrence la suite $f$ de fonctions de $\mathbb{T}$ vers $\mathbb{T}$ de la manière suivante: 
-    \begin{itemize}[nosep]
-        \item Pour tout élément $x$ de $\mathbb{T}$, $f_0(x) = 0$.
-        \item Pour tout entier naturel $n$ et tout élément $x$ de $\mathbb{T}$, $f_{n+1}(x) = f_n(x) + x$.
-    \end{itemize}
-    Pour tout entier naturel $n$ et tout élément $x$ de $\mathbb{T}$, on pose alors $n \times x = f_n(x)$.
-
-\medskip
-
-\noindent\textbf{Remarque :} Avec cette définition, pour tout élément $x$ de $\mathbb{T}$, $0 \times x = 0$ et $1 \times x = x$.
-
-\medskip
-
-\noindent\textbf{Lemme :} La multiplication ainsi définie est distributive sur l'addition.
-
-\medskip
-
-\noindent\textbf{Démonstration :} Soit $x$ et $y$ deux éléments de $\mathbb{T}$.
-    Montrons par récurrence sur $n$ que, pour tout entier naturel $n$, $n \times (x + y) = (n \times x) + (n \times y)$.
-    
-    Pour $n = 0$, on a : $n \times (x + y) = 0 \times (x + y) = 0$ et $(n \times x) + (n \times y) = (0 \times x) + (0 \times y) = 0 + 0 = 0$.
-    Donc, $n \times (x + y) = (n \times x) + (n \times y)$. 
-    Soit $n$ un entier naturel tel que $n \times (x + y) = (n \times x) + (n \times y)$.
-    Alors, $(n + 1) \times (x + y) = (n \times (x + y)) + (x + y) = ((n \times x) + (n \times y)) + (x + y)$. 
-    En utilisant l'associativité et la commutativité de l'addition, cela donne : $(n + 1) \times (x + y) = ((n \times x) + x) + ((n \times y) + y) = ((n + 1) \times x) + ((n + 1) \times y)$. 
-
-    Par récurrence, la propriété attendue est donc vraie pour tout entier naturel $n$.
-
-    \done
-
-\medskip
-
-\noindent\textbf{Lemme :} La multiplication ainsi définie est distributive sur l'addition d'entiers.
-
-\medskip
-
-\noindent\textbf{Démonstration :} Soit $x$ un élément de $\mathbb{T}$.
-    Montrons par récurrence sur $n$ que, pour tout entier naturel $n$, pour tout entier naturel $m$, $(m + n) \times = (m \times x) + (n \times x)$.
-
-    Pour $n = 0$, on a pour tout entier naturel $m$ : $(m + n) \times x = m \times x$ et $(m \times x) + (n \times x) = (m \times x) + (0 \times x) = (m \times x) + 0 = m \times x$. 
-    Donc, $(m + n) \times x = (m \times x) + (n \times x)$.
-
-    Soit $n$ un entier naturel tel que le résultat attendu est vrai.
-    Soit $m$ un entier naturel.
-    On a : $(m + (n+1)) \times x = ((m+1) + n) \times x = ((m+1) \times x) + (n \times x) = ((m \times x) + x) + (n \times x) = (m \times x) = (x + (n \times x)) = (m \times x) + ((n + 1) \times n)$.
-    Le résultat est donc vrai au rang $n + 1$.
-
-    Par récurrence, il l'est pour tout entier naturel $n$. 
-
-    \done
+%\medskip
+%
+%\noindent\textbf{Multiplication par un entier :} On définit l'opération $\times$ de $\mathbb{N} \times \mathbb{T}$ vers $\mathbb{T}$ comme suit. 
+%    Définissons d'abord par récurrence la suite $f$ de fonctions de $\mathbb{T}$ vers $\mathbb{T}$ de la manière suivante: 
+%    \begin{itemize}[nosep]
+%        \item Pour tout élément $x$ de $\mathbb{T}$, $f_0(x) = 0$.
+%        \item Pour tout entier naturel $n$ et tout élément $x$ de $\mathbb{T}$, $f_{n+1}(x) = f_n(x) + x$.
+%    \end{itemize}
+%    Pour tout entier naturel $n$ et tout élément $x$ de $\mathbb{T}$, on pose alors $n \times x = f_n(x)$.
+%
+%\medskip
+%
+%\noindent\textbf{Remarque :} Avec cette définition, pour tout élément $x$ de $\mathbb{T}$, $0 \times x = 0$ et $1 \times x = x$.
+%
+%\medskip
+%
+%\noindent\textbf{Lemme :} La multiplication ainsi définie est distributive sur l'addition.
+%
+%\medskip
+%
+%\noindent\textbf{Démonstration :} Soit $x$ et $y$ deux éléments de $\mathbb{T}$.
+%    Montrons par récurrence sur $n$ que, pour tout entier naturel $n$, $n \times (x + y) = (n \times x) + (n \times y)$.
+%    
+%    Pour $n = 0$, on a : $n \times (x + y) = 0 \times (x + y) = 0$ et $(n \times x) + (n \times y) = (0 \times x) + (0 \times y) = 0 + 0 = 0$.
+%    Donc, $n \times (x + y) = (n \times x) + (n \times y)$. 
+%    Soit $n$ un entier naturel tel que $n \times (x + y) = (n \times x) + (n \times y)$.
+%    Alors, $(n + 1) \times (x + y) = (n \times (x + y)) + (x + y) = ((n \times x) + (n \times y)) + (x + y)$. 
+%    En utilisant l'associativité et la commutativité de l'addition, cela donne : $(n + 1) \times (x + y) = ((n \times x) + x) + ((n \times y) + y) = ((n + 1) \times x) + ((n + 1) \times y)$. 
+%
+%    Par récurrence, la propriété attendue est donc vraie pour tout entier naturel $n$.
+%
+%    \done
+%
+%\medskip
+%
+%\noindent\textbf{Lemme :} La multiplication ainsi définie est distributive sur l'addition d'entiers.
+%
+%\medskip
+%
+%\noindent\textbf{Démonstration :} Soit $x$ un élément de $\mathbb{T}$.
+%    Montrons par récurrence sur $n$ que, pour tout entier naturel $n$, pour tout entier naturel $m$, $(m + n) \times = (m \times x) + (n \times x)$.
+%
+%    Pour $n = 0$, on a pour tout entier naturel $m$ : $(m + n) \times x = m \times x$ et $(m \times x) + (n \times x) = (m \times x) + (0 \times x) = (m \times x) + 0 = m \times x$. 
+%    Donc, $(m + n) \times x = (m \times x) + (n \times x)$.
+%
+%    Soit $n$ un entier naturel tel que le résultat attendu est vrai.
+%    Soit $m$ un entier naturel.
+%    On a : $(m + (n+1)) \times x = ((m+1) + n) \times x = ((m+1) \times x) + (n \times x) = ((m \times x) + x) + (n \times x) = (m \times x) = (x + (n \times x)) = (m \times x) + ((n + 1) \times n)$.
+%    Le résultat est donc vrai au rang $n + 1$.
+%
+%    Par récurrence, il l'est pour tout entier naturel $n$. 
+%
+%    \done
 
 \subsection{Nombres réels}
 
