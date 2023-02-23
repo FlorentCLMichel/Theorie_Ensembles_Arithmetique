@@ -6,6 +6,7 @@ use Érastosthène::primes_below_n;
 use std::io::Write;
 
 const N: usize = 213;
+const N2: usize = 10000;
 
 fn decomposition_prime_factors(mut n: usize, primes: &[usize]) -> Result<Vec<(usize, usize)>, NotEnoughPrimesError> {
     
@@ -71,7 +72,7 @@ impl std::error::Error for NotEnoughPrimesError {}
 
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let primes = primes_below_n(N);
+    let primes = primes_below_n(N2);
     let mut string_to_write_1 = "".to_string();
     let mut string_to_write_2 = "1 1\n".to_string();
     for n in 2..=N {
@@ -87,6 +88,16 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let f_name = "output_n_divisors.csv";
     let mut output = std::fs::File::create(f_name)?;
     write!(output, "{}", string_to_write_2)?;
+    
+    let mut string_to_write_3 = "1 1\n".to_string();
+    for n in 2..=N2 {
+        let decomposition = decomposition_prime_factors(n, &primes)?;
+        string_to_write_3 += &format!("{} {}\n", n, number_divisors(&decomposition));
+    }
+    
+    let f_name = "output_n_divisors_2.csv";
+    let mut output = std::fs::File::create(f_name)?;
+    write!(output, "{}", string_to_write_3)?;
     
     Ok(())
 }
