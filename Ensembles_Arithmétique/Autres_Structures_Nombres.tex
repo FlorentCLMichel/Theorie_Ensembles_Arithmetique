@@ -183,6 +183,7 @@ Alors,
         \footnote{Puisque $b \neq 0$ et $c \neq 0$, $b \times c \neq 0$, donc $(a \times d, b \times c)$ est bien un élément de $\mathbb{Z} \times \mathbb{Z}^*$.}
 \end{itemize}
 Quand il n'y a pas d'ambiguité, on pourra omettre le symbole $\times$. 
+On notera parfois simplement par un signe $-$ (à gauche) la multiplication par $(-1) \divslash 1$.
 
 \medskip
 
@@ -298,6 +299,18 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
     Cela montre que $\overline{(a \times d, b \times c)} = \overline{(a' \times d', b' \times c')}$, et donc que le résultat de la division est le même que l'on choisisse les représentants $x$ et $y$ ou les représentants $x'$ et $y'$.
 
 \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $p$ et $q$ deux nombres rationnels tels que $p - q = 0$.
+    ALors, $p = q$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $a$, $b$, $c$ et $d$ quatre entiers relatifs tels que $b \neq 0$, $d \neq 0$, $p = a \divslash b$ et $q = c \divslash d$.
+    Si $p - q = 0$, alors $(a d - b c) \divslash (b d) = 0$, donc $a d = b c$, donc $p = q$.
+
+    \done
 
 \medskip
 
@@ -505,6 +518,10 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 
 \medskip
 
+\noindent\textbf{Remarque :} Avec les notations ci-dessus, $a \divslash b \leq 0$ est vrai si et seulement si $a = 0$ ou $b = 0$ ou $a$ et $b$ sont de signes opposés.
+
+\medskip
+
 \noindent\textbf{Lemme :} La relation ainsi définie est une relation d'ordre total sur $\mathbb{Q}$.
 
 \medskip
@@ -591,6 +608,83 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
     Donc, $e \, f \, d^2 < c \, d \, f^2$, donc $z < y$.
 
     \done
+
+\medskip
+
+\noindent\textbf{Définition :} Soit $q$ un nombre rationnel. 
+    On définit sa \emph{valeur absolue}, notée $\abs{q}$, de la manière suivante : 
+    \begin{itemize}[nosep]
+        \item si $q \geq 0$, alors $\abs{q} = q$ ; 
+        \item si $q < 0$, alors $\abs{q} = -q$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $q$ un nombre rationnel et $a$ et $b$ deux entiers relatifs tels que $b \neq 0$ et $q = a \divslash b$.
+    Alors, $\abs{q} = \abs{a} / \abs{b}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} On distingue quatre cas selon les signes de $a$ et de $b$.
+    \begin{itemize}[nosep]
+        \item Si $a \geq 0$ et $b \geq 0$, alors $q \geq 0$, donc $\abs{q} = q = a \divslash b = \abs{a} \divslash \abs{b}$.
+        \item Si $a < 0$ et $b \geq 0$, alors $q < 0$, donc $\abs{q} = - q = (-a) \divslash b = \abs{a} \divslash \abs{b}$.
+        \item Si $a \geq 0$ et $b < 0$, alors $q < 0$, donc $\abs{q} = - q = a \divslash (-b) = \abs{a} \divslash \abs{b}$.
+        \item Si $a < 0$ et $b < 0$, alors $q \geq 0$, donc $\abs{q} = q = (-a) \divslash (-b) = \abs{a} \divslash \abs{b}$.
+    \end{itemize}
+    Dans tous les cas, on a bien $\abs{q} = \abs{a} / \abs{b}$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Corrolaire :} Avec les mêmes notations, $\abs{q} = 0$ est équivalent à $\abs{a} = 0$, donc à $a = 0$, et donc à $q = 0$.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $p$ et $q$ deux nombres rationnels.
+    Alors, $\abs{p \times q} = \abs{p} \times \abs{q}$ et, si $q \neq 0$, $\abs{p \divslash q} = \abs{p} \divslash \abs{q}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Relativement évidente en utilisant le lemme précédent. 
+    Écrivons-là exlicitement.
+    Soit $a$, $b$, $c$ et $d$ quatre entiers relatifs tels que $b \neq 0$, $d \neq 0$, $p = a \divslash b$ et $q = c \divslash d$.
+    ***
+
+\medskip
+
+\subsubsection{Limite d'une suite de rationnels}
+
+\noindent\textbf{Définition :} Soit $u$ une suite de nombres rationels, \emph{i.e.}, un élément de $\mathbb{Q}^{\mathbb{N}}$.
+    Soit $l$ un nombre rationnel.
+    On dit que \emph{$u$ converge vers $l$} ou que \emph{$u$ admet $l$ pour limite} si le prédicat suivant est vrai : 
+    \begin{equation*}
+        \forall \epsilon \in \mathbb{Q} \, 
+        \epsilon > 0 \Rightarrow
+            \exists n \in \mathbb{N} \, 
+            \forall m \in \mathbb{N} \, 
+            m \geq n \Rightarrow
+                \abs{u_m - l} \leq \epsilon .
+    \end{equation*}
+
+\medskip
+
+\noindent\textbf{Lemme :} Une suite de nombres rationnels admet au plus une seule limite.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $u$ une suite de nombres rationnels. 
+    Soit $l_1$ et $l_2$ deus limites de $u$. 
+    Montrons que $l_1 = l_2$. 
+    On procède par l'absurde. 
+    Supposons donc que $l_1 \neq l_2$.
+    Alors, $l_1 - l_2 \neq 0$. 
+    Sans perte de généralité, on peut supposer $l_1 > l_2$ (si ce n'est pas le cas, on s'y ramène en échangeant les rôles de $l_1$ et $l_2$.)
+    Posons $\epsilon = (l_1 - l_2) / 2$. 
+    Alors, $\epsilon > 0$.
+
+***
 
 \subsection{Le tore \texorpdfstring{$\mathbb{T}$}{T}}
 
