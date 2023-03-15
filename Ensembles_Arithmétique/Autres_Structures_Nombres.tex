@@ -650,7 +650,30 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 \noindent\textbf{Démonstration :} Relativement évidente en utilisant le lemme précédent. 
     Écrivons-là exlicitement.
     Soit $a$, $b$, $c$ et $d$ quatre entiers relatifs tels que $b \neq 0$, $d \neq 0$, $p = a \divslash b$ et $q = c \divslash d$.
-    ***
+    On a : 
+    \begin{equation*}
+        \abs{p \times q} 
+        = \abs{\frac{a}{b} \times \frac{c}{d}}
+        = \abs{\frac{a c}{b d}}
+        = \frac{\abs{a c}}{\abs{b d}}
+        = \frac{\abs{a} \abs{c}}{\abs{b} \abs{d}}
+        = \frac{\abs{a}}{\abs{b}} \times \frac{\abs{c}}{\abs{d}}
+        = \abs{p} \times \abs{q} .
+    \end{equation*}
+
+    Si $q \neq 0$, alors $a \neq 0$. 
+    Dans ce cas, on a :
+    \begin{equation*}
+        \abs{\frac{p}{q}} 
+        = \abs{\frac{c}{d} \divslash \frac{a}{b}}
+        = \abs{\frac{b c}{a d}}
+        = \frac{\abs{b c}}{\abs{a d}}
+        = \frac{\abs{b} \abs{c}}{\abs{a} \abs{d}}
+        = \frac{\abs{b}}{\abs{a}} \divslash \frac{\abs{c}}{\abs{d}}
+        = \abs{p} \divslash \abs{q} .
+    \end{equation*}
+    
+    \done
 
 \medskip
 
