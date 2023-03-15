@@ -94,7 +94,7 @@ Si $q$ admet une représentation dont le numérateur est nul, alors toutes ses r
 \medskip
 
 \noindent\textbf{Corrolaire :} Il existe donc une seule classe d'équivalence contenant un représentant de numérateur nul. 
-Ce nombre rationnel est aussi dit \emph{nul}.
+Ce nombre rationnel est aussi dit \emph{nul}, et parfois noté $0$ quand il n'y a pas d'ambiguité.
 
 \medskip
 
@@ -499,6 +499,7 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 \noindent\textbf{Définition :} On définit la relation $\leq$ sur $Q$ de la manière suivante. 
     Soit $x$ et $y$ deux éléments de $\mathbb{Q}$ et $a$, $b$, $c$, $d$ quatre entiers tels que $b \neq 0$, $d \neq 0$, $x = a \divslash b$ et $y = c \divslash d$.
     On pose alors $x \leq y$ si et seulement si $a \, b \, d^2 \leq c \, d \, b^2$.
+    Un nombre rationnel $q$ est dit
 
 \medskip
 
@@ -611,6 +612,36 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 
 \medskip
 
+\noindent\textbf{Défnition :} Un nombre rationnel $q$ est dit
+    \begin{itemize}[nosep]
+        \item \emph{positif} si $q \geq 0$,
+        \item \emph{négatif} si $q \leq 0$,
+        \item \emph{strictement positif} si $q > 0$,
+        \item \emph{strictement négatif} si $q < 0$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $p$ et $q$ deux nombres rationnels, et $r$ un nombre rationnel positif. 
+    Alors, $p \leq q \Rightarrow r \times p \leq r \times q$.
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+    Soit $a$, $b$, $c$ et $d$ quatre entiers relatifs tels que $b \neq 0$, $d \neq 0$, $p = a \divslash b$ et $q = c \divslash d$.
+    Supposons $p \leq q$.
+    Alors, $b^2 \, c \, d \leq a \, b \, d^2$.
+    Soit $e$ et $f$ deux entiers relatifs tels que $f \neq 0$ et $r = e \divslash f$.
+    Puisque $r$ est positif, $e$ et $f$ ont le même signe si $e$ est non nul. 
+    Donc, $e \, f \geq 0$, et donc $e \, f^3 \geq 0$.
+    Donc, $b^2 \, c \, d \, e \, f^3 \leq a \, b \, d^2 \, e \, f^3$. 
+    Donc, $(c \, e) \divslash (d \, f) \leq (a \, e) \divslash (b \, f)$. 
+    Donc, $r \times p \leq r \times q$.
+
+    \done
+
+\subsubsection{Valeur absolue}
+
 \noindent\textbf{Définition :} Soit $q$ un nombre rationnel. 
     On définit sa \emph{valeur absolue}, notée $\abs{q}$, de la manière suivante : 
     \begin{itemize}[nosep]
@@ -639,6 +670,10 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 \medskip
 
 \noindent\textbf{Corrolaire :} Avec les mêmes notations, $\abs{q} = 0$ est équivalent à $\abs{a} = 0$, donc à $a = 0$, et donc à $q = 0$.
+
+\medskip
+
+\noindent\textbf{Corrolaire :} Avec les mêmes notations, $\abs{-q} = \abs{q}$ (puisqu'on peut obtenir $-q$ à partir de $q$ en remplaçant $a$ par $-a$, ce qui ne change pas sa valeur absolue).
 
 \medskip
 
@@ -677,6 +712,26 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $p$ et $q$ deux nombres rationnels. 
+    Alors, $\abs{p + q} \leq \abs{p} + \abs{q}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Soit $a$, $b$, $c$ et $d$ quatre entiers relatifs tels que $b \neq 0$, $d \neq 0$, $p = a \divslash b$ et $q = c \divslash d$.
+    On a : 
+    \begin{equation*}
+        \abs{p + q} = \frac{\abs{a d + b c}}{\abs{b c}}
+    \end{equation*}
+    et 
+    \begin{equation*}
+        \abs{p} + \abs{q} = \frac{\abs{a d} + \abs{b c}}{\abs{b c}} .
+    \end{equation*}
+    Le résultat attendu est donc équivalent à $\abs{b d}^3 \abs{a d + b c} \leq \abs{b d}^3 (\abs{a d} + \abs{b c})$, ou, puisque $b d \neq 0$ (et donc $\abs{b d}^3 \neq 0$), à $ \abs{a d + b c} \leq \abs{a d} + \abs{b c}$. 
+    Puisque $a d$ et $b c$ sont deux entiers, c'est bien le cas.
+
+    \done
+
 \subsubsection{Limite d'une suite de rationnels}
 
 \noindent\textbf{Définition :} Soit $u$ une suite de nombres rationels, \emph{i.e.}, un élément de $\mathbb{Q}^{\mathbb{N}}$.
@@ -703,11 +758,22 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
     On procède par l'absurde. 
     Supposons donc que $l_1 \neq l_2$.
     Alors, $l_1 - l_2 \neq 0$. 
-    Sans perte de généralité, on peut supposer $l_1 > l_2$ (si ce n'est pas le cas, on s'y ramène en échangeant les rôles de $l_1$ et $l_2$.)
-    Posons $\epsilon = (l_1 - l_2) / 2$. 
+    Posons $\epsilon = \abs{l_1 - l_2} \divslash 4$. 
     Alors, $\epsilon > 0$.
+    
+    Par définition de la limite, on peut choisir deux entiers naturels $n_1$ et $n_2$ tels que, pour tout entier naturel $m$,
+    \begin{itemize}[nosep]
+        \item si $m \geq n_1$, $\abs{u_m - l_1} \leq \epsilon$,
+        \item si $m \geq n_2$, $\abs{u_m - l_2} \leq \epsilon$.
+    \end{itemize}
+    Définissons $m$ par $m = \mathrm{max}(n_1, n_2)$.
+    Alors, $\abs{u_m - l_1} \leq \epsilon$ et $\abs{u_m - l_2} \leq \epsilon$.
+    Puisque $l_1 - l_2 = (l_1 - u_m) + (u_m - l_2)$, on a : $\abs{l_1 - l_2} \leq \abs{l_1 - u_m} + \abs{u_m - l_2}$, donc $\abs{l_1 - l_2} \leq \abs{u_m - l_1} + \abs{u_m - l_2}$, donc $\abs{l_1 - l_2} \leq 2 \epsilon$.
+    Donc, $4 \epsilon \leq 2 \epsilon$, donc $2 \epsilon < 0$, donc $\epsilon < 0$.
+    On obtient une contradiction. 
+    On en déduit que l'hypothèse de départ ne peut qu'être fausse, et donc que $l_1 = l_2$.
 
-***
+    \done
 
 \subsection{Le tore \texorpdfstring{$\mathbb{T}$}{T}}
 

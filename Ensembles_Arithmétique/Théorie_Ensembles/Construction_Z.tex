@@ -386,6 +386,19 @@ Notons que, pour tous entiers $a$ et $b$, $a > b$ est équivalent à $\neg (a \l
     
     \done
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $a$ et $b$ deux éléments de $\mathbb{Z}$.
+    Alors, $\abs{a + b} \leq \abs{a} + \abs{b}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Si $a$ et $b$ sont de même signe, alors, par définition de l'addition $\abs{a + b} = \abs{a} + \abs{b}$, donc $\abs{a + b} \leq \abs{a} + \abs{b}$.
+    Sinon, en notant $M$ le maximum de $\lbrace \abs{a}, \abs{b} \rbrace$ et $m$ son minimum, on a $\abs{a + b} = M - m$ et $\abs{a} + \abs{b}= M + m$.
+    Puisque $M + m = (M - m) + (2 \times m)$, on a $M - m \leq M + m$, donc $\abs{a + b} \leq \abs{a} + \abs{b}$.
+    
+    \done
+
 \subsubsection{Opposé}
 
 \noindent\textbf{Définition :} On définit l'opération $-$ sur $\mathbb{Z}$, vue comme une fonction de $\mathbb{Z}$ vers $\mathbb{Z}$, de la manière suivante : 
