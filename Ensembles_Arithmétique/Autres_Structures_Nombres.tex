@@ -736,7 +736,7 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 
 \noindent\textbf{Définition :} Soit $u$ une suite de nombres rationels, \emph{i.e.}, un élément de $\mathbb{Q}^{\mathbb{N}}$.
     Soit $l$ un nombre rationnel.
-    On dit que \emph{$u$ converge vers $l$} ou que \emph{$u$ admet $l$ pour limite} si le prédicat suivant est vrai : 
+    On dit que \emph{$u$ converge vers $l$}, que \emph{$u$ tends vers $l$} ou que \emph{$u$ admet $l$ pour limite} si le prédicat suivant est vrai : 
     \begin{equation*}
         \forall \epsilon \in \mathbb{Q} \, 
         \epsilon > 0 \Rightarrow
@@ -745,6 +745,9 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
             m \geq n \Rightarrow
                 \abs{u_m - l} \leq \epsilon .
     \end{equation*}
+    Cela est parfois noté $u \rightarrow l$.
+    Une suite admettant une limite est dite \emph{convergente}. 
+    Une suite n'admettant aucune limite est dite \emph{divergente}. 
 
 \medskip
 
@@ -774,6 +777,70 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
     On en déduit que l'hypothèse de départ ne peut qu'être fausse, et donc que $l_1 = l_2$.
 
     \done
+
+\medskip
+
+\noindent\textbf{Exemples :} 
+\begin{itemize}[nosep]
+    \item ***
+    \item ***
+    \item ***
+\end{itemize}
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $p$ et $q$ deux nombres rationnels et $u$ et $v$ deux suites de nombres rationnels admettant respectivement $p$ et $q$ pour limites. 
+    Alors, 
+    \begin{itemize}[nosep]
+        \item Définissons la suite $w$ par : pour tout entier naturel $n$, $w_n = u_n + v_n$. 
+            Alors, $w$ admet $p + q$ pour limite.
+        \item Définissons la suite $x$ par : pour tout entier naturel $n$, $x_n = u_n - v_n$. 
+            Alors, $w$ admet $p - q$ pour limite.
+        \item Définissons la suite $y$ par : pour tout entier naturel $n$, $w_n = u_n \times v_n$. 
+            Alors, $w$ admet $p \times q$ pour limite.
+        \item Supposons $q \neq 0$. 
+            Alors, on peut choisir un entier naturel $n_0$ (voir démonstration ci-dessous) tel que $u_n \neq 0$ pour tout entier naturel $n$ tel que $n \geq n_0$.
+            Définissons la suite $z$ par : pour tout entier naturel $n$, $z_n = 0$ si $n < n_0$ et $z_n = u_n \divslash v_n$ si $n \geq n_0$.
+            Alors, $z$ admet $p \divslash q$ pour limite.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+
+    ***
+
+    ***
+
+    ***
+
+    Pour le dernier point, supposons que $q \neq 0$. 
+    Alors, $\abs{q - 0} > 0$, donc $\abs{q - 0} \divslash 2 > 0$. 
+    Donc, on peut choisir un entier naturel $n_0$ tel que, pour tout entier naturel $n$ tel que $n \geq n_0$, $\abs{u_n - q} \leq \abs{q - 0} \divslash 2$.
+    Or, pour tout entier naturel $n$, $\abs{0 - q} = \abs{q - 0}$, donc $\abs{0 - q} > \abs{q - 0} \divslash 2$. 
+    On en déduit que, pour tout entier naturel $n$ tel que $n \geq n_0$, $u_n \neq 0$, ce qui permet de définir la suite $z$ comme dans l'énoncé.
+    
+    ***
+
+\medskip
+
+\noindent\textbf{Définition :} Soit $u$ une suite de nombres rationnels. 
+    On dit que \emph{$u$ tend vers $+\infty$}, et on note $u \rightarrow + \infty$ si
+    \begin{equation*}
+        \forall q \in \mathbb{Q} \, 
+        \exists n \in \mathbb{N} \, 
+        \forall m \in \mathbb{N} \, 
+        m \geq n \Rightarrow
+            u_m \geq q.
+    \end{equation*}
+    On dit que \emph{$u$ tend vers $-\infty$}, et on note $u \rightarrow - \infty$ si
+    \begin{equation*}
+        \forall q \in \mathbb{Q} \, 
+        \exists n \in \mathbb{N} \, 
+        \forall m \in \mathbb{N} \, 
+        m \geq n \Rightarrow
+            u_m \leq q.
+    \end{equation*}
 
 \subsection{Le tore \texorpdfstring{$\mathbb{T}$}{T}}
 
