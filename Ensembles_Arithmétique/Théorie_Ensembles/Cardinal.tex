@@ -767,17 +767,18 @@ Par récurrence, il est donc vrai pour tous ensembles finis $E$ et $F$ tels que 
 
 \noindent\textbf{Démonstration :} On procède par récurrence sur le cardinal de $E$ moins $1$.
     Si ce nombre est $0$, $E$ ne contient qu'un élément, qui est donc à la fois minimum et maximum pour $\leq$.
+    (En effet, soit $e$ cet élément, pour tout élément $f$ de $E$, $f = e$, donc $f \leq e$ et $e \leq f$.)
     
     Supposons le résultat vrai au rang $n$. 
     Soit $E$ un ensemble de cardinal $n+2$ (de sorte que son cardinal moins $1$ vaille $n+1$).
     Soit $e$ un élément de $E$.
     Alors, $E \setminus \lbrace e \rbrace$ a pour cardinal $n+1$. 
-    En outre, puisque cet ensemble est un sous-ensemble de $E$, $\leq$ y est ue relation d'ordre total.
+    En outre, puisque cet ensemble est un sous-ensemble de $E$, $\leq$ y est une relation d'ordre total.
     Donc, $E \setminus \lbrace e \rbrace$ admet un minimum $a$ et un maximum $b$. 
     Définissons les éléments $c$ et $d$ de $E$ comme suit : 
     \begin{itemize}[nosep]
-        \item Si $e \leq a$, alors $c = e$ Sinon, $c = a$.
-        \item Si $b \leq e$, alors $d = e$ Sinon, $d = a$.
+        \item Si $e \leq a$, alors $c = e$ ; sinon, $c = a$.
+        \item Si $b \leq e$, alors $d = e$ ; sinon, $d = a$.
     \end{itemize}
     Alors, $c$ est le minimum de $E$ et $d$ est le maximum de $E$.
     En effet, ce sont bien des éléments de $E$ dans tous les cas (puisque $a$ et $b$ sont des éléments d'un sous-ensemble de $E$, et donc de $E$ lui-même) et, pour tout élément $f$ de $E$, 
