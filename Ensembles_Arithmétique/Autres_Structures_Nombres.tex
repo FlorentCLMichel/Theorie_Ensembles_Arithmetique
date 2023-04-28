@@ -641,6 +641,55 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
     \done
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $p$, $q$ et $r$ trois nombres rationnels.
+    Si $p \leq q$, alors $p + r \leq q + r$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Soit $a$, $b$, $c$, $d$, $e$ et $f$ quatre entiers tels que $b \neq 0$, $d \neq 0$, $f \neq 0$, $p = a \divslash b$, $q = c \divslash d$, et $r = e \divslash f$.
+    Par définition de l'addition de rationnels, on a : $p + r = (a \, f + e \, b) \divslash (b \, f)$ et $q + r = (c \, f + e \, d) \divslash (d \, f)$.
+    Notons $A$, $B$, $C$ et $D$ les entiers $a \, f + e \, b$, $b \, f$, $c \, f + e \, d$ et $d \, f$. 
+    Alors, $p + r = A \divslash B$ et $q + r = C \divslash D$.
+    On a aussi : 
+    \begin{equation*}
+        A \, B \, D^2 = (a \, f + e \, b) \, b \, d^2 \, f^3
+    \end{equation*}
+    et 
+    \begin{equation*}
+        C \, B^2 \, D = (c \, f + e \, d) \, b^2 \, d \, f^3.
+    \end{equation*}
+
+    Supposons $p \leq q$.
+    Alors, par définition de la relation d'ordre $\leq$, on a : $a \, b \, d^2 \leq c \, d \, b^2$. 
+    Puisque $f^4$ est positif (car égal à $(f^2)^2$), on a donc : $a \, b \, d^2 \, f^4 \leq c \, d \, b^2 \, f^4$.
+    Donc, $a \, b \, d^2 \, f^4 + e \, b^2 \, d^2 \, f^3 \leq c \, d \, b^2 \, f^4 + e \, b^2 \, d^2 \, f^3$.
+    Le membre de gauche de cette inégalité n'est autre que $A \, B ,\ D^2$, et celui de droite que $C \, B^2 \, D$.
+    Donc, $A \, B \, D^2 \leq C \, B^2 \, D$.
+    Donc, $p + r \leq q + r$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Corrolaire :} Soit $p$, $q$ et $r$ trois nombres rationnels.
+    \begin{itemize}[nosep]
+        \item Si $p \geq q$, alors $p + r \geq q + r$.
+        \item Si $p < q$, alors $p + r < q + r$.
+        \item Si $p > q$, alors $p + r > q + r$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Pour montrer le premier point, notons que si $p \geq q$, alors $q \leq p$, donc $q + r \leq p + r$, donc $p + r \geq q + r$.
+    Pour les deux autres, on note que si $p \neq q$, alors $p + r \neq q + r$ (sans quoi soustraire $r$ donnerait $p = q$). 
+    Les deux derniers points découlent directement de ceci et des deux résultats précédents.
+
+    \done
+
 \subsubsection{Valeur absolue}
 
 \noindent\textbf{Définition :} \index{Valeur absolue} Soit $q$ un nombre rationnel. 
@@ -733,28 +782,6 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     Puisque $a d$ et $b c$ sont deux entiers, c'est bien le cas.
 
     \done
-
-\medskip
-
-\noindent\textbf{Lemme :} Soit $p$, $q$ et $r$ trois nombres rationnels.
-    Si $p \leq q$, alors $p + r \leq q + r$.
-
-\medskip
-
-\noindent\textbf{Démonstration :} ***
-
-\medskip
-
-\noindent\textbf{Corrolaire :} Soit $p$, $q$ et $r$ trois nombres rationnels.
-    \begin{itemize}[nosep]
-        \item Si $p \geq q$, alors $p + r \geq q + r$.
-        \item Si $p < q$, alors $p + r < q + r$.
-        \item Si $p > q$, alors $p + r > q + r$.
-    \end{itemize}
-
-\medskip
-
-\noindent\textbf{Démonstration :} ***
 
 \subsubsection{Limite d'une suite de rationnels}
 
