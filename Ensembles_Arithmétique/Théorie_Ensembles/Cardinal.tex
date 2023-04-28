@@ -758,6 +758,60 @@ Par récurrence, il est donc vrai pour tous ensembles finis $E$ et $F$ tels que 
 
     \done
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $E$ un ensemble fini non vide et $\leq$ une relation d'ordre total sur $E$.
+    Alors, $E$ admet un minimum et un maximum pour la relation d'ordre $\leq$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} On procède par récurrence sur le cardinal de $E$ moins $1$.
+    Si ce nombre est $0$, $E$ ne contient qu'un élément, qui est donc à la fois minimum et maximum pour $\leq$.
+    
+    Supposons le résultat vrai au rang $n$. 
+    Soit $E$ un ensemble de cardinal $n+2$ (de sorte que son cardinal moins $1$ vaille $n+1$).
+    Soit $e$ un élément de $E$.
+    Alors, $E \setminus \lbrace e \rbrace$ a pour cardinal $n+1$. 
+    En outre, puisque cet ensemble est un sous-ensemble de $E$, $\leq$ y est ue relation d'ordre total.
+    Donc, $E \setminus \lbrace e \rbrace$ admet un minimum $a$ et un maximum $b$. 
+    Définissons les éléments $c$ et $d$ de $E$ comme suit : 
+    \begin{itemize}[nosep]
+        \item Si $e \leq a$, alors $c = e$ Sinon, $c = a$.
+        \item Si $b \leq e$, alors $d = e$ Sinon, $d = a$.
+    \end{itemize}
+    Alors, $c$ est le minimum de $E$ et $d$ est le maximum de $E$.
+    En effet, ce sont bien des éléments de $E$ dans tous les cas (puisque $a$ et $b$ sont des éléments d'un sous-ensemble de $E$, et donc de $E$ lui-même) et, pour tout élément $f$ de $E$, 
+    \begin{itemize}[nosep]
+        \item Si $e \leq a$, $c = e$.
+            \begin{itemize}[nosep]
+                \item Si $f = e$, alors $c = f$, donc $c \leq f$.
+                \item Sinon, $a \leq f$ par définition de $a$, donc $e \leq f$, et donc $c \leq f$.
+            \end{itemize}
+        \item Sinon, $a \leq e$ et $c = a$.
+            \begin{itemize}[nosep]
+                \item Si $f = e$, alors $a \leq f$, donc $c \leq f$.
+                \item Sinon, $a \leq f$ par définition de $a$, donc $c \leq f$.
+            \end{itemize}
+    \end{itemize}
+    De même, 
+    \begin{itemize}[nosep]
+        \item Si $b \leq e$, $d = e$.
+            \begin{itemize}[nosep]
+                \item Si $f = e$, alors $d = f$, donc $f \leq d$.
+                \item Sinon, $f \leq b$ par définition de $b$, donc $f \leq e$, et donc $f \leq d$.
+            \end{itemize}
+        \item Sinon, $e \leq b$ et $d = b$.
+            \begin{itemize}[nosep]
+                \item Si $f = e$, alors $f \leq b$, donc $f \leq d$.
+                \item Sinon, $f \leq b$ par définition de $b$, donc $f \leq d$.
+            \end{itemize}
+    \end{itemize}
+    L'ensemble $E$ admet donc bien un minimum et un maximum pour la relation $\leq$.
+
+    Par récurrence, cela est vrai quel que soit la valeur de $\abs{E}-1$ (pourvu que $\abs{E} > 0$).
+
+    \done
+
 \subsubsection{Cas de l'ensemble des entiers naturels}
 
 \noindent\textbf{Lemme :} L'ensemble $\mathbb{N}$ est infini. 

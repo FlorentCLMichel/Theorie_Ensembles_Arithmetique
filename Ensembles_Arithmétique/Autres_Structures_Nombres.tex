@@ -643,7 +643,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \subsubsection{Valeur absolue}
 
-\noindent\textbf{Définition :} Soit $q$ un nombre rationnel. 
+\noindent\textbf{Définition :} \index{Valeur absolue} Soit $q$ un nombre rationnel. 
     On définit sa \emph{valeur absolue}, notée $\abs{q}$, de la manière suivante : 
     \begin{itemize}[nosep]
         \item si $q \geq 0$, alors $\abs{q} = q$ ; 
@@ -715,6 +715,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \noindent\textbf{Lemme (inégalité triangulaire) :} Soit $p$ et $q$ deux nombres rationnels. 
     Alors, $\abs{p + q} \leq \abs{p} + \abs{q}$.
+    \index{Inégalité triangulaire}
 
 \medskip
 
@@ -733,9 +734,31 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
     \done
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $p$, $q$ et $r$ trois nombres rationnels.
+    Si $p \leq q$, alors $p + r \leq q + r$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} ***
+
+\medskip
+
+\noindent\textbf{Corrolaire :} Soit $p$, $q$ et $r$ trois nombres rationnels.
+    \begin{itemize}[nosep]
+        \item Si $p \geq q$, alors $p + r \geq q + r$.
+        \item Si $p < q$, alors $p + r < q + r$.
+        \item Si $p > q$, alors $p + r > q + r$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} ***
+
 \subsubsection{Limite d'une suite de rationnels}
 
-\noindent\textbf{Définition :} Soit $u$ une suite de nombres rationels, \emph{i.e.}, un élément de $\mathbb{Q}^{\mathbb{N}}$.
+\noindent\textbf{Définition :} Soit $u$ une suite de nombres rationnels, \emph{i.e.}, un élément de $\mathbb{Q}^{\mathbb{N}}$.
     Soit $l$ un nombre rationnel.
     On dit que \emph{$u$ converge vers $l$}, que \emph{$u$ tends vers $l$} ou que \emph{$u$ admet $l$ pour limite} si le prédicat suivant est vrai : 
     \begin{equation*}
@@ -814,6 +837,29 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
+\noindent\textbf{Corrolaire :} Soit $u$ une suite de nombres rationnels convergente.
+    Alors, on peut choisir deux nombres rationels $a$ et $b$ tels que, pour tout entier naturel $n$, $a \leq u_n \leq b$.
+    Une suite satisfaisant cette proprtéiét est dite \emph{bornée}.
+    \index{Suite bornée}
+
+\medskip
+
+\noindent\textbf{Démonstration :} Notons $l$ la limite de $u$.
+    Par définition de la limite, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $\abs{u_n-l} \leq 1$, donc $-1 \leq u_n-l \leq 1$, et donc $l-1 \leq u_n \leq 1$. 
+    Prenons $n$ strictement positif.
+    (Si le $n$ définit précédemment est nul, il suffit de le remplacer par $n+1$, qui satisfait également la propriété le définissant.)
+    Soit $a$ le minimum de $\lbrace u_0, u_1, \dots, u_{n-1}, l-1 \rbrace$ et $b$ le maximum de $\lbrace u_0, u_1, \dots, u_{n-1}, l-1 \rbrace$.
+    Alors, pour tout entier naturel $m$, 
+    \begin{itemize}[nosep]
+        \item Si $m < n$, alors $u_n \geq a$ par définition du maximum et $u_n \leq b$ par définition du minimum.
+        \item Sinon, $l-1 \leq u_n$, donc $a \leq u_n$, et $u_n \leq l+1$, donc $u_n \leq b$.
+    \end{itemize}
+    Dans les deux cas, on a bien $a \leq u_n \leq b$.
+
+    \done
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $p$ et $q$ deux nombres rationnels et $u$ et $v$ deux suites de nombres rationnels admettant respectivement $p$ et $q$ pour limites. 
     Alors, 
     \begin{itemize}[nosep]
@@ -821,7 +867,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
             Alors, $w$ admet $p + q$ pour limite.
         \item Définissons la suite $x$ par : pour tout entier naturel $n$, $x_n = u_n - v_n$. 
             Alors, $w$ admet $p - q$ pour limite.
-        \item Définissons la suite $y$ par : pour tout entier naturel $n$, $w_n = u_n \times v_n$. 
+        \item Définissons la suite $y$ par : pour tout entier naturel $n$, $y_n = u_n \times v_n$. 
             Alors, $w$ admet $p \times q$ pour limite.
         \item Supposons $q \neq 0$. 
             Alors, on peut choisir un entier naturel $n_0$ (voir démonstration ci-dessous) tel que $u_n \neq 0$ pour tout entier naturel $n$ tel que $n \geq n_0$.
@@ -832,10 +878,25 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 \medskip
 
 \noindent\textbf{Démonstration :}
+    Dans toute cette démonstration, $\epsilon$ désigne un nombre rationnel strictement positif arbitraire.
 
-    ***
+    Soit $n_u$ et $n_v$ deux entiers naturels tels que, pour tout entier naturel $n$, 
+    \begin{itemize}[nosep]
+        \item si $n \geq n_u$, alors $\abs{u_n - p} \leq \ep \divslash 2$, 
+        \item si $n \geq n_v$, alors $\abs{v_n - q} \leq \ep \divslash 2$. 
+    \end{itemize}
+    (Ces deux entiers existent par définition de la limite puisque $\ep \divslash 2 > 0$.)
+    Soit $n_w$ l'entier naturel défini par : $n_w = \mathrm{max}(n_u, n_v)$. 
+    Soit $n$ un entier naturel supérieur ou égal à $n_w$. 
+    Alors $n \geq n_u$ et $n \geq n_v$. 
+    On a alors : $\abs{w_n - (p+q)} = \abs{(u_n-p) + (v_n-q)} \leq \abs{u_n-p} + \abs{v_n-q} \leq \epsilon \divslash 2 + \epsilon \divslash 2 = \epsilon$.
+    (Où on a utilisé l'inégalité triangulaire)
+    Donc, $\abs{w_n - (p+q)} \leq \epsilon$.
+    Cela montre que la suite $w$ admet $p+q$ comme limite.
 
-    ***
+    Avec les mêmes notations, on a : $\abs{y_n - (p-q)} = \abs{(u_n-p) - (v_n-q)} \leq \abs{u_n-p} + \abs{v_n-q} \leq \epsilon \divslash 2 + \epsilon \divslash 2 = \epsilon$.
+    Donc, $\abs{y_n - (p-q)} \leq \epsilon$.
+    Cela montre que la suite $y$ admet $p-q$ comme limite.
 
     ***
 
