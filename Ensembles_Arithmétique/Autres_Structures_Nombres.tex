@@ -955,6 +955,31 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
             u_m \leq q.
     \end{equation*}
 
+\medskip
+
+\noindent\textbf{Lemme :} Une suite ne peut tendre à la fois vers $+\infty$ et vers $-\infty$. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} Supposons par l'absurde que l'on puisse choisir une suite $u$ tendant vers $+\infty$ et vers $-\infty$.
+    Puisque $u$ tends vers $+\infty$, on peut choisir un entier naturel $n_+$ tel que $u_n \geq 1$ pour tout entier naturel $n$ supérieur ou égal à $n_+$.
+    Puisque $u$ tends vers $-\infty$, on peut choisir un entier naturel $n_-$ tel que $u_n \leq -1$ pour tout entier naturel $n$ supérieur ou égal à $n_-$.
+    Puisque $\mathrm{max}(n_+, n_-) \geq n_+$ et  $\mathrm{max}(n_+, n_-) \geq n_-$, on a alors $u_{ \mathrm{max}(n_+, n_-) } \geq 1$ et $u_{ \mathrm{max}(n_+, n_-) } \leq -1$, donc $-1 \geq 1$, ce qui est faux.
+    On en déduit que l'hypothèse de départ est fausse.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Une suite tendant vers $+\infty$ ou vers $-\infty$ est divergente. 
+    De manière équivalente, une suite convergeante ne peut tendre vers $+\infty$ ni vers $-\infty$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Une suite tendant vers $+\infty$ ou vers $-\infty$ ne peut être bornée par définition, donc elle ene peut être convergente.
+
+\done
+
 \subsection{Le tore \texorpdfstring{$\mathbb{T}$}{T}}
 
 \noindent\textbf{Définition :} On définit dans cette section le \emph{tore}\index{Tore} $\mathbb{T}$ comme l'ensemble des suites d'éléments de $\lbrace 0, 1 \rbrace$ non constantes égale à $1$ à partir d'un certain rang : 
