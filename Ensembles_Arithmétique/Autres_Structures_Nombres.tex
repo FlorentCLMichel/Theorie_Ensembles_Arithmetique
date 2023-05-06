@@ -866,7 +866,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \noindent\textbf{Corrolaire :} Soit $u$ une suite de nombres rationnels convergente.
     Alors, on peut choisir deux nombres rationels $a$ et $b$ tels que, pour tout entier naturel $n$, $a \leq u_n \leq b$.
-    Une suite satisfaisant cette proprtéiét est dite \emph{bornée}.
+    Une suite satisfaisant cette propriété est dite \emph{bornée}.
     \index{Suite bornée}
 
 \medskip
@@ -884,6 +884,24 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     Dans les deux cas, on a bien $a \leq u_n \leq b$.
 
     \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $u$ et $v$ deux suites bornées et $q$ un nombre rationnel.
+    \begin{itemize}[nosep]
+        \item Définissons la suite $a$ définie par : pour tout entier naturel $n$, $a_n = u_n + q$.
+            Alors, $a$ est bornée.
+        \item Définissons la suite $b$ définie par : pour tout entier naturel $n$, $b_n = u_n \times q$.
+            Alors, $b$ est bornée.
+        \item Définissons la suite $c$ définie par : pour tout entier naturel $n$, $c_n = u_n + v_n$.
+            Alors, $c$ est bornée.
+        \item Définissons la suite $d$ définie par : pour tout entier naturel $n$, $d_n = u_n \times v_n$.
+            Alors, $d$ est bornée.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} ***
 
 \medskip
 
@@ -979,6 +997,77 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 \noindent\textbf{Démonstration :} Une suite tendant vers $+\infty$ ou vers $-\infty$ ne peut être bornée par définition, donc elle ene peut être convergente.
 
 \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $u$ et $v$ deux suites tendant vers $+\infty$ et $q$ un nombre rationnel.
+    \begin{itemize}[nosep]
+        \item Définissons la suite $a$ définie par : pour tout entier naturel $n$, $a_n = u_n + q$.
+            Alors, $a$ tend vers $+\infty$.
+        \item Définissons la suite $b$ définie par : pour tout entier naturel $n$, $b_n = u_n \times q$.
+            Alors, 
+            \begin{itemize}[nosep]
+                \item Si $q > 0$, alors $b$ tend vers $+\infty$.
+                \item Si $q < 0$, alors $b$ tend vers $-\infty$.
+            \end{itemize}
+        \item Définissons la suite $c$ définie par : pour tout entier naturel $n$, $c_n = u_n + v_n$.
+            Alors, $c$ tend vers $+\infty$.
+        \item Définissons la suite $d$ définie par : pour tout entier naturel $n$, $d_n = u_n \times v_n$.
+            Alors, $d$ tend vers $+\infty$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} ***
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $u$ et $v$ deux suites tendant vers $-\infty$ et $q$ un nombre rationnel.
+    \begin{itemize}[nosep]
+        \item Définissons la suite $a$ définie par : pour tout entier naturel $n$, $a_n = u_n + q$.
+            Alors, $a$ tend vers $-\infty$.
+        \item Définissons la suite $b$ définie par : pour tout entier naturel $n$, $b_n = u_n \times q$.
+            Alors, 
+            \begin{itemize}[nosep]
+                \item Si $q > 0$, alors $b$ tend vers $-\infty$.
+                \item Si $q < 0$, alors $b$ tend vers $+\infty$.
+            \end{itemize}
+        \item Définissons la suite $c$ définie par : pour tout entier naturel $n$, $c_n = u_n + v_n$.
+            Alors, $c$ tend vers $-\infty$.
+        \item Définissons la suite $d$ définie par : pour tout entier naturel $n$, $d_n = u_n \times v_n$.
+            Alors, $d$ tend vers $+\infty$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} ***
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $u^+$ unr suite tendant vers $+\infty$ et $u^-$ une suite tendant vers $-\infty$.
+    Soit $v$ une suite bornée.
+    On définit les deux suites $w^+$ et $w^-$ par : pour tout entier naturel $n$, $w^+_n = u^+_n + v_n$ et $w^-_n = u^ -_n + v_n$.
+    Alors, $w^+$ tend vers $+\infty$ et $w^-$ tends vers $-\infty$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} ***
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $u^+$ unr suite tendant vers $+\infty$ et $u^-$ une suite tendant vers $-\infty$.
+    Soit $v$ une suite convergente et $l$ sa limite.
+    On suppose $l \neq 0$.
+    On définit les deux suites $w^+$ et $w^-$ par : pour tout entier naturel $n$, $w^+_n = u^+_n \times v_n$ et $w^-_n = u^ -_n \times v_n$.
+    Alors, 
+    \begin{itemize}[nosep]
+        \item Si $l > 0$, alors $w^+$ tend vers $+\infty$ et $w^-$ tends vers $-\infty$.
+        \item Si $l < 0$, alors $w^+$ tend vers $-\infty$ et $w^-$ tends vers $+\infty$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} ***
 
 \subsection{Le tore \texorpdfstring{$\mathbb{T}$}{T}}
 
