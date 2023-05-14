@@ -643,6 +643,26 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $p$ et $q$ deux nombres rationnels, et $r$ un nombre rationnel négatif. 
+    Alors, $p \leq q \Rightarrow r \times p \geq r \times q$.
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+    Soit $a$, $b$, $c$ et $d$ quatre entiers relatifs tels que $b \neq 0$, $d \neq 0$, $p = a \divslash b$ et $q = c \divslash d$.
+    Supposons $p \leq q$.
+    Alors, $b^2 \, c \, d \leq a \, b \, d^2$.
+    Soit $e$ et $f$ deux entiers relatifs tels que $f \neq 0$ et $r = e \divslash f$.
+    Puisque $r$ est négatif, $e$ et $f$ ont des ignes opposés si $e$ est non nul. 
+    Donc, $e \, f \leq 0$, et donc $e \, f^3 \leq 0$.
+    Donc, $b^2 \, c \, d \, e \, f^3 \geq a \, b \, d^2 \, e \, f^3$. 
+    Donc, $(c \, e) \divslash (d \, f) \geq (a \, e) \divslash (b \, f)$. 
+    Donc, $r \times p \geq r \times q$.
+
+    \done
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $p$, $q$ et $r$ trois nombres rationnels.
     Si $p \leq q$, alors $p + r \leq q + r$.
 
@@ -690,6 +710,23 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
     \done
 
+\medskip
+
+\noindent\textbf{Définition :} On définit les deux fonctions $\mathrm{min}$ et $\mathrm{max}$ sur $\mathbb{Q}^2$ de la manière suivante : si $a$ et $b$ sont deux nombres rationnels, alors 
+\begin{equation*}
+    \mathrm{min}(a,b) = \left\lbrace \begin{aligned}
+        a & & \text{si} & & a \leq b \\
+        b & & \text{si} & & a > b \\
+    \end{aligned} \right. 
+    , \qquad
+    \mathrm{max}(a,b) = \left\lbrace \begin{aligned}
+        a & & \text{si} & & a \geq b \\
+        b & & \text{si} & & a < b \\
+    \end{aligned} \right. 
+    .
+\end{equation*}
+\index{Min}\index{Max}
+
 \subsubsection{Valeur absolue}
 
 \noindent\textbf{Définition :} \index{Valeur absolue} Soit $q$ un nombre rationnel. 
@@ -698,6 +735,21 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
         \item si $q \geq 0$, alors $\abs{q} = q$ ; 
         \item si $q < 0$, alors $\abs{q} = -q$.
     \end{itemize}
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $q$ un nombre rationnel.
+    Alors, $- \abs{q} \leq q \leq \abs{q}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    \begin{itemize}
+        \item Si $q \geq 0$, alors $\abs{q} = q$, donc $q \leq \abs{q}$, et $-\abs{q} \leq 0 \leq q$, donc $- \abs{q} \leq q$.
+        \item Si $q \leq 0$, alors $\abs{q} = -q$, donc $-\abs{q} = q$, donc $q \geq -\abs{q}$, et $\abs{q} \geq 0 \geq q$, donc $\abs{q} \geq q$.
+    \end{itemize}
+
+    \done
 
 \medskip
 
@@ -782,6 +834,31 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     Puisque $a d$ et $b c$ sont deux entiers, c'est bien le cas.
 
     \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $q$ un nombre rationel et $p$ un nombre rationel positif. 
+    Alors, $\abs{q} \leq p \Leftrightarrow -p \leq q \leq p$.
+
+\medskip
+
+\noindent\textbf{Démontration :} 
+\begin{itemize}[nosep]
+    \item Supposons $\abs{q} \leq p$. 
+        Alors, 
+        \begin{itemize}[nosep]
+            \item Si $q$ est positif, alors $0 \leq q$ (par définition d'un nombre positif), donc $-p \leq q$~\footnote{On a $-p \leq 0$ puisque $p$ est positif.}, et $q \leq p$ (car $\abs{q} \leq p$), donc $-p \leq q \leq p$.
+            \item Sinon, $q < 0$, donc $q \leq p$~\footnote{On a $0 \leq p$ puisque $p$ est positif.}, et $-q \leq p$ (car $\abs{q} \leq p$), donc $-p \leq q$, donc $-p \leq q \leq p$.
+        \end{itemize}
+    \item Supposons $-p \leq q \leq p$.
+        Alors, 
+        \begin{itemize}[nosep]
+            \item Si $q$ est positif, la seconde inégalité donne $\abs{q} \leq p$.
+            \item Sinon $q$, la première inégalité, qui implique $p \geq -q$, donne $p \geq \abs{q}$, donc $\abs{q} \leq p$.
+        \end{itemize}
+\end{itemize}
+
+\done
 
 \subsubsection{Limite d'une suite de rationnels}
 
@@ -889,19 +966,61 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \noindent\textbf{Lemme :} Soit $u$ et $v$ deux suites bornées et $q$ un nombre rationnel.
     \begin{itemize}[nosep]
-        \item Définissons la suite $a$ définie par : pour tout entier naturel $n$, $a_n = u_n + q$.
+        \item Définissons la suite $a$ par : pour tout entier naturel $n$, $a_n = u_n + q$.
             Alors, $a$ est bornée.
-        \item Définissons la suite $b$ définie par : pour tout entier naturel $n$, $b_n = u_n \times q$.
+        \item Définissons la suite $b$ par : pour tout entier naturel $n$, $b_n = u_n \times q$.
             Alors, $b$ est bornée.
-        \item Définissons la suite $c$ définie par : pour tout entier naturel $n$, $c_n = u_n + v_n$.
+        \item Définissons la suite $c$ par : pour tout entier naturel $n$, $c_n = u_n + v_n$.
             Alors, $c$ est bornée.
-        \item Définissons la suite $d$ définie par : pour tout entier naturel $n$, $d_n = u_n \times v_n$.
+        \item Définissons la suite $d$ par : pour tout entier naturel $n$, $d_n = u_n \times v_n$.
             Alors, $d$ est bornée.
     \end{itemize}
 
 \medskip
 
-\noindent\textbf{Démonstration :} ***
+\noindent\textbf{Démonstration :}
+    Soit $A_u$, $A_v$, $B_u$ et $B_v$ quatre nombres rationels tels que~: pour tout entier naturel $n$, $A_u \leq u_n \leq B_u$ et $A_v \leq v_n \leq B_v$.
+    \begin{itemize}[nosep]
+        \item Pour tout entier naturel $n$, $A_u + q \leq u_n + q \leq B_u + q$, donc $A_u + q \leq a_n + q \leq B_u + q$.
+            Donc, $a$ est bornée.
+        \item Soit $C_u$ le nombre rationel défini par : $C_u = \mathrm{max}(\abs{A_u}, \abs{B_u})$.
+            Alors, $C_u \geq B_u$ et $-C_u \leq A_u$.%
+            \begin{foot}
+                En effet, 
+                \begin{itemize}[nosep]
+                    \item On a~: $C_u \geq \abs{B_u} \geq B_u$, donc $C_u \geq B_u$.
+                    \item On a~: $-C_u \leq -\abs{A_u} \leq -A_u$, donc $C_u \leq A_u$.
+                \end{itemize}
+            \end{foot} 
+            Donc, pour tout entier naturel $n$, on a $-C_u \leq u_n \leq C_u$, et donc $- \abs{q} \, C_u \leq b_n \leq \abs{q} \, C_u$.%
+            \begin{foot}
+                En effet, 
+                \begin{itemize}
+                    \item Si $q$ est positif, alors $-C_u \leq u_n \leq C_u$, implique $- q \, C_u \leq b_n \leq q \, C_u$, et donc $- \abs{q} \, C_u \leq b_n \leq \abs{q} \, C_u$. 
+                    \item Si $q$ est négatif, alors $-C_u \leq u_n \leq C_u$, implique $- q \, C_u \geq b_n \geq q \, C_u$, donc $q \, C_u \leq b_n \leq -q \, C_u$, et donc $- \abs{q} \, C_u \leq b_n \leq \abs{q} \, C_u$. 
+                \end{itemize}
+            \end{foot}
+            Donc, $b$ est bornée.
+        \item Pour tout entier naturel $n$, $u_n + v_n \leq u_n + B_v \leq B_u + B_v$ et $u_n + v_n \geq u_n + A_v \geq A_u + A_v$, donc $A_u + A_v \leq c_n \leq B_u + B_v$. 
+            Donc, $c$ est bornée.
+        \item Soit $C_u$ et $C_v$ les nombres rationels définis par : $C_u = \mathrm{max}(\abs{A_u}, \abs{B_u})$ et $C_v = \mathrm{max}(\abs{A_v}, \abs{B_v})$.
+            Alors, pour tout entier naturel $n$, on a $\abs{u_n} \leq C_u$ et $\abs{v_n} \leq C_v$.%
+            \begin{foot}
+                En effet, on a $-C_u \leq u_n \leq C_u$, donc,
+                \begin{itemize}[nosep]
+                    \item si $u_n$ est positif, $\abs{u_n} = u_n$, donc $\abs{u_n} \leq C_u$~;
+                    \item si $u_n$ est négatif, $\abs{u_n} = -u_n$, donc $\abs{u_n} \leq -(-C_u)$, donc $\abs{u_n} \leq C_u$.
+                \end{itemize}
+                Et de même avec $u$ remplacé par $v$.
+            \end{foot}
+            Donc, $\abs{u_n} \, \abs{v_n} \leq C_u \, v_n \leq C_u \, C_v$.
+            Donc, $\abs{u_n \, v_n} \leq C_u \, C_v$.
+            Donc, $-C_u \, C_v \leq u_n \, v_n \leq C_u \, C_v$.
+            Donc, $-C_u \, C_v \leq d_n \leq C_u \, C_v$.
+            Donc, $d$ est bornée.
+    \end{itemize}
+
+    \done
 
 \medskip
 

@@ -159,6 +159,10 @@
 \usepackage{attachfile2}
 \attachfilesetup{color = zcolor}
 
+% custom environments
+\usepackage{environ}
+\NewEnviron{foot}{\footnote{\BODY} } % footnote
+
 % format for footnotes
 \deffootnote[\dimexpr1mm+7.5pt\relax]{\dimexpr1mm+0.5pt\relax}{1em}{\thefootnotemark~}
 
