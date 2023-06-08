@@ -76,6 +76,7 @@
 \definecolor{darkcyan}{rgb}{0,0.7,0.7}
 \definecolor{cYan}{rgb}{0.,1.,1.}
 \definecolor{lightcyan}{rgb}{0.5,1.,1.}
+\definecolor{lightcyan2}{rgb}{0.7,1.,1.}
 \colorlet{lyellow}{yellow!80!white}
 \colorlet{lgreen}{green!50!white}
 \definecolor{skyblue}{RGB}{0,191,255}
@@ -220,6 +221,16 @@
 \DeclareMathOperator*{\oeq}{=}
 \DeclareMathOperator*{\oap}{\approx}
 \DeclareMathOperator*{\olongrightarrow}{\longrightarrow}
+
+% colored box
+\newtcolorbox{colbox}[1]{
+	breakable,
+	enhanced jigsaw,
+	sharp corners,
+	colback=#1,
+	boxrule=0pt,
+	frame hidden
+}
 
 % color in math mode
 \makeatletter

@@ -873,6 +873,27 @@ Par récurrence, il est donc vrai pour tous ensembles finis $E$ et $F$ tels que 
 
 \medskip
 
+\begin{colbox}{lightcyan2}
+    Ce résultat peut être vu intuitivement de la manière suivante. 
+    Soit $E$ un ensemble. 
+    On construit une séquence d'entiers naturels $u_0$, $u_1$, ... de la manière suivante :
+    \begin{enumerate}[nosep]
+        \item Initialisation : On définit deux variables $n$ égale à $0$ et $F$ égale à $E$.
+        \item Si $F = \emptyset$, l'algorithme s'arrête et renvoit $n$.
+            Sinon, on choisit un élément $e$ de $F$, on pose $u_n = e$ et on met à jour les variables $n$ et $F$ comme suit : 
+            \begin{itemize}[nosep]
+                \item $n \leftarrow n + 1$,
+                \item $F \leftarrow F \setminus \lbrace e \rbrace$.
+            \end{itemize}
+        \item Retour au point 2.
+    \end{enumerate}
+    Si cet algorithme termine, alors $E$ est fini et la valeur renvoyée est son cardinal.
+    Sinon, $E$ est infini et la suite $u$ ainsi définie est une injection de $\mathbb{N}$ vers $E$.
+    Bien entendu, cet argument n'est pas pleinement rigoureux puisque nous n'avons pas encore formellement défini ce qu'est un algorithme ni la signification du symbole $\leftarrow$.
+\end{colbox}
+
+\medskip
+
 \noindent\textbf{Démonstration :} Il s'agit de montrer qu'il existe une suite $u$ d'éléments de $E$ deux-à-deux distincts. 
     Pour ce faire, on définit par récurrence une suite $u$ d'éléments de l'ensemble des parties de $\mathbb{N} \times E$ telle que : 
     \begin{itemize}[nosep]
