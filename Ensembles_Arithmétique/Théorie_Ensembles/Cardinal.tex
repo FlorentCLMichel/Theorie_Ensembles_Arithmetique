@@ -813,6 +813,26 @@ Par récurrence, il est donc vrai pour tous ensembles finis $E$ et $F$ tels que 
 
     \done
 
+\medskip
+
+\noindent\textbf{Lemme :} Tout ensemble fini, non vide et totalement ordonné admet un maximum et un minimum.
+
+\medskip
+
+\noindent\textbf{Démonstration :} On procède par récurrence sur le cardinal de $E$ moins $1$, noté $c$.
+    Si $c = 0$, $E$ ne contient qu'un élément, qui est donc à la fois maximum et minimum.
+    
+    Supposons le résultat vrai pour une valeur de $c$ et soit $E$ un ensemble totalement ordonné de cardinal $c+2$.
+    Soit $e$ un élément de $E$. 
+    Alors, $E \setminus \lbrace e \rbrace$ est totalement ordonné et de cardinal $c+1$, donc il admet un maximum, noté $M$, et un minimum, noté $m$.
+    Si $m \leq e$, alors $m$ est minimum pour $E$.
+    Sinon, $e \leq m$, donc $e \leq f$ pour tout élément $f$ de $E \setminus \lbrace e \rbrace$, et donc (puisque $e \leq e$) de $E$, donc $e$ est un minimum de $E$.
+    On montre de même, en remplaçant dans les deux dernières phrases « minimum » par « maximum », $m$ par $M$, et $\leq$ par $\geq$, que $M$ ou $e$ est un maximum pour $E$.
+
+    Par récurrence, le résultat est vrai pour tout entier naturel $c$.
+
+    \done
+
 \subsubsection{Cas de l'ensemble des entiers naturels}
 
 \noindent\textbf{Lemme :} L'ensemble $\mathbb{N}$ est infini. 

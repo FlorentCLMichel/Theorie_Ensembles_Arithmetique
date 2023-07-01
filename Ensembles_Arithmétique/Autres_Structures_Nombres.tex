@@ -179,7 +179,7 @@ Alors,
     \item $\bar{x} + \bar{y}$ est la classe d'équivalence de $(a \times d + b \times c, b \times d)$,
     \item $\bar{x} - \bar{y}$ est la classe d'équivalence de $(a \times d - b \times c, b \times d)$,
     \item $\bar{x} \times \bar{y}$ est la classe d'équivalence de $(a \times c, b \times d)$,
-    \item si $\bar{y} \in \mathbb{Q}^*$ (et donc $c \neq 0$), $\bar{x} \divslash \bar{y}$ est la classe d'équivalence de $(a \times d, b \times c)$.%
+    \item \sindex[isy]{$\div$} si $\bar{y} \in \mathbb{Q}^*$ (et donc $c \neq 0$), $\bar{x} \div \bar{y}$ (aussi noté $\bar{x} \divslash \bar{y}$) est la classe d'équivalence de $(a \times d, b \times c)$.%
         \footnote{Puisque $b \neq 0$ et $c \neq 0$, $b \times c \neq 0$, donc $(a \times d, b \times c)$ est bien un élément de $\mathbb{Z} \times \mathbb{Z}^*$.}
 \end{itemize}
 Quand il n'y a pas d'ambiguité, on pourra omettre le symbole $\times$. 
@@ -1062,7 +1062,24 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     Donc, $\abs{x_n - (p-q)} \leq \epsilon$.
     Cela montre que la suite $x$ admet $p-q$ comme limite.
 
-    ***
+    Puisque les deux suites $u$ et $v$ son convergentes, elles sont également bornées.
+    On peut donc choisir quatre nombres rationels $a$, $b$, $c$ et $d$ tels que, pour tout entier naturel $n$, $a \leq u_n \leq b$ et $c \leq v_n \leq d$.
+    Soit $m$ le maximum de $\lbrace \abs{a}, \abs{b}, \abs{c}, \abs{d}, 1 \rbrace$.
+    On montre facilement\footnote{On peut par exemple utiliser les propriétés suivantes : $-m \leq a$, $-m \leq c$, $m \geq b$, $m \geq c$.} que, pour tout entier naturel $n$, $-m \leq u_n \leq m$ et $-m \leq v_ \leq m$.
+    Soit $\epsilon$ un ombre rationel strictemet supérieur à $0$. 
+    Puisque $m \geq 1$, $m > 0$, donc $é \, m > 0$, $\epsilon \div (2 m) > 0$. 
+    On peut donc choisir deux entiers naturels $n_1$ et $n_2$ tels que, pour tout entier naturel $n$ : 
+    \begin{itemize}[nosep]
+        \item si $n \geq n_1$, $\abs{u_n - p} \leq \epsilon \div (2 m)$,
+        \item si $n \geq n_2$, $\abs{v_n - q} \leq \epsilon \div (2 m)$.
+    \end{itemize}
+    Soit $n_0$ le maximum de $n_1$ et $n_2$. 
+    Pour tout entier naturel $n$ supérieur ou égal à $n_0$, on a : $\abs{u_n v_n - p q} = \abs{u_n \, (v_n - q) + (u_n - p) \, q} \leq \abs{u_n \, (v_n - q)} + \abs{(u_n - p) \, q} \leq \abs{u_n} \abs{v_n - q} + \abs{u_n - p} \abs{q} \leq m \, (\epsilon \divslash (2 m)) + (\epsilon \divslash (2 m)) \, m = \epsilon$.
+    (On a ulilisé le fait que $c \leq q \leq d$%
+    ~\footnote{En effet, si $q < c$, on aurait $u_n < c$ pour $n$ suffisamment grand pour que $\abs{u_n - q} \leq (c - q) \divslash 2$, ce qui est impossible.
+        De même, si $q > d$, on aurait $u_n > d$ pour $n$ suffisamment grand pour que $\abs{u_n - q} \leq (q - d) \divslash 2$, ce qui est impossible.}%
+    , donc $\abs{q} \leq m$.)
+    Cela montre que $w$ tend vers $p \, q$.
 
     Pour le dernier point, supposons que $q \neq 0$. 
     Alors, $\abs{q - 0} > 0$, donc $\abs{q - 0} \divslash 2 > 0$. 
@@ -1109,7 +1126,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 \medskip
 
 \noindent\textbf{Lemme :} Une suite tendant vers $+\infty$ ou vers $-\infty$ est divergente. 
-    De manière équivalente, une suite convergeante ne peut tendre vers $+\infty$ ni vers $-\infty$.
+    De manière équivalente, une suite convergente ne peut tendre vers $+\infty$ ni vers $-\infty$.
 
 \medskip
 
