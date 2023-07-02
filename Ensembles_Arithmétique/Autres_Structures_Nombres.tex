@@ -171,15 +171,14 @@ Ce nombre rationnel est aussi dit \emph{nul}, et parfois noté $0$ quand il n'y 
 \subsubsection{Structure de corps}
 
 \noindent\textbf{Définition :} On définit les trois opérations $+$ (\emph{addition}), $-$ (\emph{soustraction}) et $\times$ (\emph{multiplication}) de $\mathbb{Q} \times \mathbb{Q}$ vers $\mathbb{Q}$ et l'opération $\divslash$ (\emph{division}) de $\mathbb{Q} \times \mathbb{Q}^*$ vers $\mathbb{Q}$ de la manière suivante. \index{Addition}\index{Soustraction}\index{Multiplication}\index{Division} 
-\sindex[isy]{$+$}\sindex[isy]{$-$}\sindex[isy]{$\times$}\sindex[isy]{$\divslash$}
 Soit $\bar{x}$ et $\bar{y}$ deux éléments de $\mathbb{Q}$. 
 On peut choisir un représentant $x$ de $\bar{x}$ et un représentant $y$ de $\bar{y}$, puis quatre entiers $a$, $b$, $c$ et $d$ tels que $b$ et $d$ sont non nuls, $x = (a, b)$ et $y = (c, d)$.
 Alors, 
 \begin{itemize}[nosep]
-    \item $\bar{x} + \bar{y}$ est la classe d'équivalence de $(a \times d + b \times c, b \times d)$,
-    \item $\bar{x} - \bar{y}$ est la classe d'équivalence de $(a \times d - b \times c, b \times d)$,
-    \item $\bar{x} \times \bar{y}$ est la classe d'équivalence de $(a \times c, b \times d)$,
-    \item \sindex[isy]{$\div$} si $\bar{y} \in \mathbb{Q}^*$ (et donc $c \neq 0$), $\bar{x} \div \bar{y}$ (aussi noté $\bar{x} \divslash \bar{y}$) est la classe d'équivalence de $(a \times d, b \times c)$.%
+    \item \sindex[isy]{$+$} $\bar{x} + \bar{y}$ est la classe d'équivalence de $(a \times d + b \times c, b \times d)$,
+    \item \sindex[isy]{$-$} $\bar{x} - \bar{y}$ est la classe d'équivalence de $(a \times d - b \times c, b \times d)$,
+    \item \sindex[isy]{$\times$} $\bar{x} \times \bar{y}$ est la classe d'équivalence de $(a \times c, b \times d)$,
+    \item \sindex[isy]{$\div$}\sindex[isy]{$\divslash$} si $\bar{y} \in \mathbb{Q}^*$ (et donc $c \neq 0$), $\bar{x} \div \bar{y}$ (aussi noté $\bar{x} \divslash \bar{y}$) est la classe d'équivalence de $(a \times d, b \times c)$.%
         \footnote{Puisque $b \neq 0$ et $c \neq 0$, $b \times c \neq 0$, donc $(a \times d, b \times c)$ est bien un élément de $\mathbb{Z} \times \mathbb{Z}^*$.}
 \end{itemize}
 Quand il n'y a pas d'ambiguité, on pourra omettre le symbole $\times$. 
@@ -729,7 +728,8 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \subsubsection{Valeur absolue}
 
-\noindent\textbf{Définition :} \index{Valeur absolue} Soit $q$ un nombre rationnel. 
+\noindent\textbf{Définition :} \index{Valeur absolue} \sindex[isy]{$\abs{\cdot}$}
+    Soit $q$ un nombre rationnel. 
     On définit sa \emph{valeur absolue}, notée $\abs{q}$, de la manière suivante : 
     \begin{itemize}[nosep]
         \item si $q \geq 0$, alors $\abs{q} = q$ ; 
@@ -784,6 +784,10 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
+\noindent\textbf{Remarque :} Ce lemme offre une démontstration alternative du corrolaire précédent, en notant que $-q = (-1) \times q$ et $\abs{-1} = 1$.
+
+\medskip
+
 \noindent\textbf{Démonstration :} Relativement évidente en utilisant le lemme précédent. 
     Écrivons-là exlicitement.
     Soit $a$, $b$, $c$ et $d$ quatre entiers relatifs tels que $b \neq 0$, $d \neq 0$, $p = a \divslash b$ et $q = c \divslash d$.
@@ -815,12 +819,33 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 \medskip
 
 \noindent\textbf{Lemme (inégalité triangulaire) :} Soit $p$ et $q$ deux nombres rationnels. 
-    Alors, $\abs{p + q} \leq \abs{p} + \abs{q}$.
+    Alors, $\abs{p} - \abs{q} \leq \abs{p + q} \leq \abs{p} + \abs{q}$.
     \index{Inégalité triangulaire}
 
 \medskip
 
-\noindent\textbf{Démonstration :} 
+\noindent\textbf{Démonstration :}
+    Montrons d'abord la première inégalité. 
+    Si $p$ et $q$ sont de même signe, alors 
+    \begin{itemize}[nosep]
+        \item Si $p \geq 0$, $\abs{p + q} = p + q = \abs{p} + \abs{q}$.
+        \item Si $p < 0$, $\abs{p + q} = -(p + q) = - p + (- q) = \abs{p} + \abs{q}$.
+    \end{itemize}
+    Si $p$ et $q$ sont de signes opposés, 
+    \begin{itemize}[nosep]
+        \item Si $\abs{p} \geq \abs{q}$, $p + q$ est su même signe que $p$.
+        \begin{itemize}[nosep]
+            \item Si $p \geq 0$, $\abs{p + q} = p + q = \abs{p} - \abs{q}$.
+            \item Si $p < 0$, $\abs{p + q} = -(p + q) = -p + (-q) = \abs{p} - \abs{q}$.
+        \end{itemize}
+        \item Si $\abs{p} < \abs{q}$, $p + q$ est su même signe que $q$.
+        \begin{itemize}[nosep]
+            \item Si $q \geq 0$, $\abs{p + q} = p + q = \abs{q} - \abs{p} > 0 > \abs{p} - \abs{q}$.
+            \item Si $q < 0$, $\abs{p + q} = -(p + q) = -p + (-q) = \abs{q} - \abs{p} > 0 > \abs{p} - \abs{q}$.
+        \end{itemize}
+    \end{itemize}
+
+    Montrons maintenant la seconde inégalité. 
     Soit $a$, $b$, $c$ et $d$ quatre entiers relatifs tels que $b \neq 0$, $d \neq 0$, $p = a \divslash b$ et $q = c \divslash d$.
     On a : 
     \begin{equation*}
@@ -1024,6 +1049,43 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $q$ un nombre rationnel et $u$ une suite de nombres rationnels admettant $q$ pour limite.
+    Soit $p$ un nombre rationnel et $n$ un entier naturel.
+    \begin{itemize}[nosep]
+        \item Si $u_m \leq p$ pour tout entier naturel $m$ supérieur ou égal à $n$, alors $q \leq p$.
+        \item Si $u_m \geq p$ pour tout entier naturel $m$ supérieur ou égal à $n$, alors $q \geq p$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} On procède par l'absurde.
+    
+    Traitons d'abord le cas où $u_m \leq p$ pour tout entier naturel $m$ supérieur ou égal à $n$.
+    Supposons que $q > p$. 
+    Alors, $q - p > 0$, donc $(q - p) \div 2 > 0$. 
+    On peut donc choisir un entier naturel $m$ tel que, pour entier naturel $k$, $k \geq m \Rightarrow \abs{u_n - q} \leq (q - p) \div 2$.
+    Notons $k$ le maximum de $n$ et $m$. 
+    Puisque $k \geq n$, $u_k \leq p$. 
+    Puisque $q - u_k = (q - p) + (p - u_k)$, on a donc : $q - u_k \geq q - p$, donc $q - u_k \geq 0$ et $\abs{q - u_k} \geq (q - p)$.
+    Puisque $q - p > (q - p) \div 2$, on a donc $\abs{q - u_k} > (q - p) \div 2$.
+    Cela est une contradiction puisque $k \geq m$.
+    On en déduit que l'hypothèse de départ est fausse, et donc que $q \leq p$
+
+    Le cas où $u_m \geq p$ pour tout entier naturel $m$ supérieur ou égal à $n$ est similaire. 
+    Supposons par l'absurde que $p > q$. 
+    Alors, $p - q > 0$, donc $(p - q) \div 2 > 0$. 
+    On peut donc choisir un entier naturel $m$ tel que, pour entier naturel $k$, $k \geq m \Rightarrow \abs{u_n - q} \leq (p - q) \div 2$.
+    Notons $k$ le maximum de $n$ et $m$. 
+    Puisque $k \geq n$, $u_k \geq p$. 
+    Puisque $u_k - q = (u_k - p) + (p - q)$, on a donc : $u_k - q \geq p - q$, donc $u_k - q \geq 0$ et $\abs{q - u_k} \geq (p - q)$.
+    Puisque $p - q > (p - q) \div 2$, on a donc $\abs{q - u_k} > (p - q) \div 2$.
+    Cela est une contradiction puisque $k \geq m$.
+    On en déduit que l'hypothèse de départ est fausse, et donc que $p \leq q$
+
+    \done
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $p$ et $q$ deux nombres rationnels et $u$ et $v$ deux suites de nombres rationnels admettant respectivement $p$ et $q$ pour limites. 
     Alors, 
     \begin{itemize}[nosep]
@@ -1063,7 +1125,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     Cela montre que la suite $x$ admet $p-q$ comme limite.
 
     Puisque les deux suites $u$ et $v$ son convergentes, elles sont également bornées.
-    On peut donc choisir quatre nombres rationels $a$, $b$, $c$ et $d$ tels que, pour tout entier naturel $n$, $a \leq u_n \leq b$ et $c \leq v_n \leq d$.
+    On peut donc choisir quatre nombres rationnels $a$, $b$, $c$ et $d$ tels que, pour tout entier naturel $n$, $a \leq u_n \leq b$ et $c \leq v_n \leq d$.
     Soit $m$ le maximum de $\lbrace \abs{a}, \abs{b}, \abs{c}, \abs{d}, 1 \rbrace$.
     On montre facilement\footnote{On peut par exemple utiliser les propriétés suivantes : $-m \leq a$, $-m \leq c$, $m \geq b$, $m \geq c$.} que, pour tout entier naturel $n$, $-m \leq u_n \leq m$ et $-m \leq v_ \leq m$.
     Soit $\epsilon$ un ombre rationel strictemet supérieur à $0$. 
@@ -1077,7 +1139,8 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     Pour tout entier naturel $n$ supérieur ou égal à $n_0$, on a : $\abs{u_n v_n - p q} = \abs{u_n \, (v_n - q) + (u_n - p) \, q} \leq \abs{u_n \, (v_n - q)} + \abs{(u_n - p) \, q} \leq \abs{u_n} \abs{v_n - q} + \abs{u_n - p} \abs{q} \leq m \, (\epsilon \divslash (2 m)) + (\epsilon \divslash (2 m)) \, m = \epsilon$.
     (On a ulilisé le fait que $c \leq q \leq d$%
     ~\footnote{En effet, si $q < c$, on aurait $u_n < c$ pour $n$ suffisamment grand pour que $\abs{u_n - q} \leq (c - q) \divslash 2$, ce qui est impossible.
-        De même, si $q > d$, on aurait $u_n > d$ pour $n$ suffisamment grand pour que $\abs{u_n - q} \leq (q - d) \divslash 2$, ce qui est impossible.}%
+        De même, si $q > d$, on aurait $u_n > d$ pour $n$ suffisamment grand pour que $\abs{u_n - q} \leq (q - d) \divslash 2$, ce qui est impossible.
+        (Voir démonstration plus détaillée ci-dessus.)}%
     , donc $\abs{q} \leq m$.)
     Cela montre que $w$ tend vers $p \, q$.
 
@@ -1204,7 +1267,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
-\noindent\textbf{Lemme :} Soit $u^+$ unr suite tendant vers $+\infty$ et $u^-$ une suite tendant vers $-\infty$.
+\noindent\textbf{Lemme :} Soit $u^+$ une suite tendant vers $+\infty$ et $u^-$ une suite tendant vers $-\infty$.
     Soit $v$ une suite convergente et $l$ sa limite.
     On suppose $l \neq 0$.
     On définit les deux suites $w^+$ et $w^-$ par : pour tout entier naturel $n$, $w^+_n = u^+_n \times v_n$ et $w^-_n = u^ -_n \times v_n$.
@@ -1419,17 +1482,33 @@ Quand il n'y a pas d'ambiguité, on note $0$ l'élément de $\mathbb{T}$ dont to
 
 \subsection{Nombres réels}
 
-\subsubsection{Limite d'une suite de nombres rationnels}
-
-\noindent\textbf{Définition (convergence et limite) :} ***
-
-\emph{À écrire...}
-
 \subsubsection{Suites de Cauchy}
+
+\noindent\textbf{Définition :} Soit $u$ une suite de nombres rationnels. 
+    Elle est dite \textit{de Cauchy} si la propriété suivante est satisfaite : 
+    \begin{equation*}
+        \forall \epsilon \in \mathbb{Q} \, 
+        \exists n \in \mathbb{N} \,
+        \forall m \in \mathbb{N} \,
+        \forall k \in \mathbb{N} \,
+        (m \geq n) \wedge (k \geq n)
+        \Rightarrow \abs{u_n - u_k} \leq \epsilon
+        .
+    \end{equation*}
+
+\medskip
+
+Intuitivement, une suite est de Cauchy si la distance maximale entre un de ses éléments et les suivants tends vers $0$. 
+On pourrait penser qu'une telle suite doit être convergente. 
+Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant aux nombres réels, qui peuvent être formellement définis comme limites des suites de Cauchy de rationnels. 
+(On montrera aussi que toute suite de Cauchy de nombres réels converge.)
+
+\medskip
 
 \emph{À écrire...}
 
 \subsubsection{Les nombres réels comme limites de suites de Cauchy}
+\sindex[isy]{$\mathbb{R}$}
 
 \emph{À écrire...}
 
@@ -1441,6 +1520,100 @@ Quand il n'y a pas d'ambiguité, on note $0$ l'élément de $\mathbb{T}$ dont to
 
 \emph{À écrire...}
 
-\subsection{Nombres complexes}
+\subsubsection{Puissances}
+
+\noindent\textbf{Définition :} On définit par récurrence les \emph{puissances entières positives} d'un nombre réel $x$ par :
+    \begin{itemize}[nosep]
+        \item $x^0 = 1$,
+        \item pour tout entier naturel $n$, $x^{n+1} = x \times x^n$.
+    \end{itemize}
+    Notons que $x^1 = x$ et $x^n \neq 0$ pour tout entier naturel $n$ (se montre facilement par récurrence).
+    \index{Puissance}
+    Pour tout entier naturel non nul $n$, on définit la \emph{puissance entière négative} $x^{-n}$ comme égale à $1 \divslash z^x$.
+    \index{Puissance négative}
+
+\medskip
+
+\noindent\textbf{Définition :} Soit $x$ et $y$ deux nombres réels et $n$ un entier naturel non nul.
+    On dit que $y$ est une \emph{racine $n$e} de $x$ si $x^n = y$.
+    \index{Racine}
+
+\medskip
+
+\noindent\textbf{Définition :} Soit $n$ un entier naturel non nul. 
+    Tout nombre réel positif $x$ a exactement une racine $n$e positive, notée $x^{1 \divslash n}$ ou $\sqrt[n]{x}$.
+    (Pour $n = 2$, le nombre $2$ pourra être omis dans cette seconde notation.)
+
+\medskip
+
+\noindent\textbf{Démonstration :} ***
+
+\medskip
 
 \emph{À écrire...}
+
+\subsection{Nombres complexes}
+
+\noindent\textbf{Définition :} 
+    \sindex[isy]{$\mathbb{C}$}
+    On définit l'ensemble des \emph{nombres complexes}, noté $\mathbb{C}$, par : $\mathbb{C} = \mathbb{R}^2$.
+    Si $a$ et $b$ sont deux nombres résls, le nombre complexe $(a, b)$ sera aussi noté $a + b \, \mathrm{i}$, $a + \mathrm{i} \, b$, $b \, \mathrm{i} + a$, ou $\mathrm{i} \, b + a$.
+    AVec les mêmes notations, $a + 0 \, \mathrm{i}$ pourra être noté $a$ et $0 + a \, \mathrm{i}$ pourra être noté $a \, \mathrm{i}$ quand il n'y a pas d'ambiguïté.
+    On définit l'ensemble $\mathbb{C}^*$ par : $\mathbb{C}^* = \mathbb{C} \setminus \lbrace (0, 0) \rbrace$.
+
+\medskip
+
+\noindent\textbf{Définition :} \index{Partie réelle}\index{Partie imaginaire} \sindex[isy]{$\mathrm{Re}$} \sindex[isy]{$\mathrm{Im}$}
+    Soit $z$ un nombre complexe et $x$ et $y$ les deux nombres réels tels que $z = (x, y)$.
+    On appelle $x$ \emph{partie réelle} de $z$, notée $\mathrm{Re}(z)$, et $y$ \emph{partie imaginaire} de $z$, notée $\mathrm{Im}(z)$.
+
+\medskip
+
+\noindent\textbf{Définition :} \index{Conjugaison} \sindex[isy]{$*$}
+    Soit $z$ un nombre complexe.
+    On appelle \emph{conjugué}, ou \emph{conjugué complexe}, de $z$, noté $z^*$ le nombre complexe $\left( \mathrm{Re}(z), - \mathrm{Im}(z) \right)$.
+
+\medskip
+
+\noindent\textbf{Définition :} \index{Module} \sindex[isy]{$\abs{\cdot}$}
+    Soit $z$ un nombre complexe. 
+    Le \emph{module} de $z$, noté $\abs{z}$, est le nombre réel (positif) $\sqrt{\mathrm{Re}(z)^2 + \mathrm{Im}(z)^2}$.
+
+\subsubsection{Structure de corps}
+
+\noindent\textbf{Définition :} 
+    \sindex[isy]{$+$} \sindex[isy]{$-$} \sindex[isy]{$\times$} 
+    On définit les trois opérations $+$, $-$ et $\times$ de $\mathbb{C}^2$ vers $\mathbb{C}$ comme suit :
+    \begin{itemize}[nosep]
+        \item $(a + b \, \mathrm{i}) + (c + d \, \mathrm{i}) = (a + c, (b + d) \, \mathrm{i})$,
+        \item $(a + b \, \mathrm{i}) - (c + d \, \mathrm{i}) = (a - c, (b - d) \, \mathrm{i})$,
+        \item $(a + b \, \mathrm{i}) \times (c + d \, \mathrm{i}) = (a \, c -  b \, d, (a \, d + b \, c) \, \mathrm{i})$.
+    \end{itemize}
+    \sindex[isy]{$\div$} \sindex[isy]{$\divslash$}
+    On définit aussi l'opération $\div$ de $\mathbb{C} \times \mathbb{C}^*$ vers $\mathbb{C}$ comme suit : pour tous nombres réels $a$, $b$, $c$ et $d$ tels que $(c \neq 0) \vee (d \neq 0)$, 
+    \begin{equation*}
+        (a + b \, \mathrm{i}) \div (c + d \, \mathrm{i}) = 
+        \left( 
+            \left( a \, c + b \, d \right) \divslash \left( c^2 + d^2 \right)
+            \left( b \, c - a \, d \right) \divslash \left( c^2 + d^2 \right)
+        \right) .
+    \end{equation*}
+    Comme pour les ensemble précédents, le symbole $\times$ est parfois élidé et $\div$ remplacé par $\divslash$, et (en l'absence de parenthèses), $\times$ et $\divslash$ sont prioritaires sur $+$ et $-$.
+
+\medskip
+
+\emph{À écrire...}
+
+\subsubsection{Puissances}
+
+\noindent\textbf{Définition :} On définit par récurrence les \emph{puissances entières positives} d'un nombre complexe $z$ par :
+    \begin{itemize}[nosep]
+        \item $z^0 = 1$,
+        \item pour tout entier naturel $n$, $z^{n+1} = z \times z^n$.
+    \end{itemize}
+    Notons que $z^1 = z$ et $z^n \neq 0$ pour tout entier naturel $n$ (se montre facilement par récurrence).
+    \index{Puissance}
+    Pour tout entier naturel non nul $n$, on définit la \emph{puissance entière négative} $z^{-n}$ comme égale à $1 \divslash z^n$.
+    \index{Puissance négative}
+
+\medskip
