@@ -18,7 +18,7 @@ On définit la relation d'inclusion\index{Inclusion} $\subset$\sindex[isy]{$\sub
         (a \subset b) \Leftrightarrow (\forall x \, (x \in a) \Rightarrow (x \in b))
     ). 
 \end{equation*}
-Si $a \subset b$, on dira que \textit{$a$ est un sous-ensemble de $b$}, ou que \textit{$a$ est inclus dans $b$}.
+Si $a \subset b$, on dira que \emph{$a$ est un sous-ensemble de $b$}, que \emph{$a$ est inclus dans $b$}, ou que \emph{$a$ est une partie de $b$}.
 Notons que, pour tout ensemble $a$, $a \subset a$ est vrai.%
 \footnote{En effet, soit $x$ un ensemble, $x \in a$ a toujours la même valeur de vérité que lui-même, donc $(x \in a) \Rightarrow (x \in a)$ est vrai.}
 On définit aussi la relation $\supset$\sindex[isy]{$\supset$} par :
@@ -265,7 +265,9 @@ On note $\lb a, b, c \rb$ l'ensemble $\lbrace a, b \rbrace \cup \lbrace c \rbrac
         (x \in b) \Leftrightarrow (x \subset a)
     ).
 \end{equation*}
-Cet ensemble est unique d'après l'axiome d'extensionnalité.
+Cet ensemble est unique d'après l'axiome d'extensionnalité. 
+L'ensemble des parties (ou enseble des sous-ensembles) d'un ensemble $x$ est aussi appelé \emph{ensemble puissance} de $x$ et noté $\mathcal{P}(x)$.
+\aindex{Ensemble puissance}
 
 \medskip
 
@@ -1835,7 +1837,7 @@ En outre, cette fonction est bijective.
 
 \subsubsection{Axiome du choix}
 
-\noindent\textit{\textbf{Énoncé :} Pour tout ensemble $X$ d'ensembles non vides, il existe une fonction sur $X$ qui à chaque ensemble $x$ appartenant à $X$ associe un élément de $x$ :}
+\noindent\textit{\textbf{Énoncé :} \aindex{Choix (axiome)} Pour tout ensemble $X$ d'ensembles non vides, il existe une fonction sur $X$ qui à chaque ensemble $x$ appartenant à $X$ associe un élément de $x$ :}
 \begin{equation*}
     \forall X \, \left[ (\emptyset \notin X) \Rightarrow \left( \exists f: X \to \cup X \, \forall x \, [ (x \in X) \Rightarrow ( \exists y \, [((x,y) \in f) \wedge (y \in x)] ) ] \right) \right] .
 \end{equation*}
@@ -1847,6 +1849,34 @@ En outre, cette fonction est bijective.
     \forall X \, \left[ (\emptyset \notin X) \Rightarrow \left( \exists f: X \to \cup X \, \forall x \in X \, (f(x) \in x) \right) \right] .
 \end{equation*}
 La théorie ZF plus l'axiome du choix est appelée théorie ZFC.
+
+\subsection{Théorie de Tarski-Grothendieck}
+
+\aindex{Tarski-Grothendieck}
+
+\noindent\textbf{Définition :} \aindex{Univers} \aindex{Grothendieck} Un ensemble $U$ est dit \emph{univers de Grothendieck} si les quatre proptiétés suivantes sont vraies : 
+\begin{itemize}[nosep]
+    \item L'ensemble $U$ est \emph{transitif} : pour tout élément $x$ de $U$ et tout élément $y$ de $x$, $y \in U$.
+    \item Pour tous éléments $x$ et $y$ de $U$, $\lbrace x, y \rbrace \in U$.
+    \item Pour tout élément $x$ de $U$, l'ensemble des sous-ensembles de $x$, $\mathcal{P}(x)$, est un élément de $U$.
+    \item Pour tout sous-ensemble $S$ de $U$, l'union des éléments de $S$, $\cup S$, est un élément de $U$.
+\end{itemize}
+Formellement, cela peut s'écrire :
+\begin{itemize}[nosep]
+    \item $\forall x \, \forall y \, (x \in U \wedge y \in x) \Rightarrow y \in U$.
+    \item $\forall x \, \forall y \, (x \in U \wedge y \in U) \Rightarrow \lbrace x, y \rbrace \in U$.
+    \item $\forall x \, x \in U \Rightarrow \mathcal{P}(x) \in U$.
+    \item $\forall S\, S \subset U \Rightarrow \cup S \in U$.
+\end{itemize}
+
+\medskip
+
+\noindent\textit{\textbf{Axiome de Tarski :}} Pour tout ensemble $E$, il existe un univers de Grothendieck $U$ tel que $E \in U$.
+
+\medskip
+
+La \emph{théorie de Tarski-Grothendieck} ceomprend les axiomes de la théorie ZF plus l'axiome de Tarski. 
+Sauf mention contraire explicite, on ne supposera pas l'axiome de Tarski ici.
 
 \subsubsection{Lemme de Zorn (en théorie ZFC)}
 
