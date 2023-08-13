@@ -113,17 +113,6 @@ En présence de l'égalité, on définit aussi le symbole d'\textit{inégalité}
 Un symbole non logique est un symbole n'ayant pas de signification donnée par la logique du premier ordre. 
 Il représentent généralement un prédicat, pouvant dépendre de variables placées à sa droite, éventuellement entre parenthèses.
 
-\subsubsection{Termes}
-
-\index{Terme}
-Les termes sont définis comme suit : 
-\begin{itemize}
-    \item Toute variable est un terme. 
-    \item Si $P$ est un prédicat ne dépendant d'aucune variable, alors $P$ est un terme.
-    \item Si $P$ est un prédicat dépendant des variables $a_1 \dots a_N$, alors $P a_1 \dots a_N$, aussi noté $P (a_1 \dots a_N)$, est un terme. 
-    \item En présence de l'égalité, si $x$ et $y$ sont deux variables, alors $x = y$ est un terme.
-\end{itemize}
-
 \subsubsection{Parenthèses, symboles \texorpdfstring{$($, $)$, $[$, $]$}{(, ), [, ]}}
 
 \sindex[isy]{$($}\sindex[isy]{$)$}\sindex[isy]{$[$}\sindex[isy]{$]$}
@@ -133,6 +122,19 @@ Nous omettrons parfois les parenthèses lorsque qu'il n'y a pas d'ambiguité sur
 
 L'écriture d'une formule en terme de sous-formules contient toujours des arenthèses implicites. 
 Ainsi, si les symboles $f$ et $g$ désignent deux formules, si $\mathrm{C_u}$ est un connecteur unaire et $\mathrm{C_b}$ un connecteur binaire, alors la notation $\mathop{\mathrm{C_u}} f$ désigne $\mathop{\mathrm{C_u}} (f)$ et $f \mathop{\mathrm{C_b}} g$ désigne $(f) \mathop{\mathrm{C_b}} (g)$.
+
+\subsubsection{Termes}
+\index{Terme}
+
+Les termes sont définis comme suit : 
+\begin{itemize}
+    %\item Toute variable est un terme. 
+    \item Si $P$ est un prédicat ne dépendant d'aucune variable, alors $P$ est un terme.
+    \item Si $P$ est un prédicat dépendant des variables $a_1 \dots a_N$, alors $P a_1 \dots a_N$, aussi noté $P (a_1 \dots a_N)$, est un terme. 
+    \item En présence de l'égalité, si $x$ et $y$ sont deux variables, alors $x = y$ est un terme.
+\end{itemize}
+
+Une théorie formulée dans le cadre de la logique du premier ordre peut définir de règles spécifiques de construction de prédicats, par exemple \emph{via} des relations binaires (\emph{cf} section~\ref{subsub:relations_binaires}).
 
 \subsubsection{Formules}
 
@@ -289,6 +291,7 @@ Par exemple, on peut voir le quantificateur $\exists$ comme le seul quantificate
     Par contre, une formule équivalente à $\mathsf{V}$ est nécessairement vraie et une formule équivalente à $\mathsf{F}$ nécessairement fausse.
 
 \subsubsection{Relations binaires} 
+\label{subsub:relations_binaires}
 
 \index{Relation binaire}
 Une théorie définie dans le cadre de la logique du premier ordre peut inclure des relations binaires entre les objets de son domaine de discours, chacune étant représentée par un symbole. 

@@ -933,6 +933,29 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $q$ un nombre rationnels, $n_0$ un entier naturel et $u$ et $v$ deux suites de nombres rationnels. 
+    On suppose que $u$ admet $q$ pour limite et que $v_n = u_n$ pour tout entier naturel $n$ supérieur ou égal à $n_0$.
+    Alors $v$ admet $q$ pour limité.
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+    Soit $\epsilon$ un nombre rationnels strictement positif.
+    Puisque $u$ admet $q$ pour limite, on peut choisir un entier naturel $n_\epsilon$ tel que $\abs{u_m - q} \leq \epsilon$ pour tout entier naturel $m$ supérieur ou égal à $n_\epsilon$. 
+    Soit $n_\epsilon'$ l'entier naturel défini par : $n_\epsilon' = \mathrm{max} \left( n_0, n_\epsilon \right)$.
+    
+    Soit $m$ un entier naturel supérieur ou égal à $n_\epsilon'$.
+    On a $m \geq n_\epsilon$, donc $\abs{u_m - q} \leq \epsilon$.
+    En outre, $m \geq n_0$, donc $v_m = u_m$.
+    Donc, $\abs{v_m - q} \leq \epsilon$.
+    
+    Cela montre que $\abs{v_k - q} \leq \epsilon$ pour tout entier naturel $k$ suérieur ou égal à $n_\epsilon'$. 
+    On en déduit que $v$ admet $q$ pour limite.
+
+    \done
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $u$ une suite de nombre rationnels convergente. 
     Alors, pour tout nombre rationnel $\epsilon$ strictement positif, il existe un entier naurel $n$ tel que, our tous entiers naturels $m$ et $k$, $((m \geq n) \wedge (k \geq n)) \Rightarrow \abs{u_m - u_k} \leq \epsilon$.
 
@@ -1124,10 +1147,10 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     Donc, $\abs{x_n - (p-q)} \leq \epsilon$.
     Cela montre que la suite $x$ admet $p-q$ comme limite.
 
-    Puisque les deux suites $u$ et $v$ son convergentes, elles sont également bornées.
+    Puisque les deux suites $u$ et $v$ sont convergentes, elles sont également bornées.
     On peut donc choisir quatre nombres rationnels $a$, $b$, $c$ et $d$ tels que, pour tout entier naturel $n$, $a \leq u_n \leq b$ et $c \leq v_n \leq d$.
     Soit $m$ le maximum de $\lbrace \abs{a}, \abs{b}, \abs{c}, \abs{d}, 1 \rbrace$.
-    On montre facilement\footnote{On peut par exemple utiliser les propriétés suivantes : $-m \leq a$, $-m \leq c$, $m \geq b$, $m \geq c$.} que, pour tout entier naturel $n$, $-m \leq u_n \leq m$ et $-m \leq v_ \leq m$.
+    On montre facilement\footnote{On peut par exemple utiliser les propriétés suivantes : $-m \leq a$, $-m \leq c$, $m \geq b$, $m \geq c$.} que, pour tout entier naturel $n$, $-m \leq u_n \leq m$ et $-m \leq v_n \leq m$.
     Soit $\epsilon$ un ombre rationel strictemet supérieur à $0$. 
     Puisque $m \geq 1$, $m > 0$, donc $é \, m > 0$, $\epsilon \div (2 m) > 0$. 
     On peut donc choisir deux entiers naturels $n_1$ et $n_2$ tels que, pour tout entier naturel $n$ : 
@@ -1149,6 +1172,15 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     Donc, on peut choisir un entier naturel $n_0$ tel que, pour tout entier naturel $n$ tel que $n \geq n_0$, $\abs{u_n - q} \leq \abs{q - 0} \divslash 2$.
     Or, pour tout entier naturel $n$, $\abs{0 - q} = \abs{q - 0}$, donc $\abs{0 - q} > \abs{q - 0} \divslash 2$. 
     On en déduit que, pour tout entier naturel $n$ tel que $n \geq n_0$, $u_n \neq 0$, ce qui permet de définir la suite $z$ comme dans l'énoncé.
+
+    Définissons les suites $\tilde{v}$ et $\tilde{z}$ par : pour tout entier naturel $n$, 
+    \begin{itemize}[nosep]
+        \item Si $n < n_0$, $\tilde{v}_n = 0$.
+        \item Si $n \geq n_0$, $\tilde{v}_n = 1 \divslash v_n$.
+        \item $\tilde{z}_n = u_n \times \tilde{v}_n$.
+    \end{itemize}
+    Alors, $\tilde{z}_n = z_n$ pour tout entier naturel $n$ supérieur ou égal à $n_0$. 
+    Il suffit donc de montrer que $\tilde{z}$ tends vers $p \divslash q$.
     
     ***
 

@@ -13,11 +13,17 @@
 % section ToCs
 \usepackage{tocloft}
 \usepackage{etoc}
+\renewcommand{\cftsecfont}{\sffamily\bfseries}
+\renewcommand{\cftsecpagefont}{\sffamily\bfseries}
+\renewcommand{\cftsubsecfont}{\sffamily}
+\renewcommand{\cftsubsecpagefont}{\sffamily}
 \newcommand{\localtoc}{
     \renewcommand*{\cftsubsecindent}{0em}%
     \renewcommand*{\cftsubsubsecindent}{1em}%
-    \renewcommand{\cftsubsecfont}{\normalfont\bfseries}% 
-    \renewcommand{\cftsubsecpagefont}{\normalfont\bfseries}% 
+    \renewcommand{\cftsubsecfont}{\sffamily\bfseries}% 
+    \renewcommand{\cftsubsecpagefont}{\sffamily\bfseries}% 
+    \renewcommand{\cftsubsubsecfont}{\sffamily}% 
+    \renewcommand{\cftsubsubsecpagefont}{\sffamily}% 
     \renewcommand{\cftsubsecdotsep}{\cftnodots}%
     \renewcommand{\cftsubsecleader}{\bfseries\cftdotfill{\cftsecdotsep}}%
     \setlength{\cftbeforesubsecskip}{1ex}%
@@ -43,7 +49,7 @@
 \usepackage{soul}
 \usepackage[math-style=TeX]{unicode-math}
 \setmainfont[Microtype,Ligatures=TeX]{XITS}
-\setsansfont{Latin Modern Sans}
+\setsansfont{Source Sans 3}
 \setmathfont{XITS Math}
 \setmonofont{DejaVu Sans Mono}
 %\usepackage[final]{microtype}
