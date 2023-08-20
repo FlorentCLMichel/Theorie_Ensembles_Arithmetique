@@ -489,7 +489,7 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 \medskip
 
 \noindent\textbf{Remarque :} Soit $x$ un élément de $\mathbb{Q}^*$. 
-    Alors l'inverse de $x$ est $1 \divslash x$. 
+    Alors l'inverse de $x$ est $1 \divslash x$, aussi noté $x^{-1}$. 
 
 \done
 
@@ -518,7 +518,11 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 
 \medskip
 
-\noindent\textbf{Remarque :} Avec les notations ci-dessus, $a \divslash b \leq 0$ est vrai si et seulement si $a = 0$ ou $b = 0$ ou $a$ et $b$ sont de signes opposés.
+\noindent\textbf{Remarque :} Avec les notations ci-dessus, 
+\begin{itemize}[nosep]
+    \item $a \divslash b$ est positif si et seulement si $a = 0$ ou $a$ et $b$ sont de même signe ;
+    \item $a \divslash b$ est négatif si et seulement si $a = 0$ ou $a$ et $b$ sont de signes opposés.
+\end{itemize}
 
 \medskip
 
@@ -659,6 +663,40 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     Donc, $r \times p \geq r \times q$.
 
     \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $p$ et $q$ deux nombres rationnels strictement positifs. 
+    Alors, $p \leq q \Rightarrow p^{-1} \geq q^{-1}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Soit $a$, $b$, $c$ et $d$ quatre entiers tels que $b \neq 0$, $c \neq 0$, $p = a \divslash b$ et $q = c \divslash d$.
+    Puisque $p$ et $q$ sont non nuls, on a $a \neq 0$ et $c \neq 0$.
+    
+    Supposons $p \leq q$.
+    Alors, $a \, b \, d^2 \leq c \, d \, b^2$.
+    Puisque $p$ est strictement positif, $a$ et $b$ sont su même signe, donc $a \, b > 0$.
+    De même, puisque $q$ est strictement positif, $c$ et $d$ sont su même signe, donc $c \, d > 0$.
+    Donc, $a^2 \, b^2 \, c \, d^3 \leq a \, b^3 \, c^2 \, d^2$.
+    Donc, $c \, d \, a^2 \, b^2 \, d^2 \leq a \, b \, c^2 \, b^2 \, d^2$.
+    Puisque $b \neq 0$ et $d \neq 0$, cela implique
+    Donc, $c \, d \, a^2 \leq a \, b \, c^2$, donc $d \divslash c \leq b \divslash a$, et donc $q^{-1} \leq p^{-1}$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Corrolaire 1 :} Soit $p$ et $q$ deux nombres rationnels strictement positifs. 
+    Si $p < q$, alors $p^{-1} > q^{-1}$. 
+    (En effet, on a $p^{-1} \geq q^{-1}$ et $p^{-1} \neq q^{-1}$, sans quoi on aurait $p = q$.)
+
+\medskip
+
+\noindent\textbf{Corrolaire 2 :} Soit $p$ et $q$ deux nombres rationnels strictement négatifs. 
+    Alors, $-p$ et $-q$ sont strictement positif, $p^{-1} = -((-p)^{-1})$ et $q^{-1} = -(-q)^{-1}$.
+    Donc, si $p \leq q$, alors $p^{-1} \geq q^{-1}$ et, si $p < q$, alors $p^{-1} > q^{-1}$. 
 
 \medskip
 
@@ -1181,8 +1219,35 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     \end{itemize}
     Alors, $\tilde{z}_n = z_n$ pour tout entier naturel $n$ supérieur ou égal à $n_0$. 
     Il suffit donc de montrer que $\tilde{z}$ tends vers $p \divslash q$.
+    Pour ce faire, il est suffisant (d'après le résultat sur la multiplication) de montrer que $\tilde{v}$ tends vers $1 \divslash q$.
+
+    Afin de simplifier encore le problème, définissons la suite $v'$ par : pour tout entier naturel $n$, $v_n' = \tilde{v}_n \times q$.
+    Soit $\tilde{q}$ la suite définie par $\tilde{q}_n = 1 \divslash q$ pour tout entier naturel $n$. 
+    On a $\tilde{v}_n = v_n' \times \tilde{q}_n$ pour tout entier naturel $n$ et $\tilde{q}$ tends vers $1 \divslash q$. 
+    Si l'on peut montrer que $v'$ tends vers $1$, on en déduira que $\tilde{v}$ tend vers $1 \divslash q$.
+
+    Puisque $\abs{q} \divslash 2 > 0$, on peut choisir un entier naturel $n_1$ tel que, pour tout entier naturel $n$, 
+    \begin{equation*}
+        n \geq n_1 \Rightarrow \abs{v_n - q} \leq \frac{\abs{q}}{2} .
+    \end{equation*}
+    Pour tout entier naturel $n$ supérieur ou égal à $n_1$, on a donc $\abs{q - v_n} \leq \frac{\abs{q}}{2}$, donc, d'après l'inégalité triangulaire, $\abs{q} - \abs{v_n} \leq \abs{q} \divslash 2$, et donc $\abs{v_n} \geq \abs{q} \divslash 2$. 
+
+    Soit $\epsilon$ un nombre rationnel strictement positif quelconque. 
+    Alors, $\abs{q} \, \epsilon \divslash 2$ est strictement positif.
+    On peut donc choisir un entier naturel $n^{(\epsilon)}$ tel que, pour tout entier naturel $n$ supérieur ou égal à $n^{(\epsilon)}$, $\abs{v_n - q} \leq \abs{q} \, \epsilon \divslash 2$. 
+    Soit $m^{(\epsilon)}$ l'entier naturel défini par : $m^{(\epsilon)} = \mathrm{max} \left( n^{(\epsilon)}, \mathrm{max} \left( n_0, n_1 \right) \right)$. 
+    Alors, pour tout entier naturel $n$ supérieur ou égal à $m^{(\epsilon)}$, 
+    \begin{equation*}
+        \abs{v'_n - 1} 
+            = \abs{\tilde{v}_n \, q - 1}
+            = \abs{\frac{q}{v_n} - 1}
+            = \abs{\frac{q - v_n}{v_n}}
+            = \frac{\abs{q - v_n}}{\abs{v_n}} .
+    \end{equation*}
+    Puisque $\abs{v_n} \geq \abs{q} \divslash 2$ et $\abs{q - v_n} = \abs{v_n - q} \leq \abs{q} \, \epsilon \divslash 2$, on obtient : $\abs{v'_n - 1} \leq \epsilon$.
+    Cela montre que $v'$ tend vers $1$.
     
-    ***
+    \done
 
 \medskip
 
