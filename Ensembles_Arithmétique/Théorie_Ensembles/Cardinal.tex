@@ -1437,3 +1437,44 @@ On en conclut que l'hypothèse de départ est fausse : il n'existe aucune bijec
         \item Si $n > 1$, on définit $\sum u$ par $u(0) + u(1) + \cdots + u(n-1)$ et $\prod u$ par $u(0) \times u(1) \times \cdots \times u(n-1)$.
     \end{itemize}
     On noteras aussi $\sum u$ par $\sum_{i=0}^{n-1} u(i)$ et $\prod u$ par $\prod_{i=0}^{n-1} u(i)$.
+
+\subsubsection{Relations entre cardinaux}
+
+\noindent\textbf{Notation :} Soit $E$ et $F$ deux ensembles. On note
+\begin{itemize}[nosep]
+    \item $\abs{E} \leq \abs{F}$ s'il existe une injection de $E$ vers $F$,
+    \item $\abs{E} \geq \abs{F}$ s'il existe une surjection de $E$ vers $F$,
+    \item $\abs{E} = \abs{F}$ s'il existe une bijection de $E$ vers $F$,
+    \item $\abs{E} < \abs{F}$ s'il existe une injection de $E$ vers $F$ mais pas de bijection,
+    \item $\abs{E} > \abs{F}$ s'il existe une surjection de $E$ vers $F$ mais pas de bijection.
+\end{itemize}
+(Pour des ensembles finis, ces notations sont compatibles avec la relation d'ordre sur $\mathbb{N}$.)
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $E$ un ensemble et $F$ l'ensemble des sous-ensembles de $E$.
+    Alors, $\abs{E} < \abs{F}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+Montrons d'abord qu'il existe une injection de $E$ vers $F$. 
+Soit $f$ la fonction de $E$ vers $F$ définie par : pour tout élément $e$ de $E$, $f(e) = \lbrace e \rbrace$ (ou $f = \\emptyset$ si $E = \emptyset$). 
+Soit $e_1$ et $e_2$ deux éléments de $E$ tels que $f(e_1) = f(e_2)$.
+Alors, $\lbrace e_1 \rbrace = \lbrace e_2 \rbrace$, donc $e_1 \in \lbrace e_2 \rbrace$, donc $e_1 = e_2$.
+Cela montre que $f$ est injective.
+
+Montrons maintenant qu'il n'existe pas de surjection de $E$ vers $F$. 
+Soit $f$ une fonction de $E$ vers $F$. 
+Soit $X$ le sous-ensemble de $E$ défini par : $X = \lbrace e \in E \vert e \notin f(e) \rbrace$. 
+Montrons que $X$ n'a pas d'antécédant par $f$, et donc que $f$ n'est pas surjective.
+
+On procède par l'absurde. 
+Supposons que l'on ait un élément $x$ de $E$ tel que $f(x) = X$.
+Si $x \in X$, alors $x \notin f(x)$, donc $x \notin X$, ce qui est contradictoire. 
+Donc, $x \notin X$.
+Mais, si $x \in E \setminus X$, alors $x \in f(x)$, donc $x \in X$, ce qui est aussi contradictoire.
+Donc, $x \notin X$ et $x \notin E \setminus X$, donc $x \notin E$, ce qui contredit sa définition.
+On en déduit qu'un tel élément $x$ ne peut exister, et donf que $f$ n'est pas surjective.
+
+\done
