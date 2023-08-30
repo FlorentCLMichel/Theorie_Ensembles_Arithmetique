@@ -437,6 +437,15 @@ Le schéma d'axiomes de compréhension peut ainsi être reformulé de la manièr
 
 L'ensemble ainsi défini contient $\emptyset$, $\lbrace \emptyset \rbrace$, $\lbrace \emptyset, \lbrace \emptyset \rbrace \rbrace$, $\lbrace \emptyset, \lbrace \emptyset \rbrace, \lbrace \emptyset, \lbrace \emptyset \rbrace \rbrace \rbrace$, ...
 
+\medskip
+
+\noindent\textbf{Notation :} Soit $E$ un ensemble et $P$ un prédicat dépendant des variables $x$, $a$, ..., $b$.
+    On peut noter par 
+    \begin{itemize}[nosep]
+        \item $\forall x \in E \, P(x, a, \dots, b)$ le prédicat $\forall x \, x \in E \Rightarrow P(x, a, \dots, b)$,
+        \item $\exists x \in E \, P(x, a, \dots, b)$ le prédicat $\exists x \, x \in E \wedge P(x, a, \dots, b)$.
+    \end{itemize}
+
 \subsubsection{Intersection} 
 
 \index{Intersection}
@@ -1837,7 +1846,7 @@ En outre, cette fonction est bijective.
 
 \subsubsection{Axiome du choix}
 
-\noindent\textit{\textbf{Énoncé :} \aindex{Choix (axiome)} Pour tout ensemble $X$ d'ensembles non vides, il existe une fonction sur $X$ qui à chaque ensemble $x$ appartenant à $X$ associe un élément de $x$ :}
+\noindent\textit{\textbf{Énoncé :} \index{Choix (axiome)} Pour tout ensemble $X$ d'ensembles non vides, il existe une fonction sur $X$ qui à chaque ensemble $x$ appartenant à $X$ associe un élément de $x$ :}
 \begin{equation*}
     \forall X \, \left[ (\emptyset \notin X) \Rightarrow \left( \exists f: X \to \cup X \, \forall x \, [ (x \in X) \Rightarrow ( \exists y \, [((x,y) \in f) \wedge (y \in x)] ) ] \right) \right] .
 \end{equation*}
@@ -1850,9 +1859,7 @@ En outre, cette fonction est bijective.
 \end{equation*}
 La théorie ZF plus l'axiome du choix est appelée théorie ZFC.
 
-\subsubsection{Théorie de Tarski-Grothendieck}
-
-\aindex{Tarski-Grothendieck}
+\subsubsection{Théorie de \aindex{Tarski-Grothendieck}}
 
 \noindent\textbf{Définition :} \aindex{Univers} \aindex{Grothendieck} Un ensemble $U$ est dit \emph{univers de Grothendieck} si les quatre proptiétés suivantes sont vraies : 
 \begin{itemize}[nosep]

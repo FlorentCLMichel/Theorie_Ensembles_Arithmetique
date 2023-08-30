@@ -1449,10 +1449,11 @@ On en conclut que l'hypothèse de départ est fausse : il n'existe aucune bijec
     \item $\abs{E} > \abs{F}$ s'il existe une surjection de $E$ vers $F$ mais pas de bijection.
 \end{itemize}
 (Pour des ensembles finis, ces notations sont compatibles avec la relation d'ordre sur $\mathbb{N}$.)
+Notons que $\abs{E} < \abs{F} \Rightarrow \abs{E} \leq \abs{F}$, $\abs{E} > \abs{F} \Rightarrow \abs{E} \geq \abs{F}$, et $\abs{E} = \abs{F} \Leftrightarrow \abs{E} \leq F \wedge \abs{E} \geq \abs{F} \left( \right)$.
 
 \medskip
 
-\noindent\textbf{Lemme :} Soit $E$ un ensemble et $F$ l'ensemble des sous-ensembles de $E$.
+\noindent\textbf{Lemme :} Soit $E$ un ensemble et $F$ l'ensemble des sous-ensembles de $E$ (\emph{i.e.} $F = \mathcal{P}(E)$).
     Alors, $\abs{E} < \abs{F}$.
 
 \medskip
@@ -1478,3 +1479,60 @@ Donc, $x \notin X$ et $x \notin E \setminus X$, donc $x \notin E$, ce qui contre
 On en déduit qu'un tel élément $x$ ne peut exister, et donf que $f$ n'est pas surjective.
 
 \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $E$ un ensemble non vide.
+    Alors, $\abs{\emptyset} < \abs{E}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :}
+    L'ensemble vide $\emptyset$ est une fonction de $\emptyset$ vers $E$, et est évidemment injective.
+    En effet, en notant $f$ cette fonction, la condition d'injectivité s'écrit : 
+    \begin{equation*}
+        \forall x \in \emptyset \, \forall y \in \emptyset \, f(x) = f(y) \Rightarrow x = y,
+    \end{equation*}
+    ce qui est équivalent à
+    \begin{equation*}
+        \forall x \in \emptyset \, \forall y \in \emptyset \, f(x) \neq f(y) \vee x = y.
+    \end{equation*}
+    Sa négation est équivalente à
+    \begin{equation*}
+        \exists x \in \emptyset \, \exists y \in \emptyset \, f(x) = f(y) \wedge x \neq y,
+    \end{equation*}
+    qui est faux puisque $\exists x \, x \in \emptyset$ est faux.
+
+    En outre, il n'existe pas de surjection, et donc pas de bijection de $\emptyset$ vers $E$. 
+    En effet, soit $e$ un élément de $E$ la seule fonction de $\emptyset$ vers $E$ est $\emptyset$, pour laquelle $e$ n'a pas d'antécédant (puisque, en notant $f$ cette fonction, $\exists x \in \emptyset f(x) = e$ est faux) et qui n'est donc pas surjective.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Corrolaire :} Soit $E$ un ensemble (vide ou non).
+    Alors, $\abs{\emptyset} \leq \abs{E}$.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $E$ un ensemble tel que $\abs{E} \leq \abs{\emptyset}$.
+    Alors, $E = \emptyset$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} ***
+
+\medskip
+
+\noindent\textbf{Corrolaire :} Il n'existe aucun ensemble $E$ tel que $\abs{E} < \emptyset$.
+
+\medskip
+
+\noindent\textbf{Lemme :} On admet l'axiome du choix.
+    Soit $E$ et $F$ deux ensembles.
+    Alors, $\abs{E} \geq \abs{F} \Rightarrow \abs{F} \leq \abs{E}$ et $\abs{E} > \abs{F} \Rightarrow \abs{F}< \abs{E}$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} ***
+
