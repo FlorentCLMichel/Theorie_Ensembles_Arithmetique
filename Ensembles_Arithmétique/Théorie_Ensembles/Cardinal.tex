@@ -1511,7 +1511,7 @@ On en déduit qu'un tel élément $x$ ne peut exister, et donf que $f$ n'est pas
 \medskip
 
 \noindent\textbf{Corrolaire :} Soit $E$ un ensemble (vide ou non).
-    Alors, $\abs{\emptyset} \leq \abs{E}$.
+    Alors (puisqu'il existe une injection de $\emptyset$ vers lui-même—qui n'est autre que la fonction vide $\emptyset$), $\abs{\emptyset} \leq \abs{E}$.
 
 \medskip
 
@@ -1520,7 +1520,11 @@ On en déduit qu'un tel élément $x$ ne peut exister, et donf que $f$ n'est pas
 
 \medskip
 
-\noindent\textbf{Démonstration :} ***
+\noindent\textbf{Démonstration :} Puisque $E \leq \abs{\emptyset}$, on peut choisir une injection $f$ de $E$ vers $\emptyset$. 
+    Soit $x$ un ensemble, $x$ ne peut appartenir à $E$ (car alors l'ensemble $f(x)$ erait un élément de $\emptyset$, ce qui est impossible).
+    Donc, $E = \emptyset$.
+
+    \done
 
 \medskip
 
@@ -1534,5 +1538,10 @@ On en déduit qu'un tel élément $x$ ne peut exister, et donf que $f$ n'est pas
 
 \medskip
 
-\noindent\textbf{Démonstration :} ***
+\noindent\textbf{Démonstration :} 
+    Soit $E$ un ensemble tel qu'il existe une inection de $E$ vers $\emptyset$.
+    Alors, $E = \emptyset$.
+    Donc, il existe une surjection de $E$ vers $\emptyset$ (la fonction vide $\emptyset$).
+
+    \done
 
