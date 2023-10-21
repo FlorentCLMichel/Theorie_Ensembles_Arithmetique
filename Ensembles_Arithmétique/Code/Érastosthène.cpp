@@ -12,12 +12,12 @@ std::vector<number> primes_below_n(number n) {
     char alpha = 1;
     number i;
     while (index < n) {
-        i = (index+1)*(index+1)-1;
+        i = (index+1) * (index+1) - 1;
         while (i < n) {
             isPrime[i] = false;
             i += alpha * (index+1);
         }
-        if (index==1) {
+        if (index == 1) {
             alpha = 2;
         }
         index++;

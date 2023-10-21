@@ -12,9 +12,9 @@ fn pgcd(n: usize, m: usize) -> usize {
         b = n;
     }
 
-    while b>0 {
+    while b > 0 {
         c = b;
-        b = a - (a/b)*b;
+        b = a % b;
         a = c;
     }
 

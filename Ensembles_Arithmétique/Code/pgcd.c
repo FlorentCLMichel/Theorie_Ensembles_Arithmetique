@@ -13,7 +13,7 @@ int pgcd(unsigned int n, unsigned int m) {
     }
     
     while (b > 0) {
-        c = a - b*(a/b);
+        c = a % b;
         a = b;
         b = c;
     }
