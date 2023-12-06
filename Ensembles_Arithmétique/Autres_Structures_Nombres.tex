@@ -616,7 +616,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
-\noindent\textbf{Défnition :} Un nombre rationnel $q$ est dit
+\noindent\textbf{Définition (rappel) :} Un nombre rationnel $q$ est dit
     \begin{itemize}[nosep]
         \item \emph{positif} si $q \geq 0$,
         \item \emph{négatif} si $q \leq 0$,
@@ -786,6 +786,19 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
         \item Si $q \geq 0$, alors $\abs{q} = q$, donc $q \leq \abs{q}$, et $-\abs{q} \leq 0 \leq q$, donc $- \abs{q} \leq q$.
         \item Si $q \leq 0$, alors $\abs{q} = -q$, donc $-\abs{q} = q$, donc $q \geq -\abs{q}$, et $\abs{q} \geq 0 \geq q$, donc $\abs{q} \geq q$.
     \end{itemize}
+
+    \done
+
+\medskip
+
+\noindent\textbf{Corrolaire :} Soit $p$ et $q$ deux un nombres rationnel.
+    On suppose $\abs{p} \leq q$.
+    Alors, $-q \leq p \leq q$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Puisque $\abs{p} \leq q$, $-\abs{p} \geq -q$, donc $-q \leq -\abs{p} \leq p \leq \abs{p} \leq q$. 
 
     \done
 
@@ -1013,7 +1026,8 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 \noindent\textbf{Exemples :} 
 \begin{itemize}[nosep]
     \item Soit $q$ un nombre rationnel. 
-        Soit $u$ la suite de nombres rationnels définie par : pour tout entier naturel $n$, $u_n = q$.
+        Soit $u$ la suite de nombres rationnels définie par : pour tout entier naturel $n$, $u_n = q$. 
+        (Cette suite est parfois dite \emph{suite constante égale à $q$}\index{Suite constante}.)
         Alors, $u$ admet $q$ pour limite.
         En effet, pour tout rationnel $\epsilon$ tel que $\epsilon > 0$ et pour tout entier naturel $m$ tel que $m \geq 0$, on a $\abs{u_m - q} = 0$, donc $\abs{u_m - q} \leq \epsilon$.
     \item Soit $u$ la suite de nombres rationnels définie par : pour tout entier naturel $n$, $u_n = 1 \divslash (n+1)$.
@@ -1107,6 +1121,23 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     \end{itemize}
 
     \done
+
+\medskip
+
+\noindent\textbf{Notation :} Soit $u$ et $v$ deux suites de nombres rationnels et $q$ un nombre rationel.
+    On définit les suites $u + q$, $q + u$, $u - q$, $q - u$, $u \times q$, $q \times u$, $u + v$, $u - v$ et $u \times v$ par : pour tout entier naturel $n$, 
+    \begin{itemize}[nosep]
+        \item $(q + u)_n = q + u_n$,
+        \item $(u + q)_n = u_n + q$,
+        \item $(u - q)_n = u_n - q$,
+        \item $(u \times q)_n = u_n \times q$,
+        \item $(q - u)_n = q - u_n$,
+        \item $(q \times u)_n = q \times u_n$,
+        \item $(u + v)_n = u_n + v_n$,
+        \item $(u - v)_n = u_n - v_n$,
+        \item $(u \times v)_n = u_n \times v_n$. 
+    \end{itemize}
+    Avec les mêmes notations, si $q \neq 0$, on définit la suite $u \divslash q$ par : pour tout entier naturel $n$, $(u \divslash q)_n - u_n \divslash q$.
 
 \medskip
 
@@ -1324,9 +1355,16 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
         Cela montre que la suite $a$ tend vers $+\infty$.
     \item Traitons séparément les trois cas : 
         \begin{itemize}[nosep]
-            \item \emph{Cas $q > 0$ :} ***
-            \item \emph{Cas $q = 0$ :} ***
-            \item \emph{Cas $q < 0$ :} ***
+            \item \emph{Cas $q > 0$ :} Soit $p$ un nombre rationel.
+                Puisque $u$ tend vers $+\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ satisfaisant $m \geq n$, on a $u_m \geq p \divslash q$.
+                Puisque $q$ est strictement positif, cela implique $u_m \times q \geq p$, et donc $b_m \geq p$, pour tout entier naturel $m$ supérieur ou égal à $n$.
+                Cela étant valable pour tout nombre rationel $p$, on en déduit que $b$ tend vers $+\infty$.
+            \item \emph{Cas $q = 0$ :} Soit $\epsilon$ un nombre rationel strictement positif. Pour tout entier naturel $n$, on a $b_n = 0$, donc $\abs{b_n - 0} = \abs{0} = 0$, et donc $\abs{b_n - 0} \leq \epsilon$.
+                Cela montre que $b$ tend vers $0$.
+            \item \emph{Cas $q < 0$ :} Soit $p$ un nombre rationel.
+                Puisque $u$ tend vers $+\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ satisfaisant $m \geq n$, on a $u_m \geq p \divslash q$.
+                Puisque $q$ est strictement négatif, cela implique $u_m \times q \leq p$, et donc $b_m \leq p$, pour tout entier naturel $m$ supérieur ou égal à $n$.
+                Cela étant valable pour tout nombre rationel $p$, on en déduit que $b$ tend vers $-\infty$.
         \end{itemize}
     \item Soit $p$ un nombre rationnel.
         Puisque $u \rightarrow +\infty$, on peut choisir un entier naturel $n_1$ tel que $u_m \geq p$ pour tout entier naturel $m$ supérieur ou égal à $n_1$.
@@ -1342,6 +1380,8 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
         Cela montre que $d \rightarrow +\infty$.
 \end{itemize}
 
+\done
+
 \medskip
 
 \noindent\textbf{Lemme :} Soit $u$ et $v$ deux suites tendant vers $-\infty$ et $q$ un nombre rationnel.
@@ -1352,6 +1392,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
             Alors, 
             \begin{itemize}[nosep]
                 \item Si $q > 0$, alors $b$ tend vers $-\infty$.
+                \item Si $q = 0$, alors $b$ tend vers $0$.
                 \item Si $q < 0$, alors $b$ tend vers $+\infty$.
             \end{itemize}
         \item Définissons la suite $c$ définie par : pour tout entier naturel $n$, $c_n = u_n + v_n$.
@@ -1362,7 +1403,39 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
-\noindent\textbf{Démonstration :} ***
+\noindent\textbf{Démonstration :} Définissons les suite $w$ et $x$ par : pour tout entier naturel $n$, $w_n = -u_n$ et $x_n = -v_n$.
+    Montrons que $w$ et $x$ tendent vers $+\infty$. 
+    Cela nous permettra de nous ramener aisément aux cas précédents.
+
+    Soit $p$ un nombre rationel quelconque.
+    Puisque $u$ tend vers $-\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supéieur ou égal à $n$, $u_m \leq -p$. 
+    Donc, pour tout entier naturel $m$ supérieur ou égal à $n$, $- u_m \geq p$, et donc $w_n \geq p$.
+    Cela montre que $w$ tend vers $+\infty$.
+
+    Même démonstration pour $x$ en remplaçant $u$ par $v$ et $w$ par $x$.
+
+    \begin{itemize}[nosep]
+        \item Définissons la suite $\bar{a}$ par : pour tout entier naturel $n$, $\bar{a}_n = - a_n$.
+            Alors, pour tout entier naturel $n$, $\bar{a}_n = w_n - q = w_n + (-q)$.
+            Puisque la suite $w$ tend vers $+\infty$, on en déduit que $\bar{a}$ tend également vers $+\infty$.
+            En outre, pour tout entier naturel $n$, on a $a_n = - \bar{a}_n = -1 \times \bar{a}_n$.
+            Puisque $-1$ est strictement négatif et puisque $\bar{a}$ tend vers $+\infty$, on en déduit qur $a$ tend vers $-\infty$.
+        \item Notons que, pour tout entier naturel $n$, $b_n = (-q) \times (-u_n) = (-q) \times \bar{u}_n$. 
+            \begin{itemize}[nosep]
+                \item \emph{Cas $q > 0$ :} Dans ce cas, $-q < 0$, donc, puisque $\bar{u}$ tend vers $+\infty$, $b$ tend vers $-\infty$.
+                \item \emph{Cas $q = 0$ :} Dans ce cas, $b_n = 0$ pour tout entier naturel $n$, donc $b$ tend vers $0$.
+                \item \emph{Cas $q < 0$ :} Dans ce cas, $-q > 0$, donc, puisque $\bar{u}$ tend vers $+\infty$, $b$ tend vers $+\infty$.
+            \end{itemize}
+        \item Définissons la suite $\bar{c}$ par : pour tout entier naturel $n$, $\bar{c}_n = - c_n$.
+            Pour tout entier naturel $n$, on a $\bar{c}_n = -u_n - v_n = w_n + x_n$.
+            Puisque $w$ et $x$ tendent vers $+\infty$, on en déduit que $\bar{c}$ tend vers $+\infty$.
+            En outre, pour tout entier naturel $n$, on a $c_n = - \bar{c}_n = -1 \times \bar{c}_n$.
+            Puisque $-1$ est strictement négatif et puisque $\bar{c}$ tend vers $+\infty$, on en déduit qur $c$ tend vers $-\infty$.
+        \item Pour tout entier naturel $n$, on a : $d_n = u_n \times v_n = (- u_n) \times (- v_n) = w_n \times x_n$.
+            Puisque $w$ et $x$ tendent vers $+\infty$, on en déduit que $d$ tend vers $+\infty$.
+    \end{itemize}
+
+    \done
 
 \medskip
 
@@ -1402,7 +1475,36 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
-\noindent\textbf{Démonstration :} ***
+\noindent\textbf{Démonstration :} 
+\begin{itemize}[nosep]
+    \item Supposons $l > 0$.
+        Alors, $l \divslash 2 > 0$.
+        Soit $p$ un nombre rationel quelconque. 
+        Puisque $u^+$ et $u^-$ tendent respectivement vers $+\infty$ et $-\infty$, on peut choisir deux entiers naturels $n^+$ et $n^-$ tels que
+        \begin{itemize}[nosep]
+            \item pour tout entier naturel $m$ supérieur ou égal à $n^+$, $u^+_m \geq \abs{p} \divslash (l \divslash 2)$,
+            \item pour tout entier naturel $m$ supérieur ou égal à $n^-$, $u^-_m \leq -\abs{p} \divslash (l \divslash 2)$.
+        \end{itemize}
+        Puisque $v$ tend vers $l$, on peux choisir un entier naturel $n^v$ tel que, pour tour entier naturel $m$ supérieur ou égal à $n^v$, $\abs{v_m - l} \leq l \divslash 2$, donc $-l \divslash 2 \leq v_m - l \leq l \divslash 2$, donc $v_m \geq l \divslash 2$.
+        
+        Soit $m^+$ le maximum de $n^+$ et $n^v$. 
+        Alors, $m^+ \geq n^+$ et $m^+ \geq n^v$.
+        Pour tout entier naturel $r$ supérieur ou égal à $m^+$, on a alors $u^+_r \geq \abs{p} \divslash (l \divslash 2)$ et $v_r \geq l \divslash 2$, donc $w^+_r \geq \left( \abs{p} \divslash (l \divslash 2)\right) \times v_r \geq \abs{p} \geq p$. 
+        Cela étant vrai pour tout nombre rationel $p$, on en déduit que $w^+$ tend vers $+\infty$.
+
+        Soit $m^-$ le maximum de $n^-$ et $n^v$. 
+        Alors, $m^- \geq n^-$ et $m^- \geq n^v$.
+        Pour tout entier naturel $r$ supérieur ou égal à $m^-$, on a alors $u^-_r \leq -\abs{p} \divslash (l \divslash 2)$ et $v_r \geq l \divslash 2$, donc $w^-_r \leq \left( - \abs{p} \divslash (l \divslash 2)\right) \times v_r \leq p$. 
+        Cela étant vrai pour tout nombre rationel $p$, on en déduit que $w^-$ tend vers $-\infty$.
+
+    \item Définissons la suite $x$ par : pour tout entier naturel $n$, $x_n = -v_n$.
+        Alors, $x$ tend vers $- l \divslash 2$, qui est strictement positif.
+        Définissons les suites $x^+$ et $x^-$ par : pour tout entier naturel $n$, $x^+_n = u^+_n \times x_n$ et $x^+_n = u^+_n \times x_n$.
+        Alors, d'après le cas précédent, $x^+$ tend vers $+\infty$ et $x^-$ tend vers $-\infty$.
+        Puisque $v^+_n = - x^+_n$ et $v^-_n = - x^-_ n$ pour tout entier naturel $n$, on en déduit que $v^+$ tend vers $-\infty$ et que $v^-$ tend vers $+\infty$.
+\end{itemize}
+
+\done
 
 \subsection{Le tore \texorpdfstring{$\mathbb{T}$}{T}}
 
@@ -1632,6 +1734,33 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
 
 \subsubsection{Les nombres réels comme limites de suites de Cauchy}
 \sindex[isy]{$\mathbb{R}$}
+
+\noindent\textbf{Définition :} Soit $\mathcal{U}$ l'ensemble des suites de Cauchy de nombres rationels.
+    On définit la relation d'équivalence $R$ sur $\mathcal{U}$ par : soit deux élément $u$ et $v$ de $\mathcal{U}$, $u \mathrel{R} v$ si et seulement si $u - v$ tend vers $0$.
+    Un \emph{nombre réel} est une classe d'équivalence de $R$.
+    L'\emph{ensemble des nombres réels}, noté $\mathbb{R}$, est l'ensemble des classes d'équivalences de $R$. 
+
+\medskip
+
+\noindent\textbf{Preuve qu'il s'agit bien d'une relation d'équivalence :}
+\begin{itemize}[nosep]
+    \item \emph{Réflexivité :} Soit $u$ une suite de Cauchy.
+        Alors, $u - u$ est la suite constante égale à $0$, donc tend vers $0$.
+        Donc, $u \mathrel{R} u$.
+    \item \emph{Symétrie :} Soit $u$ et $v$ deux suites de Cauchy telles que $u \mathrel{R} v$.
+        Alors, $u - v$ tend vers $0$.
+        Donc, $v - u$ tend vers $0$.
+        Donc, $v \mathrel{R} u$.
+    \item \emph{Transitivité :} Soit $u$, $v$. et $w$ trois suites de Cauchy telles que $u \mathrel{R} v$ et $v \mathrel{R} w$.
+        Alors, $u - v$ tend vers $0$ et $v - w$ tend vers $0$.
+        Puisque $u - w = (u - v) + (v - w)$~\footnote{
+            En effet, pour tout entier naturel $n$, on a : $((u - v) + (v - w))_n = (u - v)_n + (v - w)_n = (u_n - v_n) + (v_n - w_n) = (u_n + (-v_n)) + (v_n - w_n) = u_n + ((-v_n) + (v_n - w_n)) = u_n + (- w_n) = u_n - w_n = (u - w)_n$.
+        }, on en déduit que $u - w$ tend vers $0$, et donc que $u \mathrel{R} w$.
+\end{itemize}
+
+\done
+
+\medskip
 
 \emph{À écrire...}
 
