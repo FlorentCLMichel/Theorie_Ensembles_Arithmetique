@@ -1730,6 +1730,46 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
 
 \medskip
 
+\noindent\textbf{Lemme :} Toute suite de nombres rationnels convergente st de Cauchy. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $u$ uns suite de nombres rationnels.
+    On suppose que $u$ est convergente. 
+    Soit $l$ sa limite. 
+    Soit $\epsilon$ un nombre rationel strictement positif. 
+    Alors, $\epsilon \divslash 2$ est strictement positif.
+    Puisque $u$ tend vers $l$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $\abs{u_m - l} \leq \epsilon \divslash 2$. 
+    Soit $m$ et $p$ deu entiers natursl supérieurs ou égaux à $n$. 
+    On a : $\abs{u_n - u_m} = \abs{(u_n - l) + (l - u_m)} \leq \abs{u_n - l} + \abs{l - u_m} = \epsilon \divslash 2 + \epsilon \divslash 2 = \epsilon$. 
+    La suite $u$ satisfait donc la définition d'une suite de Cauchy. 
+
+    \done
+
+\medskip
+
+\noindent\textbf{Lemme :} Toute suite de nombres rationnels de Cauchy est bornée. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} 
+    Soit $u$ une suite de nombres rationels. 
+    On suppose que $u$ est de Cauchy. 
+    On peut choisir un entier naturel $n_0$ tel que $\abs{u_n - u_m} \leq 1$ pour tous entiers naturels $n$ et $m$ supérieurs ou égaux à $n_0$. 
+    Soit $E$ l'ensemble $\lbrace \abs{u_0}, \abs{u_1}, \dots, \abs{u_{n_0 - 1}}, \abs{u_{n_0}} + 1 \rbrace$. 
+    L'ensemble $E$ est fini et non vide (son cardinal est $n_0$). Donc (puisque $\leq$ est une relation d'ordre total sur $\mathbb{Q}$), il admet un maximum, noté $M$ dans la suite de cette démontsration.
+    Soit $n$ un entier naturel quelconque. 
+    Si $n < n_0$, alors $\abs{u_n} \in E$, donc $\abs{u_n} \leq M$.
+    Sinon, on a $\abs{u_n - u_{n_0}} \leq 1$, donc, d'après l'inégalité triangulaire, $\abs{u_n} - \abs{u_{n_0}} \leq 1$, donc $\abs{u_n} \leq \abs{u_{n_0}} + 1$.
+    Puisque $\abs{u_{n_0}} + 1 \in E$, $\abs{u_{n_0}} + 1 \leq M$, donc $u_n \leq M$. 
+
+    Pour tout entier naturel $n$, on a donc $\abs{u_n} \leq M$, et donc $-M \leq u_n \leq M$.
+    Cela montre que la suite $u$ est bornée. 
+
+    \done
+
+\medskip
+
 \emph{À écrire...}
 
 \subsubsection{Les nombres réels comme limites de suites de Cauchy}
