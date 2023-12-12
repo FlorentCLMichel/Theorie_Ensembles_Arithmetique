@@ -984,6 +984,24 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
+\medskip
+
+\noindent\textbf{Lemme :} Soit $u$ une suite de nombres rationels. 
+    On suppose que $u$ admet une limite $l$. 
+    Soit $n$ un entier naturel. 
+    Soit $v$ la suite de nombres rationels définie par : pour tout entier naturel $m$, $v_m = u_{m+n}$.
+    Alors, $v$ tend vers $l$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $\epsilon$ un nombre rationel strictement positif.
+    Puisque $u$ tend vers $l$, on peut choisir un entier naturel $m$ tel que, pour tout entier naturel $k$ supérieur ou égal à $m$, $\abs{u_k - l} \leq \epsilon$.
+    Pour rout entier naturel $k$ supérieur ou égal à $m$, $k = n$ l'est également, donc $\abs{u_{k+n} - l} \leq \epsilon$, et donc $\abs{v_k - l} \leq \epsilon$.
+
+    \done
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $q$ un nombre rationnels, $n_0$ un entier naturel et $u$ et $v$ deux suites de nombres rationnels. 
     On suppose que $u$ admet $q$ pour limite et que $v_n = u_n$ pour tout entier naturel $n$ supérieur ou égal à $n_0$.
     Alors $v$ admet $q$ pour limité.
@@ -1748,6 +1766,36 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
 
 \medskip
 
+\begin{tcolorbox}
+\textbf{Remarque :} La réciproque est fausse.
+    Pour montrer cela, considérons la suite $u$ définie par récurrence de la manière suivante : 
+    \begin{itemize}[nosep]
+        \item $u_0 = 1$
+        \item pour tout entier naturel $n$, $u_{n+1} = u_n + \left(2 - (u_n \times u_n) \right) \divslash 2$ .
+    \end{itemize}
+   
+    Supposons que la suite $u$ admette une limite $l$. 
+    Définissons les suites $v$ et $w$ par : pour tout entier naturel $n$, $v_n = u_{n+1}$ et $w_n = u_n + \left(2 - (u_n \times u_n) \right) \divslash 2$.
+    Alors, $v$ tend vers $l$ et $w$ tend vers $l + (2 - l \times l) \divslash 2$. 
+    Puisque $v_n = u_n$ pour tout entier naturel $n$, on a donc $l = l + (2 - l \times l) \divslash 2$, donc $(2 - l \times l) \divslash 2 = 0$, donc $2 - l \times l = 0$, et donc $l \times l = 2$.
+
+    Montrons que cela est impossible.
+
+    \medskip
+
+    ***
+    
+    \medskip
+
+    Montrons maintenant que la suite $u$ est de Cauchy. 
+    
+    \medskip
+
+    ***
+\end{tcolorbox}
+
+\medskip
+
 \noindent\textbf{Lemme :} Toute suite de nombres rationnels de Cauchy est bornée. 
 
 \medskip
@@ -1757,7 +1805,7 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
     On suppose que $u$ est de Cauchy. 
     On peut choisir un entier naturel $n_0$ tel que $\abs{u_n - u_m} \leq 1$ pour tous entiers naturels $n$ et $m$ supérieurs ou égaux à $n_0$. 
     Soit $E$ l'ensemble $\lbrace \abs{u_0}, \abs{u_1}, \dots, \abs{u_{n_0 - 1}}, \abs{u_{n_0}} + 1 \rbrace$. 
-    L'ensemble $E$ est fini et non vide (son cardinal est $n_0$). Donc (puisque $\leq$ est une relation d'ordre total sur $\mathbb{Q}$), il admet un maximum, noté $M$ dans la suite de cette démontsration.
+    L'ensemble $E$ est fini et non vide (son cardinal est $n_0$). Donc (puisque $\leq$ est une relation d'ordre total sur $\mathbb{Q}$), il admet un maximum, noté $M$ dans la suite de cette démonstration.
     Soit $n$ un entier naturel quelconque. 
     Si $n < n_0$, alors $\abs{u_n} \in E$, donc $\abs{u_n} \leq M$.
     Sinon, on a $\abs{u_n - u_{n_0}} \leq 1$, donc, d'après l'inégalité triangulaire, $\abs{u_n} - \abs{u_{n_0}} \leq 1$, donc $\abs{u_n} \leq \abs{u_{n_0}} + 1$.
