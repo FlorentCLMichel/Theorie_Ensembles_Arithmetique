@@ -626,6 +626,20 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
+\noindent\textbf{Lemme :} Soit $a$, $b$ et $c$ trois nombres entiers.
+    On suppose que $c > 0$.
+    Alors, $a \divslash c \leq b \divslash c \Leftrightarrow a \leq c$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Par définition, on a : $a \divslash c \leq b \divslash c \Leftrightarrow a \, c^3 \leq b \, c^3$.
+    Puisque $c > 0$, $c^2 > 0$ et $c^3 > 0$, donc $a \, c^3 \leq b \, c^3 \Leftrightarrow a \leq c$.
+    On a donc bien $a \divslash c \leq b \divslash c \Leftrightarrow a \leq b$.
+
+    \done
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $p$ et $q$ deux nombres rationnels, et $r$ un nombre rationnel positif. 
     Alors, $p \leq q \Rightarrow r \times p \leq r \times q$.
 
@@ -1061,7 +1075,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \noindent\textbf{Corrolaire :} Soit $u$ une suite de nombres rationnels convergente.
     Alors, on peut choisir deux nombres rationnels $a$ et $b$ tels que, pour tout entier naturel $n$, $a \leq u_n \leq b$.
-    Une suite satisfaisant cette propriété est dite \emph{bornée}.
+    (\emph{Rappel :} Une suite satisfaisant cette propriété est dite \emph{bornée}.)
     \index{Suite bornée}
 
 \medskip
@@ -1320,6 +1334,21 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
+\noindent\textbf{Remarque :} Par définition, une suite tendant vers $+\infty$ ne peut être majorée et une suite tendant vers $-\infty$ ne peut être minorée.
+
+\medskip
+
+\noindent\textbf{Lemme :} Une suite tendant vers $+\infty$ ou vers $-\infty$ est divergente. 
+    De manière équivalente, une suite convergente ne peut tendre vers $+\infty$ ni vers $-\infty$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Une suite tendant vers $+\infty$ ou vers $-\infty$ ne peut être bornée par définition, donc elle ne peut être convergente.
+
+\done
+
+\medskip
+
 \noindent\textbf{Lemme :} Une suite ne peut tendre à la fois vers $+\infty$ et vers $-\infty$. 
 
 \medskip
@@ -1334,14 +1363,48 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
-\noindent\textbf{Lemme :} Une suite tendant vers $+\infty$ ou vers $-\infty$ est divergente. 
-    De manière équivalente, une suite convergente ne peut tendre vers $+\infty$ ni vers $-\infty$.
+\noindent\textbf{Lemme :} Soit $u$ et $v$ deux suites de rationnels.
+    \begin{itemize}[nosep]
+        \item Si $u$ tend vers $+\infty$ et si $v_n \geq u_n$ pour tout entier naturel $n$, alors $v$ tend vers $+\infty$.
+        \item Si $u$ tend vers $-\infty$ et si $v_n \leq u_n$ pour tout entier naturel $n$, alors $v$ tend vers $-\infty$.
+    \end{itemize}
 
 \medskip
 
-\noindent\textbf{Démonstration :} Une suite tendant vers $+\infty$ ou vers $-\infty$ ne peut être bornée par définition, donc elle ene peut être convergente.
+\noindent\textbf{Démonstration :} 
+    \begin{itemize}[nosep]
+        \item Supposons que $u$ tend vers $+\infty$ et si $v_n \geq u_n$ pour tout entier naturel $n$.
+            Soit $q$ un nombre rationnel
+            Puisque $u$ tend vers $+\infty$, on peut choisir un entier naturel $n$ tel que $u_m \geq q$ pour tout entier naturel $m$ supérieur ou égal à $n$.
+            Pour tout entier naturel $m$ supérieur ou égal à $n$, on a donc $v_m \geq u_m \geq q$, et donc $v_m \geq q$.
+            Cela montre que $v$ tend vers $+\infty$.
+        \item Supposons que $u$ tend vers $-\infty$ et si $v_n \leq u_n$ pour tout entier naturel $n$.
+            Soit $q$ un nombre rationnel
+            Puisque $u$ tend vers $-\infty$, on peut choisir un entier naturel $n$ tel que $u_m \leq q$ pour tout entier naturel $m$ supérieur ou égal à $n$.
+            Pour tout entier naturel $m$ supérieur ou égal à $n$, on a donc $v_m \leq u_m \leq q$, et donc $v_m \geq q$.
+            Cela montre que $v$ tend vers $-\infty$.
+    \end{itemize}
 
-\done
+    \done
+
+\medskip
+
+\noindent\textbf{Lemme :} La suite de rationnel $u$ définie par : pour tout entier naturel $n$, $u_n = (n, 1)$ tend vers $+\infty$. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $q$ un nombre rationnel.
+    Mntrons qu'il existe un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $u_n \geq \abs{q}$, et donc (puisque $\abs{q} \geq q$) $u_n \geq q$.
+
+    Soit $a$ et $b$ les deux entiers naturels tels que $(a, b)$ est la représentation irréductible de $\abs{q}$.
+    Alors, $b \geq 1$.
+    Puisque $\abs{q}$ est positif, $a \geq 0$.
+    Pour tout entier naturel $m$ supérieur ou égal à $a$, on a donc : $b times \u_m = (b \times m, 1) \geq (b \times a, 1) \geq (a, 1) = \abs{q} \times b$, donc $u_m \geq \abs{q}$.
+    Prendre $n = a$ convient donc.
+
+    On en déduit que $u$ tend vers $+\infty$.
+    
+    \done
 
 \medskip
 
@@ -1426,7 +1489,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     Cela nous permettra de nous ramener aisément aux cas précédents.
 
     Soit $p$ un nombre rationel quelconque.
-    Puisque $u$ tend vers $-\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supéieur ou égal à $n$, $u_m \leq -p$. 
+    Puisque $u$ tend vers $-\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $u_m \leq -p$. 
     Donc, pour tout entier naturel $m$ supérieur ou égal à $n$, $- u_m \geq p$, et donc $w_n \geq p$.
     Cela montre que $w$ tend vers $+\infty$.
 
@@ -1748,6 +1811,24 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
 
 \medskip
 
+\noindent\textbf{Lemme :} Toute suite de nombres rationnels majorée et croissante est de Cauchy. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $u$ uns suite de nombres rationnels majorée et croissante. 
+    Soit $M$ un majorant de $u$.
+    On suppose par l'absurde qu'elle n'est pas de Cauchy. 
+    On peut donc choisir un nombre rationnel $\epsilon$ strictement positif tel que, pour tout entier naturel $n$, il existe eux entiers naturels $m$ et $k$ supérieurs ou égaux à $n$ tels que $\abs{u_m - u_k} > \epsilon$. 
+    Montrons par récurrence sur $l$ que, pour tout entier naturel $l$, on peut choisir un entier naturel $n$ tel que $u_n > l \times \epsilon$. 
+    Soit $v_n$ la suite définie par : pour tout entier naturel $n$, $v_n = n \divslash 1$. 
+    On aura alors $u_n > \epsilon \times v_n$ pour tout entier naturel $n$.
+    Puisque $v$ tend vers $+\infty$ et puisque $\epsilon > 0$, $\epsilon \times v$ tend vers $+\infty$, et donc $u$ également, ce qui est impossible puisque $u$ est majorée.
+    On en déduira que $u$ est de Cauchy.
+
+    ***
+
+\medskip
+
 \noindent\textbf{Lemme :} Toute suite de nombres rationnels convergente st de Cauchy. 
 
 \medskip
@@ -1788,10 +1869,14 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
     \medskip
 
     Montrons maintenant que la suite $u$ est de Cauchy. 
+    Pour ce faire, on montre d'abord par récurrence que $u_n \times u_n \leq 2$ pour tout entier naturel $n$. 
+    Cette suite est donc majorée—en effet, pour tout entier naturel $n$, on aura $u_n \leq 2$ (sans quoi on aurait $u_n \times u_n > 4 > 2$). 
+    Pour tout entier naturel $n$, on aura alors $\left(2 - (u_n \times u_n) \right) \divslash 2 \geq 0$, montrant que la suite $u$ est croissante, et donc (car majorée et croissante) de Cauchy.
     
     \medskip
 
     ***
+
 \end{tcolorbox}
 
 \medskip

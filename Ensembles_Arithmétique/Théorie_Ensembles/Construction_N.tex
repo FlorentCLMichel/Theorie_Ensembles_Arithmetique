@@ -155,6 +155,9 @@ On définit aussi la relation d'ordre $\geq$ et la relation d'ordre strict $>$ s
     Alors, $P(n)$ est vraie pour tout $n \in \mathbb{N}$.
     \index{Récurrence}
 
+On dira parfois, dans ce contexte, que $P$ est vraie « au rang $n$ » pour signifier que $P(n)$ est vrais. 
+Ainsi, démontrer $P$ parrécurrence revient à montrer que $P(0)$ est vraie et que, pour tout entier naturel $n$, « si $P$ est vraie au rang $n$, alors $P$ est vraie au rang $n+1$ ».
+
 \medskip
 
 \noindent\textbf{Démonstration :} Soit $E$ l'ensemble défini par $E = \lbrace n \in \mathbb{N} \vert P(n) \rbrace$. 
@@ -844,6 +847,83 @@ On a donc $v(n+1) = f(n, v(n))$.
 Puisque $u(n) = v(n)$ et $u(n+1) = v(n+1)$, on en déduit $u(n+1) = f(n, u(n))$.
 
 \done
+
+\medskip
+
+\noindent\textbf{Définition :}
+    Soit $E$ un ensemble et $\leq$ une relation d'ordre sur $E$.
+    Soit $u$ une suite d'éléments de $E$. 
+    On dit que $u$ est \emph{majorée} s'il existe un élément $e$ de $E$ tel que : $\forall n \in \mathbb{N} \, u_n \leq e$.
+    On dit que $u$ est \emph{minorée} s'il existe un élément $e$ de $E$ tel que : $\forall n \in \mathbb{N} \, e \leq u_n$.
+    Un élément $e$ de $E$ satisfaisant $\forall n \in \mathbb{N} \, u_n \leq e$ est dit \emph{majorant} de $u$.
+    Un élément $e$ de $E$ satisfaisant $\forall n \in \mathbb{N} \, e \leq u_n$ est dit \emph{minorant} de $u$.
+    Une suite à la fois majorée et minorée est dite \emph{bornée} ; son majorant et son minorant sont aussi appelés \emph{bornes}. 
+    \index{Suite majorée}
+    \index{Suite minorée}
+    \index{Majorant}
+    \index{Minorant}
+    \index{Suite bornée}
+    \index{Bornes}
+
+\medskip
+
+\noindent\textbf{Définition :}
+    Soit $E$ un ensemble et $\leq$ une relation d'ordre sur $E$.
+    Soit $u$ une suite d'éléments de $E$. 
+    On dit que $u$ est \emph{croissante} si, pour tous entiers naturels $n$ et $m$, $n \leq m \Rightarrow u_n \leq u_m$.
+    On dit que $u$ est \emph{décroissante} si, pour tous entiers naturels $n$ et $m$, $n \leq m \Rightarrow u_m \leq u_n$.
+    \index{Suite croissante}
+    \index{Suite décroissante}
+
+\medskip
+
+\noindent\textbf{Lemme :}
+    Soit $E$ un ensemble et $\leq$ une relation d'ordre sur $E$.
+    Soit $u$ une suite d'éléments de $E$. 
+    On suppose que $u_{n+1} \geq u_n$ pour tout entier naturel $n$. 
+    Alors, $u$ est croissante. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $n$ un entier naturel. 
+    On veut montrer que, pour tout entier naturel $m$ supérieur ou égal à $n$, $u_n \leq u_m$.
+    On procède par récurrence sur $m - n$, noté $k$.
+    Si $k = 0$, alors $m = n$, donc $u_n = u_m$ et $u_n \leq u_m$.
+
+    Supposons le résultat attendu pour un entier naturel $k$, \emph{i.e.}, $u_n \leq u_{n+k}$. 
+    Puisque $u$ est croissante, $u_{n+k} \leq u_{(n+k)+1}$.
+    Donc, $u_n \leq u_{(n+k)+1}$.
+    Donc, $u_n \leq u_{n+(k+1)}$.
+    Le résultat attendu est vrai au rang $k+1$.
+    Par récurrence, il l'est pour tout entier naturel $k$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Lemme :}
+    Soit $E$ un ensemble et $\leq$ une relation d'ordre sur $E$.
+    Soit $u$ une suite d'éléments de $E$. 
+    On suppose que $u_n \geq u_{n+1}$ pour tout entier naturel $n$. 
+    Alors, $u$ est décroissante. 
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $n$ un entier naturel. 
+    On veut montrer que, pour tout entier naturel $m$ supérieur ou égal à $n$, $u_m \leq u_n$.
+    On procède par récurrence sur $m - n$, noté $k$.
+    Si $k = 0$, alors $m = n$, donc $u_m = u_n$ et $u_m \leq u_n$.
+
+    Supposons le résultat attendu pour un entier naturel $k$, \emph{i.e.}, $u_{n+k} \leq u_n$. 
+    Puisque $u$ est décroissante, $u_{(n+k)+1} \leq u_{n+k}$.
+    Donc, $u_{(n+k)+1} \leq u_n$.
+    Donc, $u_{n+(k+1)} \leq u_n$.
+    Le résultat attendu est vrai au rang $k+1$.
+    Par récurrence, il l'est pour tout entier naturel $k$.
+
+    \done
+
+\noindent\textbf{Démonstration :} ***
 
 \subsubsection{Sous-ensembles de \texorpdfstring{$\mathbb{N}$}{N}, bornes, et éléments extrémaux}
 
