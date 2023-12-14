@@ -1815,17 +1815,36 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
 
 \medskip
 
-\noindent\textbf{Démonstration :} Soit $u$ uns suite de nombres rationnels majorée et croissante. 
+\noindent\textbf{Démonstration :} Soit $u$ une suite de nombres rationnels majorée et croissante. 
     Soit $M$ un majorant de $u$.
-    On suppose par l'absurde qu'elle n'est pas de Cauchy. 
-    On peut donc choisir un nombre rationnel $\epsilon$ strictement positif tel que, pour tout entier naturel $n$, il existe eux entiers naturels $m$ et $k$ supérieurs ou égaux à $n$ tels que $\abs{u_m - u_k} > \epsilon$. 
-    Montrons par récurrence sur $l$ que, pour tout entier naturel $l$, on peut choisir un entier naturel $n$ tel que $u_n > l \times \epsilon$. 
-    Soit $v_n$ la suite définie par : pour tout entier naturel $n$, $v_n = n \divslash 1$. 
-    On aura alors $u_n > \epsilon \times v_n$ pour tout entier naturel $n$.
-    Puisque $v$ tend vers $+\infty$ et puisque $\epsilon > 0$, $\epsilon \times v$ tend vers $+\infty$, et donc $u$ également, ce qui est impossible puisque $u$ est majorée.
+    On suppose par l'absurde que la suite $u$ n'est pas de Cauchy. 
+    On peut donc choisir un nombre rationnel $\epsilon$ strictement positif tel que, pour tout entier naturel $n$, il existe deux entiers naturels $m$ et $k$ supérieurs ou égaux à $n$ tels que $\abs{u_m - u_k} > \epsilon$. 
+    Montrons par récurrence sur $l$ que, pour tout entier naturel $l$, on peut choisir un entier naturel $n$ tel que $u_n \geq u_0 + l \times \epsilon$. 
+    Cela montrera que $u$ tend vers $+\infty$. 
+    En effet, pour tout nombre rationnel $q$, on peut choisir un entier naturel $l$ tel que $u_0 + l \times \epsilon \geq q$~\footnote{
+        On peut montrer cela de la manière suivante. 
+        Soit $v$, $w$ et $x$ les trois suites définies par : pour tout entier naturel $l$, $v_l = l$, $w_l = v_l \times \epsilon$, et $x_l = u_0 + w_l$.
+        Alors, $v$ tend vers $+\infty$ (voir ci-dessus), $w = \epsilon \times v$, et $x = u_0 + w$.
+        Puisque $\epsilon > 0$, on en déduit que $w$ tend vers $+\infty$, et donc que $x$ tend vers $+\infty$. 
+        On peut donc choisir un entier naturel $l$ tel que $x_k \geq q$ pour tout entier naturel $k$ supérieur ou égal à $l$, et donc, en particulier, $x_l \geq q$, et donc $u_0 + l \times \epsilon \geq q$.
+    }, donc $u_n \geq q$ avec le $n$ définit ci-dessus, et donc (puisque $u$ est croissante) $u_m \geq q$ pour tout ntier naturel $m$ supérieur ou égal à $n$.
+    Ainsi, $u$ tendra vers $+\infty$, ce qui est impossible puisque $u$ est majorée.
     On en déduira que $u$ est de Cauchy.
 
-    ***
+    Pour $l = 0$, le résultat attendu est évident puisque $u_0 = u_0$, donc $u_0 \geq u_0 + 0 \times \epsilon$, donc $u_n \geq u_0 + l \times \epsilon$ pour $n = 0$.
+
+    Soit $l$ un entuer naturel. 
+    On suppose avoir un netier naturel $n$ tel que $u_n \geq u_0 + l \times \epsilon$.
+    Par hypothèse, on peut choisir deux entiers naturels $a$ et $b$ supérieurs ou égaux à $n$ tels que $\abs{u_a - u_b} > \epsilon$.
+    Sans perte de généralité, on suppose $a \leq b$ (si ce n'est pas le cas, on s'y ramène en échangeant les rôles de $a$ et $b$, ce qui ne change pas le phrase précédente puisque $\abs{u_b - u_a} = \abs{u_a - u_b}$).
+    Puisque $u$ est croissante, $u_a \leq u_b$, donc $\abs{u_a - u_b} = u_b - u_a$.
+    Donc, $u_b - u_a \geq \epsilon$, et donc $u_b \geq u_a + \epsilon$.
+    Puisque $a \geq n$ et puisque $u$ est croissante, $u_a \geq u_n$, donc $u_b \geq u_n + \epsilon$, donc $u_b \geq (l+1) \times \epsilon$.
+    Le résultat attendu est donc vrai au rang $l+1$. 
+
+    Par récurrence, il est vrai pour tout entier naturel $l$; ce qui conclut la preuve.
+
+    \done
 
 \medskip
 
