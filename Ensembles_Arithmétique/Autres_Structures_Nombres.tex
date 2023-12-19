@@ -183,6 +183,11 @@ Alors,
 \end{itemize}
 Quand il n'y a pas d'ambiguité, on pourra omettre le symbole $\times$. 
 On notera parfois simplement par un signe $-$ (à gauche) la multiplication par $(-1) \divslash 1$.
+Notons que 
+\begin{itemize}[nosep]
+    \item Le nombre rationel $\bar{x} - \bar{y}$ est égal à $\bar{x} + \bar{z}$, où $\bar{z}$ est la lasse d'équivalence de $(-c, d)$.
+    \item Si $c \neq 0$, $\bar{x} \div \bar{y}$ est égal à $\bar{x} \times \bar{z}$, où $\bar{z}$ est la lasse d'équivalence de $(d, c)$.
+\end{itemize}
 
 \medskip
 
@@ -493,9 +498,35 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 
 \done
 
+\medskip
+
+\noindent\textbf{Définition :} On définit par récurrence les \emph{puissances entières positives} d'un nombre rationel $x$ par :
+    \begin{itemize}[nosep]
+        \item $x^0 = 1$,
+        \item pour tout entier naturel $n$, $x^{n+1} = x \times x^n$.
+    \end{itemize}
+    Notons que $x^1 = x$ et $x^n \neq 0$ pour tout entier naturel $n$ (se montre facilement par récurrence).
+    \index{Puissance}
+    Pour tout entier naturel non nul $n$, on définit la \emph{puissance entière négative} $x^{-n}$ comme égale à $1 \divslash z^x$.
+    \index{Puissance négative}
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $q$ un nombre rationnel et $n$ et $m$ deux entiers. 
+    On suppose $q > 0$ ou $n \geq 0$ et $m \geq 0$.
+    Alors, 
+    \begin{itemize}[nosep]
+        \item $q^n \times q^m = q^{n+m}$,
+        \item $(q^n)^m = q^{n m}$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Démonstration :} ***
+
 \subsubsection{Relation d'ordre}
 
-\noindent\textbf{Définition :} On définit la relation $\leq$ sur $Q$ de la manière suivante. 
+\noindent\textbf{Définition :} On définit la relation $\leq$ sur $\mathbb{Q}$ de la manière suivante. 
     Soit $x$ et $y$ deux éléments de $\mathbb{Q}$ et $a$, $b$, $c$, $d$ quatre entiers tels que $b \neq 0$, $d \neq 0$, $x = a \divslash b$ et $y = c \divslash d$.
     On pose alors $x \leq y$ si et seulement si $a \, b \, d^2 \leq c \, d \, b^2$.
     Un nombre rationnel $q$ est dit \emph{positif} si $0 \leq q$ et \emph{négatif} si $q \leq 0$.
@@ -1866,36 +1897,69 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
 
 \medskip
 
-\begin{tcolorbox}
+\begin{tcolorbox}[breakable, enhanced jigsaw]
 \textbf{Remarque :} La réciproque est fausse.
     Pour montrer cela, considérons la suite $u$ définie par récurrence de la manière suivante : 
     \begin{itemize}[nosep]
         \item $u_0 = 1$
-        \item pour tout entier naturel $n$, $u_{n+1} = u_n + \left(2 - (u_n \times u_n) \right) \divslash 2$ .
+        \item pour tout entier naturel $n$, $u_{n+1} = u_n + \left(2 - u_n^2 \right) \divslash 4$ .
     \end{itemize}
    
     Supposons que la suite $u$ admette une limite $l$. 
-    Définissons les suites $v$ et $w$ par : pour tout entier naturel $n$, $v_n = u_{n+1}$ et $w_n = u_n + \left(2 - (u_n \times u_n) \right) \divslash 2$.
-    Alors, $v$ tend vers $l$ et $w$ tend vers $l + (2 - l \times l) \divslash 2$. 
-    Puisque $v_n = u_n$ pour tout entier naturel $n$, on a donc $l = l + (2 - l \times l) \divslash 2$, donc $(2 - l \times l) \divslash 2 = 0$, donc $2 - l \times l = 0$, et donc $l \times l = 2$.
+    Définissons les suites $v$ et $w$ par : pour tout entier naturel $n$, $v_n = u_{n+1}$ et $w_n = u_n + \left(2 - u_n^2 \right) \divslash 2$.
+    Alors, $v$ tend vers $l$ et $w$ tend vers $l + (2 - l \times l) \divslash 4$. 
+    Puisque $v_n = u_n$ pour tout entier naturel $n$, on a donc $l = l + (2 - l \times l) \divslash 4$, donc $(2 - l \times l) \divslash 4 = 0$, donc $2 - l \times l = 0$, et donc $l \times l = 2$.
 
-    Montrons que cela est impossible.
-
-    \medskip
-
-    ***
+    Montrons que cela est impossible. 
+    On procède par l'absurde. 
+    Supposons qu'il existe un nombre rationnel $q$ tel que $q^2 = 2$. 
+    Sans perte de généralité, on peut supposer $q \geq 0$ (si ce n'est pas le cas, il suffit de remplacer $q$ par $-q$, qui est alors positif et de carré égal à $2$.).
+    Soit $a$ et $b$ deux entiers tels que $(a, b)$ est la représentation irréductible de $q$. 
+    Puisque $q$ est positif, $a$ et $b$ sont tous deux positifs.
+    En outre, $q \neq 0$ (sas quoi on aurait $q^2 = 0$, et donc $q^2 \neq 2$). 
+    Donc, $q \neq 0$. 
+    Donc, $a$ et $b$ sont premiers entre eux.
     
+    Par ailleurs, on a : $b^2 \times q^2 = a^2$, donc $2 \, b^2 = a^2$. 
+    Cela montre que $2$ divise $a^2$. 
+    Puisque $2$ est premier, on en conclut que $2$ divise $a$. 
+    On peut donc choisir un entier naturel $c$ tel que $a = 2 \, c$.
+    Donc, $a^2 = 4 \, c^2$, et donc $b^2 = 2 \, c$.
+    Donc, $2$ divise $b^2$, et donc $b$.
+    Ainsi, $2$ est un diviseur comun à $a$ et $b$, ce qui est impossible puisque $a$ et $b$ sont premiers entre eux.
+    On en déduit qu'un tel nombre rationnel $q$ ne peut exister.
+
     \medskip
 
     Montrons maintenant que la suite $u$ est de Cauchy. 
-    Pour ce faire, on montre d'abord par récurrence que $u_n \times u_n \leq 2$ pour tout entier naturel $n$. 
-    Cette suite est donc majorée—en effet, pour tout entier naturel $n$, on aura $u_n \leq 2$ (sans quoi on aurait $u_n \times u_n > 4 > 2$). 
-    Pour tout entier naturel $n$, on aura alors $\left(2 - (u_n \times u_n) \right) \divslash 2 \geq 0$, montrant que la suite $u$ est croissante, et donc (car majorée et croissante) de Cauchy.
+    Pour ce faire, on montre d'abord par récurrence que $u_n^2 \leq 2$ pour tout entier naturel $n$. 
+    Cette suite est donc majorée—en effet, pour tout entier naturel $n$, on aura $u_n \leq 2$ (sans quoi on aurait $u_n^2 > 4 > 2$). 
+    Pour tout entier naturel $n$, on aura alors $\left(2 - u_n^2 \right) \divslash 4 \geq 0$, montrant que la suite $u$ est croissante, et donc (car majorée et croissante) de Cauchy.
+
+    Plus préciément, on montre par récurrence sur $n$ que, pour tout entier naturel $n$, $0 \leq u_n$ et $u_n^2 \leq 2$.
     
     \medskip
 
-    ***
+    Pour $n = 0$, on a $u_n = 1$, donc $u_n \geq 0$ et $u_n^2 = 1$, donc $u_n^2 \leq 2$. 
 
+    Soit $n$ un entier naturel et supposons que $u_n \geq 0$ et $u_n^2 \leq 2$. 
+    Alors, $2 - u_n^2 \geq 0$, donc $u_{n+1} \geq u_n$, donc $u_{n+1} \geq 0$.
+    
+    Par ailleurs, on a : 
+    \begin{equation*} \begin{aligned}
+        u_{n+1} \times u_{n+1} 
+         & = u_n^2 + \left(2 - u_n^2 \right) \times u_n \divslash 2 + \left(2 - u_n^2 \right)^2 \divslash 16 \\
+         & = \frac{1}{4} + u_n - \frac{u_n^2}{2} \times u_n + \frac{u_n^4}{16} .
+    \end{aligned}\end{equation*}
+    Puisque $u_n^2 \leq 2$, $u_n^4 \leq 4$.
+    En outre, $u_n \leq 3 \divslash 2$ (sans quoi on aurait $u_n^2 > 9 \divslash 4 = 2 + \divslash 4 > 2$).
+    Donc, 
+    \begin{equation*}
+        u_{n+1} \times u_{n+1} \leq 2 - \frac{u_n^2}{2} \times u_n.
+    \end{equation*}
+    Enfin, $u_n \geq 0$, cela donne $u_{n+1} \leq 2$.
+    Le résultat attendu est donc vrai au rang $n+1$.
+    Par récurrence, il l'est pour tout entier naturel $n$, ce qui conclut la preuve.
 \end{tcolorbox}
 
 \medskip
