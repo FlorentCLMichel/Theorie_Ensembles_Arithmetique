@@ -511,8 +511,26 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
     \end{itemize}
     Notons que $x^1 = x$ et $x^n \neq 0$ pour tout entier naturel $n$ (se montre facilement par récurrence).
     \index{Puissance}
-    Pour tout entier naturel non nul $n$, on définit la \emph{puissance entière négative} $x^{-n}$ comme égale à $1 \divslash z^x$.
+    Pour tout entier naturel non nul $n$, on définit la \emph{puissance entière négative} $x^{-n}$ comme égale à l'inverse de $x^n$.
     \index{Puissance négative}
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $q$ un nombre rationnel et $n$ un entier naturel.
+    Si $q \neq 0$, alors $q^n \neq 0$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} On procède par récurrence sur $n$.
+    Pour $n = 0$, on a $q^n = 1$, donc $q^n \neq 0$.
+    
+    Supposons le résultat vrai au rang $n$. 
+    Alors, $q^{n+1} = q^n \times q$.
+    Puisque $q^n \neq 0$ et $q \neq 0$ (et puisque $(\mathbb{Q}, +, \times)$ est un corps), on en déduit que $q^{n+1} \neq 0$.
+
+    Par récurrence, le résultat attendu est vrai pour tout entier naturel $n$
+
+\done
 
 \medskip
 
@@ -527,18 +545,34 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 \medskip
 
 \noindent\textbf{Démonstration :}\label{demo:rel_puissances_q} 
-Notons que, sous les hypothèses de l'énoncé, les nombres $q^n$, $q^m$, $q^{n+m}$ et $q^{n m}$.
-On procède en trois temps: nous montrerons d'abord ces deux résultats pour des valeures positives de $m$, puis les étendrons séparément au cas où $m$ est stricteent négatif.
+Notons que, sous les hypothèses de l'énoncé, les nombres $q^n$, $q^m$, $q^{n+m}$ et $q^{n m}$ sont bien définis.
 
-***
+On propose d'abord de montrer la première propriété pour toutes valeurs positives de $m$ par récurrence. 
+Pour $m = 0$, on a : $q^n \times q^m = q^n \times 1 = q^n = q^{n + 0} = q^{n+m}$. 
+Supposons le résultat attendu vrai au rang $m$.
+Alors, $q^n \times q^{m+1} = q^n \times (q^m \times q) = (q^n \times q^m) \times q = q^{n+m} \times q = q^{(n+m) + 1} = q^{n + (m+1)}$.
+Le résultat attendu est donc vrai au rang $m+1$. 
+Par récurrence, il l'est pour tout entier naturel $m$.
 
-***
+Supposons maintenant $m < 0$. 
+Alors, $q \neq 0$, donc, $q^{-m} \neq 0$.
+Or, $q^{n+m} \times q^{-m} = q^{(n+m)-m} = q^n = q^n \times (q^m \times q^{-m}) = (q^n \times q^m) \times q^{-m}$. 
+Donc, $q^{n+m} = q^n \times q^m$.
 
-Supposons que $m$ est strictement négatif.
+Montrons maintenant la second propriété, d'abord pour les valeurs positives de $m$.
+Pour $m = 0$, on a : $(q^n)^m = (q^n)^0 = 1 = q^0 = q^{n \times 0} = q^{n m}$. 
+Supposons le résultat attendu vrai au rang $m$.
+Alors, $(q^n)^{m+1} = (q^n)^m \times q^n = q^{n m} \times q^n = q^{(n m) + n} = q^{(n+1) m}$.
+Le résultat attendu est donc vrai au rang $m+1$. 
+Par récurrence, il l'est pour tout entier naturel $m$.
+
+Supposons maintenant que $m$ est strictement négatif.
 Alors, $-m$ est strictement positif. 
 Donc, $(q^n)^{-m} = q^{n \times (-m)} = q^{- n m}$.
 Or, par définition, $(q^n)^m = 1 \divslash ((q^n)^{-m})$. 
 Donc, $(q^n)^m = 1 \divslash q^{- n m} = q^{n m}$. 
+
+\done
 
 \subsubsection{Relation d'ordre}
 
