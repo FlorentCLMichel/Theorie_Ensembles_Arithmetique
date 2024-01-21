@@ -185,7 +185,7 @@ Quand il n'y a pas d'ambiguité, on pourra omettre le symbole $\times$.
 On notera parfois simplement par un signe $-$ (à gauche) la multiplication par $(-1) \divslash 1$.
 Notons que 
 \begin{itemize}[nosep]
-    \item Le nombre rationel $\bar{x} - \bar{y}$ est égal à $\bar{x} + \bar{z}$, où $\bar{z}$ est la lasse d'équivalence de $(-c, d)$.
+    \item Le nombre rationnel $\bar{x} - \bar{y}$ est égal à $\bar{x} + \bar{z}$, où $\bar{z}$ est la lasse d'équivalence de $(-c, d)$.
     \item Si $c \neq 0$, $\bar{x} \div \bar{y}$ est égal à $\bar{x} \times \bar{z}$, où $\bar{z}$ est la lasse d'équivalence de $(d, c)$.
 \end{itemize}
 
@@ -504,7 +504,7 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 
 \subsubsection{Puissances}
 
-\noindent\textbf{Définition :} On définit par récurrence les \emph{puissances entières positives} d'un nombre rationel $x$ par :
+\noindent\textbf{Définition :} On définit par récurrence les \emph{puissances entières positives} d'un nombre rationnel $x$ par :
     \begin{itemize}[nosep]
         \item $x^0 = 1$,
         \item pour tout entier naturel $n$, $x^{n+1} = x \times x^n$.
@@ -1035,7 +1035,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \noindent\textbf{Définition :} Soit $u$ une suite de nombres rationnels, \emph{i.e.}, un élément de $\mathbb{Q}^{\mathbb{N}}$.
     Soit $l$ un nombre rationnel.
-    On dit que \emph{$u$ converge vers $l$}, que \emph{$u$ tends vers $l$} ou que \emph{$u$ admet $l$ pour limite} si le prédicat suivant est vrai : 
+    On dit que \emph{$u$ converge vers $l$}, que \emph{$u$ tend vers $l$} ou que \emph{$u$ admet $l$ pour limite} si le prédicat suivant est vrai : 
     \begin{equation*}
         \forall \epsilon \in \mathbb{Q} \, 
         \epsilon > 0 \Rightarrow
@@ -1044,7 +1044,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
             m \geq n \Rightarrow
                 \abs{u_m - l} \leq \epsilon .
     \end{equation*}
-    Cela est parfois noté $u \rightarrow l$.
+    Cela peut être noté $u \rightarrow l$\sindex[isy]{$\rightarrow$}.
     Une suite admettant une limite est dite \emph{convergente}. 
     Une suite n'admettant aucune limite est dite \emph{divergente}. 
 
@@ -1055,7 +1055,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 \medskip
 
 \noindent\textbf{Démonstration :} Soit $u$ une suite de nombres rationnels. 
-    Soit $l_1$ et $l_2$ deus limites de $u$. 
+    Soit $l_1$ et $l_2$ deux limites de $u$. 
     Montrons que $l_1 = l_2$. 
     On procède par l'absurde. 
     Supposons donc que $l_1 \neq l_2$.
@@ -1069,7 +1069,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
         \item si $m \geq n_2$, $\abs{u_m - l_2} \leq \epsilon$.
     \end{itemize}
     Définissons $m$ par $m = \mathrm{max}(n_1, n_2)$.
-    Alors, $\abs{u_m - l_1} \leq \epsilon$ et $\abs{u_m - l_2} \leq \epsilon$.
+    Alors, $m \geq n_1$ et $m \geq n_2$, donc $\abs{u_m - l_1} \leq \epsilon$ et $\abs{u_m - l_2} \leq \epsilon$.
     Puisque $l_1 - l_2 = (l_1 - u_m) + (u_m - l_2)$, on a : $\abs{l_1 - l_2} \leq \abs{l_1 - u_m} + \abs{u_m - l_2}$, donc $\abs{l_1 - l_2} \leq \abs{u_m - l_1} + \abs{u_m - l_2}$, donc $\abs{l_1 - l_2} \leq 2 \epsilon$.
     Donc, $4 \epsilon \leq 2 \epsilon$, donc $2 \epsilon < 0$, donc $\epsilon < 0$.
     On obtient une contradiction. 
@@ -1081,30 +1081,30 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
-\noindent\textbf{Lemme :} Soit $u$ une suite de nombres rationels. 
+\noindent\textbf{Lemme :} Soit $u$ une suite de nombres rationnels. 
     On suppose que $u$ admet une limite $l$. 
     Soit $n$ un entier naturel. 
-    Soit $v$ la suite de nombres rationels définie par : pour tout entier naturel $m$, $v_m = u_{m+n}$.
+    Soit $v$ la suite de nombres rationnels définie par : pour tout entier naturel $m$, $v_m = u_{m+n}$.
     Alors, $v$ tend vers $l$.
 
 \medskip
 
-\noindent\textbf{Démonstration :} Soit $\epsilon$ un nombre rationel strictement positif.
+\noindent\textbf{Démonstration :} Soit $\epsilon$ un nombre rationnel strictement positif.
     Puisque $u$ tend vers $l$, on peut choisir un entier naturel $m$ tel que, pour tout entier naturel $k$ supérieur ou égal à $m$, $\abs{u_k - l} \leq \epsilon$.
-    Pour rout entier naturel $k$ supérieur ou égal à $m$, $k = n$ l'est également, donc $\abs{u_{k+n} - l} \leq \epsilon$, et donc $\abs{v_k - l} \leq \epsilon$.
+    Pour tout entier naturel $k$ supérieur ou égal à $m$, $k + n$ l'est également, donc $\abs{u_{k+n} - l} \leq \epsilon$, et donc $\abs{v_k - l} \leq \epsilon$.
 
     \done
 
 \medskip
 
-\noindent\textbf{Lemme :} Soit $q$ un nombre rationnels, $n_0$ un entier naturel et $u$ et $v$ deux suites de nombres rationnels. 
+\noindent\textbf{Lemme :} Soit $q$ un nombre rationnel, $n_0$ un entier naturel et $u$ et $v$ deux suites de nombres rationnels. 
     On suppose que $u$ admet $q$ pour limite et que $v_n = u_n$ pour tout entier naturel $n$ supérieur ou égal à $n_0$.
-    Alors $v$ admet $q$ pour limité.
+    Alors $v$ admet $q$ pour limite.
 
 \medskip
 
 \noindent\textbf{Démonstration :}
-    Soit $\epsilon$ un nombre rationnels strictement positif.
+    Soit $\epsilon$ un nombre rationnel strictement positif.
     Puisque $u$ admet $q$ pour limite, on peut choisir un entier naturel $n_\epsilon$ tel que $\abs{u_m - q} \leq \epsilon$ pour tout entier naturel $m$ supérieur ou égal à $n_\epsilon$. 
     Soit $n_\epsilon'$ l'entier naturel défini par : $n_\epsilon' = \mathrm{max} \left( n_0, n_\epsilon \right)$.
     
@@ -1113,7 +1113,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     En outre, $m \geq n_0$, donc $v_m = u_m$.
     Donc, $\abs{v_m - q} \leq \epsilon$.
     
-    Cela montre que $\abs{v_k - q} \leq \epsilon$ pour tout entier naturel $k$ suérieur ou égal à $n_\epsilon'$. 
+    Cela montre que $\abs{v_m - q} \leq \epsilon$ pour tout entier naturel $m$ suérieur ou égal à $n_\epsilon'$. 
     On en déduit que $v$ admet $q$ pour limite.
 
     \done
@@ -1121,14 +1121,15 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 \medskip
 
 \noindent\textbf{Lemme :} Soit $u$ une suite de nombre rationnels convergente. 
-    Alors, pour tout nombre rationnel $\epsilon$ strictement positif, il existe un entier naurel $n$ tel que, our tous entiers naturels $m$ et $k$, $((m \geq n) \wedge (k \geq n)) \Rightarrow \abs{u_m - u_k} \leq \epsilon$.
+    Alors, pour tout nombre rationnel $\epsilon$ strictement positif, il existe un entier naturel $n$ tel que, pour tous entiers naturels $m$ et $k$, $((m \geq n) \wedge (k \geq n)) \Rightarrow \abs{u_m - u_k} \leq \epsilon$.
+    (Une suite satisfaisant cette propriété est dite \emph{de Cauchy}, voir Section~\ref{subsub:Cauchy}\index{Suite de Cauchy}.)
 
 \medskip
 
 \noindent\textbf{Démonstration :} Soit $u$ une suite de nombres rationnels convergente et $l$ sa limite.
     Soit $\epsilon$ un nombre rationnel strictement positif. 
     Alors, $\epsilon \divslash 2$ est aussi strictement positif.
-    On peut donc choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $\abs{u_n - l} \geq \epsilon \divslash 2$.
+    On peut donc choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $\abs{u_m - l} \geq \epsilon \divslash 2$.
     Soit $m$ et $k$ deux entier naturels supérieurs ou égaux à $n$. 
     On a : $\abs{u_m - u_k} = \abs{(u_m - l) + (l - u_k)} \leq \abs{u_m - l} + \abs{l - u_k} \leq \epsilon \divslash 2 + \epsilon \divslash 2$, donc $\abs{u_m - u_k} \leq \epsilon$. 
 
@@ -1237,7 +1238,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
-\noindent\textbf{Notation :} Soit $u$ et $v$ deux suites de nombres rationnels et $q$ un nombre rationel.
+\noindent\textbf{Notation :} Soit $u$ et $v$ deux suites de nombres rationnels et $q$ un nombre rationnel.
     On définit les suites $u + q$, $q + u$, $u - q$, $q - u$, $u \times q$, $q \times u$, $u + v$, $u - v$ et $u \times v$ par : pour tout entier naturel $n$, 
     \begin{itemize}[nosep]
         \item $(q + u)_n = q + u_n$,
@@ -1333,7 +1334,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     On peut donc choisir quatre nombres rationnels $a$, $b$, $c$ et $d$ tels que, pour tout entier naturel $n$, $a \leq u_n \leq b$ et $c \leq v_n \leq d$.
     Soit $m$ le maximum de $\lbrace \abs{a}, \abs{b}, \abs{c}, \abs{d}, 1 \rbrace$.
     On montre facilement\footnote{On peut par exemple utiliser les propriétés suivantes : $-m \leq a$, $-m \leq c$, $m \geq b$, $m \geq c$.} que, pour tout entier naturel $n$, $-m \leq u_n \leq m$ et $-m \leq v_n \leq m$.
-    Soit $\epsilon$ un ombre rationel strictemet supérieur à $0$. 
+    Soit $\epsilon$ un ombre rationnel strictemet supérieur à $0$. 
     Puisque $m \geq 1$, $m > 0$, donc $é \, m > 0$, $\epsilon \div (2 m) > 0$. 
     On peut donc choisir deux entiers naturels $n_1$ et $n_2$ tels que, pour tout entier naturel $n$ : 
     \begin{itemize}[nosep]
@@ -1517,16 +1518,16 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
         Cela montre que la suite $a$ tend vers $+\infty$.
     \item Traitons séparément les trois cas : 
         \begin{itemize}[nosep]
-            \item \emph{Cas $q > 0$ :} Soit $p$ un nombre rationel.
+            \item \emph{Cas $q > 0$ :} Soit $p$ un nombre rationnel.
                 Puisque $u$ tend vers $+\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ satisfaisant $m \geq n$, on a $u_m \geq p \divslash q$.
                 Puisque $q$ est strictement positif, cela implique $u_m \times q \geq p$, et donc $b_m \geq p$, pour tout entier naturel $m$ supérieur ou égal à $n$.
-                Cela étant valable pour tout nombre rationel $p$, on en déduit que $b$ tend vers $+\infty$.
-            \item \emph{Cas $q = 0$ :} Soit $\epsilon$ un nombre rationel strictement positif. Pour tout entier naturel $n$, on a $b_n = 0$, donc $\abs{b_n - 0} = \abs{0} = 0$, et donc $\abs{b_n - 0} \leq \epsilon$.
+                Cela étant valable pour tout nombre rationnel $p$, on en déduit que $b$ tend vers $+\infty$.
+            \item \emph{Cas $q = 0$ :} Soit $\epsilon$ un nombre rationnel strictement positif. Pour tout entier naturel $n$, on a $b_n = 0$, donc $\abs{b_n - 0} = \abs{0} = 0$, et donc $\abs{b_n - 0} \leq \epsilon$.
                 Cela montre que $b$ tend vers $0$.
-            \item \emph{Cas $q < 0$ :} Soit $p$ un nombre rationel.
+            \item \emph{Cas $q < 0$ :} Soit $p$ un nombre rationnel.
                 Puisque $u$ tend vers $+\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ satisfaisant $m \geq n$, on a $u_m \geq p \divslash q$.
                 Puisque $q$ est strictement négatif, cela implique $u_m \times q \leq p$, et donc $b_m \leq p$, pour tout entier naturel $m$ supérieur ou égal à $n$.
-                Cela étant valable pour tout nombre rationel $p$, on en déduit que $b$ tend vers $-\infty$.
+                Cela étant valable pour tout nombre rationnel $p$, on en déduit que $b$ tend vers $-\infty$.
         \end{itemize}
     \item Soit $p$ un nombre rationnel.
         Puisque $u \rightarrow +\infty$, on peut choisir un entier naturel $n_1$ tel que $u_m \geq p$ pour tout entier naturel $m$ supérieur ou égal à $n_1$.
@@ -1569,7 +1570,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     Montrons que $w$ et $x$ tendent vers $+\infty$. 
     Cela nous permettra de nous ramener aisément aux cas précédents.
 
-    Soit $p$ un nombre rationel quelconque.
+    Soit $p$ un nombre rationnel quelconque.
     Puisque $u$ tend vers $-\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $u_m \leq -p$. 
     Donc, pour tout entier naturel $m$ supérieur ou égal à $n$, $- u_m \geq p$, et donc $w_n \geq p$.
     Cela montre que $w$ tend vers $+\infty$.
@@ -1641,7 +1642,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 \begin{itemize}[nosep]
     \item Supposons $l > 0$.
         Alors, $l \divslash 2 > 0$.
-        Soit $p$ un nombre rationel quelconque. 
+        Soit $p$ un nombre rationnel quelconque. 
         Puisque $u^+$ et $u^-$ tendent respectivement vers $+\infty$ et $-\infty$, on peut choisir deux entiers naturels $n^+$ et $n^-$ tels que
         \begin{itemize}[nosep]
             \item pour tout entier naturel $m$ supérieur ou égal à $n^+$, $u^+_m \geq \abs{p} \divslash (l \divslash 2)$,
@@ -1652,12 +1653,12 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
         Soit $m^+$ le maximum de $n^+$ et $n^v$. 
         Alors, $m^+ \geq n^+$ et $m^+ \geq n^v$.
         Pour tout entier naturel $r$ supérieur ou égal à $m^+$, on a alors $u^+_r \geq \abs{p} \divslash (l \divslash 2)$ et $v_r \geq l \divslash 2$, donc $w^+_r \geq \left( \abs{p} \divslash (l \divslash 2)\right) \times v_r \geq \abs{p} \geq p$. 
-        Cela étant vrai pour tout nombre rationel $p$, on en déduit que $w^+$ tend vers $+\infty$.
+        Cela étant vrai pour tout nombre rationnel $p$, on en déduit que $w^+$ tend vers $+\infty$.
 
         Soit $m^-$ le maximum de $n^-$ et $n^v$. 
         Alors, $m^- \geq n^-$ et $m^- \geq n^v$.
         Pour tout entier naturel $r$ supérieur ou égal à $m^-$, on a alors $u^-_r \leq -\abs{p} \divslash (l \divslash 2)$ et $v_r \geq l \divslash 2$, donc $w^-_r \leq \left( - \abs{p} \divslash (l \divslash 2)\right) \times v_r \leq p$. 
-        Cela étant vrai pour tout nombre rationel $p$, on en déduit que $w^-$ tend vers $-\infty$.
+        Cela étant vrai pour tout nombre rationnel $p$, on en déduit que $w^-$ tend vers $-\infty$.
 
     \item Définissons la suite $x$ par : pour tout entier naturel $n$, $x_n = -v_n$.
         Alors, $x$ tend vers $- l \divslash 2$, qui est strictement positif.
@@ -1870,9 +1871,10 @@ Quand il n'y a pas d'ambiguité, on note $0$ l'élément de $\mathbb{T}$ dont to
 \subsection{Nombres réels}
 
 \subsubsection{Suites de Cauchy}
+\label{subsub:Cauchy}
 
 \noindent\textbf{Définition :} Soit $u$ une suite de nombres rationnels. 
-    Elle est dite \textit{de Cauchy} si la propriété suivante est satisfaite : 
+    Elle est dite \textit{de Cauchy}\index{Suite de Cauchy} si la propriété suivante est satisfaite : 
     \begin{equation*}
         \forall \epsilon \in \mathbb{Q} \, 
         \exists n \in \mathbb{N} \,
@@ -1936,7 +1938,7 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
 \noindent\textbf{Démonstration :} Soit $u$ uns suite de nombres rationnels.
     On suppose que $u$ est convergente. 
     Soit $l$ sa limite. 
-    Soit $\epsilon$ un nombre rationel strictement positif. 
+    Soit $\epsilon$ un nombre rationnel strictement positif. 
     Alors, $\epsilon \divslash 2$ est strictement positif.
     Puisque $u$ tend vers $l$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $\abs{u_m - l} \leq \epsilon \divslash 2$. 
     Soit $m$ et $p$ deu entiers natursl supérieurs ou égaux à $n$. 
@@ -2019,7 +2021,7 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
 \medskip
 
 \noindent\textbf{Démonstration :} 
-    Soit $u$ une suite de nombres rationels. 
+    Soit $u$ une suite de nombres rationnels. 
     On suppose que $u$ est de Cauchy. 
     On peut choisir un entier naturel $n_0$ tel que $\abs{u_n - u_m} \leq 1$ pour tous entiers naturels $n$ et $m$ supérieurs ou égaux à $n_0$. 
     Soit $E$ l'ensemble $\lbrace \abs{u_0}, \abs{u_1}, \dots, \abs{u_{n_0 - 1}}, \abs{u_{n_0}} + 1 \rbrace$. 
@@ -2041,7 +2043,7 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
 \subsubsection{Les nombres réels comme limites de suites de Cauchy}
 \sindex[isy]{$\mathbb{R}$}
 
-\noindent\textbf{Définition :} Soit $\mathcal{U}$ l'ensemble des suites de Cauchy de nombres rationels.
+\noindent\textbf{Définition :} Soit $\mathcal{U}$ l'ensemble des suites de Cauchy de nombres rationnels.
     On définit la relation d'équivalence $R$ sur $\mathcal{U}$ par : soit deux élément $u$ et $v$ de $\mathcal{U}$, $u \mathrel{R} v$ si et seulement si $u - v$ tend vers $0$.
     Un \emph{nombre réel} est une classe d'équivalence de $R$.
     L'\emph{ensemble des nombres réels}, noté $\mathbb{R}$, est l'ensemble des classes d'équivalences de $R$. 
