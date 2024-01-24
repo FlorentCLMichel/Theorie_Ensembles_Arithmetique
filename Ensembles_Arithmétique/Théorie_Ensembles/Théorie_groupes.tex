@@ -706,7 +706,60 @@ Dans cette section, on note l'inverse par un exposant $-1$.
 
 \medskip
 
-***
+\noindent\textbf{Remarque :} Soit $(G, \cdot)$ un groupe et $(H, \cdot)$ un sous-groupe normal de $(G, \cdot)$.
+    Pour tout élément $h$ de $H$ et tout élément $g$ de $G$, $g^{-1} \in G$, donc $g^{-1} \cdot h \cdot g \in H$.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $(G, \cdot)$ un groupe abélien et $(H, \cdot)$ un sous-groupe de $(G, \cdot)$.
+    On définit les deux relations $R_G$ et $R_D$ sur $G$ de la manière suivante : pour tous éléments $g$ et $g'$ de $G$, $g R_G g' \Leftrightarrow g^{-1} \cdot g' \in H$ et $g R_D g' \Leftrightarrow g \cdot g'^{-1} \in H$. 
+    Alors, $R_G$ et $R_D$ sont des relations d'équivalence. 
+
+\medskip
+
+\noindent\textbf{Démnstration :} ***
+
+\medskip
+
+\noindent\textbf{Lemme :} Avec les notations du lemme précédent, si $(H, \cdot)$ est normal, alors les relations $R_L$ et $R_D$ définies ci-dessus sont identiques, au sens suivant : $\forall g \in G \, \forall g' \in G \, g R_L g' \Leftrightarrow g R_D g'$.
+
+\medskip
+
+\noindent\textbf{Démnstration :} 
+    Soit $g$ et $g'$ deux éléments de $G$.
+    
+    Si $g R_G g'$, alors on peut choisir un élément $h$ de $H$ $g^{-1} \cdot g' = h$.
+    Puisque $(H, \cdot)$ est un sous-groupe normal de $(G, \cdot)$, $g \cdot h \cdot g^{-1} \in H$.
+    Donc, $g' \cdot g^{-1} \in H$.
+    Donc, $g R_D g'$.
+    
+    Si $g R_D g'$, alors on peut choisir un élément $h$ de $H$ $g' \cdot g^{-1} = h$.
+    Puisque $(H, \cdot)$ est un sous-groupe normal de $(G, \cdot)$, $g^{-1} \cdot h \cdot g \in H$.
+    Donc, $g^{-1} \cdot g' \in H$.
+    Donc, $g R_L g'$.
+
+    \done
+
+\medskip
+
+\noindent\textbf{Notation :} Soit $(G, \cdot)$ un groupe et $(H, \cdot)$ un sous-groupe normal de $(G, \cdot)$.
+    L'ensemble quotient $E \divslash R_L$, où $R_L$ est définie comme ci-dessus, est noté $E \divslash H$.
+
+\medskip
+
+\noindent\textbf{Définition :} Soit $(G, \cdot)$ un groupe et $(H, \cdot)$ un sous-groupe normal de $(G, \cdot)$.
+    On définit la loi de composition interne $\cdot$ sur $E \divslash H$ comme suit.
+    Soit $F$ et $F$ deux éléments de $E \divslash H$.
+    Soit $e$ un élément de $e$ et $f$ un élément de $F$.
+    Alors, $E \cdot F$ est l'élément de $E \divslash H$ contenant $e \times f$.
+
+\medskip
+
+\noindent\textbf{Preuve que cette loi de composition interne est bien définie :} ***
+
+\medskip
+
+\noindent\textbf{Preuve que cela définit un groupe :} ***
 
 \subsubsection{Anneaux et corps}
 
