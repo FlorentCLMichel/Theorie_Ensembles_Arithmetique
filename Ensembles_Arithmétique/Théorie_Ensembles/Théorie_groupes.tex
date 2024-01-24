@@ -615,12 +615,13 @@ Soit $f$ la fonction de $[\![0, n-1]\!]$ (égal à $n$) vers $G$ définie par :
 
 \done
 
-\subsubsection{Groupe quotient}
+\subsubsection{Groupe quotient (groupe abélien)}
 
 \index{Group quotient}
 
 \noindent\textbf{Définition :} Soit $(G, \cdot)$ un groupe abélien et $(H, \cdot)$ un sous-groupe de $(G, \cdot)$.
     On définit l'ensemble $G \divslash H$ comme l'ensemble des classes d'équivalences de $G$ pour la relation $R$ définie par : $\forall g \in G \, \forall g' \in G \, g R g' \Leftrightarrow g^{-1} \cdot g' \in H$, oú un exposant $-1$ indique l'inverse. 
+    (On montre ci-dessous qu'il s'agit bien d'une relation d'équivalence.)
     Pour tout élément $g$ de $G$, on note $\bar{g}$ la classe d'équivalence de $g$ pour $R$.
     On définit la loi de composition interne $\cdot$ sur $G \divslash H$ de la manière suivante : soit $c_1$ et $c_2$ deux éléments de $G \divslash H$, on peut choisir un éléments $g_1$ de $c_1$ et un élément $g_2$ de $c_2$ ; on pose alors $c_1 \cdot c_2 = \overline{g_1 \cdot g_2}$. 
     Alors, 
@@ -631,7 +632,31 @@ Soit $f$ la fonction de $[\![0, n-1]\!]$ (égal à $n$) vers $G$ définie par :
 
 \medskip
 
-\noindent\textbf{Démonstration :} Pour le premier point, il s'agit de montrer que le résultat ne dépends pas du choix de $g_1$ et $g_2$.
+\noindent\textbf{Preuve qu'il s'agit d'une relation d'équivalence :} 
+Soit $(G, \cdot)$ un groupe (abélien ou non) et $R$ la relation définie comme ci-dessus.
+\begin{itemize}[nosep]
+    \item \emph{Réflexivité :} Soit $g$ un élément de $G$.
+        Alors, $g^{-1} \cdot g$ et l'élément neutre de $(G, +)$, donc appartient à $H$.
+        Donc, $g R g$.
+    \item \emph{Symétrie :} Soit $g$ et $g'$ deux éléments de $G$ tels que $g R g'$.
+        Alors, $g^{-1} \cdot g' \in H$.
+        Puisque $(H, \cdot)$ est un groupe, $(g^{-1} \cdot g')^{-1} \in H$, donc $g'^{-1} \cdot g \in H$, donc $g' R g$.
+    \item \emph{Transitivité :} Soit $g$, $g'$ et $g''$ trois éléments de $G$ tels que $g R g'$ et $g' R g''$.
+        Alors, on peut choisir deux éléments $h$ et $h'$ de $H$ tels que $g^{-1} \cdot g' = h$ et $g'^{-1} \cdot g'' = h'$.
+        Puisque $(H, \cdot)$ est un groupe, $h \cdot h' \in H$, donc $g^{-1} \cdot g'' \in H$, donc $g R g''$.
+\end{itemize}
+
+\done
+
+\medskip
+
+\noindent
+Notons que cette démonstration n'utilise pas le fait que $(G, \cdot)$ est abélien.
+La relation $R$ définie comme ci-dessus est donc une relation d'équivalence pour tout groupe $(G, \cdot)$.
+
+\medskip
+
+\noindent\textbf{Preuve que la loi de composition interne $\cdot$ sur $G \divslash H$ est bien définie :} Il s'agit de montrer que le résultat ne dépend pas du choix de $g_1$ et $g_2$.
     Soit $c_1$ et $c_2$ deux éléments de $G \divslash H$. 
     Soit $g_1$ et $g_3$ deux éléments de $c_1$ et $g_2$ et $g_4$ deux éléments de $c_2$.
     On a alors $g_1 R g_3$ et $g_2 R g_4$.
@@ -639,29 +664,49 @@ Soit $f$ la fonction de $[\![0, n-1]\!]$ (égal à $n$) vers $G$ définie par :
     On a alors : $(g_1 \cdot g_2)^{-1} \cdot (g_3 \cdot g_4) = (g_2^{-1} \cdot g_1^{-1}) \cdot (g_3 \cdot g_4) = (g_1^{-1} \cdot g_3) \cdot \cdot (g_2^{-1} \cdot g_4) = h_1 \cdot h_2$. 
     Puisque $(H, \cdot)$ est un groupe, on en déduit que $(g_1 \cdot g_2)^{-1} \cdot (g_3 \cdot g_4) \in H$, donc $(g_1 \cdot g_2) R (g_3 \cdot g_4)$, et donc $\overline{g_1 \cdot g_2} = \overline{g_3 \cdot g_4}$.
 
-    Montrons maintenant qu'il s'agit d'un groupe abélien : 
-    \begin{itemize}[nosep]
-        \item Par définition, $\cdot$ est une loi de composition interne sur $G \divslash H$.
-        \item Commutativité : Soit $c_1$ et $c_2$ deux éléments de $G \divslash H$.
-            Soit $g_1$ un élément de $c_1$ et $g_2$ un élément de $c_2$. 
-            On a : $c_1 \cdot c_2 = \overline{g_1 \cdot g_2}$ et $c_2 \cdot c_1 = \overline{g_2 \cdot g_1}$.
-            Puisque $(G, \cdot)$ est abélien, $g_1 \cdot g_2 = g_2 \cdot g_1$, donc $c_1 \cdot c_2 = c_2 \cdot c_1$.
-        \item Soit $e$ l'élément neutre de $(G, \cdot)$. 
-            Soit $c$ un élément de $G \divslash H$ et $g$ un élément de $c$. 
-            On a : $c \cdot \bar{e} = \overline{g \cdot e} = \bar{g} = c$.
-            Par commutativité, cela implique également $\bar{e} \times c = c$.
-            Donc, $\bar{e}$ est un élément neutre de $G \divslash H$ pour $\cdot$.
-        \item Associativité : Soit $c_1$, $c_2$ et $c_3$ trois éléments de $G \divslash H$.
-            Soit $g_1$ un élément de $c_1$, $g_2$ un élément de $c_2$ et $g_3$ un élément de $c_3$.
-            On a : $c_1 \cdot (c_2 \cdot c_3) = c_1 \cdot \overline{g_2 \cdot g_3} = \overline{g_1 \cdot (g_2 \cdot g_3)} = \overline{(g_1 \cdot g_2) \cdot g_3} = \overline{g_1 \cdot g_2} \cdot c_3 = (c_1 \cdot c_2) \cdot c_3$.
-        \item Soit $c$ un élément de $G \divslash H$ et $g$ un élément de $c$. 
-            Notons $g^{-1}$ l'inverse de $g$ et $e$ l'élément neutre de $(G,\cdot)$. 
-            Alors, $c \cdot \bar{g^{-1}} = \overline{g \cdot g^{-1}} = \bar{e}$.
-            Par commutativité, cela implique également $\bar{g^{-1}} \times c = \bar{e}$.
-            Puisque $\bar{e}$ est un élément neutre pour $\cdot$, on conclut que $\bar{g^{-1}}$ est un inverse de $c$.
-    \end{itemize}
+\done
 
-    \done
+\medskip
+
+\noindent\textbf{Preuve que $(G \divslash H, \cdot)$ est un groupe abélien :}
+\begin{itemize}[nosep]
+    \item Par définition, $\cdot$ est une loi de composition interne sur $G \divslash H$.
+    \item Commutativité : Soit $c_1$ et $c_2$ deux éléments de $G \divslash H$.
+        Soit $g_1$ un élément de $c_1$ et $g_2$ un élément de $c_2$. 
+        On a : $c_1 \cdot c_2 = \overline{g_1 \cdot g_2}$ et $c_2 \cdot c_1 = \overline{g_2 \cdot g_1}$.
+        Puisque $(G, \cdot)$ est abélien, $g_1 \cdot g_2 = g_2 \cdot g_1$, donc $c_1 \cdot c_2 = c_2 \cdot c_1$.
+    \item Soit $e$ l'élément neutre de $(G, \cdot)$. 
+        Soit $c$ un élément de $G \divslash H$ et $g$ un élément de $c$. 
+        On a : $c \cdot \bar{e} = \overline{g \cdot e} = \bar{g} = c$.
+        Par commutativité, cela implique également $\bar{e} \times c = c$.
+        Donc, $\bar{e}$ est un élément neutre de $G \divslash H$ pour $\cdot$.
+    \item Associativité : Soit $c_1$, $c_2$ et $c_3$ trois éléments de $G \divslash H$.
+        Soit $g_1$ un élément de $c_1$, $g_2$ un élément de $c_2$ et $g_3$ un élément de $c_3$.
+        On a : $c_1 \cdot (c_2 \cdot c_3) = c_1 \cdot \overline{g_2 \cdot g_3} = \overline{g_1 \cdot (g_2 \cdot g_3)} = \overline{(g_1 \cdot g_2) \cdot g_3} = \overline{g_1 \cdot g_2} \cdot c_3 = (c_1 \cdot c_2) \cdot c_3$.
+    \item Soit $c$ un élément de $G \divslash H$ et $g$ un élément de $c$. 
+        Notons $g^{-1}$ l'inverse de $g$ et $e$ l'élément neutre de $(G,\cdot)$. 
+        Alors, $c \cdot \bar{g^{-1}} = \overline{g \cdot g^{-1}} = \bar{e}$.
+        Par commutativité, cela implique également $\bar{g^{-1}} \times c = \bar{e}$.
+        Puisque $\bar{e}$ est un élément neutre pour $\cdot$, on conclut que $\bar{g^{-1}}$ est un inverse de $c$.
+\end{itemize}
+
+\done
+
+\subsubsection{Groupe quotient (cas général)}
+
+\index{Group quotient}
+
+\noindent
+Dans cette section, on note l'inverse par un exposant $-1$.
+
+\medskip
+
+\noindent\textbf{Définition :} \index{Sous-groupe normal} Soit $(G, \cdot)$ un groupe et $(H, \cdot)$ un sous-groupe de $(G, \cdot)$.
+    On dit que $H$ est \emph{normal} si pour tout élément $h$ de $H$ et tout élément $g$ de $G$, $g \cdot h \cdot g^{-1} \in H$. 
+
+\medskip
+
+***
 
 \subsubsection{Anneaux et corps}
 
