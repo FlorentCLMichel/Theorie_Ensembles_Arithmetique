@@ -741,6 +741,7 @@ Dans cette section, on note l'inverse par un exposant $-1$.
 \medskip
 
 \noindent\textbf{Lemme :} Avec les notations du lemme précédent, si $(H, \cdot)$ est normal, alors les relations $R_L$ et $R_D$ définies ci-dessus sont identiques, au sens suivant : $\forall g \in G \, \forall g' \in G \, g R_L g' \Leftrightarrow g R_D g'$.
+    On notera dans la suite simplement $R$ pour désigner une de ces deux relations.
 
 \medskip
 
@@ -762,19 +763,28 @@ Dans cette section, on note l'inverse par un exposant $-1$.
 \medskip
 
 \noindent\textbf{Notation :} Soit $(G, \cdot)$ un groupe et $(H, \cdot)$ un sous-groupe normal de $(G, \cdot)$.
-    L'ensemble quotient $E \divslash R_L$, où $R_L$ est définie comme ci-dessus, est noté $E \divslash H$.
+    L'ensemble quotient $G \divslash R_L$, où $R_L$ est définie comme ci-dessus, est aussi noté $G \divslash H$.
 
 \medskip
 
 \noindent\textbf{Définition :} Soit $(G, \cdot)$ un groupe et $(H, \cdot)$ un sous-groupe normal de $(G, \cdot)$.
-    On définit la loi de composition interne $\cdot$ sur $E \divslash H$ comme suit.
-    Soit $F$ et $F$ deux éléments de $E \divslash H$.
+    On définit la loi de composition interne $\cdot$ sur $G \divslash H$ comme suit.
+    Soit $E$ et $F$ deux éléments de $G \divslash H$.
     Soit $e$ un élément de $e$ et $f$ un élément de $F$.
-    Alors, $E \cdot F$ est l'élément de $E \divslash H$ contenant $e \times f$.
+    Alors, $E \cdot F$ est l'élément de $G \divslash H$ contenant $e \times f$.
 
 \medskip
 
-\noindent\textbf{Preuve que cette loi de composition interne est bien définie :} ***
+\noindent\textbf{Preuve que cette loi de composition interne est bien définie :} 
+    Il s'agit de montrer qu'elle ne dépend pas des choix de représentants.
+    Soit $e$ et $e'$ deux éléments de $E$ et $f$ et $f'$ deux éléments de $f$.
+    Alors, on peu choisir deux éléments $h$ et $h'$ de $H$ tels que $e^{-1} \cdot e' = h$ (puisque $e R_G e'$) et $f \cdot f'^{-1} = h'$ (puisque $f R_D f'$).
+    Puisque $(H, \cdot)$ est un sous-groupe normal de $(G, \cdot)$, $f^{-1} \cdot h \cdot f \in H$.
+    Donc, $f^{-1} \cdot e^{-1} \cdot e' \cdot f \in H$, donc $(e \cdot f)^{-1} \cdot (e' \cdot f) \in H$, donc $(e \cdot f) \mathrel{R} (e' \cdot f)$.
+    De même, $e' \cdot h' \cdot e'^{-1}$, donc $e' \cdot f \cdot f'^{-1} \cdot e'^{-1} \in H$, donc $(e' \cdot f) \cdot (e' \cdot f')^{-1} \in H$, donc $(e' \cdot f) \mathrel{R} (e' \cdot f')$.
+    Puisque $R$ est transitive, on en conclut que $(e \cdot f) \mathrel{R} (e' \cdot f')$, et donc que les classes obtenues en choisissant les représentants $e$ et $f$ ou les représentants $e'$ et $f'$ sont identiques.
+    
+    \done
 
 \medskip
 
