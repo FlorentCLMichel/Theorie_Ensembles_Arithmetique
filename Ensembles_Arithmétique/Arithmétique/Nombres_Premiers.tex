@@ -550,6 +550,26 @@ Notons que :
         \end{itemize}
 \end{itemize}
 
+\subsubsection{Nombres premiers particuliers}
+
+\noindent\textbf{Définition :}\index{Nombre de Fermat} Un \emph{nombre de Fermat} est un nombre premier $p$ satisfaisant $p = 2^n + 1$ pour un entier naturel $n$.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $n$ un entier naturel tel que $2^n + 1$ est premier (donc un nombre de Fermat). 
+    Alors $n$ est une puissance de $2$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $l$ la puissance de $2$ dans la décomposition de $n$ en produit de facteurs premiers. 
+    Alors $n / 2^l$ est impair. 
+    Soit $k$ l'entier défini par : $k = ((n / 2^l) - 1) / 2$.
+    On a $n = 2^l (2 k + 1)$. 
+    Puisque $2^{2^l} \equiv -1 \; [2^{2^l} +1]$, on a donc $2^n \equiv (- 1)^{2 k + 1} \; [2^{2^l} + 1]$, donc $2^n \equiv - 1 \; [2^{2^l} +1]$, donc $2^{2^l} + 1$ divise $2^n + 1$. 
+    Puisque $2^{2^l} + 1 > 1$, $2^n + 1$ ne peut être premier que si $2^{2^l} + 1 \leq 2^n + 1$, \emph{i.e.} $2^{2^l} \leq 2^{2^l} \times 2^{2^l 2 k}$, ce qui n'est possible que si $k = 0$ (sans quoi $2^l 2  > 0$, et donc, puisque $2^l \geq 1$, $2^{2^l 2 k} > 1$), et donc que si n est une puissance de $2$.
+
+    \done
+
 \subsubsection{Petit théorème de Fermat}
 
 \noindent\textbf{Théorème :} Soit $p$ un nombre premier et $a$ un entier naturel non multiple de $p$. 
