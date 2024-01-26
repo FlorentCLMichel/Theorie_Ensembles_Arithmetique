@@ -636,7 +636,7 @@ Soit $f$ la fonction de $[\![0, n-1]\!]$ (égal à $n$) vers $G$ définie par :
 Soit $(G, \cdot)$ un groupe (abélien ou non) et $R$ la relation définie comme ci-dessus.
 \begin{itemize}[nosep]
     \item \emph{Réflexivité :} Soit $g$ un élément de $G$.
-        Alors, $g^{-1} \cdot g$ et l'élément neutre de $(G, +)$, donc appartient à $H$.
+        Alors, $g^{-1} \cdot g$ est l'élément neutre de $(G, +)$, donc appartient à $H$.
         Donc, $g R g$.
     \item \emph{Symétrie :} Soit $g$ et $g'$ deux éléments de $G$ tels que $g R g'$.
         Alors, $g^{-1} \cdot g' \in H$.
@@ -717,7 +717,26 @@ Dans cette section, on note l'inverse par un exposant $-1$.
 
 \medskip
 
-\noindent\textbf{Démnstration :} ***
+\noindent\textbf{Démnstration :} 
+\begin{itemize}[nosep]
+    \item \emph{Réflexivité :} Soit $g$ un élément de $G$.
+        Alors, $g^{-1} \cdot g$ et $g \cdot g^{-1}$ sont égaux à l'élément neutre de $(G, +)$, donc appartiennent à $H$.
+        Donc, $g R_G g$ et $g R_L g$.
+    \item \emph{Symétrie ($R_G$) :} Soit $g$ et $g'$ deux éléments de $G$ tels que $g R_G g'$.
+        Alors, $g^{-1} \cdot g' \in H$.
+        Puisque $(H, \cdot)$ est un groupe, $(g^{-1} \cdot g')^{-1} \in H$, donc $g'^{-1} \cdot g \in H$, donc $g' R_G g$.
+    \item \emph{Symétrie ($R_D$) :} Soit $g$ et $g'$ deux éléments de $G$ tels que $g R_D g'$.
+        Alors, $g \cdot g'^{-1} \in H$.
+        Puisque $(H, \cdot)$ est un groupe, $(g \cdot g'^{-1})^{-1} \in H$, donc $g' \cdot g^{-1} \in H$, donc $g' R_D g$.
+    \item \emph{Transitivité ($R_G$) :} Soit $g$, $g'$ et $g''$ trois éléments de $G$ tels que $g R_G g'$ et $g' R_G g''$.
+        Alors, on peut choisir deux éléments $h$ et $h'$ de $H$ tels que $g^{-1} \cdot g' = h$ et $g'^{-1} \cdot g'' = h'$.
+        Puisque $(H, \cdot)$ est un groupe, $h \cdot h' \in H$, donc $g^{-1} \cdot g'' \in H$, donc $g R_G g''$.
+    \item \emph{Transitivité ($R_D$) :} Soit $g$, $g'$ et $g''$ trois éléments de $G$ tels que $g R_D g'$ et $g' R_D g''$.
+        Alors, on peut choisir deux éléments $h$ et $h'$ de $H$ tels que $g \cdot g'^{-1} = h$ et $g' \cdot g''^{-1} = h'$.
+        Puisque $(H, \cdot)$ est un groupe, $h \cdot h' \in H$, donc $g \cdot g''^{-1} \in H$, donc $g R_D g''$.
+\end{itemize}
+
+\done
 
 \medskip
 
