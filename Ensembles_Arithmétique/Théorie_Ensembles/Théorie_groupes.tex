@@ -770,8 +770,8 @@ Dans cette section, on note l'inverse par un exposant $-1$.
 \noindent\textbf{Définition :} Soit $(G, \cdot)$ un groupe et $(H, \cdot)$ un sous-groupe normal de $(G, \cdot)$.
     On définit la loi de composition interne $\cdot$ sur $G \divslash H$ comme suit.
     Soit $E$ et $F$ deux éléments de $G \divslash H$.
-    Soit $e$ un élément de $e$ et $f$ un élément de $F$.
-    Alors, $E \cdot F$ est l'élément de $G \divslash H$ contenant $e \times f$.
+    Soit $e$ un élément de $E$ et $f$ un élément de $F$.
+    Alors, $E \times F$ est l'élément de $G \divslash H$ contenant $e \cdot f$.
 
 \medskip
 
@@ -788,7 +788,28 @@ Dans cette section, on note l'inverse par un exposant $-1$.
 
 \medskip
 
-\noindent\textbf{Preuve que cela définit un groupe :} ***
+\noindent\textbf{Preuve que cela définit un groupe :}
+    Pour tout élément $x$ de $G$, on note $\bar{x}$ l'élément de $G \divslash H$ contenant $e$.
+
+    Soit $1$ l'élément neutre de $(G, \cdot)$. 
+    Soit $F$ un élément de $G \divslash H$. 
+    On peut choisir un élément $f$ de $F$.
+    Alors, $\bar{1} \times F = \bar{1} \times \bar{f} = \overline{1 \cdot f} = \bar{f} = F$ et $F \times \bar{1} = \bar{f} \times \bar{1} = \overline{f \cdot 1} = \bar{f} = F$.
+    Donc, $\bar{1}$ est un élément neutre pour $\times$.
+
+    Soit $E$, $F$ et $H$ trois éléments de $G \divslash H$.
+    On peut choisir trois éléments $e$, $f$ et $h$ de $G$ tels que $e \in E$, $f \in F$ et $h \in H$
+    Alors, $(E \times F) \cdot H = (\bar{e} \times \bar{f}) \times \bar{h} = \overline{ \cdot f} \times h = \overline{(e \cdot f) \cdot h} = \overline{e \cdot (f \cdot h)} = \bar{e} \times \overline{f \cdot h} = \bar{e} \times (\bar{f} \times \bar{h}) = E \times (F \times H)$.
+    Donc, la loi de composition interne $\times$ sur $G \divslash H$ est associative.
+
+    Soit $E$ un élément de $G \divslash H$.
+    On peut choisir un élément $e$ de $G$ tel que $e \in E$.
+    Puisque $(G, \cdot)$ est un groupe, $e$ admet un inverse.
+    Notons ce dernier $f$.
+    Alors, $E \times \bar{f} = \bar{e} \times \bar{f} = \overline{e \times g} = \overline{1}$ et $\bar{f} \times E = \bar{f} \times \bar{e} = \overline{f \times e} = \bar{1}$.
+    Cela montre que $\bar{f}$ est un inverse de $E$ pour $\times$.
+    
+    \done
 
 \subsubsection{Anneaux et corps}
 
