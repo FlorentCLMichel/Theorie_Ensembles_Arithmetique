@@ -1070,7 +1070,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     \end{itemize}
     Définissons $m$ par $m = \mathrm{max}(n_1, n_2)$.
     Alors, $m \geq n_1$ et $m \geq n_2$, donc $\abs{u_m - l_1} \leq \epsilon$ et $\abs{u_m - l_2} \leq \epsilon$.
-    Puisque $l_1 - l_2 = (l_1 - u_m) + (u_m - l_2)$, on a : $\abs{l_1 - l_2} \leq \abs{l_1 - u_m} + \abs{u_m - l_2}$, donc $\abs{l_1 - l_2} \leq \abs{u_m - l_1} + \abs{u_m - l_2}$, donc $\abs{l_1 - l_2} \leq 2 \epsilon$.
+    Puisque $l_1 - l_2 = (l_1 - u_m) + (u_m - l_2)$, on a : $\abs{l_1 - l_2} \leq \abs{l_1 - u_m} + \abs{u_m - l_2}$ (inégalité triangulaire), donc $\abs{l_1 - l_2} \leq \abs{u_m - l_1} + \abs{u_m - l_2}$, donc $\abs{l_1 - l_2} \leq 2 \epsilon$.
     Donc, $4 \epsilon \leq 2 \epsilon$, donc $2 \epsilon < 0$, donc $\epsilon < 0$.
     On obtient une contradiction. 
     On en déduit que l'hypothèse de départ ne peut qu'être fausse, et donc que $l_1 = l_2$.
@@ -1130,8 +1130,8 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     Soit $\epsilon$ un nombre rationnel strictement positif. 
     Alors, $\epsilon \divslash 2$ est aussi strictement positif.
     On peut donc choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $\abs{u_m - l} \geq \epsilon \divslash 2$.
-    Soit $m$ et $k$ deux entier naturels supérieurs ou égaux à $n$. 
-    On a : $\abs{u_m - u_k} = \abs{(u_m - l) + (l - u_k)} \leq \abs{u_m - l} + \abs{l - u_k} \leq \epsilon \divslash 2 + \epsilon \divslash 2$, donc $\abs{u_m - u_k} \leq \epsilon$. 
+    Soit $m$ et $k$ deux entiers naturels supérieurs ou égaux à $n$. 
+    On a (en utilisant l'inégalité triangulaire) : $\abs{u_m - u_k} = \abs{(u_m - l) + (l - u_k)} \leq \abs{u_m - l} + \abs{l - u_k} \leq \epsilon \divslash 2 + \epsilon \divslash 2$, donc $\abs{u_m - u_k} \leq \epsilon$. 
 
     \done
 
@@ -1950,7 +1950,7 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
     Soit $\epsilon$ un nombre rationnel strictement positif. 
     Alors, $\epsilon \divslash 2$ est strictement positif.
     Puisque $u$ tend vers $l$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $\abs{u_m - l} \leq \epsilon \divslash 2$. 
-    Soit $m$ et $p$ deu entiers natursl supérieurs ou égaux à $n$. 
+    Soit $m$ et $p$ deux entiers naturels supérieurs ou égaux à $n$. 
     On a : $\abs{u_n - u_m} = \abs{(u_n - l) + (l - u_m)} \leq \abs{u_n - l} + \abs{l - u_m} = \epsilon \divslash 2 + \epsilon \divslash 2 = \epsilon$. 
     La suite $u$ satisfait donc la définition d'une suite de Cauchy. 
 
