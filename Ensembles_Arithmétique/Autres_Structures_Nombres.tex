@@ -1261,7 +1261,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
         \item $(u \times v)_n = u_n \times v_n$. 
     \end{itemize}
     Avec les mêmes notations, si $q \neq 0$, on définit la suite $u \divslash q$ par : pour tout entier naturel $n$, $(u \divslash q)_n - u_n \divslash q$ et.
-    Si $v_n \neq 0$ pour tout entier naturel $n$, on définit également la suite $u \divslash v$ par $\left( u \divslash v \right)_n = u_n \divslash v_n$ pour tout entier naturel $n$.
+    Si $v_n \neq 0$ pour tout entier naturel $n$, on définit également la suite $u \divslash v$, aussi notée $u \div v$, par $\left( u \divslash v \right)_n = u_n \divslash v_n$ pour tout entier naturel $n$.
 
 \medskip
 
@@ -1282,7 +1282,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     On peut donc choisir un entier naturel $m$ tel que, pour entier naturel $k$, $k \geq m \Rightarrow \abs{u_n - q} \leq (q - p) \div 2$.
     Notons $k$ le maximum de $n$ et $m$. 
     Puisque $k \geq n$, $u_k \leq p$. 
-    Puisque $q - u_k = (q - p) + (p - u_k)$, on a donc : $q - u_k \geq q - p$, donc $q - u_k \geq 0$ et $\abs{q - u_k} \geq (q - p)$.
+    Puisque $q - u_k = (q - p) + (p - u_k)$, on a donc : $q - u_k \geq q - p$, donc $q - u_k \geq 0$ et $\abs{q - u_k} \geq q - p$.
     Puisque $q - p > (q - p) \div 2$, on a donc $\abs{q - u_k} > (q - p) \div 2$.
     Cela est une contradiction puisque $k \geq m$.
     On en déduit que l'hypothèse de départ est fausse, et donc que $q \leq p$
@@ -1293,7 +1293,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     On peut donc choisir un entier naturel $m$ tel que, pour entier naturel $k$, $k \geq m \Rightarrow \abs{u_n - q} \leq (p - q) \div 2$.
     Notons $k$ le maximum de $n$ et $m$. 
     Puisque $k \geq n$, $u_k \geq p$. 
-    Puisque $u_k - q = (u_k - p) + (p - q)$, on a donc : $u_k - q \geq p - q$, donc $u_k - q \geq 0$ et $\abs{q - u_k} \geq (p - q)$.
+    Puisque $u_k - q = (u_k - p) + (p - q)$, on a donc : $u_k - q \geq p - q$, donc $u_k - q \geq 0$ et $\abs{q - u_k} \geq p - q$.
     Puisque $p - q > (p - q) \div 2$, on a donc $\abs{q - u_k} > (p - q) \div 2$.
     Cela est une contradiction puisque $k \geq m$.
     On en déduit que l'hypothèse de départ est fausse, et donc que $p \leq q$
@@ -1305,11 +1305,11 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 \noindent\textbf{Lemme :} Soit $p$ et $q$ deux nombres rationnels et $u$ et $v$ deux suites de nombres rationnels admettant respectivement $p$ et $q$ pour limites. 
     Alors, 
     \begin{itemize}[nosep]
-        \item Définissons la suite $w$ par : pour tout entier naturel $n$, $w_n = u_n + v_n$. 
+        \item Définissons la suite $w$ par : $w = u + v$. 
             Alors, $w$ admet $p + q$ pour limite.
-        \item Définissons la suite $x$ par : pour tout entier naturel $n$, $x_n = u_n - v_n$. 
+        \item Définissons la suite $x$ par : $x = u - v$. 
             Alors, $w$ admet $p - q$ pour limite.
-        \item Définissons la suite $y$ par : pour tout entier naturel $n$, $y_n = u_n \times v_n$. 
+        \item Définissons la suite $y$ par : $y = u \times v$. 
             Alors, $w$ admet $p \times q$ pour limite.
         \item Supposons $q \neq 0$. 
             Alors, on peut choisir un entier naturel $n_0$ (voir démonstration ci-dessous) tel que $u_n \neq 0$ pour tout entier naturel $n$ tel que $n \geq n_0$.
