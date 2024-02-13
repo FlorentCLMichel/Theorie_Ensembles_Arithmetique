@@ -126,6 +126,27 @@ Cela est représenté figures~\ref{fig:varphi_n} et~\ref{fig:varphi_n2}.
 
 \clearpage
 
+\section{Une séquence de nombres pseudo-aléatoire}
+
+\begin{python}
+import random
+pow_10 = 80
+n_nombres = 51
+\end{python}
+
+\noindent
+La séquence de nombres suivante sera (avec une très haute probabilité) différent à chaque compilation de ce document. 
+(Il y a $10^{\py{pow_10 * n_nombres}}$ possibilités différentes.)
+
+\bigskip
+
+\begin{python}
+for i in range(n_nombres):
+    print('\\noindent\\texttt{' + str(random.randint(0,10**pow_10)).zfill(pow_10) + '}\n')
+\end{python}
+
+\clearpage
+
 % index on 3 columns
 \makeatletter
 \renewenvironment{theindex}
