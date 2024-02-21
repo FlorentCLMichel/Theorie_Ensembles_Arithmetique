@@ -1008,6 +1008,11 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
+\noindent\textbf{Corroaire :} Soit $p$ et $q$ deux nombres rationnels. 
+    Puisque $\abs{-q} = \abs{q}$, on a : $\abs{p} - \abs{q} \leq \abs{p - q} \leq \abs{p} + \abs{q}$.
+
+\medskip
+
 \noindent\textbf{Lemme :} Soit $q$ un nombre rationnel et $p$ un nombre rationnel positif. 
     Alors, $\abs{q} \leq p \Leftrightarrow -p \leq q \leq p$.
 
@@ -1312,7 +1317,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
         \item Définissons la suite $y$ par : $y = u \times v$. 
             Alors, $w$ admet $p \times q$ pour limite.
         \item Supposons $q \neq 0$. 
-            Alors, on peut choisir un entier naturel $n_0$ (voir démonstration ci-dessous) tel que $u_n \neq 0$ pour tout entier naturel $n$ tel que $n \geq n_0$.
+            Alors, on peut choisir un entier naturel $n_0$ (voir démonstration ci-dessous) tel que $v_n \neq 0$ pour tout entier naturel $n$ tel que $n \geq n_0$.
             Définissons la suite $z$ par : pour tout entier naturel $n$, $z_n = 0$ si $n < n_0$ et $z_n = u_n \divslash v_n$ si $n \geq n_0$.
             Alors, $z$ admet $p \divslash q$ pour limite.
     \end{itemize}
@@ -1332,7 +1337,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     Soit $n$ un entier naturel supérieur ou égal à $n_w$. 
     Alors $n \geq n_u$ et $n \geq n_v$. 
     On a alors : $\abs{w_n - (p+q)} = \abs{(u_n-p) + (v_n-q)} \leq \abs{u_n-p} + \abs{v_n-q} \leq \epsilon \divslash 2 + \epsilon \divslash 2 = \epsilon$.
-    (Où on a utilisé l'inégalité triangulaire)
+    (Où l'on a utilisé l'inégalité triangulaire)
     Donc, $\abs{w_n - (p+q)} \leq \epsilon$.
     Cela montre que la suite $w$ admet $p+q$ comme limite.
 
@@ -1343,9 +1348,17 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     Puisque les deux suites $u$ et $v$ sont convergentes, elles sont également bornées.
     On peut donc choisir quatre nombres rationnels $a$, $b$, $c$ et $d$ tels que, pour tout entier naturel $n$, $a \leq u_n \leq b$ et $c \leq v_n \leq d$.
     Soit $m$ le maximum de $\lbrace \abs{a}, \abs{b}, \abs{c}, \abs{d}, 1 \rbrace$.
-    On montre facilement\footnote{On peut par exemple utiliser les propriétés suivantes : $-m \leq a$, $-m \leq c$, $m \geq b$, $m \geq c$.} que, pour tout entier naturel $n$, $-m \leq u_n \leq m$ et $-m \leq v_n \leq m$.
-    Soit $\epsilon$ un ombre rationnel strictemet supérieur à $0$. 
-    Puisque $m \geq 1$, $m > 0$, donc $é \, m > 0$, $\epsilon \div (2 m) > 0$. 
+    On montre facilement que, pour tout entier naturel $n$, $-m \leq u_n \leq m$ et $-m \leq v_n \leq m$.%
+    \footnote{
+        En effet, pour tout entier naturel $n$, 
+        \begin{itemize}[nosep]
+            \item $-m \leq -\abs{a} \leq a \leq u_n$,
+            \item $m \geq \abs{b} \geq b \geq u_n$,
+            \item $-m \leq -\abs{c} \leq c \leq v_n$,
+            \item $m \geq \abs{d} \geq d \geq v_n$.
+        \end{itemize}
+    }
+    Puisque $m \geq 1$, $m > 0$, donc $\epsilon \div (2 m) > 0$. 
     On peut donc choisir deux entiers naturels $n_1$ et $n_2$ tels que, pour tout entier naturel $n$ : 
     \begin{itemize}[nosep]
         \item si $n \geq n_1$, $\abs{u_n - p} \leq \epsilon \div (2 m)$,
@@ -1363,7 +1376,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     Pour le dernier point, supposons que $q \neq 0$. 
     Alors, $\abs{q - 0} > 0$, donc $\abs{q - 0} \divslash 2 > 0$. 
     Donc, on peut choisir un entier naturel $n_0$ tel que, pour tout entier naturel $n$ tel que $n \geq n_0$, $\abs{u_n - q} \leq \abs{q - 0} \divslash 2$.
-    Or, pour tout entier naturel $n$, $\abs{0 - q} = \abs{q - 0}$, donc $\abs{0 - q} > \abs{q - 0} \divslash 2$. 
+    Or, $\abs{0 - q} = \abs{q - 0}$, donc $\abs{0 - q} > \abs{q - 0} \divslash 2$. 
     On en déduit que, pour tout entier naturel $n$ tel que $n \geq n_0$, $u_n \neq 0$, ce qui permet de définir la suite $z$ comme dans l'énoncé.
 
     Définissons les suites $\tilde{v}$ et $\tilde{z}$ par : pour tout entier naturel $n$, 
