@@ -1420,7 +1420,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 \medskip
 
 \noindent\textbf{Définition :} Soit $u$ une suite de nombres rationnels. 
-    On dit que \emph{$u$ tend vers $+\infty$}, et on note $u \rightarrow + \infty$ ou $u \rightarrow \infty$ si
+    On dit que \emph{$u$ tend vers $+\infty$} (ou \emph{tend vers $\infty$}), et on note $u \rightarrow + \infty$ (ou $u \rightarrow \infty$), si
     \begin{equation*}
         \forall q \in \mathbb{Q} \, 
         \exists n \in \mathbb{N} \, 
@@ -1428,7 +1428,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
         m \geq n \Rightarrow
             u_m \geq q.
     \end{equation*}
-    On dit que \emph{$u$ tend vers $-\infty$}, et on note $u \rightarrow - \infty$ si
+    On dit que \emph{$u$ tend vers $-\infty$}, et on note $u \rightarrow - \infty$, si
     \begin{equation*}
         \forall q \in \mathbb{Q} \, 
         \exists n \in \mathbb{N} \, 
@@ -1459,8 +1459,8 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 \medskip
 
 \noindent\textbf{Démonstration :} Supposons par l'absurde que l'on puisse choisir une suite $u$ tendant vers $+\infty$ et vers $-\infty$.
-    Puisque $u$ tends vers $+\infty$, on peut choisir un entier naturel $n_+$ tel que $u_n \geq 1$ pour tout entier naturel $n$ supérieur ou égal à $n_+$.
-    Puisque $u$ tends vers $-\infty$, on peut choisir un entier naturel $n_-$ tel que $u_n \leq -1$ pour tout entier naturel $n$ supérieur ou égal à $n_-$.
+    Puisque $u$ tend vers $+\infty$, on peut choisir un entier naturel $n_+$ tel que $u_n \geq 1$ pour tout entier naturel $n$ supérieur ou égal à $n_+$.
+    Puisque $u$ tend vers $-\infty$, on peut choisir un entier naturel $n_-$ tel que $u_n \leq -1$ pour tout entier naturel $n$ supérieur ou égal à $n_-$.
     Puisque $\mathrm{max}(n_+, n_-) \geq n_+$ et  $\mathrm{max}(n_+, n_-) \geq n_-$, on a alors $u_{ \mathrm{max}(n_+, n_-) } \geq 1$ et $u_{ \mathrm{max}(n_+, n_-) } \leq -1$, donc $-1 \geq 1$, ce qui est faux.
     On en déduit que l'hypothèse de départ est fausse.
 
@@ -1470,23 +1470,23 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \noindent\textbf{Lemme :} Soit $u$ et $v$ deux suites de rationnels.
     \begin{itemize}[nosep]
-        \item Si $u$ tend vers $+\infty$ et si $v_n \geq u_n$ pour tout entier naturel $n$, alors $v$ tend vers $+\infty$.
-        \item Si $u$ tend vers $-\infty$ et si $v_n \leq u_n$ pour tout entier naturel $n$, alors $v$ tend vers $-\infty$.
+        \item Si $u$ tend vers $+\infty$ et s'il existe un entier naturel $n$ tel que $v_m \geq u_m$ pour tout entier naturel $m$ supérieur ou égal à $n$, alors $v$ tend vers $+\infty$.
+        \item Si $u$ tend vers $-\infty$ et s'il existe un entier naturel $n$ tel que $v_m \leq u_m$ pour tout entier naturel $m$ supérieur ou égal à $n$, alors $v$ tend vers $-\infty$.
     \end{itemize}
 
 \medskip
 
 \noindent\textbf{Démonstration :} 
+    Dans cette démonstration, $n$ est un entier naturel.
     \begin{itemize}[nosep]
-        \item Supposons que $u$ tend vers $+\infty$ et si $v_n \geq u_n$ pour tout entier naturel $n$.
-            Soit $q$ un nombre rationnel
-            Puisque $u$ tend vers $+\infty$, on peut choisir un entier naturel $n$ tel que $u_m \geq q$ pour tout entier naturel $m$ supérieur ou égal à $n$.
-            Pour tout entier naturel $m$ supérieur ou égal à $n$, on a donc $v_m \geq u_m \geq q$, et donc $v_m \geq q$.
+        \item Supposons que $u$ tend vers $+\infty$ et $v_m \geq u_m$ pour tout entier naturel $m$ supérieur ou égal à $n$.
+            Puisque $u$ tend vers $+\infty$, on peut choisir un entier naturel $l$ tel que $u_m \geq q$ pour tout entier naturel $m$ supérieur ou égal à $l$.
+            Pour tout entier naturel $m$ supérieur ou égal à $\mathrm{max}(n,l)$, on a donc $v_m \geq u_m \geq q$, et donc $v_m \geq q$.
             Cela montre que $v$ tend vers $+\infty$.
-        \item Supposons que $u$ tend vers $-\infty$ et si $v_n \leq u_n$ pour tout entier naturel $n$.
-            Soit $q$ un nombre rationnel
-            Puisque $u$ tend vers $-\infty$, on peut choisir un entier naturel $n$ tel que $u_m \leq q$ pour tout entier naturel $m$ supérieur ou égal à $n$.
-            Pour tout entier naturel $m$ supérieur ou égal à $n$, on a donc $v_m \leq u_m \leq q$, et donc $v_m \geq q$.
+        \item Supposons que $u$ tend vers $-\infty$ et $v_m \leq u_m$ pour tout entier naturel $m$ supérieur ou égal à $n$.
+            Soit $q$ un nombre rationnel.
+            Puisque $u$ tend vers $-\infty$, on peut choisir un entier naturel $l$ tel que $u_m \leq q$ pour tout entier naturel $m$ supérieur ou égal à $l$.
+            Pour tout entier naturel $m$ supérieur ou égal à $\mathrm{max}(n,l)$, on a donc $v_m \leq u_m \leq q$, et donc $v_m \geq q$.
             Cela montre que $v$ tend vers $-\infty$.
     \end{itemize}
 
@@ -1504,7 +1504,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     Soit $a$ et $b$ les deux entiers naturels tels que $(a, b)$ est la représentation irréductible de $\abs{q}$.
     Alors, $b \geq 1$.
     Puisque $\abs{q}$ est positif, $a \geq 0$.
-    Pour tout entier naturel $m$ supérieur ou égal à $a$, on a donc : $b times \u_m = (b \times m, 1) \geq (b \times a, 1) \geq (a, 1) = \abs{q} \times b$, donc $u_m \geq \abs{q}$.
+    Pour tout entier naturel $m$ supérieur ou égal à $a$, on a donc : $b \times \u_m = (b \times m, 1) \geq (b \times a, 1) \geq (a, 1) = \abs{q} \times b$, donc $u_m \geq \abs{q}$.
     Prendre $n = a$ convient donc.
 
     On en déduit que $u$ tend vers $+\infty$.
