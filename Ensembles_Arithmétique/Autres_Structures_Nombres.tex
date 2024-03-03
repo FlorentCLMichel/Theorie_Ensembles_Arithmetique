@@ -53,7 +53,7 @@ Autrement dit,
 \medskip
 
 On appelle \emph{ensemble des nombres rationnels}, noté $\mathbb{Q}$, l'ensemble des classes d'équivalences de $\mathcal{R}$, appelées \emph{nombres rationnels}, ou simplement \emph{rationnels}. 
-\aindex{Nombre rationnel} \aindex{Rationnel} \sindex[isy]{$\mathbb{Q}$}
+\index{Nombre rationnel} \index{Rationnel} \sindex[isy]{$\mathbb{Q}$}
 Autrement dit, $\mathbb{Q}$ est l'ensemble défini par : 
 \begin{equation*}
     \mathbb{Q} = (\mathbb{Z} \times \mathbb{Z}^*) \divslash \mathcal{R} .
@@ -1386,13 +1386,13 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
         \item $\tilde{z}_n = u_n \times \tilde{v}_n$.
     \end{itemize}
     Alors, $\tilde{z}_n = z_n$ pour tout entier naturel $n$ supérieur ou égal à $n_0$. 
-    Il suffit donc de montrer que $\tilde{z}$ tends vers $p \divslash q$.
-    Pour ce faire, il est suffisant (d'après le résultat sur la multiplication) de montrer que $\tilde{v}$ tends vers $1 \divslash q$.
+    Il suffit donc de montrer que $\tilde{z}$ tend vers $p \divslash q$.
+    Pour ce faire, il est suffisant (d'après le résultat sur la multiplication) de montrer que $\tilde{v}$ tend vers $1 \divslash q$.
 
     Afin de simplifier encore le problème, définissons la suite $v'$ par : pour tout entier naturel $n$, $v_n' = \tilde{v}_n \times q$.
     Soit $\tilde{q}$ la suite définie par $\tilde{q}_n = 1 \divslash q$ pour tout entier naturel $n$. 
-    On a $\tilde{v}_n = v_n' \times \tilde{q}_n$ pour tout entier naturel $n$ et $\tilde{q}$ tends vers $1 \divslash q$. 
-    Si l'on peut montrer que $v'$ tends vers $1$, on en déduira que $\tilde{v}$ tend vers $1 \divslash q$.
+    On a $\tilde{v}_n = v_n' \times \tilde{q}_n$ pour tout entier naturel $n$ et $\tilde{q}$ tend vers $1 \divslash q$. 
+    Si l'on peut montrer que $v'$ tend vers $1$, on en déduira que $\tilde{v}$ tend vers $1 \divslash q$.
 
     Puisque $\abs{q} \divslash 2 > 0$, on peut choisir un entier naturel $n_1$ tel que, pour tout entier naturel $n$, 
     \begin{equation*}
@@ -1570,15 +1570,15 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \medskip
 
-\noindent Les deux derniers points peuvente être généralisés comme suit.
+\noindent Les deux derniers points peuvent être généralisés comme suit.
 
 \medskip
 
 \noindent\textbf{Lemme :} Soit $u$ et $v$ deux suites de rationnels.
     On suppose due $u$ tend vers $+\infty$.
     \begin{itemize}[nosep]
-        \item S'il existe un rationnel $q$ tel que $v_n \geq q$ pour tout entier naturel $n$, alors $u + v$ tends vers $+\infty$.
-        \item S'il existe un rationnel strictement positif $q$ et un entier naturel $n$ tel que $v_m \geq q$ pour tout entier naturel $m$ supérieur ou égal à $m$, alors $u \times v$ tends vers $+\infty$.
+        \item S'il existe un rationnel $q$ tel que $v_n \geq q$ pour tout entier naturel $n$, alors $u + v$ tend vers $+\infty$.
+        \item S'il existe un rationnel strictement positif $q$ et un entier naturel $n$ tel que $v_m \geq q$ pour tout entier naturel $m$ supérieur ou égal à $m$, alors $u \times v$ tend vers $+\infty$.
     \end{itemize}
 
 \medskip
@@ -1659,21 +1659,21 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 \noindent\textbf{Lemme :} Soit $u^+$ une suite tendant vers $+\infty$ et $u^-$ une suite tendant vers $-\infty$.
     Soit $v$ une suite bornée.
     On définit les deux suites $w^+$ et $w^-$ par : pour tout entier naturel $n$, $w^+_n = u^+_n + v_n$ et $w^-_n = u^ -_n + v_n$.
-    Alors, $w^+$ tend vers $+\infty$ et $w^-$ tends vers $-\infty$.
+    Alors, $w^+$ tend vers $+\infty$ et $w^-$ tend vers $-\infty$.
 
 \medskip
 
 \noindent\textbf{Démonstration :} 
-    Soit $a$ et $b$ deux nombres rationnels tels que : $\forall n \, in \mathbb{N} \, a \leq v_n \leq b$. 
+    Soit $a$ et $b$ deux nombres rationnels tels que : $\forall n \, \in \mathbb{N} \, a \leq v_n \leq b$. 
     (De tels nombres existent puisque $v$ est bornée.)
     Soit $c$ un nombre rationnel quelconque.
 
-    Puisque $w^+$ tend vers $+\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ suérieur ou égal à $n$, $u^+_n \geq c - a$.
-    Alors, pour tout entier naturel $m$ supérieur ou égal à $n$, on a $u^+_n + v_n \geq (c - a) + v_n \geq (c - a) + a \geq c$, donc $w^+_n \geq c$.
+    Puisque $u^+$ tend vers $+\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $u^+_m \geq c - a$.
+    Alors, pour tout entier naturel $m$ supérieur ou égal à $n$, on a $u^+_m + v_m \geq (c - a) + v_m \geq (c - a) + a \geq c$, donc $w^+_m \geq c$.
     Cela montre que $w^+$ tend vers $+\infty$.
     
-    Puisque $w^-$ tend vers $-\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ suérieur ou égal à $n$, $u^-_n \leq c - b$.
-    Alors, pour tout entier naturel $m$ supérieur ou égal à $n$, on a $u^-_n + v_n \leq (c - b) + v_n \geq (c - b) + b \geq c$, donc $w^-_n \leq c$.
+    Puisque $u^-$ tend vers $-\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $u^-_m \leq c - b$.
+    Alors, pour tout entier naturel $m$ supérieur ou égal à $n$, on a $u^-_m + v_n \leq (c - b) + v_m \geq (c - b) + b \geq c$, donc $w^-_m \leq c$.
     Cela montre que $w^-$ tend vers $-\infty$.
 
     \done
@@ -1686,8 +1686,8 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     On définit les deux suites $w^+$ et $w^-$ par : pour tout entier naturel $n$, $w^+_n = u^+_n \times v_n$ et $w^-_n = u^ -_n \times v_n$.
     Alors, 
     \begin{itemize}[nosep]
-        \item Si $l > 0$, alors $w^+$ tend vers $+\infty$ et $w^-$ tends vers $-\infty$.
-        \item Si $l < 0$, alors $w^+$ tend vers $-\infty$ et $w^-$ tends vers $+\infty$.
+        \item Si $l > 0$, alors $w^+$ tend vers $+\infty$ et $w^-$ tend vers $-\infty$.
+        \item Si $l < 0$, alors $w^+$ tend vers $-\infty$ et $w^-$ tend vers $+\infty$.
     \end{itemize}
 
 \medskip
@@ -1723,19 +1723,21 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \done
 
-\subsection{Le tore \texorpdfstring{$\mathbb{T}$}{T}}
-
-\noindent\textbf{Définition :} On définit dans cette section le \emph{tore}\index{Tore} $\mathbb{T}$ comme l'ensemble des suites d'éléments de $\lbrace 0, 1 \rbrace$ non constantes égale à $1$ à partir d'un certain rang : 
-\begin{equation*}
-    \mathbb{T} = \left\lbrace
-        x \in \lbrace 0, 1 \rbrace^{\mathbb{N}} 
-        \middle\vert
-        \forall n \in \mathbb{N} \, \exists m \in \mathbb{N} \, (m \geq n) \wedge (x_n = 0)
-    \right\rbrace .
-\end{equation*}
-Quand il n'y a pas d'ambiguité, on note $0$ l'élément de $\mathbb{T}$ dont tous les éléments sont égaux à $0$.
-
-% WHAT FOLLOWS IS WRONG (the definition of the additio does not work, for instance, for (in binary) 101 + 011)
+%\subsection{Le tore \texorpdfstring{$\mathbb{T}$}{T}}
+%
+%\noindent\textbf{Définition :} On définit dans cette section le \emph{tore}\index{Tore} $\mathbb{T}$ comme l'ensemble des suites d'éléments de $\lbrace 0, 1 \rbrace$ qui ne sont pas constantes égales à $1$ à partir d'un certain rang : 
+%\begin{equation*}
+%    \mathbb{T} = \left\lbrace
+%        x \in \lbrace 0, 1 \rbrace^{\mathbb{N}} 
+%        \middle\vert
+%        \forall n \in \mathbb{N} \, \exists m \in \mathbb{N} \, (m \geq n) \wedge (x_n = 0)
+%    \right\rbrace .
+%\end{equation*}
+%Quand il n'y a pas d'ambiguité, on note $0$ l'élément de $\mathbb{T}$ dont tous les éléments sont égaux à $0$.
+%
+%À tout élément $x$ de $\mathbb{T}$, on associe un élément $\mathsf{Seq(x)}$.
+%
+% WHAT FOLLOWS IS WRONG (the definition of the addition does not work, for instance, for (in binary) 101 + 011)
 %
 %\medskip
 %
@@ -1941,7 +1943,7 @@ Quand il n'y a pas d'ambiguité, on note $0$ l'élément de $\mathbb{T}$ dont to
 
 \medskip
 
-Intuitivement, une suite est de Cauchy si la distance maximale entre un de ses éléments et les suivants tends vers $0$. 
+Intuitivement, une suite est de Cauchy si la distance maximale entre un de ses éléments et les suivants tend vers $0$. 
 On pourrait penser qu'une telle suite doit être convergente. 
 Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant aux nombres réels, qui peuvent être formellement définis comme limites des suites de Cauchy de rationnels. 
 (On montrera aussi que toute suite de Cauchy de nombres réels converge.)
@@ -2180,6 +2182,47 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
 
 \emph{À écrire...}
 
+\subsubsection{Nombres entiers et rationnels comme sous-ensembles des nombres réels}
+\index{Nombre rationnel} \index{Rationnel}
+\index{Nombre entier} \index{Entier}
+
+On dira, quand il n'y a pas d'ambiguité, qu'un nombre réel $x$ est \emph{rationnel} si au moins un de ses éléments converge dans $\mathbb{Q}$.
+On dira que $x$ est \emph{entier} si la limite de cet élément est entière, \emph{i.e.} si le dénominateur de sa représentation irréductible est $1$.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $x$ un nombre réel. Si $x$ est rationnel selon la définition ci-dessus, alors tous ses éléments convergent dans $\mathbb{Q}$ et leurs limites sont identiques.
+
+\medskip
+
+\noindent\textbf{Démonstration :} ***
+
+\subsubsection{Le tore \texorpdfstring{$\mathbb{T}$}{T}}
+
+On définit le tore $\mathbb{T}$ par l'ensemble des classe d'équivalences pour la relation $R$ sur $\mathbb{R}$ définie par : pour tous nombres réels $x$ et $y$, $a \mathrel{R} y$ si et seulement si $x - y$ est entier. 
+
+\medskip
+
+\noindent\textbf{Preuve qu'il s'agit bien d'une relation d'équivalence :}
+\begin{itemize}[nosep]
+    \item \emph{Réflexivité :} Soit $x$ un nombre réel.
+        Par définition, $x - x$ a pour représentant la suite constante égale à $0$, qui a pour limite $0$.
+        Donc, $x - x$ est entier, donc $x \mathrel{R} x$.
+    \item \emph{Symétrie :} Soit $x$ et $y$ deux ombres réels.
+        On suppose $x \mathrel{R} y$. 
+        Soit $u$ un représentant de $x$ et $v$ un représentant de $y$.
+        Alors, $u - v$ conerge et sa limite est un entier $n$.
+        Donc, $v - u$ tend vers $-n$, qui est aussi entier.
+        Donc, $y \mathrel{R} x$.
+    \item \emph{Transitivité :} Soit $x$, $y$ et $z$ tels que $x \mathrel{R} y$ et $y \mathrel{R} z$. 
+        Soit $u$ un représentant de $x$, $v$ un représentant de $y$ et $w$ un représentant de $z$.
+        Alors, $u - v$ tend vers un entier $n$ et $v - w$ tend vers un entier $m$.
+        Donc, $u - w$ (égale à $(u - v) + (v - w)$) tend vers $n + m$, qui est entier.
+        Donc, $x \mathrel{R} z$.
+\end{itemize}
+
+\done
+ 
 \subsection{Nombres complexes}
 
 \noindent\textbf{Définition :} 
