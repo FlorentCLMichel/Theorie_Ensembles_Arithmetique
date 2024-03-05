@@ -1265,6 +1265,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
         \item $(u - v)_n = u_n - v_n$,
         \item $(u \times v)_n = u_n \times v_n$. 
     \end{itemize}
+    Avec les mêmes notations, on peut noter $-u$ la suite $(-1) \times u$.
     Avec les mêmes notations, si $q \neq 0$, on définit la suite $u \divslash q$ par : pour tout entier naturel $n$, $(u \divslash q)_n - u_n \divslash q$ et.
     Si $v_n \neq 0$ pour tout entier naturel $n$, on définit également la suite $u \divslash v$, aussi notée $u \div v$, par $\left( u \divslash v \right)_n = u_n \divslash v_n$ pour tout entier naturel $n$.
 
@@ -1683,7 +1684,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 \noindent\textbf{Lemme :} Soit $u^+$ une suite tendant vers $+\infty$ et $u^-$ une suite tendant vers $-\infty$.
     Soit $v$ une suite convergente et $l$ sa limite.
     On suppose $l \neq 0$.
-    On définit les deux suites $w^+$ et $w^-$ par : pour tout entier naturel $n$, $w^+_n = u^+_n \times v_n$ et $w^-_n = u^ -_n \times v_n$.
+    On définit les deux suites $w^+$ et $w^-$ par : $w^+ = u^+ \times v$ et $w^- = u^- \times v$.
     Alors, 
     \begin{itemize}[nosep]
         \item Si $l > 0$, alors $w^+$ tend vers $+\infty$ et $w^-$ tend vers $-\infty$.
@@ -1714,11 +1715,18 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
         Pour tout entier naturel $r$ supérieur ou égal à $m^-$, on a alors $u^-_r \leq -\abs{p} \divslash (l \divslash 2)$ et $v_r \geq l \divslash 2$, donc $w^-_r \leq \left( - \abs{p} \divslash (l \divslash 2)\right) \times v_r \leq p$. 
         Cela étant vrai pour tout nombre rationnel $p$, on en déduit que $w^-$ tend vers $-\infty$.
 
-    \item Définissons la suite $x$ par : pour tout entier naturel $n$, $x_n = -v_n$.
+    \item \emph{Demonstration alternative du premier point:} 
+    \begin{itemize}[nosep]
+        \item Avec les mêmes notations, puisque $v_r \geq l \divslash 2$ pour tout entier naturel $r$ supérieur ou égal à $n^v$ et puisque $l \divslash 2 > 0$, $u^+ \times v$ tend vers $+\infty$ d'après un lemme précédent, donc $w^+$ tend vers $+\infty$.
+        \item On a : $w^- = - ((-u^-) \times v)$.
+            Puisque $u^- \to -\infty$, $-u^- \to +\infty$, donc $(-u^-) \times v \to +\infty$, et donc $w^- \to -\infty$.
+    \end{itemize}
+
+    \item Définissons la suite $x$ par : $x = -v$.
         Alors, $x$ tend vers $- l \divslash 2$, qui est strictement positif.
-        Définissons les suites $x^+$ et $x^-$ par : pour tout entier naturel $n$, $x^+_n = u^+_n \times x_n$ et $x^+_n = u^+_n \times x_n$.
-        Alors, d'après le cas précédent, $x^+$ tend vers $+\infty$ et $x^-$ tend vers $-\infty$.
-        Puisque $v^+_n = - x^+_n$ et $v^-_n = - x^-_ n$ pour tout entier naturel $n$, on en déduit que $v^+$ tend vers $-\infty$ et que $v^-$ tend vers $+\infty$.
+        Définissons les suites $x^+$ et $x^-$ par : $x^+ = u^+ \times x$ et $x^- = u^- \times x$.
+        Alors, d'après le cas précédent, $x^+ \to +\infty$ et $x^- \to -\infty$.
+        Puisque $v^+ = - x^+$ et $v^- = - x^-$, on en déduit que $v^+ \to -\infty$ et que $v^- \to +\infty$.
 \end{itemize}
 
 \done
