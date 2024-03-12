@@ -1419,9 +1419,17 @@ On dit alors que $y$ est l'\textit{image}\index{Image} de $x$ ou que $x$ est un 
 On dit aussi que $f$ \textit{associe} $y$ à $x$. 
 
 On dit que $f$ est \textit{définie sur} $X$, ou que $X$ est le \textit{domaine de définition}\index{Domaine de définition} de $f$. 
-L'ensemble des éléments de $y$ tels qu'il existe un élément $x$ de $X$ satisfaisant $f(x) = y$ est appelé \emph{image} de $f$.
+L'ensemble des éléments de $y$ tels qu'il existe un élément $x$ de $X$ satisfaisant $f(x) = y$ est appelé \emph{image} de $f$, notée $\mathrm{Im}(f)$ (c'est donc l'ensemble $\lbrace y \in Y \vert \exists x \, (x \in X) \wedge f(x) = y \rbrace$). 
 La notation $f: X \to Y$, signifie que $f$ est une fonction de $X$ vers $Y$. 
 Avec les mêmes notations, si $X'$ est un sous-ensemble de $X$ et s'il n'y a pas d'ambiguité\footnote{Une telle ambiguité pourrait survenir dans des cas particuliers si $X' \in X$.}, on appellera \emph{image de $X'$ par $f$} l'ensemble des éléments $y$ de $Y$ tels qu'il existe un élément $x$ de $X'$ tel que $f(x) = y$.
+
+Pour tout sous-ensemble $Y'$ de $Y$, on note $f^{-1}(Y')$ l'ensemble $\lbrace x \in X \vert f(x) \in Y' \rbrace$, appelé \textit{image inverse}\index{Image inverse} de $G$ par $f$. 
+S'il n'y a pas d'ambigüité, et si $y \in Y$, on notera parfois $f^{-1}(y)$ l'ensemble $f^{-1}(\lbrace y \rbrace)$.
+(Les ensembles ainsi obtenus pour différentes valeurs de $y$ sont deux à deux disjoints. 
+En effet, soit $y$ et $z$ deux éléments de $Y$ et $x$ un élément de $X$. 
+Si $x \in f^{-1}(y) \cap f^{-1}(z)$, on a $f(x) = y$ et $f(x) = z$, et donc $y = z$. 
+Ainsi, si $y \neq z$, $f^{-1}(y) \cap f^{-1}(z)$ est vide.)
+Notons que, pour tout élément $y$ de $F$, on a $f^{-1}(y) \neq \emptyset \Leftrightarrow y \in \mathrm{Im}(f)$. 
 
 Soit $X$ et $Y$ deux ensembles. 
 L'ensemble des fonctions de $X$ vers $Y$ existe : il s'agit du sous-ensemble de l'ensemble des parties de $X \times Y$ (qui existe d'après l'axiome de l'ensemble des parties) satisfaisant la seconde et la troisième conditions ci-dessus (qui existe donc d'après le schéma d'axiomes de compréhension)%
@@ -1500,14 +1508,6 @@ On dit que
         Puisque chaque élément de $f$ est dans $E \times F$, cela est équivalent à : $\forall y \in F \; \exists x \in E \, [f(x) = y]$.
     \item $f$ est \textit{bijective} (ou \textit{une bijection}) si elle est à la fois injective et surjective, ce qui est équivalent à : $\forall y \in F \; \exists ! x \, [f(x) = y]$ et à : $\forall y \in F \; \exists ! x \in E \, [f(x) = y]$.
 \end{itemize}
-L'\textit{image} de la fonction $f$, notée $\mathrm{Im}(f)$, est l'ensemble $\lbrace y \in F \vert \exists x \, (x \in E) \wedge f(x) = y \rbrace$. 
-Pour tout sous-ensemble $G$ de $F$, on note $f^{-1}(G)$ l'ensemble $\lbrace x \in E \vert f(x) \in G \rbrace$. 
-S'il n'y a pas d'ambigüité, et si $y \in F$, on notera parfois $f^{-1}(y)$ l'ensemble $f^{-1}(\lbrace y \rbrace)$.
-(Les ensembles ainsi obtenus pour différentes valeurs de $y$ sont deux à deux disjoints. 
-En effet, soit $y$ et $z$ deux éléments de $F$ et $x \in E$. 
-Si $x \in f^{-1}(y) \cap f^{-1}(z)$, on a $f(x) = y$ et $f(x) = z$, et donc $y = z$. 
-Ainsi, si $y \neq z$, $f^{-1}(y) \cap f^{-1}(z)$ est vide.)
-Notons que, pour tout élément $y$ de $F$, on a $f^{-1}(y) \neq \emptyset \Leftrightarrow y \in \mathrm{Im}(f)$. 
 
 \medskip
 
