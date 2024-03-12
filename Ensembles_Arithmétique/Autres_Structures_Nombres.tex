@@ -2308,3 +2308,25 @@ On définit le tore $\mathbb{T}$ par l'ensemble des classe d'équivalences pour 
 \medskip
 
 \noindent\textbf{Démonstration :} Voir démonstration du théorème équivalent pour les nombres rationnels page \pageref{demo:rel_puissances_q} en remplaçant $q$ par $z$.
+
+\subsection{Éléments de Topologie Générale}
+
+\noindent\textbf{Définition :} Soit $E$ un ensemble.
+    Un ensemble $T$ est une \emph{topologie sur $E$} si les conditions suivantes sont satisfaites ; le couple $(E, T)$ est alors dit \emph{espace topologique} et les éléments de $T$ sont ses \emph{ouverts} :
+    \begin{itemize}[nosep]
+        \item $T$ est un ensemble de parties de $E$ : $\forall x \in T \, x \subset E$,
+        \item l'ensemble vide appartient à $T$ : $\emptyset \in T$,
+        \item $E$ appartient à $T$ : $E \in T$,
+        \item toute réunion d'ouverts est un ouvert : $\forall I \, I \subset T \Rightarrow \cup I \in T$,
+        \item toute intersection finie d'ouverts est un ouvert : pour tout entier naturel strictement positif $n$, $\forall O_1 \in T \, \forall O_2 \in T \cdots \forall O_n \in T \, O_1 \cap O_2 \cap \cdots \cap O_n \in T$.
+    \end{itemize}
+
+\medskip
+
+\noindent\textbf{Définition :} Soit $(E, T)$ un espace topologique.
+    Un sous-ensemble $F$ de $E$ est dit \emph{fermé} si $E \setminus F$ et un ouvert, \emph{i.e.}, si $E \setminus F \in T$.
+
+\medskip
+
+\noindent\textbf{Définition :} Soit $(E, T)$ et $(F, U)$ deux espaces topologiques et $f$ une fonction de $E$ vers $F$.
+    On dit que $f$ est \emph{continue} (pour les topologies $T$ et $U$) si, pour tout sous-ensemble $E'$ de $E$, l'image de $E'$ par $f$ (\emph{i.e.} l'ensemble des $f(e)$ pour $e \in E'$) est un élément de $U$.
