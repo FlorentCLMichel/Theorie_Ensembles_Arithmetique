@@ -2087,15 +2087,15 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
 \noindent\textbf{Démonstration :} 
     Soit $u$ une suite de nombres rationnels. 
     On suppose que $u$ est de Cauchy. 
-    On peut choisir un entier naturel $n_0$ tel que $\abs{u_n - u_m} \leq 1$ pour tous entiers naturels $n$ et $m$ supérieurs ou égaux à $n_0$. 
-    Soit $E$ l'ensemble $\lbrace \abs{u_0}, \abs{u_1}, \dots, \abs{u_{n_0 - 1}}, \abs{u_{n_0}} + 1 \rbrace$. 
+    On peut choisir un entier naturel $n_0$ tel que $\fabs{u_n - u_m} \leq 1$ pour tous entiers naturels $n$ et $m$ supérieurs ou égaux à $n_0$. 
+    Soit $E$ l'ensemble $\left\lbrace \fabs{u_0}, \fabs{u_1}, \dots, \fabs{u_{n_0 - 1}}, \fabs{u_{n_0}} + 1 \right\rbrace$. 
     L'ensemble $E$ est fini et non vide (son cardinal est $n_0$). Donc (puisque $\leq$ est une relation d'ordre total sur $\mathbb{Q}$), il admet un maximum, noté $M$ dans la suite de cette démonstration.
     Soit $n$ un entier naturel quelconque. 
-    Si $n < n_0$, alors $\abs{u_n} \in E$, donc $\abs{u_n} \leq M$.
-    Sinon, on a $\abs{u_n - u_{n_0}} \leq 1$, donc, d'après l'inégalité triangulaire, $\abs{u_n} - \abs{u_{n_0}} \leq 1$, donc $\abs{u_n} \leq \abs{u_{n_0}} + 1$.
-    Puisque $\abs{u_{n_0}} + 1 \in E$, $\abs{u_{n_0}} + 1 \leq M$, donc $u_n \leq M$. 
+    Si $n < n_0$, alors $\fabs{u_n} \in E$, donc $\fabs{u_n} \leq M$.
+    Sinon, on a $\fabs{u_n - u_{n_0}} \leq 1$, donc, d'après l'inégalité triangulaire, $\fabs{u_n} - \fabs{u_{n_0}} \leq 1$, donc $\fabs{u_n} \leq \fabs{u_{n_0}} + 1$.
+    Puisque $\fabs{u_{n_0}} + 1 \in E$, $\fabs{u_{n_0}} + 1 \leq M$, donc $u_n \leq M$. 
 
-    Pour tout entier naturel $n$, on a donc $\abs{u_n} \leq M$, et donc $-M \leq u_n \leq M$.
+    Pour tout entier naturel $n$, on a donc $\fabs{u_n} \leq M$, et donc $-M \leq u_n \leq M$.
     Cela montre que la suite $u$ est bornée. 
 
     \done

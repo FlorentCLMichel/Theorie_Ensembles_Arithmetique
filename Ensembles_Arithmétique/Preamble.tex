@@ -2,10 +2,10 @@
 \pdfminorversion=5
 \pdfobjcompresslevel=3 
 \pdfcompresslevel=9
+\pdfprotrudechars1
+\pdfadjustspacing1
 
 \documentclass[fontsize=10pt, DIV=15]{scrartcl}
-  \pdfprotrudechars1
-  \pdfadjustspacing1
 
 \addtokomafont{author}{\color{black!50!white}}
 \addtokomafont{date}{\color{black!50!white}}
@@ -40,29 +40,31 @@
 \usepackage{fontspec}
   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
 \usepackage{polyglossia}
-\setmainlanguage{french}
-\setotherlanguage{english}
+  \setmainlanguage{french}
+  \setotherlanguage{english}
+
 \usepackage{amsmath, amssymb, amsfonts}
-\usepackage{mathtools}
-\usepackage{enumitem}
-%\usepackage{pythontex}
-\usepackage[executable=python3]{pyluatex}
-\usepackage{soul}
 \usepackage[math-style=TeX]{unicode-math}
 \setmainfont[Microtype,Ligatures=TeX]{XITS}
-\setsansfont{Source Sans 3}
+\setsansfont{Latin Modern Sans}
 \setmathfont{XITS Math}
 \setmonofont{DejaVu Sans Mono}
 %\usepackage[final]{microtype}
 
-\usepackage{multicol}
-\usepackage{graphicx}  
-\usepackage{xcolor}
-\usepackage{mathrsfs}
+% general packages
 \usepackage{calligra}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{graphicx}  
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage[executable=python3]{pyluatex}
+%\usepackage{pythontex}
+\usepackage{soul}
 \usepackage[many]{tcolorbox}
 \usepackage{textcomp}
-\usepackage{caption}
+\usepackage{xcolor}
 \usepackage{xr-hyper}
 
 % for more customizable tables
@@ -95,7 +97,16 @@
         highlight math style= {enhanced, colframe=black, colback=white, boxsep=0pt}}
 
 % hyperref
-\usepackage[unicode=true,colorlinks=true,filecolor=linkcolor,linkcolor=linkcolor,citecolor=linkcolor,urlcolor=linkcolor,runcolor=linkcolor,linktoc=all]{hyperref}
+\usepackage[%
+    unicode=true,
+    colorlinks=true,
+    filecolor=linkcolor,
+    linkcolor=linkcolor,
+    citecolor=linkcolor,
+    urlcolor=linkcolor,
+    runcolor=linkcolor,
+    linktoc=all
+]{hyperref}
 
 % code appearance
 \usepackage[outputdir=build]{minted}
@@ -169,7 +180,7 @@
 
 % custom environments
 \usepackage{environ}
-\NewEnviron{foot}{\footnote{\BODY} } % footnote
+\NewEnviron{foot}{\footnote{\BODY}} % footnote
 
 % format for footnotes
 \deffootnote[\dimexpr1mm+7.5pt\relax]{\dimexpr1mm+0.5pt\relax}{1em}{\thefootnotemark~}
