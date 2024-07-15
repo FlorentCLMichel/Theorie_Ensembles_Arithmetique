@@ -185,8 +185,17 @@
 % format for footnotes
 \deffootnote[\dimexpr1mm+7.5pt\relax]{\dimexpr1mm+0.5pt\relax}{1em}{\thefootnotemark~}
 
-% To add section number to the equation numbers
+% to add section number to the equation numbers
 \numberwithin{equation}{section}
+
+% print something with the bounding box of something else
+\newcommand{\withBBox}[2]{%
+    \relax\ifmmode\mathrlap{\smash{#1}}\phantom{#2}%
+    \else\rlap{\smash{#1}}\phantom{#2}\fi}
+\newcommand{\withVBox}[2]{\smash{#1}\vphantom{#2}}
+\newcommand{\withHBox}[2]{%
+    \relax\ifmmode\mathrlap{#1}\hphantom{#2}%
+    \else\rlap{#1}\hphantom{#2}\fi}
 
 % math commands
 \newcommand\mleft{\mathopen{}\mathclose\bgroup\left}
