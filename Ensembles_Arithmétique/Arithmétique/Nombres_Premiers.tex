@@ -663,3 +663,26 @@ Puisque $g > 0$, $s > 0$ et $p-1 > 0$, on ne peut avoir $l < 0$ et $m < 0$ (ce q
     Puisque $g > 1$, $m < p-1$. 
     Puisque le groupe $(\mathbb{Z} \divslash (p \mathbb{Z}))^*$ est cyclique (voir section \ref{subsubsec:cyclicity_Z_pZ}), il admet au moins un générateur. 
     Choisissant ce générateur pour $a$, on ne peut avoir $a^m \equiv 1 \, [p]$, donc $r \neq 1$, donc $r$ est un élément de $[\![0, p-1]\!]$ distinct de $1$ tel que $r^s \equiv 1 \, [p]$.
+
+\medskip
+
+\noindent\textbf{Lemme :} Soit $n$ un entier naturel non nul.
+    Soit $p_1$, $p_2$, ..., $p_n$ $n$ nombres premiers deux-à-deux distincts. 
+    On note $q$ leur produit : $q = \prod_{i=1}^n p_i$.
+    Soit $\lambda$ un entier naturel multiple de $p_1-1$, $p_2-1$, ..., $p_n-1$ et $x$ un entier naturel non multiple de $p_1$ ni $p_2$ ni ... ni $p_n$.
+    Alors $x^\lambda \equiv 1 \, [q]$.
+
+\medskip
+
+\noindent\textbf{Démonstration :} Soit $i$ un élément de $[\![1, n]\!]$.
+    Puisque $\lambda$ est un multiple de $p_i-1$, on peut choisir un entier naturel $k$ tel que $\lambda = (p_i-1) k$, et donc $x^\lambda = \left( x^{p_i-1} \right)^k$.
+    Puisque $x$ n'est pas un multiple de $p_i$, $x^{p_i-1} \equiv 1 \, [p_i]$ d'après le petit théorème de Fermat.
+    Donc, $x^\lambda \equiv 1^k \, [p_i]$, donc $x^\lambda \equiv 1 \, [p_i]$.
+
+    Soit $r$ le reste de la division Euclidienne de $x^\lambda$ par $q$. 
+    On a $r < q$ et $r \equiv 1 \, [p_i]$ pour tout élément $i$ de $[\![1, n]\!]$. 
+    (En effet, soit $k$ le quotient, on a $x = r + k q$ et, pour tout $i$, $x = \equiv r \, [p_i]$ puisque $q$ est un multiple de $p_i$.)
+    Puisque $p_1$, $p_2$, ..., $p_n$ sont deux-à-deux premiers entre eux, et puisque $r = 1$ satisfait ces propriétés, on en déduit d'après le théorème du reste chinois que $r = 1$.
+    On en conclut que $x^\lambda \equiv 1 \, [q]$.
+
+    \done
