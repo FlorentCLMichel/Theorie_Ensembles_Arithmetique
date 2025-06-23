@@ -1,0 +1,93 @@
+\startsection[title=Logique du premier ordre]
+
+La \emph{\words{logique du premier ordre}}, aussi appelée \emph{logique des prédicats} ou \emph{calcul des prédicats du premier ordre}, est un cadre semi-formel%
+\footnote{On adopte ici le point de vue que la logique du premier ordre ne repose pas sur une théorie vue comme plus fondamentale. Ses concepts fondamentaux sont ainsi définis intuitivement (puisque nous n'avons aucun concept plus fondamental qui permettrait de les définir formellement), d'où le qualificatif de « semi-formel », et non « formel ».} 
+permettant de définir des théories. 
+On peut la voir comme un langage, ou comme un ensemble d'éléments de langage.
+Elle est utilisée tant en mathématiques qu'en philosophie, linguistique et informatique. 
+Nous l'aborderons ici principalement d'un point de vue mathématique.
+On considère ici une notion très basique du terme \emph{langage}, que l'on considère formé de deux éléments : 
+\startitemize[nowhite]
+  \item Un ensemble (au sens intuitif du terme) de \emph{symboles}.
+  \item Des règles de formations de \emph{phrases} à partir des symboles.
+\stopitemize
+Dans cette vision, les symboles constituent les fondations du langage, premettant de contruire les phrases, porteuses de sens.%
+\footnote{ Ce sens étant défini, \emph{in fine}, par un élément extérieur au langage, par exemple l'intuition de qui l'utilise.} 
+On sépare parfois les symboles en deux catégories : \emph{fondamentaux} s'ils forment un ensemble unsécable, ou \emph{composites} s'ils sont formés d'autres symboles.
+
+Intuitivement, la logique du premier ordre a pour symboles des variables (décrivant un domaine d'objets non logiques, c'est-à-dire non définis par la logique du premier ordre elle-même) quantifiées (par les quantificateurs\wordsRegister{Quantificateur} « pour tout » et « il existe ») ou non, des symboles non logiques, ainsi que des connecteurs, utilisés pour construire des phrases, appelées \emph{formules}. 
+Ces dernières sont aussi appelées \emph{propositions}, \emph{énoncés} ou \emph{prédicats}.\wordsRegister{Formule}\wordsRegister{Énoncé}\wordsRegister{Prédicat}\wordsRegister{Proposition} 
+
+Elle est une extension de la \emph{logique propositionelle}, qui exprime des énoncés, ou \emph{propositions}, aussi appelés \emph{prédicats}, auxquels on attribue une valeur dite de \emph{vérité} : vrai ou faux.\wordsRegister{Valeur de vérité}
+Chaque proposition est soit vraie soit fausse, et ne peut être les deux simultanément. 
+Ces énoncés peuvent être liés par conjonction, disjonction, implication, équivalence, ou modifés par négation. 
+La logique du premier ordre contient, en outre, des variables et quantificateurs, ce qui la rend plus expressive. 
+On peut dire qu'elle contient la logique propositionelle, au sens où cette dernière est équivalente à la logique du premier ordre élaguée des variables et quantificateurs.
+
+Une théorie définie dans le cadre de la logique du premier ordre porte sur un domaine de discours spécifié que les variables quantifiées décrivent, permettant de définir des prédicats sur ce domaine, auxquels un ensemble d'axiomes tenus pour vrais permet d'associer une valeur de vérité. 
+Un prédicat ne peut avoir pour arguments que des variables sur ce domaine, et seules les variables peuvent être quantifiés. 
+Cela distingue la logique du premier ordre des logiques d'ordre supérieur, où un prédicat peut avoir un prédicat plus général comme argument ou des quantificateurs de prédicats peuvent être autorisés.
+
+Plus formellement, une théorie définie dans le cadre de la logique du premier ordre se compose des éléments suivants : 
+\startitemize[nowhite]
+  \item Un \emph{\words{alphabet}}, c'est-à-dire un ensemble (au sens intuitif du terme) de symboles, dont certaines chaînes forment des \emph{termes}.\wordsRegister{Symbole} 
+    On divise généralement les symboles et deux catégories : les \emph{symboles logiques}, dont la signification est fixée, et les \emph{symboles non logiques}, dont le sens n'est pas univoquement défini par la théorie et doit être défini au cas par cas. 
+    Certains de ces symboles sont définis par la logique du premier ordre ; d'autres peuvent être propres à la théorie. 
+  \item Un \emph{domaine de discours} non vide que les variables décrivent (si $x$ désigne une variable, la formule $\exists x \mathss{V}$ est toujours vraie (voir ci-dessous pour la signification de cette formule)).
+  \item Des \emph{règles de formation}, exprimant comment construire les termes et formules. 
+    Là encore, certaines sont définies par la logique du premier ordre et d'autres peuvent être propres à la théorie.
+  \item Des \emph{formules} (aussi appelées \emph{propositions}) obtenues à partir de ces règles, exprimant des prédicats. 
+    (Le terme \emph{prédicat} est aussi utilisé pour désigner une formule elle-même.)
+    Une proposition est toujours vraie ou fausse%
+    \footnote{ À moins d'inclure la valeur de vérité indéfinie, voir \in{section}{}[subsub:Indéfinie].}%
+    , et ne peut être simultanément vraie et fausse. 
+    Deux formules seront dites \emph{équivalentes} si elles prennent toujours la même valeur de vérité.\wordsRegister{Formules équivalentes} 
+    \startitemize[nowhite]
+      \item Si $f$ et $g$ sont deux formules équivalentes, $g$ et $f$ sont équivalentes.
+      \item Si $f$ et $g$ sont trois formules telles que $f$ et $g$ sont équivalentes et $g$ et $h$ sont équivalentes, alors $f$ et $h$ sont équivalentes.
+    \stopitemize
+  \item Un ensemble d'\emph{axiomes}, ou propositions tenues pour vraies.\wordsRegister{Axiome} 
+        Ces axiomes permettent en général de déterminer la valeur de vérité d'autres prédicats.
+\stopitemize
+
+
+\startsubsection[title=Symboles logiques]
+
+Les symboles logiques incluent : \wordsRegister{Quantificateur}\wordsRegister{Connecteur}
+\startitemize
+  \item Le symbole de quantification universelle \symbols{$\forall$} (« pour tout »).
+  \item Le symbole de quantification existentielle \symbols{$\exists$} (« il existe »).
+  \item Le connecteur de conjonction \symbols{$\wedge$} (« et ») : si $P$ et $Q$ sont deux formules, $P \wedge Q$ est vraie si $P$ et $Q$ sont vraies et fausse sinon.
+  \item Le connecteur de disjonction \symbols{$\vee$} (« ou ») : si $P$ et $Q$ sont deux formules, $P \vee Q$ est vraie si $P$ est vraie ou si $Q$ est vraie et fausse sinon.
+  \item Le connecteur de négation $\neg$ (« non ») : si $P$ est une formule, $\neg P$ est vraie si $P$ est fausse et fausse si $P$ est vraie.
+  \item Le connecteur d'implication \symbols{$\Rightarrow$} (« implique ») : si $P$ et $Q$ sont deux formules, $P \Rightarrow Q$ est fausse si $P$ est vraie et $Q$ est fausse et vraie sinon.
+  La formule $P \Rightarrow Q$ est ainsi équivalente à $Q \vee \neg P$ (voir ci-dessous pour la signification des parenthèses et les règles d'évaluation).
+  \item Le connecteur \symbols{$\Leftarrow$} : si $P$ et $Q$ sont deux formules, $P \Leftarrow Q$ est fausse si $P$ est fausse et $Q$ est vraie et vraie sinon.
+  La formule $P \Leftarrow Q$ est ainsi équivalente à $P \vee \neg Q$.
+  \item Le connecteur biconditionnel \symbols{$\Leftrightarrow$} (« est équivalent à ») : si $P$ et $Q$ sont deux formules, $P \Leftrightarrow Q$ est vraie si $P$ et $Q$ sont soit toutes deux vraies soit toutes deux fausses, et fausse sinon.
+  La formule $P \Leftrightarrow Q$ est ainsi équivalente à $(P \wedge Q) \vee (\neg P \wedge \neg Q)$.
+      Notons que, si $P$ et $Q$ sont deux prédicats, si $P \Leftrightarrow Q$ est vrai, alors $(\neg P) \Leftrightarrow (\neg Q)$ est vrai aussi.
+  \item Un ensemble infini de \emph{variables}, souvent notées par des lettres grecques ou latines, éventuellement avec des indices ou exposants. 
+  Les variables sont interprétées comme décrivant un domaine d'objets de base, qui ne peut être vide. 
+  Elles sont aussi parfois appelées \emph{paramètres}. 
+  \wordsRegister{Variable}\wordsRegister{Paramètre}
+\stopitemize
+
+On définit également les constantes de vérité $\mathss{V}$ pour « vraie » et $\mathss{F}$ pour « fausse ».\wordsRegister{Vrai}\wordsRegister{Faux} 
+Elles sont deux formules, et $\mathss{F}$ est équivalente à $\neg \mathss{V}$.\symbolsRegister{$\mathss{V}$}\symbolsRegister{$\mathss{F}$}
+
+Si $f$ est une formule, ces deux constantes de vérité sont équivalentes, respectivements, aux formules $f \vee (\neg f)$ et $f \wedge (\neg f)$. 
+%Enfin, on peut définir le connecteur (non standard) de vérité $\sharp$ : si $f$ est une formule, $\sharp f$ est vraie si $f$ est vraie et fausse sinon.\symbolRegister{$\sharp$} 
+%(Avec ces notations, $\sharp f$ a toujours la même valeur de vérité que $f$. 
+%On introduit ce nouveau connecteur uniquement pour pouvoir exprimer la véracité d'une formule dans le cadre de la théorie ; il sera très peu employé dans la suite.)
+%Ce dernier connecteur ne rendant pas la théorie plus expressive, on l'omettra dans la suite sauf mention contraire.
+%
+%Pour être plus formel, on peut ne définir dans un premiers temps que les variables et constantes de vérité, puis les symboles non logiques, les termes, et enfin les autres symboles logiques avec les formules qu'ils permettent de construire et l'égalité (voir ci-dessous). 
+%On adoptera ce point de vue dans la suite. 
+%Pour le moment, les symboles logiques (y compris l'égalité définie ci-dessous) ne sont donnés que comme une liste de symboles utilisés, qui prendront leur sens lorsque les formules et la sémantique seront définies.
+%
+%Si $P$ est un prédicat à un ou plusieurs paramètres libres $a_1 a_2 \dots$ et si $b_1 b_2 \dots$ sont un même nombre de variables, on notera $P b_1 b_2 \dots$, ou $P(b_1, b_2, \dots)$ la formule obtenue en remplaçant dans $P$ les paramètres $a_1 a_2 \dots$ par $b_1 b_2 \dots$.
+
+\stopsubsection
+
+\stopsection

@@ -1,0 +1,325 @@
+\startmode[export] 
+\setupbackend[export=yes,hyphen=no]
+\setupexport[
+    cssfile=Ensembles_Arithmetique/Resources/style.css,
+    width=55em, 
+    firstpage=Ensembles_Arithmetique/Resources/firstpage.png, 
+    author={Florent Michel}]
+\definereferenceformat[Content][left=,right=,type=title]
+\define[2]\startchapterRef{\startchapter[title=#1,reference=#2,list=\Content[#2]]}
+\stopmode
+\startnotmode[export] 
+\define[2]\startchapterRef{\startchapter[title=#1,reference=#2]}
+\stopnotmode
+
+% Variables
+\setvariables[metadata][
+    title=Théorie des Ensembles et Arithmétique,
+    author=Florent Michel
+]
+
+
+% Load resources
+\loadmarkfile{Ensembles_Arithmetique/Resources/buff-imp-cpp}
+
+
+% Set the document language
+\mainlanguage[fr]
+
+
+% Load TiKZ and PGF
+\usemodule[tikz]
+\usetikzlibrary{positioning, automata, calc, arrows.meta}
+\usemodule[pgfplots]
+% To parse points using macros in PGFPlots
+\unprotect
+\let\orig@pgfplots@foreach@plot@coord@NEXT\pgfplots@foreach@plot@coord@NEXT
+\def\pgfplots@foreach@plot@coord@NEXT{%
+    \expandafter\orig@pgfplots@foreach@plot@coord@NEXT\expandafter
+}
+\protect
+
+
+% Document layout
+\setuppapersize[letter,portrait]
+\setuplayout
+  [backspace=2cm,
+   topspace=1cm,
+   header=1.5cm,
+   footer=1cm,
+   top=1cm,
+   bottom=1cm,
+   margin=2cm,
+   margindistance=0cm,
+   edge=0cm,
+   edgedistance=0cm,
+   width=fit,
+   height=fit]
+\setuppagenumbering[location=bottom]
+\placebookmarks [chapter,section,subject,subsection]
+                [chapter,section,subject]
+
+
+% Interactions
+\setupcolors[state=start]
+\definecolor[linkcolor][r=.1,g=.3,b=.9]
+\setupinteraction[state=start, focus=standard, color=linkcolor, contrastcolor=linkcolor, style=]
+
+
+% Font Setup
+\definefontfamily [myfamily] [serif] [XITS]
+\definefontfamily [myfamily] [math] [XITS Math]
+\definefontfamily [myfamily] [sans] [Lato] [scale=0.9]
+\definefontfamily [myfamily] [mono] [Fira Code] [scale=0.88]
+\setupbodyfont [myfamily, 10pt]
+
+
+% TOC format
+\setupcombinedlist[content][
+    interaction=all,
+    list={chapter,section}, 
+    alternative=c,
+]
+\setuplist[chapter][
+    label=yes,
+    width=fit,
+    distance=0.5em,
+    style=bold,
+    before=\blank[0.5em],
+    numbercommand=\ss,
+    textcommand=\ss,
+    pagecommand=\ss,
+]
+\setuplist[section][
+    width=fit,
+    margin=1em,
+    distance=0.5em,
+    before=\blank[0.em],
+    numbercommand=\ss,
+    textcommand=\ss,
+    pagecommand=\ss,
+]
+
+
+% Define indices
+\startnotmode[export]
+  \define[1]\wordsregisterTextCommand{{\setcharactercasing[Word]#1}}
+  \defineregister[wordsRegister][
+    pagestyle=,
+    alternative=A,
+    pageleft=\dotfill,
+    n=3,
+    textcommand=\wordsregisterTextCommand,
+    method=default]
+  \definelist[symbolsList][
+    criterium=all,
+    interaction=page,
+    alternative=c]
+  \define[1]\words{\wordsRegister{#1}#1}
+  \define[1]\symbols{\writetolist[symbolsList]{}{#1}#1}
+  \define[1]\symbolsRegister{\writetolist[symbolsList]{}{#1}}
+\stopnotmode
+\startmode[export]
+  \define[1]\words{#1}
+  \define[1]\symbols{#1}
+\stopmode
+
+
+% Move footnotes to end of chapters in export mode
+\startmode[export] 
+  \setupnotes[location=none] % Don't show footnotes on each page
+  \define[1]\footnotenumberstyle{\high{\color[black]{#1}}}
+  \setupnotation[footnote][
+      numbercommand=,
+      distance=0.4em,
+      margin=-0.2em,
+      way=bychapter,
+      alternative=left, 
+      hang=1,
+  ]
+  \setuphead[chapter][
+    aftersection=\ifcase\rawcountervalue[footnote]\relax\else\blank[4ex]\vfill\hrule\pagebreak[no]\placefootnotes\fi
+  ]
+\stopmode
+
+
+% Style for headers
+\setuphead[title][align=center]
+\setuphead[chapter][
+    page=yes,
+    prefix=Chapitre,
+    numberstyle=\ss\tfc\bf,
+    textstyle=\ss\tfc\bf]
+\setuphead[section][
+    before=\blank[4ex],
+    numberstyle=\ss\tfb\bf,
+    textstyle=\ss\tfb\bf]
+\setuphead[subsection][
+    before=\blank[2ex],
+    numberstyle=\tfa\ss\bf,
+    textstyle=\tfa\ss\bf]
+
+
+% Default style for enumerations
+\setupitemize[
+    before=\setupwhitespace[0pt]\blank[.5ex],
+    inbetween=\blank[.5ex],
+    after=\blank[nowhite]\blank[.5ex],
+    leftmargin=1em,
+    indentnext=auto,
+]
+
+
+% Styles for page numbers
+\definestructureconversionset [frontpart:pagenumber] [] [Romannumerals]
+\definestructureconversionset [bodypart:pagenumber] [] [numbers]
+\definestructureconversionset [backpart:pagenumber] [] [numbers]
+
+
+% Mathematics
+\setupmathematics[
+    autopunctuation=yes,
+    differentiald=upright,
+]
+\setmathspacing \mathordcode \mathclosecode \allmathstyles 0mu
+\setmathspacing \mathopencode \mathordcode \allmathstyles 0mu
+\redefine{\sum}{\utfchar{"2211}}
+\redefine{\prod}{\utfchar{"220f}}
+\redefine{\ii}{\mathrm{i}}        % root of -1
+\define{\lii}{\utfchar{"27e6}}    % integer interval (left)
+\define{\rii}{\utfchar{"27e7}}    % integer interval (right)
+\define{\ds}{\utfchar{"2215}}     % division slash
+
+
+% Special styles for the frontmatter
+\startsectionblockenvironment[frontmatter]
+  \definestructureconversionset [romannumerals]
+\stopsectionblockenvironment
+
+
+% Format for the TOC at the start of each chapter
+\define\chaptertoc{%
+  \determinelistcharacteristics[section]%
+  \doifmode{*list}{\vskip1ex\hrule\vskip-1ex\placecontent\hrule}%
+}
+
+
+% Special styles for the main text
+\define[1]\chapnumber{Chapitre~#1~:}
+\startsectionblockenvironment[bodypart]
+  \resetuserpagenumber
+  \setupcombinedlist[content][
+      list={section,subsection}, 
+  ]
+  \setuplist[section][
+      label=yes,
+      width=fit,
+      margin=0em,
+      distance=0.5em,
+      style=bold,
+      before=\blank[0.5em],
+      numbercommand=\ss,
+      textcommand=\ss,
+      pagecommand=\ss,
+  ]
+  \setuplist[subsection][
+      width=fit,
+      margin=1em,
+      distance=0.5em,
+      before=\blank[0em],
+      numbercommand=\ss,
+      textcommand=\ss,
+      pagecommand=\ss,
+  ]
+  \setuphead[chapter][after=\blank[big],numbercommand=\chapnumber]
+\stopsectionblockenvironment
+
+
+% Special styles for the appendices
+\define[1]\appchapnumber{Appendice~#1~:}
+\startsectionblockenvironment[appendix]
+  \setupcombinedlist[content][
+      list={section,subsection}, 
+  ]
+  \setuplist[section][
+      label=yes,
+      width=fit,
+      margin=0em,
+      distance=0.5em,
+      style=bold,
+      before=\blank[0.5em],
+      numbercommand=\ss,
+      textcommand=\ss,
+      pagecommand=\ss,
+  ]
+  \setuplist[subsection][
+      width=fit,
+      margin=1em,
+      distance=0.5em,
+      before=\blank[0em],
+      numbercommand=\ss,
+      textcommand=\ss,
+      pagecommand=\ss,
+  ]
+  \setuphead[chapter][after=\blank[big],numbercommand=\appchapnumber]
+\stopsectionblockenvironment
+
+
+% Excursus style
+\definetextbackground
+  [leftbartext]
+  [
+    location=paragraph,
+    mp=mpos:region:leftbar,
+    width=broad,
+    frame=off,
+    rulethickness=0.3em,
+    leftoffset=0.5em,
+    rightoffset=0.5em,
+    topoffset=0ex,
+    bottomoffset=0ex,
+  ]
+\startuseMPgraphic{mpos:region:leftbar}
+  draw_multi_pars;
+  draw_multi_side;
+\stopuseMPgraphic
+\definetextbackground
+  [blocktext]
+  [leftbartext]
+  [
+    framecolor=black,
+    backgroundcolor=white,
+  ]
+\definedescription
+  [excursus]
+  [
+    margin=0.5em,
+    width=broad,
+    before={\startblocktext},
+    after={\stopblocktext},
+  ]
+
+
+% Style for the abstract
+\definenarrower[NarrowerAbstract][middle=1cm]
+\definedescription
+  [abstract]
+  [
+    text=Résumé,
+    alternative=top,
+    headstyle=\tfa\ss\bf,
+    margin=0.5em,
+    width=broad,
+    before={\startNarrowerAbstract\startblocktext},
+    after={\stopblocktext\stopNarrowerAbstract},
+  ]
+
+
+% Paragraph indentation
+\setupindenting[yes,medium]
+
+
+% Miscelanous commands
+\define[2]\href{\goto{\color[linkcolor]{#1}}[url(#2)]}
+\define[1]\lua{\ctxlua{#1}}
+\define[1]\plua{\lua{context(#1)}}

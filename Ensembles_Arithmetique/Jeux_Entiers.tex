@@ -1,0 +1,117 @@
+\startchapter[title=Jeux avec les entiers]
+  \chaptertoc
+  \page
+  \startsection[title=Liste des premiers nombres premiers]
+    \sans{\input{Ensembles_Arithmetique/Code/first_primes.dat}}
+  \stopsection
+
+  \page
+  \startsection[title=Décomposition des premiers entiers en produits de facteurs premiers]
+    \startcolumns[n=5,separator=rule]
+      \setupindenting[no]
+      \input{Ensembles_Arithmetique/Code/output_decomposition_prime_factors.tex}
+    \stopcolumns
+    
+    \page
+    \noindent
+    Cette décomposition est utile pour calculer le nombre de diviseurs $\varphi(n)$ d'un entier naturel non nul $n$ : $\varphi(1) = 1$ et, pour tour entier naturel $n$ strictement supérieur à $1$, $\varphi(n)$ est égal au produit des puissances apparaissant dans la décomposition de $n$ augmentées de $1$. 
+    Cela est représenté \in{figure}{}[fig:varphi_n] et~\in{figure}{}[fig:varphi_n2].
+    (Le code utilisé dans cette section se trouve dans le fichier \href{\bold{decomposition\_prime\_factors.rs}}{Ensembles_Arithmetique/Code/decomposition_prime_factors.rs}.)
+    
+    \startbuffer [n_divisors_1] 
+      \input{Ensembles_Arithmetique/Preamble.tex}
+      \startTEXpage
+        \starttikzpicture
+          \startaxis[
+            height = 200,
+            width = 400,
+            xmin = 1,
+            xmax = 251,
+            ymin = 1,
+            ymax = 22, 
+            axis lines = middle,
+            enlargelimits = false,
+            xlabel={$n$},
+            ylabel={$\varphi(n)$},
+            xlabel style={at=(current axis.right of origin), anchor=west},
+            ylabel style={at=(current axis.above origin), anchor=south}, 
+            xtick={1, 40, 80, 120, 160, 200},
+            ytick={1, 2, 6, 12, 18},
+           ]
+            \definecolor[dotcolor][r=.0,g=.4,b=1.]
+            \addplot[fill=dotcolor, draw=dotcolor, only marks, mark size=1pt] 
+              table[col sep=space, header=false, x index=0, y index=1] {{Ensembles_Arithmetique/Code/output_n_divisors.csv}};
+          \stopaxis
+        \node[below left] at (0, 0) {$1$};
+        \stoptikzpicture
+      \stopTEXpage
+    \stopbuffer
+    
+    \startplacefigure
+      [reference=fig:varphi_n, 
+       title={Nombre de diviseurs d'un entier naturel non nul $n$, noté $\varphi(n)$, en fonction de $n$ pour $n$ allant de $1$ à $251$. Notons que $\varphi(1) = 1$ et, pour tout entier naturel non nul $n$, $\varphi(n) = 2$ si et seulement si $n$ est premier.}]
+      \typesetbuffer[n_divisors_1]
+    \stopplacefigure
+    
+    \startbuffer[n_divisors_2]
+      \input{Ensembles_Arithmetique/Preamble.tex}
+      \startTEXpage
+        \starttikzpicture
+          \startaxis[
+            height = 200,
+            width = 400,
+            xmin = 1,
+            xmax = 10000,
+            ymin = 1,
+            ymax = 72, 
+            axis lines = middle,
+            enlargelimits = false,
+            xlabel={$n$},
+            ylabel={$\varphi(n)$},
+            xlabel style={at=(current axis.right of origin), anchor=west},
+            ylabel style={at=(current axis.above origin), anchor=south}, 
+            xtick={1, 2000, 4000, 6000, 8000, 10000},
+            ytick={1, 10, 20, 30, 40, 50, 60},
+           ]
+            \definecolor[dotcolor][r=.0,g=.4,b=1.]
+            \addplot[fill=dotcolor, draw=dotcolor, only marks, mark size=.5pt] 
+              table[col sep=space, header=false, x index=0, y index=1] {{Ensembles_Arithmétique/Code/output_n_divisors_2.csv}};
+          \stopaxis
+        \stoptikzpicture
+      \stopTEXpage
+    \stopbuffer
+    
+    \startplacefigure
+      [reference=fig:varphi_n2,
+      title={Même plot que sur la \in{figure}{}[fig:varphi_n] pour $n$ allant de $1$ à $10000$.}]
+      \typesetbuffer[n_divisors_2]
+      \stopplacefigure
+  \stopsection
+
+  \page
+  \startsection[title=Une séquence de nombres pseudo-aléatoire]
+    \startluacode
+      pow_10 = 93;
+      n_nombres = 46;
+      math.randomseed(os.time());
+    \stopluacode
+    
+    \noindent
+    La séquence de nombres suivante sera (avec une très haute probabilité) différent à chaque compilation de ce document. 
+    (Il y a $10^{\plua{pow_10 * n_nombres}}$ possibilités différentes.)
+    
+    \blank[big]
+    
+    \startluacode
+      context("\\mono{");
+      for i=0,n_nombres,1 do
+        context("\\noindent");
+        for j=0,pow_10,1 do
+          context(math.random(0,9));
+        end
+        context("\n\n");
+      end
+      context("}");
+    \stopluacode
+  \stopsection
+\stopchapter
