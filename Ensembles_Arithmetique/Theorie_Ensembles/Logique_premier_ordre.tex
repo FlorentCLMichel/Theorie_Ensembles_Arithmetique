@@ -70,23 +70,401 @@ Les symboles logiques incluent : \wordsRegister{Quantificateur}\wordsRegister{C
   \item Un ensemble infini de \emph{variables}, souvent notées par des lettres grecques ou latines, éventuellement avec des indices ou exposants. 
   Les variables sont interprétées comme décrivant un domaine d'objets de base, qui ne peut être vide. 
   Elles sont aussi parfois appelées \emph{paramètres}. 
-  \wordsRegister{Variable}\wordsRegister{Paramètre}
+  \wordsRegister{variable}\wordsRegister{paramètre}
 \stopitemize
 
 On définit également les constantes de vérité $\mathss{V}$ pour « vraie » et $\mathss{F}$ pour « fausse ».\wordsRegister{Vrai}\wordsRegister{Faux} 
-Elles sont deux formules, et $\mathss{F}$ est équivalente à $\neg \mathss{V}$.\symbolsRegister{$\mathss{V}$}\symbolsRegister{$\mathss{F}$}
-
+Elles sont deux formules, et $\mathss{F}$ est équivalente à $\neg \mathss{V}$.\symbolsRegister{$\mathss{V}$}\symbolsRegister{$\mathss{F}$}`
 Si $f$ est une formule, ces deux constantes de vérité sont équivalentes, respectivements, aux formules $f \vee (\neg f)$ et $f \wedge (\neg f)$. 
-%Enfin, on peut définir le connecteur (non standard) de vérité $\sharp$ : si $f$ est une formule, $\sharp f$ est vraie si $f$ est vraie et fausse sinon.\symbolRegister{$\sharp$} 
-%(Avec ces notations, $\sharp f$ a toujours la même valeur de vérité que $f$. 
-%On introduit ce nouveau connecteur uniquement pour pouvoir exprimer la véracité d'une formule dans le cadre de la théorie ; il sera très peu employé dans la suite.)
-%Ce dernier connecteur ne rendant pas la théorie plus expressive, on l'omettra dans la suite sauf mention contraire.
-%
-%Pour être plus formel, on peut ne définir dans un premiers temps que les variables et constantes de vérité, puis les symboles non logiques, les termes, et enfin les autres symboles logiques avec les formules qu'ils permettent de construire et l'égalité (voir ci-dessous). 
-%On adoptera ce point de vue dans la suite. 
-%Pour le moment, les symboles logiques (y compris l'égalité définie ci-dessous) ne sont donnés que comme une liste de symboles utilisés, qui prendront leur sens lorsque les formules et la sémantique seront définies.
-%
-%Si $P$ est un prédicat à un ou plusieurs paramètres libres $a_1 a_2 \dots$ et si $b_1 b_2 \dots$ sont un même nombre de variables, on notera $P b_1 b_2 \dots$, ou $P(b_1, b_2, \dots)$ la formule obtenue en remplaçant dans $P$ les paramètres $a_1 a_2 \dots$ par $b_1 b_2 \dots$.
+
+Enfin, on peut définir le connecteur (non standard) de vérité $\symbols{\sharp}$ : si $f$ est une formule, $\sharp f$ est vraie si $f$ est vraie et fausse sinon. 
+(Avec ces notations, $\sharp f$ a toujours la même valeur de vérité que $f$. 
+On introduit ce nouveau connecteur uniquement pour pouvoir exprimer la véracité d'une formule dans le cadre de la théorie ; il sera très peu employé dans la suite.)
+Ce dernier connecteur ne rendant pas la théorie plus expressive, on l'omettra dans la suite sauf mention contraire.
+
+Pour être plus formel, on peut ne définir dans un premiers temps que les variables et constantes de vérité, puis les symboles non logiques, les termes, et enfin les autres symboles logiques avec les formules qu'ils permettent de construire et l'égalité (voir ci-dessous). 
+On adoptera ce point de vue dans la suite. 
+Pour le moment, les symboles logiques (y compris l'égalité définie ci-dessous) ne sont donnés que comme une liste de symboles utilisés, qui prendront leur sens lorsque les formules et la sémantique seront définies.
+
+Si $P$ est un prédicat à un ou plusieurs paramètres libres $a_1 a_2 \dots$ et si $b_1 b_2 \dots$ sont un même nombre de variables, on notera $P b_1 b_2 \dots$, ou $P(b_1, b_2, \dots)$ la formule obtenue en remplaçant dans $P$ les paramètres $a_1 a_2 \dots$ par $b_1 b_2 \dots$.
+
+\stopsubsection
+
+
+\startsubsection[title=Égalité]
+
+La \emph{logique du premier ordre avec égalité} inclut un autre symbole logique, $\symbols{=}$, définissant une relation binaire, dite \emph{\words{égalité}}, satisfaisant les axiomes suivants : 
+\startitemize
+  \item Axiome de réciprocité : $\forall x \, (x = x)$. 
+  \item Réflexivité : $\forall x \, \forall y \, [ (x=y) \Rightarrow (y=x) ]$.
+  \item Transitivité : $\forall x \, \forall y \, \forall z \, [((x=y) \wedge (y=z)) \Rightarrow (x=z)]$.
+  \item Schéma d'axiomes de Leibniz : Soit $P$ un prédicat à une variable. On a : $\forall x \, \forall y \, [ (x = y) \Rightarrow (P(x) \Leftrightarrow P(y))]$.
+\stopitemize
+
+Deux objets $x$ et $y$ définis par une théorie sont dits \emph{égaux} si $x = y$. 
+On considèrera alors qu'il s'agit du même objet. 
+En particulier, changer l'un pour l'autre dans une formule ne modifie pas sa valeur de vérité.
+
+Si $x$, $y$ et $z$ sont trois objets, on notera parfois par $x = y = z$ la formule $(x = y) \wedge (y = z)$. 
+
+En présence de l'égalité, on définit aussi le symbole d'\emph{\words{inégalité}} $\symbols{\neq}$ définissant une relation binaire comme suit : la formule $x \neq y$ est équivalente à $\neg (x = y)$.
+
+\stopsubsection
+
+
+\startsubsection[title=Symboles non logiques]
+
+Un symbole non logique est un symbole n'ayant pas de signification donnée par la logique du premier ordre. 
+Il représentent généralement un prédicat, pouvant dépendre de variables placées à sa droite, éventuellement entre parenthèses.
+
+\stopsubsection
+
+
+\startsubsection[title={Parenthèses, symboles $($, $)$, $[$, $]$}]
+\wordsRegister{parenthèses}
+
+Si $f$ est une formule, alors $\symbols{(}f\symbols{)}$ et $\symbols{[}f\symbols{]}$ sont deux formule équivalentes à $f$. 
+Nous omettrons parfois les parenthèses lorsque qu'il n'y a pas d'ambiguité sur la manière dont elles peuvent être incluses, ou lorsque les différentes manières de les inclure donnent des formules équivalentes. 
+
+L'écriture d'une formule en terme de sous-formules contient toujours des arenthèses implicites. 
+Ainsi, si les symboles $f$ et $g$ désignent deux formules, si $\mathrm{C_u}$ est un connecteur unaire et $\mathrm{C_b}$ un connecteur binaire, alors la notation $\mathop{\mathrm{C_u}} f$ désigne $\mathop{\mathrm{C_u}} (f)$ et $f \mathop{\mathrm{C_b}} g$ désigne $(f) \mathop{\mathrm{C_b}} (g)$.
+
+\stopsubsection
+
+
+\startsubsection[title=Termes]
+\wordsRegister{Terme}
+
+Les termes sont définis comme suit : 
+\startitemize
+%  %\item Toute variable est un terme. 
+  \item Si $P$ est un prédicat ne dépendant d'aucune variable, alors $P$ est un terme.
+  \item Si $P$ est un prédicat dépendant des variables $a_1 \dots a_N$, alors $P a_1 \dots a_N$, aussi noté $P (a_1 \dots a_N)$, est un terme. 
+  \item En présence de l'égalité, si $x$ et $y$ sont deux variables, alors $x = y$ est un terme.
+\stopitemize
+Une théorie formulée dans le cadre de la logique du premier ordre peut définir de règles spécifiques de construction de prédicats, par exemple \emph{via} des relations binaires (\emph{cf} \in{section}{}[subsub:relations_binaires]).
+
+\stopsubsection
+
+
+\startsubsection[title=Formules]
+\wordsRegister{Formule}
+
+Les formules sont définies de la manière suivante : 
+\startitemize
+  \item Tout terme est une formule. 
+  \item Si $x$ est une variable et $f$ une formule dans laquelle $x$ n'est pas quantifiée, alors $\exists x \, (f)$ et $\forall x \, (f)$ sont des formules. 
+      On les notera parfois respectivement $\exists x, \, f$ et $\forall x, \, f$ pour plus de lisibilité.
+  \item D'autres formules sont construites à l'aide des autres symboles logiques : 
+  \startitemize
+    \item Si $f$ est une formule, alors $\neg (f)$ (et $\sharp (f)$, si on l'admet dans la théorie) sont des formules.
+    \item Si $f$ et $g$ sont deux formules telles qu'aucune variable quantifiée dans l'une n'apparaît dans l'autre, alors $(f) \vee (g)$, $(f) \wedge (g)$, $(f) \Rightarrow (g)$, $(f) \Leftarrow (g)$ et $(f) \Leftrightarrow (g)$ sont des formules.
+  \stopitemize
+\stopitemize
+Une \words{variable} apparaissant dans une formule (aussi dite \emph{\words{paramètre}} de la formule) est dite \emph{liée} si elle est quantifiée (\emph{i.e.}, si l'une de ses occurrences est immédiatement précédée d'un quantificateur) et \emph{libre} si elle ne l'est pas.%
+\footnote{
+    Afin de simplifier les tournures de phrases, on parlera parfois, quand il n'y a pas de confusion possible, simplement de « variables » ou « paramètres » d'une formule pour désigner ses variables libres. 
+}
+%Cette distinction s'applique indépendamment à chaque occurrence de chaque variable. 
+On impose parfois (et on le fera par la suite sauf mention contraire) qu'une même variable ne puisse être quantfiée plus d'une fois dans une même formule.
+Si une formule $F$ contient des variables libres $a_1 a_2 \dots$, et si $\alpha_1 \alpha_2 \dots$ sont autant d'éléments définis par une théorie, on note parfois $F \alpha_1 \alpha_2 \dots$ ou $F (\alpha_1 \alpha_2 \dots)$ la formule obtenue à partir de $F$ en remplaçant $a_1 a_2 \dots$ par $\alpha_1 \alpha_2 \dots$.
+Comme annoncé ci-dessus, à chaque formule correspond une unique valeur de vérité, vraie ou fausse. 
+Ainsi, une formule non vraie est fausse, une formule vraie est non fausse, une formule fausse est non vraie et une formule non fausse est vraie.
+
+Une formule peut être représentée par un symbole non logique. 
+Ce lien peut être noté par le dit symbole suivi de « $:$ » puis de la dite formule ; on dira de ce lien qu'il \emph{définit} le symbole non logique, qui peut alors être employé comme un terme, avec la valeur de vérité associée à la formule qui lui est liée. 
+Une formule ne peut contenir de symbole non logique qui ne soit précédemment défini. 
+
+Parfois, une virgule « $,$ » est utilisée pour séparer deux parties d'une formule et la rendre plus lisible, sans en modifier le sens. 
+Chaque partie d'une formule ainsi définie doit être une formule à part entière. 
+
+Une formule faisant partie d'une autre formule est dite \emph{sous-formule}.
+
+\blank[medium]
+
+\noindent\bold{NB :} Un prédicat ne peut référer à un prédicat que si ce dernier est déjà défini. En particulier, il ne peut référer à lui-même, sans quoi on arrive vite à des paradoxes. (Par exemple, si on pouvait definir in prédicat $P$ par $P: \neg P$, alors il serait vrai s'il est faux et faux s'il est vrai.)
+
+\stopsubsection
+
+
+\startsubsection[title=Formule à nombre non spécifié de paramètres]
+
+Il est parfois utile de considérer des formules avec un nombre non spécifié de variables. 
+Celles-ci peuvent alors être collectivement désignés par une suite de symboles séparés de points de suspensions, par exemple $a_1 \cdots a_p$. 
+Notons formellement $S$ cette séquence.
+Les notations $\forall S$ et $\exists S$ désignent, respectivement, les séquences de quantification universelles et existentielles pour chacune des variables. 
+Ainsi, 
+\startitemize[mowhite]
+  \item Si la séquence $S$ est vide, \emph{i.e.} ne contient aucune variable, alors $\forall S$ et $\exists S$ ne représentent rien : si $f$ est une formule, $\forall S \, f$ et $\exists \, f$ représentent simplement $f$.
+  \item Si $S = a$ où $a$ est une variable, $\forall S$ représente $\forall a$ et $\exists S$ représente $\exists a$. 
+  \item Si $S = a b$ où $a$ et $b$ sont deux variables, $\forall S$ représente $\forall a \forall b$ et $\exists S$ représente $\exists a \exists b$. 
+  \item Si $S = a_1 a_2 \cdots a_p$ où $a_1$, $a_2$, ..., $a_p$ sont des variables, $\forall S$ représente $\forall a_1 \forall a_2 \dots \forall a_p$ et $\exists S$ représente $\exists a_1 \exists a_2 \dots \exists a_p$. 
+\stopitemize
+
+\stopsubsection
+
+
+\startsubsection[title=Quantificateur d'unicité]
+\wordsRegister{unicité}
+
+En logique du premier ordre avec égalité, on définit le quantificateur $\symbols{\exists !}$ de la manière suivante : si $P$ est un prédicat à un paramètre libre $x$ et d'éventuels autres paramètres dénotés par $a_1 \dots a_p$, la formule $\exists ! x \, P x a_1 \dots a_p$ est équivalente à $(\exists x \, P x a_1 \dots a_p) \wedge (\forall x \forall y \, (P x a_1 \dots a_p \wedge P y a_1 \dots a_p) \Rightarrow (x=y))$.
+    
+Moins formellement, on définit l'unicité de la manière suivante : dans le cadre d'une théorie définie en logique du premier ordre avec égalité, si $P$ est un prédicat à un paramètre libre, on dira qu'\emph{il existe au plus un unique objet satisfaisant $P$} si et seulement si le prédicat suivant est vrai : 
+\startformula
+  \forall x \, \forall y \, (P(x) \wedge P(y)) \Rightarrow (x = y).
+\stopformula
+On dira qu'\emph{il existe exactement un objet satisfaisant $P$} si et seulement si le prédicat suivant est vrai :
+\startformula
+  (\forall x \, \forall y \, (P(x) \wedge P(y)) \Rightarrow (x = y)) \wedge (\exists x \, P(x)).
+\stopformula
+Ce dernier pourra être abrégé en : 
+\startformula
+  \exists! x \, P(x).
+\stopformula
+
+\stopsubsection
+
+
+\startsubsection[title=Sémantique]
+
+Les règles énoncées ci-dessus, complétées par des règles propres à chaque théorie, permettent (au moins dans certains cas) d'attribuer une \emph{valeur de vérité} à une formule. Les parenthèses $($ et $)$ (ou $[$ et $]$), indiquent que, pour évaluer la valeur d'une formule (vraie ou fausse), la formule délimitée par la premiere (à gauche) et la seconde (à droite) est évaluée en tant que formule indépendante. 
+Si une formule est construite à partir d'autres formules, sa valeur peut dépendre des leurs, et peut être explicitée par une table de vérité (voir ci-dessous). 
+
+Cinq autres règles sont :
+\startitemize
+  \item Les variables n'ont pas de sens intrinsèque. 
+  Ainsi, si $f$ est une formule faisant intervenir une variable $x$, et si $y$ est une variable n'apparaissant pas dans $f$, alors remplacer toutes les occurrences de $x$ par $y$ dans $f$ ne peut modifier sa valeur de vérité : la formule ainsi obtenue est équivalente à $f$.
+  On considèrera parfois que la formule obtenue est la même (ou que les deux séquences de symboles représentent la même formule). 
+  \item Si $f$ est une formule et $x$ et $y$ deux variables qui ne sont pas quantifiées dans $f$, alors les formules $\forall x \, \forall y \, f$ et $\forall y \, \forall x \, f$ sont équivalentes.
+  \item La valeur de vérité d'une formule est inchangée par le remplacement d'une sous-formule par une formule équivalente.
+  \item Si une formule peut s'écrire comme une séquence de sous-formules et de connecteurs telle qu'elle prend toujours la même valeur de vérité lorsque ces sous-formules sont remplacées indépendamment par $\mathss{V}$ ou par $\mathss{F}$, alors elle prend cette valeur de vérité, et est équivalente à $\mathss{V}$ si vraie ou à $\mathss{F}$ si fausse.
+\stopitemize
+
+On omet parois les parenthèses dans une formule lorsque celles-ci ne modifie pas sa valeur de vérité ; l'ordre d'évaluation des differents termes d'une formule est alors déterminé par les règles suivantes : 
+\startitemize
+  \item L'évaluation s'effectue de gauche à droite sauf si cela est contraire à une des règles ci-dessous.
+  \item Les prédicats sont évalués en premier.
+  \item Lorsqu'une parenthèse ouvrante est atteinte, la formule se trouvant entre elle et la parenthèse fermante correspondante est évaluée en priorité.
+  \item Ordre d'évaluation des connecteurs et quantificateurs : d'abords les quantificateurs $\exists$ et $\forall$, puis $\neg$, puis (en présence de l'égalité) $=$, puis $\wedge$ et $\vee$ (avec la même priorité), puis $\Rightarrow$, $\Leftarrow$ et $\Leftrightarrow$ (avec la même priorité).
+\stopitemize
+
+\wordsRegister{transitivité}
+Un connecteur binaire $\mathrm{C}$ est dit \emph{transitif} si, pour toutes formules $f$, $g$ et $h$, les formules $(f \mathop{\mathrm{C}} g) \mathop{\mathrm{C}} h$ et $\mathop{\mathrm{C}} (g \mathop{\mathrm{C}} h)$ sont équivalentes.
+Un connecteur binaire $\mathrm{C}$ est dit \emph{symmétrique} si, pour toutes formules $f$ et $g$, les formules $f \mathop{\mathrm{C}} g$ et $g \mathop{\mathrm{C}} f$ sont équivalentes.
+
+Dans la suite, si $\mathrm{C}$ désigne un connecteur transitif et si $f$, $g$ et $h$ sont trois formules, on omettra parfois les parenthèses dans des formules de la forme $(f \mathop{\mathrm{C}} g) \mathop{\mathrm{C}} h$ ou $f \mathop{\mathrm{C}} (g \mathop{\mathrm{C}} h)$. 
+Plus généralement, on omettra parfois les parenthèses lorsque toutes les manières d'ajouter des parenthèses pour obtenir une formule correctement formée donnent des formules équivalentes.
+
+Si $f$ est une formule et $x$ une variable n'apparaissant pas comme variable liée dans $f$, la formule $\exists x f$ est vraie s'il existe au moins une valeur possible pour $x$ telle que la formule obtenue en remplaçant $x$ par cette valeur dans $f$ est vraie, et fausse si toutes les formules obtenues en remplaçant $x$ par chacune de ses valeurs possible sont fausses. 
+Sous les mêmes conditions, la formule $\forall x f$ est fausse s'il existe au moins une valeur possible pour $x$ telle que la formule obtenue en remplaçant $x$ par cette valeur dans $f$ est fausse, et vraie si toutes les formules obtenues en remplaçant $x$ par chacune de ses valeurs possible sont vraies. 
+On formalise cela par les règles suivantes : 
+\startitemize
+  \item si $x$ est une variable et $f$ une formule dans laquelle $x$ n'apparait pas, $\forall x \, f$ est équivalente à $f$ ; 
+  \item pour toute variable $x$ et toute formule $f$, la formule $\forall x \, f$ est équivalente à $\neg (\exists x \, \neg f)$ ;
+  \item soit $f$ une formule admettant exactement $a_1 a_2 \dots a_n$ pour paramètres libres ; si $\forall a_1 \, \forall a_2 \cdots \forall a_n \, f$ est vraie, alors $f$ est équivalente à $\mathss{V}$ ; 
+  \item en présence de l'égalité, si $f(x)$ est une formule à un paramètre libre éventuel $x$ et $a$ un objet, alors $\exists x \, (x = a) \wedge f(x)$ est équivalente à $f(a)$.
+\stopitemize
+
+Ainsi, par exemple, si $f$ est une formule et $x$ une variable, la formule $\forall x \, (f \Leftrightarrow f)$ est vraie. 
+En effet, 
+\startitemize[nowhite]
+  \item la formule $f \Leftrightarrow f$ est vraie que $f$ soit vraie ou fausse, donc elle est équivalente à $\mathss{V}$,
+  \item la formule $\forall x \, (f \Leftrightarrow f)$ est donc éuivalente à $\forall x \, \mathss{V}$, donc à $\mathss{V}$, et donc vraie.
+\stopitemize
+
+Quelques conséquences immédiates sont (en remplaçant $f$ par $\neg f$ et en notant que $\neg (\neg f))$ est équivalente à $f$ pour toute formule $f$) : 
+\startitemize
+  \item Si $f$ est une formule et $x$ et $y$ deux variables qui ne sont pas quantifiées dans $f$, alors les formules $\exists x \, \exists y \, f$ et $\exists y \, \exists x \, f$ sont équivalentes.
+  \item si $x$ est une variable, alors $\exists x \, \mathss{F}$ est fausse (en effet, sa négation est $\forall x \, \mathss{V}$, qui est vraie) et $\exists x \, \mathss{V}$ est vraie (en effet, sa négation est $\forall x \, \mathss{F}$, qui est fausse) ; 
+  \item soit $f$ une formule admettant exactement $a_1 a_2 \dots a_n$ pour paramètres libres ; si $\exists a_1 \, \exists a_2 \cdots \exists a_n \, f$ est fausse, alors $f$ est équivalente à $\mathss{F}$ ; 
+  \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ et $\forall x \, (f(x) \wedge g(x))$ sont équivalentes~\footnote{
+       En effet, 
+       \startitemize[nosep]
+         \item Si $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ est vraie, alors $\forall x \, f(x)$ et $\forall y \, g(y)$ sont vraies, donc $f$ et $g$ sont équivalentes à $\mathss{V}$, donc $f(x) \wedge g(x)$ également, donc $\forall x \, f(x) \wedge g(x)$ est vraie.
+         \item Si $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ est fausse, alors $\forall x \, f(x) \wedge g(x)$ doit être fausse. 
+             En effet, si elle était vraie, alors $f(x) \wedge g(x)$ serait équivalente à $\mathss{V}$, donc $f$ et $g$ également, et donc $(\forall x \, f(x)) \wedge (\forall y \, g(y))$ serait vraie.
+       \stopitemize
+   } ; 
+  em soit $f$ et $g$ deux formules à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors les formules $\forall x \, (f(x) \wedge g(x))$ et $\forall x \, g(x)$ sont équivalentes ; 
+  \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\exists x \, f(x)$ est fausse, alors les formules $\forall x \, (f(x) \vee g(x))$ et $\forall x \, g(x)$ sont équivalentes (en effet, $\forall x \, \neg f(x)$ est alors vraie, donc $f$ est équivalente à $\mathss{F}$, et donc $f(x) \vee g(x)$ à $g(x)$) ; 
+  \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\exists x \, f(x)$ est fausse, alors la formule $\forall x \, (f(x) \wedge g(x))$ est fausse ; 
+  \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors la formule $\forall x \, (f(x) \vee g(x))$ est vraie ; 
+  \item soit $f$ une formule à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors la formule $\exists x \, f(x)$ est vraie ; 
+  \item si $x$ est une variable et $f$ une formule dans laquelle $x$ n'apparait pas, $\exists x \, f$ est équivalente à $f$ (en effet, $x$ n'apparait pas dans $f$, donc $\forall x \, \neg f$ est équivalente à $\neg f$, donc $\neg (\forall x \, \neg f)$ est équivalente à $f$, et donc $\exists x \, f$ à $f$) ; 
+  \item pour toute variable $x$ et toute formule $f$ dans laquelle $x$ n'est pas une variable quantifiée, la formule $\exists x \, f$ est équivalente à $\neg (\forall x \, \neg f)$.
+  \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\exists x \, f(x)) \vee (\exists y \, g(y))$ et $\exists x \, (f(x) \vee g(x))$ sont équivalentes ;
+  \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\forall x \, f$ et $\forall x \, (f \Rightarrow g)$ sont vraies, alors $\forall x \, g$ est vraie (puisqu'alors $\forall x \, (f \wedge (f \Rightarrow g))$ est vraie) ; 
+  \item soit $x$ une variable et $f$ et $g$ deux formules (faisant ou non intervenir $x$) ; si $\forall x \, f$ et $\exists x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie (en effet, $\forall x \, \neg (f \Rightarrow g)$ est fausse, donc $\forall x \, (f \wedge \neg g)$ est fausse, donc $(\forall y \, f) \wedge (\forall x \neg g)$ est fausse ; puisque $\forall y \, f$ est vraie, on en déduit que $\forall x \, \neg g$ est fausse, et donc que $\exists x \, g$ est vraie) ; 
+  \item soit $x$ une variable et $f$ et $g$ deux formules (faisant ou non intervenir $x$) ; si $\exists x \, f$ et $\forall x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie (en effet, $\forall x \, (g \vee \neg f)$ est vraie, donc, si $\exists x \, g$ était fausse, on aurait $\forall x \, ((g \vee \neg f) \wedge (\neg g))$, donc $\forall x \, \neg f$, ce qui n'est pas le cas puisque $\exists x \, f(x)$ est vraie). 
+\stopitemize
+\emph{Stricto sensu}, il est donc possible de se passer d'un de ces deux quantificateurs, ou de voir l'un d'eux comme fondamental et l'autre comme dérivé. 
+Par exemple, on peut voir le quantificateur $\exists$ comme le seul quantificateur fondamental, et définir $\forall$ \emph{via} l'équivalence de $\forall x \, f$ et $\neg \left( \exists x \, \neg f \right)$ pour toute variable $x$ et toute formule $f$. 
+
+\blank[medium]
+
+\noindent\bold{Attention :} 
+Une formule vraie (au sens où sa valeur de vérité est « vrai ») n'est pas nécessairement équivalente à $\mathss{V}$.
+De même, une formule faussee (au sens où sa valeur de vérité est « faux ») n'est pas nécessairement équivalente à $\mathss{F}$.
+Par contre, une formule équivalente à $\mathss{V}$ est nécessairement vraie et une formule équivalente à $\mathss{F}$ nécessairement fausse.
+
+\stopsubsection
+
+
+\startsubsection[
+  title=Relations binaires,
+  reference=subsub:relations_binaires]
+\wordsRegister{relation binaire}
+
+Une théorie définie dans le cadre de la logique du premier ordre peut inclure des relations binaires entre les objets de son domaine de discours, chacune étant représentée par un symbole. 
+Si $x$ et $y$ sont deux variables, et $R$ le symbole dénotant une relation binaire, alors $x \mathrel{R} y$ est un terme. 
+L'égalité est un exemple de reation binaire, avec pour symbole $=$. 
+
+Soit $P$ un prédicat dépendant de deux variables. 
+On peut définir une relation binaire $R$ par la formule 
+\startformula
+  \forall x \forall y \, ((x \mathrel{R} y) \Leftrightarrow P x y),
+\stopformula
+ignifiant que, pour chaque $x$ et chaque $y$, $x \mathrel{R} y$ est vrai si et seulement si $P x y$ est vrai. 
+Autrement dit, cette formule signiie que les prédicats $P x y$ et $x \mathrel{R} y$ sont équivalents.
+
+Lors de l'évaluation d'une formule, et sauf mention contraire, les relations binaires autres que l'égalité sont prioritaires sur cette dernière, mais pas sur le connecteur $\neq$.
+
+\stopsubsection
+
+
+\startsubsection[title=Réciproque]
+\wordsRegister{réciproque}
+
+Soit $f$ et $g$ deux formules n'ayant pas de quantificateur et $P: f \Rightarrow g$. 
+On suppose que le connecteur reliant $f$ et $g$ peut être évalué en dernier.
+La \emph{réciproque} de $P$ est la formule $g \Rightarrow f$. 
+
+Plus généralement, on définit la réciproque d'une formule formée de variables quantifiées et d'une formule de cette forme par celle obtenue en prenant la contraposée de cette dernière : si $Q$ est une séquence de variables quantifiées (de la forme $\forall a_1 \dots \forall a_n \exists b_1 \dots \exists b_m \dots$, où les formules $\forall a_1 \dots \forall a_n$ et $\forall b_1 \dots \forall b_m$ sont comprises comme pouvant contenir chacune, et indépendamment, aucune, une seule, ou plusieurs variables quantifiées), la réciproque de la formule $Q \, f \rightarrow q$ est $Q \, g \Rightarrow f$. 
+
+\stopsubsection
+
+
+\startsubsection[title=Contraposée]
+\wordsRegister{contraposée}
+
+Soit $f$ et $g$ deux formules n'ayant pas de quantificateur et $P: f \Rightarrow g$. 
+On suppose que le connecteur reliant $f$ et $g$ peut être évalué en dernier.
+La \emph{contraposée} de $P$ est la formule $\neg g \Rightarrow \neg f$. 
+La formule $P$ et sa contraposée ont toujours la même valeur de vérité (elles sont vraies si $f$ est fausse ou $g$ est vraie et fausses sinon). 
+
+Plus généralement, on définit la contraposée d'une formule formée de variables quantifiées et d'une formule de cette forme par celle obtenue en prenant la contraposée de cette dernière : si $Q$ est une séquence de variables quantifiées (de la forme $\forall a_1 \dots \forall a_n \exists b_1 \dots \exists b_m \dots$, où les formules $\forall a_1 \dots \forall a_n$ et $\forall b_1 \dots \forall b_m$ sont comprises comme pouvant contenir chacune, et indépendamment, aucune, une seule, ou plusieurs variables quantifiées), la contraposée de la formule $Q f \rightarrow q$ est $Q (\neg g \Rightarrow \neg f)$. 
+La contraposée d'une formule a toujours la même valeur de vérité que la formule initiale.
+
+\stopsubsection
+
+
+\startsubsection[title=NAND et NOR]
+\wordsRegister{NAND}\wordsRegister{NOR}
+
+Notons que chacun des connecteurs peut être construit à l'aide d'un unique connecteur, que l'on note ici $\circ$, appelé \emph{NAND}, définit de la manière suivante : si $f$ et $g$ sont deux formules, alors $f \circ g$ est une formule, vraie si et seulement si $f$ et $g$ ne sont pas toutes deux vraies. 
+En effet, si $f$ et $g$ sont deux formules, et en considérant que deux formules sont équivalentes si elles prennent toujours la même valeur,
+\startitemize
+  \item $\neg f$ est équivalente à $f \circ f$,
+  \item $f \wedge g$ est équivalente à $\neg (f \circ g)$,
+  \item $f \vee g$ est équivalente à $(\neg f) \circ (\neg g)$,
+  \item $f \Rightarrow g$ est équivalente à $(\neg f) \vee g$,
+  \item $f \Leftarrow g$ est équivalente à $f \vee (\neg g)$,
+  \item $f \Leftrightarrow g$ est équivalente à $(f \wedge g) \vee ((\neg f) \wedge (\neg g))$.
+\stopitemize
+Un tel connecteur, permettant de construire tous les autres, est dit \emph{universel}.
+
+Il existe un autre connecteur universel, appelé \emph{NOR}, que l'on note dans ce paragraphe $\times$, défini par : si $f$ et $g$ sont deux formules, alors $f \circ g$ est une formule, vraie si et seulement si $f$ et $g$ sont toutes deux fausses. 
+En effet, si $f$ et $g$ sont deux formules, $\neg f$ est équivalente à $f \times f$ et $f \wedge g$ à $(\neg f) \times (\neg g)$, donc $f \circ g$ est équivalente à $[(f \times f) \times (g \times g)] \times [(f \times f) \times (g \times g)]$. 
+Puisque le connecteur $\circ$ est universel, le connecteur $\times$ l'est donc aussi.
+
+\stopsubsection
+
+
+\startsubsection[
+  title=XOR, 
+  reference=subsub:XOR]
+\wordsRegister{XOR}
+
+On définit le connecteur \emph{XOR}, noté $\symbols{\oplus}$, de la manière suivante : si $f$ et $g$ sont deux formules, alors $f \oplus g$ est une formule vraie si $f$ est vraie et $g$ est fausse ou si $f$ est fausse et $g$ est vraie, et fausse sinon. 
+Si $f$ et $g$ sont deux formules, alors $f \oplus g$ est équivalente à $f \Leftrightarrow (\neg g)$. 
+
+L'utilité du connecteur XOR découle des trois propriétés suivantes : 
+\startitemize[nowhite]
+  \item Il est \emph{symmétrique} : si $f$ et $g$ sont deux formules, $f \oplus g$ est équivalente à $g \oplus f$ (en effet, toutes deux sont vraies si une des formules $f$ et $g$ est vraie et l'autre est fausse, et fausse sinon).
+  \item Il est \emph{transitif} : si $f$, $g$ et $h$ sont trois formules, $(f \oplus g) \oplus h$ est équivalente à $f \oplus (g \oplus h)$ (en effet, toutes deux sont vraies soit si les trois formules $f$, $g$ et $h$ sont vraies ou si une d'entre elles est vraie et les deux autres sont fausses, et fausses sinon).
+  \item Soit $f$ une formule, $f \oplus f$ est toujours fausse.
+\stopitemize
+Notons aussi que, si $f$ est une formule, $f \oplus \mathss{F}$ est équivalente à $f$ et $f \oplus \mathss{V}$ à $\neg f$.
+
+\stopsubsection
+
+
+\startsubsection[title=Tables de vérité]
+\wordsRegister{Table de vérité}
+
+Les valeurs de formules construites à partir d'autres formules peuvent être consignées dans des tableaux appelés \emph{tables de vérité}, contenant sur la première ligne plusieurs formules et sur les autres leurs valeurs (un tiret indiquant qu'elle peut prendre la valeur vraie ou fausse). 
+En voici un exemple, pour deux formules $f$ et $g$ : 
+
+\startplacetable[location=force,number=no]
+  \starttabulate[|c|c|c|c|c|c|c|c|][rulethickness=0.8pt,distance={0pt,0pt}]
+    \NC $f$ \NC $g$ \VL $\neg f$ \NC $f \wedge g$ \NC $f \vee g$ \NC $f \Rightarrow g$ \NC $f \Leftarrow g$ \NC $f \Leftrightarrow g$ \NC\NR\TB[-2ex]
+    \NC\NC\VL\NC\NC\NC\NC\NC\NC\NR
+    \HL
+    \NC\NC\VL\NC\NC\NC\NC\NC\NC\NR\TB[-2ex]
+    \NC $\mathss{F}$ \NC $\mathss{F}$ \VL $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC\NR
+    \NC $\mathss{F}$ \NC $\mathss{V}$ \VL $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC\NR
+    \NC $\mathss{V}$ \NC $\mathss{F}$ \VL $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC\NR
+    \NC $\mathss{V}$ \NC $\mathss{V}$ \VL $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC\NR
+  \stoptabulate
+\stopplacetable
+
+On peut utiliser des tables de vérités pour montrer l'équivalence entre plusieurs formules. 
+Montrons par exemple les trois propriétés énoncées \in{Section}{}[subsub:XOR]. 
+Pour trois formules $f$, $g$ et $h$, on a :
+\startplacetable[location=force,number=no]
+  \starttabulate[|c|c|c|c|c|c|c|c|][rulethickness=0.8pt,distance={0pt,0pt}]
+    \NC $f$ \NC $g$ \NC $h$ \VL $f \oplus g$ \NC $g \oplus f$ \NC $(f \oplus g) \oplus h$ \NC $f \oplus (g \oplus h)$ \NC $f \oplus f$ \NC\NR\TB[-2ex]
+    \NC\NC\NC\VL\NC\NC\NC\NC\NC\NR
+    \HL
+    \NC\NC\NC\VL\NC\NC\NC\NC\NC\NR\TB[-2ex]
+    \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \VL $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC\NR
+    \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \VL $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC\NR
+    \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \VL $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC\NR
+    \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \VL $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC\NR
+    \NC $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \VL $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC\NR
+    \NC $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \VL $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC\NR
+    \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \VL $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC\NR
+    \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \VL $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC\NR
+  \stoptabulate
+\stopplacetable
+%\begin{center}
+%\begin{tabular}{c c c | c c c c c}
+%    $f$ & $g$ & $h$ & $f \oplus g$ & $g \oplus f$ & $(f \oplus g) \oplus h$ & $f \oplus (g \oplus h)$ & $f \oplus f$ 
+%    \\ \hline 
+%    $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$
+%    \\
+%    $\mathss{F}$ & $\mathss{F}$ & $\mathss{V}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{F}$
+%    \\
+%    $\mathss{F}$ & $\mathss{V}$ & $\mathss{F}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{F}$
+%    \\
+%    $\mathss{F}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$
+%    \\
+%    $\mathss{V}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{F}$
+%    \\
+%    $\mathss{V}$ & $\mathss{F}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$
+%    \\
+%    $\mathss{V}$ & $\mathss{V}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$
+%    \\
+%    $\mathss{V}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{F}$
+%    \\
+%\end{tabular}
+%\end{center}
+On remarque, comme attendu, que
+\startitemize[nowhite]
+  \item Les formules $f \oplus g$ et $g \oplus f$ prennent toujours la même valeur.
+  \item Les formules $(f \oplus g) \oplus h$ et $f \oplus (g \oplus h)$ prennent toujours la même valeur.
+  \item La formule $f \oplus f$ est toujours fausse.
+\stopitemize
 
 \stopsubsection
 
