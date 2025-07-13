@@ -15,10 +15,10 @@ Dans cette vision, les symboles constituent les fondations du langage, premettan
 \footnote{ Ce sens étant défini, \emph{in fine}, par un élément extérieur au langage, par exemple l'intuition de qui l'utilise.} 
 On sépare parfois les symboles en deux catégories : \emph{fondamentaux} s'ils forment un ensemble unsécable, ou \emph{composites} s'ils sont formés d'autres symboles.
 
-Intuitivement, la logique du premier ordre a pour symboles des variables (décrivant un domaine d'objets non logiques, c'est-à-dire non définis par la logique du premier ordre elle-même) quantifiées (par les quantificateurs\wordsRegister{Quantificateur} « pour tout » et « il existe ») ou non, des symboles non logiques, ainsi que des connecteurs, utilisés pour construire des phrases, appelées \emph{formules}. 
-Ces dernières sont aussi appelées \emph{propositions}, \emph{énoncés} ou \emph{prédicats}.\wordsRegister{Formule}\wordsRegister{Énoncé}\wordsRegister{Prédicat}\wordsRegister{Proposition} 
+Intuitivement, la logique du premier ordre a pour symboles des variables (décrivant un domaine d'objets non logiques, c'est-à-dire non définis par la logique du premier ordre elle-même) quantifiées (par les quantificateurs\index{Quantificateur} « pour tout » et « il existe ») ou non, des symboles non logiques, ainsi que des connecteurs, utilisés pour construire des phrases, appelées \emph{formules}. 
+Ces dernières sont aussi appelées \emph{propositions}, \emph{énoncés} ou \emph{prédicats}. \index{Formule}\index{Énoncé}\index{Prédicat}\index{Proposition} 
 
-Elle est une extension de la \emph{logique propositionelle}, qui exprime des énoncés, ou \emph{propositions}, aussi appelés \emph{prédicats}, auxquels on attribue une valeur dite de \emph{vérité} : vrai ou faux.\wordsRegister{Valeur de vérité}
+Elle est une extension de la \emph{logique propositionelle}, qui exprime des énoncés, ou \emph{propositions}, aussi appelés \emph{prédicats}, auxquels on attribue une valeur dite de \emph{vérité} : vrai ou faux.\index{Valeur de vérité}
 Chaque proposition est soit vraie soit fausse, et ne peut être les deux simultanément. 
 Ces énoncés peuvent être liés par conjonction, disjonction, implication, équivalence, ou modifés par négation. 
 La logique du premier ordre contient, en outre, des variables et quantificateurs, ce qui la rend plus expressive. 
@@ -30,7 +30,7 @@ Cela distingue la logique du premier ordre des logiques d'ordre supérieur, où 
 
 Plus formellement, une théorie définie dans le cadre de la logique du premier ordre se compose des éléments suivants : 
 \startitemize[nowhite]
-  \item Un \emph{\words{alphabet}}, c'est-à-dire un ensemble (au sens intuitif du terme) de symboles, dont certaines chaînes forment des \emph{termes}.\wordsRegister{Symbole} 
+  \item Un \emph{\words{alphabet}}, c'est-à-dire un ensemble (au sens intuitif du terme) de symboles, dont certaines chaînes forment des \emph{termes}.\index{Symbole} 
     On divise généralement les symboles et deux catégories : les \emph{symboles logiques}, dont la signification est fixée, et les \emph{symboles non logiques}, dont le sens n'est pas univoquement défini par la théorie et doit être défini au cas par cas. 
     Certains de ces symboles sont définis par la logique du premier ordre ; d'autres peuvent être propres à la théorie. 
   \item Un \emph{domaine de discours} non vide que les variables décrivent (si $x$ désigne une variable, la formule $\exists x \mathss{V}$ est toujours vraie (voir ci-dessous pour la signification de cette formule)).
@@ -41,19 +41,19 @@ Plus formellement, une théorie définie dans le cadre de la logique du premier 
     Une proposition est toujours vraie ou fausse%
     \footnote{ À moins d'inclure la valeur de vérité indéfinie, voir \in{section}{}[subsub:Indéfinie].}%
     , et ne peut être simultanément vraie et fausse. 
-    Deux formules seront dites \emph{équivalentes} si elles prennent toujours la même valeur de vérité.\wordsRegister{Formules équivalentes} 
+    Deux formules seront dites \emph{équivalentes} si elles prennent toujours la même valeur de vérité.\index{Formules équivalentes} 
     \startitemize[nowhite]
       \item Si $f$ et $g$ sont deux formules équivalentes, $g$ et $f$ sont équivalentes.
       \item Si $f$ et $g$ sont trois formules telles que $f$ et $g$ sont équivalentes et $g$ et $h$ sont équivalentes, alors $f$ et $h$ sont équivalentes.
     \stopitemize
-  \item Un ensemble d'\emph{axiomes}, ou propositions tenues pour vraies.\wordsRegister{Axiome} 
+  \item Un ensemble d'\emph{axiomes}, ou propositions tenues pour vraies.\index{Axiome} 
         Ces axiomes permettent en général de déterminer la valeur de vérité d'autres prédicats.
 \stopitemize
 
 
 \startsubsection[title=Symboles logiques]
 
-Les symboles logiques incluent : \wordsRegister{Quantificateur}\wordsRegister{Connecteur}
+Les symboles logiques incluent : \index{Quantificateur}\index{Connecteur}
 \startitemize
   \item Le symbole de quantification universelle \symbols{$\forall$} (« pour tout »).
   \item Le symbole de quantification existentielle \symbols{$\exists$} (« il existe »).
@@ -70,10 +70,10 @@ Les symboles logiques incluent : \wordsRegister{Quantificateur}\wordsRegister{C
   \item Un ensemble infini de \emph{variables}, souvent notées par des lettres grecques ou latines, éventuellement avec des indices ou exposants. 
   Les variables sont interprétées comme décrivant un domaine d'objets de base, qui ne peut être vide. 
   Elles sont aussi parfois appelées \emph{paramètres}. 
-  \wordsRegister{variable}\wordsRegister{paramètre}
+  \index{variable}\index{paramètre}
 \stopitemize
 
-On définit également les constantes de vérité $\mathss{V}$ pour « vraie » et $\mathss{F}$ pour « fausse ».\wordsRegister{Vrai}\wordsRegister{Faux} 
+On définit également les constantes de vérité $\mathss{V}$ pour « vraie » et $\mathss{F}$ pour « fausse ».\index{Vrai}\index{Faux} 
 Elles sont deux formules, et $\mathss{F}$ est équivalente à $\neg \mathss{V}$.\symbolsRegister{$\mathss{V}$}\symbolsRegister{$\mathss{F}$}`
 Si $f$ est une formule, ces deux constantes de vérité sont équivalentes, respectivements, aux formules $f \vee (\neg f)$ et $f \wedge (\neg f)$. 
 
@@ -121,7 +121,7 @@ Il représentent généralement un prédicat, pouvant dépendre de variables pla
 
 
 \startsubsection[title={Parenthèses, symboles $($, $)$, $[$, $]$}]
-\wordsRegister{parenthèses}
+\index{parenthèses}
 
 Si $f$ est une formule, alors $\symbols{(}f\symbols{)}$ et $\symbols{[}f\symbols{]}$ sont deux formule équivalentes à $f$. 
 Nous omettrons parfois les parenthèses lorsque qu'il n'y a pas d'ambiguité sur la manière dont elles peuvent être incluses, ou lorsque les différentes manières de les inclure donnent des formules équivalentes. 
@@ -133,7 +133,7 @@ Ainsi, si les symboles $f$ et $g$ désignent deux formules, si $\mathrm{C_u}$ es
 
 
 \startsubsection[title=Termes]
-\wordsRegister{Terme}
+\index{Terme}
 
 Les termes sont définis comme suit : 
 \startitemize
@@ -148,7 +148,7 @@ Une théorie formulée dans le cadre de la logique du premier ordre peut défini
 
 
 \startsubsection[title=Formules]
-\wordsRegister{Formule}
+\index{Formule}
 
 Les formules sont définies de la manière suivante : 
 \startitemize
@@ -205,7 +205,7 @@ Ainsi,
 
 
 \startsubsection[title=Quantificateur d'unicité]
-\wordsRegister{unicité}
+\index{unicité}
 
 En logique du premier ordre avec égalité, on définit le quantificateur $\symbols{\exists !}$ de la manière suivante : si $P$ est un prédicat à un paramètre libre $x$ et d'éventuels autres paramètres dénotés par $a_1 \dots a_p$, la formule $\exists ! x \, P x a_1 \dots a_p$ est équivalente à $(\exists x \, P x a_1 \dots a_p) \wedge (\forall x \forall y \, (P x a_1 \dots a_p \wedge P y a_1 \dots a_p) \Rightarrow (x=y))$.
     
@@ -248,7 +248,7 @@ On omet parois les parenthèses dans une formule lorsque celles-ci ne modifie pa
   \item Ordre d'évaluation des connecteurs et quantificateurs : d'abords les quantificateurs $\exists$ et $\forall$, puis $\neg$, puis (en présence de l'égalité) $=$, puis $\wedge$ et $\vee$ (avec la même priorité), puis $\Rightarrow$, $\Leftarrow$ et $\Leftrightarrow$ (avec la même priorité).
 \stopitemize
 
-\wordsRegister{transitivité}
+\index{transitivité}
 Un connecteur binaire $\mathrm{C}$ est dit \emph{transitif} si, pour toutes formules $f$, $g$ et $h$, les formules $(f \mathop{\mathrm{C}} g) \mathop{\mathrm{C}} h$ et $\mathop{\mathrm{C}} (g \mathop{\mathrm{C}} h)$ sont équivalentes.
 Un connecteur binaire $\mathrm{C}$ est dit \emph{symmétrique} si, pour toutes formules $f$ et $g$, les formules $f \mathop{\mathrm{C}} g$ et $g \mathop{\mathrm{C}} f$ sont équivalentes.
 
@@ -313,7 +313,7 @@ Par contre, une formule équivalente à $\mathss{V}$ est nécessairement vraie e
 \startsubsection[
   title=Relations binaires,
   reference=subsub:relations_binaires]
-\wordsRegister{relation binaire}
+\index{relation binaire}
 
 Une théorie définie dans le cadre de la logique du premier ordre peut inclure des relations binaires entre les objets de son domaine de discours, chacune étant représentée par un symbole. 
 Si $x$ et $y$ sont deux variables, et $R$ le symbole dénotant une relation binaire, alors $x \mathrel{R} y$ est un terme. 
@@ -333,7 +333,7 @@ Lors de l'évaluation d'une formule, et sauf mention contraire, les relations bi
 
 
 \startsubsection[title=Réciproque]
-\wordsRegister{réciproque}
+\index{réciproque}
 
 Soit $f$ et $g$ deux formules n'ayant pas de quantificateur et $P: f \Rightarrow g$. 
 On suppose que le connecteur reliant $f$ et $g$ peut être évalué en dernier.
@@ -345,7 +345,7 @@ Plus généralement, on définit la réciproque d'une formule formée de variabl
 
 
 \startsubsection[title=Contraposée]
-\wordsRegister{contraposée}
+\index{contraposée}
 
 Soit $f$ et $g$ deux formules n'ayant pas de quantificateur et $P: f \Rightarrow g$. 
 On suppose que le connecteur reliant $f$ et $g$ peut être évalué en dernier.
@@ -359,7 +359,7 @@ La contraposée d'une formule a toujours la même valeur de vérité que la form
 
 
 \startsubsection[title=NAND et NOR]
-\wordsRegister{NAND}\wordsRegister{NOR}
+\index{NAND}\index{NOR}
 
 Notons que chacun des connecteurs peut être construit à l'aide d'un unique connecteur, que l'on note ici $\circ$, appelé \emph{NAND}, définit de la manière suivante : si $f$ et $g$ sont deux formules, alors $f \circ g$ est une formule, vraie si et seulement si $f$ et $g$ ne sont pas toutes deux vraies. 
 En effet, si $f$ et $g$ sont deux formules, et en considérant que deux formules sont équivalentes si elles prennent toujours la même valeur,
@@ -383,7 +383,7 @@ Puisque le connecteur $\circ$ est universel, le connecteur $\times$ l'est donc a
 \startsubsection[
   title=XOR, 
   reference=subsub:XOR]
-\wordsRegister{XOR}
+\index{XOR}
 
 On définit le connecteur \emph{XOR}, noté $\symbols{\oplus}$, de la manière suivante : si $f$ et $g$ sont deux formules, alors $f \oplus g$ est une formule vraie si $f$ est vraie et $g$ est fausse ou si $f$ est fausse et $g$ est vraie, et fausse sinon. 
 Si $f$ et $g$ sont deux formules, alors $f \oplus g$ est équivalente à $f \Leftrightarrow (\neg g)$. 
@@ -400,7 +400,7 @@ Notons aussi que, si $f$ est une formule, $f \oplus \mathss{F}$ est équivalente
 
 
 \startsubsection[title=Tables de vérité]
-\wordsRegister{Table de vérité}
+\index{Table de vérité}
 
 Les valeurs de formules construites à partir d'autres formules peuvent être consignées dans des tableaux appelés \emph{tables de vérité}, contenant sur la première ligne plusieurs formules et sur les autres leurs valeurs (un tiret indiquant qu'elle peut prendre la valeur vraie ou fausse). 
 En voici un exemple, pour deux formules $f$ et $g$ : 
@@ -437,34 +437,364 @@ Pour trois formules $f$, $g$ et $h$, on a :
     \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \VL $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC\NR
   \stoptabulate
 \stopplacetable
-%\begin{center}
-%\begin{tabular}{c c c | c c c c c}
-%    $f$ & $g$ & $h$ & $f \oplus g$ & $g \oplus f$ & $(f \oplus g) \oplus h$ & $f \oplus (g \oplus h)$ & $f \oplus f$ 
-%    \\ \hline 
-%    $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$
-%    \\
-%    $\mathss{F}$ & $\mathss{F}$ & $\mathss{V}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{F}$
-%    \\
-%    $\mathss{F}$ & $\mathss{V}$ & $\mathss{F}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{F}$
-%    \\
-%    $\mathss{F}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$
-%    \\
-%    $\mathss{V}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{F}$
-%    \\
-%    $\mathss{V}$ & $\mathss{F}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$
-%    \\
-%    $\mathss{V}$ & $\mathss{V}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{F}$
-%    \\
-%    $\mathss{V}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{F}$ & $\mathss{F}$ & $\mathss{V}$ & $\mathss{V}$ & $\mathss{F}$
-%    \\
-%\end{tabular}
-%\end{center}
 On remarque, comme attendu, que
 \startitemize[nowhite]
   \item Les formules $f \oplus g$ et $g \oplus f$ prennent toujours la même valeur.
   \item Les formules $(f \oplus g) \oplus h$ et $f \oplus (g \oplus h)$ prennent toujours la même valeur.
   \item La formule $f \oplus f$ est toujours fausse.
 \stopitemize
+
+\stopsubsection
+
+
+\startsubsection[title=Quelques propriétés]
+
+Les propriétés suivantes peuvent être facilement démontrées en écrivant les tables de vérités correspondantes :
+\startitemize
+  \item Soit $f$ une formule. La formule $f \wedge \mathss{F}$ est toujours fausse et $f \vee \mathss{V}$ est toujours vraie.
+  \item Soit $f$ une formule. Les formule $f \wedge \mathss{V}$, $f \vee \mathss{F}$, $f \wedge f$, $f \vee f$ et $f \Leftrightarrow \mathss{V}$ ont la même valeur de vérité que $f$.
+  \item Le connecteur $\wedge$ est symmétrique : Soit $f$ et $g$ deux formules ; si $f \wedge g$ est vraie, alors $f$ et $g$ sont toutes deux vraies, donc $g \wedge f$ l'est également.
+  \item Le connecteur $\wedge$ est transitif : Soit $f$, $g$ et $h$ trois formules, $f \wedge (g \wedge h)$ a la même valeur de vérité que $(f \wedge g) \wedge h$. En effet, toute deux sont vraies si et seulement si $f$, $g$ et $h$ sont toutes trois vraies.
+  \item Soit $f$, $g$ et $h$ trois formules ; si $f \wedge g$ et $g \wedge h$ sont vraies, alors $f \wedge h$ l'est également.
+  \item Le connecteur $\vee$ est symmétrique : Soit $f$ et $g$ deux formules ; si $f \vee g$ est vraie, alors au moins une des deux formules $f$ et $g$ est vraie, donc $g \vee f$ l'est également.
+  \item Le connecteur $\vee$ est transitif : Soit $f$, $g$ et $h$ trois formules, $f \vee (g \vee h)$ a la même valeur de vérité que $(f \vee g) \vee h$. En effet, toutes deux son vraies si et seulement si au moins une des deux formules $f$, $g$ et $h$ est vraie.
+  \item Le connecteur $\Leftrightarrow$ est symmétrique : Soit $f$ et $g$ deux formules ; si $f \Leftrightarrow g$ est vraie, alors $g \Leftrightarrow f$ l'est également.
+  \item Le connecteur $\Leftrightarrow$ est transitif : Soit $f$, $g$ et $h$ trois formules, $f \Leftrightarrow (g \Leftrightarrow h)$ a la même valeur de vérité que $(f \Leftrightarrow g) \Leftrightarrow h$. En effet, toutes deux son vraies si et seulement si les trois formules $f$, $g$ et $h$ ont la même valeur de vérité.
+  \item Soit $f$, $g$ et $h$ trois formules. 
+      \startitemize[nowhite]
+          \item Si $f \Leftrightarrow g$ et $g \Leftrightarrow h$ sont vraies, alors $f \Leftrightarrow h$ l'est également. 
+          \item Si $f \Rightarrow g$ et $g \Rightarrow h$ sont vraies, alors $f \Rightarrow h$ l'est également. 
+          \item Si $f \Leftarrow g$ et $g \Leftarrow h$ sont vraies, alors $f \Leftarrow h$ l'est également. 
+      \stopitemize
+  \item Soit $f$ et $g$ deux formules. Alors, $\neg (f \wedge g)$ a la même valeur de vérité que $(\neg f) \vee (\neg g)$. 
+      En effet, toutes deux sont vraies si au moins une des formules $f$ et $g$ est fausse, et fausses sinon.
+  \item Soit $f$ et $g$ deux formules. Alors, $\neg (f \vee g)$ a la même valeur de vérité que $(\neg f) \wedge (\neg g)$. 
+      En effet, toutes deux sont vraies si les deux formules $f$ et $g$ sont fausses, et fausses sinon.
+  \item Soit $f$ et $g$ deux formules. Si $f \Leftrightarrow g$ est vraie, alors $\neg f \Leftrightarrow \neg g$ l'est aussi.
+  \item Soit $f$ et $g$ deux formules ; la formule $f \Leftrightarrow g$ est équivalente à $(f \Rightarrow g) \wedge (g \rightarrow f)$. 
+  \item Le connecteur $\wedge$ est distributif sur $\vee$ : si $f$, $g$ et $h$ sont trois formules, les deux formules $f \wedge (g \vee h)$ et $(f \wedge g) \vee (f \wedge h)$ ont la même valeur de vérité (toutes deux sont vraies si et seulement si $f$ ainsi qu'au moins une des deux formules $g$ et $h$ sont vraies). 
+  \item Le connecteur $\vee$ est distributif sur $\wedge$ : si $f$, $g$ et $h$ sont trois formules, les deux formules $f \vee (g \wedge h)$ et $(f \vee g) \wedge (f \vee h)$ ont la même valeur de vérité (toutes deux sont vraies si $f$ est vraie ou si $g$ et $h$ sont toutes deux vraies et fausses sinon).
+  \item Soit $f$ et $g$ deux formules. Si $f \Rightarrow g$, alors $f \wedge g$ est équivalente à $f$ et $f \vee g$ est équivalente à $g$.
+  \item Soit $f$ et $g$ deux formules. Alors $f \Leftrightarrow g$ et $(\neq f) \Leftrightarrow (\neg g)$ sont équivalentes. 
+      (Elles sont toutes deux vraies si $f$ et $g$ ont la même valeur de vérité et fausses sinon.)
+  \item Soit $f$, $g$, $h$ et $i$ quatre formules. 
+      Si $f \Rightarrow g$ et $h \Rightarrow i$ sont vraies, alors $(f \wedge h) \Rightarrow (g \wedge i)$ et $(f \vee h) \Rightarrow (g \vee i)$ sont vraies.
+  \item Une conséquence de ces deux derniers points est que, avec les notations du second, si $f \Leftrightarrow g$ et $h \Leftrightarrow i$ sont vraies, alors $(f \wedge \neg h) \Leftrightarrow (g \wedge \neg i)$ est vraie.
+\stopitemize
+
+\blank[medium]
+
+\noindent \bold{Attention :} Si $f$, $g$ et $h$ sont trois formules, savoir que $f \vee g$ et $g \vee h$ sont vraies n'implique pas que $f \vee h$ l'est également. 
+(En effet, si $f$ et $h$ sont fausse alors que $g$ est vraie, les deux premières sont vraies mais la troisième est fausse.)
+
+\stopsubsection
+
+
+\startsubsection[title=Valeur de vérité Indéfinie, reference=sub:Indefinie]
+\index{Indéfinie}
+
+On peut étendre la logique du premier ordre en posant une troisième valeur de vérité, dite \emph{indéfinie}. 
+La constante de vérité correspondante est notée $\symbols{\mathss{I}}$. 
+Toute formule est alors associée à une (et une seule) des trois valeurs de vérité vraie, fausse ou indéfinie. 
+
+La table de vérité suivante donne les valeurs de formules obtenues à partir de deux formules $f$ et $g$ ainsi que d'un connecteur :
+\startplacetable[location=force,number=no]
+  \starttabulate[|c|c|c|c|c|c|c|c|][rulethickness=0.8pt,distance={0pt,0pt}]
+    \NC $f$          \NC $g$          \VL $\neg f$     \NC $f \wedge g$ \NC $f \vee g$ \NC $f \Rightarrow g$ \NC $f \Leftarrow g$ \NC $f \Leftrightarrow g$ \NC\NR\TB[-2ex]
+    \NC\NC\VL\NC\NC\NC\NC\NC\NC\NR
+    \HL
+    \NC\NC\VL\NC\NC\NC\NC\NC\NC\NR\TB[-2ex]
+    \NC $\mathss{F}$ \NC $\mathss{F}$ \VL $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{V}$    \NC $\mathss{V}$     \NC $\mathss{V}$ \NC\NR
+    \NC $\mathss{F}$ \NC $\mathss{I}$ \VL $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{I}$ \NC $\mathss{V}$    \NC $\mathss{I}$     \NC $\mathss{I}$ \NC\NR
+    \NC $\mathss{F}$ \NC $\mathss{V}$ \VL $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$    \NC $\mathss{F}$     \NC $\mathss{F}$ \NC\NR
+    \NC $\mathss{I}$ \NC $\mathss{F}$ \VL $\mathss{I}$ \NC $\mathss{F}$ \NC $\mathss{I}$ \NC $\mathss{I}$    \NC $\mathss{V}$     \NC $\mathss{I}$ \NC\NR
+    \NC $\mathss{I}$ \NC $\mathss{I}$ \VL $\mathss{I}$ \NC $\mathss{I}$ \NC $\mathss{I}$ \NC $\mathss{I}$    \NC $\mathss{I}$     \NC $\mathss{I}$ \NC\NR
+    \NC $\mathss{I}$ \NC $\mathss{V}$ \VL $\mathss{I}$ \NC $\mathss{I}$ \NC $\mathss{V}$ \NC $\mathss{V}$    \NC $\mathss{I}$     \NC $\mathss{I}$ \NC\NR
+    \NC $\mathss{V}$ \NC $\mathss{F}$ \VL $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{F}$    \NC $\mathss{V}$     \NC $\mathss{F}$ \NC\NR
+    \NC $\mathss{V}$ \NC $\mathss{I}$ \VL $\mathss{F}$ \NC $\mathss{I}$ \NC $\mathss{I}$ \NC $\mathss{I}$    \NC $\mathss{V}$     \NC $\mathss{I}$ \NC\NR
+    \NC $\mathss{V}$ \NC $\mathss{V}$ \VL $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$    \NC $\mathss{V}$     \NC $\mathss{V}$ \NC\NR
+  \stoptabulate
+\stopplacetable
+On a alors les équivalences : 
+\startitemize[nowhite]
+  \item $f \Rightarrow g$ est équivalente à $(\neg f) \vee g$,
+  \item $f \Leftarrow g$ est équivalente à $f \vee (\neg g)$,
+  \item $f \Leftrightarrow g$ est équivalente à $(f \wedge g) \vee ((\neg f) \wedge (\neg g))$.
+\stopitemize
+\blank[medium]
+On a aussi les règles additionelles : 
+\startitemize[nowhite]
+  \item toute formule vraie est équivalente à $\mathss{V}$,
+  \item toute formule fausse est équivalente à $\mathss{F}$,
+  \item toute formule indéfinie est équivalente à $\mathss{I}$.
+\stopitemize
+\blank[medium]
+Si $f(x)$ est une formule dépendant d'un paramètre libre $x$, alors, 
+\startitemize[nowhite]
+  \item si $f(a)$ est vraie pour tout objet $a$ du domaine de a théorie, alors $\forall x \, f(x)$ est vraie,
+  \item si $f(a)$ est vraie ou indéfinie pour tout objet $a$ du domaine de a théorie et qu'il existe au moins un d'entre eux pour lequel $f(a)$ est indéfinie, alors $\forall x \, f(x)$ est indéfinie,
+  \item si $f(a)$ est fausse pour au moins un objet $a$ du domaine de a théorie, alors $\forall x \, f(x)$ est fausse.
+\stopitemize
+Cela implique (en prenant la négation) : 
+\startitemize[nowhite]
+  \item si $f(a)$ est fausse pour tout objet $a$ du domaine de a théorie, alors $\exists x \, f(x)$ est fausse,
+  \item si $f(a)$ est fausse ou indéfinie pour tout objet $a$ du domaine de a théorie et qu'il existe au moins un d'entre eux pour lequel $f(a)$ est indéfinie, alors $\exists x \, f(x)$ est indéfinie,
+  \item si $f(a)$ est vraie pour au moins un objet $a$ du domaine de a théorie, alors $\exists x \, f(x)$ est vraie.
+\stopitemize
+\blank[medium]
+Le point de vue canonique en logique mathématique est de considérer que les deux seules valeurs de vérité possibles sont « vraie » et « fausse ». 
+Un point de vue intermédiaire est de considérer que seules les formules ayant au moins une variable libre peuvent prendre la valeur indéfinie. 
+Dans ce qui suit, on tâchera de ne tenir que des raisonnement valables avec ou sans la valeur de vérité indéfinie. 
+Sauf mention contraire explicite, on considèrera qu'une formule peut prendre une des trois valeurs de vérité.
+
+\stopsubsection
+
+\startsubsection[title=Quelques schémas de raisonnement]
+
+Pour démontrer qu'une formule est vraie, on remplacera souvent certains quantificateurs et connecteurs par des mots ayant la même signification afin de les rendre plus faciles à suivre, en suivant les règles énoncées ci-dessus. 
+Nous présentons ici brièvement quelques idées souvent utilisées pour démontrer des formules, de manière informelle. 
+On se place dans le cadre d'une théorie comprenant la logique du premier ordre et portant sur un certain domaine de discours définissant des objets.
+
+\blank[medium]
+
+\noindent
+\bold{\words{Raisonnement par l'absurde} :} 
+  Un type de raisonnement revenant souvent est le raisonnement par l'absurde : si $f$ et $g$ sont deux formules, si $f \Rightarrow g$ est vraie et $g$ est fausse, alors $f$ est nécessairement fausse. 
+  En pratique, pour montrer qu'une formule $f$ est fausse, on peut donc trouver une formule $g$ telle que $g$ est fausse et $f \Rightarrow g$.
+
+Plus formellement, si $f$ et $g$ sont deux formules, on a : 
+\startformula
+    \left((f \Rightarrow g) \wedge (\neg g) \right)
+    \Leftrightarrow \left( ((\neg f) \vee g) \wedge (\neg g) \right)
+    \Leftrightarrow \left( ((\neg f) \wedge (\neg g)) \vee (g \wedge (\neg g)) \right)
+    \Leftrightarrow \left( ((\neg f) \wedge (\neg g)) \vee \mathss{F} \right)
+    \Leftrightarrow \left( (\neg f) \wedge (\neg g) \right) .
+\stopformula
+Donc, si $(f \Rightarrow g) \wedge (\neg g)$ est vraie, alors $\neg f$ est vraie, donc $f$ est fausse.
+
+\blank[medium]
+
+\noindent
+\bold{Prouver une propriété de la forme $\forall x \, P(x) \Rightarrow Q(x)$ :}  
+  Soit $P$ et $Q$ deux prédicats à un paramètre libre. 
+  Pour prouver que la formule $\forall x \, P(x) \Rightarrow Q(x)$ est vraie, on pourra prendre un objet $x$ pouvant être n'importe-quel objet du domaine de discours de la théorie et montrer que, si $P(x)$ est vrai, alore $Q(x)$ l'est également.
+
+\blank[medium]
+
+\noindent
+\bold{Prouver l'\words{unicité} d'un objet satisfaisant une propriété en montrant que deux objets la satisfaisant sont égaux :} 
+  On se place ici dans le cadre de la logique du premier ordre avec égalité.
+  Soit $P$ un prédicat à un paramètre libre. 
+  Pour montrer qu'il existe au plus un unique objet $x$ tel que $P(x)$ est satisfait, on pourra montrer que si $x$ et $y$ sont deux objets tels que $P(x)$ et $P(y)$ sont vrais, alors $x = y$.
+  Pour montrer qu'il en existe exactement un, on montrera en outre qu'il existe un objet $x$ tel que $P(x)$ est vrai.
+
+\blank[medium]
+
+\noindent
+\bold{\words{Équivalence} :} 
+  Soit $f$ et $g$ deux formules. 
+  Si on peut montrer qur $f \Rightarrow g$ et $g \Rightarrow f$ sont vraies, alors $f \Leftrightarrow g$ est vraie.
+
+\stopsubsection
+
+\startsubsection[title=Un exemple : arc-en-ciel à minuit ?]
+
+Pour rendre cela un peu plus concret, éxaminons un exemple d'application. 
+On se restreint ici à la logique propositionelle, sans variables ni quantificateurs. 
+Considérons les prédicats suivants : 
+\startitemize[nowhite]
+  \item $P_1$ : « Le soleil brille. »
+  \item $P_2$ : « Il pleut. »
+  \item $P_3$ : « Il y a un arc-en-ciel. »
+  \item $P_4$ : « Il fait jour. »
+  \item $P_5$ : « Il est minuit. »
+  \item $P_6$ : « Si le soleil brille, il fait jour. »
+  \item $P_7$ : « À minuit, il ne fait pas jour. »
+  \item $P_8$ : « Il y a un arc-en-ciel si et seulement si le soleil brille et il pleut. »
+\stopitemize
+Alors, 
+\startitemize[nowhite]
+  \item $P_6$ est équivalent à : $P_1 \Rightarrow P_4$.
+  \item $P_7$ est équivalent à : $P_5 \Rightarrow \neg P_4$.
+  \item $P_8$ est équivalent à : $P_3 \Rightarrow (P_1 \wedge P_2)$.
+\stopitemize
+
+Posons-nous la question : en admettant $P_6$, $P_7$ et $P_8$, peut-il y avoir un arc-en-ciel à minuit ? 
+Évidemment, non ! 
+En effet, la contraposée de $P_6$ est $\neg  P_4 \Rightarrow \neg P_1$. 
+Si $P_7$ et $P_6$ (et donc sa contraposée) sont vrais, alors $(P_5 \Rightarrow \neg P_4) \wedge (\neg  P_4 \Rightarrow \neg P_1)$ est vrai. 
+Puisque le connecteur $\Rightarrow$ est transitif, cela implique $P_5 \Rightarrow \neg P_1$. 
+Or, la contraposée de $P_8$ est $\neg (P_1 \wedge P_2) \Rightarrow \neg P_3$. 
+Si $P_8$ est vrai, sa contraposée l'est aussi. 
+Si, de plus, $P_1$ est faux, alors $\neg (P_1 \wedge P_2)$ est vrai, et donc $\neg P_3$ est vrai. 
+Donc, si $P_8$ est vrai, $\neg P_1 \Rightarrow \neg P_3$. 
+En utilisant une dernière fois la transitivité du connecteur $\Rightarrow$, on obtient donc $P_5 \Rightarrow \neg P_1$ si $P_6$, $P_7$ et $P_8$ sont vrais. 
+Cela peut se récrire formellement : 
+\startformula
+    P_6 \wedge P_7 \wedge P_8 \Rightarrow (P_5 \Rightarrow \neg P_1). 
+\stopformula
+
+\stopsubsection
+
+\startsubsection[title=Premier théorème d'incomplétude de Gödel]
+
+\index{Gödel}\index{Incomplétude}
+Les deux théorèmes d'incomplétude de Gödel énoncent, en un certain sens, des limites au pouvoir démonstratif d'une théorie mathématique rigoureuse—autrement dit, si une théorie (suffisamment complexe, en un sens défini ci-dessous) est \emph{cohérente}, \emph{i.e.} si aucun prédicat faux ne peut être démontré, alors tous les prédicat vrais ne peuvent être démontrés. 
+Le premier d'entre eux exprime que, dans une théorie fondée sur la logique du premier ordre et suffisamment complexe pour y définir les entiers naturels, il existe des prédicats dont il est impossible de déterminer la valeur de vérité.
+On peut l'énoncer de manière informelle comme suit : 
+
+\medskip
+
+\noindent \emph{Tout système formel $F$ d'axiomes cohérent permettant de définir une arithmétique élémentaire est incomplet, au sens où il existe des prédicats exprimés dans le language de $F$ dont la valeur de vérité ne peut être démontrée vraie ni fausse à partir de $F$.}
+
+\medskip
+
+\noindent Cet énoncé est imprécis, entre autres puisqu'il ne définit pas ce qu'est une « arithmétique élémentaire ». 
+Pour le préciser, considérons une théorie dont l'alphabet contient (au moins) les symboles suivants : 
+\startitemize[nowhite]
+  \item Un symbole $0$ représentant une constante. 
+  \item Un symbole $x$ représentant une variable, ainsi qu'un symbole $\ast$ permettant de construire d'autres variables $x^\ast$, $x^{\ast\ast}$, $x^{\ast\ast\ast}$, ... Ces variables sont dites \emph{primaires}, et aussi appelées \emph{paramètres}.
+  \item Un symbole « successeur » $S$ définissant une fonction d'une seule variable. 
+  \item Deux opérations binaires $+$ (addition) et $\times$ (multiplication).
+  \item Les opérateurs logiques de conjonction $\wedge$, disjonction $\vee$ et négation $\neg$.
+  \item Les quantificateurs $\exists$ et $\forall$. 
+  \item Deux relations binaires $=$ (égalité) et $<$.
+  \item Les parenthèses $($ et $)$.
+\stopitemize
+\blank[medium]
+Les formules de la théorie sont des chaines (finies) de symboles, avec les règles suivantes : 
+\startitemize[nowhite]
+  \item Si $y$ désigne une constante, $S y$ est une constante, dite \emph{successeur} de $y$. 
+      On note $1$ le successeur $0$ et on suppose $1 \neq 0$.
+  \item Si $y$ désigne une variable, $S y$ est une variable, dite \emph{secondaire}.
+  \item Si $y$ et $z$ sont chacune une constante ou une variable, alors $y = z$ et $y < z$ sont des formules.
+  \item Si $f$ est une formule, alors $(f)$ en est une. 
+  \item Si $f$ est une formule, alors $\neg f$ en est une. 
+  \item Si $f$ et $g$ sont deux formules n'ayant aucune variable quantifiée en commun, alors $f \wedge g$ et $f \vee g$ en sont également. 
+  \item Soit $f$ une formule et $v$ une variable primaire telle que ni $\forall v$ ni $\exists v$ n'apparaît dans $f$. 
+    Alors $\forall v \, f$ et $\exists v \, f$ sont des formules.
+\stopitemize
+Notons que l'arithmétique usuelle satisfait ces propriétés (voir section~\ref{sub:constN}).
+Une variable $x$ apparaissant dans une formule $F$ est dite \emph{libre} si ni $\exists x$ ni $\forall x$ n'apparaissent dans $F$.
+
+On peut se limiter aux formules sans variable libre en remplaçant les règles ci-dessus par les suivantes (cela n'aura pas d'incidence sur la suite) :
+\startitemize[nowhite]
+  \item Si $y$ désigne une constante, $S y$ est une constante.
+  \item Si $y$ et $z$ sont deux constantes, alors $y = z$ et $y < z$ sont des formules.
+  \item Si $f$ est une formule, alors $(f)$ en est une. 
+  \item Si $f$ est une formule, alors $\neg f$ en est une. 
+  \item Si $f$ et $g$ sont deux formules, alors $f \wedge g$ et $f \vee g$ en sont également. 
+  \item Soit $f$ une formule, $c$ une constante et $v$ une variable. 
+      Soit $g$ la séquence de symboles obtenue en remplaçant $c$ par $v$ dans $f$.
+      Alors, $\forall v \, g$ et $\exists v \, g$ sont des formules.
+\stopitemize
+Ces éléments permettent, sous certains axiomes, de définir un ensemble de nombres $\mathbb{N}$, contenant $0$ et stable par $S$, ayant les mêmes propriétés que celui défini dans les sections suivantes (notamment celles des opérations binaires $+$ et $\times$ et le fait de définir $<$ comme une relation d'ordre). 
+
+On suppose un système d'axiomes permettant de définir un ensemble de nombres $\mathbb{N}$ satisfaisant les propriétés établies en section~\ref{sub:constN}, constituant la base de l'arithmétique usuelle.
+En particulier, $+$ et $\times$ sont des fonctions de $\mathbb{N} \times \mathbb{N}$ vers $\mathbb{N}$ et l'on peut définir les nombres premiers comme dans la section~\ref{subsub:defNombresPremiers}. 
+Pour fixer les idées, on pourra considérer que l'on se place dans le cadre de la théorie des ensembles et de l'arithmétique définies dans les sections ci-dessous.%
+\footnote{
+  Pour faire le lien avec la \in{section}{}[sec:constN], on peut poser l'équivalence suivante :
+  \startitemize[nowhite]
+    \item les constantes sont les entiers naturels, \emph{i.e.}, les éléments de $\mathbb{N}$ ;
+    \item les relations $=$ et $<$ sont, respectivement, la relation d'égalité et la première relation d'ordre sur $\mathbb{N}$ ;
+    \item $S$ est l'application succésseur : pour tout entier naturel $n$, $S n = n + 1$.
+  \stopitemize
+} 
+
+La théorie est dite \emph{cohérente} si aucune formule ne peut être montrée à la fois vraie et fausse. 
+Elle est dite \emph{ω-cohérente} si, pour toute formule $f$ et toute variable $n$, il est impossible de montrer $\exists n \, f$ si $\neg f$ est démontrable pour toute constante $n$. 
+Notons que la seconde notion implique la première (en choisissant pour $n$ une variable n'apparaissant pas dans $f$, $\exists n \, f$ est équivalente à $f$).
+Dans la suite, on suppose la théorie ω-cohérente.
+
+Enfin, la théorie est supposée \emph{effective}, c'est-à-dire qu'il est théoriquement possible d'écrire un algorithme ayant un nombre fini d'instructions donnant un par un tous ses axiomes et uniquement ses axiomes. 
+(On peut donner à cette définition un sens plus précis dans le cadre de l'arithmétique usuelle, et en définissant un ensemble d'instructions possibles pour un algorithme.) 
+On considère qu'un algorithme à un nombre fini d'instructions démontrant une formule $F$ peut être décrit par une formule de la théorie, par exemple par une formule de la forme $P \Rightarrow F$, où $P$ est soit un axiome de la théorie soit une formule démontrable.
+
+\blank[medium]
+
+\noindent \bold{Premier théorème d'incomplétude de Gödel :} Sous ces conditions, il existe une formule $F$ sans variable libre dont on ne peut montrer (par un algorithme fini) ni qu'elle est vraie ni qu'elle est fausse.
+
+\blank[medium]
+
+L'essence de la preuve est de construire, dans le cadre de cette théorie, un prédicat $Z$ équivalent à l'impossibilité de le démontrer lui-même. 
+Ainsi, si $Z$ est vrai, il n'est pas démontrable, et si $Z$ est faux il est démontrable (ce qui est impossible si la théorie est cohérente). 
+Dans le langage usuel, de tels énoncés paradoxaux sont aisés à formuler car un énoncé peut référer directement à lui-même. 
+Par exemple, la phrase « Cette phrase n'est pas démontrable. » ne peut être démontrée que si elle n'est pas vraie~\footnote{ Dans le même ordre d'idée, la phrase « Cette phrase est fausse. » ne peut être ni vraie ni fausse.}.
+Pour démontrer le premier théorème d'incomplétude de Gödel, il suffit en quelque sorte de montrer qu'un tel énoncé existe et forme un prédicat dans le cadre de toute théorie satisfaisant les propriétés énoncées ci-dessus.
+
+La démonstration de Gödel repose sur les \emph{nombres de Gödel} associés à chaque formule. 
+De manière générale (et une fois une théorie de l'arithmétique construite, voir section~\ref{sec:arithmetique} ; on se limite ici aux entiers naturels), une \emph{numérotation de Gödel} est une fonction injective (une définition rigoureuse des fonctions dans le cadre de la théorie des ensembles sera donnée \in{section}{}[sec:fonctions]) associant un nombre à chaque symbole ou formule. 
+
+La numérotation originelle de Gödel, que nous nommerons dans la suite \emph{encodage de Gödel}, noté $\mathbf{G}$, est obtenue de la manière suivante : 
+\startitemize[nowhite]
+  \item On choisit une suite (infinie) de nombres premiers distincts, notée $p$.\footnote{Cela est possible car il existe une infinité de nombres premiers (voir \in{section}{}[sub:defNombresPremiers]).}
+  \item À chaque symbole de la théorie ou variable primaire $x$ est associé un nombre $\mathbf{G}(x)$, de sorte que chaque nombre est associé à au plus un symbole ou une variable primaire.\footnote{Cela est possible car l'ensemble des symboles est fini et celui des variables primaires est dénombrable, donc l'ensemble contenant les symboles et variables primaires est dénombrable (voir définition \in{section}{}[sub:dénombrable]).}
+  \item Si $n$ est un entier naturel et $x_1$, $x_2$, ..., $x_n$ sont des symboles, le nombre associé à la séquence de symboles $x_1 x_2 \dots x_n$ est $p_1^{\mathbf{G}(x_1)} \times p_2^{\mathbf{G}(x_2)} \times \cdots \times p_n^{\mathbf{G}(x_n)}$.
+    Plus formellement, $\mathbf{G}(x_1 x_2 \dots x_n) = \prod_{i=1}^n p_i^{\mathbf{G}(x_i)}$. 
+\stopitemize
+D'après l'unicité de la décomposition en produits de facteurs premiers (voir section~\ref{subsub:dec_fact_prem}), deux formules distinctes ne peuvent avoir le même encodage.
+Puisque toute formule est une séquence finie de symboles, à chaque formule est ainsi associé un unique nombre et chaque nombre est associé à au plus une formule.
+
+\blank[medium]
+
+\noindent \bold{Exemple :} Si trois variables primaires $x$, $y$ et $z$ sont représentées respectivement par les nombres $1$, $2$ et $3$, si $+$ et $=$ sont respectivement représentés par les nombres $4$ et $5$, et si la suite $p$ commence par $(2, 3, 5, 7, 11)$, alors $\mathbf{G}(x + y = z) = 2^1 \times 3^4 \times 5^2 \times 7^5 \times 11^3 = 90598973850$.
+
+\blank[medium]
+
+\noindent Donnons une esquisse de preuve du premier théorème d'incomplétude.
+Soit $F$ une formule. 
+Si $F$ est démontrable, alors il existe un prédicat $P$ qui prouve $F$. 
+On peut ainsi, par exemple, définir la fonction $\mathrm{Dem}$ de $\mathbb{N} \times \mathbb{N}$ vers $\lbrace 0, 1 \rbrace$, illustrant que « $n$ démontre $m$ », par : pour tous entiers naturels $n$ et $m$, 
+\startitemize[nowhite]
+  \item Si $n$ est un nombre de Gödel associé à une formule $P$, $m$ est un nombre de Gödel associé à une formule $F$ et si $P$ démontre $F$, alors $\mathrm{Dem}(n, m) = 1$.
+  \item Sinon, $\mathrm{Dem}(n, m) = 0$. 
+\stopitemize
+(Cette fonction ne sera pas utilisée dans la suite, mais sert d'illustration.)
+
+On définit la fonction $q$ de $\mathbb{N} \times \mathbb{N}$ vers $\lbrace 0, 1 \rbrace$ par : pour tous entiers naturels $n$ et $m$, 
+\startitemize[nowhite]
+  \item Si $n$ est un nombre de Gödel associé à un prédicat $P$, $m$ est un nombre de Gödel associé à une formule $F$ à un paramètre libre et si $P$ démontre $F(\mathbf{G}(F))$, alors $q(n, m) = 0$.
+  \item Sinon, $q(n, m) = 1$.%
+    \footnote{En particulier, si $n$ est un nombre de Gödel associé à un prédicat $P$, $m$ est un nombre de Gödel associé à une formule $F$ à un paramètre libre et si $P$ ne démontre pas $F(\mathbf{G}(F))$, alors $q(n, m) = 1$.}
+\stopitemize
+Alors, pour toute formule $F$ à un paramètre libre, la formule $\forall y \, q(y, \mathbf{G}(F)) = 1$ est équivalente à : « il n'existe pas de preuve de $F(\mathbf{G}(F))$ ». 
+En effet, s'il existe un prédicat $P$ démontrant $F(\mathbf{G}(F))$, alors $q(\mathbf{G}(P), \mathbf{G}(F)) = 0$, donc $\exists y \, \neg (q(y, \mathbf{G}(F)) = 1)$ est vrai, donc $\forall y \, q(y, \mathbf{G}(F)) = 1$ est faux, et s'il n'en existe pas, alors, pour tout nombre $y$, soit $y$ encode un prédicat $P$ et $P$ ne peut montrer $F(\mathbf{G}(F))$, donc $q(y, \mathbf{G}(F)) = 1$, soit $y$ n'encode pas de formule, et donc $q(y, \mathbf{G}(F)) = 1$ également.
+
+Définissons le prédicat à un paramètre libre $P$ par : $P(x): \forall y \, q(y, x) = 1$. 
+Considérons maintenant le prédicat $Z$ défini par : $Z: P(\mathbf{G}(P))$. 
+De manière informelle, $Z$ est équivalent à $\forall y \, q(y, \mathbf{G}(P))$, et donc à « il n'existe pas de preuve de $Z$ ». 
+Nous avons donc construit un prédicat vrai si et seulement si il n'est pas démontrable. 
+
+Montrons un peu plus formellement que $Z$ est démontrable si et seulement si il est faux.
+\startitemize[nowhite]
+  \item Supposons que $Z$ est démontrable. 
+    Alors, il existe une formule, notons-là $F$, démontrant $Z$. 
+    Donc, $F$ démontre $P(\mathbf{G}(P))$.
+    Donc, $q(\mathbf{G}(F), \mathbf{G}(P)) = 0$. 
+    Donc, $q(\mathbf{G}(F), \mathbf{G}(P)) = 1$ est faux. 
+    Donc, $\forall y \, q(y,\mathbf{G}(P)) = 1$ est faux.
+    Donc, $P(\mathbf{G}(P))$ est faux.
+    Donc, $Z$ est faux.
+  \item Supposons que $Z$ est faux.
+    Alors, $P(\mathbf{G}(P))$ est faux.
+    Donc, $\forall y \, q(y,\mathbf{G}(P)) = 1$ est faux.
+    Donc, $\exists y \, \neg (q(y,\mathbf{G}(P)) = 1)$ est vrai.
+    Puisque, dans cette expression, $q(y,\mathbf{G}(P))$ ne peut prendre que les valeurs $0$ et $1$, on en déduit qu'il existe un entier $y$ tel que $q(y,\mathbf{G}(P)) = 0$\footnote{En effet, il existe un entier $y$ tel que $q(y,\mathbf{G}(P)) = 1$ est faux, et donc $q(y,\mathbf{G}(P)) = 0$ est vrai.}, et donc qu'il existe une formule $F$ telle que $y = \mathbf{G}(F)$ et $F$ prouve $P(\mathbf{G}(P))$, et donc $Z$. 
+\stopitemize
+
+Ainsi, la valeur de vérité du prédicat $Z$ ne peut être déterminée. 
+En effet, 
+\startitemize[nowhite]
+  \item Si $Z$ et vrai, alors $Z$ n'est pas démontrable.
+  \item Si la théorie est cohérente, $Z$ ne peut être faux (car alors il serait démontrable).
+\stopitemize
+
+\stopsubsection
+
+\startsubsection[title=Second théorème d'incomplétude de Gödel]
+
+******
 
 \stopsubsection
 

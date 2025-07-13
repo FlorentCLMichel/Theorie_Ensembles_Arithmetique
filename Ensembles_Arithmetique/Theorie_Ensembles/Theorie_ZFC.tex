@@ -1,0 +1,451 @@
+\startsection[title=Théorie ZFC]
+
+\startsubsection[title=La théorie de Zermelo, reference=sec:Zermelo]
+
+La théorie de \words{Zermelo}, aussi dite « théorie Z » est une axiomatisation, dans le cadre de la logique du premier ordre avec égalité, de la théorie des ensembles. 
+Elle fait intervenir des objets, appelés \emph{ensembles}\index{Ensemble}\footnote{Un ensemble est parfois appelé \emph{\words{espace}} ; mais ce terme est en général utilisé seulement en présence d'une structure additionnelle.}, et leurs relations, notamment des relations binaires. 
+Une de ces relations est l'\emph{appartenance}, désignée par le symbole $\in$. 
+Si $x$ et $y$ sont deux ensembles, alors $x \in y$ est une proposition bien formée (il s'agit d'un terme). 
+Si elle est vraie, on dira que \emph{$x$ est un \words{élément} de $y$}, que \emph{$x$ appartient à $y$}, que \emph{$x$ est dans $y$}, que \emph{$y$ contient $x$}, ou que \emph{$y$ possède $x$}.
+On définit aussi la relation $\ni$ par : $x \ni y$ est équivalente à $y \in x$. 
+On a donc : $\forall x \, \forall y \, (x \ni y) \Leftrightarrow (y \in x)$ et la relation $\notin$ par $\forall x \, \forall y \, (x \notin y) \Leftrightarrow \neg (x \in y)$. 
+Pour l'évaluation d'une formule, les relations $\in$ et $\ni$ sont (comme toute autre relation binaire) prioritaires par rapport à l'égalité, mais pas par rapport à $\neg$.
+
+On définit la relation d'\words{inclusion} $\symbols{\subset}$ par : $a \subset b$ est équivalent à $\forall x \, (x \in a) \Rightarrow (x \in b)$, autrement dit,
+\startformula
+    \forall a \, \forall b \, (
+        (a \subset b) \Leftrightarrow (\forall x \, (x \in a) \Rightarrow (x \in b))
+    ). 
+\stopformula
+Si $a \subset b$, on dira que \emph{$a$ est un sous-ensemble de $b$}, que \emph{$a$ est inclus dans $b$}, ou que \emph{$a$ est une partie de $b$}.
+Notons que, pour tout ensemble $a$, $a \subset a$ est vrai.%
+\footnote{En effet, soit $x$ un ensemble, $x \in a$ a toujours la même valeur de vérité que lui-même, donc $(x \in a) \Rightarrow (x \in a)$ est vrai.}
+On définit aussi la relation $\symbols{\supset}$ par :
+\startformula
+    \forall a \, \forall b \, (
+        (a \supset b) \Leftrightarrow (\forall x \, (x \in a) \Leftarrow (x \in b))
+    ). 
+\stopformula
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $\forall a \, \forall b \, (a = b) \Leftrightarrow ((a \subset b) \wedge (b \subset a))$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    La formule $(a \subset b) \wedge (b \subset a)$ est équivalente à : $(\forall x (x \in a) \Rightarrow (x \in b)) \wedge (\forall y (y \in a) \Rightarrow (y \in b))$, et donc à $\forall x \, ((x \in a) \Rightarrow (x \in b)) \wedge ((x \in b) \Rightarrow (x \in a))$.
+    Si $f$ et $g$ sont deux formules, $(f \Rightarrow g) \wedge (g \Rightarrow a)$ est équivalente à $f \Leftrightarrow g$.
+    Donc, $(a \subset b) \wedge (b \subset a)$ est équivalente à $\forall x \, (x \in a) \Leftrightarrow (x \in b)$, et donc à $a = b$.
+    Donc, $((a \subset b) \wedge (b \subset a)) \Leftrightarrow (a = b)$ est équivalente à $\mathss{V}$.
+    Donc, $\forall a \, \forall b \, ((a \subset b) \wedge (b \subset a)) \Leftrightarrow (a = b)$ est vraie.
+
+    \done
+
+\blank[medium]
+
+La théorie Z comporte six axiomes (l'axiome d'extensionnalité et les cinq axiomes de construction) ainsi qu'un schéma d'axiomes, correspondant à un axiome par formule à un paramètre libre. 
+
+\blank[medium]
+
+\noindent\emph{\bold{Axiome d'extensionnalité :} Si deux ensembles possèdent les mêmes éléments, alors ils sont égaux.}
+\startformula
+    \forall a \, \forall b \, (
+        \forall x \, ((x \in a) \Leftrightarrow (x \in b)) \Rightarrow (a = b)
+    ). 
+\stopformula
+La réciproque est une conséquence directe des propriétés de l'égalité en logique du premier ordre.%
+\footnote{ En effet, soit deux ensembles $a$ et $b$ tels que $a = b$, et soit $x$ un ensemble, et $P$ le prédicat à un paramètre libre définit par $P y: x \in y$, puisque $a = b$, on doit avoir $P(a) \Leftrightarrow P(b)$, et donc $(x \in a) \Leftrightarrow (x \in b)$.}
+On définit la relation $\neq$ par : $\forall a \, \forall b \, (a \neq b) \Leftrightarrow \neg (a = b)$.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} 
+    On définit la relation $R$ sur les ensembles par : soit $a$ et $b$ deux ensembles $(a \mathrel{R} b)$ a la même valeur de vérité que $(\forall x \, (x \in a) \Leftrightarrow (x \in b))$. 
+    Alors, les trois prédicats suivants sont vrais :
+    \startitemize[nowhite]
+      \item $\forall x \, (x \mathrel{R} x)$ (réciprocité)
+      \item $\forall x \, \forall y \, (x \mathrel{R} y) \Rightarrow (y \mathrel{R} x)$ (réflexivité)
+      \item $\forall x \, \forall y \, \forall z \, ((x \mathrel{R} y) \wedge (y \mathrel{R} z)) \Rightarrow (x \mathrel{R} z)$.
+    \stopitemize
+    Cela suggère que l'axiome d'extensionalité est compatible avec la définition de l'égalité en logique du premier ordre (même s'il manque le schéma d'axiomes de Leibniz pour assurer la cohérence).
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+\startitemize[nowhite]
+  \item Soit $x$ un ensemble. Pour tout $y$, $y \in x$ a la même valeur de vérité que $y \in x$ (trivialement, puisqu'il s'agit de la même formule).
+      Donc, $\forall y \, (y \in x) \Leftrightarrow (y \in x)$. 
+      Donc, $x \mathrel{R} x$.
+  \item Soit $x$ et $y$ deux ensembles tels que $x \mathrel{R} y$. 
+      Puisque $x = y$, on a : $\forall z \, z \in x \Leftrightarrow z \in y$. 
+      Puisque le connecteur $\Leftrightarrow$ est symétrique, on a donc : $\forall z \, z \in y \Leftrightarrow z \in y$.
+      Donc, $y \mathrel{R} x$.
+  \item Soit $x$, $y$ et $z$ trois ensembles tels que $x \mathrel{R} y$ et $y \mathrel{R} z$. 
+      Pour tout ensemble $a$, on a $a \in x \Leftrightarrow a \in y$ et $a \in y \Leftrightarrow a \in z$. 
+      Donc, par transitivité du connecteur $\Leftrightarrow$, $a \in x \Leftrightarrow a \in z$. 
+      Cela étant valable pour tout ensemble $a$, on en déduit que $x \mathrel{R} z$.
+\stopitemize
+\done
+
+\blank[medium]
+
+\noindent\bold{Démonstration bis :} À titre d'exercice, re-faisons ces courtes démonstrations de manière plus formelle.
+\startitemize[nowhite]
+  \item Soit $f$ la formule à deux paramètres libres $x$ et $y$ donnée par : $f: y \in x$. 
+      Puisque $f \Leftrightarrow f$ est équivalente à $\mathss{V}$, la formule $\forall x \, \forall y \, (f \Leftrightarrow f)$ est vraie. 
+      Donc, $\forall x \, \forall y \, (y \in x) \Leftrightarrow (y \in x)$ est vraie.
+      Donc, $\forall x \, x \mathrel{R} x$ est vraie.
+  \item Soit $f$ la formule à deux paramètres libres $a$ et $x$ donnée par : $f: a \in x$, et $g$ la formule à deux paramètres libres $a$ et $y$ donnée par : $g: a \in y$. 
+      Les deux formules $f \Leftrightarrow g$ et $g \Leftrightarrow f$ sont équivalentes (elles sont toutes deux vraies si $f$ et $g$ ont la même valeur de vérité et fausses sinon). 
+      Donc, les formules $\forall a \, (f \Leftrightarrow g)$ et $\forall a \, (g \Leftrightarrow f)$ sont équivalentes. 
+      Puisque $\forall a \, (f \Leftrightarrow g)$ est équivalente à $x \mathrel{R} y$ et $\forall a \, (g \Leftrightarrow f)$ à $y \mathrel{R} x$, on en déduit que $x \mathrel{R} y$ et $y \mathrel{R} x$ sont équivalentes. 
+      Donc, $(x \mathrel{R} y) \Rightarrow (y \mathrel{R} x)$ est équivalente à $h \Rightarrow h$, où $h$ est la formule donnée par $h: x \mathrel{R} y$.
+      Puisque $h \Rightarrow h$ est vraie que $h$ soit vraie ou fausse, elle est équivalente à $\mathss{V}$. 
+      Donc, $\forall x \forall y (h \Rightarrow h)$ est vraie.
+      Donc, $\forall x \forall y (x \mathrel{R} y) \Rightarrow (y \mathrel{R} x)$ est vraie.
+  \item Soit $f$ la formule à deux paramètres libres $a$ et $x$ donnée par : $f: a \in x$, $g$ la formule à deux paramètres libres $a$ et $y$ donnée par : $g: a \in y$, et $h$ la formule à deux paramètres libres $a$ et $z$ donnée par : $h: a \in z$. 
+      Alors, $((f \Leftrightarrow g) \wedge (g \Leftrightarrow h)) \Rightarrow (f \Leftrightarrow h)$ est vraie quelles que soient les valeurs de vérité de $f$, $g$ et $h$. 
+      Donc, si $\forall a \, ((f \Leftrightarrow g) \wedge (g \Leftrightarrow h))$ est vraie, alors $\forall a \, (f \Leftrightarrow h)$ est vraie.
+      Donc, si $\forall a \, (f \Leftrightarrow g)$ et $\forall a \, (g \Leftrightarrow h)$ sont vraies, alors $\forall a \, (f \Leftrightarrow h)$ est vraie.
+      Puisque $\forall a \, (f \Leftrightarrow g)$ est équivalente à $x \mathrel{R} y$, $\forall a \, (g \Leftrightarrow h)$ est équivalente à $y \mathrel{R} z$, et $\forall a \, (f \Leftrightarrow h)$ est équivalente à $x \mathrel{R} z$, on en déduit que $((x \mathrel{R} y) \wedge (y \mathrel{R} z)) \Rightarrow (x \mathrel{R} z)$ est toujours vraie.
+      Donc, $\forall x \, \forall y \, \forall z \, ((x \mathrel{R} y) \wedge (y \mathrel{R} z)) \Rightarrow (x \mathrel{R} z)$ est vraie .
+\stopitemize
+
+\done
+
+\blank[medium]
+
+\noindent \bold{Lemme :} La relation $\subset$ satisfait les trois propriétés suivantes : 
+\blank[samepage]
+\startitemize[nowhite]
+  \item \emph{Réflexivité :} $\forall x \, x \subset x$.
+  \item \emph{Antisymétrie :} $\forall x \, \forall y \, (x \subset y) \wedge (y \subset x) \Rightarrow (x = y)$.
+  \item \emph{Transitivité :} $\forall x \forall y \forall z \, (x \subset y) \wedge (y \subset z) \Rightarrow (x \subset z)$.
+\stopitemize
+
+\blank[medium]
+
+\noindent \bold{Démonstration :} 
+\blank[samepage]
+\startitemize[nowhite]
+  \item Soit $x$ un ensemble. Pour tout élément $e$ de $x$, on a (par définition), $e \in x$. 
+      Donc, le prédicat $\forall e \, (e \in x) \Rightarrow (e \in x)$ est vrai.
+      Donc, $x \subset x$.
+  \item Soit $x$ et $y$ deux ensembles tels que $x \subset y$ et $y \subset x$.
+      Soit $e$ un ensemble. 
+      Si $e \in x$ est vrai, alors $e \in y$ est vrai aussi puisque $x \subset y$.
+      Si $e \in x$ est faux, alors $e \in y$ est faux aussi, sans quoi on aurait $e \in y$ et donc $e \in x$ puisque $y \subset x$.
+      Cela montre que $\forall e \, (e \in x) \Leftrightarrow (e \in y)$ est vrai. 
+      Donc, d'après l'axiome d'extensionnalité, $x = y$ est vrai.
+  \item Soit $x$, $y$ et $z$ trois ensembles tels que $x \subset y$ et $y \subset z$. 
+      Soit $e$ un ensemble. 
+      Si $e \in x$, alors $e \in y$ puisque $x \subset y$, et donc $e \in z$ puisque $y \subset z$. 
+      Cela montre que le prédicat $\forall e \, (e \in x) \Rightarrow (e \in z)$ est vrai.
+      Donc, $x \subset z$.
+\stopitemize
+
+\done
+
+\blank[medium]
+
+\noindent \bold{Démonstration bis :} 
+\startitemize[nowhite]
+  \item Soit $f$ la formule $f: e \in x$. 
+      La formule $f \Rightarrow f$ est vraie que $f$ soit vraie ou fausse, donc elle est équivalente à $\mathss{V}$. 
+      Donc, $\forall e \, (f \Rightarrow f)$ est équivalente à $\mathss{V}$.
+      Donc, $\forall e \, ((e \in x) \Rightarrow (e \in x))$ est équivalente à $\mathss{V}$. 
+      Donc, $x \subset x$ est équivalente à $\mathss{V}$. 
+      Donc, $\forall x \, x \subset x$ est vraie. 
+  \item La formule $(x \subset y) \wedge (y \subset x)$ est équivalente à : $(\forall e \, (e \in x \Rightarrow e \in y)) \wedge (\forall f \, (f \in y \Rightarrow f \in x))$, et donc à $\forall e \, ((e \in x \Rightarrow e \in y) \wedge (e \in y \Rightarrow e \in x))$. 
+      Puisque $(e \in x \Rightarrow e \in y) \wedge (e \in y \Rightarrow e \in x)$ est équivalente à $(e \in x \Leftrightarrow e \in y)$, la formule $(x \subset y) \wedge (y \subset x)$ est équivalente à $x = y$.
+      Donc, $((x \subset y) \wedge (y \subset x)) \Rightarrow (x = y)$ est équivalente à $\mathss{V}$. 
+      Donc, $\forall x \, \forall y \, ((x \subset y) \wedge (y \subset x)) \Rightarrow (x = y)$ est vraie. 
+  \item La formule $(x \subset y) \wedge (y \subset z)$ est équivalente à $(\forall e \, e \in x \Rightarrow e \in y) \wedge (\forall f \, f \in y \Rightarrow f \in z)$, donc à $\forall e \, ((e \in x \Rightarrow e \in y) \wedge (e \in y \Rightarrow e \in z))$. 
+      Soit $f$, $g$ et $h$ trois formules, $((f \Rightarrow g) \wedge (g \Rightarrow h))$ est équivalente à $(f \Rightarrow h) \wedge (f \Rightarrow g)$.
+      Donc, la formule $(x \subset y) \wedge (y \subset z)$ est équivalente à $\forall e \, ((e \in x \Rightarrow e \in z) \wedge (e \in x \Rightarrow e \in y))$, et donc à $(\forall e \, (e \in x \Rightarrow e \in z)) \wedge (\forall f \, (f \in x \Rightarrow f \in y))$, et donc à $(x \subset z) \wedge (x \subset y)$. 
+      Puisque, si $g$ et $h$ sont deux formules, $g \wedge h \Rightarrow g$ est toujours vraie, $((x \subset z) \wedge (x \subset y)) \Rightarrow (x \subset z)$ est équivalente à $\mathss{V}$, donc on en déduit que $((x \subset y) \wedge (y \subset z)) \Rightarrow (x \subset z)$ est équivalente à $\mathss{V}$, donc $\forall x \, \forall y \, ((x \subset y) \wedge (y \subset z)) \Rightarrow (x \subset z)$ est vraie.
+\stopitemize
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} La proposition $\forall a \, \forall b \, (a = b) \Leftrightarrow [(a \subset b) \wedge (b \subset a)]$ est vraie.
+    Autrement dit, pour tous ensembles $a$ et $b$, la formule $a = b$ est équivalente à $(a \subset b) \wedge (b \subset a)$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Soit $a$ et $b$ deux ensembles. 
+    \startitemize[nowhite]
+      \item Supposons d'abord que $a = b$.
+          Soit $x$ tel que $x \in a$. 
+          Puisque $a = b$, on a $x \in b$. 
+          Donc, $\forall x \, (x \in a) \Rightarrow (x \in b)$.
+          Donc, $a \subset b$. 
+          Puisque l'égalité est symétrique, on montre de même en échangeant les rôles de $a$ et $b$ que $b \subset a$.
+          Donc, $(a \subset b) \wedge (b \subset a)$. 
+      \item Supposons maintenant que $(a \subset b) \wedge (b \subset a)$. 
+          Soit $x$ un ensemble. 
+          Si $x \in a$, et puisque $a \subset b$, alors $x \in b$.
+          De même, si $x \in b$, et puisque $b \subset a$, alors $x \in a$.
+          Donc, $\forall x \, (x \in a) \Leftrightarrow (x \in b)$. 
+          Donc, $a = b$. 
+    \stopitemize
+    On a donc montré que les formules $a = b$ et $(a \subset b) \wedge (b \subset a)$ son équivalentes, au sens où chacune est vraie qi l'autre l'est (et donc, également, fausse si l'autre l'est).
+
+   \done 
+
+\blank[medium]
+
+\noindent\bold{Démonstration bis :} 
+    La formule $(a \subset b) \wedge (b \subset a)$ est équivalente à : $(\forall x \, (x \in a \Rightarrow x \in b)) \wedge (\forall y \, (y \in b \Rightarrow y \in a))$, et donc à $\forall x \, ((x \in a \Rightarrow x \in b) \wedge (x \in b \Rightarrow x \in a))$. 
+    Si $f$ et $g$ sont deux formules, $(f \Rightarrow g) \wedge (g \Rightarrow f)$ est équivalente à $f \Leftrightarrow g$ (toutes deux sont vraies si $f$ et $g$ sont toutes deux vraies ou toutes deux fausses, fausses si l'une est vraie et l'autre est fausse, et (en présence de la valeur de vérité $\mathss{I}$) indéfinies si $f$ ou $g$ l'est).
+    Donc, $(x \in a \Rightarrow x \in b) \wedge (x \in b \Rightarrow x \in a)$ est équivalente à $x \in a \Leftrightarrow x \in b$.
+    Donc, la formule $(a \subset b) \wedge (b \subset a)$ est équivalente à $\forall x \, (x \in a \Leftrightarrow x \in b)$, et donc à $a = b$.
+
+    Donc, la formule $((a \subset b) \wedge (b \subset a)) \Leftrightarrow (a = b)$ est équivalente à $(a = b) \Leftrightarrow (a = b)$, et donc toujours vraie, et donc équivalente à $\mathss{V}$. 
+    Donc, la formule $\forall a \, \forall b \, ((a \subset b) \wedge (b \subset a)) \Leftrightarrow (a = b)$ est vraie. 
+
+    \done
+
+\blank[medium]
+
+\noindent\emph{\bold{Axiome de la paire :} La paire formée par deux ensembles est un ensemble :}
+\startformula
+    \forall a \, \forall b \, \exists c \, \forall x \, (
+        (x \in c) \Leftrightarrow ((x = a) \vee (x = b))
+    ).
+\stopformula
+Si $a$ et $b$ sont deux ensembles, on note $\lbrace a, b \rbrace$ leur paire. 
+Il s'agit de l'ensemble contenant $a$ et $b$ mais aucun autre (au sens de « non égal à $a$ ni à $b$ ») ensemble. 
+Cet ensemble est unique d'après l'axiome d'extensionnalité.
+Si de plus $b = a$, alors $\lbrace a, b \rbrace$ ne contient qu'un seul élément. 
+Il peut alors être abrégé en $\lbrace a \rbrace$. 
+Puisque, pour tout $x$, la formule $(x = a) \vee (x=a)$ est équivalente à $x = a$, on a : 
+\startformula
+    \forall x \, (x \in \lbrace a \rbrace) \Leftrightarrow (x = a). 
+\stopformula
+
+\blank[medium]
+
+\noindent\emph{\bold{Axiome de la réunion :} Pour tout ensemble $a$, il existe un ensemble qui est l'union des éléments de $a$ :}
+\startformula
+    \forall a \, \exists b \, \forall x \, (
+        (x \in b) \Leftrightarrow (\exists y \, ((y \in a) \wedge (x \in y)))
+    ).
+\stopformula
+La réunion d'un ensemble $a$ (noté $b$ dans la formule ci-dessus) est notée $\symbols{\cup} a$.
+Cet ensemble est unique d'après l'axiome d'extensionnalité.
+Si $a$ et $b$ sont deux ensembles, $\lbrace a, b \rbrace$ est aussi un ensemble d'après l'axiome de paire. 
+La réunion de cet ensemble est notée $a \cup b$, et appelé \emph{\words{union}} de $a$ et $b$. 
+Soit $a$, $b$ et $c$ trois ensembles. 
+On note $\lb a, b, c \rb$ l'ensemble $\lbrace a, b \rbrace \cup \lbrace c \rbrace$. 
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $a$, $b$ et $x$ trois ensembles. 
+    Le prédicat $x \in a \cup b$ est équivalent à $(x \in a) \vee (x \in b)$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Le prédicat $x \in a \cup b$ est équivalent à $\exists y \, y \in \lbrace a, b \rbrace \wedge x \in y$, donc à $\exists y \, (y = a \vee y = b) \wedge x \in y$, donc à $\exists y \, ((y = a \wedge x \in y) \vee (y = b \vee x \in y))$, donc à $(\exists y \, y = a \wedge x \in y) \vee (\exists z \, z = b \wedge x \in z))$.
+    Si $f$ est ue formule dépendant de deux paramètres libres $x$ et $y$ et si $a$ est un ensemble, alors $\exists (y = a) \wedge f(x,y)$ est équivalente à $f(x,a)$.
+    En effet, si $f(x,a)$ est fausse, alors $(y = a) \wedge f(x,y)$ est fausse pour toute valeur de $y$ et, si elle est vraie, alors elle est vraie pour une valeur de $y$ (et cette valeur est $a$). 
+    Donc, $x \in a \cup b$ est équivalente à $(x \in a) \vee (x \in b)$.
+
+    \done
+
+\blank[medium]
+
+\noindent\emph{\bold{Axiome de l'ensemble des parties :} La collection des parties d'un ensemble est un ensemble :} 
+\startformula
+    \forall a \, \exists b \, \forall x \, (
+        (x \in b) \Leftrightarrow (x \subset a)
+    ).
+\stopformula
+Cet ensemble est unique d'après l'axiome d'extensionnalité. 
+L'ensemble des parties (ou enseble des sous-ensembles) d'un ensemble $x$ est aussi appelé \emph{\words{ensemble puissance}} de $x$ et noté $\mathcal{P}(x)$.
+
+\blank[medium]
+
+\noindent\emph{\bold{Schéma d'axiomes de compréhension :} 
+Pour tout prédicat $P$ à une variable libre $x$ et chaque ensemble $a$, il existe un ensemble qui a pour éléments l'ensemble des éléments de $a$ vérifiant la propriété $P$, c'est-à-dire :}
+\startformula
+\forall a \, \exists b \, \forall x \, [ (x \in b) \Leftrightarrow ((x \in a) \wedge P x)]. 
+\stopformula
+
+Avec les mêmes notations, cet ensemble est noté $\lbrace x \in a \vert P x \rbrace$. 
+Il est unique d'après l'axiome d'extensionnalité. 
+(En effet, si deux ensembles satisfont l'énoncé de l'axiome obtenu pour un même ensemble et une même propriété, alors tout élément de l'un appartient à l'autre.)
+Ce schéma d'axiomes implique qu'il existe un ensemble vide, noté $\emptyset$, pourvu qu'au moins un ensemble $a$ existe—ce qui est nécessairement le cas puisque, en logique du premier ordre, les domaines d'interprétation des variables d'objets de base, ici les ensembles, sont non vides. 
+On peut en effet le définir par : $\emptyset = \lbrace x \in a \vert x \neq x \rbrace$. 
+Puisque tout ensemble $x$ satisfait $x = x$, il n'existe aucun $x$ tel que $x \in \emptyset$ ; autrement dit, la formule suivante est vraie : $\forall x \, x \notin \emptyset$. 
+Cet ensemble est unique d'après l'axiome d'extensionnalité.
+
+Notons que, puisque $\forall x \, x \notin \emptyset$ est vraie, $\exists x \, x \in \emptyset$ est fausse et $x \notin \emptyset$ est équivalente à $\mathss{V}$ et $x \in \emptyset$ à $\mathss{F}$.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Le prédicat suivant est vrai : $\forall x \, \emptyset \subset x$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $x$ un ensemble. 
+    La formule $\emptyset \subset x$ est équivalente à : $\forall e \, (e \in \emptyset) \Rightarrow (e \in x)$. 
+    Or, pour tout ensemble $e$, $e \in \emptyset$ est faux, donc $(e \in \emptyset) \Rightarrow (e \in x)$ est vrai.
+    Donc, $\forall e \, (e \in \emptyset) \Rightarrow (e \in x)$ est vrai. 
+    Donc, $\emptyset \subset x$ est vrai.
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Démonstration bis :} 
+    On veut montrer que le prédicat $P: \forall x \, \forall e \, (e \in \emptyset \Rightarrow e \in x)$ est vrai. 
+    $P$ est équivalent à : $\forall x \, \forall e \, ((e \in x) \vee \neg (e \in \emptyset))$, c'est-à-dire, à : $\forall x \, \forall e \, ((e \in x) \vee (e \notin \emptyset))$.
+    Puisque $\forall e \, e \notin \emptyset$ est vrai, $e \notin \emptyset$ est équivalent à $\mathss{V}$, donc $\forall e \, ((e \in x) \vee (e \notin \emptyset))$ est équivalent à $\forall e \, ((e \in x) \vee \mathss{V})$, donc à $\forall e \, \mathss{V}$, et donc à $\mathss{V}$.
+    Donc, $P$ est vrai. 
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Le prédicat suivant est vrai : $\forall x \, x \subset \emptyset \Rightarrow x = \emptyset$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $x$ un ensemble satisfaisant $x \subset \emptyset$.
+    Pour tout ensemble $y$, on a $y \notin \emptyset$, donc $y \notin x$.
+    
+\done
+
+\blank[medium]
+
+\noindent\bold{Démonstration bis :} 
+    On veux montrer le prédicat $P: \forall x \, (x \subset \emptyset) \Rightarrow (x = \emptyset)$.
+    Il est équivalent à : $\forall x \, (x \subset \emptyset) \Rightarrow ((x \subset \emptyset) \wedge (\emptyset \subset x))$, donc à $\forall x \, \neg (x \subset \emptyset) \vee ((x \subset \emptyset) \wedge (\emptyset \subset x))$, donc à $\forall x \, (\neg (x \subset \emptyset) \vee (x \subset \emptyset)) \wedge (\neg (x \subset \emptyset) \vee (\emptyset \subset x))$.
+    Puisque $\neg (x \subset \emptyset) \vee (x \subset \emptyset)$ est toujours vrai (soit $f$ la formule $x \subset \emptyset$, il s'agit de $\neg f \vee f$, qui est vrai que $f$ soit vraie ou fausse), $P$ est équivalent à $\forall x \, (\neg (x \subset \emptyset) \vee (\emptyset \subset x))$.
+    On a vu que $\forall x \, \emptyset \subset x$ est vrai.
+    Donc, $\emptyset \subset x$ est équivalente à $\mathss{V}$.
+    Donc, $P$ est équivalente à $\forall x \, (\neg (x \subset \emptyset) \vee \mathss{V})$, donc à $\forall x \, \mathss{V}$, et donc à $\mathss{V}$.
+    Donc, $P$ est vrai.
+
+    \done
+
+\blank[medium]
+
+L'axiome de compréhension peut aussi être utilisé pour définir la différence de deux ensembles. 
+Soit $A$ et $B$ deux ensembles. 
+On note $A \setminus B$ l'ensemble $\lbrace x \in A \vert x \notin B \rbrace$.
+
+\blank[medium]
+
+Notons qu'il s'agit bien d'un schéma d'axiomes, c'est-à-dire une méthode permettant de construire des axiomes, et non d'un seul axiome : puisqu'on ne peut pas quantifier les prédicats en logique du premier ordre, ce schéma définit un axiome pour chaque prédicat à un paramètre libre. 
+En théorie Z, on considère le prédicat obtenu à partir de tout prédicat $P$ à une variable libre comme vrai.
+
+Ce schéma peut être reformulé en notant que, si $P$ est un prédicat à une variable libre $x$ et d'autres variables libres éventuelles $a_1 \cdots a_p$, et si $\alpha 1 \dots \alpha_p$ est une collection d'ensembles pouvant remplacer $a_1 \dots a_p$, alors le prédicat $Q$ défini par $Q: P x \alpha1 \cdots \alpha_p$ a une unique variable libre $x$. 
+Le schéma d'axiomes de compréhension peut ainsi être reformulé de la manière suivante : 
+\emph{Pour tout prédicat $P$ à une variable libre $x$ et d'éventuels autres variables libres collectivement notées $a_1 \dots a_p$, pour chaque valeur des variables $a_1 \cdots a_p$ et chaque ensemble $b$, il existe un ensemble qui a pour éléments l'ensemble des éléments de $b$ vérifiant la propriété $P x a_1 \dots a_p$, c'est-à-dire :}
+\startformula
+\forall a_1 \dots a_p \, \forall b \, \exists c \, \forall x \, [ (x \in c) \Leftrightarrow ((x \in b) \wedge P x a_1 \dots a_p)]. 
+\stopformula
+(Dans cette formule, il est entendu que le premier quantificateur est absent si $P$ n'a qu'une seule variable libre.) 
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $A$ et $B$ deux ensembles.
+    Alors, $(A \setminus B) \cup B = A \cup B$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :}
+    Soit $x$ un élément de $A \cup B$. 
+    Si $x \in B$, alors $x \in (A \setminus B) \cup B$.
+    Sinon, $x \in A$, donc $x \in A \setminus B$, donc $x \in (A \setminus B) \cup B$.
+    Donc, dans tous les cas, $x \in (A \setminus B) \cup B$.
+
+    Soit $x$ un élément de $(A \setminus B) \cup B$.
+    Alors, $x \in A \setminus B$ ou $x \in B$. 
+    Si $x \in A \setminus B$, alors $x \in A$ puisque $A \setminus B \subset A$, donc $x \in A \cup B$.
+    Si $x \in B$, alors $x \in A \cup B$.
+    Donc, dans tous les cas, $x \in A \cup B$.
+
+    On a donc montré que : $\forall x \, (x \in A \cup B) \Leftrightarrow (x \in (A \setminus B) \cup B)$, et donc que $(A \setminus B) \cup B = A \cup B$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Démonstration bis :} 
+    Le prédicat $x \in A \cup B$ est équivalent à $(x \in A) \vee (x \in B)$.
+    Le prédicat $x \in (A \setminus B) \cup B$ est équivalent à $(x \in A \setminus B) \vee (x \in B)$, et donc à $((x \in A) \wedge (x \notin B)) \vee (x \in B)$.
+    Ce dernier est équivalent à $((x \in A) \vee (x \in B)) \wedge ((x \notin B) \vee (x \in B))$.
+    Pour toute formule $f$, $(\neg f) \vee f$ est vrai que $f$ soit vraie ou fausse, donc équivalent à $\mathss{V}$.
+    Donc, $x \in (A \setminus B) \cup B$ est équivalent à $((x \in A) \vee (x \in B)) \wedge \mathss{V}$, donc à $(x \in A) \vee (x \in B)$, et donc à $x \in A \cup B$.
+    Donc, $(x \in A \cup B) \Leftrightarrow (x \in (A \setminus B) \cup B)$ est équivalent à $(x \in A \cup B) \Leftrightarrow (x \in A \cup B)$.
+    Pour toute formule $f$, $f \Leftrightarrow f$ est vrai que $f$ soit vraie ou fausse, et donc équivalent à $\mathss{V}$.
+    Donc, $\forall x \, (x \in A \cup B) \Leftrightarrow (x \in (A \setminus B) \cup B)$ est vrai.
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $A$ et $B$ deux ensembles tels que $B \subset A$.
+    Alors, $A \cup B = A$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :}
+    Soit $x$ un élément de $A \cup B$. 
+    Alors, $x \in A$ ou $x \in B$.
+    Si $x \in B$, et puisque $B \subset A$, $x \in A$.
+    Donc, $x \in A$.
+
+    Soit $x$ un élément de $A$, on a $x \in A \cup B$.
+
+    Ainsi, $A \cup B = A$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Démonstration bis :} 
+    Puisque $B \subset A$, le prédicat $\forall x \, (x \in B) \Rightarrow (x \in A)$ est vrai.
+    Donc, le prédicat $(x \in B) \Rightarrow (x \in A)$ est équivalent à $\mathss{V}$.
+    Donc, le prédicat $(x \in A) \vee (x \notin B)$ est équivalent à $\mathss{V}$.
+    
+    Le prédicat $x \in A \cup B$ est équivalent à $(x \in A) \vee (x \in B)$.
+    Puisque, pour tout prédicat $P$, $P \wedge \mathss{V}$ est équivalent à $P$, $x \in A \cup B$ est équivalent à $((x \in A) \vee (x \in B)) \wedge ((x \in A) \vee (x \notin B))$, et donc à $(x \in A) \vee ((x \in B) \wedge (x \notin B))$.
+    Puisque, pour tout prédicat $P$, $P \wedge \neg P$ est équivalent à $\mathss{F}$, cela est équivalent à $(x \in A) \vee \mathss{F}$, et donc à $x \in A$.
+    Donc, $x \in A \cup B$ est équivalent à $x \in A$.
+    Donc, $\forall x \, x \in A \cup B \Leftrightarrow x \in A$ est vrai.
+    Donc, $A \cup B = A$.
+
+\done
+
+\blank[medium]
+
+\noindent\emph{\bold{Axiome de l'infini :} Il existe un ensemble contenant l'ensemble vide et clos par application du successeur $x \mapsto x \cup \lbrace x \rbrace$.} Formellement, cet axiome s'écrit : 
+\startformula
+    \exists Y \, (\emptyset \in Y) \wedge (\forall y \, ((y \in Y) \Rightarrow (y \cup \lbrace y \rbrace \in Y))). 
+\stopformula
+
+\blank[medium]
+
+L'ensemble ainsi défini contient $\emptyset$, $\lbrace \emptyset \rbrace$, $\lbrace \emptyset, \lbrace \emptyset \rbrace \rbrace$, $\lbrace \emptyset, \lbrace \emptyset \rbrace, \lbrace \emptyset, \lbrace \emptyset \rbrace \rbrace \rbrace$, ...
+
+\blank[medium]
+
+\noindent\bold{Notation :} Soit $E$ un ensemble et $P$ un prédicat dépendant des variables $x$, $a$, ..., $b$.
+    On peut noter par 
+    \startitemize[nowhite]
+      \item $\forall x \in E \, P(x, a, \dots, b)$ le prédicat $\forall x \, x \in E \Rightarrow P(x, a, \dots, b)$,
+      \item $\exists x \in E \, P(x, a, \dots, b)$ le prédicat $\exists x \, x \in E \wedge P(x, a, \dots, b)$.
+    \stopitemize
+
+\stopsubsection
+
+\stopsection

@@ -103,25 +103,26 @@
 
 % Define indices
 \startnotmode[export]
-  \define[1]\wordsregisterTextCommand{{\setcharactercasing[Word]#1}}
   \defineregister[wordsRegister][
     pagestyle=,
     alternative=A,
     pageleft=\dotfill,
     n=3,
-    textcommand=\wordsregisterTextCommand,
     method={pm,mc,uc}]
   \definelist[symbolsList][
     criterium=all,
     interaction=page,
     alternative=c]
-  \define[1]\words{\wordsRegister{#1}#1}
+  \define[1]\index{\lua{s = "#1"; context("\\wordsRegister{" .. s:sub(1,1):upper() .. s:sub(2) .. "}")}}
+  \define[1]\words{\index{#1}#1}
   \define[1]\symbols{\writetolist[symbolsList]{}{#1}#1}
   \define[1]\symbolsRegister{\writetolist[symbolsList]{}{#1}}
 \stopnotmode
 \startmode[export]
+  \define[1]\index{}
   \define[1]\words{#1}
   \define[1]\symbols{#1}
+  \define[1]\symbolsRegister{}
 \stopmode
 
 
@@ -200,7 +201,7 @@
 % Format for the TOC at the start of each chapter
 \define\chaptertoc{%
   \determinelistcharacteristics[section]%
-  \doifmode{*list}{\vskip1ex\hrule\vskip-1ex\placecontent\hrule}%
+  \doifmode{*list}{\vskip1ex\hrule\startcolumns[n=2]\placecontent\stopcolumns\vskip1ex\hrule}%
 }
 
 
@@ -318,8 +319,12 @@
 % Paragraph indentation
 \setupindenting[yes,medium]
 
+% Math commands
+\define\lb{\left\lbrace}
+\define\rb{\right\rbrace}
 
 % Miscelanous commands
 \define[2]\href{\goto{\color[linkcolor]{#1}}[url(#2)]}
 \define[1]\lua{\ctxlua{#1}}
 \define[1]\plua{\lua{context(#1)}}
+\define[1]\done{\hfill$\square$}
