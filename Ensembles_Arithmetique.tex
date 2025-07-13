@@ -6,60 +6,9 @@
 
   \startbodymatter
     \input{Ensembles_Arithmetique/Theorie_Ensembles.tex} 
-    
-    \chapter{Introduction}
-      \section{Welcome}
-        This is the first section of the introduction. We are demonstrating various ConTeXt features.
-        We can refer to specific words like \words{ConTeXt}, \words{document}, and \words{features}.
-        Let's include some mathematics: $E=mc^2$. This uses the \symbols{$E=mc^2$}{Einstein's mass-energy equivalence} XITS Math font.
-        Another equation: $a^2 + b^2 = c^2$.
-        \subsection{Getting Started}
-          Here's a subsection.
-          \subsubsection{Installation}
-            Details about installation.
-
-      \section{Overview}
-        This section provides an overview.
-        \subsection{Structure}
-          The document structure.
-
-    \chapter{Advanced Topics}
-      \section{Font Handling}
-        ConTeXt's font handling is very powerful. We're using \words{XITS} for text and math.
-        \subsection{Font Features}
-          Exploring OpenType features.
-          Some more math: $\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}$.
-          We can also index symbols like \symbols{$\int$}{integral sign}.
-
-          \startformula
-            e = \frac{m c^2}{\sqrt{1 - v^2 \ds c^2}}
-          \stopformula
-
-      \section{Indexing}
-        This section is about creating indices.
-        We can index more words, like \words{LuaTeX} and \words{OpenType}.
-
-    \chapter{Conclusion}
-      \section{Summary}
-        A brief summary of the document.
-      \section{Next Steps}
-        What to do next.
   \stopbodymatter
 
   \startappendices
-    
-    \chapter{Some C++ code}
-      
-      \startCPP
-      void negacyclic_ntt_pow2_bit_reversed(
-          const uint64_t* const input,
-          uint64_t* const output,
-          const uint64_t* const powers_root_unity,
-          const uint64_t modulus,
-          const size_t ntt_size,
-          const size_t batch_size = 1);
-      \stopCPP
-
     \input{Ensembles_Arithmetique/Jeux_Entiers.tex} 
   \stopappendices
 
