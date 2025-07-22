@@ -13,7 +13,7 @@
   \startimage
     \getbuffer[#1]
   \stopimage}
-\define[1]\hboxExport{\hbox{#1}} % To avoid issues due to line breaks within a word 
+ \setupalign[stretch,fullhz] % To avoid issues due to line breaks within a word 
 \stopmode
 \startnotmode[export] 
 \define[2]\startchapterRef{\startchapter[title=#1,reference=#2]}
@@ -23,7 +23,6 @@
   \startimage
     \typesetbuffer[#1]
   \stopimage}
-\define[1]\hboxExport{#1}
 \stopnotmode
 
 % Variables
