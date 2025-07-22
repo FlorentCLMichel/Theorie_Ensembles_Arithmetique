@@ -1,5 +1,5 @@
 \startmode[export] 
-\setupbackend[export=yes,hyphen=no]
+\setupbackend[export=yes,hyphen=yes]
 \setupexport[
     cssfile=Ensembles_Arithmetique/Resources/style.css,
     width=55em, 
@@ -7,9 +7,23 @@
     author={Florent Michel}]
 \definereferenceformat[Content][left=,right=,type=title]
 \define[2]\startchapterRef{\startchapter[title=#1,reference=#2,list=\Content[#2]]}
+\define\startimageifexport\startimage
+\define\stopimageifexport\stopimage
+\define[1]\imagebuffer{
+  \startimage
+    \getbuffer[#1]
+  \stopimage}
+\define[1]\hboxExport{\hbox{#1}} % To avoid issues due to line breaks within a word 
 \stopmode
 \startnotmode[export] 
 \define[2]\startchapterRef{\startchapter[title=#1,reference=#2]}
+\define\startimageifexport{}
+\define\stopimageifexport{}
+\define[1]\imagebuffer{
+  \startimage
+    \typesetbuffer[#1]
+  \stopimage}
+\define[1]\hboxExport{#1}
 \stopnotmode
 
 % Variables
@@ -115,8 +129,8 @@
     alternative=c]
   \define[1]\index{\lua{s = "#1"; context("\\wordsRegister{" .. s:sub(1,1):upper() .. s:sub(2) .. "}")}}
   \define[1]\words{\index{#1}#1}
-  \define[1]\symbols{\writetolist[symbolsList]{}{#1}#1}
-  \define[1]\symbolsRegister{\writetolist[symbolsList]{}{#1}}
+  \define[1]\symbols{\writetolist[symbolsList]{}{$#1$}#1}
+  \define[1]\symbolsRegister{\writetolist[symbolsList]{}{$#1$}}
 \stopnotmode
 \startmode[export]
   \define[1]\index{}
@@ -201,7 +215,7 @@
 % Format for the TOC at the start of each chapter
 \define\chaptertoc{%
   \determinelistcharacteristics[section]%
-  \doifmode{*list}{\vskip1ex\hrule\startcolumns[n=2]\placecontent\stopcolumns\vskip1ex\hrule}%
+  \doifmode{*list}{\vskip1ex\hrule\startsimplecolumns[n=2]\placecontent\stopsimplecolumns\hrule}%
 }
 
 
@@ -322,6 +336,8 @@
 % Math commands
 \define\lb{\left\lbrace}
 \define\rb{\right\rbrace}
+\define\divslash{∕}
+\define\setminus{\mirror{\divslash}} % Required for XITS Math
 
 % Miscelanous commands
 \define[2]\href{\goto{\color[linkcolor]{#1}}[url(#2)]}

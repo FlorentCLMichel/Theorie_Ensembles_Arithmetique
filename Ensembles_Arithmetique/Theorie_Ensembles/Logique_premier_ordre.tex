@@ -1,6 +1,6 @@
 \startsection[title=Logique du premier ordre]
 
-La \emph{\words{logique du premier ordre}}, aussi appelée \emph{logique des prédicats} ou \emph{calcul des prédicats du premier ordre}, est un cadre semi-formel%
+La \emph{\words{logique du premier ordre}}, aussi appelée \emph{logique des prédicats} ou \emph{calcul des prédicats du premier ordre}, est un cadre \hboxExport{semi-formel}%
 \footnote{On adopte ici le point de vue que la logique du premier ordre ne repose pas sur une théorie vue comme plus fondamentale. Ses concepts fondamentaux sont ainsi définis intuitivement (puisque nous n'avons aucun concept plus fondamental qui permettrait de les définir formellement), d'où le qualificatif de « semi-formel », et non « formel ».} 
 permettant de définir des théories. 
 On peut la voir comme un langage, ou comme un ensemble d'éléments de langage.
@@ -41,11 +41,13 @@ Plus formellement, une théorie définie dans le cadre de la logique du premier 
     Une proposition est toujours vraie ou fausse%
     \footnote{ À moins d'inclure la valeur de vérité indéfinie, voir \in{section}{}[subsub:Indéfinie].}%
     , et ne peut être simultanément vraie et fausse. 
-    Deux formules seront dites \emph{équivalentes} si elles prennent toujours la même valeur de vérité.\index{Formules équivalentes} 
+    Deux formules seront dites \emph{équivalentes} si elles prennent toujours la même valeur de vérité.\index{Formules équivalentes}
+    \blank[none,strong]
     \startitemize[nowhite]
       \item Si $f$ et $g$ sont deux formules équivalentes, $g$ et $f$ sont équivalentes.
       \item Si $f$ et $g$ sont trois formules telles que $f$ et $g$ sont équivalentes et $g$ et $h$ sont équivalentes, alors $f$ et $h$ sont équivalentes.
     \stopitemize
+    \blank[none,strong]
   \item Un ensemble d'\emph{axiomes}, ou propositions tenues pour vraies.\index{Axiome} 
         Ces axiomes permettent en général de déterminer la valeur de vérité d'autres prédicats.
 \stopitemize
@@ -324,7 +326,7 @@ On peut définir une relation binaire $R$ par la formule 
 \startformula
   \forall x \forall y \, ((x \mathrel{R} y) \Leftrightarrow P x y),
 \stopformula
-ignifiant que, pour chaque $x$ et chaque $y$, $x \mathrel{R} y$ est vrai si et seulement si $P x y$ est vrai. 
+signifiant que, pour chaque $x$ et chaque $y$, $x \mathrel{R} y$ est vrai si et seulement si $P x y$ est vrai. 
 Autrement dit, cette formule signiie que les prédicats $P x y$ et $x \mathrel{R} y$ sont équivalents.
 
 Lors de l'évaluation d'une formule, et sauf mention contraire, les relations binaires autres que l'égalité sont prioritaires sur cette dernière, mais pas sur le connecteur $\neq$.

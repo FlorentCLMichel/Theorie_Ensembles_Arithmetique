@@ -50,7 +50,7 @@
     \startplacefigure
       [reference=fig:varphi_n, 
        title={Nombre de diviseurs d'un entier naturel non nul $n$, noté $\varphi(n)$, en fonction de $n$ pour $n$ allant de $1$ à $251$. Notons que $\varphi(1) = 1$ et, pour tout entier naturel non nul $n$, $\varphi(n) = 2$ si et seulement si $n$ est premier.}]
-      \typesetbuffer[n_divisors_1]
+      \imagebuffer{n_divisors_1}
     \stopplacefigure
     
     \startbuffer[n_divisors_2]
@@ -75,17 +75,26 @@
            ]
             \definecolor[dotcolor][r=.0,g=.4,b=1.]
             \addplot[fill=dotcolor, draw=dotcolor, only marks, mark size=.5pt] 
-              table[col sep=space, header=false, x index=0, y index=1] {{Ensembles_Arithmétique/Code/output_n_divisors_2.csv}};
+              table[col sep=space, header=false, x index=0, y index=1] {{Ensembles_Arithmetique/Code/output_n_divisors_2.csv}};
           \stopaxis
         \stoptikzpicture
       \stopTEXpage
     \stopbuffer
-    
+   
     \startplacefigure
       [reference=fig:varphi_n2,
       title={Même plot que sur la \in{figure}{}[fig:varphi_n] pour $n$ allant de $1$ à $10000$.}]
-      \typesetbuffer[n_divisors_2]
-      \stopplacefigure
+      \startnotmode[export]
+        \startimage
+          \typesetbuffer[n_divisors_2]
+        \stopimage
+      \stopnotmode
+      \startmode[export]
+        \startimage
+          \getbuffer[n_divisors_2]
+        \stopimage
+      \stopmode
+    \stopplacefigure
   \stopsection
 
   \page
