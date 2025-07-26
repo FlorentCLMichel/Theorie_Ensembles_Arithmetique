@@ -676,7 +676,7 @@ Les formules de la théorie sont des chaines (finies) de symboles, avec les règ
   \item Soit $f$ une formule et $v$ une variable primaire telle que ni $\forall v$ ni $\exists v$ n'apparaît dans $f$. 
     Alors $\forall v \, f$ et $\exists v \, f$ sont des formules.
 \stopitemize
-Notons que l'arithmétique usuelle satisfait ces propriétés (voir section~\ref{sub:constN}).
+Notons que l'arithmétique usuelle satisfait ces propriétés (voir \in{section}{}[sec:constN]).
 Une variable $x$ apparaissant dans une formule $F$ est dite \emph{libre} si ni $\exists x$ ni $\forall x$ n'apparaissent dans $F$.
 
 On peut se limiter aux formules sans variable libre en remplaçant les règles ci-dessus par les suivantes (cela n'aura pas d'incidence sur la suite) :
@@ -692,8 +692,8 @@ On peut se limiter aux formules sans variable libre en remplaçant les règles c
 \stopitemize
 Ces éléments permettent, sous certains axiomes, de définir un ensemble de nombres $\mathbb{N}$, contenant $0$ et stable par $S$, ayant les mêmes propriétés que celui défini dans les sections suivantes (notamment celles des opérations binaires $+$ et $\times$ et le fait de définir $<$ comme une relation d'ordre). 
 
-On suppose un système d'axiomes permettant de définir un ensemble de nombres $\mathbb{N}$ satisfaisant les propriétés établies en section~\ref{sub:constN}, constituant la base de l'arithmétique usuelle.
-En particulier, $+$ et $\times$ sont des fonctions de $\mathbb{N} \times \mathbb{N}$ vers $\mathbb{N}$ et l'on peut définir les nombres premiers comme dans la section~\ref{subsub:defNombresPremiers}. 
+On suppose un système d'axiomes permettant de définir un ensemble de nombres $\mathbb{N}$ satisfaisant les propriétés établies en \in{section}{}[sec:constN], constituant la base de l'arithmétique usuelle.
+En particulier, $+$ et $\times$ sont des fonctions de $\mathbb{N} \times \mathbb{N}$ vers $\mathbb{N}$ et l'on peut définir les nombres premiers comme dans la \in{section}{}[sub:defNombresPremiers]. 
 Pour fixer les idées, on pourra considérer que l'on se place dans le cadre de la théorie des ensembles et de l'arithmétique définies dans les sections ci-dessous.%
 \footnote{
   Pour faire le lien avec la \in{section}{}[sec:constN], on peut poser l'équivalence suivante :
@@ -726,7 +726,7 @@ Par exemple, la phrase « Cette phrase n'est pas démontrable. » ne peut êtr
 Pour démontrer le premier théorème d'incomplétude de Gödel, il suffit en quelque sorte de montrer qu'un tel énoncé existe et forme un prédicat dans le cadre de toute théorie satisfaisant les propriétés énoncées ci-dessus.
 
 La démonstration de Gödel repose sur les \emph{nombres de Gödel} associés à chaque formule. 
-De manière générale (et une fois une théorie de l'arithmétique construite, voir section~\ref{sec:arithmetique} ; on se limite ici aux entiers naturels), une \emph{numérotation de Gödel} est une fonction injective (une définition rigoureuse des fonctions dans le cadre de la théorie des ensembles sera donnée \in{section}{}[sec:fonctions]) associant un nombre à chaque symbole ou formule. 
+De manière générale (et une fois une théorie de l'arithmétique construite, voir \in{chapitre}{}[chap:arithmetique] ; on se limite ici aux entiers naturels), une \emph{numérotation de Gödel} est une fonction injective (une définition rigoureuse des fonctions dans le cadre de la théorie des ensembles sera donnée \in{section}{}[sec:fonctions]) associant un nombre à chaque symbole ou formule. 
 
 La numérotation originelle de Gödel, que nous nommerons dans la suite \emph{encodage de Gödel}, noté $\mathbf{G}$, est obtenue de la manière suivante : 
 \startitemize[nowhite]
@@ -735,7 +735,7 @@ La numérotation originelle de Gödel, que nous nommerons dans la suite \emph{en
   \item Si $n$ est un entier naturel et $x_1$, $x_2$, ..., $x_n$ sont des symboles, le nombre associé à la séquence de symboles $x_1 x_2 \dots x_n$ est $p_1^{\mathbf{G}(x_1)} \times p_2^{\mathbf{G}(x_2)} \times \cdots \times p_n^{\mathbf{G}(x_n)}$.
     Plus formellement, $\mathbf{G}(x_1 x_2 \dots x_n) = \prod_{i=1}^n p_i^{\mathbf{G}(x_i)}$. 
 \stopitemize
-D'après l'unicité de la décomposition en produits de facteurs premiers (voir section~\ref{subsub:dec_fact_prem}), deux formules distinctes ne peuvent avoir le même encodage.
+D'après l'unicité de la décomposition en produits de facteurs premiers (voir \in{section}{}[sub:dec_fact_prem]), deux formules distinctes ne peuvent avoir le même encodage.
 Puisque toute formule est une séquence finie de symboles, à chaque formule est ainsi associé un unique nombre et chaque nombre est associé à au plus une formule.
 
 \blank[medium]
