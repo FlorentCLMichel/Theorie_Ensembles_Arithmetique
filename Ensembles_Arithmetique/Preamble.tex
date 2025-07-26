@@ -122,14 +122,15 @@
     pageleft=\dotfill,
     n=3,
     method={pm,mc,uc}]
-  \definelist[symbolsList][
-    criterium=all,
-    interaction=page,
-    alternative=c]
+  \defineregister[symbolsRegister][
+    pagestyle=,
+    indicator=no,
+    before=,
+    pageleft=\dotfill,
+    n=4]
   \define[1]\index{\lua{s = "#1"; context("\\wordsRegister{" .. s:sub(1,1):upper() .. s:sub(2) .. "}")}}
   \define[1]\words{\index{#1}#1}
-  \define[1]\symbols{\writetolist[symbolsList]{}{$#1$}#1}
-  \define[1]\symbolsRegister{\writetolist[symbolsList]{}{$#1$}}
+  \define[1]\symbols{$\symbolsRegister{$#1$}$#1}
 \stopnotmode
 \startmode[export]
   \define[1]\index{}
@@ -337,6 +338,7 @@
 \define\rb{\right\rbrace}
 \define\divslash{∕}
 \define\setminus{\mirror{\divslash}} % Required for XITS Math
+\define\ep{\epsilon}
 
 % Miscelanous commands
 \define[2]\href{\goto{\color[linkcolor]{#1}}[url(#2)]}
