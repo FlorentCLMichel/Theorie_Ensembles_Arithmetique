@@ -896,22 +896,25 @@ Par récurrence, il est donc vrai pour tous ensembles finis $E$ et $F$ tels que 
 \blank[medium]
 
 \startNoteBox
-    Ce résultat peut être vu intuitivement de la manière suivante. 
-    Soit $E$ un ensemble. 
-    On construit une séquence d'entiers naturels $u_0$, $u_1$, ... de la manière suivante :
-    \startitemize[n,nowhite]
-        \item Initialisation : On définit deux variables $n$ égale à $0$ et $F$ égale à $E$.
-        \item Si $F = \emptyset$, l'algorithme s'arrête et renvoit $n$.
-            Sinon, on choisit un élément $e$ de $F$, on pose $u_n = e$ et on met à jour les variables $n$ et $F$ comme suit : 
-            \startitemize[nowhite]
-                \item $n \leftarrow n + 1$,
-                \item $F \leftarrow F \setminus \lbrace e \rbrace$.
-            \stopitemize
-        \item Retour au point 2.
-    \stopitemize
-    Si cet algorithme termine, alors $E$ est fini et la valeur renvoyée est son cardinal.
-    Sinon, $E$ est infini et la suite $u$ ainsi définie est une injection de $\mathbb{N}$ vers $E$.
-    Bien entendu, cet argument n'est pas pleinement rigoureux puisque nous n'avons pas encore formellement défini ce qu'est un algorithme ni la signification du symbole $\leftarrow$.
+  \noindent
+  Ce résultat peut être vu intuitivement de la manière suivante. 
+  Soit $E$ un ensemble. 
+  On construit une séquence d'entiers naturels $u_0$, $u_1$, ... de la manière suivante :
+  \startitemize[n,nowhite]
+    \item Initialisation : On définit deux variables $n$ égale à $0$ et $F$ égale à $E$.
+    \item Si $F = \emptyset$, l'algorithme s'arrête et renvoit $n$.
+      Sinon, on choisit un élément $e$ de $F$, on pose $u_n = e$ et on met à jour les variables $n$ et $F$ comme suit : 
+      \blank[none,strong]
+      \startitemize[nowhite]
+        \item $n \leftarrow n + 1$,
+        \item $F \leftarrow F \setminus \lbrace e \rbrace$.
+      \stopitemize
+      \blank[none,strong]
+    \item Retour au point 2.
+  \stopitemize
+  Si cet algorithme termine, alors $E$ est fini et la valeur renvoyée est son cardinal.
+  Sinon, $E$ est infini et la suite $u$ ainsi définie est une injection de $\mathbb{N}$ vers $E$.
+  Bien entendu, cet argument n'est pas pleinement rigoureux puisque nous n'avons pas encore formellement défini ce qu'est un algorithme ni la signification du symbole $\leftarrow$.
 \stopNoteBox
 
 \blank[medium]
@@ -1310,7 +1313,7 @@ Par contre, l'ensemble $\mathcal{F}\left( \mathbb{N}, \lbrace 0, 1 \rbrace \righ
             On en déduit que $y = x$. 
     \stopitemize
 
-    Motrons maintenant que $v$ est surjective. 
+    Montrons maintenant que $v$ est surjective. 
     Soit $y$ un élément de $B$. 
     \startitemize[nowhite]
         \item Si $y \notin C$, on a $v(y) = y$, donc $y$ est bien dans l'image de $v$. 
@@ -1352,7 +1355,7 @@ Par contre, l'ensemble $\mathcal{F}\left( \mathbb{N}, \lbrace 0, 1 \rbrace \righ
 
 \bigskip
 
-\noindent\bold{Exemple d'application :} \reference[{N_to_N2}]{Bijection entre $\mathbb{N}$ et $\mathbb{N}^2$.} 
+\noindent\bold{Exemple d'application :} Bijection entre $\mathbb{N}$ et $\mathbb{N}^2$. \reference[N_to_N2]{} 
 \startitemize[nowhite]
     \item Soit $f: \mathbb{N} \to \mathbb{N}^2$ la fonction définie par : $\forall x \in \mathbb{N} \; f(x) = (x,x)$. 
         Cette fonction est une injection de $\mathbb{N}$ dans $\mathbb{N}^2$. 
@@ -1379,7 +1382,7 @@ D'après le théorème de Cantor-Bernstein, on en déduit qu'il existe une bijec
 
 \blank[medium]
 
-\noindent\bold{\reference[{F_N_0_1_non_denombrable}]{Contre-exemple :}} En guise d'exemple d'ensembles qui ne sont pas en bijection, considérons les ensembles $\mathbb{N}$ et $\mathcal{F}(\mathbb{N}, \lbrace 0, 1 \rbrace)$. 
+\noindent\bold{Contre-exemple :}\reference[{F_N_0_1_non_denombrable}]{} En guise d'exemple d'ensembles qui ne sont pas en bijection, considérons les ensembles $\mathbb{N}$ et $\mathcal{F}(\mathbb{N}, \lbrace 0, 1 \rbrace)$. 
 Nous allons montrer qu'il n'existe pas de surjection du premier vers le second.
 Suposons par l'absurde qu'au moins une telle surjection existe et appelons l'une d'entre elles $f$. 
 Considérons l'élément $g$ de $\mathcal{F}(\mathbb{N}, \lbrace 0, 1 \rbrace)$ défini par :%
@@ -1443,7 +1446,7 @@ On en conclut que l'hypothèse de départ est fausse : il n'existe aucune bijec
         \item Si $n = 1$, on définit $\sum u$ par $u(0)$ et $\prod u$ par $u(0)$.
         \item Si $n > 1$, on définit $\sum u$ par $u(0) + u(1) + \cdots + u(n-1)$ et $\prod u$ par $u(0) \times u(1) \times \cdots \times u(n-1)$.
     \stopitemize
-    On noteras aussi $\sum u$ par $\sum_{i=0}^{n-1} u(i)$ et $\prod u$ par $\prod_{i=0}^{n-1} u(i)$.
+    On notera aussi $\sum u$ par $\sum_{i=0}^{n-1} u(i)$ et $\prod u$ par $\prod_{i=0}^{n-1} u(i)$.
 
 \stopsubsection
 
