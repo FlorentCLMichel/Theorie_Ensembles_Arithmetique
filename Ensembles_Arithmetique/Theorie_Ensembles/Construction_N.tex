@@ -1,0 +1,941 @@
+\startsection[title=Construction de $\mathbb{N}$, reference=sec:constN]
+
+\startsubsection[title=Définition]
+
+L'ensemble des entiers naturels, noté \symbols{$\mathbb{N}$}, est défini de la manière suivante. 
+Notons $\mathrm{Cl}$ le prédicat à un paramètre libre défini par :
+\startformula
+  \mathrm{Cl}(A): (\emptyset \in A) \wedge (\forall a \, (a \in A \Rightarrow a \cup \lbrace a \rbrace \in A)). 
+\stopformula
+D'après l'axiome de l'infini, il existe un ensemble $A$ tel que $\mathrm{Cl}(A)$ est vrai.
+Soit $\mathrm{Ent}$ le prédicat à un paramètre libre défini par : 
+\startformula
+  \mathrm{Ent}(x): \forall A \, (\mathrm{Cl}(A) \Rightarrow x \in A). 
+\stopformula
+Soit $I$ un ensemble tel que $\mathrm{Cl}(I)$ est vrai. 
+L'ensemble $\mathbb{N}$ est défini par : 
+\startformula
+  \mathbb{N} = \lbrace x \in I \vert \mathrm{Ent}(x) \rbrace. 
+\stopformula
+Notons que cette définition ne dépend pas du choix de $I$. 
+Notons aussi que $\emptyset \in \mathbb{N}$ et $\forall n \, n \in \mathbb{N} \Rightarrow n \cup \lbrace n \rbrace \in \mathbb{N}$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :}
+
+\startitemize[nowhite]
+  \item Montrons d'abord que $\emptyset \in \mathbb{N}$. 
+    Puisque $\mathrm{Cl}(I)$ est vrai, $\emptyset \in I$.
+    Soit $A$ un ensemble tel que $\mathrm{Cl}(A)$ est vrai.
+    Alors, $\emptyset \in A$.
+    Donc, $\mathrm{Ent}(\emptyset)$ est vrai. 
+    On a donc $\emptyset \in I \wedge \mathrm{Ent}(\emptyset)$. 
+    Donc, $\emptyset \in \mathbb{N}$.
+  \item Soit $n$ un élément de $\mathbb{N}$. 
+    Alors, $n \in I$.
+    Puisque $\mathrm{Cl}(I)$ est vrai, on en déduit que $n \cup \lbrace n \rbrace \in I$.
+    Soit $A$ un ensemble tel que $\mathrm{Cl}(A)$ est vrai.
+    Puisque $\mathrm{Ent}(n)$ est vrai, $n \in A$.
+    Alors, puisque $\mathrm{Cl}(A)$ est vrai, $n  \cup \lbrace n \rbrace \in A$.
+    On en déduit que $\mathrm{Ent}(n  \cup \lbrace n \rbrace)$ et vrai. 
+    On a donc $n  \cup \lbrace n \rbrace \in I \wedge \mathrm{Ent}(n  \cup \lbrace n \rbrace)$. 
+    Donc, $n  \cup \lbrace n \rbrace \in \mathbb{N}$.
+  \item Motrons finalement que la définition de $\mathbb{N}$ ne dépends pas du choix de $I$. 
+    Soit $J$ un ensemble tel que $\mathrm{Cl}(J)$ est vrai.
+    Soit $\mathbb{M}$ l'ensemble défini par : $\mathbb{M} = \lbrace x \in J \vert \mathrm{Ent}(x) \rbrace$. 
+    Il s'agit de montrer que $\mathbb{M} = \mathbb{N}$. \\
+    Soit $x$ un élément de $\mathbb{N}$. 
+    Puisque $\mathrm{Cl(J)}$ et $\mathrm{Ent(x)}$ sont vrais, $x \in J$ est vrai aussi. 
+    Donc, $x \in J \wedge \mathrm{Ent}(x)$. 
+    Donc, $x \in \mathbb{M}$. 
+    Cela montre que $\mathbb{N} \subset \mathbb{M}$. \\
+    Soit $y$ un élément de $\mathbb{M}$. 
+    Puisque $\mathrm{Cl(I)}$ et $\mathrm{Ent(y)}$ sont vrais, $y \in I$ est vrai aussi. 
+    Donc, $y \in I \wedge \mathrm{Ent}(x)$. 
+    Donc, $y \in \mathbb{N}$. 
+    Cela montre que $\mathbb{M} \subset \mathbb{N}$. \\
+    On a donc $\mathbb{M} = \mathbb{N}$.
+\stopitemize
+
+\done
+
+\blank[medium]
+
+On notera souvent $0$ l'ensemble $\emptyset$. 
+Pour tout élément $n$ de $\mathbb{N}$, on notera $n+1$ l'ensemble $n \cup \lbrace n \rbrace$, appelé \emph{\words{successeur}} de $n$. 
+Cela définit une application $\mathrm{Suc}$ de $\mathbb{N}$ vers lui-même, qui à un élément $n$ associe $n+1$. 
+Notons que, pour tout entier naturel $n$, on a $n \subset n+1$.
+Les premiers entiers sont notés de la manière suivante en base $10$ (voir section~\ref{sub:base} pour une définition générale de la base) : 
+
+\startplacetable[location=force,number=no]
+  \starttabulate[|c|c|][rulethickness=0.8pt,distance={0pt,0pt}]
+    \NC $n$ \NC $n+1$ \NC\NR\TB[-2ex]
+    \NC\NC\NC\NR
+    \HL
+    \NC\NC\NC\NR\TB[-2ex]
+    \NC $0$ \NC $1$ \NC\NR
+    \NC $1$ \NC $2$ \NC\NR
+    \NC $2$ \NC $3$ \NC\NR
+    \NC $3$ \NC $4$ \NC\NR
+    \NC $4$ \NC $5$ \NC\NR
+    \NC $5$ \NC $6$ \NC\NR
+    \NC $6$ \NC $7$ \NC\NR
+    \NC $7$ \NC $8$ \NC\NR
+    \NC $8$ \NC $9$ \NC\NR
+    \NC $9$ \NC $10$ \NC\NR
+  \stoptabulate
+\stopplacetable
+
+\noindent\bold{NB:} Notons que $\mathrm{Cl}(\mathbb{N})$ est vraie et, si $E$ est un ensemble tel que $\mathrm{Cl}(E)$ est vraie, alors $\mathbb{N} \subset E$. 
+En ce sens, $\mathbb{N}$ est le plus petit ensemble satisfaisant $\mathrm{Cl}$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :}
+
+Tout d'abord, on a vu ci-dessus que $\emptyset \in \mathbb{N}$ et $\forall n \, n \in \mathbb{N} \Rightarrow n \cup \lbrace n \rbrace \in \mathbb{N}$. 
+Donc, $\mathrm{Cl}(\mathbb{N})$ est vrai. 
+
+Soit $E$ un ensemble tel que $\mathrm{Cl}(E)$ est vrai. 
+Soit $x$ un élément de $\mathbb{N}$. 
+Alors, $\mathrm{Ent}(x)$ est vrai, donc $x \in E$. 
+Ainsi, $\mathrm{N} \subset E$. 
+
+\done
+
+\blank[medium]
+
+Un élément de $\mathbb{N}$ est dit \emph{\words{entier naturel}} (ou parfois simplement \emph{entier} quand il n'y a pas de confusion possible avec d'autres définitions). 
+Il est dit \emph{non nul} s'il est différent de $0$.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $n$ un élément de $\mathbb{N}$ et $m$ un ensemble tel que $m \subset n+1$. 
+    Alors $n \in m$ ou $m \subset n$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :}
+    Si $n \in m$, le résultat est vrai. 
+    Supposons que $n \notin m$. 
+    Soit $x$ un élément de $m$. 
+    Puisque $m \subset n+1$, on a $x \in n+1$, et donc $x \in n$ ou $x \in \lbrace n \rbrace$. 
+    La seconde option est impossible puisqu'elle impliquerait $x = n$, et donc $n \in m$, en contradiction avec notre hypothèse. 
+    Donc, $x \in n$. 
+    Cela étant vrai pour tout élément $x$ de $m$, on en déduit $m \subset n$.
+
+   \done 
+
+\blank[medium]
+
+\noindent\bold{Définition :} 
+    On note \symbols{$\mathbb{N}^*$} l'ensemble $\mathbb{N} \setminus \lbrace 0 \rbrace$.
+
+\stopsubsection
+
+\startsubsection[title=Relation d'ordre : définition]
+
+On définit une relation binaire, notée $\leq$, sur $\mathbb{N}$ par : pour tous éléments $n$ et $m$ de $\mathbb{N}$, 
+\startformula
+  n \leq m \Leftrightarrow n \subset m .
+\stopformula
+Il sagit d'une relation d'ordre puisque la relation $\subset$ est réflexive, antisymétrique et transitive.
+On définit la relation d'ordre strict $<$ par pour tous éléments $n$ et $m$ de $\mathbb{N}$, 
+\startformula
+  n < m \Leftrightarrow (n \leq m \wedge m \neq n).
+\stopformula
+Notons que, pour tout élément $n$ de $\mathbb{N}$, $0 \leq n$ (puisque l'ensemble vide est un sous-ensemble de tout ensemble) et $n < n+1$ (en effet, on a $n \subset n+1$, donc $n \leq n+1$, et $n \neq n+1$ ; nous démontrerons ce point dans la Section~\ref{sub:relOrdreProps}—pour le moment, nous avons seulement montré que $n \leq n+1$). 
+Par antisymétrie, le premier point implique que le seul élément $n$ de $\mathbb{N}$ satisfaisant $n \leq 0$ est $0$ lui-même.
+
+On définit aussi la relation d'ordre $\geq$ et la relation d'ordre strict $>$ sur $\mathbb{N}$ par : pour tous éléments $n$ et $m$ de $\mathbb{N}$, $n \geq m \Leftrightarrow m \leq n$ et $n > m \Leftrightarrow m < n$.
+
+\stopsubsection
+
+\startsubsection[title=Principe de récurrence, reference=sub:recurrence]
+
+\noindent\bold{Lemme (principe de \words{récurrence}) :} Soit $P$ une formule à un paramètre libre. 
+    On suppose que $P(0)$ est vraie et que, pour tout élément $n$ de $\mathbb{N}$, $P(n) \Rightarrow P(n+1)$ est vraie. 
+    Alors, $P(n)$ est vraie pour tout $n \in \mathbb{N}$.
+    \index{Récurrence}
+
+On dira parfois, dans ce contexte, que $P$ est vraie « au rang $n$ » pour signifier que $P(n)$ est vrais. 
+Ainsi, démontrer $P$ parrécurrence revient à montrer que $P(0)$ est vraie et que, pour tout entier naturel $n$, « si $P$ est vraie au rang $n$, alors $P$ est vraie au rang $n+1$ ».
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $E$ l'ensemble défini par $E = \lbrace n \in \mathbb{N} \vert P(n) \rbrace$. 
+    Puisque $P(0)$ et vraie, on a $0 \in E$. 
+    En outre, pour tout $n \in E$, $P(n)$ est vrai, donc $P(n+1)$ est vrai aussi, et donc $n+1 \in E$. 
+    Donc, $\mathrm{Cl}(E)$ est vraie. 
+    Donc, $\mathbb{N} \subset E$. 
+    Soit $n \in \mathbb{N}$, on a donc $n \in E$, et donc $P(n)$ est vraie.
+
+   \done 
+
+\blank[medium]
+
+\noindent\bold{Lemme (\words{Récurrence finie}) :} Soit $E$ un sous-ensemble non vide de $\mathbb{N}$ tel que : $\forall n \in E, \, \forall m \in \mathbb{N}, \, m \leq n \Rightarrow m \in E$. 
+    Soit $P$ une formule à un paramètre libre. 
+    On suppose que $P(0)$ est vraie et que, pour tout $n \in E$ tel que $n+1 \in E$, $P(n) \Rightarrow P(n+1)$ est vraie. 
+    Alors, $P(n)$ est vraie pour tout $n \in E$.
+    \index{Récurrence finie}
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Notons que $0 \in E$. Définissons la formule $Q$ à un paramètre libre par $Q(n): P(n) \vee (n \notin E)$.
+    Alors $Q(0)$ est vraie. 
+    En outre, soit $n \in \mathbb{N}$ tel que $Q(n)$ est vraie, soit $n+1 \in E$, donc $n \in E$, donc $P(n)$ est vraie, donc $P(n+1)$ est vraie, et donc $Q(n+1)$ est vraie, soit $n+1 \notin E$ et donc $Q(n+1)$ est vraie.
+    Par récurrence, $Q(n)$ est vraie pour tout $n \in \mathbb{N}$.
+    Soit $n \in E$. 
+    Puisque $Q(n)$ est vraie et que $n \notin E$ ne peut être vraie, on en déduit que $P(n)$ est vraie.
+
+   \done 
+
+\blank[medium]
+
+\noindent
+Donnons un exemple facile de démonstration par récurrence. 
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $n$ un entier naturel. Alors $n=0$ ou il existe un entier naturel $m$ tel que $n=m+1$.
+
+\blank[medium]
+
+\noindent\bold{Remarque :} On montre Section~\ref{subsub:relOrdreProps} que deux entiers naturels $a$ et $b$ satisfaisant $a+1=b+1$ sont égaux. Donc, l'entier naturel $m$ défini par l'énoncé du lemme est unique. 
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $P$ le prédicat à un paramètre défini par : $P(n): n=0 \vee (\exists m \in \mathbb{N}, \, n=m+1)$. 
+    Tout d'abord, $P(0)$ est vrai puisque $0=0$ est vrai.
+    Soit $n$ un élément de $\mathbb{N}$. 
+    Alors $P(n+1)$ est vrai puisqu'il existe un entier naturel $m$ tel que $n+1 = m+1$—il suffit de prendre $m=n$. 
+    Par récurrence, $P(n)$ est donc vrai pour tout élément $n$ de $\mathbb{N}$.
+
+   \done 
+
+\blank[medium]
+
+\noindent\bold{Définition :} Soit $n$ un entier naturel tel que $n \neq 0$. L'entier naturel $m$ tel que $n=m+1$ est noté $n-1$.
+    Notons que, pour tout entier naturel $n$, $(n+1)-1 = n$ et, si $n \neq 0$, $(n-1)+1 = n$.
+
+\blank[medium] 
+
+Cet exemple est conceptuellement très simple car la seconde étape du raisonnement ne fait pas appel au fait que le prédicat est vrai au rang précédent. 
+Donnons maintenant un exemple légèrement moins aisé, et plus proche de la manière dont la démonstration par récurrence fonctionne la plupart du temps. 
+On admet momentanément que, pour tout entier naturel $n$, $n+1 \neq n$, et donc $n \notin n$. 
+(Cela sera démontré, sans utiliser le lemme suivant, section~\ref{subsub:relOrdreProps}.)
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $n$ et $m$ deux entiers naturels. S'il existe une bijection de $n$ vers $m$, alors $n=m$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Considérons le prédicat suivant, dépendant d'un paramètre libre $n$ : \emph{Pour tout entier naturel $m$, s'il existe une bijection de $n$ vers $m$, alors $n=m$.} 
+
+    Pour $n=0$, le résultat est aisé : la seule fonction de $0$ vers un ensemble est $\emptyset$, dont l'image est $\emptyset$. 
+    Si $E$ est un ensemble et s'il existe une biection de $0$ vers $E$, alors $E = \emptyset = 0$.
+
+    Soit $n$ un entier naturel pour lequel le prédicat est vrai. 
+    Soit $m$ un entier naturel et $f$ une bijection de $n+1$ vers $m$. 
+    Puisqu'une telle bijection existe et $n+1$ est non vide (il contient au moins $n$), $m$ ne peut être égal à $0$ (il contient au moins les images des éléments de $n+1$). 
+    Donc, d'après le lemme précédent, on peut choisir un entier naturel $k$ tel que $m = k+1$. 
+    Montrons qu'il existe une bijection de $n$ vers $k$. 
+    On aura alors $n=k$, donc $n+1=k+1$, et donc $n+1=m$, et le lemme sera montré par récurrence.
+
+    On a : $m = k \cup \lbrace k \rbrace$. 
+    Soit $g$ la fonction de $m$ vers $m$ définie par $g(k) = f(n)$, $g(f(n)) = k$ (notons que cela est toujours possible car ces deux conditions sont équivalentes si $f(n)=k$) et $g(x)=x$ pour tout élément $x$ de $m$ tel que $x \notin \lbrace k, f(n) \rbrace$. 
+    Supposons avoir montré que $g$ est une bijection de $m$ vers $m$. 
+    Alors, $g \circ f$ est une bijection de $n+1$ vers $m$ et $(g \circ f)(n) = k$. 
+    Soit $h$ la fonction de $n$ vers $k$ définie par : pour tout élément $x$ de $n$, $h(x) = (g \circ f)(x)$. 
+    (Son image est bien incluse dans $k$ puisque, pour tout élément $x$ de $n$, $(g \circ f)(x) \in m$ et $(g \circ f)(x) \neq k$ puisque $x \neq n$ (car $x \in n$ et $n \notin n$).)
+    Montrons que $h$ est une bijection. 
+    Soit $x$ et $y$ deux éléments de $n$ tels que $h(x)=h(y)$.
+    Alors, $(g \circ f)(x) = (g \circ f)(y)$.
+    Puisque  $g \circ f$ est une bijection, cela implique $x=y$.
+    Donc, $h$ est injective. 
+    Soit $y$ un élément de $k$. 
+    Puisque $g \circ f$ est bijective, on peut choisir un élément $x$ de $n+1$ tel que $(g \circ f)(x) = y$. 
+    En outre, $y \in k$, donc $y \neq k$. 
+    Puisque $(g \circ f)(n)=k$, cela implique $x \neq n$, et donc $x \in n$. 
+    On a donc $h(x) = y$. 
+    Donc, $h$ est surjective.
+    La fonction $h$ est ainsi une bijection de $n$ vers $k$.
+
+    Il nous reste à montrer que la fonction $g$ est bijective. 
+    Montrons d'abord qu'elle est injective. 
+    Soit $x$ et $y$ deux éléments de $m$ tels que $g(x) = g(y)$.
+    Si ni $x$ ni $y$ ne sont dans $\lbrace f(n), k \rbrace$, alors $g(x) = x$ et $g(y) = y$, donc $x=y$. 
+    Si $x \in \lbrace f(n), k \rbrace$, alors $y \in \lbrace f(n), k \rbrace$ (sans quoi on aurait $g(x) \in \lbrace f(n), k \rbrace$ et $g(y) \notin \lbrace f(n), k \rbrace$). 
+    De même, si $y \in \lbrace f(n), k \rbrace$, alors $x \in \lbrace f(n), k \rbrace$. 
+    Supposons $x = k$. 
+    Alors, $g(x) = f(n)$, donc $g(y) = f(n)$. 
+    Si $y = f(n)$, on a $g(y) = k$, ce qui contredit $g(x) = g(y)$ sauf si $f(n) = k$. 
+    Donc, $y = k$ ou $y = f(n)$ et $f(n) = k$. 
+    Dans les deux cas, on a $y = k$, et donc $y = x$. 
+    Enfin, supposons $x = f(n)$. 
+    Alors, $g(x) = k$, donc $g(y) = k$. 
+    Si $y = k$, on a $g(y) = f(n)$, ce qui contredit $g(x) = g(y)$ sauf si $k = f(n)$. 
+    Donc, $y = f(n)$ ou $y = k$ et $k = f(n)$. 
+    Dans les deux cas, on a $y = f(n)$, et donc $y = x$. 
+    Ainsi, $g$ est bien injective. 
+
+    Montrons qu'elle est surjective. 
+    Soit $y$ un élément de $m$. 
+    Si $y \notin \lbrace k, f(n) \rbrace$, on a $g(y) = y$. 
+    Si $y \in \lbrace k, f(n) \rbrace$, on a $y = k$ ou $y = f(n)$. 
+    Dans le premier cas, $g(f(n)) = y$. 
+    Dans le second cas, $g(k) = y$. 
+    Dans tous les cas, il existe donc un élément $x$ de $m$ tel que $g(x) = y$. 
+    Ainsi, $g$ est surjective. 
+    Il s'agit donc bien d'une bijection. 
+
+   \done 
+
+\blank[medium]
+
+Pour prouver par récurrence qu'un prédicat $P$ dépendant d'une variable libre $n$ est vraie pour tout entier naturel $n$ supérieur ou égal à un entier naturel $n_0$, on pourra procéder comme suit : 
+\startitemize[nowhite]
+  \item Montrer que $P(n_0)$ est vrai.
+  \item Pour tout entier naturel $n$ tel que $n \geq n_0$ et $P(n)$ est vrai, montrer que $P(n+1)$ est vrai.
+\stopitemize
+Dans ce schéma de raisonnement, $n$ pourra être appelé \emph{rang}, et le prédicat $P$ dit \emph{vraie au rang $n$} si $P(n)$ est vrai.
+
+\stopsubsection
+
+\startsubsection[title={Relation d'ordre : propriétés}, reference=sub:relOrdreProps]
+
+\noindent\bold{Lemme :} Pour tout élément $n$ de $\mathbb{N}$, $0 \leq n$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Évident car $\emptyset \subset E$ pour tout ensemble $E$. 
+
+\done 
+
+\blank[medium]
+
+\noindent
+\bold{Lemme :} Pour tout élément $n$ de $\mathbb{N}$, $n \leq 0 \Rightarrow n = 0$.
+
+\blank[medium]
+
+\noindent\bold{Corolaire :} Il n'existe aucun élément $n$ de $\mathbb{N}$ tel que $n < 0$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Conséquence directe du lemme précédent et de l'antisymétrie de $\leq$. 
+
+   \done 
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Pour tout élément $n$ de $\mathbb{N}$, on a $n \neq 0 \Rightarrow 0 \in n$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    On procède par récurrence. 
+    Soit $P: n \neq 0 \Rightarrow 0 \in n$.
+    Pour $n = 0$, le résultat est évident car $n \neq 0$ est fausse, donc $P(0)$ est vraie. 
+    Soit $n$ un élément de $\mathbb{N}$ tel que $P(n)$ est vraie. 
+    Si $n = 0$, $n+1 = \lbrace \emptyset \rbrace$, donc $0 \in n+1$, donc $P(n+1)$ est vraie.
+    Si $n \neq 0$, $0 \in n$, donc, puisque $n \subset n+1$, $0 \in n+1$, donc $P(n+1)$ est vraie.
+    Par récurrence, on en déduit que $P(n)$ est vraie pour tout élément $n$ de $\mathbb{N}$.
+
+   \done 
+
+\blank[medium]
+
+\noindent\bold{Lemme :} 
+    Soit $n$ un élément de $\mathbb{N}$. 
+    Pour tout élément $m$ de $\mathbb{N}$ tel que $n \leq m$, on a $m \notin n$.
+    En particulier, pour tout élément $n$ de $\mathbb{N}$, on a $n+1 \neq n$. 
+    Puisque $n \subset n+1$, $n \leq n+1$, donc cela implique $n < n+1$. 
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Montrons d'abord que la première partie du lemme implique bien le cas particulier. 
+    Soit $n$ un élément de $\mathbb{N}$. 
+    On a $n \in n+1$. 
+    Si la première partie du lemme est vraie, on a aussi $n \notin n$, d'où $n+1 \neq n$.
+
+    Montrons maintenant la première partie du lemme. 
+    On procède par récurrence. 
+    La propriété attendue est évidente pour $0$ puisqu'il s'agit de l'ensemble vide. 
+
+    Soit $n$ un élément de $\mathbb{N}$ et supposons que, pour tout élément $m$ de $\mathbb{N}$ tel que $n \leq m$, $m \notin n$. 
+    Soit $m$ un élément de $\mathbb{N}$ tel que $n+1 \leq m$. 
+    Puisque $n \subset n+1$ et $n+1 \subset m$, on a $n \subset m$, et donc $n \leq m$.
+    Donc, $m \notin n$. 
+    En outre, $n \in n+1$ et $n \notin n$ (puisque $n \leq n$), donc $n+1 \subset n$ ne peut être vrai, donc $m \neq n$, donc $m \notin \lbrace n \rbrace$. 
+    Puisque $n+1 = n \cup \lbrace n \rbrace$, on en déduit $m \notin n+1$. 
+    La propriété attendue est donc vraie pour $n+1$.
+
+    Par récurrence, la propriété est vraie pour tout élément $n$ de $\mathbb{N}$.
+
+   \done 
+
+\blank[medium]
+
+\noindent\bold{Lemme :} 
+    Soit $n$ un élément de $\mathbb{N}$. 
+    Pour tout élément $m$ de $\mathbb{N}$ tel que $m \in n$, on a $n > m$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    On procède par récurrence sur $n$. 
+    Pour $n = 0$, le résultat est évident puisqu'aucun élément $m$ de $\mathbb{N}$ ne satisfait $m \in 0$.
+    Soit $n$ un élément de $\mathbb{N}$ satisfaisant la propriété énoncée dans le lemme. 
+    Soit $m$ un élément de $\mathbb{N}$ tel que $m \in n+1$. 
+    Alors, $m \in n$ ou $m = n$.
+    \startitemize[nowhite]
+        \item Si $m \in n$, on a $n > m$.
+            En outre, d'après le lemme précédent, on a $n+1 > n$. 
+            Donc, $n+1 > m$.
+        \item Si $m = n$, on a $n+1 > m$ d'après le lemme précédent.
+    \stopitemize
+    Ainsi, $n+1$ satisfait également la propriété énoncée dans le lemme. 
+    Par récurrence, on en déduit qu'elle est vraie pour tout élément $n$ de $\mathbb{N}$.
+    
+   \done 
+
+\blank[medium]
+
+\noindent\bold{Lemme :} 
+    Soit $n$ un élément de $\mathbb{N}$. 
+    Pour tout élément $m$ de $\mathbb{N}$ tel que $m < n$, on a $m \in n$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    On procède par récurrence. 
+    Pour $n=0$, le résultat est évident puisqu'il n'existe aucun élément $m$ de $\mathbb{N}$ tel que $m < 0$.
+    Soit $n$ un élément de $\mathbb{N}$ tel que, pour tout élément $m$ de $\mathbb{N}$ tel que $m < n$, $m \in n$. 
+    Soit $m$ un élément de $\mathbb{N}$ tel que $m < n+1$. 
+    Montrons d'abord que $n \notin m$. 
+    Si on avait $n \in m$, alors on aurait $m > n$ d'après le lemme précédent, d'où $n \subset m$ et (puisque $n \in m$) $n+1 \subset m$, en contradiction avec $m < n+1$. 
+    Donc, $n \notin m$. 
+    Donc, puisque $m \subset n+1$, $m \subset n$. 
+    (En effet, soit $x$ un élément de $m$, on a $x \in n+1$, donc $x \in n$ ou $x \in \lbrace n \rbrace$ ; la seconde option est impossible car $n \notin m$, donc $m \in n$.)
+    Donc, $m \leq n$. 
+    Si $m = n$, on a $m \in n+1$. 
+    Sinon, $m < n$, donc $m \in n$, et donc $m \in n+1$. 
+    Dans les deux cas, $m \in n+1$. 
+    Ainsi, la propriété énoncée dans le lemme est vraie pour $n+1$. 
+    Par récurrence, on en déduit qu'elle l'est pour tout élément $n$ de $\mathbb{N}$.
+
+   \done 
+
+\blank[medium]
+
+\noindent\bold{Corolaire :} 
+    Soit $n$ et $m$ deux éléments de $\mathbb{N}$. 
+    D'après les deux lemmes précédents, les propositions $m \in n$ et $m < n$ sont équivalentes.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} 
+    Soit $n$ un élément de $\mathbb{N}$. 
+    Pour tout élément $m$ de $\mathbb{N}$ tel que $m \notin n$, on a $n \leq m$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    On procède par récurrence sur $n$. 
+    Pour $n=0$, le résultat est évident car $0 \leq m$ pour tout élément $m$ de $\mathbb{N}$.
+    Soit $n$ un élément de $\mathbb{N}$ tel que, pour tout élément $m$ de $\mathbb{N}$ tel que $m \notin n$, $n \leq m$. 
+    Soit $m$ un élément de $\mathbb{N}$ tel que $m \notin n+1$. 
+    Alors, $m \notin n$ (donc $n \leq m$) et $m \neq n$, donc $n < m$. 
+    D'après le lemme précédent, cela implique $n \in m$. 
+    Puisque $n < m$, on a en outre $n \subset m$. 
+    Donc, $n+1 \subset m$. 
+    Donc, $n+1 \leq m$. 
+    On en déduit que le résultat est vrai pour $n+1$.
+    Par récurrence, il est vrai pour tout élément $n$ de $\mathbb{N}$. 
+
+   \done 
+
+\blank[medium]
+
+\noindent\bold{Corolaire :} 
+    Soit $n$ et $m$ deux élément de $\mathbb{N}$. 
+    Les formules $m \notin n$ et $n \leq m$ sont équivalentes.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Soit $n$ et $m$ deux éléments de $\mathbb{N}$. 
+    Si $n \leq m$, alors $n \subset m$. 
+    Puisque $m \notin m$, cela implique $m \notin n$. 
+    Donc, $(n \leq m) \Rightarrow (m \notin n)$.
+    Le lemme précédent montre en outre que $(n \leq m) \Leftarrow (m \notin n)$.
+    Donc, $(n \leq m) \Leftrightarrow (m \notin n)$.
+    
+   \done 
+
+\blank[medium]
+
+\noindent\bold{Corolaire :} Soit $n$ et $m$ deux éléments de $\mathbb{N}$ tels que $n \notin m$ et $m \notin n$. 
+    Alors $m \leq n$ et $n \leq m$, et donc $n = m$.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} La relation d'ordre $\leq$ sur $\mathbb{N}$ est une relation d'ordre total.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Soit $n$ et $m$ deux éléments de $\mathbb{N}$. 
+    Alors, $m \in n$ ou $m \notin n$. 
+    Dans le premier cas, $n > m$, donc $m < n$, et donc $m \leq n$.
+    Dans le second cas, $n \leq m$.
+
+   \done 
+
+\blank[medium]
+
+\noindent\bold{Corolaire :} Soit $n$ et $m$ deux éléments de $\mathbb{N}$. 
+    Si $n \leq m$ est fausse, alors $m \leq n$ est vraie (d'après le lemme précédent) et $n \neq m$ est vraie (car $n \leq n$), donc $m < n$ est vraie. 
+    Donc, $\neg (n \leq m) \Rightarrow (m < n)$. 
+    Par ailleurs, si $m < n$, alors $n \leq m$ est fausse (sans quoi on aurait $m \subset n$ et $n \subset m$, et donc $m = n$).
+    Ainsi, $\neg (n \leq m)$ est équivalente à $m < n$, et donc à $n > m$.
+    De même, $\neg (n \geq m)$ est équivalente à $m > n$, et donc à $n < m$.
+
+\blank[medium]
+
+\noindent\bold{Corolaire :} Soit $n$ et $m$ deux éléments de $\mathbb{N}$. 
+    Puisque $\leq$ est une relation d'ordre totale, on a $n \leq m$ ou $n \geq m$. 
+    Donc, $n < m$ ou $n = m$ ou $n > m$. 
+
+\blank[medium]
+
+Notons que, si deux éléments $n$ et $m$ de $\mathbb{N}$ satisfont $n+1 = m+1$, on a soit $n = m$ soit $n \in m$ et $m \in n$.%
+\footnote{
+    En effet, puisque $n \in n+1$ et $m \in m+1$, la formule $n+1 = m+1$ implique $(n \in m+1) \wedge (m \in n+1)$, d'où $((n = m) \vee (n \in m)) \wedge ((m = n) \vee (m \in n))$. 
+    En utilisant deux fois la distributivité de $\wedge$ sur $\vee$ ainsi que sa symétrie, cette formule se récris $((n = m) \wedge (m = n)) \vee ((n = m) \wedge (m \in n)) \vee ((n \in m) \wedge (m = n)) \vee ((n \in m) \wedge (m \in n))$. 
+    Puisque $(n = m) \wedge (m \in n)$ et $(n \in m) \wedge (m = n)$ ne peuvet être vraies, et par symétrie de l'égalité, cette formule est équivalente à $(n = m) \vee (n \in m) \wedge (m \in n)$.
+}
+La seconde possibilité implique $m < n$ et $n < m$, qui ne peuvent être stisfaites simultanément (car cela impliquerait $m \leq n$ et $n \leq m$, d'où $n = m$, ce qui est incompatible avec $m < n$). 
+On en déduit le lemme suivant :
+
+\blank[medium]
+
+\noindent\bold{Lemme :} 
+    Soit $n$ et $m$ deux éléments de $\mathbb{N}$. 
+    Si $n+1 = m+1$, alors $n=m$.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} 
+    Soit $n$ un élément de $\mathbb{N}$. 
+    Pour tout élément $m$ de $\mathbb{N}$ tel que $m < n+1$, on a $m \leq n$. 
+    La réciproque est évidente puisque $n < n+1$ : pour tout élément $m$ de $\mathbb{N}$, si $m \leq n$, $m < n+1$. 
+    Donc, pour tout élément $m$ de $\mathbb{N}$, on a $m < n+1 \Leftrightarrow m \leq n$. 
+
+\blank[medium]
+
+\noindent\bold{Corolaire :} 
+    En prenant la négation de la formule de chaque côté du connecteur $\Leftrightarrow$, on obtient, pour tout élément $m$ de $\mathbb{N}$ : $m \geq n+1 \Leftrightarrow m > n$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Soit $m$ un élément de $\mathbb{N}$ tel que $m < n+1$. 
+    Alors $m \subset n \cup \lbrace n \rbrace$. 
+    Si $n \in m$, on a $m > n$, donc $n \subset m$, et donc $n+1 \subset m$ et donc $n+1 \leq m$, ce qui est impossible par hypothèse. 
+    On en déduit que $n \notin m$, donc que $m \subset n$, et donc que $m \leq n$. 
+    Ainsi, $\forall m \in \mathbb{N}\, m < n+1 \Rightarrow m \leq n$. 
+    Cela montre la première partie du lemme, de laquelle le reste découle. 
+    
+   \done 
+
+\blank[medium]
+
+\noindent\bold{Lemme :} 
+    Pour tout entier naturel $n$, on a : $n = \lbrace m \in \mathbb{N} \vert m < n \rbrace$. 
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    On procède par récurrence. 
+    Tout d'abord, il n'existe aucun entier naturel $m$ tel que $m < 0$. 
+    Donc, $\lbrace m \in \mathbb{N} \vert m < 0 \rbrace = \emptyset = 0$. 
+    Soit $n$ un entier naturel tel que $n = \lbrace m \in \mathbb{N} \vert m < n \rbrace$. 
+    Puisque $n+1 = n \cup \lbrace n \rbrace$, on a : $n + 1 = \lbrace m \in \mathbb{N} \vert m < n \vee m = n \rbrace$. 
+    Cela peut se récrire : $n + 1 = \lbrace m \in \mathbb{N} \vert m \leq n \rbrace$. 
+    D'après le lemme précédent, cela est équivalent à : $n + 1 = \lbrace m \in \mathbb{N} \vert m < n + 1 \rbrace$. 
+    Par récurrence, le résultat attendu est donc vrai pour tout entier naturel.
+    
+   \done 
+
+\blank[medium]
+
+\noindent\bold{Lemme (récurrence en partant d'un rang non nul) :} 
+    Soit $n$ un entier naturel et $P$ un prédicat à un paramètre. 
+    On suppose que $P(n)$ est vrai et que, pour tout entier naturel $m$ tel que $m \geq n$, $P(m) \Rightarrow P(m+1)$. 
+    Alors, $\forall m \in \mathbb{N}, \, m \geq n \Rightarrow P(n)$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} On procède par récurrence. 
+    Soit $Q$ le prédicat à un paramètre libre défini par $Q(m): m \geq n \Rightarrow P(n)$.
+    Si $n = 0$, $P(0)$ est vrai, donc $Q(0)$ l'est aussi. 
+    Si $n \neq 0$, $n > 0$, donc $0 \geq n$ est fausse et $Q(0)$ est vraie. 
+    Dans  tous les cas, $Q(0)$ est vraie. 
+
+    Soit $m$ un entier naturel tel que $Q(m)$ est vrai. 
+    Alors, 
+    \startitemize[nowhite]
+        \item Si $m+1 < n$, $n \geq m+1$ est fausse, donc $Q(m+1)$ est vrai.
+        \item Si $m+1 = n$, $P(m+1)$ est vrai, donc $Q(m+1)$ est vrai.
+        \item Si $m+1 > n$, $m \geq n$, donc $P(m)$ est vrai (puisque $Q(m)$ l'est), donc $P(m+1)$ est vrai, donc $Q(m+1)$ est vrai.
+    \stopitemize
+    On a donc montré que, pour tout entier naturel $m$, $Q(m) \Rightarrow Q(m+1)$. 
+    Par récurrence, $Q(m)$ est donc vrai pour tout entier naturel $m$.
+
+   \done 
+
+\blank[medium]
+
+\noindent\bold{Définition :} Soit $a$ et $b$ deux entiers naturels. 
+    On définit l'ensemble $[\![a, b]\!]$ par : 
+    \startformula
+        
+        [\![a, b]\!] = \lbrace n \in \mathbb{N} \vert (n \geq a) \wedge (n \leq b) \rbrace.
+    \stopformula
+    Notons que $[\![a, b]\!] = \emptyset$ si $a > b$. 
+    En effet, dans ce cas, tout élément $x$ de $\mathbb{N}$ satisfaisant $x \geq a$ satisfait $x > b$, et donc ne satistfait pas $x \geq b$.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $n$ un entier naturel. 
+    On a : $[\![0, n-1]\!] = n$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+\startitemize[nowhite]
+    \item Soit $x$ un élément de $[\![0, n-1]\!]$. 
+        Puisque $[\![0, n-1]\!]$ est un sous-ensemble de $\mathbb{N}$, $x \in \mathbb{N}$. 
+        En outre, $x \leq n-1$.
+        Puisque $(n-1)+1 = n$, $n-1 < n$, et donc $x < n$. 
+        Donc, $x \in n$.
+    \item Soit $x$ un élément de $n$. 
+        Puisque $n$ est un sous-ensemble de $\mathbb{N}$, $x \in \mathbb{N}$. 
+        Donc, $x \geq 0$.
+        En outre, $x < n$.
+        Donc, $x \leq n-1$. 
+        Donc, $x \in [\![1,n-1]\!]$.
+\stopitemize
+
+\done
+
+\stopsubsection
+
+\startsubsection[title=Récurrence forte]
+
+\noindent\bold{Lemme (principe de récurrence forte) :} Soit $P$ une formule à un paramètre libre. 
+    On suppose que $P(0)$ est vraie et que, pour tout élément $n$ de $\mathbb{N}$, la formule $(\forall m \in \mathbb{N} \, m \leq n \Rightarrow P(m)) \Rightarrow P(n+1)$ est vrai. 
+    Alors, pour tout élément $n$ de $\mathbb{N}$, $P(n)$ est vraie. 
+    \index{Récurrence forte}
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Considérons la formule à un paramètre libre $Q$ définie par $Q(n): \forall m \in \mathbb{N} \, m \leq n \Rightarrow P(m)$. 
+    Notons que, d'après la seconde hypothèse faite sur $P$, pour tout élément $n$ de $\mathbb{N}$ $Q(n) \Rightarrow P(n+1)$.
+    Montrons que $Q(n)$ est vraie pour tout élément $n$ de $\mathbb{N}$. 
+    Tout d'abord, $Q(0)$ est équivalente à $P(0)$ (car le seul élément $m$ de $\mathbb{N}$ tel que $m \leq 0$ est $0$). 
+    Donc, $Q(0)$ est vraie. 
+    Soit $n \in \mathbb{N}$ tel que $Q(n)$ est vraie. 
+    Soit $m \in \mathbb{N}$ tel que $m \leq n+1$. 
+    Alors, $m \leq n$ ou $m = n+1$. 
+    Si $m \leq n$, $P(m)$ est vraie car $Q(n)$ est vraie.
+    Si, $m = n+1$, $P(m)$ est vraie puisque $Q(n)$ est vraie et $Q(n) \Rightarrow P(n+1)$. 
+    Donc, $Q(n+1)$ est vraie.
+    Par récurrence, on en déduit que $Q(n)$ est vraie pour tout élément $n$ de $\mathbb{N}$.
+
+    Montrons que cela implique le lemme. 
+    Soit $n$ un élément de $\mathbb{N}$. 
+    On a vu que $Q(n)$ est vraie. 
+    Donc, pour tout élément $m$ de $\mathbb{N}$ tel que $m \leq n$, $P(m)$ est vraie. 
+    Puisque $n \leq n$ par reflexivité de la relation d'ordre, $P(n)$ est vraie.
+
+   \done 
+
+\stopsubsection
+
+
+\startsubsection[title={Suites ; définition par récurrence}, reference=sub:suites]
+
+\noindent\bold{Définition :} Soit $E$ un ensemble non vide. 
+    Une \emph{\words{suite}} $u$ d'éléments de $E$ est une fonction de $\mathbb{N}$ vers $E$. 
+    Si $u$ est une suite d'éléments de $E$ et $n$ un élément de $\mathbb{N}$, l'élément $u(n)$ de $E$ est parfois noté $u_n$. 
+    Si $f$ est une formule dépendant d'un paramètre libre telle que, pour tout élément $n$ de $\mathbb{N}$, $f(n) = u(n)$, la suite $u$ est parfois notée $\left( f(n) \right)_{n \in \mathbb{N}}$.
+    Si $u$ est une suite et $n$ une variable, dans la formule $u_n$, $n$ est parfois appelé \emph{\words{indice}}.
+
+\blank[medium]
+
+\noindent\bold{Lemme (définition par récurrence) :} Soit $E$ un ensemble non vide et $f$ une fonction de $\mathbb{N} \times E$ vers $E$.
+    Soit $e_0$ un élément de $E$. 
+    Il existe une unique fonction $u$ de $\mathbb{N}$ vers $E$ telle que $u(0) = e_0$ et, pour tout $n \in \mathbb{N}$, $u(n+1) = f(n, u(n))$.
+
+\blank[medium]
+
+\noindent Ce lemme permet notamment de \emph{définir} une suite par récurrence, étant donnés son image de $0$ et une fonction $f$ donnant son image de $n+1$ connaissant celle de $n$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :}
+\emph{Unicité :} Soit $u$ et $v$ deux fonctions satisfaisant les propriétés de l'énoncé. 
+       Tout d'abord, on a $u(0) = e_0$ et $v(0) = e_0$ par hypothèse, et donc $u(0) = v(0)$.
+       Soit $n$ un élément de $\mathbb{N}$ et supposons $u(n) = v(n)$. Alors, $u(n+1) = f(n, u(n))$ donne $u(n+1) = f(n, v(n))$, d'où $u(n+1) = v(n+1)$. 
+       Par récurrence, on a donc $u(n) = v(n)$ pour tout élément $n$ de $\mathbb{N}$.
+
+\emph{Éxistence :} Une fonction $v$ d'un sous-ensemble non vide de $\mathbb{N}$ dans $E$ est dite \emph{$f$-inductive} si elle satisfait les trois propriétés suivantes : 
+    \startitemize[nowhite]
+        \item son domaine $D$ satisfait $\forall x \in D, \, \forall n \in \mathbb{N}, \, n \leq x \Rightarrow n \in D$, 
+        \item si $0$ est dans son domaine, alors $v(0) = e_0$, 
+        \item si $n$ est un élément de $\mathbb{N}$ tel que $n$ et $n+1$ sont tous deux dans son domaine, alors $v(n+1) = f(n, v(n))$. 
+    \stopitemize
+   Chacune de ces fonctions est un sous-ensemble de $\mathbb{N} \times E$. 
+   
+   Soit $v$ une fonction $f$-injective. 
+   Puisque son domaine est non nul, on peux choisir un élément $x$ de $D$. 
+   Puisque $D$ est un sous-ensemble de $\mathbb{N}$, on a $x \in \mathbb{N}$. 
+   Donc, $0  \leq x$, et donc $0 \in D$.
+   Cela montre que $0$ appartient au domaine de définition de toute fonction $f$-inductive. 
+
+   Soit $u$ l'union de toutes les fonctions $f$-inductives. 
+   (Cet ensemble existe d'après l'axiome de compréhension obtenu avec l'ensemble des parties de $\mathbb{N} \times E$ et la conjonction des trois propriétés définissant une fonction $f$-inductive.)
+   Montrons que $u$ est une fonction de $\mathbb{N}$ dans $E$ satisfaisant les propriétés de l'énoncé. 
+
+   Tout d'abord, $\lbrace (0,e_0) \rbrace$ (vu comme une fonction de $\lbrace 0 \rbrace$ vers $E$) est $f$-inductive, donc $(0,e_0) \in u$, et donc $0$ appartient au domaine de $u$.
+   Soit $n \in \mathbb{N}$ tel que $n$ appartient au domaine de $u$. 
+   Soit $v$ une fonction $f$-inductive dont le domaine contient $n$ et $v' = v \cup \lbrace n+1, f(n, f(v(n))) \rbrace$. 
+   On vérifie facilement que $v'$ est une fonction $f$-inductive avec pour domaine $D \cup \lbrace n+1 \rbrace$, où $D$ est le domaine de $v$. 
+   (Il s'agit bien d'une fonction car $v$ en est une et, si $n+1$ est aussi dans le domaine de $v$, on a $v(n+1) = f(n, f(v(n)))$ ; elle satisfait la première propriété car un entier $m$ satisfaisant $m \leq n+1$ est égal à $n+1$ s'il contient $n$ ou satisfait $m \leq n$ (et est donc dans le domaine de $v$) sinon, la seconde car l'image de $0$ est égale à $v(0)$, donc à $e_0$, la troisième pour tout entier $m$ satisfaisant $m \neq n$ car $v$ est $f$-inductive (si $m$ et $m+1$ sont dans son domaines, alors ils sont aussi dans celui de $v$, d'où le résultat), et la troisième pour l'entier $n$ car $v'(n+1) = f(n,v(n))$ et $v(n) = v'(n)$.)
+   Donc, $n+1$ appartient au domaine de $u$. 
+   Cela montre (par récurrence) que le domaine de $u$ est $\mathbb{N}$. 
+
+   Soit $n \in \mathbb{N}$ et $v$ et $v'$ deux fonctions $f$-inductives dont les domaines contiennent $n$. 
+   On montre facilement par récurrence finie que $v(n) = v'(n)$. 
+   (Cela est vrai pour $n=0$ car $v(0)$ et $v'(0)$ sont tous deux égaux à $e_0$ et, si un entier $m$ est tel que $m+1$ appartienne à leurs domaine de définition, alors $m$ y appartient également (puisque $m < m+1$) ; si de plus $v'(m) = v(m)$, alors $v'(m+1) = f(m,v'(m)) = f(m,v(m)) = v(m+1)$, donc $v'(m+1) = v(m+1)$.)
+   Donc, $u$ est bien une fonction.
+
+   Par ailleurs, on a $u(0) = e_0$. 
+   Soit $n \in \mathbb{N}$, $n+1$ appartient à $\mathbb{N}$, donc au domaine de $u$, donc on peut choisir une fonction $v$ $f$-inductive telle que $n+1$ appartienne au domaine de $v$. 
+   Puisque $n < n+1$, $n$ est aussi dans le domaine de $v$. 
+   On a donc $v(n+1) = f(n, v(n)) = f(n,u(n))$, et donc $u(n+1) = f(n, u(n))$.
+
+  \done 
+
+\blank[medium] 
+
+Ce résultat étant particulièrement important pour la suite, nous en donnons ci-dessous une démonstration formulée un brin différemment, et un peu plus détaillée. 
+On reprend les notations du lemme. 
+
+Montrons tout d'abord que, si une fonction de $\mathbb{N}$ dans $E$ satisfaisant les deux propriétés de l'énoncé existe, alors elle est unique. 
+On suppose avoir deux telles fonctions, notées $u$ et $v$. 
+Montrons qu'elles sont nécéssairement égales. 
+Pour ce faire, il suffit de montrer que, pour tout élément $n$ de $\mathbb{N}$, $u(n) = v(n)$. 
+On procède par récurrence. 
+D'après la première propriété de l'énoncé, on a $u(0) = e_0$ et $v(0) = e_0$. 
+Donc, $u(0) = v(0)$. 
+Considérons maintenant un élément $n$ de $\mathbb{N}$ tel que $u(n) = v(n)$. 
+On a $f(n, u(n)) = f(n, v(n))$. 
+Or, on a aussi, d'après la deuxième propriété de l'énoncé : $f(n, u(n)) = u(n+1)$ et $f(n, v(n)) = v(n+1)$. 
+Donc, $u(n+1) = v(n+1)$. 
+Cela étant vrai pour tout élément $n$ de $\mathbb{N}$ tel que $u(n) = v(n)$, et puisque $u(0) = v(0)$, on en déduit par récurrence que, pour tout élément $n$ de $\mathbb{N}$, $u(n) = v(n)$, et donc que $u = v$. 
+Ainsi, il existe au plus une fonction satisfaisant les conditions de l'énoncé.
+
+Montrons maintenant qu'une telle fonction existe bien. 
+Pour ce faire, définissons d'abord la notion de fonction $f$-injective%
+~\footnote{
+    Cette définition est un peu bancale puisqu'elle dépend de $f$ mais aussi de $e_0$. 
+    Une appellation plus approppriée serait « $f$-injective avec élément initial $e_0$ ». 
+    Pour simplifier, et puisque cette notion n'est utilisée que dans cette preuve où $e_0$ est fixé, nous la raccourcissons en « $f$-injective », l'élément initial étant implicite.
+}
+de la manière suivante. 
+Une fonction $f$-injective est une fonction, notée $v$ dans la suite de cette définition, d'un sous-ensemble non vide $D$ de $\mathbb{N}$ vers $E$ telle que les conditions suivantes sont satisfaites :
+\startitemize[nowhite]
+    \item Pour tout élément $x$ de $D$, pour tout élément $n$ de $\mathbb{N}$ tel que $n \leq x$, $n \in D$. 
+        (C'est-à-dire : $\forall x \in D, \, \forall n \in \mathbb{N}, \, n \leq x \Rightarrow x \in D$ ; dans la suite, on note $P_1$ le prédicat obtenu en remplaçant $D$ par la formule $\lbrace x \in \mathbb{N} \vert \exists y \in \mathbb{N} \, (x,y) \in v \rbrace$.)
+    \item Si $0 \in D$, $v(0) = e_0$.
+        (C'est-à-dire : $0 \in D \Rightarrow v(0) = e_0$ ; dans la suite, on note $P_2$ le prédicat obtenu en remplaçant $D$ par la formule $\lbrace x \in \mathbb{N} \vert \exists y \in \mathbb{N} \, (x,y) \in v \rbrace$.)
+.)
+    \item Si $n$ est un élément de $D$ tel que $n+1 \in D$, alors $v(n+1) = f(n, v(n))$. 
+        (C'est-à-dire : $\forall n \in D, \, n+1 \in D \Rightarrow v(n+1) = f(n, v(n))$ ; dans la suite, on note $P_3$ le prédicat obtenu en remplaçant $D$ par la formule $\lbrace x \in \mathbb{N} \vert \exists y \in \mathbb{N} \, (x,y) \in v \rbrace$.)
+)
+\stopitemize
+Notons que la première condition impose $0 \in D$. 
+En effet, $D$ doit être non vide et, soit $x$ un élément de $D$ (un tel élément existe donc), on a $x \in \mathbb{N}$, donc $0 \leq x$, et donc $0 \in D$. 
+La seconde condition peut donc être simplifiée en $v(0) = e_0$. 
+
+Toute fonctions $f$-injective est un sous-ensemble de $\mathbb{N} \times E$. 
+En effet, si $v$ est une telle fonction et $z$ un élément de $v$, on peut choisir un élément $x$ du domaine $D$ de $v$ et un élément $y$ de $E$ tels que $z = (x,y)$.
+Puisque $D$ est un sous-ensemble de $\mathbb{N}$, on a $x \in \mathbb{N}$, et donc $z \in \mathbb{N} \times E$.
+
+En appliquant l'axiome de compréhension avec l'ensemble des parties de $\mathbb{N} \times E$ et la propriété $P: P_1 \wedge P_2 \wedge P_3$, on montre que l'ensemble des fonctions $f$-inductives existe. 
+Notons qu'il existe au moins une fonction $f$-injective : $\lbrace (0, e_0) \rbrace$. 
+Il s'agit d'une fonction de $\lbrace 0 \rbrace$ vers $E$ (en effet, son seul élément est dans $\lbrace 0 \rbrace \times E$, l'unique élément de $\lbrace 0 \rbrace$ a une image $e_0$, et, si $x$ est un élément de $\lbrace 0 \rbrace$, et $y$ et $y'$ deux images de $x$, alors $y = e_0$ et $y' = e_0$, donc $y = y'$) ; son domaine est $\lbrace 0 \rbrace$, qui est bien un sous-ensemble de $\mathbb{N}$ ; le seul élément $n$ de $\mathbb{N}$ satisfaisant $n \leq 0$ est $0$ lui-même, qui est bien dans $D$ ; on a $v(0) = e_0$ ; il n'existe aucun élément $n$ de $D$ tel que $n+1 \in D$ puisque $0+1 \neq 0$. 
+Notons $u$ l'union de tous les éléments de l'ensemble des fonctions $f$-injectives. 
+(L'ensemble $u$ existe d'après l'axiome de la réunion.) 
+Nous nous proposons de montrer que $u$ est une fonction de $\mathbb{N}$ vers $E$ puis qu'elle satisfait les deux propriétés du lemme. 
+
+En tant qu'union de sous-ensembles de $\mathbb{N} \times E$, $u$ en est un également.%
+\footnote{
+    En effet, soit $z \in u$, il existe un élément $v$ de l'ensemble des fonctions $f$-injectives tel que $z \in v$. 
+    Soit $D$ son domaine. 
+    On a $z \in D \times E$
+    Puisque $D$ est un sous-ensemble de $\mathbb{N}$, $D \times E$ est un sous-ensemble de $\mathbb{N} \times E$, donc $z \in \mathbb{N} \times E$.)
+}
+Pour montrer que $u$ est une fonction de $\mathbb{N}$ vers $E$, il suffit donc de montrer que, pour tout élément $n$ de $\mathbb{N}$, il existe un unique élément $e$ de $E$ tel que $(n,e) \in u$. 
+On procède par récurrence. 
+Pour $n = 0$, le résultat est facile à démontrer : $\lbrace (0, e_0) \rbrace$ est une fonction $f$-inductive, donc $(0, e_0) \in u$. 
+En outre, soit $e$ un élément de $e$ tel que $(0,e) \in E$, il existe une fonction $f$-inductive $v$ telle que $(0,e) \in v$. 
+La première propriété du lemme donne alors $e = e_0$. 
+Ainsi, il existe un unique élément $e$ de $E$ ($e_0$) tel que $(0, e_0) \in u$. 
+
+Soit $n$ un élément de $\mathbb{N}$ et supposons qu'il existe un unique élément de $E$, noté $e$ dans la suite de ce paragraphe tel que $(n,e) \in u$. 
+Soit $e_1$ et $e_2$ deux éléments de $E$ tels que $(n+1, e_1) \in u$ et $(n+1, e_2) \in u$. 
+On peut trouver deux fonctions $f$-injectives $v_1$ et $v_2$ dont les domaines contiennent $n+1$ et telles que $v_1(n+1) = e_1$ et $v_2(n+1) = e_1$. 
+Puisque $n \leq n+1$, $n$ appartient aussi à leurs domaines de définition. 
+Puisque $(n, v_1(n)) \in u$ et $(n, v_2(n)) \in u$, on a $v_1(n) = e$ et $v_2(n) = e$. 
+Donc, d'après le troisième critère de définition d'une fonction $f$-infductive, $v_1(n+1) = f(n,e)$ et $v_2(n+1) = f(n,e)$.
+Donc, $e_1 = f(n,e)$ et $e_2 = f(n,e)$. 
+Donc, $e_1 = e_2$. 
+Il existe donc au plus un élément $e'$ de $E$ tel que $(n+1, e') \in u$. 
+Montrons qu'il existe bien. 
+Soit $v$ une fonction $f$-inductive dont le domaine de définition contient $n$. 
+Montrons que $v \cup \lbrace (n+1, f(n, v(n))) \rbrace$ est une fonction $f$-inductive. 
+Cela montrera que $(n+1, f(n,v(n))) \in u$. 
+Par récurrence, nous aurons alors montré que $u$ est bien une fonction, et que l'image par $u$ d'un élément $n$ de $\mathbb{N}$ est $v(n)$, où $v$ est une fonction $f$-injective (quelconque) dont le domaine contient $n$. 
+
+Notons $v'$ l'ensemble $v \cup \lbrace (n+1, f(n, v(n))) \rbrace$ et $D$ le domaine de $v$. 
+Montrons que $v'$ est une fonction de $D \cup \lbrace n+1 \rbrace$ dans $E$. 
+Soit $m \in D$. 
+Puisque $v$ est une fonction de $D$ vers $E$, on peut choisir un unique élément $e$ de $E$ tel que $(m,e) \in v$. 
+On a alors $(m,e) \in v'$.
+Si $m \neq n+1$, il n'existe pas d'autre élément de $v'$ dont la première composante soit $n$ (car le seul élément de $v'$ qui ne soit pas dans $v$ a $n+1$ pour première composante ; un élément de $v'$ dont la première composante est $m$ doit donc être un élément de $v$, et sa deuxième composante ne peut alors être que $e$ puisque $v$ est une fonction). 
+Si $m = n+1$, on a $v(n+1) = f(n, v(n))$ car $v$ est $f$-injective. 
+Donc, $(n+1, f(n,v(n))) \in v$ et $v' = v$, donc $v'$ et une fonction et n'a pas plus d'un élément avec $n+1$ comme première composante.
+Par ailleurs, si $n+1$ n'est pas un élément de $D$, alors le seul élément de $v'$ dont la première composante est $n+1$ est $(n+1,f(n,v(n)))$ (tout autre élément de $v'$ appartient à $v$, et a donc sa première composante dans $D$).
+Ainsi, dans les deux cas (que $n+1$ soit ou non un élément de $D$) $v'$ est une fonction. 
+
+Montrons qu'elle est $f$-injective. 
+Son domaine de définition est celui de $v$, auquel on ajoute éventuellement $n+1$. 
+Pour tout élément $m$ de ce domaine distinct de $n+1$, $m$ est dans le domaine de $v$, donc pour tout élément $k$ de $\mathbb{N}$ tel que $k \leq m$, $k$ est dans le domaine de $v$ et donc dans celui de $v'$. 
+Soit $m$ un élément de $\mathbb{N}$ tel que $m \leq n+1$. 
+On a $m < n + 1$ ou $m = n + 1$.
+Dans le premier cas, on a $m \leq n$. 
+Puisque $n$ est dans le domaine de $v$ et car $v$ est $f$-injective, $m$ y est également, et est donc dans celui de $v'$.
+Dans le second cas $m$ est bien dans le domaine de $v'$ puisque $(n+1, f(n,v(n))) \in v'$. 
+Ainsi, la fonction $v'$ satisfait $P_1$.
+
+On a $v'(0) = v(0)$, donc, puisque $v$ est $f$-injective, $v'(0) = e_0$. 
+La fonction $v'$ satisfait donc $P_2$. 
+
+Enfin, soit $m$ un élément du domaine de $v'$, 
+\startitemize[nowhite]
+    \item Si $m \neq n$ et, et si $m+1$ est dans le domaine de $v'$, alors $m+1$ est dans le domaine de $v$ (en effet, si $m \neq n$, $m+1 \neq n+1$). 
+        Donc, puisque $m \leq m+1$, $m$ est dans le domaine de $v$. 
+        Puisque $v$ est $f$-injective, $v(m+1) = f(m, v(m))$. 
+        Puisque $v'(m) = v(m)$ et $v'(m+1) = v(m+1)$, on en déduit $v'(m+1) = f(m, v'(m))$.
+    \item Si $m = n$, on a $v'(m+1) = f(n, v(n))$. Puisque $v'(n) = v(n)$, on en déduit $v'(m+1) = f(m,v'(m))$.
+\stopitemize
+Ainsi, $v'$ satisfait $P_3$. 
+Cette fonction est donc bien $f$-injective.
+
+Il ne reste plus qu'à montrer que $u$ satisfait les deux propriétés de l'énoncé. 
+Nous avons vu plus haut que $u(0) = e_0$. 
+Soit $n$ un élément de $\mathbb{N}$. 
+Alors, $n+1$ appartient à $\mathbb{N}$ et donc au domaine de $u$, donc il on peut choisir une fonction $f$-injective $v$ dont le domaine contient $n+1$. 
+Puisque $n \leq n+1$, $n$ appartient aussi au domaine de $v$. 
+On a donc $v(n+1) = f(n, v(n))$. 
+Puisque $u(n) = v(n)$ et $u(n+1) = v(n+1)$, on en déduit $u(n+1) = f(n, u(n))$.
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Définition :}
+    Soit $E$ un ensemble et $\leq$ une relation d'ordre sur $E$.
+    Soit $u$ une suite d'éléments de $E$. 
+    On dit que $u$ est \emph{majorée} s'il existe un élément $e$ de $E$ tel que : $\forall n \in \mathbb{N} \, u_n \leq e$.
+    On dit que $u$ est \emph{minorée} s'il existe un élément $e$ de $E$ tel que : $\forall n \in \mathbb{N} \, e \leq u_n$.
+    Un élément $e$ de $E$ satisfaisant $\forall n \in \mathbb{N} \, u_n \leq e$ est dit \emph{majorant} de $u$.
+    Un élément $e$ de $E$ satisfaisant $\forall n \in \mathbb{N} \, e \leq u_n$ est dit \emph{minorant} de $u$.
+    Une suite à la fois majorée et minorée est dite \emph{bornée} ; son majorant et son minorant sont aussi appelés \emph{bornes}. 
+    \index{Suite majorée}
+    \index{Suite minorée}
+    \index{Majorant}
+    \index{Minorant}
+    \index{Suite bornée}
+    \index{Bornes}
+
+\blank[medium]
+
+\noindent\bold{Définition :}
+    Soit $E$ un ensemble et $\leq$ une relation d'ordre sur $E$.
+    Soit $u$ une suite d'éléments de $E$. 
+    On dit que $u$ est \emph{croissante} si, pour tous entiers naturels $n$ et $m$, $n \leq m \Rightarrow u_n \leq u_m$.
+    On dit que $u$ est \emph{décroissante} si, pour tous entiers naturels $n$ et $m$, $n \leq m \Rightarrow u_m \leq u_n$.
+    \index{Suite croissante}
+    \index{Suite décroissante}
+
+\blank[medium]
+
+\noindent\bold{Lemme :}
+    Soit $E$ un ensemble et $\leq$ une relation d'ordre sur $E$.
+    Soit $u$ une suite d'éléments de $E$. 
+    On suppose que $u_{n+1} \geq u_n$ pour tout entier naturel $n$. 
+    Alors, $u$ est croissante. 
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $n$ un entier naturel. 
+    On veut montrer que, pour tout entier naturel $m$ supérieur ou égal à $n$, $u_n \leq u_m$.
+    On procède par récurrence sur $m - n$, noté $k$.
+    Si $k = 0$, alors $m = n$, donc $u_n = u_m$ et $u_n \leq u_m$.
+
+    Supposons le résultat attendu pour un entier naturel $k$, \emph{i.e.}, $u_n \leq u_{n+k}$. 
+    Puisque $u$ est croissante, $u_{n+k} \leq u_{(n+k)+1}$.
+    Donc, $u_n \leq u_{(n+k)+1}$.
+    Donc, $u_n \leq u_{n+(k+1)}$.
+    Le résultat attendu est vrai au rang $k+1$.
+    Par récurrence, il l'est pour tout entier naturel $k$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :}
+    Soit $E$ un ensemble et $\leq$ une relation d'ordre sur $E$.
+    Soit $u$ une suite d'éléments de $E$. 
+    On suppose que $u_n \geq u_{n+1}$ pour tout entier naturel $n$. 
+    Alors, $u$ est décroissante. 
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $n$ un entier naturel. 
+    On veut montrer que, pour tout entier naturel $m$ supérieur ou égal à $n$, $u_m \leq u_n$.
+    On procède par récurrence sur $m - n$, noté $k$.
+    Si $k = 0$, alors $m = n$, donc $u_m = u_n$ et $u_m \leq u_n$.
+
+    Supposons le résultat attendu pour un entier naturel $k$, \emph{i.e.}, $u_{n+k} \leq u_n$. 
+    Puisque $u$ est décroissante, $u_{(n+k)+1} \leq u_{n+k}$.
+    Donc, $u_{(n+k)+1} \leq u_n$.
+    Donc, $u_{n+(k+1)} \leq u_n$.
+    Le résultat attendu est vrai au rang $k+1$.
+    Par récurrence, il l'est pour tout entier naturel $k$.
+
+    \done
+
+\stopsubsection
+
+\stopsection
