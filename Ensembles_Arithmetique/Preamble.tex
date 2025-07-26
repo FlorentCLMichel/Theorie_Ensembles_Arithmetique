@@ -330,6 +330,86 @@
   ]
 
 
+% colored box style
+
+\startuseMPgraphic{mp:coloredframe}
+  coloredFrameMargin := EmWidth;
+  begingroup;
+    for i=1 upto nofmultipars :
+      if multikind[i] = "single" :
+        path p;
+        p := ( llcorner multipars[i] + (0, -coloredFrameMargin)
+               -- lrcorner multipars[i] + (0, -coloredFrameMargin)
+               .. lrcorner multipars[i] + (coloredFrameMargin/sqrt(2), -coloredFrameMargin/sqrt(2))
+               .. lrcorner multipars[i] + (coloredFrameMargin, 0)
+               -- urcorner multipars[i] + (coloredFrameMargin, 0)
+               .. urcorner multipars[i] + (coloredFrameMargin/sqrt(2), coloredFrameMargin/sqrt(2))
+               .. urcorner multipars[i] + (0, coloredFrameMargin)
+               -- ulcorner multipars[i] + (0, coloredFrameMargin)
+               .. ulcorner multipars[i] + (-coloredFrameMargin/sqrt(2), coloredFrameMargin/sqrt(2))
+               .. ulcorner multipars[i] + (-coloredFrameMargin, 0)
+               -- llcorner multipars[i] + (-coloredFrameMargin, 0)
+               .. llcorner multipars[i] + (-coloredFrameMargin/sqrt(2), -coloredFrameMargin/sqrt(2))
+               .. llcorner multipars[i] + (0, -coloredFrameMargin)
+               -- cycle ) ;
+        fill p withcolor boxfillcolor ;
+      elseif  multikind[i] = "first"  :
+        path p;
+        p := ( llcorner multipars[i] + (0, -coloredFrameMargin)
+               -- lrcorner multipars[i] + (coloredFrameMargin, -coloredFrameMargin)
+               -- urcorner multipars[i] + (coloredFrameMargin, 0)
+               .. urcorner multipars[i] + (coloredFrameMargin/sqrt(2), coloredFrameMargin/sqrt(2))
+               .. urcorner multipars[i] + (0, coloredFrameMargin)
+               -- ulcorner multipars[i] + (0, coloredFrameMargin)
+               .. ulcorner multipars[i] + (-coloredFrameMargin/sqrt(2), coloredFrameMargin/sqrt(2))
+               .. ulcorner multipars[i] + (-coloredFrameMargin, 0)
+               -- llcorner multipars[i] + (-coloredFrameMargin, -coloredFrameMargin)
+               -- cycle ) ;
+        fill p withcolor boxfillcolor ;
+      elseif  multikind[i] = "middle" :
+        path p;
+        p := ( llcorner multipars[i] + (0, -coloredFrameMargin)
+               -- lrcorner multipars[i] + (coloredFrameMargin, -coloredFrameMargin)
+               -- urcorner multipars[i] + (coloredFrameMargin, coloredFrameMargin)
+               -- ulcorner multipars[i] + (-coloredFrameMargin, coloredFrameMargin)
+               -- llcorner multipars[i] + (-coloredFrameMargin, -coloredFrameMargin)
+               -- cycle ) ;
+        fill p withcolor boxfillcolor ;
+      elseif  multikind[i] = "last"   :
+        path p;
+        p := ( llcorner multipars[i] + (0, -coloredFrameMargin)
+               -- lrcorner multipars[i] + (0, -coloredFrameMargin)
+               .. lrcorner multipars[i] + (coloredFrameMargin/sqrt(2), -coloredFrameMargin/sqrt(2))
+               .. lrcorner multipars[i] + (coloredFrameMargin, 0)
+               -- urcorner multipars[i] + (coloredFrameMargin, coloredFrameMargin)
+               -- ulcorner multipars[i] + (-coloredFrameMargin, coloredFrameMargin)
+               -- llcorner multipars[i] + (-coloredFrameMargin, 0)
+               .. llcorner multipars[i] + (-coloredFrameMargin/sqrt(2), -coloredFrameMargin/sqrt(2))
+               .. llcorner multipars[i] + (0, -coloredFrameMargin)
+               -- cycle ) ;
+        fill p withcolor boxfillcolor ;
+      fi;
+    endfor ;
+  setbounds currentpicture to OverlayBox ;
+  endgroup;
+\stopuseMPgraphic
+
+\definecolor[coloredFrameColor][r=0,g=1,b=1]
+\definetextbackground
+  [coloredFrame]
+  [mp=mp:coloredframe,
+   location=paragraph,
+   backgroundcolor=coloredFrameColor,
+   framecolor=coloredFrameColor,
+   before={},
+   after={}]
+
+\definestartstop
+  [NoteBox]
+  [before={\blank[2em]\startcoloredFrame},
+   after={\stopcoloredFrame\blank[2em]}]
+
+
 % Paragraph indentation
 \setupindenting[yes,medium]
 
