@@ -57,7 +57,7 @@
 \setuplayout
   [backspace=2cm,
    topspace=1cm,
-   header=1.5cm,
+   header=1cm,
    footer=1cm,
    top=1cm,
    bottom=1cm,
@@ -215,7 +215,7 @@
 % Format for the TOC at the start of each chapter
 \define\chaptertoc{%
   \determinelistcharacteristics[section]%
-  \doifmode{*list}{\vskip1ex\hrule\startsimplecolumns[n=2]\placecontent\stopsimplecolumns\hrule}%
+  \doifmode{*list}{\vskip1ex\hrule\startsimplecolumns[n=2]\placecontent\stopsimplecolumns\blank[2pt]\hrule}%
 }
 
 
