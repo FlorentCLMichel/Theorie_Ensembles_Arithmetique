@@ -94,7 +94,7 @@ On en déduit que l'hypothèse de départ est fausse.
 
 \blank[medium]
 
-\noindent\bold{NB:} Si on inclus la valeur de vérite « indéfinie » dans la théorie, alors cette démonstration montre seulement que, avec les mêmes notations, la propriété $P$ est indéfinie.
+\noindent\bold{NB:} Si on inclus la valeur de vérité « indéfinie » dans la théorie, alors cette démonstration montre seulement que, avec les mêmes notations, la propriété $P$ est indéfinie.
 
 \blank[medium]
 
@@ -113,13 +113,13 @@ Ces schémas sont destinés à donner une représentation intuitive de ces conce
 
 \startalign[center]
   \dontleavehmode
-  \startimage
+  \bimage
   \starttikzpicture
     \draw[fill=black, fill opacity=0.2] (0,0) circle (1cm);
     \node[right] at (1cm,0) {$E$};
     \node[circle, fill, minimum size=3pt, inner sep=0pt, outer sep=0pt, label=below right:$x$] at (0,0) {};
   \stoptikzpicture
-  \stopimage
+  \eimage
   \blank[samepage]
   $x \in E$
 \stopalign
@@ -128,13 +128,13 @@ Ces schémas sont destinés à donner une représentation intuitive de ces conce
 
 \startalign[center]
   \dontleavehmode
-  \startimage
+  \bimage
   \starttikzpicture
     \draw[fill=black, fill opacity=0.2] (0,0) circle (1cm);
     \node[right] at (1cm,0) {$E$};
     \node[circle, fill, minimum size=3pt, inner sep=0pt, outer sep=0pt, label=below right:$x$] at (-2cm,0) {};
   \stoptikzpicture
-  \stopimage
+  \eimage
   \blank[samepage]
   $x \notin E$
 \stopalign
@@ -143,14 +143,14 @@ Ces schémas sont destinés à donner une représentation intuitive de ces conce
 
 \startalign[center]
 \dontleavehmode
-\startimage
+\bimage
 \starttikzpicture
     \draw[fill=black, fill opacity=0.2] (0,0) circle (1cm);
     \draw[fill=black, fill opacity=0.2] (0,0) circle (0.5cm);
     \node[right] at (0.5cm,0) {$A$};
     \node[right] at (1cm,0) {$B$};
 \stoptikzpicture
-\stopimage
+\eimage
 \blank[samepage]
 $A \subset B$
 \stopalign
@@ -164,7 +164,7 @@ Sur chacun des quatre schémas suivants, la zone grisée correspond à l'ensembl
 
 \startalign[center]
 \dontleavehmode
-\startimage
+\bimage
 \starttikzpicture
     \fill[black!20!white] (0.5cm,0) circle (1cm);
     \fill[black!20!white] (-0.5cm,0) circle (1cm);
@@ -173,7 +173,7 @@ Sur chacun des quatre schémas suivants, la zone grisée correspond à l'ensembl
     \node[left] at (-1.5cm,0) {$A$};
     \node[right] at (1.5cm,0) {$B$};
 \stoptikzpicture
-\stopimage
+\eimage
 \blank[samepage]
 $A \cup B$
 \stopalign
@@ -182,7 +182,7 @@ $A \cup B$
 
 \startalign[center]
 \dontleavehmode
-\startimage
+\bimage
 \starttikzpicture
     \startscope
         \clip (0.5cm,0) circle(1cm);
@@ -193,7 +193,7 @@ $A \cup B$
     \node[left] at (-1.5cm,0) {$A$};
     \node[right] at (1.5cm,0) {$B$};
 \stoptikzpicture
-\stopimage
+\eimage
 \blank[samepage]
 $A \cap B$
 \stopalign
@@ -202,7 +202,7 @@ $A \cap B$
 
 \startalign[center]
 \dontleavehmode
-\startimage
+\bimage
 \starttikzpicture
     \fill[black!20!white] (-0.5cm,0) circle (1cm);
     \startscope
@@ -214,7 +214,7 @@ $A \cap B$
     \node[left] at (-1.5cm,0) {$A$};
     \node[right] at (1.5cm,0) {$B$};
 \stoptikzpicture
-\stopimage
+\eimage
 \blank[samepage]
 $A \setminus B$
 \stopalign
@@ -223,7 +223,7 @@ $A \setminus B$
 
 \startalign[center]
 \dontleavehmode
-\startimage
+\bimage
 \starttikzpicture
     \fill[black!20!white] (0.5cm,0) circle (1cm);
     \startscope
@@ -235,7 +235,7 @@ $A \setminus B$
     \node[left] at (-1.5cm,0) {$A$};
     \node[right] at (1.5cm,0) {$B$};
 \stoptikzpicture
-\stopimage
+\eimage
 \blank[samepage]
 $B \setminus A$
 \stopalign
@@ -248,7 +248,7 @@ Certains résultats se voient aisément schématiquement :
 
 \startalign[center]
 \dontleavehmode
-\startimage
+\bimage
 \starttikzpicture
     \fill[white] (-0.5cm,0) circle (1cm);
     \fill[black!20!white] (0.5cm,0) circle (1cm);
@@ -257,7 +257,7 @@ Certains résultats se voient aisément schématiquement :
     \node[left] at (-1.5cm,0) {$A$};
     \node[right] at (1.5cm,0) {$B$};
 \stoptikzpicture
-\stopimage
+\eimage
 \blank[samepage]
 $(B \setminus A) \cup (A \cap B) = B$
 \stopalign
@@ -266,7 +266,7 @@ $(B \setminus A) \cup (A \cap B) = B$
 
 \startalign[center]
 \dontleavehmode
-\startimage
+\bimage
 \starttikzpicture
     \fill[white] (-0.5cm,0) circle (1cm);
     \fill[white] (0.5cm,0) circle (1cm);
@@ -275,7 +275,7 @@ $(B \setminus A) \cup (A \cap B) = B$
     \node[left] at (-1.5cm,0) {$A$};
     \node[right] at (1.5cm,0) {$B$};
 \stoptikzpicture
-\stopimage
+\eimage
 \blank[samepage]
 $(B \setminus A) \cap (A \cap B) = \emptyset$
 \stopalign
@@ -284,7 +284,7 @@ $(B \setminus A) \cap (A \cap B) = \emptyset$
 
 \startalign[center]
 \dontleavehmode
-\startimage
+\bimage
 \starttikzpicture
     \fill[black!20!white] (-0.5cm,0) circle (1cm);
     \fill[white] (0.5cm,0) circle (1cm);
@@ -293,7 +293,7 @@ $(B \setminus A) \cap (A \cap B) = \emptyset$
     \node[left] at (-1.5cm,0) {$A$};
     \node[right] at (1.5cm,0) {$B$};
 \stoptikzpicture
-\stopimage
+\eimage
 \blank[samepage]
 $(A \cup B) \setminus B = A \setminus B$
 \stopalign
@@ -307,7 +307,7 @@ Une fonction d'un ensemble $E$ vers un ensemble $F$ peut être représentée par
 
 \startalign[center]
 \dontleavehmode
-\startimage
+\bimage
 \starttikzpicture
     \draw (-1cm,0) ellipse (0.5cm and 1.5cm);
     \draw (1cm,0) ellipse (0.5cm and 1.5cm);
@@ -324,7 +324,7 @@ Une fonction d'un ensemble $E$ vers un ensemble $F$ peut être représentée par
     \draw[-stealth] (-1cm,0) -- (1cm, -0.3cm);
     \draw[-stealth] (-1cm,-0.8cm) -- (1cm, -0.9cm);
 \stoptikzpicture
-\stopimage
+\eimage
 \blank[samepage]
 Exemple d'injection
 \stopalign
@@ -333,7 +333,7 @@ Exemple d'injection
 
 \startalign[center]
 \dontleavehmode
-\startimage
+\bimage
 \starttikzpicture
     \draw (-1cm,0) ellipse (0.5cm and 1.5cm);
     \draw (1cm,0) ellipse (0.5cm and 1.5cm);
@@ -351,7 +351,7 @@ Exemple d'injection
     \draw[-stealth] (-1cm,-0.3cm) -- (1cm, 0);
     \draw[-stealth] (-1cm,-0.9cm) -- (1cm, -0.8cm);
 \stoptikzpicture
-\stopimage
+\eimage
 \blank[samepage]
 Exemple de surjection
 \stopalign
@@ -360,7 +360,7 @@ Exemple de surjection
 
 \startalign[center]
 \dontleavehmode
-\startimage
+\bimage
 \starttikzpicture
     \draw (-1cm,0) ellipse (0.5cm and 1.5cm);
     \draw (1cm,0) ellipse (0.5cm and 1.5cm);
@@ -379,7 +379,7 @@ Exemple de surjection
     \draw[-stealth] (-1cm,-0.3cm) -- (1cm, -0.3cm);
     \draw[-stealth] (-1cm,-0.9cm) -- (1cm, -0.9cm);
 \stoptikzpicture
-\stopimage
+\eimage
 \blank[samepage]
 Exemple de bijection
 \stopalign
@@ -388,7 +388,7 @@ Exemple de bijection
 
 \startalign[center]
 \dontleavehmode
-\startimage
+\bimage
 \starttikzpicture
     \draw (-1cm,0) ellipse (0.5cm and 1.5cm);
     \draw (1cm,0) ellipse (0.5cm and 1.5cm);
@@ -408,7 +408,7 @@ Exemple de bijection
     \draw[-stealth] (-1cm,-0.3cm) -- (1cm, -0.3cm);
     \draw[-stealth] (-1cm,-0.9cm) -- (1cm, -0.9cm);
 \stoptikzpicture
-\stopimage
+\eimage
 \blank[samepage]
 Exemple de fonction ni injective ni surjective
 \stopalign

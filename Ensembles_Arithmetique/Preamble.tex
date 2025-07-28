@@ -13,6 +13,8 @@
   \startimage
     \getbuffer[#1]
   \stopimage}
+  \define\bimage{\starttextdisplay\startimage}
+  \define\eimage{\stopimage\stoptextdisplay}
 \stopmode
 \startnotmode[export] 
 \define[2]\startchapterRef{\startchapter[title=#1,reference=#2]}
@@ -22,6 +24,8 @@
   \startimage
     \typesetbuffer[#1]
   \stopimage}
+  \define\bimage{\startimage}
+  \define\eimage{\stopimage}
 \stopnotmode
 
 % Variables
@@ -112,6 +116,11 @@
     textcommand=\ss,
     pagecommand=\ss,
 ]
+\startmode[export]
+  \setuplist[chapter][pagenumber=no]
+  \setuplist[section][pagenumber=no]
+  \setuplist[subsection][pagenumber=no]
+\stopmode
 
 
 % Define indices
@@ -421,6 +430,11 @@
   \setupTABLE[c][1][rightframe=on,roffset=0.5ex+1pt]
   \setupTABLE[c][2][loffset=0.5ex+1pt]
 \stopsetups
+
+% styles
+\definehighlight [bold] [style=bold]
+\definehighlight [emph] [style=italic]
+\definehighlight [sans] [style=\ss]
 
 % Math commands
 \define\lb{\left\lbrace}
