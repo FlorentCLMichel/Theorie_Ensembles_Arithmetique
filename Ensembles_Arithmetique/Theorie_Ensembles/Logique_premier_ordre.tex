@@ -408,36 +408,30 @@ Les valeurs de formules construites à partir d'autres formules peuvent être co
 En voici un exemple, pour deux formules $f$ et $g$ : 
 
 \startplacetable[location=force,number=no]
-  \starttabulate[|c|c|c|c|c|c|c|c|][rulethickness=0.8pt,distance={0pt,0pt}]
-    \NC $f$ \NC $g$ \VL $\neg f$ \NC $f \wedge g$ \NC $f \vee g$ \NC $f \Rightarrow g$ \NC $f \Leftarrow g$ \NC $f \Leftrightarrow g$ \NC\NR\TB[-2ex]
-    \NC\NC\VL\NC\NC\NC\NC\NC\NC\NR
-    \HL
-    \NC\NC\VL\NC\NC\NC\NC\NC\NC\NR\TB[-2ex]
-    \NC $\mathss{F}$ \NC $\mathss{F}$ \VL $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC\NR
-    \NC $\mathss{F}$ \NC $\mathss{V}$ \VL $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC\NR
-    \NC $\mathss{V}$ \NC $\mathss{F}$ \VL $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC\NR
-    \NC $\mathss{V}$ \NC $\mathss{V}$ \VL $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC\NR
-  \stoptabulate
+  \bTABLE[setups=fTable]
+    \bTR\bTD $f$ \eTD\bTD $g$ \eTD\bTD $\neg f$ \eTD\bTD $f \wedge g$ \eTD\bTD $f \vee g$ \eTD\bTD $f \Rightarrow g$ \eTD\bTD $f \Leftarrow g$ \eTD\bTD $f \Leftrightarrow g$ \eTD\eTR
+    \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\eTR
+    \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\eTR
+    \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\eTR
+    \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\eTR
+  \eTABLE
 \stopplacetable
 
 On peut utiliser des tables de vérités pour montrer l'équivalence entre plusieurs formules. 
 Montrons par exemple les trois propriétés énoncées \in{Section}{}[subsub:XOR]. 
 Pour trois formules $f$, $g$ et $h$, on a :
 \startplacetable[location=force,number=no]
-  \starttabulate[|c|c|c|c|c|c|c|c|][rulethickness=0.8pt,distance={0pt,0pt}]
-    \NC $f$ \NC $g$ \NC $h$ \VL $f \oplus g$ \NC $g \oplus f$ \NC $(f \oplus g) \oplus h$ \NC $f \oplus (g \oplus h)$ \NC $f \oplus f$ \NC\NR\TB[-2ex]
-    \NC\NC\NC\VL\NC\NC\NC\NC\NC\NR
-    \HL
-    \NC\NC\NC\VL\NC\NC\NC\NC\NC\NR\TB[-2ex]
-    \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \VL $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC\NR
-    \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \VL $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC\NR
-    \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \VL $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC\NR
-    \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \VL $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC\NR
-    \NC $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \VL $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC\NR
-    \NC $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \VL $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC\NR
-    \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \VL $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC\NR
-    \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \VL $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC\NR
-  \stoptabulate
+  \bTABLE[setups=fTable]
+    \bTR\bTD $f$ \eTD\bTD $g$ \eTD\bTD $h$ \eTD\bTD $f \oplus g$ \eTD\bTD $g \oplus f$ \eTD\bTD $(f \oplus g) \oplus h$ \eTD\bTD $f \oplus (g \oplus h)$ \eTD\bTD $f \oplus f$ \eTD\eTR
+    \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\eTR
+    \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\eTR
+    \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\eTR
+    \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\eTR
+    \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\eTR
+    \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\eTR
+    \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\eTR
+    \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\eTR
+  \eTABLE
 \stopplacetable
 On remarque, comme attendu, que
 \startitemize[nowhite]
@@ -501,21 +495,18 @@ Toute formule est alors associée à une (et une seule) des trois valeurs de vé
 
 La table de vérité suivante donne les valeurs de formules obtenues à partir de deux formules $f$ et $g$ ainsi que d'un connecteur :
 \startplacetable[location=force,number=no]
-  \starttabulate[|c|c|c|c|c|c|c|c|][rulethickness=0.8pt,distance={0pt,0pt}]
-    \NC $f$          \NC $g$          \VL $\neg f$     \NC $f \wedge g$ \NC $f \vee g$ \NC $f \Rightarrow g$ \NC $f \Leftarrow g$ \NC $f \Leftrightarrow g$ \NC\NR\TB[-2ex]
-    \NC\NC\VL\NC\NC\NC\NC\NC\NC\NR
-    \HL
-    \NC\NC\VL\NC\NC\NC\NC\NC\NC\NR\TB[-2ex]
-    \NC $\mathss{F}$ \NC $\mathss{F}$ \VL $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{V}$    \NC $\mathss{V}$     \NC $\mathss{V}$ \NC\NR
-    \NC $\mathss{F}$ \NC $\mathss{I}$ \VL $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{I}$ \NC $\mathss{V}$    \NC $\mathss{I}$     \NC $\mathss{I}$ \NC\NR
-    \NC $\mathss{F}$ \NC $\mathss{V}$ \VL $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$    \NC $\mathss{F}$     \NC $\mathss{F}$ \NC\NR
-    \NC $\mathss{I}$ \NC $\mathss{F}$ \VL $\mathss{I}$ \NC $\mathss{F}$ \NC $\mathss{I}$ \NC $\mathss{I}$    \NC $\mathss{V}$     \NC $\mathss{I}$ \NC\NR
-    \NC $\mathss{I}$ \NC $\mathss{I}$ \VL $\mathss{I}$ \NC $\mathss{I}$ \NC $\mathss{I}$ \NC $\mathss{I}$    \NC $\mathss{I}$     \NC $\mathss{I}$ \NC\NR
-    \NC $\mathss{I}$ \NC $\mathss{V}$ \VL $\mathss{I}$ \NC $\mathss{I}$ \NC $\mathss{V}$ \NC $\mathss{V}$    \NC $\mathss{I}$     \NC $\mathss{I}$ \NC\NR
-    \NC $\mathss{V}$ \NC $\mathss{F}$ \VL $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{F}$    \NC $\mathss{V}$     \NC $\mathss{F}$ \NC\NR
-    \NC $\mathss{V}$ \NC $\mathss{I}$ \VL $\mathss{F}$ \NC $\mathss{I}$ \NC $\mathss{I}$ \NC $\mathss{I}$    \NC $\mathss{V}$     \NC $\mathss{I}$ \NC\NR
-    \NC $\mathss{V}$ \NC $\mathss{V}$ \VL $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$    \NC $\mathss{V}$     \NC $\mathss{V}$ \NC\NR
-  \stoptabulate
+  \bTABLE[setups=fTable]
+    \bTR\bTD $f$          \eTD\bTD $g$          \eTD\bTD $\neg f$     \eTD\bTD $f \wedge g$ \eTD\bTD $f \vee g$   \eTD\bTD $f \Rightarrow g$ \eTD\bTD $f \Leftarrow g$ \eTD\bTD $f \Leftrightarrow g$ \eTD\eTR
+    \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{V}$     \eTD\bTD $\mathss{V}$          \eTD\eTR
+    \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{I}$     \eTD\bTD $\mathss{I}$          \eTD\eTR
+    \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{F}$     \eTD\bTD $\mathss{F}$          \eTD\eTR
+    \bTR\bTD $\mathss{I}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$      \eTD\bTD $\mathss{V}$     \eTD\bTD $\mathss{I}$          \eTD\eTR
+    \bTR\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$      \eTD\bTD $\mathss{I}$     \eTD\bTD $\mathss{I}$          \eTD\eTR
+    \bTR\bTD $\mathss{I}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{I}$     \eTD\bTD $\mathss{I}$          \eTD\eTR
+    \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$      \eTD\bTD $\mathss{V}$     \eTD\bTD $\mathss{F}$          \eTD\eTR
+    \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$      \eTD\bTD $\mathss{V}$     \eTD\bTD $\mathss{I}$          \eTD\eTR
+    \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{V}$     \eTD\bTD $\mathss{V}$          \eTD\eTR
+  \eTABLE
 \stopplacetable
 On a alors les équivalences : 
 \startitemize[nowhite]

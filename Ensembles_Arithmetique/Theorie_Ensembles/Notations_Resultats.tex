@@ -9,32 +9,30 @@ Résumons ici quelques notations utiles pour la suite, de manière informelle :
   \item Le symbole $\neg$ représente la négation : si $P$ est une proposition, la proposition $\neg P$ est fausse si $P$ est vraie et inversement. 
     Sa table de vérité est donnée ci-dessous : 
     \startplacetable[location=force,number=no]
-      \starttabulate[|c|c|][rulethickness=0.8pt,distance={0pt,0pt}]
-        \NC $P$ \NC $\neg P$ \NC\NR
-        \HL
-        \NC $\mathss{V}$ \NC $\mathss{F}$ \NC\NR
-        \NC $\mathss{I}$ \NC $\mathss{I}$ \NC\NR
-        \NC $\mathss{F}$ \NC $\mathss{V}$ \NC\NR
-      \stoptabulate
+      \bTABLE[setups=fTable]
+        \bTR\bTD $P$          \eTD\bTD $\neg P$     \eTD\eTR
+        \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\eTR
+        \bTR\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$ \eTD\eTR
+        \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\eTR
+      \eTABLE
     \stopplacetable
   \item Les symboles $\wedge$ et $\vee$ représentent respectivement les connecteurs « et » et « ou ». 
     Les symboles $\Rightarrow$ et $\Leftarrow$ représentent l'implication vers la droite et vers la gauche. 
     Le symbole $\Leftrightarrow$ représente l'équivalence. 
     Soit $P$ et $Q$ deux propositions, on a ainsi la table de vérité suivante : 
     \startplacetable[location=force,number=no]
-      \starttabulate[|c|c|c|c|c|c|c|][rulethickness=0.8pt,distance={0pt,-1pt}]
-        \NC \offset[depth=5pt]{$P$} \NC $Q$ \VL $P \wedge Q$ \NC $P \vee Q$ \NC $P \Rightarrow Q$ \NC $P \Leftarrow Q$ \NC $P \Leftrightarrow Q$ \NC\NR
-        \HL
-        \NC \offset[height=2ex+2pt]{$\mathss{V}$} \NC $\mathss{V}$ \VL $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC\NR 
-        \NC $\mathss{V}$ \NC $\mathss{I}$ \VL $\mathss{I}$ \NC $\mathss{V}$ \NC $\mathss{I}$ \NC $\mathss{V}$ \NC $\mathss{I}$ \NC\NR 
-        \NC $\mathss{V}$ \NC $\mathss{F}$ \VL $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC\NR 
-        \NC $\mathss{I}$ \NC $\mathss{V}$ \VL $\mathss{I}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{I}$ \NC $\mathss{I}$ \NC\NR 
-        \NC $\mathss{I}$ \NC $\mathss{I}$ \VL $\mathss{I}$ \NC $\mathss{I}$ \NC $\mathss{I}$ \NC $\mathss{I}$ \NC $\mathss{I}$ \NC\NR 
-        \NC $\mathss{I}$ \NC $\mathss{F}$ \VL $\mathss{F}$ \NC $\mathss{I}$ \NC $\mathss{I}$ \NC $\mathss{V}$ \NC $\mathss{I}$ \NC\NR 
-        \NC $\mathss{F}$ \NC $\mathss{V}$ \VL $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{F}$ \NC $\mathss{F}$ \NC\NR 
-        \NC $\mathss{F}$ \NC $\mathss{I}$ \VL $\mathss{F}$ \NC $\mathss{I}$ \NC $\mathss{V}$ \NC $\mathss{I}$ \NC $\mathss{I}$ \NC\NR 
-        \NC $\mathss{F}$ \NC $\mathss{F}$ \VL $\mathss{F}$ \NC $\mathss{F}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC $\mathss{V}$ \NC\NR 
-      \stoptabulate
+      \bTABLE[setups=fTable]
+        \bTR\bTD $P$          \eTD\bTD $Q$          \eTD\bTD $P \wedge Q$ \eTD\bTD $P \vee Q$   \eTD\bTD $P \Rightarrow Q$ \eTD\bTD $P \Leftarrow Q$ \eTD\bTD $P \Leftrightarrow Q$ \eTD\eTR
+        \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{V}$     \eTD\bTD $\mathss{V}$          \eTD\eTR 
+        \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{I}$      \eTD\bTD $\mathss{V}$     \eTD\bTD $\mathss{I}$          \eTD\eTR 
+        \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$      \eTD\bTD $\mathss{V}$     \eTD\bTD $\mathss{F}$          \eTD\eTR 
+        \bTR\bTD $\mathss{I}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{I}$     \eTD\bTD $\mathss{I}$          \eTD\eTR 
+        \bTR\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$      \eTD\bTD $\mathss{I}$     \eTD\bTD $\mathss{I}$          \eTD\eTR 
+        \bTR\bTD $\mathss{I}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$      \eTD\bTD $\mathss{V}$     \eTD\bTD $\mathss{I}$          \eTD\eTR 
+        \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{F}$     \eTD\bTD $\mathss{F}$          \eTD\eTR 
+        \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{I}$     \eTD\bTD $\mathss{I}$          \eTD\eTR 
+        \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{V}$     \eTD\bTD $\mathss{V}$          \eTD\eTR 
+      \eTABLE
     \stopplacetable
   \item Les symboles $\forall$ et $\exists$ représentent respectivement les quantificateurs universel (« pour tout ») et existentiel (« il existe »). 
   \item On note $\in$ la relation d'appartenance et $\notin$ sa négation : $\forall x \forall y \, x \notin y \Leftrightarrow \not (x _in y)$.

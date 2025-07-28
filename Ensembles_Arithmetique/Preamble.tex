@@ -329,6 +329,9 @@
     after={\stopblocktext\stopNarrowerAbstract},
   ]
 
+% Paragraph indentation
+\setupindenting[yes,medium]
+
 
 % colored box style
 
@@ -410,8 +413,14 @@
    after={\stopcoloredFrame\blank[2em]}]
 
 
-% Paragraph indentation
-\setupindenting[yes,medium]
+% A simple table style
+\startsetups fTable
+  \setupTABLE[frame=off,rulethickness=1pt,align={middle,lohi}, offset=0.5ex, strut=no]
+  \setupTABLE[r][1][bottomframe=on]
+  \setupTABLE[r][2][toffset=0.5ex+0.25pt]
+  \setupTABLE[c][1][rightframe=on,roffset=0.5ex+1pt]
+  \setupTABLE[c][2][loffset=0.5ex+1pt]
+\stopsetups
 
 % Math commands
 \define\lb{\left\lbrace}
