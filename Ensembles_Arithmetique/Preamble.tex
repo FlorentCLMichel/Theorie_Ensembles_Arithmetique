@@ -338,6 +338,25 @@
     after={\stopblocktext\stopNarrowerAbstract},
   ]
 
+% text in a box
+\startluacode
+interfaces.implement {
+  name      = "inbox",
+  public    = true,
+  arguments = { "hash", "argument" },
+  actions   = function(hash, content)
+    hash = hash or {}
+    local col = hash.color or "black"
+    context("\\starttikzpicture[baseline=-0.7ex, inner sep=0.5ex, color="
+            .. col
+            .. "] \\node[draw] {" 
+            .. content 
+            .. "\\vphantom{0123456789}}; \\stoptikzpicture")
+  end
+}
+\stopluacode
+%\define[1]\inbox{\starttikzpicture[baseline=-0.7ex, inner sep=0.5ex] \node[draw] {#1\vphantom{0123456789}}; \stoptikzpicture}
+
 % Paragraph indentation
 \setupindenting[yes,medium]
 
