@@ -7,7 +7,8 @@ Résumons ici quelques notations utiles pour la suite, de manière informelle :
 \startitemize
   \item Valeurs de vérité : $\mathrm{V}$ (« vrai »), $\mathrm{I}$ (« indéfini »), $\mathrm{F}$ (« faux »).
   \item Le symbole $\neg$ représente la négation : si $P$ est une proposition, la proposition $\neg P$ est fausse si $P$ est vraie et inversement. 
-    Sa table de vérité est donnée ci-dessous : 
+    Sa table de vérité est donnée ci-dessous :
+    \setvariable{myvars}{fTableNLeftCols}{1}
     \startplacetable[location=force,number=no]
       \bTABLE[setups=fTable]
         \bTR\bTD $P$          \eTD\bTD $\neg P$     \eTD\eTR
@@ -20,6 +21,7 @@ Résumons ici quelques notations utiles pour la suite, de manière informelle :
     Les symboles $\Rightarrow$ et $\Leftarrow$ représentent l'implication vers la droite et vers la gauche. 
     Le symbole $\Leftrightarrow$ représente l'équivalence. 
     Soit $P$ et $Q$ deux propositions, on a ainsi la table de vérité suivante : 
+    \setvariable{myvars}{fTableNLeftCols}{2}
     \startplacetable[location=force,number=no]
       \bTABLE[setups=fTable]
         \bTR\bTD $P$          \eTD\bTD $Q$          \eTD\bTD $P \wedge Q$ \eTD\bTD $P \vee Q$   \eTD\bTD $P \Rightarrow Q$ \eTD\bTD $P \Leftarrow Q$ \eTD\bTD $P \Leftrightarrow Q$ \eTD\eTR

@@ -425,7 +425,7 @@ interfaces.implement {
   endgroup;
 \stopuseMPgraphic
 
-\definecolor[coloredFrameColor][r=0,g=1,b=1]
+\definecolor[coloredFrameColor][r=0.5,g=1,b=1]
 \definetextbackground
   [coloredFrame]
   [mp=mp:coloredframe,
@@ -446,8 +446,8 @@ interfaces.implement {
   \setupTABLE[frame=off,rulethickness=1pt,align={middle,lohi}, offset=0.5ex, strut=no]
   \setupTABLE[r][1][bottomframe=on]
   \setupTABLE[r][2][toffset=0.5ex+0.25pt]
-  \setupTABLE[c][1][rightframe=on,roffset=0.5ex+1pt]
-  \setupTABLE[c][2][loffset=0.5ex+1pt]
+  \setupTABLE[c][\getvariable{myvars}{fTableNLeftCols}][rightframe=on,roffset=0.5ex+1pt]
+  \setupTABLE[c][\getvariable{myvars}{fTableNLeftCols}+1][loffset=0.5ex+1pt]
 \stopsetups
 
 % styles
