@@ -455,6 +455,16 @@ interfaces.implement {
 \definehighlight [emph] [style=italic]
 \definehighlight [sans] [style=\ss]
 
+% Get the height and width of content
+\define[3]\getHWof
+  {\bgroup
+   \setbox\scratchbox\hbox{#1}%
+   \expanded{\egroup\definemeasure[#2][\the\ht\scratchbox]
+                    \definemeasure[#3][\the\wd\scratchbox]}}
+\define[1]\Center{%
+  \getHWof{#1}{tempHeight}{tempWidth}
+  \offset[x=0.5*\hsize-0.5*\measured{tempWidth}]{#1}}
+
 % Math commands
 \define\lb{\left\lbrace}
 \define\rb{\right\rbrace}
