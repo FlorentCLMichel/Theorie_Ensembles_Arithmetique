@@ -1,0 +1,80 @@
+\startsection[title=Nombres complexes]
+
+\noindent\bold{Définition :} 
+    On définit l'ensemble des \emph{nombres complexes}, noté $\symbols{\mathbb{C}}$, par : $\mathbb{C} = \mathbb{R}^2$.
+    Si $a$ et $b$ sont deux nombres résls, le nombre complexe $(a, b)$ sera aussi noté $a + b \, \mathrm{i}$, $a + \mathrm{i} \, b$, $b \, \mathrm{i} + a$, ou $\mathrm{i} \, b + a$.
+    AVec les mêmes notations, $a + 0 \, \mathrm{i}$ pourra être noté $a$ et $0 + a \, \mathrm{i}$ pourra être noté $a \, \mathrm{i}$ quand il n'y a pas d'ambiguïté.
+    On définit l'ensemble $\symbols{\mathbb{C}^*}$ par : $\mathbb{C}^* = \mathbb{C} \setminus \lbrace (0, 0) \rbrace$.
+
+\blank[medium]
+
+\noindent\bold{Définition :}
+    Soit $z$ un nombre complexe et $x$ et $y$ les deux nombres réels tels que $z = (x, y)$.
+    On appelle $x$ \emph{\words{partie réelle}} de $z$, notée $\symbols{\mathrm{Re}}(z)$, et $y$ \emph{\words{partie imaginaire}} de $z$, notée $\symbols{\mathrm{Im}}(z)$.
+
+\blank[medium]
+
+\noindent\bold{Définition :} \symbolsRegister{$*$}
+    Soit $z$ un nombre complexe.
+    On appelle \emph{\words{conjugué}}, ou \emph{conjugué complexe}, de $z$, noté $z^*$ le nombre complexe $\left( \mathrm{Re}(z), - \mathrm{Im}(z) \right)$.
+
+\blank[medium]
+
+\noindent\bold{Définition :} \symbolsRegister{$\abs{\cdot}$}
+    Soit $z$ un nombre complexe. 
+    Le \emph{\words{module}} de $z$, noté $\abs{z}$, est le nombre réel (positif) $\sqrt{\mathrm{Re}(z)^2 + \mathrm{Im}(z)^2}$.
+
+\stopsubsection
+
+\startsubsection[title=Structure de corps]
+
+\noindent\bold{Définition :} 
+    On définit les trois opérations $\symbols{+}$, $\symbols{-}$ et $\symbols{\times}$ de $\mathbb{C}^2$ vers $\mathbb{C}$ comme suit :
+    \startitemize[nowhite]
+        \item $(a + b \, \mathrm{i}) + (c + d \, \mathrm{i}) = (a + c, (b + d) \, \mathrm{i})$,
+        \item $(a + b \, \mathrm{i}) - (c + d \, \mathrm{i}) = (a - c, (b - d) \, \mathrm{i})$,
+        \item $(a + b \, \mathrm{i}) \times (c + d \, \mathrm{i}) = (a \, c -  b \, d, (a \, d + b \, c) \, \mathrm{i})$.
+    \stopitemize
+    On définit aussi l'opération $\symbols{\div}$ de $\mathbb{C} \times \mathbb{C}^*$ vers $\mathbb{C}$ comme suit : pour tous nombres réels $a$, $b$, $c$ et $d$ tels que $(c \neq 0) \vee (d \neq 0)$, 
+    \startformula
+        (a + b \, \mathrm{i}) \div (c + d \, \mathrm{i}) = 
+        \left( 
+            \left( a \, c + b \, d \right) \divslash \left( c^2 + d^2 \right)
+            \left( b \, c - a \, d \right) \divslash \left( c^2 + d^2 \right)
+        \right) .
+    \stopformula
+    Comme pour les ensemble précédents, le symbole $\times$ est parfois élidé et $\div$ remplacé par $\symbols{\divslash}$, et (en l'absence de parenthèses), $\times$ et $\divslash$ sont prioritaires sur $+$ et $-$.
+
+\blank[medium]
+
+\emph{À écrire...}
+
+\stopsubsection
+
+\startsubsection[title=Puissances]
+
+\noindent\bold{Définition :} On définit par récurrence les \emph{puissances entières positives} d'un nombre complexe $z$ par :
+    \startitemize[nowhite]
+        \item $z^0 = 1$,
+        \item pour tout entier naturel $n$, $z^{n+1} = z \times z^n$.
+    \stopitemize
+    Notons que $z^1 = z$ et $z^n \neq 0$ pour tout entier naturel $n$ (se montre facilement par récurrence).
+    \index{Puissance}
+    Pour tout entier naturel non nul $n$, on définit la \emph{puissance entière négative} $z^{-n}$ comme égale à $1 \divslash z^n$.
+    \index{Puissance négative}
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $z$ un nombre complexe et $n$ et $m$ deux entiers. 
+    On suppose $q > 0$ ou $n \geq 0$ et $m \geq 0$.
+    Alors, 
+    \startitemize[nowhite]
+        \item $z^n \times z^m = z^{n+m}$,
+        \item $(z^n)^m = z^{n m}$.
+    \stopitemize
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Voir démonstration du théorème équivalent pour les nombres rationnels \at{page}{}[demo:rel_puissances_q] en remplaçant $q$ par $z$.
+
+\stopsection
