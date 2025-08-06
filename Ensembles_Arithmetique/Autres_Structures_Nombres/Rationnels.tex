@@ -46,8 +46,8 @@ Autrement dit,
 
 \blank[medium]
 
-On appelle \emph{ensemble des nombres rationnels}, noté $\mathbb{Q}$, l'ensemble des classes d'équivalences de $\mathcal{R}$, appelées \emph{nombres rationnels}, ou simplement \emph{rationnels}. 
-\index{Nombre rationnel} \index{Rationnel} \sindex[isy]{$\mathbb{Q}$}
+On appelle \emph{ensemble des nombres rationnels}, noté $\symbols{\mathbb{Q}}$, l'ensemble des classes d'équivalences de $\mathcal{R}$, appelées \emph{nombres rationnels}, ou simplement \emph{rationnels}. 
+\index{Nombre rationnel} \index{Rationnel}
 Autrement dit, $\mathbb{Q}$ est l'ensemble défini par : 
 \startformula
     \mathbb{Q} = (\mathbb{Z} \times \mathbb{Z}^*) \divslash \mathcal{R} .
@@ -55,8 +55,7 @@ Autrement dit, $\mathbb{Q}$ est l'ensemble défini par :
 Soit $q$ un nombre rationnel et $a$ et $b$ deux entiers tels que $(a, b) \in q$. 
 Alors, $a$ est appelé le \emph{numérateur} de la représentation $(a, b)$ et $b$ son \emph{dénominateur}.
 \index{Numérateur} \index{Dénominateur}
-Elle sera notée $a \divslash b$, ou $\frac{a}{b}$.
-\sindex[isy]{$\divslash$}
+Elle sera notée $a \symbols{\divslash} b$, ou $\frac{a}{b}$.
 
 Dans cette section, si $x$ est un élément de $\mathbb{Z} \times \mathbb{Z}^*$, on note $\bar{x}$ la classe d'équivalence de $x$ pour la relation $\mathcal{R}$, \emph{i.e.}
 \startformula
@@ -166,15 +165,15 @@ Ce nombre rationnel est aussi dit \emph{nul}, et parfois noté $0$ quand il n'y 
 
 \startsubsection[title=Structure de corps]
 
-\noindent\bold{Définition :} On définit les trois opérations $+$ (\emph{addition}), $-$ (\emph{soustraction}) et $\times$ (\emph{multiplication}) de $\mathbb{Q} \times \mathbb{Q}$ vers $\mathbb{Q}$ et l'opération $\divslash$ (\emph{division}) de $\mathbb{Q} \times \mathbb{Q}^*$ vers $\mathbb{Q}$ de la manière suivante. \index{Addition}\index{Soustraction}\index{Multiplication}\index{Division} 
+\noindent\bold{Définition :} On définit les trois opérations $+$ (\emph{\words{addition}}), $-$ (\emph{\words{soustraction}}) et $\times$ (\emph{\words{multiplication}}) de $\mathbb{Q} \times \mathbb{Q}$ vers $\mathbb{Q}$ et l'opération $\divslash$ (\emph{\words{division}}) de $\mathbb{Q} \times \mathbb{Q}^*$ vers $\mathbb{Q}$ de la manière suivante. \index{Addition}\index{Soustraction}\index{Multiplication}\index{Division} 
 Soit $\bar{x}$ et $\bar{y}$ deux éléments de $\mathbb{Q}$. 
 On peut choisir un représentant $x$ de $\bar{x}$ et un représentant $y$ de $\bar{y}$, puis quatre entiers $a$, $b$, $c$ et $d$ tels que $b$ et $d$ sont non nuls, $x = (a, b)$ et $y = (c, d)$.
 Alors, 
 \startitemize[nowhite]
-    \item \sindex[isy]{$+$} $\bar{x} + \bar{y}$ est la classe d'équivalence de $(a \times d + b \times c, b \times d)$,
-    \item \sindex[isy]{$-$} $\bar{x} - \bar{y}$ est la classe d'équivalence de $(a \times d - b \times c, b \times d)$,
-    \item \sindex[isy]{$\times$} $\bar{x} \times \bar{y}$ est la classe d'équivalence de $(a \times c, b \times d)$,
-    \item \sindex[isy]{$\div$}\sindex[isy]{$\divslash$} si $\bar{y} \in \mathbb{Q}^*$ (et donc $c \neq 0$), $\bar{x} \div \bar{y}$ (aussi noté $\bar{x} \divslash \bar{y}$) est la classe d'équivalence de $(a \times d, b \times c)$.%
+    \item $\bar{x} \symbols{+} \bar{y}$ est la classe d'équivalence de $(a \times d + b \times c, b \times d)$,
+    \item $\bar{x} \symbols{-} \bar{y}$ est la classe d'équivalence de $(a \times d - b \times c, b \times d)$,
+    \item $\bar{x} \symbols{\times} \bar{y}$ est la classe d'équivalence de $(a \times c, b \times d)$,
+    \item si $\bar{y} \in \mathbb{Q}^*$ (et donc $c \neq 0$), $\bar{x} \symbols{\div} \bar{y}$ (aussi noté $\bar{x} \symbols{\divslash} \bar{y}$) est la classe d'équivalence de $(a \times d, b \times c)$.%
         \footnote{Puisque $b \neq 0$ et $c \neq 0$, $b \times c \neq 0$, donc $(a \times d, b \times c)$ est bien un élément de $\mathbb{Z} \times \mathbb{Z}^*$.}
 \stopitemize
 Quand il n'y a pas d'ambiguité, on pourra omettre le symbole $\times$. 
@@ -251,28 +250,28 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 
 \noindent\emph{Addition :}
     \startformula
-        \begin{aligned}
-            (a \times d + b \times c) \times (b' \times d')
-            & = (a \times d \times b' \times d' + b \times c \times b' \times d')
-            = (a \times b' \times d \times d' + c \times d' \times b \times b') \\
-            & {} = (a' \times b \times d \times d' + c' \times d \times b \times b') 
-            = (a' \times d' \times b \times d + b' \times c' \times b \times d) \\
-            & {} = (a' \times d' + b' \times c') \times (b \times d) .
-        \end{aligned}
+        \startmathalignment
+            \NC (a \times d + b \times c) \times (b' \times d')
+            \NC = (a \times d \times b' \times d' + b \times c \times b' \times d')
+            = (a \times b' \times d \times d' + c \times d' \times b \times b') \NR
+            \NC\NC = (a' \times b \times d \times d' + c' \times d \times b \times b') 
+            = (a' \times d' \times b \times d + b' \times c' \times b \times d) \NR
+            \NC\NC = (a' \times d' + b' \times c') \times (b \times d) .
+        \stopmathalignment
     \stopformula
     Donc, $(a \times d + b \times c, b \times d) \mathrel{\mathcal{R}} (a' \times d' + b' \times c', b' \times d')$. 
     Cela montre que $\overline{(a \times d + b \times c, b \times d)} = \overline{(a' \times d' + b' \times c', b' \times d')}$, et donc que le résultat de l'addition est le même que l'on choisisse les représentants $x$ et $y$ ou les représentants $x'$ et $y'$.
 
 \noindent\emph{Soustraction :}
     \startformula
-        \begin{aligned}
-            (a \times d - b \times c) \times (b' \times d')
-            & = (a \times d \times b' \times d' - b \times c \times b' \times d')
-            = (a \times b' \times d \times d' - c \times d' \times b \times b') \\
-            & {} = (a' \times b \times d \times d' - c' \times d \times b \times b') 
-            = (a' \times d' \times b \times d - b' \times c' \times b \times d) \\
-            & {} = (a' \times d' - b' \times c') \times (b \times d) .
-        \end{aligned}
+        \startmathalignment
+            \NC (a \times d - b \times c) \times (b' \times d')
+            \NC = (a \times d \times b' \times d' - b \times c \times b' \times d')
+            = (a \times b' \times d \times d' - c \times d' \times b \times b') \NR
+            \NC\NC {} = (a' \times b \times d \times d' - c' \times d \times b \times b') 
+            = (a' \times d' \times b \times d - b' \times c' \times b \times d) \NR
+            \NC\NC {} = (a' \times d' - b' \times c') \times (b \times d) .
+        \stopmathalignment
     \stopformula
     Donc, $(a \times d - b \times c, b \times d) \mathrel{\mathcal{R}} (a' \times d' - b' \times c', b' \times d')$. 
     Cela montre que $\overline{(a \times d - b \times c, b \times d)} = \overline{(a' \times d' - b' \times c', b' \times d')}$, et donc que le résultat de la soustraction est le même que l'on choisisse les représentants $x$ et $y$ ou les représentants $x'$ et $y'$.
@@ -383,17 +382,17 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
                 Soit $\bar{x}$, $\bar{y}$ et $\bar{z}$ trois éléments de $\mathbb{Q}$. 
                 On peut choisir six entiers $a$, $b$, $c$, $d$, $e$, $f$ tels que $b \neq 0$, $d \neq 0$, $f \neq 0$, $\bar{x} = a \divslash b$, $\bar{y} = c \divslash d$ et $\bar{z} = e \divslash f$.
                 On a alors : 
-                \startformula \begin{aligned}
-                    (\bar{x} + \bar{y}) + \bar{z} 
-                    & = \Big( \frac{a}{b} + \frac{c}{d} \Big) + \frac{e}{f}
+                \startformula \startmathalignment
+                    \NC (\bar{x} + \bar{y}) + \bar{z} 
+                    \NC = \Big( \frac{a}{b} + \frac{c}{d} \Big) + \frac{e}{f}
                     = \frac{(a \times d) + (c \times b)}{b \times d} + \frac{e}{f}
-                    = \frac{((a \times d) + (c \times b)) \times f + e \times (b \times d)}{(b \times d) \times f} \\
-                    & = \frac{a \times (d \times f) + b \times (c \times f) + b \times (e \times d)}{b \times (d \times f)} 
-                    = \frac{a \times (d \times f) + b \times ((c \times f) + (e \times d))}{b \times (d \times f)} \\
-                    & = \frac{a}{b} + \frac{(c \times f) + (e \times d)}{d \times f} 
+                    = \frac{((a \times d) + (c \times b)) \times f + e \times (b \times d)}{(b \times d) \times f} \NR
+                    \NC\NC = \frac{a \times (d \times f) + b \times (c \times f) + b \times (e \times d)}{b \times (d \times f)} 
+                    = \frac{a \times (d \times f) + b \times ((c \times f) + (e \times d))}{b \times (d \times f)} \NR
+                    \NC\NC = \frac{a}{b} + \frac{(c \times f) + (e \times d)}{d \times f} 
                     = \frac{a}{b} + \Big( \frac{c}{d} + \frac{e}{f} \Big)
                     = \bar{x} + (\bar{y} + \bar{z}) .
-                \end{aligned} \stopformula
+                \stopmathalignment \stopformula
             \item L'opération $+$ est commutative (voir ci-dessus).
             \item \emph{Le nombre rationnel $0$ est neutre pour $+$ :} 
                 Soit $\bar{x}$ un nombre rationnel, $x$ un de ses représentants et $a$ et $b$ deux entiers tels que $b \neq 0$ et $x = (a, b)$. 
@@ -429,38 +428,38 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
                 Soit $\bar{x}$, $\bar{y}$ et $\bar{z}$ trois éléments de $\mathbb{Q}$. 
                 On peut choisir six entiers $a$, $b$, $c$, $d$, $e$, $f$ tels que $b \neq 0$, $d \neq 0$, $f \neq 0$, $\bar{x} = a \divslash b$, $\bar{y} = c \divslash d$ et $\bar{z} = e \divslash f$.
                 On a alors : 
-                \startformula \begin{aligned}
-                    (\bar{x} \times \bar{y}) \times \bar{z} 
-                    & = \Big( \frac{a}{b} \times \frac{c}{d} \Big) \times \frac{e}{f}
+                \startformula \startmathalignment
+                    \NC (\bar{x} \times \bar{y}) \times \bar{z} 
+                    \NC = \Big( \frac{a}{b} \times \frac{c}{d} \Big) \times \frac{e}{f}
                     = \frac{a \times c}{b \times d} \times \frac{e}{f}
-                    = \frac{(a \times c) \times e}{(b \times d) \times f} \\
-                    & = \frac{a \times (c \times e)}{b \times (d \times f)} 
+                    = \frac{(a \times c) \times e}{(b \times d) \times f} \NR
+                    \NC\NC = \frac{a \times (c \times e)}{b \times (d \times f)} 
                     = \frac{a}{b} \times \frac{c \times e}{d \times f} 
                     = \frac{a}{b} \times \Big( \frac{c}{d} \times \frac{e}{f} \Big)
                     = \bar{x} \times (\bar{y} \times \bar{z}) .
-                \end{aligned} \stopformula
+                \stopmathalignment \stopformula
         \stopitemize
     \item L'opération $\times$ est commutative (voir ci-dessus). 
     \item \emph{L'opération $\times$ est distributive sur $+$ :} 
         Soit $\bar{x}$, $\bar{y}$ et $\bar{z}$ trois éléments de $\mathbb{Q}$. 
         On peut choisir six entiers $a$, $b$, $c$, $d$, $e$, $f$ tels que $b \neq 0$, $d \neq 0$, $f \neq 0$, $\bar{x} = a \divslash b$, $\bar{y} = c \divslash d$ et $\bar{z} = e \divslash f$.
         On a alors : 
-        \startformula \begin{aligned}
-            \bar{x} \times (\bar{y} + \bar{z})
-            & = \frac{a}{b} \times \Big( \frac{c}{d} + \frac{e}{f} \Big)
+        \startformula \startmathalignment
+            \NC \bar{x} \times (\bar{y} + \bar{z})
+            \NC = \frac{a}{b} \times \Big( \frac{c}{d} + \frac{e}{f} \Big)
             = \frac{a}{b} \times \frac{(c \times f) + (e \times d)}{d \times f}
             = \frac{a \times ((c \times f) + (e \times d))}{b \times (d \times f)}
-            = \frac{(a \times (c \times f)) + (a \times (e \times d))}{b \times (d \times f)} \\
-            & = \frac{a \times (c \times f)}{b \times (d \times f)} + 
+            = \frac{(a \times (c \times f)) + (a \times (e \times d))}{b \times (d \times f)} \NR
+            \NC\NC = \frac{a \times (c \times f)}{b \times (d \times f)} + 
                 \frac{a \times (e \times d)}{b \times (d \times f)}
             = \frac{(a \times c) \times f}{(b \times d) \times f} + 
                 \frac{(a \times e) \times d}{(b \times f) \times d}
             = \frac{a \times c}{b \times d} + 
                 \frac{a \times e}{b \times f}
             = \Big( \frac{a}{b} \times \frac{c}{d} \Big)
-                + \Big( \frac{a}{b} \times \frac{e}{f} \Big) \\
-            & = (\bar{x} \times \bar{y}) + (\bar{x} \times \bar{z}) .
-        \end{aligned} \stopformula
+                + \Big( \frac{a}{b} \times \frac{e}{f} \Big) \NR
+            \NC\NC = (\bar{x} \times \bar{y}) + (\bar{x} \times \bar{z}) .
+        \stopmathalignment \stopformula
         Puisque $\times$ est commutative, cela montre également (en échangeant les rôles de $\bar{x}$ et $\bar{z}$) que $(\bar{x} + \bar{y}) \times \bar{z} = (\bar{x} \times \bar{z}) + (\bar{y} \times \bar{z})$ pour tous rationnels $\bar{x}$, $\bar{y}$, $\bar{z}$.%
             \footnote{En effet, puisque l'opération $\times$ est commutative, on a : $(\bar{x} + \bar{y}) \times \bar{z} = \bar{z} \times (\bar{x} + \bar{y}) = (\bar{z} \times \bar{x}) + (\bar{z} \times \bar{y}) = (\bar{x} \times \bar{z}) + (\bar{y} \times \bar{z})$.}
     \item \emph{Le nombre rationnel $1$ est neutre pour $\times$ :} 
@@ -542,7 +541,7 @@ Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \t
 
 \blank[medium]
 
-\noindent\bold{Démonstration :}\label{demo:rel_puissances_q} 
+\noindent\bold{Démonstration :}\ref{demo:rel_puissances_q} 
 Notons que, sous les hypothèses de l'énoncé, les nombres $q^n$, $q^m$, $q^{n+m}$ et $q^{n m}$ sont bien définis.
 
 On propose d'abord de montrer la première propriété pour toutes valeurs positives de $m$ par récurrence. 
@@ -846,16 +845,16 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \noindent\bold{Définition :} On définit les deux fonctions $\mathrm{min}$ et $\mathrm{max}$ sur $\mathbb{Q}^2$ de la manière suivante : si $a$ et $b$ sont deux nombres rationnels, alors 
 \startformula
-    \mathrm{min}(a,b) = \left\lbrace \begin{aligned}
-        a & & \text{si} & & a \leq b \\
-        b & & \text{si} & & a > b \\
-    \end{aligned} \right. 
-    , \qquad
-    \mathrm{max}(a,b) = \left\lbrace \begin{aligned}
-        a & & \text{si} & & a \geq b \\
-        b & & \text{si} & & a < b \\
-    \end{aligned} \right. 
-    .
+   \mathrm{min}(a,b) = \startcases
+       \NC a \NC \text{si } a \leq b \NR
+       \NC b \NC \text{si } a > b \NR
+   \stopcases
+   , \qquad
+   \mathrm{max}(a,b) = \startcases
+       \NC a \NC \text{si } a \geq b \NR
+       \NC b \NC \text{si } a < b \NR
+   \stopcases
+   .
 \stopformula
 \index{Min}\index{Max}
 
@@ -863,9 +862,9 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \startsubsection[title=Valeur absolue]
 
-\noindent\bold{Définition :} \index{Valeur absolue} \sindex[isy]{$\abs{\cdot}$}
+\noindent\bold{Définition :} \symbolsRegister{$\abs{\cdot}$}
     Soit $q$ un nombre rationnel. 
-    On définit sa \emph{valeur absolue}, notée $\abs{q}$, de la manière suivante : 
+    On définit sa \emph{\words{valeur absolue}}, notée $\abs{q}$, de la manière suivante : 
     \startitemize[nowhite]
         \item si $q \geq 0$, alors $\abs{q} = q$ ; 
         \item si $q < 0$, alors $\abs{q} = -q$.
@@ -1038,13 +1037,13 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 
 \done
 
-\stopsubsection
+stopsubsection
 
 \startsubsection[title=Limite d'une suite de rationnels]
 
 \noindent\bold{Définition :} Soit $u$ une suite de nombres rationnels, \emph{i.e.}, un élément de $\mathbb{Q}^{\mathbb{N}}$.
     Soit $l$ un nombre rationnel.
-    On dit que \emph{$u$ converge vers $l$}, que \emph{$u$ tend vers $l$} ou que \emph{$u$ admet $l$ pour limite} si le prédicat suivant est vrai : 
+    On dit que \emph{$u$ converge vers $l$}, que \emph{$u$ tend vers $l$} ou que \emph{$u$ admet $l$ pour \words{limite}} si le prédicat suivant est vrai : 
     \startformula
         \forall \epsilon \in \mathbb{Q} \, 
         \epsilon > 0 \Rightarrow
@@ -1053,9 +1052,9 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
             m \geq n \Rightarrow
                 \abs{u_m - l} \leq \epsilon .
     \stopformula
-    Cela peut être noté $u \rightarrow l$\sindex[isy]{$\rightarrow$}.
-    Une suite admettant une limite est dite \emph{convergente}. 
-    Une suite n'admettant aucune limite est dite \emph{divergente}. 
+    Cela peut être noté $u \symbols{\rightarrow} l$.
+    Une suite admettant une limite est dite \emph{\words{convergente}}. 
+    Une suite n'admettant aucune limite est dite \emph{\words{divergente}}. 
 
 \blank[medium]
 
@@ -1395,7 +1394,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
     \startformula
         n \geq n_1 \Rightarrow \abs{v_n - q} \leq \frac{\abs{q}}{2} .
     \stopformula
-    Pour tout entier naturel $n$ supérieur ou égal à $n_1$, on a donc $\fabs{q - v_n} \leq \fabs{q} \divslash 2$, donc, d'après l'inégalité triangulaire, $\fabs{q} - \fabs{v_n} \leq \fabs{q} \divslash 2$, et donc $\fabs{v_n} \geq \fabs{q} \divslash 2$. 
+    Pour tout entier naturel $n$ supérieur ou égal à $n_1$, on a donc $\abs{q - v_n} \leq \abs{q} \divslash 2$, donc, d'après l'inégalité triangulaire, $\abs{q} - \abs{v_n} \leq \abs{q} \divslash 2$, et donc $\abs{v_n} \geq \abs{q} \divslash 2$. 
 
     Soit $\epsilon$ un nombre rationnel strictement positif quelconque. 
     Alors, $\abs{q} \, \epsilon \divslash 2$ est strictement positif.
@@ -1409,7 +1408,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
             = \abs{\frac{q - v_n}{v_n}}
             = \frac{\abs{q - v_n}}{\abs{v_n}} .
     \stopformula
-    Puisque $\fabs{v_n} \geq \fabs{q} \divslash 2$ et $\fabs{q - v_n} = \fabs{v_n - q} \leq \fabs{q} \, \epsilon \divslash 2$, on obtient : $\fabs{v'_n - 1} \leq \epsilon$.
+    Puisque $\abs{v_n} \geq \abs{q} \divslash 2$ et $\abs{q - v_n} = \abs{v_n - q} \leq \abs{q} \, \epsilon \divslash 2$, on obtient : $\abs{v'_n - 1} \leq \epsilon$.
     Cela montre que $v'$ tend vers $1$.
     
     \done
@@ -1726,5 +1725,7 @@ Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{s
 \stopitemize
 
 \done
+
+\stopsubsection
 
 \stopsection

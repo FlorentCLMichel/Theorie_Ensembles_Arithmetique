@@ -79,6 +79,7 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
 \blank[medium]
 
 \startNoteBox
+\noindent
 \bold{Remarque :} La réciproque est fausse.
     Pour montrer cela, considérons la suite $u$ définie par récurrence de la manière suivante : 
     \startitemize[nowhite]
@@ -127,13 +128,13 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
     Alors, $2 - u_n^2 \geq 0$, donc $u_{n+1} \geq u_n$, donc $u_{n+1} \geq 0$.
     
     Par ailleurs, on a : 
-    \startformula \begin{aligned}
-        u_{n+1} \times u_{n+1} 
-         & = u_n^2 + \left(2 - u_n^2 \right) \times u_n \divslash 2 + \left(2 - u_n^2 \right)^2 \divslash 16 \\
-         & = \frac{1}{4} + u_n - \frac{u_n^2}{2} \times u_n + \frac{u_n^4}{16} .
-    \end{aligned}\stopformula
+    \startformula \startmathalignment
+        \NC u_{n+1} \times u_{n+1} 
+        \NC = u_n^2 + \left(2 - u_n^2 \right) \times u_n \divslash 2 + \left(2 - u_n^2 \right)^2 \divslash 16 \NR
+        \NC\NC = \frac{1}{4} + u_n - \frac{u_n^2}{2} \times u_n + \frac{u_n^4}{16} .
+    \stopmathalignment\stopformula
     Puisque $u_n^2 \leq 2$, $u_n^4 \leq 4$.
-    En outre, $u_n \leq 3 \divslash 2$ (sans quoi on aurait $u_n^2 > 9 \divslash 4 = 2 + \divslash 4 > 2$).
+    En outre, $u_n \leq 3 \divslash 2$ (sans quoi on aurait $u_n^2 > 9 \divslash 4 = 2 + 1 \divslash 4 > 2$).
     Donc, 
     \startformula
         u_{n+1} \times u_{n+1} \leq 2 - \frac{u_n^2}{2} \times u_n.
@@ -152,15 +153,15 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
 \noindent\bold{Démonstration :} 
     Soit $u$ une suite de nombres rationnels. 
     On suppose que $u$ est de Cauchy. 
-    On peut choisir un entier naturel $n_0$ tel que $\fabs{u_n - u_m} \leq 1$ pour tous entiers naturels $n$ et $m$ supérieurs ou égaux à $n_0$. 
-    Soit $E$ l'ensemble $\left\lbrace \fabs{u_0}, \fabs{u_1}, \dots, \fabs{u_{n_0 - 1}}, \fabs{u_{n_0}} + 1 \right\rbrace$. 
+    On peut choisir un entier naturel $n_0$ tel que $\abs{u_n - u_m} \leq 1$ pour tous entiers naturels $n$ et $m$ supérieurs ou égaux à $n_0$. 
+    Soit $E$ l'ensemble $\left\lbrace \abs{u_0}, \abs{u_1}, \dots, \abs{u_{n_0 - 1}}, \abs{u_{n_0}} + 1 \right\rbrace$. 
     L'ensemble $E$ est fini et non vide (son cardinal est $n_0$). Donc (puisque $\leq$ est une relation d'ordre total sur $\mathbb{Q}$), il admet un maximum, noté $M$ dans la suite de cette démonstration.
     Soit $n$ un entier naturel quelconque. 
-    Si $n < n_0$, alors $\fabs{u_n} \in E$, donc $\fabs{u_n} \leq M$.
-    Sinon, on a $\fabs{u_n - u_{n_0}} \leq 1$, donc, d'après l'inégalité triangulaire, $\fabs{u_n} - \fabs{u_{n_0}} \leq 1$, donc $\fabs{u_n} \leq \fabs{u_{n_0}} + 1$.
-    Puisque $\fabs{u_{n_0}} + 1 \in E$, $\fabs{u_{n_0}} + 1 \leq M$, donc $u_n \leq M$. 
+    Si $n < n_0$, alors $\abs{u_n} \in E$, donc $\abs{u_n} \leq M$.
+    Sinon, on a $\abs{u_n - u_{n_0}} \leq 1$, donc, d'après l'inégalité triangulaire, $\abs{u_n} - \abs{u_{n_0}} \leq 1$, donc $\abs{u_n} \leq \abs{u_{n_0}} + 1$.
+    Puisque $\abs{u_{n_0}} + 1 \in E$, $\abs{u_{n_0}} + 1 \leq M$, donc $u_n \leq M$. 
 
-    Pour tout entier naturel $n$, on a donc $\fabs{u_n} \leq M$, et donc $-M \leq u_n \leq M$.
+    Pour tout entier naturel $n$, on a donc $\abs{u_n} \leq M$, et donc $-M \leq u_n \leq M$.
     Cela montre que la suite $u$ est bornée. 
 
     \done
@@ -246,7 +247,7 @@ Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant 
 
 \blank[medium]
 
-\noindent\bold{Démonstration :} Voir démonstration du théorème équivalent pour les nombres rationnels page \pageref{demo:rel_puissances_q} en remplaçant $q$ par $x$.
+\noindent\bold{Démonstration :} Voir démonstration du théorème équivalent pour les nombres rationnels \at{page}{}[demo:rel_puissances_q] en remplaçant $q$ par $x$.
 
 \blank[medium]
 
