@@ -222,10 +222,27 @@
 
 
 % Format for the TOC at the start of each chapter
-\define\chaptertoc{%
-  \determinelistcharacteristics[section]%
-  \doifmode{*list}{\vskip1ex\hrule\startsimplecolumns[n=2]\placecontent\stopsimplecolumns\blank[2pt]\hrule}%
+\startluacode
+interfaces.implement {
+  name      = "chaptertoc",
+  public    = true,
+  arguments = { "hash", "argument" },
+  actions   = function(hash, content)
+    hash = hash or {}
+    local bottomruleoffset = hash.bottomruleoffset or "2pt"
+    context(
+      "\\determinelistcharacteristics[section]"
+      .. "\\doifmode{*list}{\\vskip1ex\\hrule\\startsimplecolumns[n=2]\\placecontent\\stopsimplecolumns"
+      .. "\\vskip" .. bottomruleoffset
+      .. "\\hrule}"
+    )
+  end
 }
+\stopluacode
+%\define\chaptertoc{%
+%  \determinelistcharacteristics[section]%
+%  \doifmode{*list}{\vskip1ex\hrule\startsimplecolumns[n=2]\placecontent\stopsimplecolumns\blank[2pt]\hrule}%
+%}
 
 
 % Special styles for the main text
