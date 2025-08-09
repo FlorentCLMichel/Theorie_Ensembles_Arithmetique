@@ -61,14 +61,14 @@ Les symboles logiques incluent : \index{Quantificateur}\index{Connecteur}
   \item Le symbole de quantification existentielle $\symbols{\exists}$ (« il existe »).
   \item Le connecteur de conjonction $\symbols{\wedge}$ (« et ») : si $P$ et $Q$ sont deux formules, $P \wedge Q$ est vraie si $P$ et $Q$ sont vraies et fausse sinon.
   \item Le connecteur de disjonction $\symbols{\vee}$ (« ou ») : si $P$ et $Q$ sont deux formules, $P \vee Q$ est vraie si $P$ est vraie ou si $Q$ est vraie et fausse sinon.
-  \item Le connecteur de négation $\neg$ (« non ») : si $P$ est une formule, $\neg P$ est vraie si $P$ est fausse et fausse si $P$ est vraie.
+  \item Le connecteur de négation $\symbols{\lnot}$ (« non ») : si $P$ est une formule, $\lnot P$ est vraie si $P$ est fausse et fausse si $P$ est vraie.
   \item Le connecteur d'implication $\symbols{\Rightarrow}$ (« implique ») : si $P$ et $Q$ sont deux formules, $P \Rightarrow Q$ est fausse si $P$ est vraie et $Q$ est fausse et vraie sinon.
-  La formule $P \Rightarrow Q$ est ainsi équivalente à $Q \vee \neg P$ (voir ci-dessous pour la signification des parenthèses et les règles d'évaluation).
+  La formule $P \Rightarrow Q$ est ainsi équivalente à $Q \vee \lnot P$ (voir ci-dessous pour la signification des parenthèses et les règles d'évaluation).
   \item Le connecteur $\symbols{\Leftarrow}$ : si $P$ et $Q$ sont deux formules, $P \Leftarrow Q$ est fausse si $P$ est fausse et $Q$ est vraie et vraie sinon.
-  La formule $P \Leftarrow Q$ est ainsi équivalente à $P \vee \neg Q$.
+  La formule $P \Leftarrow Q$ est ainsi équivalente à $P \vee \lnot Q$.
   \item Le connecteur biconditionnel $\symbols{\Leftrightarrow}$ (« est équivalent à ») : si $P$ et $Q$ sont deux formules, $P \Leftrightarrow Q$ est vraie si $P$ et $Q$ sont soit toutes deux vraies soit toutes deux fausses, et fausse sinon.
-  La formule $P \Leftrightarrow Q$ est ainsi équivalente à $(P \wedge Q) \vee (\neg P \wedge \neg Q)$.
-      Notons que, si $P$ et $Q$ sont deux prédicats, si $P \Leftrightarrow Q$ est vrai, alors $(\neg P) \Leftrightarrow (\neg Q)$ est vrai aussi.
+  La formule $P \Leftrightarrow Q$ est ainsi équivalente à $(P \wedge Q) \vee (\lnot P \wedge \lnot Q)$.
+      Notons que, si $P$ et $Q$ sont deux prédicats, si $P \Leftrightarrow Q$ est vrai, alors $(\lnot P) \Leftrightarrow (\lnot Q)$ est vrai aussi.
   \item Un ensemble infini de \emph{variables}, souvent notées par des lettres grecques ou latines, éventuellement avec des indices ou exposants. 
   Les variables sont interprétées comme décrivant un domaine d'objets de base, qui ne peut être vide. 
   Elles sont aussi parfois appelées \emph{paramètres}. 
@@ -76,8 +76,8 @@ Les symboles logiques incluent : \index{Quantificateur}\index{Connecteur}
 \stopitemize
 
 On définit également les constantes de vérité $\mathss{V}$ pour « vraie » et $\mathss{F}$ pour « fausse ».\index{Vrai}\index{Faux} 
-Elles sont deux formules, et $\mathss{F}$ est équivalente à $\neg \mathss{V}$.\symbolsRegister{$\mathss{V}$}\symbolsRegister{$\mathss{F}$}`
-Si $f$ est une formule, ces deux constantes de vérité sont équivalentes, respectivements, aux formules $f \vee (\neg f)$ et $f \wedge (\neg f)$. 
+Elles sont deux formules, et $\mathss{F}$ est équivalente à $\lnot \mathss{V}$.\symbolsRegister{$\mathss{V}$}\symbolsRegister{$\mathss{F}$}`
+Si $f$ est une formule, ces deux constantes de vérité sont équivalentes, respectivements, aux formules $f \vee (\lnot f)$ et $f \wedge (\lnot f)$. 
 
 Enfin, on peut définir le connecteur (non standard) de vérité $\symbols{\sharp}$ : si $f$ est une formule, $\sharp f$ est vraie si $f$ est vraie et fausse sinon. 
 (Avec ces notations, $\sharp f$ a toujours la même valeur de vérité que $f$. 
@@ -109,7 +109,7 @@ En particulier, changer l'un pour l'autre dans une formule ne modifie pas sa val
 
 Si $x$, $y$ et $z$ sont trois objets, on notera parfois par $x = y = z$ la formule $(x = y) \wedge (y = z)$. 
 
-En présence de l'égalité, on définit aussi le symbole d'\emph{\words{inégalité}} $\symbols{\neq}$ définissant une relation binaire comme suit : la formule $x \neq y$ est équivalente à $\neg (x = y)$.
+En présence de l'égalité, on définit aussi le symbole d'\emph{\words{inégalité}} $\symbols{\neq}$ définissant une relation binaire comme suit : la formule $x \neq y$ est équivalente à $\lnot (x = y)$.
 
 \stopsubsection
 
@@ -159,7 +159,7 @@ Les formules sont définies de la manière suivante :
       On les notera parfois respectivement $\exists x, \, f$ et $\forall x, \, f$ pour plus de lisibilité.
   \item D'autres formules sont construites à l'aide des autres symboles logiques : 
   \startitemize
-    \item Si $f$ est une formule, alors $\neg (f)$ (et $\sharp (f)$, si on l'admet dans la théorie) sont des formules.
+    \item Si $f$ est une formule, alors $\lnot (f)$ (et $\sharp (f)$, si on l'admet dans la théorie) sont des formules.
     \item Si $f$ et $g$ sont deux formules telles qu'aucune variable quantifiée dans l'une n'apparaît dans l'autre, alors $(f) \vee (g)$, $(f) \wedge (g)$, $(f) \Rightarrow (g)$, $(f) \Leftarrow (g)$ et $(f) \Leftrightarrow (g)$ sont des formules.
   \stopitemize
 \stopitemize
@@ -184,7 +184,7 @@ Une formule faisant partie d'une autre formule est dite \emph{sous-formule}.
 
 \blank[medium]
 
-\noindent\bold{NB :} Un prédicat ne peut référer à un prédicat que si ce dernier est déjà défini. En particulier, il ne peut référer à lui-même, sans quoi on arrive vite à des paradoxes. (Par exemple, si on pouvait definir in prédicat $P$ par $P: \neg P$, alors il serait vrai s'il est faux et faux s'il est vrai.)
+\noindent\bold{NB :} Un prédicat ne peut référer à un prédicat que si ce dernier est déjà défini. En particulier, il ne peut référer à lui-même, sans quoi on arrive vite à des paradoxes. (Par exemple, si on pouvait definir in prédicat $P$ par $P: \lnot P$, alors il serait vrai s'il est faux et faux s'il est vrai.)
 
 \stopsubsection
 
@@ -247,7 +247,7 @@ On omet parois les parenthèses dans une formule lorsque celles-ci ne modifie pa
   \item L'évaluation s'effectue de gauche à droite sauf si cela est contraire à une des règles ci-dessous.
   \item Les prédicats sont évalués en premier.
   \item Lorsqu'une parenthèse ouvrante est atteinte, la formule se trouvant entre elle et la parenthèse fermante correspondante est évaluée en priorité.
-  \item Ordre d'évaluation des connecteurs et quantificateurs : d'abords les quantificateurs $\exists$ et $\forall$, puis $\neg$, puis (en présence de l'égalité) $=$, puis $\wedge$ et $\vee$ (avec la même priorité), puis $\Rightarrow$, $\Leftarrow$ et $\Leftrightarrow$ (avec la même priorité).
+  \item Ordre d'évaluation des connecteurs et quantificateurs : d'abords les quantificateurs $\exists$ et $\forall$, puis $\lnot$, puis (en présence de l'égalité) $=$, puis $\wedge$ et $\vee$ (avec la même priorité), puis $\Rightarrow$, $\Leftarrow$ et $\Leftrightarrow$ (avec la même priorité).
 \stopitemize
 
 \index{transitivité}
@@ -262,7 +262,7 @@ Sous les mêmes conditions, la formule $\forall x f$ est fausse s'il existe au m
 On formalise cela par les règles suivantes : 
 \startitemize
   \item si $x$ est une variable et $f$ une formule dans laquelle $x$ n'apparait pas, $\forall x \, f$ est équivalente à $f$ ; 
-  \item pour toute variable $x$ et toute formule $f$, la formule $\forall x \, f$ est équivalente à $\neg (\exists x \, \neg f)$ ;
+  \item pour toute variable $x$ et toute formule $f$, la formule $\forall x \, f$ est équivalente à $\lnot (\exists x \, \lnot f)$ ;
   \item soit $f$ une formule admettant exactement $a_1 a_2 \dots a_n$ pour paramètres libres ; si $\forall a_1 \, \forall a_2 \cdots \forall a_n \, f$ est vraie, alors $f$ est équivalente à $\mathss{V}$ ; 
   \item en présence de l'égalité, si $f(x)$ est une formule à un paramètre libre éventuel $x$ et $a$ un objet, alors $\exists x \, (x = a) \wedge f(x)$ est équivalente à $f(a)$.
 \stopitemize
@@ -274,7 +274,7 @@ En effet,
   \item la formule $\forall x \, (f \Leftrightarrow f)$ est donc éuivalente à $\forall x \, \mathss{V}$, donc à $\mathss{V}$, et donc vraie.
 \stopitemize
 
-Quelques conséquences immédiates sont (en remplaçant $f$ par $\neg f$ et en notant que $\neg (\neg f))$ est équivalente à $f$ pour toute formule $f$) : 
+Quelques conséquences immédiates sont (en remplaçant $f$ par $\lnot f$ et en notant que $\lnot (\lnot f))$ est équivalente à $f$ pour toute formule $f$) : 
 \startitemize
   \item Si $f$ est une formule et $x$ et $y$ deux variables qui ne sont pas quantifiées dans $f$, alors les formules $\exists x \, \exists y \, f$ et $\exists y \, \exists x \, f$ sont équivalentes.
   \item si $x$ est une variable, alors $\exists x \, \mathss{F}$ est fausse (en effet, sa négation est $\forall x \, \mathss{V}$, qui est vraie) et $\exists x \, \mathss{V}$ est vraie (en effet, sa négation est $\forall x \, \mathss{F}$, qui est fausse) ; 
@@ -288,19 +288,19 @@ Quelques conséquences immédiates sont (en remplaçant $f$ par $\neg f$ et en n
        \stopitemize
    } ; 
   em soit $f$ et $g$ deux formules à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors les formules $\forall x \, (f(x) \wedge g(x))$ et $\forall x \, g(x)$ sont équivalentes ; 
-  \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\exists x \, f(x)$ est fausse, alors les formules $\forall x \, (f(x) \vee g(x))$ et $\forall x \, g(x)$ sont équivalentes (en effet, $\forall x \, \neg f(x)$ est alors vraie, donc $f$ est équivalente à $\mathss{F}$, et donc $f(x) \vee g(x)$ à $g(x)$) ; 
+  \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\exists x \, f(x)$ est fausse, alors les formules $\forall x \, (f(x) \vee g(x))$ et $\forall x \, g(x)$ sont équivalentes (en effet, $\forall x \, \lnot f(x)$ est alors vraie, donc $f$ est équivalente à $\mathss{F}$, et donc $f(x) \vee g(x)$ à $g(x)$) ; 
   \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\exists x \, f(x)$ est fausse, alors la formule $\forall x \, (f(x) \wedge g(x))$ est fausse ; 
   \item soit $f$ et $g$ deux formules à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors la formule $\forall x \, (f(x) \vee g(x))$ est vraie ; 
   \item soit $f$ une formule à un paramètre libre ; si $\forall x \, f(x)$ est vraie, alors la formule $\exists x \, f(x)$ est vraie ; 
-  \item si $x$ est une variable et $f$ une formule dans laquelle $x$ n'apparait pas, $\exists x \, f$ est équivalente à $f$ (en effet, $x$ n'apparait pas dans $f$, donc $\forall x \, \neg f$ est équivalente à $\neg f$, donc $\neg (\forall x \, \neg f)$ est équivalente à $f$, et donc $\exists x \, f$ à $f$) ; 
-  \item pour toute variable $x$ et toute formule $f$ dans laquelle $x$ n'est pas une variable quantifiée, la formule $\exists x \, f$ est équivalente à $\neg (\forall x \, \neg f)$.
+  \item si $x$ est une variable et $f$ une formule dans laquelle $x$ n'apparait pas, $\exists x \, f$ est équivalente à $f$ (en effet, $x$ n'apparait pas dans $f$, donc $\forall x \, \lnot f$ est équivalente à $\lnot f$, donc $\lnot (\forall x \, \lnot f)$ est équivalente à $f$, et donc $\exists x \, f$ à $f$) ; 
+  \item pour toute variable $x$ et toute formule $f$ dans laquelle $x$ n'est pas une variable quantifiée, la formule $\exists x \, f$ est équivalente à $\lnot (\forall x \, \lnot f)$.
   \item soit $f$ et $g$ deux formules à un paramètre libre ; les formules $(\exists x \, f(x)) \vee (\exists y \, g(y))$ et $\exists x \, (f(x) \vee g(x))$ sont équivalentes ;
   \item soit $f$ et $g$ deux formules et $x$ une variable ; si $\forall x \, f$ et $\forall x \, (f \Rightarrow g)$ sont vraies, alors $\forall x \, g$ est vraie (puisqu'alors $\forall x \, (f \wedge (f \Rightarrow g))$ est vraie) ; 
-  \item soit $x$ une variable et $f$ et $g$ deux formules (faisant ou non intervenir $x$) ; si $\forall x \, f$ et $\exists x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie (en effet, $\forall x \, \neg (f \Rightarrow g)$ est fausse, donc $\forall x \, (f \wedge \neg g)$ est fausse, donc $(\forall y \, f) \wedge (\forall x \neg g)$ est fausse ; puisque $\forall y \, f$ est vraie, on en déduit que $\forall x \, \neg g$ est fausse, et donc que $\exists x \, g$ est vraie) ; 
-  \item soit $x$ une variable et $f$ et $g$ deux formules (faisant ou non intervenir $x$) ; si $\exists x \, f$ et $\forall x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie (en effet, $\forall x \, (g \vee \neg f)$ est vraie, donc, si $\exists x \, g$ était fausse, on aurait $\forall x \, ((g \vee \neg f) \wedge (\neg g))$, donc $\forall x \, \neg f$, ce qui n'est pas le cas puisque $\exists x \, f(x)$ est vraie). 
+  \item soit $x$ une variable et $f$ et $g$ deux formules (faisant ou non intervenir $x$) ; si $\forall x \, f$ et $\exists x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie (en effet, $\forall x \, \lnot (f \Rightarrow g)$ est fausse, donc $\forall x \, (f \wedge \lnot g)$ est fausse, donc $(\forall y \, f) \wedge (\forall x \lnot g)$ est fausse ; puisque $\forall y \, f$ est vraie, on en déduit que $\forall x \, \lnot g$ est fausse, et donc que $\exists x \, g$ est vraie) ; 
+  \item soit $x$ une variable et $f$ et $g$ deux formules (faisant ou non intervenir $x$) ; si $\exists x \, f$ et $\forall x \, (f \Rightarrow g)$ sont vraies, alors $\exists x \, g$ est vraie (en effet, $\forall x \, (g \vee \lnot f)$ est vraie, donc, si $\exists x \, g$ était fausse, on aurait $\forall x \, ((g \vee \lnot f) \wedge (\lnot g))$, donc $\forall x \, \lnot f$, ce qui n'est pas le cas puisque $\exists x \, f(x)$ est vraie). 
 \stopitemize
 \emph{Stricto sensu}, il est donc possible de se passer d'un de ces deux quantificateurs, ou de voir l'un d'eux comme fondamental et l'autre comme dérivé. 
-Par exemple, on peut voir le quantificateur $\exists$ comme le seul quantificateur fondamental, et définir $\forall$ \emph{via} l'équivalence de $\forall x \, f$ et $\neg \left( \exists x \, \neg f \right)$ pour toute variable $x$ et toute formule $f$. 
+Par exemple, on peut voir le quantificateur $\exists$ comme le seul quantificateur fondamental, et définir $\forall$ \emph{via} l'équivalence de $\forall x \, f$ et $\lnot \left( \exists x \, \lnot f \right)$ pour toute variable $x$ et toute formule $f$. 
 
 \blank[medium]
 
@@ -351,10 +351,10 @@ Plus généralement, on définit la réciproque d'une formule formée de variabl
 
 Soit $f$ et $g$ deux formules n'ayant pas de quantificateur et $P: f \Rightarrow g$. 
 On suppose que le connecteur reliant $f$ et $g$ peut être évalué en dernier.
-La \emph{contraposée} de $P$ est la formule $\neg g \Rightarrow \neg f$. 
+La \emph{contraposée} de $P$ est la formule $\lnot g \Rightarrow \lnot f$. 
 La formule $P$ et sa contraposée ont toujours la même valeur de vérité (elles sont vraies si $f$ est fausse ou $g$ est vraie et fausses sinon). 
 
-Plus généralement, on définit la contraposée d'une formule formée de variables quantifiées et d'une formule de cette forme par celle obtenue en prenant la contraposée de cette dernière : si $Q$ est une séquence de variables quantifiées (de la forme $\forall a_1 \dots \forall a_n \exists b_1 \dots \exists b_m \dots$, où les formules $\forall a_1 \dots \forall a_n$ et $\forall b_1 \dots \forall b_m$ sont comprises comme pouvant contenir chacune, et indépendamment, aucune, une seule, ou plusieurs variables quantifiées), la contraposée de la formule $Q f \rightarrow q$ est $Q (\neg g \Rightarrow \neg f)$. 
+Plus généralement, on définit la contraposée d'une formule formée de variables quantifiées et d'une formule de cette forme par celle obtenue en prenant la contraposée de cette dernière : si $Q$ est une séquence de variables quantifiées (de la forme $\forall a_1 \dots \forall a_n \exists b_1 \dots \exists b_m \dots$, où les formules $\forall a_1 \dots \forall a_n$ et $\forall b_1 \dots \forall b_m$ sont comprises comme pouvant contenir chacune, et indépendamment, aucune, une seule, ou plusieurs variables quantifiées), la contraposée de la formule $Q f \rightarrow q$ est $Q (\lnot g \Rightarrow \lnot f)$. 
 La contraposée d'une formule a toujours la même valeur de vérité que la formule initiale.
 
 \stopsubsection
@@ -366,17 +366,17 @@ La contraposée d'une formule a toujours la même valeur de vérité que la form
 Notons que chacun des connecteurs peut être construit à l'aide d'un unique connecteur, que l'on note ici $\circ$, appelé \emph{NAND}, définit de la manière suivante : si $f$ et $g$ sont deux formules, alors $f \circ g$ est une formule, vraie si et seulement si $f$ et $g$ ne sont pas toutes deux vraies. 
 En effet, si $f$ et $g$ sont deux formules, et en considérant que deux formules sont équivalentes si elles prennent toujours la même valeur,
 \startitemize
-  \item $\neg f$ est équivalente à $f \circ f$,
-  \item $f \wedge g$ est équivalente à $\neg (f \circ g)$,
-  \item $f \vee g$ est équivalente à $(\neg f) \circ (\neg g)$,
-  \item $f \Rightarrow g$ est équivalente à $(\neg f) \vee g$,
-  \item $f \Leftarrow g$ est équivalente à $f \vee (\neg g)$,
-  \item $f \Leftrightarrow g$ est équivalente à $(f \wedge g) \vee ((\neg f) \wedge (\neg g))$.
+  \item $\lnot f$ est équivalente à $f \circ f$,
+  \item $f \wedge g$ est équivalente à $\lnot (f \circ g)$,
+  \item $f \vee g$ est équivalente à $(\lnot f) \circ (\lnot g)$,
+  \item $f \Rightarrow g$ est équivalente à $(\lnot f) \vee g$,
+  \item $f \Leftarrow g$ est équivalente à $f \vee (\lnot g)$,
+  \item $f \Leftrightarrow g$ est équivalente à $(f \wedge g) \vee ((\lnot f) \wedge (\lnot g))$.
 \stopitemize
 Un tel connecteur, permettant de construire tous les autres, est dit \emph{universel}.
 
 Il existe un autre connecteur universel, appelé \emph{NOR}, que l'on note dans ce paragraphe $\times$, défini par : si $f$ et $g$ sont deux formules, alors $f \circ g$ est une formule, vraie si et seulement si $f$ et $g$ sont toutes deux fausses. 
-En effet, si $f$ et $g$ sont deux formules, $\neg f$ est équivalente à $f \times f$ et $f \wedge g$ à $(\neg f) \times (\neg g)$, donc $f \circ g$ est équivalente à $[(f \times f) \times (g \times g)] \times [(f \times f) \times (g \times g)]$. 
+En effet, si $f$ et $g$ sont deux formules, $\lnot f$ est équivalente à $f \times f$ et $f \wedge g$ à $(\lnot f) \times (\lnot g)$, donc $f \circ g$ est équivalente à $[(f \times f) \times (g \times g)] \times [(f \times f) \times (g \times g)]$. 
 Puisque le connecteur $\circ$ est universel, le connecteur $\times$ l'est donc aussi.
 
 \stopsubsection
@@ -388,7 +388,7 @@ Puisque le connecteur $\circ$ est universel, le connecteur $\times$ l'est donc a
 \index{XOR}
 
 On définit le connecteur \emph{XOR}, noté $\symbols{\oplus}$, de la manière suivante : si $f$ et $g$ sont deux formules, alors $f \oplus g$ est une formule vraie si $f$ est vraie et $g$ est fausse ou si $f$ est fausse et $g$ est vraie, et fausse sinon. 
-Si $f$ et $g$ sont deux formules, alors $f \oplus g$ est équivalente à $f \Leftrightarrow (\neg g)$. 
+Si $f$ et $g$ sont deux formules, alors $f \oplus g$ est équivalente à $f \Leftrightarrow (\lnot g)$. 
 
 L'utilité du connecteur XOR découle des trois propriétés suivantes : 
 \startitemize[nowhite]
@@ -396,7 +396,7 @@ L'utilité du connecteur XOR découle des trois propriétés suivantes :
   \item Il est \emph{transitif} : si $f$, $g$ et $h$ sont trois formules, $(f \oplus g) \oplus h$ est équivalente à $f \oplus (g \oplus h)$ (en effet, toutes deux sont vraies soit si les trois formules $f$, $g$ et $h$ sont vraies ou si une d'entre elles est vraie et les deux autres sont fausses, et fausses sinon).
   \item Soit $f$ une formule, $f \oplus f$ est toujours fausse.
 \stopitemize
-Notons aussi que, si $f$ est une formule, $f \oplus \mathss{F}$ est équivalente à $f$ et $f \oplus \mathss{V}$ à $\neg f$.
+Notons aussi que, si $f$ est une formule, $f \oplus \mathss{F}$ est équivalente à $f$ et $f \oplus \mathss{V}$ à $\lnot f$.
 
 \stopsubsection
 
@@ -410,7 +410,7 @@ En voici un exemple, pour deux formules $f$ et $g$ :
 \setvariable{myvars}{fTableNLeftCols}{2}
 \startplacetable[location=force,number=no]
   \bTABLE[setups=fTable]
-    \bTR\bTD $f$ \eTD\bTD $g$ \eTD\bTD $\neg f$ \eTD\bTD $f \wedge g$ \eTD\bTD $f \vee g$ \eTD\bTD $f \Rightarrow g$ \eTD\bTD $f \Leftarrow g$ \eTD\bTD $f \Leftrightarrow g$ \eTD\eTR
+    \bTR\bTD $f$ \eTD\bTD $g$ \eTD\bTD $\lnot f$ \eTD\bTD $f \wedge g$ \eTD\bTD $f \vee g$ \eTD\bTD $f \Rightarrow g$ \eTD\bTD $f \Leftarrow g$ \eTD\bTD $f \Leftrightarrow g$ \eTD\eTR
     \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\eTR
     \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\eTR
     \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\eTR
@@ -463,20 +463,20 @@ Les propriétés suivantes peuvent être facilement démontrées en écrivant le
           \item Si $f \Rightarrow g$ et $g \Rightarrow h$ sont vraies, alors $f \Rightarrow h$ l'est également. 
           \item Si $f \Leftarrow g$ et $g \Leftarrow h$ sont vraies, alors $f \Leftarrow h$ l'est également. 
       \stopitemize
-  \item Soit $f$ et $g$ deux formules. Alors, $\neg (f \wedge g)$ a la même valeur de vérité que $(\neg f) \vee (\neg g)$. 
+  \item Soit $f$ et $g$ deux formules. Alors, $\lnot (f \wedge g)$ a la même valeur de vérité que $(\lnot f) \vee (\lnot g)$. 
       En effet, toutes deux sont vraies si au moins une des formules $f$ et $g$ est fausse, et fausses sinon.
-  \item Soit $f$ et $g$ deux formules. Alors, $\neg (f \vee g)$ a la même valeur de vérité que $(\neg f) \wedge (\neg g)$. 
+  \item Soit $f$ et $g$ deux formules. Alors, $\lnot (f \vee g)$ a la même valeur de vérité que $(\lnot f) \wedge (\lnot g)$. 
       En effet, toutes deux sont vraies si les deux formules $f$ et $g$ sont fausses, et fausses sinon.
-  \item Soit $f$ et $g$ deux formules. Si $f \Leftrightarrow g$ est vraie, alors $\neg f \Leftrightarrow \neg g$ l'est aussi.
+  \item Soit $f$ et $g$ deux formules. Si $f \Leftrightarrow g$ est vraie, alors $\lnot f \Leftrightarrow \lnot g$ l'est aussi.
   \item Soit $f$ et $g$ deux formules ; la formule $f \Leftrightarrow g$ est équivalente à $(f \Rightarrow g) \wedge (g \rightarrow f)$. 
   \item Le connecteur $\wedge$ est distributif sur $\vee$ : si $f$, $g$ et $h$ sont trois formules, les deux formules $f \wedge (g \vee h)$ et $(f \wedge g) \vee (f \wedge h)$ ont la même valeur de vérité (toutes deux sont vraies si et seulement si $f$ ainsi qu'au moins une des deux formules $g$ et $h$ sont vraies). 
   \item Le connecteur $\vee$ est distributif sur $\wedge$ : si $f$, $g$ et $h$ sont trois formules, les deux formules $f \vee (g \wedge h)$ et $(f \vee g) \wedge (f \vee h)$ ont la même valeur de vérité (toutes deux sont vraies si $f$ est vraie ou si $g$ et $h$ sont toutes deux vraies et fausses sinon).
   \item Soit $f$ et $g$ deux formules. Si $f \Rightarrow g$, alors $f \wedge g$ est équivalente à $f$ et $f \vee g$ est équivalente à $g$.
-  \item Soit $f$ et $g$ deux formules. Alors $f \Leftrightarrow g$ et $(\neq f) \Leftrightarrow (\neg g)$ sont équivalentes. 
+  \item Soit $f$ et $g$ deux formules. Alors $f \Leftrightarrow g$ et $(\neq f) \Leftrightarrow (\lnot g)$ sont équivalentes. 
       (Elles sont toutes deux vraies si $f$ et $g$ ont la même valeur de vérité et fausses sinon.)
   \item Soit $f$, $g$, $h$ et $i$ quatre formules. 
       Si $f \Rightarrow g$ et $h \Rightarrow i$ sont vraies, alors $(f \wedge h) \Rightarrow (g \wedge i)$ et $(f \vee h) \Rightarrow (g \vee i)$ sont vraies.
-  \item Une conséquence de ces deux derniers points est que, avec les notations du second, si $f \Leftrightarrow g$ et $h \Leftrightarrow i$ sont vraies, alors $(f \wedge \neg h) \Leftrightarrow (g \wedge \neg i)$ est vraie.
+  \item Une conséquence de ces deux derniers points est que, avec les notations du second, si $f \Leftrightarrow g$ et $h \Leftrightarrow i$ sont vraies, alors $(f \wedge \lnot h) \Leftrightarrow (g \wedge \lnot i)$ est vraie.
 \stopitemize
 
 \blank[medium]
@@ -497,7 +497,7 @@ Toute formule est alors associée à une (et une seule) des trois valeurs de vé
 La table de vérité suivante donne les valeurs de formules obtenues à partir de deux formules $f$ et $g$ ainsi que d'un connecteur :
 \startplacetable[location=force,number=no]
   \bTABLE[setups=fTable]
-    \bTR\bTD $f$          \eTD\bTD $g$          \eTD\bTD $\neg f$     \eTD\bTD $f \wedge g$ \eTD\bTD $f \vee g$   \eTD\bTD $f \Rightarrow g$ \eTD\bTD $f \Leftarrow g$ \eTD\bTD $f \Leftrightarrow g$ \eTD\eTR
+    \bTR\bTD $f$          \eTD\bTD $g$          \eTD\bTD $\lnot f$     \eTD\bTD $f \wedge g$ \eTD\bTD $f \vee g$   \eTD\bTD $f \Rightarrow g$ \eTD\bTD $f \Leftarrow g$ \eTD\bTD $f \Leftrightarrow g$ \eTD\eTR
     \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{V}$     \eTD\bTD $\mathss{V}$          \eTD\eTR
     \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{I}$     \eTD\bTD $\mathss{I}$          \eTD\eTR
     \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{F}$     \eTD\bTD $\mathss{F}$          \eTD\eTR
@@ -511,9 +511,9 @@ La table de vérité suivante donne les valeurs de formules obtenues à partir d
 \stopplacetable
 On a alors les équivalences : 
 \startitemize[nowhite]
-  \item $f \Rightarrow g$ est équivalente à $(\neg f) \vee g$,
-  \item $f \Leftarrow g$ est équivalente à $f \vee (\neg g)$,
-  \item $f \Leftrightarrow g$ est équivalente à $(f \wedge g) \vee ((\neg f) \wedge (\neg g))$.
+  \item $f \Rightarrow g$ est équivalente à $(\lnot f) \vee g$,
+  \item $f \Leftarrow g$ est équivalente à $f \vee (\lnot g)$,
+  \item $f \Leftrightarrow g$ est équivalente à $(f \wedge g) \vee ((\lnot f) \wedge (\lnot g))$.
 \stopitemize
 \blank[medium]
 On a aussi les règles additionelles : 
@@ -558,13 +558,13 @@ On se place dans le cadre d'une théorie comprenant la logique du premier ordre 
 
 Plus formellement, si $f$ et $g$ sont deux formules, on a : 
 \startformula
-    \left((f \Rightarrow g) \wedge (\neg g) \right)
-    \Leftrightarrow \left( ((\neg f) \vee g) \wedge (\neg g) \right)
-    \Leftrightarrow \left( ((\neg f) \wedge (\neg g)) \vee (g \wedge (\neg g)) \right)
-    \Leftrightarrow \left( ((\neg f) \wedge (\neg g)) \vee \mathss{F} \right)
-    \Leftrightarrow \left( (\neg f) \wedge (\neg g) \right) .
+    \left((f \Rightarrow g) \wedge (\lnot g) \right)
+    \Leftrightarrow \left( ((\lnot f) \vee g) \wedge (\lnot g) \right)
+    \Leftrightarrow \left( ((\lnot f) \wedge (\lnot g)) \vee (g \wedge (\lnot g)) \right)
+    \Leftrightarrow \left( ((\lnot f) \wedge (\lnot g)) \vee \mathss{F} \right)
+    \Leftrightarrow \left( (\lnot f) \wedge (\lnot g) \right) .
 \stopformula
-Donc, si $(f \Rightarrow g) \wedge (\neg g)$ est vraie, alors $\neg f$ est vraie, donc $f$ est fausse.
+Donc, si $(f \Rightarrow g) \wedge (\lnot g)$ est vraie, alors $\lnot f$ est vraie, donc $f$ est fausse.
 
 \blank[medium]
 
@@ -609,23 +609,23 @@ Considérons les prédicats suivants :
 Alors, 
 \startitemize[nowhite]
   \item $P_6$ est équivalent à : $P_1 \Rightarrow P_4$.
-  \item $P_7$ est équivalent à : $P_5 \Rightarrow \neg P_4$.
+  \item $P_7$ est équivalent à : $P_5 \Rightarrow \lnot P_4$.
   \item $P_8$ est équivalent à : $P_3 \Rightarrow (P_1 \wedge P_2)$.
 \stopitemize
 
 Posons-nous la question : en admettant $P_6$, $P_7$ et $P_8$, peut-il y avoir un arc-en-ciel à minuit ? 
 Évidemment, non ! 
-En effet, la contraposée de $P_6$ est $\neg  P_4 \Rightarrow \neg P_1$. 
-Si $P_7$ et $P_6$ (et donc sa contraposée) sont vrais, alors $(P_5 \Rightarrow \neg P_4) \wedge (\neg  P_4 \Rightarrow \neg P_1)$ est vrai. 
-Puisque le connecteur $\Rightarrow$ est transitif, cela implique $P_5 \Rightarrow \neg P_1$. 
-Or, la contraposée de $P_8$ est $\neg (P_1 \wedge P_2) \Rightarrow \neg P_3$. 
+En effet, la contraposée de $P_6$ est $\lnot  P_4 \Rightarrow \lnot P_1$. 
+Si $P_7$ et $P_6$ (et donc sa contraposée) sont vrais, alors $(P_5 \Rightarrow \lnot P_4) \wedge (\lnot  P_4 \Rightarrow \lnot P_1)$ est vrai. 
+Puisque le connecteur $\Rightarrow$ est transitif, cela implique $P_5 \Rightarrow \lnot P_1$. 
+Or, la contraposée de $P_8$ est $\lnot (P_1 \wedge P_2) \Rightarrow \lnot P_3$. 
 Si $P_8$ est vrai, sa contraposée l'est aussi. 
-Si, de plus, $P_1$ est faux, alors $\neg (P_1 \wedge P_2)$ est vrai, et donc $\neg P_3$ est vrai. 
-Donc, si $P_8$ est vrai, $\neg P_1 \Rightarrow \neg P_3$. 
-En utilisant une dernière fois la transitivité du connecteur $\Rightarrow$, on obtient donc $P_5 \Rightarrow \neg P_1$ si $P_6$, $P_7$ et $P_8$ sont vrais. 
+Si, de plus, $P_1$ est faux, alors $\lnot (P_1 \wedge P_2)$ est vrai, et donc $\lnot P_3$ est vrai. 
+Donc, si $P_8$ est vrai, $\lnot P_1 \Rightarrow \lnot P_3$. 
+En utilisant une dernière fois la transitivité du connecteur $\Rightarrow$, on obtient donc $P_5 \Rightarrow \lnot P_1$ si $P_6$, $P_7$ et $P_8$ sont vrais. 
 Cela peut se récrire formellement : 
 \startformula
-    P_6 \wedge P_7 \wedge P_8 \Rightarrow (P_5 \Rightarrow \neg P_1). 
+    P_6 \wedge P_7 \wedge P_8 \Rightarrow (P_5 \Rightarrow \lnot P_1). 
 \stopformula
 
 \stopsubsection
@@ -650,7 +650,7 @@ Pour le préciser, considérons une théorie dont l'alphabet contient (au moins)
   \item Un symbole $x$ représentant une variable, ainsi qu'un symbole $\ast$ permettant de construire d'autres variables $x^\ast$, $x^{\ast\ast}$, $x^{\ast\ast\ast}$, ... Ces variables sont dites \emph{primaires}, et aussi appelées \emph{paramètres}.
   \item Un symbole « successeur » $S$ définissant une fonction d'une seule variable. 
   \item Deux opérations binaires $+$ (addition) et $\times$ (multiplication).
-  \item Les opérateurs logiques de conjonction $\wedge$, disjonction $\vee$ et négation $\neg$.
+  \item Les opérateurs logiques de conjonction $\wedge$, disjonction $\vee$ et négation $\lnot$.
   \item Les quantificateurs $\exists$ et $\forall$. 
   \item Deux relations binaires $=$ (égalité) et $<$.
   \item Les parenthèses $($ et $)$.
@@ -663,7 +663,7 @@ Les formules de la théorie sont des chaines (finies) de symboles, avec les règ
   \item Si $y$ désigne une variable, $S y$ est une variable, dite \emph{secondaire}.
   \item Si $y$ et $z$ sont chacune une constante ou une variable, alors $y = z$ et $y < z$ sont des formules.
   \item Si $f$ est une formule, alors $(f)$ en est une. 
-  \item Si $f$ est une formule, alors $\neg f$ en est une. 
+  \item Si $f$ est une formule, alors $\lnot f$ en est une. 
   \item Si $f$ et $g$ sont deux formules n'ayant aucune variable quantifiée en commun, alors $f \wedge g$ et $f \vee g$ en sont également. 
   \item Soit $f$ une formule et $v$ une variable primaire telle que ni $\forall v$ ni $\exists v$ n'apparaît dans $f$. 
     Alors $\forall v \, f$ et $\exists v \, f$ sont des formules.
@@ -676,7 +676,7 @@ On peut se limiter aux formules sans variable libre en remplaçant les règles c
   \item Si $y$ désigne une constante, $S y$ est une constante.
   \item Si $y$ et $z$ sont deux constantes, alors $y = z$ et $y < z$ sont des formules.
   \item Si $f$ est une formule, alors $(f)$ en est une. 
-  \item Si $f$ est une formule, alors $\neg f$ en est une. 
+  \item Si $f$ est une formule, alors $\lnot f$ en est une. 
   \item Si $f$ et $g$ sont deux formules, alors $f \wedge g$ et $f \vee g$ en sont également. 
   \item Soit $f$ une formule, $c$ une constante et $v$ une variable. 
       Soit $g$ la séquence de symboles obtenue en remplaçant $c$ par $v$ dans $f$.
@@ -697,7 +697,7 @@ Pour fixer les idées, on pourra considérer que l'on se place dans le cadre de 
 } 
 
 La théorie est dite \emph{cohérente} si aucune formule ne peut être montrée à la fois vraie et fausse. 
-Elle est dite \emph{ω-cohérente} si, pour toute formule $f$ et toute variable $n$, il est impossible de montrer $\exists n \, f$ si $\neg f$ est démontrable pour toute constante $n$. 
+Elle est dite \emph{ω-cohérente} si, pour toute formule $f$ et toute variable $n$, il est impossible de montrer $\exists n \, f$ si $\lnot f$ est démontrable pour toute constante $n$. 
 Notons que la seconde notion implique la première (en choisissant pour $n$ une variable n'apparaissant pas dans $f$, $\exists n \, f$ est équivalente à $f$).
 Dans la suite, on suppose la théorie ω-cohérente.
 
@@ -753,7 +753,7 @@ On définit la fonction $q$ de $\mathbb{N} \times \mathbb{N}$ vers $\lbrace 0, 1
     \footnote{En particulier, si $n$ est un nombre de Gödel associé à un prédicat $P$, $m$ est un nombre de Gödel associé à une formule $F$ à un paramètre libre et si $P$ ne démontre pas $F(\mathbf{G}(F))$, alors $q(n, m) = 1$.}
 \stopitemize
 Alors, pour toute formule $F$ à un paramètre libre, la formule $\forall y \, q(y, \mathbf{G}(F)) = 1$ est équivalente à : « il n'existe pas de preuve de $F(\mathbf{G}(F))$ ». 
-En effet, s'il existe un prédicat $P$ démontrant $F(\mathbf{G}(F))$, alors $q(\mathbf{G}(P), \mathbf{G}(F)) = 0$, donc $\exists y \, \neg (q(y, \mathbf{G}(F)) = 1)$ est vrai, donc $\forall y \, q(y, \mathbf{G}(F)) = 1$ est faux, et s'il n'en existe pas, alors, pour tout nombre $y$, soit $y$ encode un prédicat $P$ et $P$ ne peut montrer $F(\mathbf{G}(F))$, donc $q(y, \mathbf{G}(F)) = 1$, soit $y$ n'encode pas de formule, et donc $q(y, \mathbf{G}(F)) = 1$ également.
+En effet, s'il existe un prédicat $P$ démontrant $F(\mathbf{G}(F))$, alors $q(\mathbf{G}(P), \mathbf{G}(F)) = 0$, donc $\exists y \, \lnot (q(y, \mathbf{G}(F)) = 1)$ est vrai, donc $\forall y \, q(y, \mathbf{G}(F)) = 1$ est faux, et s'il n'en existe pas, alors, pour tout nombre $y$, soit $y$ encode un prédicat $P$ et $P$ ne peut montrer $F(\mathbf{G}(F))$, donc $q(y, \mathbf{G}(F)) = 1$, soit $y$ n'encode pas de formule, et donc $q(y, \mathbf{G}(F)) = 1$ également.
 
 Définissons le prédicat à un paramètre libre $P$ par : $P(x): \forall y \, q(y, x) = 1$. 
 Considérons maintenant le prédicat $Z$ défini par : $Z: P(\mathbf{G}(P))$. 
@@ -773,7 +773,7 @@ Montrons un peu plus formellement que $Z$ est démontrable si et seulement si il
   \item Supposons que $Z$ est faux.
     Alors, $P(\mathbf{G}(P))$ est faux.
     Donc, $\forall y \, q(y,\mathbf{G}(P)) = 1$ est faux.
-    Donc, $\exists y \, \neg (q(y,\mathbf{G}(P)) = 1)$ est vrai.
+    Donc, $\exists y \, \lnot (q(y,\mathbf{G}(P)) = 1)$ est vrai.
     Puisque, dans cette expression, $q(y,\mathbf{G}(P))$ ne peut prendre que les valeurs $0$ et $1$, on en déduit qu'il existe un entier $y$ tel que $q(y,\mathbf{G}(P)) = 0$\footnote{En effet, il existe un entier $y$ tel que $q(y,\mathbf{G}(P)) = 1$ est faux, et donc $q(y,\mathbf{G}(P)) = 0$ est vrai.}, et donc qu'il existe une formule $F$ telle que $y = \mathbf{G}(F)$ et $F$ prouve $P(\mathbf{G}(P))$, et donc $Z$. 
 \stopitemize
 

@@ -8,8 +8,8 @@ Une de ces relations est l'\emph{appartenance}, désignée par le symbole $\in$.
 Si $x$ et $y$ sont deux ensembles, alors $x \in y$ est une proposition bien formée (il s'agit d'un terme). 
 Si elle est vraie, on dira que \emph{$x$ est un \words{élément} de $y$}, que \emph{$x$ appartient à $y$}, que \emph{$x$ est dans $y$}, que \emph{$y$ contient $x$}, ou que \emph{$y$ possède $x$}.
 On définit aussi la relation $\ni$ par : $x \ni y$ est équivalente à $y \in x$. 
-On a donc : $\forall x \, \forall y \, (x \ni y) \Leftrightarrow (y \in x)$ et la relation $\notin$ par $\forall x \, \forall y \, (x \notin y) \Leftrightarrow \neg (x \in y)$. 
-Pour l'évaluation d'une formule, les relations $\in$ et $\ni$ sont (comme toute autre relation binaire) prioritaires par rapport à l'égalité, mais pas par rapport à $\neg$.
+On a donc : $\forall x \, \forall y \, (x \ni y) \Leftrightarrow (y \in x)$ et la relation $\notin$ par $\forall x \, \forall y \, (x \notin y) \Leftrightarrow \lnot (x \in y)$. 
+Pour l'évaluation d'une formule, les relations $\in$ et $\ni$ sont (comme toute autre relation binaire) prioritaires par rapport à l'égalité, mais pas par rapport à $\lnot$.
 
 On définit la relation d'\words{inclusion} $\symbols{\subset}$ par : $a \subset b$ est équivalent à $\forall x \, (x \in a) \Rightarrow (x \in b)$, autrement dit,
 \startformula
@@ -56,7 +56,7 @@ La théorie Z comporte six axiomes (l'axiome d'extensionnalité et les cinq axi
 \stopformula
 La réciproque est une conséquence directe des propriétés de l'égalité en logique du premier ordre.%
 \footnote{ En effet, soit deux ensembles $a$ et $b$ tels que $a = b$, et soit $x$ un ensemble, et $P$ le prédicat à un paramètre libre définit par $P y: x \in y$, puisque $a = b$, on doit avoir $P(a) \Leftrightarrow P(b)$, et donc $(x \in a) \Leftrightarrow (x \in b)$.}
-On définit la relation $\neq$ par : $\forall a \, \forall b \, (a \neq b) \Leftrightarrow \neg (a = b)$.
+On définit la relation $\neq$ par : $\forall a \, \forall b \, (a \neq b) \Leftrightarrow \lnot (a = b)$.
 
 \blank[medium]
 
@@ -306,7 +306,7 @@ Notons que, puisque $\forall x \, x \notin \emptyset$ est vraie, $\exists x \, x
 
 \noindent\bold{Démonstration bis :} 
     On veut montrer que le prédicat $P: \forall x \, \forall e \, (e \in \emptyset \Rightarrow e \in x)$ est vrai. 
-    $P$ est équivalent à : $\forall x \, \forall e \, ((e \in x) \vee \neg (e \in \emptyset))$, c'est-à-dire, à : $\forall x \, \forall e \, ((e \in x) \vee (e \notin \emptyset))$.
+    $P$ est équivalent à : $\forall x \, \forall e \, ((e \in x) \vee \lnot (e \in \emptyset))$, c'est-à-dire, à : $\forall x \, \forall e \, ((e \in x) \vee (e \notin \emptyset))$.
     Puisque $\forall e \, e \notin \emptyset$ est vrai, $e \notin \emptyset$ est équivalent à $\mathss{V}$, donc $\forall e \, ((e \in x) \vee (e \notin \emptyset))$ est équivalent à $\forall e \, ((e \in x) \vee \mathss{V})$, donc à $\forall e \, \mathss{V}$, et donc à $\mathss{V}$.
     Donc, $P$ est vrai. 
 
@@ -327,11 +327,11 @@ Notons que, puisque $\forall x \, x \notin \emptyset$ est vraie, $\exists x \, x
 
 \noindent\bold{Démonstration bis :} 
     On veux montrer le prédicat $P: \forall x \, (x \subset \emptyset) \Rightarrow (x = \emptyset)$.
-    Il est équivalent à : $\forall x \, (x \subset \emptyset) \Rightarrow ((x \subset \emptyset) \wedge (\emptyset \subset x))$, donc à $\forall x \, \neg (x \subset \emptyset) \vee ((x \subset \emptyset) \wedge (\emptyset \subset x))$, donc à $\forall x \, (\neg (x \subset \emptyset) \vee (x \subset \emptyset)) \wedge (\neg (x \subset \emptyset) \vee (\emptyset \subset x))$.
-    Puisque $\neg (x \subset \emptyset) \vee (x \subset \emptyset)$ est toujours vrai (soit $f$ la formule $x \subset \emptyset$, il s'agit de $\neg f \vee f$, qui est vrai que $f$ soit vraie ou fausse), $P$ est équivalent à $\forall x \, (\neg (x \subset \emptyset) \vee (\emptyset \subset x))$.
+    Il est équivalent à : $\forall x \, (x \subset \emptyset) \Rightarrow ((x \subset \emptyset) \wedge (\emptyset \subset x))$, donc à $\forall x \, \lnot (x \subset \emptyset) \vee ((x \subset \emptyset) \wedge (\emptyset \subset x))$, donc à $\forall x \, (\lnot (x \subset \emptyset) \vee (x \subset \emptyset)) \wedge (\lnot (x \subset \emptyset) \vee (\emptyset \subset x))$.
+    Puisque $\lnot (x \subset \emptyset) \vee (x \subset \emptyset)$ est toujours vrai (soit $f$ la formule $x \subset \emptyset$, il s'agit de $\lnot f \vee f$, qui est vrai que $f$ soit vraie ou fausse), $P$ est équivalent à $\forall x \, (\lnot (x \subset \emptyset) \vee (\emptyset \subset x))$.
     On a vu que $\forall x \, \emptyset \subset x$ est vrai.
     Donc, $\emptyset \subset x$ est équivalente à $\mathss{V}$.
-    Donc, $P$ est équivalente à $\forall x \, (\neg (x \subset \emptyset) \vee \mathss{V})$, donc à $\forall x \, \mathss{V}$, et donc à $\mathss{V}$.
+    Donc, $P$ est équivalente à $\forall x \, (\lnot (x \subset \emptyset) \vee \mathss{V})$, donc à $\forall x \, \mathss{V}$, et donc à $\mathss{V}$.
     Donc, $P$ est vrai.
 
     \done
@@ -384,7 +384,7 @@ Le schéma d'axiomes de compréhension peut ainsi être reformulé de la manièr
     Le prédicat $x \in A \cup B$ est équivalent à $(x \in A) \vee (x \in B)$.
     Le prédicat $x \in (A \setminus B) \cup B$ est équivalent à $(x \in A \setminus B) \vee (x \in B)$, et donc à $((x \in A) \wedge (x \notin B)) \vee (x \in B)$.
     Ce dernier est équivalent à $((x \in A) \vee (x \in B)) \wedge ((x \notin B) \vee (x \in B))$.
-    Pour toute formule $f$, $(\neg f) \vee f$ est vrai que $f$ soit vraie ou fausse, donc équivalent à $\mathss{V}$.
+    Pour toute formule $f$, $(\lnot f) \vee f$ est vrai que $f$ soit vraie ou fausse, donc équivalent à $\mathss{V}$.
     Donc, $x \in (A \setminus B) \cup B$ est équivalent à $((x \in A) \vee (x \in B)) \wedge \mathss{V}$, donc à $(x \in A) \vee (x \in B)$, et donc à $x \in A \cup B$.
     Donc, $(x \in A \cup B) \Leftrightarrow (x \in (A \setminus B) \cup B)$ est équivalent à $(x \in A \cup B) \Leftrightarrow (x \in A \cup B)$.
     Pour toute formule $f$, $f \Leftrightarrow f$ est vrai que $f$ soit vraie ou fausse, et donc équivalent à $\mathss{V}$.
@@ -420,7 +420,7 @@ Le schéma d'axiomes de compréhension peut ainsi être reformulé de la manièr
     
     Le prédicat $x \in A \cup B$ est équivalent à $(x \in A) \vee (x \in B)$.
     Puisque, pour tout prédicat $P$, $P \wedge \mathss{V}$ est équivalent à $P$, $x \in A \cup B$ est équivalent à $((x \in A) \vee (x \in B)) \wedge ((x \in A) \vee (x \notin B))$, et donc à $(x \in A) \vee ((x \in B) \wedge (x \notin B))$.
-    Puisque, pour tout prédicat $P$, $P \wedge \neg P$ est équivalent à $\mathss{F}$, cela est équivalent à $(x \in A) \vee \mathss{F}$, et donc à $x \in A$.
+    Puisque, pour tout prédicat $P$, $P \wedge \lnot P$ est équivalent à $\mathss{F}$, cela est équivalent à $(x \in A) \vee \mathss{F}$, et donc à $x \in A$.
     Donc, $x \in A \cup B$ est équivalent à $x \in A$.
     Donc, $\forall x \, x \in A \cup B \Leftrightarrow x \in A$ est vrai.
     Donc, $A \cup B = A$.
@@ -989,11 +989,11 @@ Un ensemble muni d'une relation d'ordre total est dit \emph{totalement ordonné}
         Puisque $\leq$ est une relation d'ordre total, $e \leq f \vee f \leq e$ est vrai.
         Puisque $e$ est l'élément minimal de $E$ pour $\leq$, $f \leq e \Rightarrow f = e$ est vrai. 
         \emph{(Ici, on pourrait directement conclure que, puisque $f \leq e$ implique $f = e$ et donc $e \leq f$, la première formule est équivalente à $e \leq f$. Dans la suite, nous montrons cela plus formellement \emph{via} le calcul des prédicats.)}
-        Cette dernière formule peut se récrire en : $f = e \vee \neg (f \leq e)$.
-        La conjonction de ces deux prédicats donne : $(e \leq f \vee f \leq e) \wedge (f = e \vee \neg (f \leq e))$.
-        En développant cette formule, il vient : $(e \leq f \wedge f = e) \vee (e \leq f \wedge \neg (f \leq e)) \vee (f \leq e \wedge f = e) \vee (f \leq e \wedge \neg (f \leq e))$.
-        Cette formule peut être simplifiée en : $(f = e) \vee (e \leq f \wedge \neg (f \leq e)) \vee (f = e) \vee \mathss{F}$, 
-        ou en $(f = e) \vee (e \leq f \wedge \neg (f \neq e))$.
+        Cette dernière formule peut se récrire en : $f = e \vee \lnot (f \leq e)$.
+        La conjonction de ces deux prédicats donne : $(e \leq f \vee f \leq e) \wedge (f = e \vee \lnot (f \leq e))$.
+        En développant cette formule, il vient : $(e \leq f \wedge f = e) \vee (e \leq f \wedge \lnot (f \leq e)) \vee (f \leq e \wedge f = e) \vee (f \leq e \wedge \lnot (f \leq e))$.
+        Cette formule peut être simplifiée en : $(f = e) \vee (e \leq f \wedge \lnot (f \leq e)) \vee (f = e) \vee \mathss{F}$, 
+        ou en $(f = e) \vee (e \leq f \wedge \lnot (f \neq e))$.
         Cette formule ne peut être vraie que si $e \leq f$ (sans quoi $f = e$ et $e \leq f$ seraient fausses).
         Donc, $e \leq f$.
         Nous avons donc montré que $\forall f \in E \, e \leq f$ est vrai.
@@ -1034,7 +1034,7 @@ On dit alors que cet élément est une \emph{borne supérieure} de $F$ (dans $E$
 On dit que $F$ est \emph{borné inférieurement} (dans $E$ et pour la relation $\leq$) s'il existe un élément $m$ de $E$ tel que : $\forall e \, (e \in F) \Rightarrow (m \leq e)$.
 On dit alors que cet élément est une \emph{borne inférieure} de $F$ (dans $E$ et pour la relation $\leq$).
  
-Une relation binaire $<$ antisymétrique, transitive et telle que $\forall x \, x \in E \Rightarrow \neg (x < x)$ (antireflexivité) est dite \emph{relation d'ordre strict}. 
+Une relation binaire $<$ antisymétrique, transitive et telle que $\forall x \, x \in E \Rightarrow \lnot (x < x)$ (antireflexivité) est dite \emph{relation d'ordre strict}. 
 (cette dernière propriété et l'antisymétrie impliquent qu'il n'existe pas d'éléments $x$ et $y$ de $E$ tels que $(x < y) \wedge (y < x)$.)
 Si $\leq$ est une relation d'ordre sur un ensemble $E$, alors la relation $<$ définie par : pour tout éléments $a$ et $b$ de $E$, $a < b \Leftrightarrow (a \leq b) \wedge (a \neq b)$ est une relation d'ordre strict.
 En effet, 
@@ -1190,7 +1190,7 @@ En effet, on a $a \leq c$ par transitivité de la relation $\leq$ et $a \neq c$ 
 \blank[medium]
 
 \noindent\bold{Lemme :} Soit $E$ un ensemble et $\leq$ une relation d'ordre total définie sur $E$. 
-    Alors la relation $>$ définie sur $E$ par : pour tous éléments $x$ et $y$ de $E$, $a > b \Leftrightarrow \neg (a \leq b)$ est une relation d'ordre strict. 
+    Alors la relation $>$ définie sur $E$ par : pour tous éléments $x$ et $y$ de $E$, $a > b \Leftrightarrow \lnot (a \leq b)$ est une relation d'ordre strict. 
 
 \blank[medium]
 
@@ -1199,10 +1199,10 @@ En effet, on a $a \leq c$ par transitivité de la relation $\leq$ et $a \neq c$ 
     \item \emph{Antiréflexivité :} Soit $x$ un élément de $E$. 
         La formule $x \leq x$ est vraie, donc $x > x$ est fausse. 
     \item \emph{Antisymétrie :} Soit $x$ et $y$ deux éléments de $E$ tels que $x > y$ et $y > x$. 
-        Alors, $\neg (x \leq y)$ et $\neg (y \leq x)$. 
+        Alors, $\lnot (x \leq y)$ et $\lnot (y \leq x)$. 
         Puisque $\leq$ est une relation d'ordre total, cela implique $y \leq x$ et $x \leq y$, et donc $x = y$.
     \item \emph{Transitivité :} Soit $x$, $y$ et $z$ trois éléments de $E$ tels que $x > y$ et $y > z$. 
-        On a $\neg (x \leq y)$ et $\neg (y \leq z)$. 
+        On a $\lnot (x \leq y)$ et $\lnot (y \leq z)$. 
         Puisque $\leq$ est une relation d'ordre total, cela implique $y \leq x$ et $z \leq y$, et donc $z \leq x$. 
         Par ailleurs, $z$ ne peut pas être égal à $x$ car on aurait alors $y \leq x$ et $x \leq y$, d'où $y = x$, ce qui est incompatible avec $x > y$. 
         Donc, $x \leq z$ est fausse, et donc $x > z$.
@@ -1213,7 +1213,7 @@ En effet, on a $a \leq c$ par transitivité de la relation $\leq$ et $a \neq c$ 
 \blank[medium]
 
 \noindent\bold{Lemme :} Soit $E$ un ensemble et $<$ une relation d'ordre strict définie sur $E$, telle que : $\forall x \in E \, \forall y \in E (x < y) \vee (y < x) \vee (x = y)$. 
-    Alors la relation $\geq$ définie sur $E$ par : pour tous éléments $x$ et $y$ de $E$, $a \geq b \Leftrightarrow \neg (a < b)$ est une relation d'ordre total. 
+    Alors la relation $\geq$ définie sur $E$ par : pour tous éléments $x$ et $y$ de $E$, $a \geq b \Leftrightarrow \lnot (a < b)$ est une relation d'ordre total. 
 
 \blank[medium]
 
@@ -1222,10 +1222,10 @@ En effet, on a $a \leq c$ par transitivité de la relation $\leq$ et $a \neq c$ 
     \item \emph{Réflexivité :} Soit $x$ un élément de $E$. 
         La formule $x < x$ est fausse, donc $x \geq x$ est vraie. 
     \item \emph{Antisymétrie :} Soit $x$ et $y$ deux éléments de $E$ tels que $x \geq y$ et $y \geq x$. 
-        Alors, $\neg (x < y)$ et $\neg (y < x)$. 
+        Alors, $\lnot (x < y)$ et $\lnot (y < x)$. 
         Donc, $x = y$.
     \item \emph{Transitivité :} Soit $x$, $y$ et $z$ trois éléments de $E$ tels que $x \geq y$ et $y \geq z$. 
-        On a $\neg (x < y)$ et $\neg (y < z)$. 
+        On a $\lnot (x < y)$ et $\lnot (y < z)$. 
         Donc, $(y < x) \vee (x = y)$ et $(z < y) \vee (y = z)$. 
         Si $x = y$, alors $y \leq z$ implique $x \leq z$.
         Si $y = z$, alors $x \leq y$ implique $x \leq y$.
@@ -1317,7 +1317,7 @@ En effet, on a $a \leq c$ par transitivité de la relation $\leq$ et $a \neq c$ 
     Supposons par l'absurde que ce n'est pas le cas. 
     Soit $S$ l'ensemble défini par : 
     \startformula
-        S = \left\lbrace x \in E \middle \vert \neg P(x) \right\rbrace.
+        S = \left\lbrace x \in E \middle \vert \lnot P(x) \right\rbrace.
     \stopformula
     Alors, $S$ est un sous-ensemble de $E$ (par construction) et non vide (par hypothèse).
     Il admet donc un plus petit élément, noté $n$.
@@ -1326,7 +1326,7 @@ En effet, on a $a \leq c$ par transitivité de la relation $\leq$ et $a \neq c$ 
     Mais, pour tout élément $y$ de $E$, si $x < n$, alors $x \notin S$ (puisaue $n$ est un élément minimal de $S$), donc $P(x)$ est vrai.
     Donc, $\forall y \in E \, y < n \Rightarrow P(y)$ est vrai.
     Donc, $P(n)$ est vrai.
-    On obtient donc une contradiction ($\neg P(n) \wedge P(n)$), montrant que l'hypothèse de départ est fausse.
+    On obtient donc une contradiction ($\lnot P(n) \wedge P(n)$), montrant que l'hypothèse de départ est fausse.
 
     \done
 

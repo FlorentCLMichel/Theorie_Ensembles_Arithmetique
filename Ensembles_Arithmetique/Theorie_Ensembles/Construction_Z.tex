@@ -67,7 +67,7 @@ Les définitions données dans la suite de cette section sont compatibles avec c
 
 \blank[medium]
 
-Notons que, pour tous entiers $a$ et $b$, $a > b$ est équivalent à $\neg (a \leq b)$ et $a < b$ est équivalent à $a \geq b$.
+Notons que, pour tous entiers $a$ et $b$, $a > b$ est équivalent à $\lnot (a \leq b)$ et $a < b$ est équivalent à $a \geq b$.
 
 \blank[medium]
 
@@ -132,9 +132,9 @@ Notons que, pour tous entiers $a$ et $b$, $a > b$ est équivalent à $\neg (a \l
         \item Si $\ep = 0$ et $\eta = 1$, on a $b \leq a$.
         \item Si $\ep = 1$ et $\eta = 0$, on a $a \leq b$.
         \item Si $\ep = 0$, $\eta = 0$ et $n \leq m$, on a $a \leq b$.
-        \item Si $\ep = 0$, $\eta = 0$ et $\neg (n \leq m)$, on a $n > m$, donc $m \leq n$, et donc $b \leq a$.
+        \item Si $\ep = 0$, $\eta = 0$ et $\lnot (n \leq m)$, on a $n > m$, donc $m \leq n$, et donc $b \leq a$.
         \item Si $\ep = 1$, $\eta = 1$ et $n \leq m$, on a $b \leq a$.
-        \item Si $\ep = 1$, $\eta = 1$ et $\neg (n \leq m)$, on a $n > m$, donc $m \leq n$, et donc $a \leq b$.
+        \item Si $\ep = 1$, $\eta = 1$ et $\lnot (n \leq m)$, on a $n > m$, donc $m \leq n$, et donc $a \leq b$.
     \stopitemize
     Dans tous les cas, on a donc $(a \leq b) \vee (b \leq a)$.
 
