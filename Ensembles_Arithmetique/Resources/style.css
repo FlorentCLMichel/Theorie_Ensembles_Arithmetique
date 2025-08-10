@@ -23,6 +23,28 @@ div.listcontent {
     color: blue;
 }
 
+highlight[detail="bold"],
+div.highlight.bold {
+    display      : inline ;
+    font-style   : bold ;
+    font-variant : bold ;
+    font-weight  : 800 ;
+    font-family  : "XITS", TextBold ;
+    color        : rgb(0%,0%,0%) ;
+    zoom         : 1.100 ;
+}
+
+highlight[detail="emph"],
+div.highlight.emph {
+    display      : inline ;
+    font-style   : italic ;
+    font-variant : italic ;
+    font-weight  : normal ;
+    font-family  : "XITS", TextItalic ;
+    color        : rgb(0%,0%,0%) ;
+    zoom         : 1.100 ;
+}
+
 math {
     font-family : "XITS Math", MathNormal ;
     font-style  : normal ;
