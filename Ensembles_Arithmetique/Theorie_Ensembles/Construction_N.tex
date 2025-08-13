@@ -66,7 +66,7 @@ On notera souvent $0$ l'ensemble $\emptyset$.
 Pour tout élément $n$ de $\mathbb{N}$, on notera $n+1$ l'ensemble $n \cup \lbrace n \rbrace$, appelé \emph{\words{successeur}} de $n$. 
 Cela définit une application $\mathrm{Suc}$ de $\mathbb{N}$ vers lui-même, qui à un élément $n$ associe $n+1$. 
 Notons que, pour tout entier naturel $n$, on a $n \subset n+1$.
-Les premiers entiers sont notés de la manière suivante en base $10$ (voir \in{section}{}[sub:base] pour une définition générale de la base) : 
+Les premiers entiers sont notés de la manière suivante en base $10$ (voir \in{section}{}[sec:base] pour une définition générale de la base) : 
 
 \startplacetable[location=force,number=no]
   \starttabulate[|c|c|][rulethickness=0.8pt,distance={0pt,0pt}]
@@ -143,7 +143,7 @@ On définit la relation d'ordre strict $<$ par pour tous éléments $n$ et $m$ d
 \startformula
   n < m \Leftrightarrow (n \leq m \wedge m \neq n).
 \stopformula
-Notons que, pour tout élément $n$ de $\mathbb{N}$, $0 \leq n$ (puisque l'ensemble vide est un sous-ensemble de tout ensemble) et $n < n+1$ (en effet, on a $n \subset n+1$, donc $n \leq n+1$, et $n \neq n+1$ ; nous démontrerons ce point dans la \in{section}{}[sec:relOrdreProps]—pour le moment, nous avons seulement montré que $n \leq n+1$). 
+Notons que, pour tout élément $n$ de $\mathbb{N}$, $0 \leq n$ (puisque l'ensemble vide est un sous-ensemble de tout ensemble) et $n < n+1$ (en effet, on a $n \subset n+1$, donc $n \leq n+1$, et $n \neq n+1$ ; nous démontrerons ce point dans la \in{section}{}[sub:relOrdreProps]—pour le moment, nous avons seulement montré que $n \leq n+1$). 
 Par antisymétrie, le premier point implique que le seul élément $n$ de $\mathbb{N}$ satisfaisant $n \leq 0$ est $0$ lui-même.
 
 On définit aussi la relation d'ordre $\geq$ et la relation d'ordre strict $>$ sur $\mathbb{N}$ par : pour tous éléments $n$ et $m$ de $\mathbb{N}$, $n \geq m \Leftrightarrow m \leq n$ et $n > m \Leftrightarrow m < n$.
@@ -2160,7 +2160,7 @@ La puissance est prioritaire sur $\circ$.
 
 Soit $E$ un ensemble et $n$ un entier naturel. 
 On note $E^n$ l'ensemble des fonctions de $n$ vers $E$. 
-(Notons que cela est cohérent avec les notations définies \in{section}{}[sec:fonctions])
+(Notons que cela est cohérent avec les notations définies \in{section}{}[sub:fonctions])
 Soit $n$ éléments de $E$ notés $e_0$, $e_1$, ..., $e_{n-1}$. 
 On note (quand il n'y a pas d'ambiguité avec d'autres notations) $\left( e_0, e_1, \dots e_{n-1} \right)$ la fonction $f$ de $n$ vers $E$ telle que $f(0) = e_0$, $f(1) = e_1$, ..., $f(n-1) = e_{n-1}$. 
 Quand il n'y a pas d'ambiguité, si $f$ est une fonction de $n$ vers $E^{n}$ et $i$ un élément de $[\![1,n]\!]$, on note parfois $f_i$ l'élément $f(i-1)$ de $E$.
