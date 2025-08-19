@@ -1,31 +1,33 @@
 \startmode[export] 
-\setupbackend[export=yes,hyphen=yes]
-\setupexport[
-    cssfile=Ensembles_Arithmetique/Resources/style.css,
-    width=55em, 
-    firstpage=Ensembles_Arithmetique/Resources/firstpage.png, 
-    author={Florent Michel}]
-\definereferenceformat[Content][left=,right=,type=title]
-\define[2]\startchapterRef{\startchapter[title=#1,reference=#2,list=\Content[#2]]}
-\define\startimageifexport\startimage
-\define\stopimageifexport\stopimage
-\define[1]\imagebuffer{
-  \startimage
-    \getbuffer[#1]
-  \stopimage}
-  \define\bimage{\starttextdisplay\startimage}
-  \define\eimage{\stopimage\stoptextdisplay}
+  \setupbackend[export=yes,hyphen=yes]
+  \setupexport[
+      cssfile=Ensembles_Arithmetique/Resources/style.css,
+      width=55em, 
+      firstpage=Ensembles_Arithmetique/Resources/firstpage.png, 
+      author={Florent Michel}]
+  \definereferenceformat[Content][left=,right=,type=title]
+  \define[2]\startchapterRef{\startchapter[title=#1,reference=#2,list=\Content[#2]]}
+  \define\startimageifexport\startimage
+  \define\stopimageifexport\stopimage
+  \define[1]\imagebuffer{
+    \startimage
+      \getbuffer[#1]
+    \stopimage}
+    \define\bimage{\starttextdisplay\startimage}
+    \define\eimage{\stopimage\stoptextdisplay}
+  %\define\startformula{\par$$}
+  %\define\stopformula{$$\par}
 \stopmode
 \startnotmode[export] 
-\define[2]\startchapterRef{\startchapter[title=#1,reference=#2]}
-\define\startimageifexport{}
-\define\stopimageifexport{}
-\define[1]\imagebuffer{
-  \startimage
-    \typesetbuffer[#1]
-  \stopimage}
-  \define\bimage{\startimage}
-  \define\eimage{\stopimage}
+  \define[2]\startchapterRef{\startchapter[title=#1,reference=#2]}
+  \define\startimageifexport{}
+  \define\stopimageifexport{}
+  \define[1]\imagebuffer{
+    \startimage
+      \typesetbuffer[#1]
+    \stopimage}
+    \define\bimage{\startimage}
+    \define\eimage{\stopimage}
 \stopnotmode
 
 % Variables

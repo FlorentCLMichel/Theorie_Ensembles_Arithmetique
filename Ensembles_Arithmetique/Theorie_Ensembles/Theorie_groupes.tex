@@ -2,9 +2,14 @@
 
 Dans cette section, nous donnons quelques concepts de base de théorie des groupes. 
 
+Soit $E$, $F$ et $G$ trois ensembles et $\star$ un symbole, on dira qur $\star$ est une \emph{\words{opération}} ou \emph{\words{loi de compsition}} de $E \times F$ vers $G$ s'il existe une fonction $\lambda$ de $E \times F$ vers $G$ telle que, pour tous éléments $e$ de $E$ et $f$ de $F$, $e \star f$ désigne $\lambda(e, f)$. 
+(On peut voir une opération comme une notation abrégée pour désigner une fonction.)
+
+Avec les mêmes notations, on parlera simplemement d'opération de $E$ vers $F$ pour désigner une opération de $E \times E$ vers $F$.
+
 \startsubsection[title=Définitions]
 
-\noindent\bold{Définition (\words{Magma}) :} Un \emph{\words{magma}} $\mathcal{M}$ est un couple formé par un ensemble $M$ et une \emph{loi de composition interne} $\cdot$ sur $M$ (parfois appelée \emph{opération}), c'est-à-dire une fonction de $M \times M$ vers $M$. 
+\noindent\bold{Définition (\words{Magma}) :} Un \emph{\words{magma}} $\mathcal{M}$ est un couple formé par un ensemble $M$ et une \emph{loi de composition interne} $\cdot$ sur $M$, c'est-à-dire une fonction de $M \times M$ vers $M$. 
     Si $a$ et $b$ sont deux éléments de $M$, on note $a \cdot b$ l'image de $(a,b)$ par $\cdot$.
 
 \blank[medium]
@@ -530,6 +535,27 @@ Dans les deux cas, on a bien $(a \cdot b)^n = a^n \cdot b^n$.
 
     \done
 
+\blank[medium]
+
+\noindent\bold{Définition (\words{Action} d'un groupe) :} Soit $(G, \cdot)$ un groupe, $e$ son élément neutre, et $E$ un ensemble.
+    Une opération $\star$ de $G \times E$ vers $E$ est dite \emph{action de $(G, \cdot)$ sur $F$} si les deux propriété suivantes sont satisfaites :
+    \startitemize[nowhite]
+        \item $\forall x \in E \, e \star x = x$,
+        \item $\forall (g, g') \in G^2 \, \forall x \in E \, g' \star (g \star x) = (g' \cdot g) \star x$.
+    \stopitemize
+
+\blank[medium]
+
+\noindent
+Deux examples importants d'actions d'un groupe $(G, \cdot)$ sur lui-même sont la \emph{\words{translation} à gauche} $\mathss{trans}: (g, x) \mapsto g \cdot x$ et la \emph{\words{conjugaison}} $\mathss{cong}: (g, x) \mapsto g \cdot (x \cdot g^{-1})$, où $g^{-1}$ désigne l'inverse de $g$. 
+Montrons qu'il s'agit bien d'actions : 
+\startitemize
+    \item Soit $e$ l'élément neutre de $(G, \cdot)$. 
+        Pout tout élément $x$ de $G$, on a : $\mathss{trans}(e, x) = e \cdot x = x$ et $\mathss{conj}(e, x) = e \cdot (x \cdot e^{-1}) = e \cdot (x \cdot e) = e \cdot x = x$.
+    \item Soit $g$, $g'$ et $x$ trois éléments de $G$. 
+        Alors, $\mathss{trans}(g', \mathss{trans}(g,x)) = g' \cdot (g \cdot x) = (g' \cdot g) \cdot x = \mathss{trans}(g' \cdot g, x)$ et $\mathss{conj}(g', \mathss{conj}(g,x)) = g' \cdot ((g \cdot (x \cdot g^{-1})) \cdot g'^{-1}) = (g' \cdot g) \cdot (x (\cdot g^{-1} \cdot g'^{-1})) = (g' \cdot g) \cdot (x \cdot (g' \cdot g)^{-1}) = \mathss{conj}(g' \cdot g, x)$.
+\stopitemize
+
 \stopsubsection
 
 \startsubsection[title=Quelques résultats]
@@ -545,9 +571,9 @@ Dans les deux cas, on a bien $(a \cdot b)^n = a^n \cdot b^n$.
 \noindent\bold{Démonstration :} Nous avons déjà démontré tous les éléments nécessaires. 
     En effet, 
     \startitemize[nowhite]
-        \item Les operations $+$ et $\times$ sont des lois de compositions internes sur $\mathbb{N}$ et $\mathbb{Z}$, donc $(\mathbb{N},+)$, $(\mathbb{N},\times)$, $(\mathbb{Z},+)$ et $(\mathbb{Z},\times)$ sont des magmas.
-        \item Les operations $+$ et $\times$ sont associatives et admettent chacune un élément neutre ($0$ pour la première et $1$ pour la seconde) dans $\mathbb{N}$ et $\mathbb{Z}$, donc $(\mathbb{N},+)$, $(\mathbb{N},\times)$, $(\mathbb{Z},+)$ et $(\mathbb{Z},\times)$ sont des monoïdes.
-        \item Les operations $+$ et $\times$ sont commutatives, donc $(\mathbb{N},+)$, $(\mathbb{N},\times)$, $(\mathbb{Z},+)$ et $(\mathbb{Z},\times)$ sont des monoïdes abéliens.
+        \item Les opérations $+$ et $\times$ sont des lois de compositions internes sur $\mathbb{N}$ et $\mathbb{Z}$, donc $(\mathbb{N},+)$, $(\mathbb{N},\times)$, $(\mathbb{Z},+)$ et $(\mathbb{Z},\times)$ sont des magmas.
+        \item Les opérations $+$ et $\times$ sont associatives et admettent chacune un élément neutre ($0$ pour la première et $1$ pour la seconde) dans $\mathbb{N}$ et $\mathbb{Z}$, donc $(\mathbb{N},+)$, $(\mathbb{N},\times)$, $(\mathbb{Z},+)$ et $(\mathbb{Z},\times)$ sont des monoïdes.
+        \item Les opérations $+$ et $\times$ sont commutatives, donc $(\mathbb{N},+)$, $(\mathbb{N},\times)$, $(\mathbb{Z},+)$ et $(\mathbb{Z},\times)$ sont des monoïdes abéliens.
         \item Pour tout élément $z$ de $\mathbb{Z}$, on a $z + (-z) = (-z) + z = 0$, donc $-z$ est un inverse de $z$ pour $+$. 
             $(\mathbb{Z},+)$ est donc un groupe abélien.
     \stopitemize
