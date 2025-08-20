@@ -538,30 +538,30 @@ Dans les deux cas, on a bien $(a \cdot b)^n = a^n \cdot b^n$.
 \blank[medium]
 
 \noindent\bold{Définition (\words{Action} d'un groupe) :} Soit $(G, \cdot)$ un groupe, $e$ son élément neutre, et $E$ un ensemble.
-    Une opération $\star$ de $G \times E$ vers $E$ est dite \emph{action de $(G, \cdot)$ sur $F$} si les deux propriété suivantes sont satisfaites :
+    Une opération $\star$ de $G \times E$ vers $E$ est dite \emph{action de $(G, \cdot)$ sur $E$} si les deux propriété suivantes sont satisfaites :
     \startitemize[nowhite]
         \item $\forall x \in E \, e \star x = x$,
-        \item $\forall (g, g') \in G^2 \, \forall x \in E \, g' \star (g \star x) = (g' \cdot g) \star x$.
+        \item $\forall (g, g\p) \in G^2 \, \forall x \in E \, g\p \star (g \star x) = (g\p \cdot g) \star x$.
     \stopitemize
 
 \blank[medium]
 
 \noindent
-Deux examples importants d'actions d'un groupe $(G, \cdot)$ sur lui-même sont la \emph{\words{translation} à gauche} $\mathss{trans}: (g, x) \mapsto g \cdot x$ et la \emph{\words{conjugaison}} $\mathss{cong}: (g, x) \mapsto g \cdot (x \cdot g^{-1})$, où $g^{-1}$ désigne l'inverse de $g$. 
+Deux examples importants d'actions d'un groupe $(G, \cdot)$ sur son premie élément $G$ sont la \emph{\words{translation} à gauche} $\mathss{trans}: (g, x) \mapsto g \cdot x$ et la \emph{\words{conjugaison}} $\mathss{cong}: (g, x) \mapsto g \cdot (x \cdot g^{-1})$, où $g^{-1}$ désigne l'inverse de $g$. 
 Montrons qu'il s'agit bien d'actions : 
 \startitemize
     \item Soit $e$ l'élément neutre de $(G, \cdot)$. 
-        Pout tout élément $x$ de $G$, on a : $\mathss{trans}(e, x) = e \cdot x = x$ et $\mathss{conj}(e, x) = e \cdot (x \cdot e^{-1}) = e \cdot (x \cdot e) = e \cdot x = x$.
-    \item Soit $g$, $g'$ et $x$ trois éléments de $G$. 
-        Alors, $\mathss{trans}(g', \mathss{trans}(g,x)) = g' \cdot (g \cdot x) = (g' \cdot g) \cdot x = \mathss{trans}(g' \cdot g, x)$ et $\mathss{conj}(g', \mathss{conj}(g,x)) = g' \cdot ((g \cdot (x \cdot g^{-1})) \cdot g^{\prime -1}) = (g' \cdot g) \cdot (x \cdot (g^{-1} \cdot g^{\prime -1})) = (g' \cdot g) \cdot (x \cdot (g' \cdot g)^{-1}) = \mathss{conj}(g' \cdot g, x)$.
+        Pour tout élément $x$ de $G$, on a : $\mathss{trans}(e, x) = e \cdot x = x$ et $\mathss{conj}(e, x) = e \cdot (x \cdot e^{-1}) = e \cdot (x \cdot e) = e \cdot x = x$.
+    \item Soit $g$, $g\p$ et $x$ trois éléments de $G$. 
+        Alors, $\mathss{trans}(g\p, \mathss{trans}(g,x)) = g\p \cdot (g \cdot x) = (g\p \cdot g) \cdot x = \mathss{trans}(g\p \cdot g, x)$ et $\mathss{conj}(g\p, \mathss{conj}(g,x)) = g\p \cdot ((g \cdot (x \cdot g^{-1})) \cdot g\p^{-1}) = (g\p \cdot g) \cdot (x \cdot (g^{-1} \cdot g\p^{-1})) = (g\p \cdot g) \cdot (x \cdot (g\p \cdot g)^{-1}) = \mathss{conj}(g\p \cdot g, x)$.
 \stopitemize
-Plus généralement, soit $(G, \cdot)$ et $(F, \ast)$ deux groupes et $m$ un morphisme de groupe de $(G, \cdot)$ vers $(F, \ast)$, alors les fonctions $t$ et $c$ de $G$ vers $F$ définies par $t: (g, f) \mapsto m(g) \ast f$ et $c: (g, f) \mapsto f(g) \ast (x \ast f(g^{-1}))$ sont des actions. 
+Plus généralement, soit $(G, \cdot)$ et $(F, \ast)$ deux groupes et $m$ un morphisme de groupes de $(G, \cdot)$ vers $(F, \ast)$, alors les fonctions $t$ et $c$ de $G$ vers $F$ définies par $t: (g, f) \mapsto m(g) \ast f$ et $c: (g, f) \mapsto f(g) \ast (x \ast f(g^{-1}))$ sont des actions. 
 En effet, 
 \startitemize
-    \item Soit $e$ l'élément neutre de $(G, \cdot)$ et $e'$ celui de $(G, \ast)$. 
-        Pout tout élément $f$ de $F$, on a : $t(e, f) = m(e) \ast f = e' \ast f = f$ et $c(e, x) = m(e) \ast (f \ast m(e^{-1})) = e' \ast (f \ast e') = e' \ast f = f$.
-    \item Soit $g$ et $g'$ deux éléments de $G$ et $f$ un élément de $f$. 
-        Alors, $t(g', t(g, f)) = m(g') \ast (m(g) \ast f) = (m(g') \ast m(g)) \ast f = m(g' \cdot g) \ast f = t(g' \cdot g, x)$ et $c(g', c(g, f)) = m(g') \ast ((m(g) \ast (f \ast m(g^{-1}))) \ast m(g^{\prime -1})) = m(g' \cdot g) \ast (x \ast m(g^{-1} \cdot g^{\prime -1})) = m(g' \cdot g) \ast (x \ast m((g' \cdot g)^{-1})) = c(g' \cdot g, x)$.
+    \item Soit $e$ l'élément neutre de $(G, \cdot)$ et $e'$ celui de $(F, \ast)$. 
+        Pout tout élément $f$ de $F$, on a : $t(e, f) = m(e) \ast f = e' \ast f = f$ et $c(e, x) = m(e) \ast (f \ast m(e^{-1})) = e' \ast (f \ast e\p^{-1}) = e' \ast (g \ast e') = e' \ast f = f$.
+    \item Soit $g$ et $g\p$ deux éléments de $G$ et $f$ un élément de $F$. 
+        Alors, $t(g\p, t(g, f)) = m(g\p) \ast (m(g) \ast f) = (m(g\p) \ast m(g)) \ast f = m(g\p \cdot g) \ast f = t(g\p \cdot g, x)$ et $c(g\p, c(g, f)) = m(g\p) \ast ((m(g) \ast (f \ast m(g^{-1}))) \ast m(g\p^{-1})) = (m(g\p) \ast m(g)) \ast (x \ast (m(g^{-1}) \ast m(g\p^{-1}))) = m(g\p \cdot g) \ast (x \ast m(g^{-1} \cdot g\p^{-1})) = m(g\p \cdot g) \ast (x \ast m((g\p \cdot g)^{-1})) = c(g\p \cdot g, x)$.
 \stopitemize
 
 \stopsubsection
@@ -660,7 +660,7 @@ Soit $f$ la fonction de $[\![0, n-1]\!]$ (égal à $n$) vers $G$ définie par :
 \index{Quotient}
 
 \noindent\bold{Définition :} Soit $(G, \cdot)$ un groupe abélien et $(H, \cdot)$ un sous-groupe de $(G, \cdot)$.
-    On définit l'ensemble $G \symbols{\divslash} H$ comme l'ensemble des classes d'équivalences de $G$ pour la relation $R$ définie par : $\forall g \in G \, \forall g' \in G \, g R g' \Leftrightarrow g^{-1} \cdot g' \in H$, oú un exposant $-1$ indique l'inverse. 
+    On définit l'ensemble $G \symbols{\divslash} H$ comme l'ensemble des classes d'équivalences de $G$ pour la relation $R$ définie par : $\forall g \in G \, \forall g\p \in G \, g R g\p \Leftrightarrow g^{-1} \cdot g\p \in H$, oú un exposant $-1$ indique l'inverse. 
     (On montre ci-dessous qu'il s'agit bien d'une relation d'équivalence.)
     Pour tout élément $g$ de $G$, on note $\bar{g}$ la classe d'équivalence de $g$ pour $R$.
     On définit la loi de composition interne $\cdot$ sur $G \divslash H$ de la manière suivante : soit $c_1$ et $c_2$ deux éléments de $G \divslash H$, on peut choisir un éléments $g_1$ de $c_1$ et un élément $g_2$ de $c_2$ ; on pose alors $c_1 \cdot c_2 = \overline{g_1 \cdot g_2}$. 
@@ -678,12 +678,12 @@ Soit $(G, \cdot)$ un groupe (abélien ou non) et $R$ la relation définie comme 
     \item \emph{Réflexivité :} Soit $g$ un élément de $G$.
         Alors, $g^{-1} \cdot g$ est l'élément neutre de $(G, +)$, donc appartient à $H$.
         Donc, $g R g$.
-    \item \emph{Symétrie :} Soit $g$ et $g'$ deux éléments de $G$ tels que $g R g'$.
-        Alors, $g^{-1} \cdot g' \in H$.
-        Puisque $(H, \cdot)$ est un groupe, $(g^{-1} \cdot g')^{-1} \in H$, donc $g^{\prime -1} \cdot g \in H$, donc $g' R g$.
-    \item \emph{Transitivité :} Soit $g$, $g'$ et $g''$ trois éléments de $G$ tels que $g R g'$ et $g' R g''$.
-        Alors, on peut choisir deux éléments $h$ et $h'$ de $H$ tels que $g^{-1} \cdot g' = h$ et $g^{\prime -1} \cdot g'' = h'$.
-        Puisque $(H, \cdot)$ est un groupe, $h \cdot h' \in H$, donc $g^{-1} \cdot g'' \in H$, donc $g R g''$.
+    \item \emph{Symétrie :} Soit $g$ et $g\p$ deux éléments de $G$ tels que $g R g\p$.
+        Alors, $g^{-1} \cdot g\p \in H$.
+        Puisque $(H, \cdot)$ est un groupe, $(g^{-1} \cdot g\p)^{-1} \in H$, donc $g\p^{-1} \cdot g \in H$, donc $g\p R g$.
+    \item \emph{Transitivité :} Soit $g$, $g\p$ et $g\p'$ trois éléments de $G$ tels que $g R g\p$ et $g\p R g\p'$.
+        Alors, on peut choisir deux éléments $h$ et $h'$ de $H$ tels que $g^{-1} \cdot g\p = h$ et $g\p^{-1} \cdot g\p' = h'$.
+        Puisque $(H, \cdot)$ est un groupe, $h \cdot h' \in H$, donc $g^{-1} \cdot g\p' \in H$, donc $g R g\p'$.
 \stopitemize
 
 \done
@@ -754,7 +754,7 @@ Dans cette section, on note l'inverse par un exposant $-1$.
 \blank[medium]
 
 \noindent\bold{Lemme :} Soit $(G, \cdot)$ un groupe abélien et $(H, \cdot)$ un sous-groupe de $(G, \cdot)$.
-    On définit les deux relations $R_G$ et $R_D$ sur $G$ de la manière suivante : pour tous éléments $g$ et $g'$ de $G$, $g R_G g' \Leftrightarrow g^{-1} \cdot g' \in H$ et $g R_D g' \Leftrightarrow g \cdot g^{\prime -1} \in H$. 
+    On définit les deux relations $R_G$ et $R_D$ sur $G$ de la manière suivante : pour tous éléments $g$ et $g\p$ de $G$, $g R_G g\p \Leftrightarrow g^{-1} \cdot g\p \in H$ et $g R_D g\p \Leftrightarrow g \cdot g\p^{-1} \in H$. 
     Alors, $R_G$ et $R_D$ sont des relations d'équivalence. 
 
 \blank[medium]
@@ -764,41 +764,41 @@ Dans cette section, on note l'inverse par un exposant $-1$.
     \item \emph{Réflexivité :} Soit $g$ un élément de $G$.
         Alors, $g^{-1} \cdot g$ et $g \cdot g^{-1}$ sont égaux à l'élément neutre de $(G, +)$, donc appartiennent à $H$.
         Donc, $g R_G g$ et $g R_L g$.
-    \item \emph{Symétrie ($R_G$) :} Soit $g$ et $g'$ deux éléments de $G$ tels que $g R_G g'$.
-        Alors, $g^{-1} \cdot g' \in H$.
-        Puisque $(H, \cdot)$ est un groupe, $(g^{-1} \cdot g')^{-1} \in H$, donc $g^{\prime -1} \cdot g \in H$, donc $g' R_G g$.
-    \item \emph{Symétrie ($R_D$) :} Soit $g$ et $g'$ deux éléments de $G$ tels que $g R_D g'$.
-        Alors, $g \cdot g^{\prime -1} \in H$.
-        Puisque $(H, \cdot)$ est un groupe, $(g \cdot g^{\prime -1})^{-1} \in H$, donc $g' \cdot g^{-1} \in H$, donc $g' R_D g$.
-    \item \emph{Transitivité ($R_G$) :} Soit $g$, $g'$ et $g''$ trois éléments de $G$ tels que $g R_G g'$ et $g' R_G g''$.
-        Alors, on peut choisir deux éléments $h$ et $h'$ de $H$ tels que $g^{-1} \cdot g' = h$ et $g^{\prime -1} \cdot g'' = h'$.
-        Puisque $(H, \cdot)$ est un groupe, $h \cdot h' \in H$, donc $g^{-1} \cdot g'' \in H$, donc $g R_G g''$.
-    \item \emph{Transitivité ($R_D$) :} Soit $g$, $g'$ et $g''$ trois éléments de $G$ tels que $g R_D g'$ et $g' R_D g''$.
-        Alors, on peut choisir deux éléments $h$ et $h'$ de $H$ tels que $g \cdot g^{\prime -1} = h$ et $g' \cdot g'^{\prime -1} = h'$.
-        Puisque $(H, \cdot)$ est un groupe, $h \cdot h' \in H$, donc $g \cdot g'^{\prime -1} \in H$, donc $g R_D g''$.
+    \item \emph{Symétrie ($R_G$) :} Soit $g$ et $g\p$ deux éléments de $G$ tels que $g R_G g\p$.
+        Alors, $g^{-1} \cdot g\p \in H$.
+        Puisque $(H, \cdot)$ est un groupe, $(g^{-1} \cdot g\p)^{-1} \in H$, donc $g\p^{-1} \cdot g \in H$, donc $g\p R_G g$.
+    \item \emph{Symétrie ($R_D$) :} Soit $g$ et $g\p$ deux éléments de $G$ tels que $g R_D g\p$.
+        Alors, $g \cdot g\p^{-1} \in H$.
+        Puisque $(H, \cdot)$ est un groupe, $(g \cdot g\p^{-1})^{-1} \in H$, donc $g\p \cdot g^{-1} \in H$, donc $g\p R_D g$.
+    \item \emph{Transitivité ($R_G$) :} Soit $g$, $g\p$ et $g\p'$ trois éléments de $G$ tels que $g R_G g\p$ et $g\p R_G g\p'$.
+        Alors, on peut choisir deux éléments $h$ et $h'$ de $H$ tels que $g^{-1} \cdot g\p = h$ et $g\p^{-1} \cdot g\p' = h'$.
+        Puisque $(H, \cdot)$ est un groupe, $h \cdot h' \in H$, donc $g^{-1} \cdot g\p' \in H$, donc $g R_G g\p'$.
+    \item \emph{Transitivité ($R_D$) :} Soit $g$, $g\p$ et $g\p'$ trois éléments de $G$ tels que $g R_D g\p$ et $g\p R_D g\p'$.
+        Alors, on peut choisir deux éléments $h$ et $h'$ de $H$ tels que $g \cdot g\p^{-1} = h$ et $g\p \cdot g\p\p^{-1} = h'$.
+        Puisque $(H, \cdot)$ est un groupe, $h \cdot h' \in H$, donc $g \cdot g\p\p^{-1} \in H$, donc $g R_D g\p'$.
 \stopitemize
 
 \done
 
 \blank[medium]
 
-\noindent\bold{Lemme :} Avec les notations du lemme précédent, si $(H, \cdot)$ est normal, alors les relations $R_L$ et $R_D$ définies ci-dessus sont identiques, au sens suivant : $\forall g \in G \, \forall g' \in G \, g R_L g' \Leftrightarrow g R_D g'$.
+\noindent\bold{Lemme :} Avec les notations du lemme précédent, si $(H, \cdot)$ est normal, alors les relations $R_L$ et $R_D$ définies ci-dessus sont identiques, au sens suivant : $\forall g \in G \, \forall g\p \in G \, g R_L g\p \Leftrightarrow g R_D g\p$.
     On notera dans la suite simplement $R$ pour désigner une de ces deux relations.
 
 \blank[medium]
 
 \noindent\bold{Démnstration :} 
-    Soit $g$ et $g'$ deux éléments de $G$.
+    Soit $g$ et $g\p$ deux éléments de $G$.
     
-    Si $g R_G g'$, alors on peut choisir un élément $h$ de $H$ $g^{-1} \cdot g' = h$.
+    Si $g R_G g\p$, alors on peut choisir un élément $h$ de $H$ $g^{-1} \cdot g\p = h$.
     Puisque $(H, \cdot)$ est un sous-groupe normal de $(G, \cdot)$, $g \cdot h \cdot g^{-1} \in H$.
-    Donc, $g' \cdot g^{-1} \in H$.
-    Donc, $g R_D g'$.
+    Donc, $g\p \cdot g^{-1} \in H$.
+    Donc, $g R_D g\p$.
     
-    Si $g R_D g'$, alors on peut choisir un élément $h$ de $H$ $g' \cdot g^{-1} = h$.
+    Si $g R_D g\p$, alors on peut choisir un élément $h$ de $H$ $g\p \cdot g^{-1} = h$.
     Puisque $(H, \cdot)$ est un sous-groupe normal de $(G, \cdot)$, $g^{-1} \cdot h \cdot g \in H$.
-    Donc, $g^{-1} \cdot g' \in H$.
-    Donc, $g R_L g'$.
+    Donc, $g^{-1} \cdot g\p \in H$.
+    Donc, $g R_L g\p$.
 
     \done
 
@@ -819,12 +819,12 @@ Dans cette section, on note l'inverse par un exposant $-1$.
 
 \noindent\bold{Preuve que cette loi de composition interne est bien définie :} 
     Il s'agit de montrer qu'elle ne dépend pas des choix de représentants.
-    Soit $e$ et $e'$ deux éléments de $E$ et $f$ et $f'$ deux éléments de $f$.
-    Alors, on peu choisir deux éléments $h$ et $h'$ de $H$ tels que $e^{-1} \cdot e' = h$ (puisque $e R_G e'$) et $f \cdot f^{\prime -1} = h'$ (puisque $f R_D f'$).
+    Soit $e$ et $e'$ deux éléments de $E$ et $f$ et $f\p$ deux éléments de $f$.
+    Alors, on peu choisir deux éléments $h$ et $h'$ de $H$ tels que $e^{-1} \cdot e' = h$ (puisque $e R_G e'$) et $f \cdot f\p^{-1} = h'$ (puisque $f R_D f\p$).
     Puisque $(H, \cdot)$ est un sous-groupe normal de $(G, \cdot)$, $f^{-1} \cdot h \cdot f \in H$.
     Donc, $f^{-1} \cdot e^{-1} \cdot e' \cdot f \in H$, donc $(e \cdot f)^{-1} \cdot (e' \cdot f) \in H$, donc $(e \cdot f) \mathrel{R} (e' \cdot f)$.
-    De même, $e' \cdot h' \cdot e^{\prime -1}$, donc $e' \cdot f \cdot f^{\prime -1} \cdot e^{\prime -1} \in H$, donc $(e' \cdot f) \cdot (e' \cdot f')^{-1} \in H$, donc $(e' \cdot f) \mathrel{R} (e' \cdot f')$.
-    Puisque $R$ est transitive, on en conclut que $(e \cdot f) \mathrel{R} (e' \cdot f')$, et donc que les classes obtenues en choisissant les représentants $e$ et $f$ ou les représentants $e'$ et $f'$ sont identiques.
+    De même, $e' \cdot h' \cdot e\p^{-1}$, donc $e' \cdot f \cdot f\p^{-1} \cdot e\p^{-1} \in H$, donc $(e' \cdot f) \cdot (e' \cdot f\p)^{-1} \in H$, donc $(e' \cdot f) \mathrel{R} (e' \cdot f\p)$.
+    Puisque $R$ est transitive, on en conclut que $(e \cdot f) \mathrel{R} (e' \cdot f\p)$, et donc que les classes obtenues en choisissant les représentants $e$ et $f$ ou les représentants $e'$ et $f\p$ sont identiques.
     
     \done
 
