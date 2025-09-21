@@ -57,11 +57,12 @@ local comment     = P("//")
 local name        = (patterns.letter + S("_"))^1
 local boundary    = S('()[]:=<>;"')
 local special     = S("|&")
+local punctuation = S("_-+()..;?!")
 
 local grammar = visualizers.newgrammar("default", { "visualizer",
 
     comment     = makepattern(handler,"comment",comment)
-                * makepattern(handler,"comment"," "+patterns.letter+patterns.digit+"_")^0,
+                * makepattern(handler,"comment"," "+patterns.letter+patterns.digit+punctuation)^0,
     preprocess  = makepattern(handler,"preprocess","#")
                 * makepattern(handler,"preprocess",patterns.letter)^0,
     dstring     = makepattern(handler,"quote",patterns.dquote)

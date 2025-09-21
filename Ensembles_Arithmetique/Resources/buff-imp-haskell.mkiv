@@ -1,4 +1,4 @@
-\registerctxluafile{Ensembles_Arithmetique/Resources/buff-imp-cpp.lua}{1.001}
+\registerctxluafile{Ensembles_Arithmetique/Resources/buff-imp-haskell.lua}{1.001}
 
 \unprotect
 
@@ -7,8 +7,8 @@
 \definecolor[codecommentcol][r=.5,g=.5,b=.5]
 \definecolor[codepreprocesscol][r=.3,g=0,b=.7]
 \definecolor[codestringcol][r=.5,g=0,b=.5]
-\definecolor[codespecialcol][r=0,g=.5,b=0]
-\startuseMPgraphic{CodeOverlay}
+\definecolor[codespecialcol][r=.5,g=0,b=.5]
+\startuseMPgraphic{CodeOverlayHaskell}
 z1 = (0, 0) ;
 z2 = (OverlayWidth, 0) ;
 z3 = (OverlayWidth, OverlayHeight) ;
@@ -21,53 +21,53 @@ fill p withshade (define_linear_shade(z1, z3, \MPcolor{codebkgdcol1}, \MPcolor{c
 setbounds currentpicture to OverlayBox ;
 
 \stopuseMPgraphic
-\defineoverlay[CodeOverlay][\useMPgraphic{CodeOverlay}]
+\defineoverlay[CodeOverlayHaskell][\useMPgraphic{CodeOverlayHaskell}]
 
 \definestartstop
-    [CppSnippet]
+    [HaskellSnippet]
     [DefaultSnippet]
     [before=\setupalign[inner]]
 
 \definestartstop
-    [CppSnippetName]
+    [HaskellSnippetName]
 
 \definestartstop
-    [CppSnippetNameKeyword]
+    [HaskellSnippetNameKeyword]
     [\c!color=blue]
 
 \definestartstop
-    [CppSnippetBoundary]
+    [HaskellSnippetBoundary]
     [\c!color=]
 
 \definestartstop
-    [CppSnippetString]
+    [HaskellSnippetString]
     [\c!color=codestringcol]
 
 \definestartstop
-    [CppSnippetQuote]
-    [CppSnippetBoundary]
+    [HaskellSnippetQuote]
+    [HaskellSnippetBoundary]
 
 \definestartstop
-    [CppSnippetSpecial]
+    [HaskellSnippetSpecial]
     [\c!color=codespecialcol]
 
 \definestartstop
-    [CppSnippetComment]
+    [HaskellSnippetComment]
     [\c!color=codecommentcol]
 
 \definestartstop
-    [CppSnippetPreprocess]
+    [HaskellSnippetPreprocess]
     [\c!color=codepreprocesscol]
 
 \startnotmode[export] 
 \definetyping
-    [CPP]
-    [\c!option=cpp,
+    [Haskell]
+    [\c!option=haskell,
     strip=yes,
     before={\startframedtext[width=\makeupwidth,
                              offset=0.5em,
                              frame=none,
-                             background=CodeOverlay,
+                             background=CodeOverlayHaskell,
                              ] 
             \setupbodyfont [myfamily,\getvariable{lengths}{codesize}]},
     after={\stopframedtext}]
@@ -75,7 +75,7 @@ setbounds currentpicture to OverlayBox ;
 
 \startmode[export] 
 \definetyping
-    [CPP]
+    [Haskell]
     [strip=yes,
     before=\setupbodyfont [myfamily,\getvariable{lengths}{codesize}],
     after=]
