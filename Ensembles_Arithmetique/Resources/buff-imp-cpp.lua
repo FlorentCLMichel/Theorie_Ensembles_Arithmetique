@@ -57,7 +57,7 @@ local comment     = P("//")
 local name        = (patterns.letter + S("_"))^1
 local boundary    = S('()[]:=<>;"')
 local special     = S("|&")
-local punctuation = S("_-+()..;?!")
+local punctuation = S("_-+().,;?!")
 
 local grammar = visualizers.newgrammar("default", { "visualizer",
 

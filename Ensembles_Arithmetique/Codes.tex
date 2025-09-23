@@ -5,14 +5,32 @@
 
   \blank[big]
 
-  \chaptertoc
+  \chaptertoc[bottomruleoffset=-2ex]
 
   \page
 
+  \define[2]\PrintCodeFile{%
+    \startframed[frame=off,align=right]
+      \href{\bold{\sans{#2}}}{Ensembles_Arithmetique/Code/#2}
+      \vskip{-3ex}\blank[samepage]
+      \typefile[#1]{Ensembles_Arithmetique/Code/#2}
+    \stopframed}
+
   \startsection[title=Écriture d'un entier naturel en base b, reference=app:Haskell_baseb]
+    \PrintCodeFile{Haskell}{base.hs}
+  \stopsection
+  
+  \startsection[title=Test de primalité, reference=app:Haskell_primalité]
+    \noindent 
+    La fonction \mono{isPrime} ci-dessous teste si un entier $p$ est un nombre premier. 
+    Sa complexité est $O \left( p^{1/2} \right)$.
+    
+    \PrintCodeFile{Haskell}{isPrime.hs}
+    
     \noindent
-    \href{\bold{\sans{base.hs}}}{Ensembles_Arithmetique/Code/base.hs}
-    \typefile[Haskell]{Ensembles_Arithmetique/Code/base.hs}
+    La fonction \mono{findNPrimes} ci-dessous prend un entier naturel $N$ en argument et retourne la liste des $N$ premiers nombres premiers. 
+    
+    \PrintCodeFile{Haskell}{findNPrimes.hs}
   \stopsection
   
 \stopchapter
