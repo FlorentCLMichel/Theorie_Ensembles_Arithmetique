@@ -2,12 +2,12 @@
 
 \unprotect
 
-\definecolor[codebkgdcol1][r=.92,g=.95,b=.99]
-\definecolor[codebkgdcol2][r=.6,g=.75,b=.95]
-\definecolor[codecommentcol][r=.5,g=.5,b=.5]
-\definecolor[codepreprocesscol][r=.3,g=0,b=.7]
-\definecolor[codestringcol][r=.5,g=0,b=.5]
-\definecolor[codespecialcol][r=.5,g=0,b=.5]
+\definecolor[haskellcodebkgdcol1][r=.92,g=.95,b=.99]
+\definecolor[haskellcodebkgdcol2][r=.6,g=.75,b=.95]
+\definecolor[haskellcodecommentcol][r=.5,g=.5,b=.5]
+\definecolor[haskellcodepreprocesscol][r=.3,g=0,b=.7]
+\definecolor[haskellcodestringcol][r=.5,g=.5,b=0]
+\definecolor[haskellcodespecialcol][r=.5,g=0,b=.5]
 \startuseMPgraphic{CodeOverlayHaskell}
 z1 = (0, 0) ;
 z2 = (OverlayWidth, 0) ;
@@ -16,7 +16,7 @@ z4 = (0, OverlayHeight) ;
 
 path p ;
 p = (z1--z2--z3--z4--cycle) cornered .5cm ;
-fill p withshade (define_linear_shade(z1, z3, \MPcolor{codebkgdcol1}, \MPcolor{codebkgdcol2})) ;
+fill p withshade (define_linear_shade(z1, z3, \MPcolor{haskellcodebkgdcol1}, \MPcolor{haskellcodebkgdcol2})) ;
 
 setbounds currentpicture to OverlayBox ;
 
@@ -41,7 +41,7 @@ setbounds currentpicture to OverlayBox ;
 
 \definestartstop
     [HaskellSnippetString]
-    [\c!color=codestringcol]
+    [\c!color=haskellcodestringcol]
 
 \definestartstop
     [HaskellSnippetQuote]
@@ -49,15 +49,15 @@ setbounds currentpicture to OverlayBox ;
 
 \definestartstop
     [HaskellSnippetSpecial]
-    [\c!color=codespecialcol]
+    [\c!color=haskellcodespecialcol]
 
 \definestartstop
     [HaskellSnippetComment]
-    [\c!color=codecommentcol]
+    [\c!color=haskellcodecommentcol]
 
 \definestartstop
     [HaskellSnippetPreprocess]
-    [\c!color=codepreprocesscol]
+    [\c!color=haskellcodepreprocesscol]
 
 \startnotmode[export] 
 \definetyping
