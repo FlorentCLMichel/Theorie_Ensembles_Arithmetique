@@ -105,7 +105,7 @@
     width=fit,
     distance=0.5em,
     style=bold,
-    before=\blank[0.5em],
+    before=\blank[halfline],
     numbercommand=\ss,
     textcommand=\ss,
     pagecommand=\ss,
@@ -238,7 +238,7 @@ interfaces.implement {
     local bottomruleoffset = hash.bottomruleoffset or "2pt"
     context(
       "\\determinelistcharacteristics[section]"
-      .. "\\doifmode{*list}{\\vskip1ex\\hrule\\startsimplecolumns[n=2]\\placecontent\\stopsimplecolumns"
+      .. "\\doifmode{*list}{\\vskip1ex\\hrule\\startcolumns[n=2,internalgrid=halfline]\\placecontent\\stopcolumns\\vskip{-1.5ex}"
       .. "\\vskip" .. bottomruleoffset
       .. "\\hrule}"
     )
@@ -264,7 +264,7 @@ interfaces.implement {
       margin=0em,
       distance=0.5em,
       style=bold,
-      before=\blank[0.5em],
+      before=\blank[halfline],
       numbercommand=\ss,
       textcommand=\ss,
       pagecommand=\ss,
@@ -273,7 +273,7 @@ interfaces.implement {
       width=fit,
       margin=1em,
       distance=0.5em,
-      before=\blank[0em],
+      before=\blank[none],
       numbercommand=\ss,
       textcommand=\ss,
       pagecommand=\ss,
@@ -294,7 +294,7 @@ interfaces.implement {
       margin=0em,
       distance=0.5em,
       style=bold,
-      before=\blank[0.5em],
+      before=\blank[halfline],
       numbercommand=\ss,
       textcommand=\ss,
       pagecommand=\ss,
@@ -303,7 +303,7 @@ interfaces.implement {
       width=fit,
       margin=1em,
       distance=0.5em,
-      before=\blank[0em],
+      before=\blank[none],
       numbercommand=\ss,
       textcommand=\ss,
       pagecommand=\ss,
