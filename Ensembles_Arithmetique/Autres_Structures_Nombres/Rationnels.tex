@@ -1,0 +1,1731 @@
+\startsection[title=Nombres rationnels]
+
+\startsubsection[title=L'ensemble des nombres rationnels]
+
+Définissons (dans cette section seulement) la relation binaire $\mathcal{R}$ sur $\mathbb{Z} \times \mathbb{Z}^*$ de la manière suivante : si $x$ et $y$ sont deux éléments de cet ensemble, soit $a$, $b$, $c$ et $d$ les quatre (uniques) entiers relatifs (avec $b \neq 0$ et $d \neq 0$) tels que $x = (a, b)$ et $y = (c, d)$, alors $r \, \mathcal{R} \, y$ si et seulement si $a d = b c$. 
+Autrement dit, 
+\startformula
+    \forall (a, b, c, d) \in \mathbb{Z} \times \mathbb{Z}^* \times \mathbb{Z} \times \mathbb{Z}^* \;
+    (a, b) \, \mathcal{R} \, (c, d)
+    \Leftrightarrow a d = b c .
+\stopformula
+
+\blank[medium]
+
+\noindent\bold{Lemme :} La relation $\mathcal{R}$ est une relation d'équivalence. 
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Montrons que $\mathcal{R}$ satisfait les trois propriétés d'une relation d'équivalence.
+    Dans toute cette démonstration, $x$, $y$ et $z$ sont trois éléments de $\mathbb{Z} \times \mathbb{Z}^*$ et $a$, $b$, $c$, $d$, $e$, $f$ sont six entiers tels que $b \neq 0$, $d \neq 0$, $f \neq 0$, $x = (a, b)$, $y = (c, d)$ et $z = (e, f)$.
+    \startitemize[nowhite]
+        \item \emph{Réflexivité :} Puisque la multiplication sur $\mathbb{Z}$ est commutative, $a b = b a$, donc $x \, \mathcal{R} \, x$.
+        \item \emph{Symétrie :} Supposons $x \, \mathcal{R} \, y$. 
+            Alors, $a d = b c$.
+            Donc, $c b = d a$.
+            Donc, $y \, \mathcal{R} \, x$.
+        \item \emph{Transitivité :} Supposons $x \, \mathcal{R} \, y$ et $y \, \mathcal{R} \, z$.
+            Alors, $a d = b c$ et $c f = d e$.
+            Multiplions les deux membres de la première égalité par $f$ : il vient $a d f = b c f$, donc (en utilisant la seconde égalité) $a d f = b d e$, donc $d a f = d b e$.
+            Puisque $d \neq 0$, on a donc $a f = b e$, et donc $x \, \mathcal{R} \, z$.
+    \stopitemize
+    
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $a$ un entier et $b$ et $\lambda$ deux entiers non nuls. 
+    Alors $(\lambda \times a, \lambda \times b) \mathrel{\mathcal{R}} (a, b)$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Puisque $\lambda$ et $b$ sont non nuls, $\lambda \times b$ l'est également.
+    En outre, $a \times (\lambda \times b) = (a \times \lambda) \times b = (\lambda \times a) \times b$.
+
+    \done
+
+\blank[medium]
+
+On appelle \emph{ensemble des nombres rationnels}, noté $\symbols{\mathbb{Q}}$, l'ensemble des classes d'équivalences de $\mathcal{R}$, appelées \emph{nombres rationnels}, ou simplement \emph{rationnels}. 
+\index{Nombre rationnel} \index{Rationnel}
+Autrement dit, $\mathbb{Q}$ est l'ensemble défini par : 
+\startformula
+    \mathbb{Q} = (\mathbb{Z} \times \mathbb{Z}^*) \divslash \mathcal{R} .
+\stopformula
+Soit $q$ un nombre rationnel et $a$ et $b$ deux entiers tels que $(a, b) \in q$. 
+Alors, $a$ est appelé le \emph{numérateur} de la représentation $(a, b)$ et $b$ son \emph{dénominateur}.
+\index{Numérateur} \index{Dénominateur}
+Elle sera notée $a \symbols{\divslash} b$, ou $\frac{a}{b}$.
+
+Dans cette section, si $x$ est un élément de $\mathbb{Z} \times \mathbb{Z}^*$, on note $\bar{x}$ la classe d'équivalence de $x$ pour la relation $\mathcal{R}$, \emph{i.e.}
+\startformula
+    \bar{x} = \left\lbrace y \in \mathbb{Z} \times \mathbb{Z}^* \middle\vert x \mathrel{\mathcal{R}} y \right\rbrace .
+\stopformula
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $q$ un nombre rationnel. 
+Si $q$ admet une représentation dont le numérateur est nul, alors toutes ses représentations ont un numérateur nul et tous les éléments de $\mathbb{Z} \times \mathbb{Z}^*$ de première composante nulle sont des représentants de $q$. 
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} On suppose que $q$ admet une représentation de numérateur nul. 
+    On peut alors choisir un entier $b$ non nul tel que $(0, b) \in q$. 
+    Soit $r$ une représentation de $q$.
+    Soit $c$ et $d$ deux entiers tels que $(c, d)  = r$.
+    Alors, $0 \times d = b \times c$.
+    Donc, $b c = 0$.
+    Puisque $b \neq 0$, on en déduit que $c = 0$.
+    Donc, la représentation $r$ est de numérateur nul.
+
+    Soit $r$ un élément de $\mathbb{Z} \times \mathbb{Z}^*$ de première composante nulle.
+    On peut choisir un entier non nul $d$ tel que $r = (0, d)$.
+    Puisque $0 \times d = 0 = 0 \times b$, on a $r \mathrel{\mathcal{R}} (0, b)$, et donc $r \in q$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Corrolaire :} Il existe donc une seule classe d'équivalence contenant un représentant de numérateur nul. 
+Ce nombre rationnel est aussi dit \emph{nul}, et parfois noté $0$ quand il n'y a pas d'ambiguité.
+
+\blank[medium]
+
+\noindent\bold{Notation :} On note $\mathbb{Q}^*$ l'ensemble $\mathbb{Q} \setminus \big\lbrace \overline{(0,1)} \big\rbrace$.
+
+\blank[medium]
+
+\noindent\bold{Remarque :} D'après le lemme précédent, tout représentant de tout élément de $\mathbb{Q}^*$ a un numérateur non nul.
+
+\blank[medium]
+
+\noindent\bold{Définition (représentation irréductible) :} 
+    Soit $q$ un élément de $\mathbb{Q}$. 
+    Soit $a$ un élément de $\mathbb{Z}$ et $b$ un élément de $\mathbb{Z}^*$ tels que $(a, b) \in q$.
+    Alors, $(a, b)$ est dit \emph{représentation irreductible} de $q$ si et seulement si une des deux propriétés suivantes est satisfaite : 
+    \startitemize[nowhite]
+        \item $a = 0$ et $b = 1$.
+        \item $a \neq 0$, $b > 0$ et $\abs{a}$ et $\abs{b}$ sont premiers entre eux.
+    \stopitemize
+\index{Représentation irréductible}
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Tout nombre rationnel a une unique représentation irréductible. 
+    En outre, soit $r$ cette représentation irréductible, $a$ son numerateur et $b$ son dénominateur, un élément $(c, d)$ appartient à $q$ si et seulement si il existe un entier non nul $k$ tel que $c = k a$ et $d = k b$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $x$ un nombre rationnel. 
+\startitemize[nowhite]
+    \item Si $x$ admet une représentation de numérateur nul, alors toutes ses représentations le sont.
+        Donc, $x$ ne peut avoir de représentation de la forme $(a, b)$ avec $a \neq 0$.
+        Il ne peut donc avoir que $(0, 1)$ comme représentation irréductible.
+        Montrons que c'en est bien une. 
+        Soit $r$ une représentation de $x$, $a$ son numérateur et $b$ son dénominateur. 
+        Puisque $a = 0$, on a : $a \times 1 = 0 = b \times 0$. 
+        Donc, $(0, 1)$ est bien une représentation de $x$, et donc sa représentation irréductible. 
+        Par ailleurs, ses représentations sont toutes de la forme $(0, k)$, égal à $(0 \times k, 1 \times k)$, pour un entier non nul $k$, et tous les éléments de $\mathbb{Z} \times \mathbb{Z}^*$ de cette forme sont des représentations de $x$ puisque $1 \times 0 = 0 = 0 \times k$.
+    \item Sinon, toutes les représentations de $x$ ont un numérateur non nul. 
+        Soit $r$ une de ses représentations, $a$ son numerateur et $b$ son dénominateur. 
+        Soit $l$ le pgcd de $\abs{a}$ et $\abs{b}$.
+        On peut choisir deux entiers naturels $p$ et $x$ tels que $\abs{a} = p l$ et $\abs{b} = q l$.
+        En outre, puisque $\abs{b}$ est non nul, $q$ est non nul, donc $(\mathrm{sgn}(a) \, \mathrm{sgn}(b) \, p, q)$ est un élément de $\mathbb{Z} \times \mathbb{Z}^*$. 
+        En outre, $p \neq 0$ (puisque $a \neq 0$), donc $\mathrm{sgn}(a) \, \mathrm{sgn}(b) \, p \neq 0$, et $q > 0$. 
+        Puisque les valeurs absolues du numérateur et du dénominateur (égales à $p$ et $q$) sont premières entre elles, il s'agit d'une représentation irreductible.
+        En outre, $a q = \mathrm{sgn}(a) \abs{a} q = \mathrm{sgn}(a) p q l = \abs{b} \mathrm{sgn}(a) p = b \, \mathrm{sgn}(a) \, \mathrm{sgn}(b) p$, donc $(\mathrm{sgn}(a) \, \mathrm{sgn}(b) \, p, q) \mathrel{\mathcal{R}} (a, b)$, donc $(\mathrm{sgn}(a) \, \mathrm{sgn}(b) \, p, q)$ est une représentation de $x$.
+        Montrons que toutes ses seprésentations sont de la forme $(\lambda \mathrm{sgn}(a) \mathrm{sgn}(b) p, \lambda q)$ pour un entier non nul $\lambda$ et que tous les éléments de $\mathbb{Z} \times \mathbb{Z}^*$ de cette forme sont des représentations de $x$.
+        Cela montrera que $x$ n'admet aucune autre représentation irréductible (avec $\lambda \neq 1$) car le numérateur est négatif si $\lambda < 0$ ou les valeurs absolues des numérateur et dénominateur (égales à $\abs{\lambda} p$ et $\abs{\lambda} q$) ne pourraient être premières entre elles pour $\lambda > 1$ (ayant un diviseur commun $\lambda$ strictement supérieur à $1$).
+        \startitemize[nowhite]
+            \item \emph{Toutes les représentations de $x$ sont de cette forme :} Soit $r$ une représentation de $x$ et $c$ et $d$ deux entiers relatifs non nuls tels que $(c, d) = r$. 
+                Alors, $d \, \mathrm{sgn}(a) \, \mathrm{sgn}(b) p = c q$.
+                En prenant la valeur absolue, il vient : $\abs{d} p = \abs{c} q$. 
+                Donc, $q$ divise $\abs{d} p$. 
+                Puisque $q$ est premier avec $p$, on en déduit que $q$ divise $\abs{d}$.
+                On peut donc choisir un entier naturel $k$ tel que $\abs{d} = k q$.
+                Soit $\lambda$ l'entier relatif définit par $\lambda = \mathrm{sgn}(d) k$. 
+                Alors, $d = \lambda q$.
+                En outre, $d$ est non nul, donc $\lambda$ est non nul. 
+                Puisque $d \, \mathrm{sgn}(a) \mathrm{sgn}(b) p = c q$, on a : $\lambda q \, \mathrm{sgn}(a) \, \mathrm{sgn}(b) p = c q$.
+                Puisque $q$ est non nul, cela donne : $\lambda \, \mathrm{sgn}(a) \, \mathrm{sgn}(b) p = c$.
+                Donc, $r = (\lambda \, \mathrm{sgn}(a) \, \mathrm{sgn}(b) p, \lambda q)$.
+            \item \emph{Tous les éléments de cette forme sont des représentations de $x$ :} Soit $\lambda$ un entier non nul.
+                Alors, $a \lambda q = \mathrm{sgn}(a) \abs{a} \lambda q = \mathrm{sgn}(a) \lambda p q l = \abs{b} \lambda \mathrm{sgn}(a) p = b \lambda \, \mathrm{sgn}(a) \, \mathrm{sgn}(b) p$.
+                Donc, $(\lambda \, \mathrm{sgn}(a) \, \mathrm{sgn}(b) p, \lambda q)$ est une représentation de $x$.
+        \stopitemize
+\stopitemize
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Notation :} Pour tout entier $n$, le nombre rationnel $\overline{(n, 1)}$ est parfois simplement noté $n$ quand il n'y a pas d'ambiguité.
+
+\stopsubsection
+
+\startsubsection[title=Structure de corps]
+
+\noindent\bold{Définition :} On définit les trois opérations $+$ (\emph{\words{addition}}), $-$ (\emph{\words{soustraction}}) et $\times$ (\emph{\words{multiplication}}) de $\mathbb{Q} \times \mathbb{Q}$ vers $\mathbb{Q}$ et l'opération $\divslash$ (\emph{\words{division}}) de $\mathbb{Q} \times \mathbb{Q}^*$ vers $\mathbb{Q}$ de la manière suivante. \index{Addition}\index{Soustraction}\index{Multiplication}\index{Division} 
+Soit $\bar{x}$ et $\bar{y}$ deux éléments de $\mathbb{Q}$. 
+On peut choisir un représentant $x$ de $\bar{x}$ et un représentant $y$ de $\bar{y}$, puis quatre entiers $a$, $b$, $c$ et $d$ tels que $b$ et $d$ sont non nuls, $x = (a, b)$ et $y = (c, d)$.
+Alors, 
+\startitemize[nowhite]
+    \item $\bar{x} \symbols{+} \bar{y}$ est la classe d'équivalence de $(a \times d + b \times c, b \times d)$,
+    \item $\bar{x} \symbols{-} \bar{y}$ est la classe d'équivalence de $(a \times d - b \times c, b \times d)$,
+    \item $\bar{x} \symbols{\times} \bar{y}$ est la classe d'équivalence de $(a \times c, b \times d)$,
+    \item si $\bar{y} \in \mathbb{Q}^*$ (et donc $c \neq 0$), $\bar{x} \symbols{\div} \bar{y}$ (aussi noté $\bar{x} \symbols{\divslash} \bar{y}$) est la classe d'équivalence de $(a \times d, b \times c)$.%
+        \footnote{Puisque $b \neq 0$ et $c \neq 0$, $b \times c \neq 0$, donc $(a \times d, b \times c)$ est bien un élément de $\mathbb{Z} \times \mathbb{Z}^*$.}
+\stopitemize
+Quand il n'y a pas d'ambiguité, on pourra omettre le symbole $\times$. 
+On notera parfois simplement par un signe $-$ (à gauche) la multiplication par $(-1) \divslash 1$.
+Notons que 
+\startitemize[nowhite]
+    \item Le nombre rationnel $\bar{x} - \bar{y}$ est égal à $\bar{x} + \bar{z}$, où $\bar{z}$ est la lasse d'équivalence de $(-c, d)$.
+    \item Si $c \neq 0$, $\bar{x} \div \bar{y}$ est égal à $\bar{x} \times \bar{z}$, où $\bar{z}$ est la lasse d'équivalence de $(d, c)$.
+\stopitemize
+
+\blank[medium]
+
+Nous montrons ci-après que ces opérations sont bien définies, \emph{i.e.}, qu'elles ne dépendent pas des représentants choisis pour $\bar{x}$ et $\bar{y}$.
+Notons d'abord quelques propriétés découlant directement de leurs définitions : avec les mêmes notations, 
+\startitemize[nowhite]
+    \item $(\bar{x} + \bar{y}) - \bar{y} = \bar{x}$,
+    \item $(\bar{x} - \bar{y}) + \bar{y} = \bar{x}$,
+    \item si $\bar{y} \in \mathbb{Q}^*$, $(\bar{x} \times \bar{y}) \divslash \bar{y} = \bar{x}$,
+    \item si $\bar{y} \in \mathbb{Q}^*$, $(\bar{x} \divslash \bar{y}) \times \bar{y} = \bar{x}$,
+\stopitemize
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Avec les mêmes notations, 
+\startformula
+    (\bar{x} + \bar{y}) - \bar{y} 
+        = \frac{a \times d + b \times c}{b \times d} - \frac{c}{d}
+        = \frac{(a \times d + b \times c) \times d - c \times (b \times d)}{(b \times d) \times d}
+        = \frac{a \times (d \times d)}{b \times (d \times d)}
+        = \frac{a}{b} 
+        = \bar{x}.
+\stopformula
+(Où on a utilisé le fait que $d \times d \neq 0$ puisque $d \neq 0$.)
+De même, 
+\startformula
+    (\bar{x} - \bar{y}) + \bar{y} 
+        = \frac{a \times d - b \times c}{b \times d} + \frac{c}{d}
+        = \frac{(a \times d - b \times c) \times d + c \times (b \times d)}{(b \times d) \times d}
+        = \frac{a \times (d \times d)}{b \times (d \times d)}
+        = \frac{a}{b} 
+        = \bar{x} .
+\stopformula
+Si $\bar{y}$, est non nul, on a aussi : 
+\startformula
+    (\bar{x} \times \bar{y}) \divslash \bar{y} 
+        = \frac{a \times c}{b \times d} \divslash \frac{c}{d}
+        = \frac{(a \times c) \times d}{(b \times d) \times c} 
+        = \frac{a \times (c \times d)}{b \times (c \times d)} 
+        = \frac{a}{b}
+        = \bar{x}.
+\stopformula
+(où on a utilisé le fait que $c \times d$ est non nul puisque ni $c$ ni $d$ n'est nul)
+et
+\startformula
+    (\bar{x} \divslash \bar{y}) \times \bar{y} 
+        = \frac{a \times d}{b \times c} \times \frac{c}{d}
+        = \frac{(a \times d) \times c}{(b \times c) \times d}
+        = \frac{a \times (c \times d)}{b \times (c \times d)} 
+        = \frac{a}{b}
+        = \bar{x}.
+\stopformula
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Avec les notations ci-dessus, ces quatre définitions sont indépendantes des choix des représentants de $\bar{x}$ et $\bar{y}$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Avec les mêmes notations, soit $x$ et $x'$ deux représentants de $\bar{x}$, $y$ et $y'$ deux représentants de $\bar{y}$, et $a$, $a'$, $b$, $b'$, $c$, $c'$, $d$ et $d'$ huit entiers tels que $b \neq 0$, $b' \neq 0$, $d \neq 0$, $d' \neq 0$, $x = (a, b)$, $x' = (a', b')$, $y = (c, d)$ et $y' = (c', d')$. 
+Il s'agit de montrer que les nombres rationnels obtenus en calculant $\bar{x} + \bar{y}$, $\bar{x} - \bar{y}$, $\bar{x} \times \bar{y}$ et, si $\bar{y}$ est non nul, $\bar{x} \divslash \bar{y}$ en prenant soit les représentants $x$ et $y$ soit $x'$ et $y'$ sont identiques.
+Pour ce faire, on utilise les égalités : $a \times b' = a' \times b$ et $c \times d' = c' \times d$ (reflétant les prédicats $(a, b) \mathrel{\mathcal{R}} (a', b')$ et $(c, d) \mathrel{\mathcal{R}} (c', d')$). 
+
+\noindent\emph{Addition :}
+    \startformula
+        \startmathalignment
+            \NC (a \times d + b \times c) \times (b' \times d')
+            \NC = (a \times d \times b' \times d' + b \times c \times b' \times d')
+            = (a \times b' \times d \times d' + c \times d' \times b \times b') \NR
+            \NC\NC = (a' \times b \times d \times d' + c' \times d \times b \times b') 
+            = (a' \times d' \times b \times d + b' \times c' \times b \times d) \NR
+            \NC\NC = (a' \times d' + b' \times c') \times (b \times d) . \NR
+        \stopmathalignment
+    \stopformula
+    Donc, $(a \times d + b \times c, b \times d) \mathrel{\mathcal{R}} (a' \times d' + b' \times c', b' \times d')$. 
+    Cela montre que $\overline{(a \times d + b \times c, b \times d)} = \overline{(a' \times d' + b' \times c', b' \times d')}$, et donc que le résultat de l'addition est le même que l'on choisisse les représentants $x$ et $y$ ou les représentants $x'$ et $y'$.
+
+\noindent\emph{Soustraction :}
+    \startformula
+        \startmathalignment
+            \NC (a \times d - b \times c) \times (b' \times d')
+            \NC = (a \times d \times b' \times d' - b \times c \times b' \times d')
+            = (a \times b' \times d \times d' - c \times d' \times b \times b') \NR
+            \NC\NC {} = (a' \times b \times d \times d' - c' \times d \times b \times b') 
+            = (a' \times d' \times b \times d - b' \times c' \times b \times d) \NR
+            \NC\NC {} = (a' \times d' - b' \times c') \times (b \times d) . \NR
+        \stopmathalignment
+    \stopformula
+    Donc, $(a \times d - b \times c, b \times d) \mathrel{\mathcal{R}} (a' \times d' - b' \times c', b' \times d')$. 
+    Cela montre que $\overline{(a \times d - b \times c, b \times d)} = \overline{(a' \times d' - b' \times c', b' \times d')}$, et donc que le résultat de la soustraction est le même que l'on choisisse les représentants $x$ et $y$ ou les représentants $x'$ et $y'$.
+
+\noindent\emph{Multiplication :}
+    \startformula
+        (a \times c) \times (b' \times d')
+        = (a \times b') \times (c \times d')
+        = (a' \times b) \times (c' \times d)
+        = (a' \times c') \times (b \times d) .
+    \stopformula
+    Donc, $(a \times c, b \times d) \mathrel{\mathcal{R}} (a' \times c', b' \times d')$. 
+    Cela montre que $\overline{(a \times c, b \times d)} = \overline{(a' \times c', b' \times d')}$, et donc que le résultat de la multiplication est le même que l'on choisisse les représentants $x$ et $y$ ou les représentants $x'$ et $y'$.
+
+\noindent\emph{Division :} Supposons $\bar{y}$ non nul. Alors, $c \neq 0$ et $c' \neq 0$.
+    On a :
+    \startformula
+        (a \times d) \times (b' \times c')
+        = (a \times b') \times (c' \times d)
+        = (a' \times b) \times (c \times d')
+        = (a' \times d') \times (b \times c) .
+    \stopformula
+    Donc, $(a \times d, b \times c) \mathrel{\mathcal{R}} (a' \times d', b' \times c')$. 
+    Cela montre que $\overline{(a \times d, b \times c)} = \overline{(a' \times d', b' \times c')}$, et donc que le résultat de la division est le même que l'on choisisse les représentants $x$ et $y$ ou les représentants $x'$ et $y'$.
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $p$ et $q$ deux nombres rationnels tels que $p - q = 0$.
+    ALors, $p = q$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $a$, $b$, $c$ et $d$ quatre entiers relatifs tels que $b \neq 0$, $d \neq 0$, $p = a \divslash b$ et $q = c \divslash d$.
+    Si $p - q = 0$, alors $(a d - b c) \divslash (b d) = 0$, donc $a d = b c$, donc $p = q$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $a$ et $b$ deux entiers et $c$ un entier naturel non nul.
+    Alors,
+    \startformula
+        \frac{a}{c} + \frac{b}{c} = \frac{a + b}{c}.
+    \stopformula
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} On a : 
+    \startformula
+        \frac{a}{c} + \frac{b}{c} 
+        = \frac{(a \times c) + (b \times c)}{c \times c}
+        = \frac{(a + b) \times c}{c \times c}.
+    \stopformula
+    Puisque $c \neq 0$ on a $((a + b) \times cn c \times c) \mathrel{\mathcal{R}} (a \times b, c)$, donc cela donne 
+    \startformula
+        \frac{a}{c} + \frac{b}{c} 
+        = \frac{a + b}{c}.
+    \stopformula
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Les opérations $+$ et $\times$ sont commutatives.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Découle directement de la commutativité des opérations $+$ et $\times$ sur $\mathbb{Z}$. 
+    Montrons cependant cela explicitement par soucis de complétude. 
+    Soit $\bar{x}$ et $\bar{y}$ deux éléments de $\mathbb{Q}$. 
+    Soit $x$ un représentant de $\bar{x}$, $y$ un représentant de $\bar{y}$, et $a$, $b$, $c$, $d$ quatre entiers tels que $b \neq 0$, $d \neq 0$, $x = (a, b)$ et $y = (c, d)$.
+    On a : 
+    \startformula
+        \bar{x} + \bar{y} 
+            = \frac{a}{b} + \frac{c}{d} 
+            = \frac{(a \times d) + (b \times c)}{b \times d}
+            = \frac{(b \times c) + (a \times d)}{d \times b}
+            = \frac{(c \times b) + (d \times a)}{d \times b}
+            = \frac{c}{d} + \frac{a}{b}
+            = \bar{y} + \bar{x}
+    \stopformula
+    et 
+    \startformula
+        \bar{x} \times \bar{y} 
+            = \frac{a}{b} \times \frac{c}{d} 
+            = \frac{a \times c}{b \times d}
+            = \frac{c \times a}{d \times b}
+            = \frac{c}{d} \times \frac{a}{b}
+            = \bar{y} \times \bar{x} .
+    \stopformula
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Le triplet $(\mathbb{Q}, +, \times)$ est un corps, d'éléments neutres $0$ pour $+$ et $1$ pour $\times$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Montrons qu'il satisfait toutes les propriétés requises.
+\startitemize[nowhite]
+    \item Montrons déjà que $(\mathbb{Q}, +)$ est un groupe abélien d'élément neutre $0$.
+        \startitemize[nowhite]
+            \item Puisque $+$ est une loi de composition interne sur $\mathbb{Q}$, $(\mathbb{Q}, +)$ est un magma.
+            \item \emph{L'opération $+$ est associative :} 
+                Soit $\bar{x}$, $\bar{y}$ et $\bar{z}$ trois éléments de $\mathbb{Q}$. 
+                On peut choisir six entiers $a$, $b$, $c$, $d$, $e$, $f$ tels que $b \neq 0$, $d \neq 0$, $f \neq 0$, $\bar{x} = a \divslash b$, $\bar{y} = c \divslash d$ et $\bar{z} = e \divslash f$.
+                On a alors : 
+                \startformula \startmathalignment
+                    \NC (\bar{x} + \bar{y}) + \bar{z} 
+                    \NC = \Big( \frac{a}{b} + \frac{c}{d} \Big) + \frac{e}{f}
+                    = \frac{(a \times d) + (c \times b)}{b \times d} + \frac{e}{f}
+                    = \frac{((a \times d) + (c \times b)) \times f + e \times (b \times d)}{(b \times d) \times f} \NR
+                    \NC\NC = \frac{a \times (d \times f) + b \times (c \times f) + b \times (e \times d)}{b \times (d \times f)} 
+                    = \frac{a \times (d \times f) + b \times ((c \times f) + (e \times d))}{b \times (d \times f)} \NR
+                    \NC\NC = \frac{a}{b} + \frac{(c \times f) + (e \times d)}{d \times f} 
+                    = \frac{a}{b} + \Big( \frac{c}{d} + \frac{e}{f} \Big)
+                    = \bar{x} + (\bar{y} + \bar{z}) . \NR
+                \stopmathalignment \stopformula
+            \item L'opération $+$ est commutative (voir ci-dessus).
+            \item \emph{Le nombre rationnel $0$ est neutre pour $+$ :} 
+                Soit $\bar{x}$ un nombre rationnel, $x$ un de ses représentants et $a$ et $b$ deux entiers tels que $b \neq 0$ et $x = (a, b)$. 
+                On a : 
+                \startformula
+                    0 + \bar{x} = \frac{0}{1} + \frac{a}{b}
+                        = \frac{(0 \times b) + (1 \times a)}{1 \times b}
+                        = \frac{0 + a}{b}
+                        = \frac{a}{b}
+                        = \bar{x}.
+                \stopformula
+                Puisque $+$ est commutative, cela implique également $\bar{x} + 0 = \bar{x}$.
+            \item \emph{Tout élément de $\mathbb{Q}$ admet un inverse pour $+$ :} 
+                Soit $\bar{x}$ un nombre rationnel et $x$ un de ses représentants. 
+                On peut choisir deux entiers $a$ et $b$ tels que $b \neq 0$ et $x = (a, b)$.
+                Soit $\bar{y}$ le nombre rationnel admettant $(-a, b)$ pour représentant.
+                \startformula
+                    \bar{x} + \bar{y} = \frac{a}{b} + \frac{-a}{b}
+                        = \frac{(a \times b) + (b \times (-a))}{b \times b}
+                        = \frac{(a + (-a)) \times b}{b \times b}
+                        = \frac{0 \times b}{b \times b}
+                        = \frac{0}{b \times b}
+                        = 0 .
+                \stopformula
+                Puisque l'opération $+$ est commutative, cela montre également que $\bar{y} + \bar{x} = 0$, et donc que $\bar{y}$ est un inverse de $\bar{x}$ pour $+$.
+                \stopitemize
+    \item Montrons que $(\mathbb{Q}, \times)$ est un magma associatif :
+        \startitemize[nowhite]
+            \item Puisque $\times$ est une loi de composition interne sur $\mathbb{Q}$, $(\mathbb{Q}, \times)$ est un magma.
+            \item \emph{L'opération $\times$ est associative :} 
+                Cette propriété découle directement de l'associativité de la multiplication d'entiers. 
+                Montrons cela explicitement. 
+                Soit $\bar{x}$, $\bar{y}$ et $\bar{z}$ trois éléments de $\mathbb{Q}$. 
+                On peut choisir six entiers $a$, $b$, $c$, $d$, $e$, $f$ tels que $b \neq 0$, $d \neq 0$, $f \neq 0$, $\bar{x} = a \divslash b$, $\bar{y} = c \divslash d$ et $\bar{z} = e \divslash f$.
+                On a alors : 
+                \startformula \startmathalignment
+                    \NC (\bar{x} \times \bar{y}) \times \bar{z} 
+                    \NC = \Big( \frac{a}{b} \times \frac{c}{d} \Big) \times \frac{e}{f}
+                    = \frac{a \times c}{b \times d} \times \frac{e}{f}
+                    = \frac{(a \times c) \times e}{(b \times d) \times f} \NR
+                    \NC\NC = \frac{a \times (c \times e)}{b \times (d \times f)} 
+                    = \frac{a}{b} \times \frac{c \times e}{d \times f} 
+                    = \frac{a}{b} \times \Big( \frac{c}{d} \times \frac{e}{f} \Big)
+                    = \bar{x} \times (\bar{y} \times \bar{z}) . \NR
+                \stopmathalignment \stopformula
+        \stopitemize
+    \item L'opération $\times$ est commutative (voir ci-dessus). 
+    \item \emph{L'opération $\times$ est distributive sur $+$ :} 
+        Soit $\bar{x}$, $\bar{y}$ et $\bar{z}$ trois éléments de $\mathbb{Q}$. 
+        On peut choisir six entiers $a$, $b$, $c$, $d$, $e$, $f$ tels que $b \neq 0$, $d \neq 0$, $f \neq 0$, $\bar{x} = a \divslash b$, $\bar{y} = c \divslash d$ et $\bar{z} = e \divslash f$.
+        On a alors : 
+        \startformula \startmathalignment
+            \NC \bar{x} \times (\bar{y} + \bar{z})
+            \NC = \frac{a}{b} \times \Big( \frac{c}{d} + \frac{e}{f} \Big)
+            = \frac{a}{b} \times \frac{(c \times f) + (e \times d)}{d \times f}
+            = \frac{a \times ((c \times f) + (e \times d))}{b \times (d \times f)}
+            = \frac{(a \times (c \times f)) + (a \times (e \times d))}{b \times (d \times f)} \NR
+            \NC\NC = \frac{a \times (c \times f)}{b \times (d \times f)} + 
+                \frac{a \times (e \times d)}{b \times (d \times f)}
+            = \frac{(a \times c) \times f}{(b \times d) \times f} + 
+                \frac{(a \times e) \times d}{(b \times f) \times d}
+            = \frac{a \times c}{b \times d} + 
+                \frac{a \times e}{b \times f}
+            = \Big( \frac{a}{b} \times \frac{c}{d} \Big)
+                + \Big( \frac{a}{b} \times \frac{e}{f} \Big) \NR
+            \NC\NC = (\bar{x} \times \bar{y}) + (\bar{x} \times \bar{z}) . \NR
+        \stopmathalignment \stopformula
+        Puisque $\times$ est commutative, cela montre également (en échangeant les rôles de $\bar{x}$ et $\bar{z}$) que $(\bar{x} + \bar{y}) \times \bar{z} = (\bar{x} \times \bar{z}) + (\bar{y} \times \bar{z})$ pour tous rationnels $\bar{x}$, $\bar{y}$, $\bar{z}$.%
+            \footnote{En effet, puisque l'opération $\times$ est commutative, on a : $(\bar{x} + \bar{y}) \times \bar{z} = \bar{z} \times (\bar{x} + \bar{y}) = (\bar{z} \times \bar{x}) + (\bar{z} \times \bar{y}) = (\bar{x} \times \bar{z}) + (\bar{y} \times \bar{z})$.}
+    \item \emph{Le nombre rationnel $1$ est neutre pour $\times$ :} 
+        Soit $\bar{x}$ un nombre rationnel, $x$ un de ses représentants et $a$ et $b$ deux entiers tels que $b \neq 0$ et $x = (a, b)$. 
+        On a : 
+        \startformula
+            1 \times \bar{x} = \frac{1}{1} \times \frac{a}{b}
+                = \frac{1 \times a}{1 \times b}
+                = \frac{a}{b}
+                = \bar{x}.
+        \stopformula
+        Puisque $\times$ est commutative, cela implique également $\bar{x} \times 1 = \bar{x}$.
+    \item L'anneau $(Q, +, \times)$ est non nul puisque $0 \neq 1$ (puisque le nombre rationnel $1$ a pour représentant $(1,1)$, qui n'est pas un représentant de $0$ puisque son numérateur n'est pas nul).
+    \item \emph{Tout élément de $\mathbb{Q}$ distinct de $0$ admet un inverse pour $\times$ :} 
+        Soit $\bar{x}$ un nombre rationnel non nul. 
+        Soit $x$ un de ses représentants. 
+        On peut choisir deux entiers $a$ et $b$ tels que $b \neq 0$ et $x = (a, b)$.
+        Puisque $\bar{x}$ est non nul, $a \neq 0$. 
+        Soit $\bar{y}$ le nombre rationnel admettant $(b, a)$ pour représentant.
+        On a : $\bar{x} \times \bar{y} = \overline{(a, b)} \times \overline{(b, a)} = \overline{(a \times b, b \times a)} = \overline{(a \times b, a \times b)} = \overline{(1 \times (a \times b), 1 \times (a \times b))}$.
+        Puisque $a$ et $b$ sont non nuls, $a \times b$ l'est également.
+        Donc, $(1 \times (a \times b), 1 \times (a \times b)) \mathrel{\mathcal{R}} (1, 1)$.
+        Donc, $\bar{x} \times \bar{y} = 1$.
+        Puisque l'opération $\times$ est commutative, cela montre également que $\bar{y} \times \bar{x} = 1$, et donc que $\bar{y}$ est un inverse de $\bar{x}$ pour $\times$.
+\stopitemize
+
+\blank[medium]
+
+\noindent\bold{Remarque :} Sauf mention contraire, on parle généralement d'inverse pour désigner l'inverse pour la multiplication. 
+
+\blank[medium]
+
+\noindent\bold{Remarque :} Soit $x$ un élément de $\mathbb{Q}^*$. 
+    Alors l'inverse de $x$ est $1 \divslash x$, aussi noté $x^{-1}$. 
+
+\done
+
+\stopsubsection
+
+\startsubsection[title=Puissances]
+
+\noindent\bold{Définition :} On définit par récurrence les \emph{puissances entières positives} d'un nombre rationnel $x$ par :
+    \startitemize[nowhite]
+        \item $x^0 = 1$,
+        \item pour tout entier naturel $n$, $x^{n+1} = x \times x^n$.
+    \stopitemize
+    Notons que $x^1 = x$ et $x^n \neq 0$ pour tout entier naturel $n$ (se montre facilement par récurrence).
+    \index{Puissance}
+    Pour tout entier naturel non nul $n$, on définit la \emph{puissance entière négative} $x^{-n}$ comme égale à l'inverse de $x^n$.
+    \index{Puissance négative}
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $q$ un nombre rationnel et $n$ un entier naturel.
+    Si $q \neq 0$, alors $q^n \neq 0$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} On procède par récurrence sur $n$.
+    Pour $n = 0$, on a $q^n = 1$, donc $q^n \neq 0$.
+    
+    Supposons le résultat vrai au rang $n$. 
+    Alors, $q^{n+1} = q^n \times q$.
+    Puisque $q^n \neq 0$ et $q \neq 0$ (et puisque $(\mathbb{Q}, +, \times)$ est un corps), on en déduit que $q^{n+1} \neq 0$.
+
+    Par récurrence, le résultat attendu est vrai pour tout entier naturel $n$
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $q$ un nombre rationnel et $n$ et $m$ deux entiers. 
+    On suppose $q \neq 0$ ou $n \geq 0$ et $m \geq 0$.
+    Alors, 
+    \startitemize[nowhite]
+        \item $q^n \times q^m = q^{n+m}$,
+        \item $(q^n)^m = q^{n m}$.
+    \stopitemize
+
+\blank[medium]
+
+\noindent\bold{Démonstration :}\reference[demo:rel_puissances_q]{}
+Notons que, sous les hypothèses de l'énoncé, les nombres $q^n$, $q^m$, $q^{n+m}$ et $q^{n m}$ sont bien définis.
+
+On propose d'abord de montrer la première propriété pour toutes valeurs positives de $m$ par récurrence. 
+Pour $m = 0$, on a : $q^n \times q^m = q^n \times 1 = q^n = q^{n + 0} = q^{n+m}$. 
+Supposons le résultat attendu vrai au rang $m$.
+Alors, $q^n \times q^{m+1} = q^n \times (q^m \times q) = (q^n \times q^m) \times q = q^{n+m} \times q = q^{(n+m) + 1} = q^{n + (m+1)}$.
+Le résultat attendu est donc vrai au rang $m+1$. 
+Par récurrence, il l'est pour tout entier naturel $m$.
+
+Supposons maintenant $m < 0$. 
+Alors, $q \neq 0$, donc, $q^{-m} \neq 0$.
+Or, $q^{n+m} \times q^{-m} = q^{(n+m)-m} = q^n = q^n \times (q^m \times q^{-m}) = (q^n \times q^m) \times q^{-m}$. 
+Donc, $q^{n+m} = q^n \times q^m$.
+
+Montrons maintenant la second propriété, d'abord pour les valeurs positives de $m$.
+Pour $m = 0$, on a : $(q^n)^m = (q^n)^0 = 1 = q^0 = q^{n \times 0} = q^{n m}$. 
+Supposons le résultat attendu vrai au rang $m$.
+Alors, $(q^n)^{m+1} = (q^n)^m \times q^n = q^{n m} \times q^n = q^{(n m) + n} = q^{(n+1) m}$.
+Le résultat attendu est donc vrai au rang $m+1$. 
+Par récurrence, il l'est pour tout entier naturel $m$.
+
+Supposons maintenant que $m$ est strictement négatif.
+Alors, $-m$ est strictement positif. 
+Donc, $(q^n)^{-m} = q^{n \times (-m)} = q^{- n m}$.
+Or, par définition, $(q^n)^m = 1 \divslash ((q^n)^{-m})$. 
+Donc, $(q^n)^m = 1 \divslash q^{- n m} = q^{n m}$. 
+
+\done
+
+\stopsubsection
+
+\startsubsection[title=Relation d'ordre]
+
+\noindent\bold{Définition :} On définit la relation $\leq$ sur $\mathbb{Q}$ de la manière suivante. 
+    Soit $x$ et $y$ deux éléments de $\mathbb{Q}$ et $a$, $b$, $c$, $d$ quatre entiers tels que $b \neq 0$, $d \neq 0$, $x = a \divslash b$ et $y = c \divslash d$.
+    On pose alors $x \leq y$ si et seulement si $a \, b \, d^2 \leq c \, d \, b^2$.
+    Un nombre rationnel $q$ est dit \emph{positif} si $0 \leq q$ et \emph{négatif} si $q \leq 0$.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Cette définition ne dépend pas du choix des entiers $a$, $b$, $c$ et $d$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Montrons que, avec les mêmes notations, l'inégalité est satisfaite si et seulement si elle l'est en choisissant les représentatios irréductibles de $x$ et $y$.
+    Notons $a_0$ le numérateur de la représentation irréductible de $x$, $b_0$ son dénominateur, $c_0$ le numérateur de la représentation irréductible de $y$ et $d_0$ son dénominateur.
+    On peut choisir deux entiers relatifs non nuls $\lambda$ et $\eta$ tels que $a = \lambda \, a_0$, $b = \lambda \, b_0$, $c = \eta \, c_0$, et $d = \eta \, d_0$.
+    Donc, $a \, b \, d^2 = \lambda^2 \, \eta^2 \, a_0 \, b_0 \, d_0^2$ et $c \, d \, b^2 = \lambda^2 \, \eta^2 \, c_0 \, d_0 \, b_0^2$.
+    Puisque $\lambda$ et $\eta$ sont non nuls, $\lambda^2$ et $\eta^2$ sont strictement positifs, donc $\lambda^2 \, \eta^2$ également.
+    Donc, $a \, b \, d^2 \leq c \, d \, b^2$ si et seulement si $a_0 \, b_0 \, d_0^2 \leq c_0 \, d_0 \, b_0^2$.
+    
+    \done
+
+\blank[medium]
+
+\noindent\bold{Remarque :} Avec les notations ci-dessus, 
+\startitemize[nowhite]
+    \item $a \divslash b$ est positif si et seulement si $a = 0$ ou $a$ et $b$ sont de même signe ;
+    \item $a \divslash b$ est négatif si et seulement si $a = 0$ ou $a$ et $b$ sont de signes opposés.
+\stopitemize
+
+\blank[medium]
+
+\noindent\bold{Lemme :} La relation ainsi définie est une relation d'ordre total sur $\mathbb{Q}$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Ce résultat découle essentiellement du fait que $\leq$ est une relation d'ordre total sur $\mathbb{Z}$.
+    Montrons cela explicitement.
+    Dans cette preuve, $x$, $y$ et $z$ sont trois éléments de $\mathbb{Q}$ arbitraires et $a$, $b$, $c$, $d$, $e$, $f$ sont six entiers tels que $b \neq 0$, $d \neq 0$, $f \neq 0$, $x = a \divslash b$, $y = c \divslash d$ et $z = e \divslash f$.
+    \startitemize[nowhite]
+        \item On a $a \, b \, d^2 = a \, b \, d^2$, donc $a \, b \, d^2 \leq a \, b \, d^2$, donc $x \leq x$.
+        \item Si $x \leq y$ et $y \leq x$, alors $a \, b \, d^2 \leq c \, d \, b^2$ et $c \, d \, b^2 \leq a \, b \, d^2$, donc $a \, b \, d^2 = c \, d \, b^2$.
+            Donc, $(a \times d) \times (b \times d) = (c \times b) \times (b \times d)$.
+            Puisque $b$ et $d$ sont non nuls, $b \times d \neq 0$, donc cela implique $a \times d = c \times b$, donc $(a, b) \mathrel{\mathcal{R}} (c, d)$, et donc $x = y$.
+        \item Si $x \leq y$ et $y \leq z$, alors $a \, b \, d^2 \leq c \, d \, b^2$ et $c \, d \, f^2 \leq e \, f \, d^2$.
+            Donc, $a \, b \, d^2 \, f^2 \leq c \, d \, b^2 \, f^2 \leq e \, f \, b^2 \, d^2$.
+            Puisque $d$ est non nul, $d^2$ est strictement positif.
+            Cela montre donc que $a \, b \, f^2 \leq e \, f \, b^2$, et donc $x \leq z$.
+        \item Puisque $\leq$ est une relation d'ordre total sur $\mathbb{Z}$, on a $a \, b \, d^2 \leq c \, d \, b^2$ ou $c \, d \, b^2 \leq a \, b \, d^2$, donc $x \leq y$ ou $y \leq x$.
+    \stopitemize
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Définition :} On définit la relation d'ordre $\geq$ et les relations d'ordre strict $<$ et $>$ sur $Q$ de la manière suivante : pour tous éléments $x$ et $y$ de $\mathbb{Q}$, 
+\startitemize[nowhite]
+    \item $x \geq y$ si et seulement si $y \leq x$,
+    \item $x < y$ si et seulement si $(x \leq y) \wedge (x \neq y)$,
+    \item $x > y$ si et seulement si $x < y$.
+\stopitemize
+Un nombre rationnel $q$ est dit \emph{strictement positif} si $0 < q$ et \emph{strictement négatif} si $q < 0$.
+
+\blank[medium]
+
+\noindent\bold{Remarque :}
+    Soit $x$ et $y$ deux éléments de $\mathbb{Q}$ et $a$, $b$, $c$, $d$ quatre entiers tels que $b \neq 0$, $d \neq 0$, $x = a \divslash b$ et $y = c \divslash d$.
+    Si $x = y$, alors $a \, d = c \, b$, donc (en multipliant les deux côtés par $b \, d$), $a \, b \, d^2 = c \, d \, b^2$.
+    Réciproquement, si $a \, b \, d^2 = c \, d \, b^2$, alors $(a \, b) (b \, d) = (c \, d) \, (b \, d)$.
+    Puisque $b$ et $d$ sont non nuls, $b \, d$ l'est également, donc cela implique $a \, b = c \, d$, et donc $x = y$.
+    Ainsi, $x = y \Leftrightarrow a \, b \, d^2 = c \, d \, b^2$.
+    Le prédicat $x < y$ est donc équivalent à $a \, b \, d^2 < c \, d \, b^2$, et $x > y$ à $a \, b \, d^2 > c \, d \, b^2$.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $x$ et $y$ deux éléments de $\mathbb{Q}$. 
+    On suppose $x < y$. 
+    Alors, il existe un élément $z$ de $\mathbb{Q}$ satisfaisant $x < z < y$. 
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $a$ et $b$ les numérateur et dénominateur d'un représentant de $x$ et $c$ et $d$ ceux d'un représentant de $y$. 
+    Soit $e$ et $f$ les entiers naturels donnés par : $e = a \, d + b \, c$ et $f = 2 \, b \, d$.
+    Puisque $b$, $d$ et l'entier $2$ sont non nuls, $f$ l'est également.
+    Soit $z$ le nombre rationnel défini par : $z = e \divslash f$.
+    Montrons que $x < z < y$. 
+    Pour cela, on utilise le fait que, puisque $x < y$, $a \, b \, d^2 < c \, b^2 \, d$.
+
+    Tout d'abord, 
+    \startformula
+        a \, b \, f^2 
+        = 4 \, a \, b^3 \, d^2
+        = 2 \, a \, b^3 \, d^2 + 2 \, a \, b^3 \, d^2
+        < 2 \, a \, b^3 \, d^2 + 2 \, b^4 \, c \, d 
+    \stopformula
+    et 
+    \startformula
+        e \, f \, b^2
+        = (a \, d + b \, c) \, 2 \, b^3 \, d
+        = 2 \, a \, b^3 \, d^2 + 2 \, b^4 \, c \, d. 
+    \stopformula
+    Donc, $a \, b \, f^2 < e \, f \, b^2$, donc $x < z$.
+
+    En outre, 
+    \startformula
+        c \, d \, f^2 
+        = 4 \, c \, b^2 \, d^3
+        = 2 \, c \, b^2 \, d^3 + 2 \, c \, b^2 \, d^3
+        > 2 \, a \, b \, d^4 + 2 \, b^2 \, c \, d^3 
+    \stopformula
+    et 
+    \startformula
+        e \, f \, d^2
+        = (a \, d + b \, c) \, 2 \, b \, d^3
+        = 2 \, a \, b \, d^4 + 2 \, b^2 \, c \, d^3. 
+    \stopformula
+    Donc, $e \, f \, d^2 < c \, d \, f^2$, donc $z < y$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Définition (rappel) :} Un nombre rationnel $q$ est dit
+    \startitemize[nowhite]
+        \item \emph{positif} si $q \geq 0$,
+        \item \emph{négatif} si $q \leq 0$,
+        \item \emph{strictement positif} si $q > 0$,
+        \item \emph{strictement négatif} si $q < 0$.
+    \stopitemize
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $a$, $b$ et $c$ trois nombres entiers.
+    On suppose que $c > 0$.
+    Alors, $a \divslash c \leq b \divslash c \Leftrightarrow a \leq b$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Par définition, on a : $a \divslash c \leq b \divslash c \Leftrightarrow a \, c^3 \leq b \, c^3$.
+    Puisque $c > 0$, $c^2 > 0$ et $c^3 > 0$, donc $a \, c^3 \leq b \, c^3 \Leftrightarrow a \leq c$.
+    On a donc bien $a \divslash c \leq b \divslash c \Leftrightarrow a \leq b$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $p$ et $q$ deux nombres rationnels, et $r$ un nombre rationnel positif. 
+    Alors, $p \leq q \Rightarrow r \times p \leq r \times q$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :}
+    Soit $a$, $b$, $c$ et $d$ quatre entiers relatifs tels que $b \neq 0$, $d \neq 0$, $p = a \divslash b$ et $q = c \divslash d$.
+    Supposons $p \leq q$.
+    Alors, $b^2 \, c \, d \leq a \, b \, d^2$.
+    Soit $e$ et $f$ deux entiers relatifs tels que $f \neq 0$ et $r = e \divslash f$.
+    Puisque $r$ est positif, $e$ et $f$ ont le même signe si $e$ est non nul. 
+    Donc, $e \, f \geq 0$, et donc $e \, f^3 \geq 0$.
+    Donc, $b^2 \, c \, d \, e \, f^3 \leq a \, b \, d^2 \, e \, f^3$. 
+    Donc, $(c \, e) \divslash (d \, f) \leq (a \, e) \divslash (b \, f)$. 
+    Donc, $r \times p \leq r \times q$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $p$ et $q$ deux nombres rationnels, et $r$ un nombre rationnel négatif. 
+    Alors, $p \leq q \Rightarrow r \times p \geq r \times q$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :}
+    Soit $a$, $b$, $c$ et $d$ quatre entiers relatifs tels que $b \neq 0$, $d \neq 0$, $p = a \divslash b$ et $q = c \divslash d$.
+    Supposons $p \leq q$.
+    Alors, $b^2 \, c \, d \leq a \, b \, d^2$.
+    Soit $e$ et $f$ deux entiers relatifs tels que $f \neq 0$ et $r = e \divslash f$.
+    Puisque $r$ est négatif, $e$ et $f$ ont des ignes opposés si $e$ est non nul. 
+    Donc, $e \, f \leq 0$, et donc $e \, f^3 \leq 0$.
+    Donc, $b^2 \, c \, d \, e \, f^3 \geq a \, b \, d^2 \, e \, f^3$. 
+    Donc, $(c \, e) \divslash (d \, f) \geq (a \, e) \divslash (b \, f)$. 
+    Donc, $r \times p \geq r \times q$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $p$ et $q$ deux nombres rationnels strictement positifs. 
+    Alors, $p \leq q \Rightarrow p^{-1} \geq q^{-1}$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Soit $a$, $b$, $c$ et $d$ quatre entiers tels que $b \neq 0$, $c \neq 0$, $p = a \divslash b$ et $q = c \divslash d$.
+    Puisque $p$ et $q$ sont non nuls, on a $a \neq 0$ et $c \neq 0$.
+    
+    Supposons $p \leq q$.
+    Alors, $a \, b \, d^2 \leq c \, d \, b^2$.
+    Puisque $p$ est strictement positif, $a$ et $b$ sont su même signe, donc $a \, b > 0$.
+    De même, puisque $q$ est strictement positif, $c$ et $d$ sont su même signe, donc $c \, d > 0$.
+    Donc, $a^2 \, b^2 \, c \, d^3 \leq a \, b^3 \, c^2 \, d^2$.
+    Donc, $c \, d \, a^2 \, b^2 \, d^2 \leq a \, b \, c^2 \, b^2 \, d^2$.
+    Puisque $b \neq 0$ et $d \neq 0$, cela implique
+    Donc, $c \, d \, a^2 \leq a \, b \, c^2$, donc $d \divslash c \leq b \divslash a$, et donc $q^{-1} \leq p^{-1}$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Corrolaire 1 :} Soit $p$ et $q$ deux nombres rationnels strictement positifs. 
+    Si $p < q$, alors $p^{-1} > q^{-1}$. 
+    (En effet, on a $p^{-1} \geq q^{-1}$ et $p^{-1} \neq q^{-1}$, sans quoi on aurait $p = q$.)
+
+\blank[medium]
+
+\noindent\bold{Corrolaire 2 :} Soit $p$ et $q$ deux nombres rationnels strictement négatifs. 
+    Alors, $-p$ et $-q$ sont strictement positif, $p^{-1} = -((-p)^{-1})$ et $q^{-1} = -(-q)^{-1}$.
+    Donc, si $p \leq q$, alors $p^{-1} \geq q^{-1}$ et, si $p < q$, alors $p^{-1} > q^{-1}$. 
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $p$, $q$ et $r$ trois nombres rationnels.
+    Si $p \leq q$, alors $p + r \leq q + r$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Soit $a$, $b$, $c$, $d$, $e$ et $f$ quatre entiers tels que $b \neq 0$, $d \neq 0$, $f \neq 0$, $p = a \divslash b$, $q = c \divslash d$, et $r = e \divslash f$.
+    Par définition de l'addition de rationnels, on a : $p + r = (a \, f + e \, b) \divslash (b \, f)$ et $q + r = (c \, f + e \, d) \divslash (d \, f)$.
+    Notons $A$, $B$, $C$ et $D$ les entiers $a \, f + e \, b$, $b \, f$, $c \, f + e \, d$ et $d \, f$. 
+    Alors, $p + r = A \divslash B$ et $q + r = C \divslash D$.
+    On a aussi : 
+    \startformula
+        A \, B \, D^2 = (a \, f + e \, b) \, b \, d^2 \, f^3
+    \stopformula
+    et 
+    \startformula
+        C \, B^2 \, D = (c \, f + e \, d) \, b^2 \, d \, f^3.
+    \stopformula
+
+    Supposons $p \leq q$.
+    Alors, par définition de la relation d'ordre $\leq$, on a : $a \, b \, d^2 \leq c \, d \, b^2$. 
+    Puisque $f^4$ est positif (car égal à $(f^2)^2$), on a donc : $a \, b \, d^2 \, f^4 \leq c \, d \, b^2 \, f^4$.
+    Donc, $a \, b \, d^2 \, f^4 + e \, b^2 \, d^2 \, f^3 \leq c \, d \, b^2 \, f^4 + e \, b^2 \, d^2 \, f^3$.
+    Le membre de gauche de cette inégalité n'est autre que $A \, B ,\ D^2$, et celui de droite que $C \, B^2 \, D$.
+    Donc, $A \, B \, D^2 \leq C \, B^2 \, D$.
+    Donc, $p + r \leq q + r$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Corrolaire :} Soit $p$, $q$ et $r$ trois nombres rationnels.
+    \startitemize[nowhite]
+        \item Si $p \geq q$, alors $p + r \geq q + r$.
+        \item Si $p < q$, alors $p + r < q + r$.
+        \item Si $p > q$, alors $p + r > q + r$.
+    \stopitemize
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Pour montrer le premier point, notons que si $p \geq q$, alors $q \leq p$, donc $q + r \leq p + r$, donc $p + r \geq q + r$.
+    Pour les deux autres, on note que si $p \neq q$, alors $p + r \neq q + r$ (sans quoi soustraire $r$ donnerait $p = q$). 
+    Les deux derniers points découlent directement de ceci et des deux résultats précédents.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Définition :} On définit les deux fonctions $\mathrm{min}$ et $\mathrm{max}$ sur $\mathbb{Q}^2$ de la manière suivante : si $a$ et $b$ sont deux nombres rationnels, alors 
+\startformula
+   \mathrm{min}(a,b) = \startcases
+       \NC a \NC \text{si } a \leq b \NR
+       \NC b \NC \text{si } a > b \NR
+   \stopcases
+   , \qquad
+   \mathrm{max}(a,b) = \startcases
+       \NC a \NC \text{si } a \geq b \NR
+       \NC b \NC \text{si } a < b \NR
+   \stopcases
+   .
+\stopformula
+\index{Min}\index{Max}
+
+\stopsubsection
+
+\startsubsection[title=Valeur absolue]
+
+\noindent\bold{Définition :} \symbolsRegister{$\abs{\cdot}$}
+    Soit $q$ un nombre rationnel. 
+    On définit sa \emph{\words{valeur absolue}}, notée $\abs{q}$, de la manière suivante : 
+    \startitemize[nowhite]
+        \item si $q \geq 0$, alors $\abs{q} = q$ ; 
+        \item si $q < 0$, alors $\abs{q} = -q$.
+    \stopitemize
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $q$ un nombre rationnel.
+    Alors, $- \abs{q} \leq q \leq \abs{q}$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    \startitemize
+        \item Si $q \geq 0$, alors $\abs{q} = q$, donc $q \leq \abs{q}$, et $-\abs{q} \leq 0 \leq q$, donc $- \abs{q} \leq q$.
+        \item Si $q \leq 0$, alors $\abs{q} = -q$, donc $-\abs{q} = q$, donc $q \geq -\abs{q}$, et $\abs{q} \geq 0 \geq q$, donc $\abs{q} \geq q$.
+    \stopitemize
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Corrolaire :} Soit $p$ et $q$ deux un nombres rationnel.
+    On suppose $\abs{p} \leq q$.
+    Alors, $-q \leq p \leq q$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Puisque $\abs{p} \leq q$, $-\abs{p} \geq -q$, donc $-q \leq -\abs{p} \leq p \leq \abs{p} \leq q$. 
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $q$ un nombre rationnel et $a$ et $b$ deux entiers relatifs tels que $b \neq 0$ et $q = a \divslash b$.
+    Alors, $\abs{q} = \abs{a} / \abs{b}$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} On distingue quatre cas selon les signes de $a$ et de $b$.
+    \startitemize[nowhite]
+        \item Si $a \geq 0$ et $b \geq 0$, alors $q \geq 0$, donc $\abs{q} = q = a \divslash b = \abs{a} \divslash \abs{b}$.
+        \item Si $a < 0$ et $b \geq 0$, alors $q < 0$, donc $\abs{q} = - q = (-a) \divslash b = \abs{a} \divslash \abs{b}$.
+        \item Si $a \geq 0$ et $b < 0$, alors $q < 0$, donc $\abs{q} = - q = a \divslash (-b) = \abs{a} \divslash \abs{b}$.
+        \item Si $a < 0$ et $b < 0$, alors $q \geq 0$, donc $\abs{q} = q = (-a) \divslash (-b) = \abs{a} \divslash \abs{b}$.
+    \stopitemize
+    Dans tous les cas, on a bien $\abs{q} = \abs{a} / \abs{b}$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Corrolaire :} Avec les mêmes notations, $\abs{q} = 0$ est équivalent à $\abs{a} = 0$, donc à $a = 0$, et donc à $q = 0$.
+
+\blank[medium]
+
+\noindent\bold{Corrolaire :} Avec les mêmes notations, $\abs{-q} = \abs{q}$ (puisqu'on peut obtenir $-q$ à partir de $q$ en remplaçant $a$ par $-a$, ce qui ne change pas sa valeur absolue).
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $p$ et $q$ deux nombres rationnels.
+    Alors, $\abs{p \times q} = \abs{p} \times \abs{q}$ et, si $q \neq 0$, $\abs{p \divslash q} = \abs{p} \divslash \abs{q}$.
+
+\blank[medium]
+
+\noindent\bold{Remarque :} Ce lemme offre une démontstration alternative du corrolaire précédent, en notant que $-q = (-1) \times q$ et $\abs{-1} = 1$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Relativement évidente en utilisant le lemme précédent. 
+    Écrivons-là exlicitement.
+    Soit $a$, $b$, $c$ et $d$ quatre entiers relatifs tels que $b \neq 0$, $d \neq 0$, $p = a \divslash b$ et $q = c \divslash d$.
+    On a : 
+    \startformula
+        \abs{p \times q} 
+        = \abs{\frac{a}{b} \times \frac{c}{d}}
+        = \abs{\frac{a c}{b d}}
+        = \frac{\abs{a c}}{\abs{b d}}
+        = \frac{\abs{a} \abs{c}}{\abs{b} \abs{d}}
+        = \frac{\abs{a}}{\abs{b}} \times \frac{\abs{c}}{\abs{d}}
+        = \abs{p} \times \abs{q} .
+    \stopformula
+
+    Si $q \neq 0$, alors $a \neq 0$. 
+    Dans ce cas, on a :
+    \startformula
+        \abs{\frac{p}{q}} 
+        = \abs{\frac{c}{d} \divslash \frac{a}{b}}
+        = \abs{\frac{b c}{a d}}
+        = \frac{\abs{b c}}{\abs{a d}}
+        = \frac{\abs{b} \abs{c}}{\abs{a} \abs{d}}
+        = \frac{\abs{b}}{\abs{a}} \divslash \frac{\abs{c}}{\abs{d}}
+        = \abs{p} \divslash \abs{q} .
+    \stopformula
+    
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme (inégalité triangulaire) :} Soit $p$ et $q$ deux nombres rationnels. 
+    Alors, $\abs{p} - \abs{q} \leq \abs{p + q} \leq \abs{p} + \abs{q}$.
+    \index{Inégalité triangulaire}
+
+\blank[medium]
+
+\noindent\bold{Démonstration :}
+    Montrons d'abord la première inégalité. 
+    Si $p$ et $q$ sont de même signe, alors 
+    \startitemize[nowhite]
+        \item Si $p \geq 0$, $\abs{p + q} = p + q = \abs{p} + \abs{q}$.
+        \item Si $p < 0$, $\abs{p + q} = -(p + q) = - p + (- q) = \abs{p} + \abs{q}$.
+    \stopitemize
+    Si $p$ et $q$ sont de signes opposés, 
+    \startitemize[nowhite]
+        \item Si $\abs{p} \geq \abs{q}$, $p + q$ est su même signe que $p$.
+        \startitemize[nowhite]
+            \item Si $p \geq 0$, $\abs{p + q} = p + q = \abs{p} - \abs{q}$.
+            \item Si $p < 0$, $\abs{p + q} = -(p + q) = -p + (-q) = \abs{p} - \abs{q}$.
+        \stopitemize
+        \item Si $\abs{p} < \abs{q}$, $p + q$ est su même signe que $q$.
+        \startitemize[nowhite]
+            \item Si $q \geq 0$, $\abs{p + q} = p + q = \abs{q} - \abs{p} > 0 > \abs{p} - \abs{q}$.
+            \item Si $q < 0$, $\abs{p + q} = -(p + q) = -p + (-q) = \abs{q} - \abs{p} > 0 > \abs{p} - \abs{q}$.
+        \stopitemize
+    \stopitemize
+
+    Montrons maintenant la seconde inégalité. 
+    Soit $a$, $b$, $c$ et $d$ quatre entiers relatifs tels que $b \neq 0$, $d \neq 0$, $p = a \divslash b$ et $q = c \divslash d$.
+    On a : 
+    \startformula
+        \abs{p + q} = \frac{\abs{a d + b c}}{\abs{b c}}
+    \stopformula
+    et 
+    \startformula
+        \abs{p} + \abs{q} = \frac{\abs{a d} + \abs{b c}}{\abs{b c}} .
+    \stopformula
+    Le résultat attendu est donc équivalent à $\abs{b d}^3 \abs{a d + b c} \leq \abs{b d}^3 (\abs{a d} + \abs{b c})$, ou, puisque $b d \neq 0$ (et donc $\abs{b d}^3 \neq 0$), à $ \abs{a d + b c} \leq \abs{a d} + \abs{b c}$. 
+    Puisque $a d$ et $b c$ sont deux entiers, c'est bien le cas.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Corroaire :} Soit $p$ et $q$ deux nombres rationnels. 
+    Puisque $\abs{-q} = \abs{q}$, on a : $\abs{p} - \abs{q} \leq \abs{p - q} \leq \abs{p} + \abs{q}$.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $q$ un nombre rationnel et $p$ un nombre rationnel positif. 
+    Alors, $\abs{q} \leq p \Leftrightarrow -p \leq q \leq p$.
+
+\blank[medium]
+
+\noindent\bold{Démontration :} 
+\startitemize[nowhite]
+    \item Supposons $\abs{q} \leq p$. 
+        Alors, 
+        \startitemize[nowhite]
+            \item Si $q$ est positif, alors $0 \leq q$ (par définition d'un nombre positif), donc $-p \leq q$~\footnote{On a $-p \leq 0$ puisque $p$ est positif.}, et $q \leq p$ (car $\abs{q} \leq p$), donc $-p \leq q \leq p$.
+            \item Sinon, $q < 0$, donc $q \leq p$~\footnote{On a $0 \leq p$ puisque $p$ est positif.}, et $-q \leq p$ (car $\abs{q} \leq p$), donc $-p \leq q$, donc $-p \leq q \leq p$.
+        \stopitemize
+    \item Supposons $-p \leq q \leq p$.
+        Alors, 
+        \startitemize[nowhite]
+            \item Si $q$ est positif, la seconde inégalité donne $\abs{q} \leq p$.
+            \item Sinon $q$, la première inégalité, qui implique $p \geq -q$, donne $p \geq \abs{q}$, donc $\abs{q} \leq p$.
+        \stopitemize
+\stopitemize
+
+\done
+
+\stopsubsection
+
+\startsubsection[title=Limite d'une suite de rationnels]
+
+\noindent\bold{Définition :} Soit $u$ une suite de nombres rationnels, \emph{i.e.}, un élément de $\mathbb{Q}^{\mathbb{N}}$.
+    Soit $l$ un nombre rationnel.
+    On dit que \emph{$u$ converge vers $l$}, que \emph{$u$ tend vers $l$} ou que \emph{$u$ admet $l$ pour \words{limite}} si le prédicat suivant est vrai : 
+    \startformula
+        \forall \epsilon \in \mathbb{Q} \, 
+        \epsilon > 0 \Rightarrow
+            \exists n \in \mathbb{N} \, 
+            \forall m \in \mathbb{N} \, 
+            m \geq n \Rightarrow
+                \abs{u_m - l} \leq \epsilon .
+    \stopformula
+    Cela peut être noté $u \symbols{\rightarrow} l$.
+    Une suite admettant une limite est dite \emph{\words{convergente}}. 
+    Une suite n'admettant aucune limite est dite \emph{\words{divergente}}. 
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Une suite de nombres rationnels admet au plus une seule limite.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $u$ une suite de nombres rationnels. 
+    Soit $l_1$ et $l_2$ deux limites de $u$. 
+    Montrons que $l_1 = l_2$. 
+    On procède par l'absurde. 
+    Supposons donc que $l_1 \neq l_2$.
+    Alors, $l_1 - l_2 \neq 0$. 
+    Posons $\epsilon = \abs{l_1 - l_2} \divslash 4$. 
+    Alors, $\epsilon > 0$.
+    
+    Par définition de la limite, on peut choisir deux entiers naturels $n_1$ et $n_2$ tels que, pour tout entier naturel $m$,
+    \startitemize[nowhite]
+        \item si $m \geq n_1$, $\abs{u_m - l_1} \leq \epsilon$,
+        \item si $m \geq n_2$, $\abs{u_m - l_2} \leq \epsilon$.
+    \stopitemize
+    Définissons $m$ par $m = \mathrm{max}(n_1, n_2)$.
+    Alors, $m \geq n_1$ et $m \geq n_2$, donc $\abs{u_m - l_1} \leq \epsilon$ et $\abs{u_m - l_2} \leq \epsilon$.
+    Puisque $l_1 - l_2 = (l_1 - u_m) + (u_m - l_2)$, on a : $\abs{l_1 - l_2} \leq \abs{l_1 - u_m} + \abs{u_m - l_2}$ (inégalité triangulaire), donc $\abs{l_1 - l_2} \leq \abs{u_m - l_1} + \abs{u_m - l_2}$, donc $\abs{l_1 - l_2} \leq 2 \epsilon$.
+    Donc, $4 \epsilon \leq 2 \epsilon$, donc $2 \epsilon < 0$, donc $\epsilon < 0$.
+    On obtient une contradiction. 
+    On en déduit que l'hypothèse de départ ne peut qu'être fausse, et donc que $l_1 = l_2$.
+
+    \done
+
+\blank[medium]
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $u$ une suite de nombres rationnels. 
+    On suppose que $u$ admet une limite $l$. 
+    Soit $n$ un entier naturel. 
+    Soit $v$ la suite de nombres rationnels définie par : pour tout entier naturel $m$, $v_m = u_{m+n}$.
+    Alors, $v$ tend vers $l$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $\epsilon$ un nombre rationnel strictement positif.
+    Puisque $u$ tend vers $l$, on peut choisir un entier naturel $m$ tel que, pour tout entier naturel $k$ supérieur ou égal à $m$, $\abs{u_k - l} \leq \epsilon$.
+    Pour tout entier naturel $k$ supérieur ou égal à $m$, $k + n$ l'est également, donc $\abs{u_{k+n} - l} \leq \epsilon$, et donc $\abs{v_k - l} \leq \epsilon$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $q$ un nombre rationnel, $n_0$ un entier naturel et $u$ et $v$ deux suites de nombres rationnels. 
+    On suppose que $u$ admet $q$ pour limite et que $v_n = u_n$ pour tout entier naturel $n$ supérieur ou égal à $n_0$.
+    Alors $v$ admet $q$ pour limite.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :}
+    Soit $\epsilon$ un nombre rationnel strictement positif.
+    Puisque $u$ admet $q$ pour limite, on peut choisir un entier naturel $n_\epsilon$ tel que $\abs{u_m - q} \leq \epsilon$ pour tout entier naturel $m$ supérieur ou égal à $n_\epsilon$. 
+    Soit $n_\epsilon'$ l'entier naturel défini par : $n_\epsilon' = \mathrm{max} \left( n_0, n_\epsilon \right)$.
+    
+    Soit $m$ un entier naturel supérieur ou égal à $n_\epsilon'$.
+    On a $m \geq n_\epsilon$, donc $\abs{u_m - q} \leq \epsilon$.
+    En outre, $m \geq n_0$, donc $v_m = u_m$.
+    Donc, $\abs{v_m - q} \leq \epsilon$.
+    
+    Cela montre que $\abs{v_m - q} \leq \epsilon$ pour tout entier naturel $m$ suérieur ou égal à $n_\epsilon'$. 
+    On en déduit que $v$ admet $q$ pour limite.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $u$ une suite de nombre rationnels convergente. 
+    Alors, pour tout nombre rationnel $\epsilon$ strictement positif, il existe un entier naturel $n$ tel que, pour tous entiers naturels $m$ et $k$, $((m \geq n) \wedge (k \geq n)) \Rightarrow \abs{u_m - u_k} \leq \epsilon$.
+    (Une suite satisfaisant cette propriété est dite \emph{de Cauchy}, voir \in{Section}{}[sub:Cauchy]\index{Suite de Cauchy}.)
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $u$ une suite de nombres rationnels convergente et $l$ sa limite.
+    Soit $\epsilon$ un nombre rationnel strictement positif. 
+    Alors, $\epsilon \divslash 2$ est aussi strictement positif.
+    On peut donc choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $\abs{u_m - l} \geq \epsilon \divslash 2$.
+    Soit $m$ et $k$ deux entiers naturels supérieurs ou égaux à $n$. 
+    On a (en utilisant l'inégalité triangulaire) : $\abs{u_m - u_k} = \abs{(u_m - l) + (l - u_k)} \leq \abs{u_m - l} + \abs{l - u_k} \leq \epsilon \divslash 2 + \epsilon \divslash 2$, donc $\abs{u_m - u_k} \leq \epsilon$. 
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Exemples :} 
+\startitemize[nowhite]
+    \item Soit $q$ un nombre rationnel. 
+        Soit $u$ la suite de nombres rationnels définie par : pour tout entier naturel $n$, $u_n = q$. 
+        (Cette suite est parfois dite \emph{suite constante égale à $q$}\index{Suite constante}.)
+        Alors, $u$ admet $q$ pour limite.
+        En effet, pour tout rationnel $\epsilon$ tel que $\epsilon > 0$ et pour tout entier naturel $m$ tel que $m \geq 0$, on a $\abs{u_m - q} = 0$, donc $\abs{u_m - q} \leq \epsilon$.
+    \item Soit $u$ la suite de nombres rationnels définie par : pour tout entier naturel $n$, $u_n = 1 \divslash (n+1)$.
+        Montrons que cette suite a pour limite $0$. 
+        Soit $\epsilon$ un nombre rationnel strictement positif et $a$ et $b$ deux entiers relatifs tels que $(a, b)$ est la représentation irréductible de $\epsilon$.
+        Alors, $a$ et $b$ sont tous deux positifs (car $\epsilon \geq 0$) et $a \neq 0$ (car $\epsilon \neq 0$), donc $a \geq 1$.
+        Pour tout entier naturel $n$ tel que $n \geq b$, on a (puisque $n \, b$ est positif) : $n \, b^2 \leq n^2 \, b$, donc $n \, b^2 \leq a \, n^2 \, b$, donc $1 \divslash n \leq a \divslash b$, donc (puisque $n+1 \geq n$) $1 \divslash (n+1) \leq a \divslash b$, donc $u_n \leq \epsilon$, et donc (puisque $\abs{u_n} = u_n$) $\abs{u_n - 0} \leq \epsilon$.
+    \item La suite $u$ définie par $u_n = (-1)^n$ pour tout entier naturel $n$ n'admet pas de limite.
+        En effet, elle prend successivement les valeurs $1$ pour $n$ pair et $-1$ pour $n$ impair (cela se montre facilement par récurrence sur $n$~\footnote{%
+    Pour $n = 0$, on a $u_0 = (-1)^0 = 1$.
+    Soit $n$ un entier naturel et supposons le résultat attendu vrai au rang $n$.
+    Si $n$ est pair, alors $n+1$ est impair et $u_n = 1$, donc $(-1)^n = 1$, donc $(-1)^{n+1} = -1$, donc $u_{n+1} = -1$.
+    Sinon, $n$ est impair, donc $n+1$ est pair et $u_n = -1$, donc $(-1)^n = -1$, donc $(-1)^{n+1} = 1$, donc $u_{n+1} = 1$.
+    Le résultat attendu est donc vrai au rang $n+1$.
+    Par récurrence, il l'est donc pour tout entier naturel.
+}), distants de $2$, et n'est donc pas de Cauchy. 
+\stopitemize
+
+\blank[medium]
+
+\noindent\bold{Corrolaire :} Soit $u$ une suite de nombres rationnels convergente.
+    Alors, on peut choisir deux nombres rationnels $a$ et $b$ tels que, pour tout entier naturel $n$, $a \leq u_n \leq b$.
+    (\emph{Rappel :} Une suite satisfaisant cette propriété est dite \emph{bornée}.)
+    \index{Suite bornée}
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Notons $l$ la limite de $u$.
+    Par définition de la limite, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $\abs{u_n-l} \leq 1$, donc $-1 \leq u_n-l \leq 1$, et donc $l-1 \leq u_n \leq l+1$. 
+    Prenons $n$ strictement positif.
+    (Si le $n$ défini précédemment est nul, il suffit de le remplacer par $n+1$, qui satisfait également la propriété le définissant.)
+    Soit $a$ le minimum de $\lbrace u_0, u_1, \dots, u_{n-1}, l-1 \rbrace$ et $b$ le maximum de $\lbrace u_0, u_1, \dots, u_{n-1}, l+1 \rbrace$.
+    Alors, pour tout entier naturel $m$, 
+    \startitemize[nowhite]
+        \item Si $m < n$, alors $u_n \geq a$ par définition du maximum et $u_n \leq b$ par définition du minimum.
+        \item Sinon, $l-1 \leq u_n$, donc $a \leq u_n$, et $u_n \leq l+1$, donc $u_n \leq b$.
+    \stopitemize
+    Dans les deux cas, on a bien $a \leq u_n \leq b$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $u$ et $v$ deux suites bornées et $q$ un nombre rationnel.
+    \startitemize[nowhite]
+        \item Définissons la suite $a$ par : pour tout entier naturel $n$, $a_n = u_n + q$.
+            Alors, $a$ est bornée.
+        \item Définissons la suite $b$ par : pour tout entier naturel $n$, $b_n = u_n \times q$.
+            Alors, $b$ est bornée.
+        \item Définissons la suite $c$ par : pour tout entier naturel $n$, $c_n = u_n + v_n$.
+            Alors, $c$ est bornée.
+        \item Définissons la suite $d$ par : pour tout entier naturel $n$, $d_n = u_n \times v_n$.
+            Alors, $d$ est bornée.
+    \stopitemize
+
+\blank[medium]
+
+\noindent\bold{Démonstration :}
+    Soit $A_u$, $A_v$, $B_u$ et $B_v$ quatre nombres rationnels tels que~: pour tout entier naturel $n$, $A_u \leq u_n \leq B_u$ et $A_v \leq v_n \leq B_v$.
+    \startitemize[nowhite]
+        \item Pour tout entier naturel $n$, $A_u + q \leq u_n + q \leq B_u + q$, donc $A_u + q \leq a_n \leq B_u + q$.
+            Donc, $a$ est bornée.
+        \item Soit $C_u$ le nombre rationnel défini par : $C_u = \mathrm{max}\left(\abs{A_u}, \abs{B_u}\right)$.
+            Alors, $C_u \geq B_u$ et $-C_u \leq A_u$.%
+            \footnote{En effet, 
+                \startitemize[nowhite]
+                    \item On a~: $C_u \geq \abs{B_u} \geq B_u$, donc $C_u \geq B_u$.
+                    \item On a~: $-C_u \leq -\abs{A_u} \leq A_u$, donc $-C_u \leq A_u$.
+                \stopitemize} 
+            Donc, pour tout entier naturel $n$, on a $-C_u \leq u_n \leq C_u$, et donc $- \abs{q} \, C_u \leq b_n \leq \abs{q} \, C_u$.%
+            \footnote{En effet, 
+                \startitemize[nowhite]
+                    \item Si $q$ est positif, alors $-C_u \leq u_n \leq C_u$, implique $- q \, C_u \leq b_n \leq q \, C_u$, et donc $- \abs{q} \, C_u \leq b_n \leq \abs{q} \, C_u$. 
+                    \item Si $q$ est négatif, alors $-C_u \leq u_n \leq C_u$, implique $- q \, C_u \geq b_n \geq q \, C_u$, donc $q \, C_u \leq b_n \leq -q \, C_u$, et donc $- \abs{q} \, C_u \leq b_n \leq \abs{q} \, C_u$. 
+                \stopitemize}
+            Donc, $b$ est bornée.
+        \item Pour tout entier naturel $n$, $u_n + v_n \leq u_n + B_v \leq B_u + B_v$ et $u_n + v_n \geq u_n + A_v \geq A_u + A_v$, donc $A_u + A_v \leq c_n \leq B_u + B_v$. 
+            Donc, $c$ est bornée.
+        \item Soit $C_u$ et $C_v$ les nombres rationnels définis par : $C_u = \mathrm{max}\left(\abs{A_u}, \abs{B_u}\right)$ et $C_v = \mathrm{max}\left(\abs{A_v}, \abs{B_v}\right)$.
+            Alors, pour tout entier naturel $n$, on a $\abs{u_n} \leq C_u$ et $\abs{v_n} \leq C_v$.%
+            \footnote{En effet, on a $-C_u \leq u_n \leq C_u$, donc,
+                \startitemize[nowhite]
+                    \item si $u_n$ est positif, $\abs{u_n} = u_n$, donc $\abs{u_n} \leq C_u$~;
+                    \item si $u_n$ est négatif, $\abs{u_n} = -u_n$, donc $\abs{u_n} \leq -(-C_u)$, donc $\abs{u_n} \leq C_u$.
+                \stopitemize
+                Et de même avec $u$ remplacé par $v$.}
+            Donc, $\abs{u_n} \, \abs{v_n} \leq C_u \, \abs{v_n} \leq C_u \, C_v$.
+            Donc, $\abs{u_n \, v_n} \leq C_u \, C_v$.
+            Donc, $-C_u \, C_v \leq u_n \, v_n \leq C_u \, C_v$.
+            Donc, $-C_u \, C_v \leq d_n \leq C_u \, C_v$.
+            Donc, $d$ est bornée.
+    \stopitemize
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Notation :} Soit $u$ et $v$ deux suites de nombres rationnels et $q$ un nombre rationnel.
+    On définit les suites $u + q$, $q + u$, $u - q$, $q - u$, $u \times q$, $q \times u$, $u + v$, $u - v$ et $u \times v$ par : pour tout entier naturel $n$, 
+    \startitemize[nowhite]
+        \item $(q + u)_n = q + u_n$,
+        \item $(u + q)_n = u_n + q$,
+        \item $(u - q)_n = u_n - q$,
+        \item $(q - u)_n = q - u_n$,
+        \item $(u \times q)_n = u_n \times q$,
+        \item $(q \times u)_n = q \times u_n$,
+        \item $(u + v)_n = u_n + v_n$,
+        \item $(u - v)_n = u_n - v_n$,
+        \item $(u \times v)_n = u_n \times v_n$. 
+    \stopitemize
+    Avec les mêmes notations, on peut noter $-u$ la suite $(-1) \times u$.
+    Avec les mêmes notations, si $q \neq 0$, on définit la suite $u \divslash q$ par : pour tout entier naturel $n$, $(u \divslash q)_n - u_n \divslash q$ et.
+    Si $v_n \neq 0$ pour tout entier naturel $n$, on définit également la suite $u \divslash v$, aussi notée $u \div v$, par $\left( u \divslash v \right)_n = u_n \divslash v_n$ pour tout entier naturel $n$.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $q$ un nombre rationnel et $u$ une suite de nombres rationnels admettant $q$ pour limite.
+    Soit $p$ un nombre rationnel et $n$ un entier naturel.
+    \startitemize[nowhite]
+        \item Si $u_m \leq p$ pour tout entier naturel $m$ supérieur ou égal à $n$, alors $q \leq p$.
+        \item Si $u_m \geq p$ pour tout entier naturel $m$ supérieur ou égal à $n$, alors $q \geq p$.
+    \stopitemize
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} On procède par l'absurde.
+    
+    Traitons d'abord le cas où $u_m \leq p$ pour tout entier naturel $m$ supérieur ou égal à $n$.
+    Supposons que $q > p$. 
+    Alors, $q - p > 0$, donc $(q - p) \div 2 > 0$. 
+    On peut donc choisir un entier naturel $m$ tel que, pour entier naturel $k$, $k \geq m \Rightarrow \abs{u_n - q} \leq (q - p) \div 2$.
+    Notons $k$ le maximum de $n$ et $m$. 
+    Puisque $k \geq n$, $u_k \leq p$. 
+    Puisque $q - u_k = (q - p) + (p - u_k)$, on a donc : $q - u_k \geq q - p$, donc $q - u_k \geq 0$ et $\abs{q - u_k} \geq q - p$.
+    Puisque $q - p > (q - p) \div 2$, on a donc $\abs{q - u_k} > (q - p) \div 2$.
+    Cela est une contradiction puisque $k \geq m$.
+    On en déduit que l'hypothèse de départ est fausse, et donc que $q \leq p$
+
+    Le cas où $u_m \geq p$ pour tout entier naturel $m$ supérieur ou égal à $n$ est similaire. 
+    Supposons par l'absurde que $p > q$. 
+    Alors, $p - q > 0$, donc $(p - q) \div 2 > 0$. 
+    On peut donc choisir un entier naturel $m$ tel que, pour entier naturel $k$, $k \geq m \Rightarrow \abs{u_n - q} \leq (p - q) \div 2$.
+    Notons $k$ le maximum de $n$ et $m$. 
+    Puisque $k \geq n$, $u_k \geq p$. 
+    Puisque $u_k - q = (u_k - p) + (p - q)$, on a donc : $u_k - q \geq p - q$, donc $u_k - q \geq 0$ et $\abs{q - u_k} \geq p - q$.
+    Puisque $p - q > (p - q) \div 2$, on a donc $\abs{q - u_k} > (p - q) \div 2$.
+    Cela est une contradiction puisque $k \geq m$.
+    On en déduit que l'hypothèse de départ est fausse, et donc que $p \leq q$
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $p$ et $q$ deux nombres rationnels et $u$ et $v$ deux suites de nombres rationnels admettant respectivement $p$ et $q$ pour limites. 
+    Alors, 
+    \startitemize[nowhite]
+        \item Définissons la suite $w$ par : $w = u + v$. 
+            Alors, $w$ admet $p + q$ pour limite.
+        \item Définissons la suite $x$ par : $x = u - v$. 
+            Alors, $w$ admet $p - q$ pour limite.
+        \item Définissons la suite $y$ par : $y = u \times v$. 
+            Alors, $w$ admet $p \times q$ pour limite.
+        \item Supposons $q \neq 0$. 
+            Alors, on peut choisir un entier naturel $n_0$ (voir démonstration ci-dessous) tel que $v_n \neq 0$ pour tout entier naturel $n$ tel que $n \geq n_0$.
+            Définissons la suite $z$ par : pour tout entier naturel $n$, $z_n = 0$ si $n < n_0$ et $z_n = u_n \divslash v_n$ si $n \geq n_0$.
+            Alors, $z$ admet $p \divslash q$ pour limite.
+    \stopitemize
+
+\blank[medium]
+
+\noindent\bold{Démonstration :}
+    Dans toute cette démonstration, $\epsilon$ désigne un nombre rationnel strictement positif arbitraire.
+
+    Soit $n_u$ et $n_v$ deux entiers naturels tels que, pour tout entier naturel $n$, 
+    \startitemize[nowhite]
+        \item si $n \geq n_u$, alors $\abs{u_n - p} \leq \ep \divslash 2$, 
+        \item si $n \geq n_v$, alors $\abs{v_n - q} \leq \ep \divslash 2$. 
+    \stopitemize
+    (Ces deux entiers existent par définition de la limite puisque $\ep \divslash 2 > 0$.)
+    Soit $n_w$ l'entier naturel défini par : $n_w = \mathrm{max}(n_u, n_v)$. 
+    Soit $n$ un entier naturel supérieur ou égal à $n_w$. 
+    Alors $n \geq n_u$ et $n \geq n_v$. 
+    On a alors : $\abs{w_n - (p+q)} = \abs{(u_n-p) + (v_n-q)} \leq \abs{u_n-p} + \abs{v_n-q} \leq \epsilon \divslash 2 + \epsilon \divslash 2 = \epsilon$.
+    (Où l'on a utilisé l'inégalité triangulaire)
+    Donc, $\abs{w_n - (p+q)} \leq \epsilon$.
+    Cela montre que la suite $w$ admet $p+q$ comme limite.
+
+    Avec les mêmes notations, on a : $\abs{x_n - (p-q)} = \abs{(u_n-p) - (v_n-q)} \leq \abs{u_n-p} + \abs{v_n-q} \leq \epsilon \divslash 2 + \epsilon \divslash 2 = \epsilon$.
+    Donc, $\abs{x_n - (p-q)} \leq \epsilon$.
+    Cela montre que la suite $x$ admet $p-q$ comme limite.
+
+    Puisque les deux suites $u$ et $v$ sont convergentes, elles sont également bornées.
+    On peut donc choisir quatre nombres rationnels $a$, $b$, $c$ et $d$ tels que, pour tout entier naturel $n$, $a \leq u_n \leq b$ et $c \leq v_n \leq d$.
+    Soit $m$ le maximum de $\lbrace \abs{a}, \abs{b}, \abs{c}, \abs{d}, 1 \rbrace$.
+    On montre facilement que, pour tout entier naturel $n$, $-m \leq u_n \leq m$ et $-m \leq v_n \leq m$.%
+    \footnote{
+        En effet, pour tout entier naturel $n$, 
+        \startitemize[nowhite]
+            \item $-m \leq -\abs{a} \leq a \leq u_n$,
+            \item $m \geq \abs{b} \geq b \geq u_n$,
+            \item $-m \leq -\abs{c} \leq c \leq v_n$,
+            \item $m \geq \abs{d} \geq d \geq v_n$.
+        \stopitemize
+    }
+    Puisque $m \geq 1$, $m > 0$, donc $\epsilon \div (2 m) > 0$. 
+    On peut donc choisir deux entiers naturels $n_1$ et $n_2$ tels que, pour tout entier naturel $n$ : 
+    \startitemize[nowhite]
+        \item si $n \geq n_1$, $\abs{u_n - p} \leq \epsilon \div (2 m)$,
+        \item si $n \geq n_2$, $\abs{v_n - q} \leq \epsilon \div (2 m)$.
+    \stopitemize
+    Soit $n_0$ le maximum de $n_1$ et $n_2$. 
+    Pour tout entier naturel $n$ supérieur ou égal à $n_0$, on a : $\abs{u_n v_n - p q} = \abs{u_n \, (v_n - q) + (u_n - p) \, q} \leq \abs{u_n \, (v_n - q)} + \abs{(u_n - p) \, q} \leq \abs{u_n} \abs{v_n - q} + \abs{u_n - p} \abs{q} \leq m \, (\epsilon \divslash (2 m)) + (\epsilon \divslash (2 m)) \, m = \epsilon$.
+    (On a ulilisé le fait que $c \leq q \leq d$%
+    ~\footnote{En effet, si $q < c$, on aurait $u_n < c$ pour $n$ suffisamment grand pour que $\abs{u_n - q} \leq (c - q) \divslash 2$, ce qui est impossible.
+        De même, si $q > d$, on aurait $u_n > d$ pour $n$ suffisamment grand pour que $\abs{u_n - q} \leq (q - d) \divslash 2$, ce qui est impossible.
+        (Voir démonstration plus détaillée ci-dessus.)}%
+    , donc $\abs{q} \leq m$.)
+    Cela montre que $w$ tend vers $p \, q$.
+
+    Pour le dernier point, supposons que $q \neq 0$. 
+    Alors, $\abs{q - 0} > 0$, donc $\abs{q - 0} \divslash 2 > 0$. 
+    Donc, on peut choisir un entier naturel $n_0$ tel que, pour tout entier naturel $n$ tel que $n \geq n_0$, $\abs{u_n - q} \leq \abs{q - 0} \divslash 2$.
+    Or, $\abs{0 - q} = \abs{q - 0}$, donc $\abs{0 - q} > \abs{q - 0} \divslash 2$. 
+    On en déduit que, pour tout entier naturel $n$ tel que $n \geq n_0$, $u_n \neq 0$, ce qui permet de définir la suite $z$ comme dans l'énoncé.
+
+    Définissons les suites $\tilde{v}$ et $\tilde{z}$ par : pour tout entier naturel $n$, 
+    \startitemize[nowhite]
+        \item Si $n < n_0$, $\tilde{v}_n = 0$.
+        \item Si $n \geq n_0$, $\tilde{v}_n = 1 \divslash v_n$.
+        \item $\tilde{z}_n = u_n \times \tilde{v}_n$.
+    \stopitemize
+    Alors, $\tilde{z}_n = z_n$ pour tout entier naturel $n$ supérieur ou égal à $n_0$. 
+    Il suffit donc de montrer que $\tilde{z}$ tend vers $p \divslash q$.
+    Pour ce faire, il est suffisant (d'après le résultat sur la multiplication) de montrer que $\tilde{v}$ tend vers $1 \divslash q$.
+
+    Afin de simplifier encore le problème, définissons la suite $v'$ par : pour tout entier naturel $n$, $v_n' = \tilde{v}_n \times q$.
+    Soit $\tilde{q}$ la suite définie par $\tilde{q}_n = 1 \divslash q$ pour tout entier naturel $n$. 
+    On a $\tilde{v}_n = v_n' \times \tilde{q}_n$ pour tout entier naturel $n$ et $\tilde{q}$ tend vers $1 \divslash q$. 
+    Si l'on peut montrer que $v'$ tend vers $1$, on en déduira que $\tilde{v}$ tend vers $1 \divslash q$.
+
+    Puisque $\abs{q} \divslash 2 > 0$, on peut choisir un entier naturel $n_1$ tel que, pour tout entier naturel $n$, 
+    \startformula
+        n \geq n_1 \Rightarrow \abs{v_n - q} \leq \frac{\abs{q}}{2} .
+    \stopformula
+    Pour tout entier naturel $n$ supérieur ou égal à $n_1$, on a donc $\abs{q - v_n} \leq \abs{q} \divslash 2$, donc, d'après l'inégalité triangulaire, $\abs{q} - \abs{v_n} \leq \abs{q} \divslash 2$, et donc $\abs{v_n} \geq \abs{q} \divslash 2$. 
+
+    Soit $\epsilon$ un nombre rationnel strictement positif quelconque. 
+    Alors, $\abs{q} \, \epsilon \divslash 2$ est strictement positif.
+    On peut donc choisir un entier naturel $n^{(\epsilon)}$ tel que, pour tout entier naturel $n$ supérieur ou égal à $n^{(\epsilon)}$, $\abs{v_n - q} \leq \abs{q} \, \epsilon \divslash 2$. 
+    Soit $m^{(\epsilon)}$ l'entier naturel défini par : $m^{(\epsilon)} = \mathrm{max} \left( n^{(\epsilon)}, \mathrm{max} \left( n_0, n_1 \right) \right)$. 
+    Alors, pour tout entier naturel $n$ supérieur ou égal à $m^{(\epsilon)}$, 
+    \startformula
+        \abs{v'_n - 1} 
+            = \abs{\tilde{v}_n \, q - 1}
+            = \abs{\frac{q}{v_n} - 1}
+            = \abs{\frac{q - v_n}{v_n}}
+            = \frac{\abs{q - v_n}}{\abs{v_n}} .
+    \stopformula
+    Puisque $\abs{v_n} \geq \abs{q} \divslash 2$ et $\abs{q - v_n} = \abs{v_n - q} \leq \abs{q} \, \epsilon \divslash 2$, on obtient : $\abs{v'_n - 1} \leq \epsilon$.
+    Cela montre que $v'$ tend vers $1$.
+    
+    \done
+
+\blank[medium]
+
+\noindent\bold{Définition :} Soit $u$ une suite de nombres rationnels. 
+    On dit que \emph{$u$ tend vers $+\infty$} (ou \emph{tend vers $\infty$}), et on note $u \rightarrow + \infty$ (ou $u \rightarrow \infty$), si
+    \startformula
+        \forall q \in \mathbb{Q} \, 
+        \exists n \in \mathbb{N} \, 
+        \forall m \in \mathbb{N} \, 
+        m \geq n \Rightarrow
+            u_m \geq q.
+    \stopformula
+    On dit que \emph{$u$ tend vers $-\infty$}, et on note $u \rightarrow - \infty$, si
+    \startformula
+        \forall q \in \mathbb{Q} \, 
+        \exists n \in \mathbb{N} \, 
+        \forall m \in \mathbb{N} \, 
+        m \geq n \Rightarrow
+            u_m \leq q.
+    \stopformula
+
+\blank[medium]
+
+\noindent\bold{Remarque :} Par définition, une suite tendant vers $+\infty$ ne peut être majorée et une suite tendant vers $-\infty$ ne peut être minorée.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Une suite tendant vers $+\infty$ ou vers $-\infty$ est divergente. 
+    De manière équivalente, une suite convergente ne peut tendre vers $+\infty$ ni vers $-\infty$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Une suite tendant vers $+\infty$ ou vers $-\infty$ ne peut être bornée par définition, donc elle ne peut être convergente.
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Une suite ne peut tendre à la fois vers $+\infty$ et vers $-\infty$. 
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Supposons par l'absurde que l'on puisse choisir une suite $u$ tendant vers $+\infty$ et vers $-\infty$.
+    Puisque $u$ tend vers $+\infty$, on peut choisir un entier naturel $n_+$ tel que $u_n \geq 1$ pour tout entier naturel $n$ supérieur ou égal à $n_+$.
+    Puisque $u$ tend vers $-\infty$, on peut choisir un entier naturel $n_-$ tel que $u_n \leq -1$ pour tout entier naturel $n$ supérieur ou égal à $n_-$.
+    Puisque $\mathrm{max}(n_+, n_-) \geq n_+$ et  $\mathrm{max}(n_+, n_-) \geq n_-$, on a alors $u_{ \mathrm{max}(n_+, n_-) } \geq 1$ et $u_{ \mathrm{max}(n_+, n_-) } \leq -1$, donc $-1 \geq 1$, ce qui est faux.
+    On en déduit que l'hypothèse de départ est fausse.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $u$ et $v$ deux suites de rationnels.
+    \startitemize[nowhite]
+        \item Si $u$ tend vers $+\infty$ et s'il existe un entier naturel $n$ tel que $v_m \geq u_m$ pour tout entier naturel $m$ supérieur ou égal à $n$, alors $v$ tend vers $+\infty$.
+        \item Si $u$ tend vers $-\infty$ et s'il existe un entier naturel $n$ tel que $v_m \leq u_m$ pour tout entier naturel $m$ supérieur ou égal à $n$, alors $v$ tend vers $-\infty$.
+    \stopitemize
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Dans cette démonstration, $n$ est un entier naturel.
+    \startitemize[nowhite]
+        \item Supposons que $u$ tend vers $+\infty$ et $v_m \geq u_m$ pour tout entier naturel $m$ supérieur ou égal à $n$.
+            Puisque $u$ tend vers $+\infty$, on peut choisir un entier naturel $l$ tel que $u_m \geq q$ pour tout entier naturel $m$ supérieur ou égal à $l$.
+            Pour tout entier naturel $m$ supérieur ou égal à $\mathrm{max}(n,l)$, on a donc $v_m \geq u_m \geq q$, et donc $v_m \geq q$.
+            Cela montre que $v$ tend vers $+\infty$.
+        \item Supposons que $u$ tend vers $-\infty$ et $v_m \leq u_m$ pour tout entier naturel $m$ supérieur ou égal à $n$.
+            Soit $q$ un nombre rationnel.
+            Puisque $u$ tend vers $-\infty$, on peut choisir un entier naturel $l$ tel que $u_m \leq q$ pour tout entier naturel $m$ supérieur ou égal à $l$.
+            Pour tout entier naturel $m$ supérieur ou égal à $\mathrm{max}(n,l)$, on a donc $v_m \leq u_m \leq q$, et donc $v_m \geq q$.
+            Cela montre que $v$ tend vers $-\infty$.
+    \stopitemize
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} La suite de rationnels $u$ définie par : pour tout entier naturel $n$, $u_n = (n, 1)$ tend vers $+\infty$. 
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $q$ un nombre rationnel.
+    Mntrons qu'il existe un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $u_n \geq \abs{q}$, et donc (puisque $\abs{q} \geq q$) $u_n \geq q$.
+
+    Soit $a$ et $b$ les deux entiers naturels tels que $(a, b)$ est la représentation irréductible de $\abs{q}$.
+    Alors, $b \geq 1$.
+    Puisque $\abs{q}$ est positif, $a \geq 0$.
+    Pour tout entier naturel $m$ supérieur ou égal à $a$, on a donc : $b \times \u_m = (b \times m, 1) \geq (b \times a, 1) \geq (a, 1) = \abs{q} \times b$, donc $u_m \geq \abs{q}$.
+    Prendre $n = a$ convient donc.
+
+    On en déduit que $u$ tend vers $+\infty$.
+    
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $u$ et $v$ deux suites tendant vers $+\infty$ et $q$ un nombre rationnel.
+    \startitemize[nowhite]
+        \item Définissons la suite $a$ définie par : pour tout entier naturel $n$, $a_n = u_n + q$.
+            Alors, $a$ tend vers $+\infty$.
+        \item Définissons la suite $b$ définie par : pour tout entier naturel $n$, $b_n = u_n \times q$.
+            Alors, 
+            \startitemize[nowhite]
+                \item Si $q > 0$, alors $b$ tend vers $+\infty$.
+                \item Si $q = 0$, alors $b$ tend vers $0$.
+                \item Si $q < 0$, alors $b$ tend vers $-\infty$.
+            \stopitemize
+        \item Définissons la suite $c$ définie par : pour tout entier naturel $n$, $c_n = u_n + v_n$.
+            Alors, $c$ tend vers $+\infty$.
+        \item Définissons la suite $d$ définie par : pour tout entier naturel $n$, $d_n = u_n \times v_n$.
+            Alors, $d$ tend vers $+\infty$.
+    \stopitemize
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+\startitemize[nowhite]
+    \item Soit $p$ un nombre rationnel.
+        Alors, $p - q$ est aussi rationnel.
+        On peut donc choisir un entier naturel $n$ tel que $u_m \geq p - q$ pour tout entier naturel $m$ supérieur ou égal à $n$. 
+        Pour tout tel entier $m$, on a alors $a_m \geq p$.
+        Cela montre que la suite $a$ tend vers $+\infty$.
+    \item Traitons séparément les trois cas : 
+        \startitemize[nowhite]
+            \item \emph{Cas $q > 0$ :} Soit $p$ un nombre rationnel.
+                Puisque $u$ tend vers $+\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ satisfaisant $m \geq n$, on a $u_m \geq p \divslash q$.
+                Puisque $q$ est strictement positif, cela implique $u_m \times q \geq p$, et donc $b_m \geq p$, pour tout entier naturel $m$ supérieur ou égal à $n$.
+                Cela étant valable pour tout nombre rationnel $p$, on en déduit que $b$ tend vers $+\infty$.
+            \item \emph{Cas $q = 0$ :} Soit $\epsilon$ un nombre rationnel strictement positif. Pour tout entier naturel $n$, on a $b_n = 0$, donc $\abs{b_n - 0} = \abs{0} = 0$, et donc $\abs{b_n - 0} \leq \epsilon$.
+                Cela montre que $b$ tend vers $0$.
+            \item \emph{Cas $q < 0$ :} Soit $p$ un nombre rationnel.
+                Puisque $u$ tend vers $+\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ satisfaisant $m \geq n$, on a $u_m \geq p \divslash q$.
+                Puisque $q$ est strictement négatif, cela implique $u_m \times q \leq p$, et donc $b_m \leq p$, pour tout entier naturel $m$ supérieur ou égal à $n$.
+                Cela étant valable pour tout nombre rationnel $p$, on en déduit que $b$ tend vers $-\infty$.
+        \stopitemize
+    \item Soit $p$ un nombre rationnel.
+        Puisque $u \rightarrow +\infty$, on peut choisir un entier naturel $n_1$ tel que $u_m \geq p$ pour tout entier naturel $m$ supérieur ou égal à $n_1$.
+        En outre, puisque $v \rightarrow +\infty$, on peut choisir un entier naturel $n_2$ tel que $v_m \geq 0$ pour tout entier naturel $m$ supérieur ou égal à $n_2$.
+        Notons $n$ le maximum de $n_1$ et $n_2$.
+        Pour tout entier naturel $m$ tel que $m \geq n$, on a $m \geq n_1$, donc $u_m \geq p$, et $m \geq n_2$, donc $v_m \geq 0$, et donc $c_m \geq p$.
+        Cela montre que $c \rightarrow +\infty$.
+    \item Soit $p$ un nombre rationnel.
+        Puisque $u \rightarrow +\infty$, on peut choisir un entier naturel $n_1$ tel que $u_m \geq \abs{p}$ pour tout entier naturel $m$ supérieur ou égal à $n_1$.
+        En outre, puisque $v \rightarrow +\infty$, on peut choisir un entier naturel $n_2$ tel que $v_m \geq 1$ pour tout entier naturel $m$ supérieur ou égal à $n_2$.
+        Notons $n$ le maximum de $n_1$ et $n_2$.
+        Pour tout entier naturel $m$ tel que $m \geq n$, on a $m \geq n_1$, donc $u_m \geq p$, et $m \geq n_2$, donc $v_m \geq 1$, et donc $d_m \geq \abs{p}$, et donc $d_m \geq p$.
+        Cela montre que $d \rightarrow +\infty$.
+\stopitemize
+
+\done
+
+\blank[medium]
+
+\noindent Les deux derniers points peuvent être généralisés comme suit.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $u$ et $v$ deux suites de rationnels.
+    On suppose due $u$ tend vers $+\infty$.
+    \startitemize[nowhite]
+        \item S'il existe un rationnel $q$ tel que $v_n \geq q$ pour tout entier naturel $n$, alors $u + v$ tend vers $+\infty$.
+        \item S'il existe un rationnel strictement positif $q$ et un entier naturel $n$ tel que $v_m \geq q$ pour tout entier naturel $m$ supérieur ou égal à $m$, alors $u \times v$ tend vers $+\infty$.
+    \stopitemize
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+\startitemize[nowhite]
+    \item Supposons que la condition sur $v$ du premier point est satisfaite, et définissons $q$ de la même manière.
+        Soit $p$ un nombre rationnel.
+        Puisque $u \rightarrow +\infty$, on peut choisir un entier naturel $n$ tel que $u_m \geq p - q$ pour tout entier naturel $m$ supérieur ou égal à $n_1$.
+        Pour tout entier naturel $m$ tel que $m \geq n$, on a $u_m \geq p - q$ et $v_m \geq p$, donc $(u + v)_m \geq p$.
+        Cela montre que $u + v \rightarrow +\infty$.
+    \item Supposons que la condition sur $v$ du second point est satisfaite, et définissons $n$ et $q$ de la même manière.
+        Soit $p$ un nombre rationnel. 
+        Puisque $u \rightarrow +\infty$, on peut choisir un entier naturel $m$ tel que $u_l \geq \abs{p} \divslash q$ pour tout entier naturel $l$ supérieur ou égal à $m$.
+        Notons $k$ le maximum de $\lbrace n, m \rbrace$.
+        Pour tout entier naturel $l$ supérieur ou égal à $k$, on a $l \geq n$, donc $v_l \geq q$, et $l \geq m$, donc $u_l \geq \abs{p} \divslash q$, et donc (puisque $q > 0$) $(u \times v)_l \geq \abs{p} \geq p$.
+        Cela montre que $u \times v \rightarrow +\infty$.
+\stopitemize
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $u$ et $v$ deux suites tendant vers $-\infty$ et $q$ un nombre rationnel.
+    \startitemize[nowhite]
+        \item Définissons la suite $a$ définie par : pour tout entier naturel $n$, $a_n = u_n + q$.
+            Alors, $a$ tend vers $-\infty$.
+        \item Définissons la suite $b$ définie par : pour tout entier naturel $n$, $b_n = u_n \times q$.
+            Alors, 
+            \startitemize[nowhite]
+                \item Si $q > 0$, alors $b$ tend vers $-\infty$.
+                \item Si $q = 0$, alors $b$ tend vers $0$.
+                \item Si $q < 0$, alors $b$ tend vers $+\infty$.
+            \stopitemize
+        \item Définissons la suite $c$ définie par : pour tout entier naturel $n$, $c_n = u_n + v_n$.
+            Alors, $c$ tend vers $-\infty$.
+        \item Définissons la suite $d$ définie par : pour tout entier naturel $n$, $d_n = u_n \times v_n$.
+            Alors, $d$ tend vers $+\infty$.
+    \stopitemize
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Définissons les suite $w$ et $x$ par : pour tout entier naturel $n$, $w_n = -u_n$ et $x_n = -v_n$.
+    Montrons que $w$ et $x$ tendent vers $+\infty$. 
+    Cela nous permettra de nous ramener aisément aux cas précédents.
+
+    Soit $p$ un nombre rationnel quelconque.
+    Puisque $u$ tend vers $-\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $u_m \leq -p$. 
+    Donc, pour tout entier naturel $m$ supérieur ou égal à $n$, $- u_m \geq p$, et donc $w_n \geq p$.
+    Cela montre que $w$ tend vers $+\infty$.
+    Même démonstration pour $x$ en remplaçant $u$ par $v$ et $w$ par $x$.
+
+    \startitemize[nowhite]
+        \item Définissons la suite $\bar{a}$ par : pour tout entier naturel $n$, $\bar{a}_n = - a_n$.
+            Alors, pour tout entier naturel $n$, $\bar{a}_n = w_n - q = w_n + (-q)$.
+            Puisque la suite $w$ tend vers $+\infty$, on en déduit que $\bar{a}$ tend également vers $+\infty$.
+            En outre, pour tout entier naturel $n$, on a $a_n = - \bar{a}_n = -1 \times \bar{a}_n$.
+            Puisque $-1$ est strictement négatif et puisque $\bar{a}$ tend vers $+\infty$, on en déduit qur $a$ tend vers $-\infty$.
+        \item Notons que, pour tout entier naturel $n$, $b_n = (-q) \times (-u_n) = (-q) \times \bar{u}_n$. 
+            \startitemize[nowhite]
+                \item \emph{Cas $q > 0$ :} Dans ce cas, $-q < 0$, donc, puisque $\bar{u}$ tend vers $+\infty$, $b$ tend vers $-\infty$.
+                \item \emph{Cas $q = 0$ :} Dans ce cas, $b_n = 0$ pour tout entier naturel $n$, donc $b$ tend vers $0$.
+                \item \emph{Cas $q < 0$ :} Dans ce cas, $-q > 0$, donc, puisque $\bar{u}$ tend vers $+\infty$, $b$ tend vers $+\infty$.
+            \stopitemize
+        \item Définissons la suite $\bar{c}$ par : pour tout entier naturel $n$, $\bar{c}_n = - c_n$.
+            Pour tout entier naturel $n$, on a $\bar{c}_n = -u_n - v_n = w_n + x_n$.
+            Puisque $w$ et $x$ tendent vers $+\infty$, on en déduit que $\bar{c}$ tend vers $+\infty$.
+            En outre, pour tout entier naturel $n$, on a $c_n = - \bar{c}_n = -1 \times \bar{c}_n$.
+            Puisque $-1$ est strictement négatif et puisque $\bar{c}$ tend vers $+\infty$, on en déduit qur $c$ tend vers $-\infty$.
+        \item Pour tout entier naturel $n$, on a : $d_n = u_n \times v_n = (- u_n) \times (- v_n) = w_n \times x_n$.
+            Puisque $w$ et $x$ tendent vers $+\infty$, on en déduit que $d$ tend vers $+\infty$.
+    \stopitemize
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $u^+$ une suite tendant vers $+\infty$ et $u^-$ une suite tendant vers $-\infty$.
+    Soit $v$ une suite bornée.
+    On définit les deux suites $w^+$ et $w^-$ par : pour tout entier naturel $n$, $w^+_n = u^+_n + v_n$ et $w^-_n = u^ -_n + v_n$.
+    Alors, $w^+$ tend vers $+\infty$ et $w^-$ tend vers $-\infty$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Soit $a$ et $b$ deux nombres rationnels tels que : $\forall n \, \in \mathbb{N} \, a \leq v_n \leq b$. 
+    (De tels nombres existent puisque $v$ est bornée.)
+    Soit $c$ un nombre rationnel quelconque.
+
+    Puisque $u^+$ tend vers $+\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $u^+_m \geq c - a$.
+    Alors, pour tout entier naturel $m$ supérieur ou égal à $n$, on a $u^+_m + v_m \geq (c - a) + v_m \geq (c - a) + a \geq c$, donc $w^+_m \geq c$.
+    Cela montre que $w^+$ tend vers $+\infty$.
+    
+    Puisque $u^-$ tend vers $-\infty$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $u^-_m \leq c - b$.
+    Alors, pour tout entier naturel $m$ supérieur ou égal à $n$, on a $u^-_m + v_n \leq (c - b) + v_m \geq (c - b) + b \geq c$, donc $w^-_m \leq c$.
+    Cela montre que $w^-$ tend vers $-\infty$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $u^+$ une suite tendant vers $+\infty$ et $u^-$ une suite tendant vers $-\infty$.
+    Soit $v$ une suite convergente et $l$ sa limite.
+    On suppose $l \neq 0$.
+    On définit les deux suites $w^+$ et $w^-$ par : $w^+ = u^+ \times v$ et $w^- = u^- \times v$.
+    Alors, 
+    \startitemize[nowhite]
+        \item Si $l > 0$, alors $w^+$ tend vers $+\infty$ et $w^-$ tend vers $-\infty$.
+        \item Si $l < 0$, alors $w^+$ tend vers $-\infty$ et $w^-$ tend vers $+\infty$.
+    \stopitemize
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+\startitemize[nowhite]
+    \item Supposons $l > 0$.
+        Alors, $l \divslash 2 > 0$.
+        Soit $p$ un nombre rationnel quelconque. 
+        Puisque $u^+$ et $u^-$ tendent respectivement vers $+\infty$ et $-\infty$, on peut choisir deux entiers naturels $n^+$ et $n^-$ tels que
+        \startitemize[nowhite]
+            \item pour tout entier naturel $m$ supérieur ou égal à $n^+$, $u^+_m \geq \abs{p} \divslash (l \divslash 2)$,
+            \item pour tout entier naturel $m$ supérieur ou égal à $n^-$, $u^-_m \leq -\abs{p} \divslash (l \divslash 2)$.
+        \stopitemize
+        Puisque $v$ tend vers $l$, on peux choisir un entier naturel $n^v$ tel que, pour tour entier naturel $m$ supérieur ou égal à $n^v$, $\abs{v_m - l} \leq l \divslash 2$, donc $-l \divslash 2 \leq v_m - l \leq l \divslash 2$, donc $v_m \geq l \divslash 2$.
+        
+        Soit $m^+$ le maximum de $n^+$ et $n^v$. 
+        Alors, $m^+ \geq n^+$ et $m^+ \geq n^v$.
+        Pour tout entier naturel $r$ supérieur ou égal à $m^+$, on a alors $u^+_r \geq \abs{p} \divslash (l \divslash 2)$ et $v_r \geq l \divslash 2$, donc $w^+_r \geq \left( \abs{p} \divslash (l \divslash 2)\right) \times v_r \geq \abs{p} \geq p$. 
+        Cela étant vrai pour tout nombre rationnel $p$, on en déduit que $w^+$ tend vers $+\infty$.
+
+        Soit $m^-$ le maximum de $n^-$ et $n^v$. 
+        Alors, $m^- \geq n^-$ et $m^- \geq n^v$.
+        Pour tout entier naturel $r$ supérieur ou égal à $m^-$, on a alors $u^-_r \leq -\abs{p} \divslash (l \divslash 2)$ et $v_r \geq l \divslash 2$, donc $w^-_r \leq \left( - \abs{p} \divslash (l \divslash 2)\right) \times v_r \leq p$. 
+        Cela étant vrai pour tout nombre rationnel $p$, on en déduit que $w^-$ tend vers $-\infty$.
+
+    \item \emph{Demonstration alternative du premier point:} 
+    \startitemize[nowhite]
+        \item Avec les mêmes notations, puisque $v_r \geq l \divslash 2$ pour tout entier naturel $r$ supérieur ou égal à $n^v$ et puisque $l \divslash 2 > 0$, $u^+ \times v$ tend vers $+\infty$ d'après un lemme précédent, donc $w^+$ tend vers $+\infty$.
+        \item On a : $w^- = - ((-u^-) \times v)$.
+            Puisque $u^- \to -\infty$, $-u^- \to +\infty$, donc $(-u^-) \times v \to +\infty$, et donc $w^- \to -\infty$.
+    \stopitemize
+
+    \item Définissons la suite $x$ par : $x = -v$.
+        Alors, $x$ tend vers $- l \divslash 2$, qui est strictement positif.
+        Définissons les suites $x^+$ et $x^-$ par : $x^+ = u^+ \times x$ et $x^- = u^- \times x$.
+        Alors, d'après le cas précédent, $x^+ \to +\infty$ et $x^- \to -\infty$.
+        Puisque $v^+ = - x^+$ et $v^- = - x^-$, on en déduit que $v^+ \to -\infty$ et que $v^- \to +\infty$.
+\stopitemize
+
+\done
+
+\stopsubsection
+
+\stopsection

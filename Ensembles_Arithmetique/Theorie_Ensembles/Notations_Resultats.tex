@@ -1,0 +1,422 @@
+\startsection[title=Quelques notations et résultats]
+
+\startsubsection[title=Résumé des notations]
+
+Résumons ici quelques notations utiles pour la suite, de manière informelle :
+
+\startitemize
+  \item Valeurs de vérité : $\mathrm{V}$ (« vrai »), $\mathrm{I}$ (« indéfini »), $\mathrm{F}$ (« faux »).
+  \item Le symbole $\lnot$ représente la négation : si $P$ est une proposition, la proposition $\lnot P$ est fausse si $P$ est vraie et inversement. 
+    Sa table de vérité est donnée ci-dessous :
+    \setvariable{myvars}{fTableNLeftCols}{1}
+    \startplacetable[location=force,number=no]
+      \bTABLE[setups=fTable]
+        \bTR\bTD $P$          \eTD\bTD $\lnot P$     \eTD\eTR
+        \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\eTR
+        \bTR\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$ \eTD\eTR
+        \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\eTR
+      \eTABLE
+    \stopplacetable
+  \item Les symboles $\wedge$ et $\vee$ représentent respectivement les connecteurs « et » et « ou ». 
+    Les symboles $\Rightarrow$ et $\Leftarrow$ représentent l'implication vers la droite et vers la gauche. 
+    Le symbole $\Leftrightarrow$ représente l'équivalence. 
+    Soit $P$ et $Q$ deux propositions, on a ainsi la table de vérité suivante : 
+    \setvariable{myvars}{fTableNLeftCols}{2}
+    \startplacetable[location=force,number=no]
+      \bTABLE[setups=fTable]
+        \bTR\bTD $P$          \eTD\bTD $Q$          \eTD\bTD $P \wedge Q$ \eTD\bTD $P \vee Q$   \eTD\bTD $P \Rightarrow Q$ \eTD\bTD $P \Leftarrow Q$ \eTD\bTD $P \Leftrightarrow Q$ \eTD\eTR
+        \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{V}$     \eTD\bTD $\mathss{V}$          \eTD\eTR 
+        \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{I}$      \eTD\bTD $\mathss{V}$     \eTD\bTD $\mathss{I}$          \eTD\eTR 
+        \bTR\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$      \eTD\bTD $\mathss{V}$     \eTD\bTD $\mathss{F}$          \eTD\eTR 
+        \bTR\bTD $\mathss{I}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{I}$     \eTD\bTD $\mathss{I}$          \eTD\eTR 
+        \bTR\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$      \eTD\bTD $\mathss{I}$     \eTD\bTD $\mathss{I}$          \eTD\eTR 
+        \bTR\bTD $\mathss{I}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{I}$      \eTD\bTD $\mathss{V}$     \eTD\bTD $\mathss{I}$          \eTD\eTR 
+        \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{F}$     \eTD\bTD $\mathss{F}$          \eTD\eTR 
+        \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{I}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{I}$     \eTD\bTD $\mathss{I}$          \eTD\eTR 
+        \bTR\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{F}$ \eTD\bTD $\mathss{V}$      \eTD\bTD $\mathss{V}$     \eTD\bTD $\mathss{V}$          \eTD\eTR 
+      \eTABLE
+    \stopplacetable
+  \item Les symboles $\forall$ et $\exists$ représentent respectivement les quantificateurs universel (« pour tout ») et existentiel (« il existe »). 
+  \item On note $\in$ la relation d'appartenance et $\notin$ sa négation : $\forall x \forall y \, x \notin y \Leftrightarrow \not (x _in y)$.
+  \item L'ensemble vide est noté $\emptyset$.
+  \item Soit $a$ un ensemble. 
+      On note $\lbrace a \rbrace$ l'ensemble contenant uniquement $a$. 
+  \item Soit $a$ et $b$ deux ensembles.
+      On note $\lbrace a, b \rbrace$ la paire de $a$ et $b$, \emph{i.e.} l'ensemble définit par : 
+  \startformula
+      \forall x \, x \in \lbrace a, b \rbrace \Leftrightarrow ((x = a) \wedge (x = b))
+  \stopformula
+  \item Soit $E$ un ensemble et $P$ un prédicat à un paramètre libre. 
+      L'ensemble $\lbrace x \in E \vert P x \rbrace$ (noté $F$ dans la formule ci-dessous) est le sous-ensemble de $E$ défini par : 
+  \startformula
+      \forall x \, x \in F \Leftrightarrow x \in E \wedge P x. 
+  \stopformula
+      On note $(a,b)$ le couple formé par $a$ et $b$, définit par : $(a,b) = \lbrace \lbrace a \rbrace, \lbrace a, b \rbrace \rbrace$.
+  \item Soit $E$ et $F$ deux ensembles. 
+  L'\emph{union} de $E$ et $F$, notée $E \cup F$, est l'ensemble défini par : 
+  \startformula
+      E \cup F = \lbrace x \vert (x \in E) \vee (x \in F)  \rbrace . 
+  \stopformula
+  L'\emph{intersection} de $E$ et $F$, notée $E \cap F$, est l'ensemble défini par :
+  \startformula
+      E \cap F = \lbrace x \vert (x \in E) \wedge (x \in F)  \rbrace. 
+  \stopformula
+  La \emph{différence} de $E$ et $F$, notée $E \setminus F$, est l'ensemble défini par :
+  \startformula
+      E \setminus F = \lbrace x \vert (x \in E) \wedge (x \notin F)  \rbrace. 
+  \stopformula
+  \item Soit $E$ et $F$ deux ensembles.
+On dit que $E$ est inclus dans $F$, et on note $E \subset F$ ou $F \supset E$, si la proposition suivante est vraie : $\forall \, x \, x \in E \Rightarrow x \in F$. 
+\stopitemize
+
+\stopsubsection
+
+\startsubsection[title=Ensemble de tous les ensembles]
+
+\noindent\bold{Lemme :} Il n'existe pas d'ensemble de tous les ensembles. 
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Supposons par l'absurde que l'ensemble de tous les ensembles existe, et notons-le $U$. 
+Définissons l'ensemble $X$ par : $X = \lbrace e \in U \vert e \notin e \rbrace$%
+~\footnote{
+    Cet ensemble existe d'après le schéma d'axiomes de compréhensions. 
+    En ré-utilisant les notations de l'énoncé de cet axiomes, il s'agit de l'ensemble obtenu en prenant $a = U$ et $P x: x \notin x$.
+}%
+, et considérons la propriété $P: X \in X$. 
+Alors, 
+\startitemize[nowhite]
+  \item Si $P$ est vraie, $X \in X$, donc, par définition de cet ensemble, $X$ n'est pas un élément de $X$, et donc $P$ est fausse. 
+  \item Si $P$ est fausse, $X \notin X$, donc, par définition de cet ensemble, $X$ est un élément de $X$, et donc $P$ est vraie. 
+\stopitemize
+Ainsi, la propriété $P$ ne peut être ni vraie ni fausse, ce qui constitue une contradiction. 
+On en déduit que l'hypothèse de départ est fausse. 
+
+\hfill\square
+
+\blank[medium]
+
+\noindent\bold{NB:} Si on inclus la valeur de vérité « indéfinie » dans la théorie, alors cette démonstration montre seulement que, avec les mêmes notations, la propriété $P$ est indéfinie.
+
+\blank[medium]
+
+\noindent\bold{NB:} Le résultat est évident si l'on inclus l'axiome de fondation dans la théorie, puisqu'alors aucun ensemble ne peut être élément de lui-même.
+
+\stopsubsection
+
+\startsubsection[title=Représentations schématiques]
+
+\startcolumns[n=2]
+
+Nous donnons ici des représentations schématiques de certains des concepts définis ci-dessus. 
+Ces schémas sont destinés à donner une représentation intuitive de ces concepts, et n'ont aucunement prétention à aucune forme de rigueur.
+
+\blank[5ex]
+
+\startalign[center]
+  \dontleavehmode
+  \bimage
+  \starttikzpicture
+    \draw[fill=black, fill opacity=0.2] (0,0) circle (1cm);
+    \node[right] at (1cm,0) {$E$};
+    \node[circle, fill, minimum size=3pt, inner sep=0pt, outer sep=0pt, label=below right:$x$] at (0,0) {};
+  \stoptikzpicture
+  \eimage
+  \blank[samepage]
+  $x \in E$
+\stopalign
+
+\blank[5ex]
+
+\startalign[center]
+  \dontleavehmode
+  \bimage
+  \starttikzpicture
+    \draw[fill=black, fill opacity=0.2] (0,0) circle (1cm);
+    \node[right] at (1cm,0) {$E$};
+    \node[circle, fill, minimum size=3pt, inner sep=0pt, outer sep=0pt, label=below right:$x$] at (-2cm,0) {};
+  \stoptikzpicture
+  \eimage
+  \blank[samepage]
+  $x \notin E$
+\stopalign
+
+\blank[5ex]
+
+\startalign[center]
+\dontleavehmode
+\bimage
+\starttikzpicture
+    \draw[fill=black, fill opacity=0.2] (0,0) circle (1cm);
+    \draw[fill=black, fill opacity=0.2] (0,0) circle (0.5cm);
+    \node[right] at (0.5cm,0) {$A$};
+    \node[right] at (1cm,0) {$B$};
+\stoptikzpicture
+\eimage
+\blank[samepage]
+$A \subset B$
+\stopalign
+
+\blank[5ex]
+
+\noindent
+Sur chacun des quatre schémas suivants, la zone grisée correspond à l'ensemble en légende.
+
+\blank[5ex]
+
+\startalign[center]
+\dontleavehmode
+\bimage
+\starttikzpicture
+    \fill[black!20!white] (0.5cm,0) circle (1cm);
+    \fill[black!20!white] (-0.5cm,0) circle (1cm);
+    \draw (0.5cm,0) circle (1cm);
+    \draw (-0.5cm,0) circle (1cm);
+    \node[left] at (-1.5cm,0) {$A$};
+    \node[right] at (1.5cm,0) {$B$};
+\stoptikzpicture
+\eimage
+\blank[samepage]
+$A \cup B$
+\stopalign
+
+\blank[5ex]
+
+\startalign[center]
+\dontleavehmode
+\bimage
+\starttikzpicture
+    \startscope
+        \clip (0.5cm,0) circle(1cm);
+        \fill[black!20!white] (-0.5cm,0) circle (1cm);
+    \stopscope
+    \draw (0.5cm,0) circle (1cm);
+    \draw (-0.5cm,0) circle (1cm);
+    \node[left] at (-1.5cm,0) {$A$};
+    \node[right] at (1.5cm,0) {$B$};
+\stoptikzpicture
+\eimage
+\blank[samepage]
+$A \cap B$
+\stopalign
+
+\blank[5ex]
+
+\startalign[center]
+\dontleavehmode
+\bimage
+\starttikzpicture
+    \fill[black!20!white] (-0.5cm,0) circle (1cm);
+    \startscope
+        \clip (0.5cm,0) circle(1cm);
+        \fill[white] (-0.5cm,0) circle (1cm);
+    \stopscope
+    \draw (0.5cm,0) circle (1cm);
+    \draw (-0.5cm,0) circle (1cm);
+    \node[left] at (-1.5cm,0) {$A$};
+    \node[right] at (1.5cm,0) {$B$};
+\stoptikzpicture
+\eimage
+\blank[samepage]
+$A \setminus B$
+\stopalign
+
+\blank[5ex]
+
+\startalign[center]
+\dontleavehmode
+\bimage
+\starttikzpicture
+    \fill[black!20!white] (0.5cm,0) circle (1cm);
+    \startscope
+        \clip (0.5cm,0) circle(1cm);
+        \fill[white] (-0.5cm,0) circle (1cm);
+    \stopscope
+    \draw (0.5cm,0) circle (1cm);
+    \draw (-0.5cm,0) circle (1cm);
+    \node[left] at (-1.5cm,0) {$A$};
+    \node[right] at (1.5cm,0) {$B$};
+\stoptikzpicture
+\eimage
+\blank[samepage]
+$B \setminus A$
+\stopalign
+
+\blank[5ex]
+
+Certains résultats se voient aisément schématiquement : 
+
+\blank[5ex]
+
+\startalign[center]
+\dontleavehmode
+\bimage
+\starttikzpicture
+    \fill[white] (-0.5cm,0) circle (1cm);
+    \fill[black!20!white] (0.5cm,0) circle (1cm);
+    \draw (0.5cm,0) circle (1cm);
+    \draw (-0.5cm,0) circle (1cm);
+    \node[left] at (-1.5cm,0) {$A$};
+    \node[right] at (1.5cm,0) {$B$};
+\stoptikzpicture
+\eimage
+\blank[samepage]
+$(B \setminus A) \cup (A \cap B) = B$
+\stopalign
+
+\blank[5ex]
+
+\startalign[center]
+\dontleavehmode
+\bimage
+\starttikzpicture
+    \fill[white] (-0.5cm,0) circle (1cm);
+    \fill[white] (0.5cm,0) circle (1cm);
+    \draw (0.5cm,0) circle (1cm);
+    \draw (-0.5cm,0) circle (1cm);
+    \node[left] at (-1.5cm,0) {$A$};
+    \node[right] at (1.5cm,0) {$B$};
+\stoptikzpicture
+\eimage
+\blank[samepage]
+$(B \setminus A) \cap (A \cap B) = \emptyset$
+\stopalign
+
+\blank[5ex]
+
+\startalign[center]
+\dontleavehmode
+\bimage
+\starttikzpicture
+    \fill[black!20!white] (-0.5cm,0) circle (1cm);
+    \fill[white] (0.5cm,0) circle (1cm);
+    \draw (0.5cm,0) circle (1cm);
+    \draw (-0.5cm,0) circle (1cm);
+    \node[left] at (-1.5cm,0) {$A$};
+    \node[right] at (1.5cm,0) {$B$};
+\stoptikzpicture
+\eimage
+\blank[samepage]
+$(A \cup B) \setminus B = A \setminus B$
+\stopalign
+
+\blank[5ex]
+
+\noindent
+Une fonction d'un ensemble $E$ vers un ensemble $F$ peut être représentée par des flèches allant de chaque élément de $E$ vers son image. 
+
+\blank[5ex]
+
+\startalign[center]
+\dontleavehmode
+\bimage
+\starttikzpicture
+    \draw (-1cm,0) ellipse (0.5cm and 1.5cm);
+    \draw (1cm,0) ellipse (0.5cm and 1.5cm);
+    \node[left] at (-1.5cm,0) {$E$};
+    \node[right] at (1.5cm,0) {$F$};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0.8cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,-0.8cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,-0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,-0.9cm) {};
+    \draw[-stealth] (-1cm,0.8cm) -- (1cm, 0.3cm);
+    \draw[-stealth] (-1cm,0) -- (1cm, -0.3cm);
+    \draw[-stealth] (-1cm,-0.8cm) -- (1cm, -0.9cm);
+\stoptikzpicture
+\eimage
+\blank[samepage]
+Exemple d'injection
+\stopalign
+
+\blank[5ex]
+
+\startalign[center]
+\dontleavehmode
+\bimage
+\starttikzpicture
+    \draw (-1cm,0) ellipse (0.5cm and 1.5cm);
+    \draw (1cm,0) ellipse (0.5cm and 1.5cm);
+    \node[left] at (-1.5cm,0) {$E$};
+    \node[right] at (1.5cm,0) {$F$};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,-0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,-0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,0.8cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,0) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,-0.8cm) {};
+    \draw[-stealth] (-1cm,0.9cm) -- (1cm, 0.8cm);
+    \draw[-stealth] (-1cm,0.3cm) -- (1cm, 0.8cm);
+    \draw[-stealth] (-1cm,-0.3cm) -- (1cm, 0);
+    \draw[-stealth] (-1cm,-0.9cm) -- (1cm, -0.8cm);
+\stoptikzpicture
+\eimage
+\blank[samepage]
+Exemple de surjection
+\stopalign
+
+\blank[5ex]
+
+\startalign[center]
+\dontleavehmode
+\bimage
+\starttikzpicture
+    \draw (-1cm,0) ellipse (0.5cm and 1.5cm);
+    \draw (1cm,0) ellipse (0.5cm and 1.5cm);
+    \node[left] at (-1.5cm,0) {$E$};
+    \node[right] at (1.5cm,0) {$F$};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,-0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,-0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,-0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,-0.9cm) {};
+    \draw[-stealth] (-1cm,0.9cm) -- (1cm, 0.9cm);
+    \draw[-stealth] (-1cm,0.3cm) -- (1cm, 0.3cm);
+    \draw[-stealth] (-1cm,-0.3cm) -- (1cm, -0.3cm);
+    \draw[-stealth] (-1cm,-0.9cm) -- (1cm, -0.9cm);
+\stoptikzpicture
+\eimage
+\blank[samepage]
+Exemple de bijection
+\stopalign
+
+\blank[5ex]
+
+\startalign[center]
+\dontleavehmode
+\bimage
+\starttikzpicture
+    \draw (-1cm,0) ellipse (0.5cm and 1.5cm);
+    \draw (1cm,0) ellipse (0.5cm and 1.5cm);
+    \node[left] at (-1.5cm,0) {$E$};
+    \node[right] at (1.5cm,0) {$F$};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,-0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (-1cm,-0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,0.9cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,-0.3cm) {};
+    \node[fill, circle, minimum size=3pt, inner sep=0, outer sep=0] at (1cm,-0.9cm) {};
+    \draw[-stealth] (-1cm,0.9cm) -- (1cm, 0.3cm);
+    \draw[-stealth] (-1cm,0.3cm) -- (1cm, 0.3cm);
+    \draw[-stealth] (-1cm,-0.3cm) -- (1cm, -0.3cm);
+    \draw[-stealth] (-1cm,-0.9cm) -- (1cm, -0.9cm);
+\stoptikzpicture
+\eimage
+\blank[samepage]
+Exemple de fonction ni injective ni surjective
+\stopalign
+
+\stopcolumns
+
+\stopsubsection
+
+\stopsection

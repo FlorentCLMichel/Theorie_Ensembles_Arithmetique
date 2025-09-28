@@ -1,0 +1,86 @@
+\registerctxluafile{Ensembles_Arithmetique/Resources/buff-imp-haskell.lua}{1.001}
+
+\unprotect
+
+\definecolor[haskellcodebkgdcol1][r=.92,g=.95,b=.99]
+\definecolor[haskellcodebkgdcol2][r=.6,g=.75,b=.95]
+\definecolor[haskellcodecommentcol][r=.5,g=.5,b=.5]
+\definecolor[haskellcodepreprocesscol][r=.3,g=0,b=.7]
+\definecolor[haskellcodestringcol][r=.5,g=.5,b=0]
+\definecolor[haskellcodespecialcol][r=.5,g=0,b=.5]
+\startuseMPgraphic{CodeOverlayHaskell}
+z1 = (0, 0) ;
+z2 = (OverlayWidth, 0) ;
+z3 = (OverlayWidth, OverlayHeight) ;
+z4 = (0, OverlayHeight) ;
+
+path p ;
+p = (z1--z2--z3--z4--cycle) cornered .5cm ;
+fill p withshade (define_linear_shade(z1, z3, \MPcolor{haskellcodebkgdcol1}, \MPcolor{haskellcodebkgdcol2})) ;
+
+setbounds currentpicture to OverlayBox ;
+
+\stopuseMPgraphic
+\defineoverlay[CodeOverlayHaskell][\useMPgraphic{CodeOverlayHaskell}]
+
+\definestartstop
+    [HaskellSnippet]
+    [DefaultSnippet]
+    [before=\setupalign[inner]]
+
+\definestartstop
+    [HaskellSnippetName]
+
+\definestartstop
+    [HaskellSnippetNameKeyword]
+    [\c!color=blue]
+
+\definestartstop
+    [HaskellSnippetBoundary]
+    [\c!color=]
+
+\definestartstop
+    [HaskellSnippetString]
+    [\c!color=haskellcodestringcol]
+
+\definestartstop
+    [HaskellSnippetQuote]
+    [HaskellSnippetBoundary]
+
+\definestartstop
+    [HaskellSnippetSpecial]
+    [\c!color=haskellcodespecialcol]
+
+\definestartstop
+    [HaskellSnippetComment]
+    [\c!color=haskellcodecommentcol]
+
+\definestartstop
+    [HaskellSnippetPreprocess]
+    [\c!color=haskellcodepreprocesscol]
+
+\startnotmode[export] 
+\definetyping
+    [Haskell]
+    [\c!option=haskell,
+    strip=yes,
+    before={\startframedtext[width=\makeupwidth,
+                             offset=0.5em,
+                             frame=none,
+                             background=CodeOverlayHaskell,
+                             ] 
+            \setupbodyfont [myfamily,\getvariable{lengths}{codesize}]},
+    after={\stopframedtext}]
+\stopnotmode
+
+\startmode[export] 
+\definetyping
+    [Haskell]
+    [strip=yes,
+    before=\setupbodyfont [myfamily,\getvariable{lengths}{codesize}],
+    after=]
+\stopmode
+
+\protect 
+
+\endinput

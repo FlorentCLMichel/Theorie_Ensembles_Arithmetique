@@ -1,0 +1,118 @@
+\startchapter[title=Implémentation de quelques algorithmes]
+  \startexcursus
+    Ce chapitre présente des implémentations de quelques algorithmes en Haskell, C/C++ et Rust.
+  \stopexcursus
+
+  \blank[big]
+
+  \chaptertoc
+
+  \page
+
+  \define[2]\PrintCodeFile{%
+    \startframed[frame=off,align=right]
+      \href{\bold{\sans{#2}}}{Ensembles_Arithmetique/Code/#2}
+      \vskip{-3ex}\blank[samepage]
+      \typefile[#1]{Ensembles_Arithmetique/Code/#2}
+    \stopframed}
+
+  \startsection[title=Écriture d'un entier naturel en base b, reference=app:Haskell_baseb]
+    \PrintCodeFile{Haskell}{base.hs}
+  \stopsection
+  
+  \startsection[title=Test de primalité, reference=app:Haskell_primalité]
+    \noindent 
+    La fonction \mono{isPrime} ci-dessous teste si un entier $p$ est un nombre premier. 
+    Sa complexité est $O \left( p^{1/2} \right)$.
+    
+    \PrintCodeFile{Haskell}{isPrime.hs}
+    
+    \noindent
+    La fonction \mono{findNPrimes} ci-dessous prend un entier naturel $N$ en argument et retourne la liste des $N$ premiers nombres premiers. 
+    
+    \PrintCodeFile{Haskell}{findNPrimes.hs}
+
+    \blank[medium]
+    
+    \noindent Version C du test de primalité: 
+    
+    \blank[samepage]
+    
+    \PrintCodeFile{CPP}{is_prime.c}
+
+    \blank[medium]
+    
+    \noindent Version Rust du test de primalité: 
+    
+    \blank[samepage]
+
+    \PrintCodeFile{Rust}{is_prime.rs}
+  \stopsection
+
+  \startsection[title=PGCD, reference=app:Haskell_pgcd]
+  
+    \noindent 
+    La fonction \mono{pgcd} ci-dessous prend comme arguments deux entiers naturels et donne leur pgcd.
+    
+    \PrintCodeFile{Haskell}{pgcd.hs}
+    
+    \blank[medium]
+    
+    \noindent Version C:
+
+    \blank[samepage]
+
+    \PrintCodeFile{CPP}{pgcd.c}
+    
+    \blank[medium]
+    
+    \noindent Version Rust: 
+    
+    \blank[samepage]
+
+    \PrintCodeFile{Rust}{pgcd.rs}
+    
+    \blank[medium]
+
+    \noindent L'idée est ici de calculer le pgcd $g$ de $n$ et $q$ ainsi que deux entiers $u$ et $v$ tels que $u \, n + v \, q = q$. 
+    Si $g = 1$, alors $u$ est l'inverse de $n$ modulo $q$. 
+    Sinon, $n$ n'est pas inversible modulo $q$. 
+    Pour ce faire, on cherche à maintenir les égalités suivantes à chaque itération : $u \, n + v \, q = a$ et $v \, n + (u - (a \div b) \, v) = b$, où le symbole $\div$ représente le quotient de la division euclidienne. 
+    On initialise ces quantités à $a \leftarrow n$, $b \leftarrow q$, $u \leftarrow 1$ et $v \leftarrow 0$, et utilise les propriétés suivantes : si $u \, n + v \, q = a$ et $v \, n + (u - (a \div b) \, v) ,\ q = b$, et si $a' = b$, $b' = a - (a \div b) \, b$, $u' = v$ et $v' = u - (a \div b) \, v$, alors
+    \startitemize[nowhite]
+      \item $u' \, n + v' \, q = v \, n + (u - (a \div b) \, v) \, q = b = a'$,
+      \item $v' \, n + (u' - (a \div b) \, v') ,\ q = (u - (a \div b) \, v) \, n + v \, q - (a \div b) \, (u - (a \div b) \, v) \, q = a - (a \div b) \, b = b'$.
+    \stopitemize
+  
+  \stopsection
+
+  \startsection[title=Crible d'Érastosthène, reference=app:code_erastosthene]
+  
+    \index{Érastosthène}
+    
+    Il s'agit d'un algorithme permettant de trouver tous les nombres premiers infèrieurs ou égaux à un entier naturel donné.
+    
+    \bigskip
+    
+    \noindent Version C++: 
+    
+    \blank[samepage]
+
+    \PrintCodeFile{CPP}{Erastosthene.cpp}
+    
+    \bigskip
+    
+    \noindent Version Rust\footnote{
+        Cette version est sensiblement plus longue car le compilateur rustc 1.51.0, utilisé pour tester la version Rust, n'optimise pas les vecteurs de type \mono{bool}—chaque entrée prend ainsi un octet en mémoire. 
+        Nous définissons donc des fonctions auxiliaires afin de pouvoir représenter huit \mono{bool}s pour chaque octet, afin de ne pas utiliser plus de mémoire que nécessaire.
+        Le compilateur g++ 7.5.0 avec lequel la version C++ a été testée optimise les vecteurs de type \mono{bool} pour que chaque entrée ne prenne (en moyenne et pour de grands vecteurs) qu'un bit de mémoire ; il n'est donc pas besoin, pour cette version, d'employer des fonctions auxiliaires. 
+    }: 
+    
+    \blank[samepage]
+
+    \PrintCodeFile{Rust}{Erastosthene_lib.rs}
+    
+    \PrintCodeFile{Rust}{Erastosthene.rs}
+  \stopsection
+  
+\stopchapter

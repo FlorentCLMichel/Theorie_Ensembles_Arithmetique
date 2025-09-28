@@ -1,0 +1,704 @@
+\startsection[title=Nombres premiers]
+
+\startsubsection[title=Définition, reference=sub:defNombresPremiers]
+
+Un entier naturel $p$ est dit \emph{premier}\index{Nombre premier} s'il admet exactement deux entiers naturels distincts pour diviseurs: $1$ et lui-même.
+On note $\mathbb{P}$ l'ensemble des nombres premiers.
+
+Les premiers nombres premiers sont $2$, $3$, $5$, $7$, $11$, $13$, $17$, $19$ et $23$.
+
+Le seul nombre premier pair est $2$. 
+Les deux seuls nombres premiers séparés de $1$ sont $2$ et $3$. 
+(En effet, les nombres premiers strictement supérieurs à $2$ sont tous impairs, et donc séparés d'au moins $2$.)\footnote{Soit $p$ et $q$ deux nombres premiers strictement supérieurs à $2$. Si $p-q=1$, $p=q+1$, alors $p$ est pair ou $q$ est pair, ce qui est impossible puisque aucun d'eux n'est divisible par $2$.}
+Deux nombres premiers $p$ et $q$ sont dits \emph{jumeaux} si $p-q=2$ ou $q-p=2$. 
+
+\blank[big]
+
+\noindent\bold{Lemme :} Tout entier naturel strictement supérieur à $1$ est divisible par au moins un nombre premier.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} On procède par récurrence forte. 
+Montrons que, pour tout entier naturel $n$, $n \leq 1$ ou $n$ est divisible par au moins un nombre premier.
+Le lemme est évidemment vrai pour les nombres $0$ et $1$ (qui sont tous deux inférieurs ou égaux à $1$) et pour $2$, qui est lui-même premier (et, comme tout entier naturel, divisible par lui-même). 
+
+Soit $n$ un entier naturel strictement supérieur à $2$ et supposons que tout entier compris entre $2$ et $n-1$ soit divisible par au moins un nombre premier. 
+
+Si $n$ est divisible par un entier $l$ compris entre $2$ et $n-1$ (inclus), alors il existe un nombre premier $p$ divisant $l$. 
+Il existe alors deux entiers naturels $k$ et $q$ tels que $n = k l$ et $l = q p$, d'où $n = (k q) p$. 
+Donc, $p$ divise $n$. 
+
+Si $n$ n'est divisible par aucun entier compris entre $2$ et $n-1$, alors il n'est divisible par aucun entier strictement supérieur à $1$ autre que lui-même. 
+En effet, soit $m$ un tel entier, soit $m < n$, et donc $m$ ne divise pas $n$, soit $m > n$, auquel cas il ne peut être un diviseur de $n$.
+Donc, $n$ n'est divisible que par $1$ et par lui-même (qui sont bien distincts puisque $n > 1$). 
+Par définition, $n$ est donc un nombre premier. 
+Puisque $n$ est divisible par lui-même, il est divisible par un nombre premier. 
+
+Dans les deux cas, $n$ est divisible par un nombre premier. 
+Par récurrence forte, on en déduit que le résultat est vrai pour tout entier naturel, et donc que tout entier naturel strictement supérieur à $1$ est divisible par au moins un nombre premier.
+
+\done
+
+\blank[big]
+
+\noindent\bold{Lemme :} Il existe une infinité de nombres premiers.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Supposons par l'absurde que l'ensemble des nombres premiers et fini. 
+Soit $N$ le cardinal de $\mathbb{P}$ ; $N$ est donc un entier naturel. 
+Notons que $N \geq 3$ puisque $2$, $3$ et $5$ sont premiers.
+On peut choisir une bijection $b$ de $N$ vers $\mathbb{P}$. 
+Pour tout entier naturel $i$ strictement inférieur à $N$, on note $p_{i+1}$ l'entier naturel $b(i)$.
+Ainsi, $\mathbb{P} = \lbrace p_1, p_2, \dots, p_N \rbrace$. 
+
+Soit $q$ l'entier définit par : $q \equiv 1 + \prod_{i=1}^N p_i$. 
+Puisque tout nombre premier est strictement supérieur à $0$, $\prod_{i=1}^N p_i > 0$~\footnote{Cela se démontre facilement par récurrence sur $N$.}, donc $q > 1$.
+Pour tout entier naturel $i$ tel que $i \in [\![1, N]\!]$, on a $q \equiv 1 \, [p_i]$, donc le reste de la division euclidienne de $q$ par $p_i$ est $1$, et $q$ n'est pas divisible par $p_i$.  
+Donc, $q$ n'est divisible par aucun nombre premier, ce qui contredit le lemme précédent. 
+On en conclut que l'hypothèse de départ est fausse. 
+
+\done
+
+\blank[big]
+
+\noindent\bold{Lemme :} Soit $p$, $q$ et $r$ trois nombres premiers tels que $r > q$, $q > p$ et $r-q = q-p$. Alors $p=3$ ou $q-p$ est divisible par $3$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Notons $a$ l'entier $q-p$. 
+Soit $b$ le reste de la division euclidienne de $p$ par $3$ et $c$ celui de la division euclidienne de $a$ par $3$. 
+Si $c = 0$, le résultat est immédiat.
+Si $b = 0$, $p$ est divisible par $3$. 
+Puisque $p$ est premier, on en déduit que $p=3$ et le résultat est établi. 
+Montrons que les autres cas, \emph{i.e.} ceux où $b$ et $c$ sont chacun égaux à $1$ ou $2$, sont impossibles. 
+Pour ce faire, on note que $r = p + (q - p) + (r - q) = p + 2 a$, donc $r \equiv b + 2 c \, [3]$.
+
+Si $b = c = 1$, alors $r \equiv (1 + 2) \, [3] \equiv 3 \, [3] \equiv 0 \, [3]$. 
+Donc, $r$ est divisible par $3$. 
+Puisque $r$ est premier, on en déduit que $r=3$, ce qui est impossible car $p$ et $q$ sont deux nombres premiers distincts strictement inférieurs à $r$ et qu'il n'existe qu'un seul nombre premier ($2$) strictement inférieur à $3$. 
+
+De même, si $b = c = 2$, alors $r \equiv (2 + 4) \, [3] \equiv 6 \, [3] \equiv 0 \, [3]$, ce qui est impossible comme nous venons de le voir.
+
+Si $b = 1$ et $c = 2$ ou si $b = 2$ et $c = 1$, alors $q \equiv (1 + 2) \, [3] \equiv 3 \, [3] \equiv 0 \, [3]$. 
+Donc, $q$ est divisible par $3$.
+Puisque $q$ est premier, on en déduit que $q=3$. 
+Puisque $p$ est un nombre premier strictement inférieur à $q$, il ne peut qu'être égal à $2$. 
+Donc, $a = 3-2 = 1$, d'où $r = q + 1 = 4$. 
+Mais $4$ n'est pas un nombre premier (puisque $4 = 2 \times 2$ est divisible par $2$), donc ce cas est impossible.
+
+\done
+
+\blank[big]
+
+Des fonctions Haskell déterminant si un entier naturel est premier et calculant les premier nombres premiers sont données en \in{appendice}{}[app:Haskell_primalité]. 
+(Ces fonctions sont données à titre d'illustration uniquement, et ne sont pas particulièrement efficaces. 
+En particulier, il est en général plus rapide pour calculer les premiers nombre premiers d'utiliser le crible d'Érastosthène, dont une implémentation en C++ et Rust est donnée en \in{appendice}{}[app:code_erastosthene].)
+
+\stopsubsection
+
+\subsection[title=Théorème de Bachet-Bézout]
+
+\blank[big]
+
+\noindent\bold{Théorème (Bachet-Bézout) :} 
+Soit $a$ et $b$ deux entiers naturels et $c$ leur plus grand diviseur commun. 
+Il existe deux entiers relatifs $p$ et $q$ tels que $p a + q b = c$. 
+\index{Bachet-Bézout (théorème)}
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+Soit $E = \lbrace n \in \mathbb{N}^* \vert \exists (p,q) \in \mathbb{Z}^2 \, p a + q b \rbrace$. 
+$E$ est un sous-ensemble non vide (il contient au moins $a$, obtenu pour $p=1$ et $q=0$) de $\mathbb{N}$, donc il admet un unique élément minimal $r$. 
+En outre, par définition de $E$, $r > 0$. 
+Montrons qu'il s'agit du plus grand diviseur commun de $a$ et $b$, ce qui prouvera le théorème. 
+Pour ce faire, nous procédons en deux temps. 
+Nous montrons d'abord que $r$ divise $a$ et $b$, puis qu'il n'existe aucun diviseur commun à ces deux nombres qui soit strictement supérieur à $r$.
+
+Notons $s$ le reste de la division euclidienne de $a$ par $r$. 
+Il existe un entier naturel $k$ tel que $a = k r + s$, et $0 \leq s < r$. 
+Soit $p$ et $q$ deux entiers relatifs tels que $p a + q b = r$. 
+On a: $p a + q b = k a + s$, et donc $(p-k) a + q b = s$. 
+Si $s$ était strictement positif, $s$ serait un élément de $\mathbb{N}^*$ et donc de $E$. 
+Or, cela est impossible car $s < r$ et $r$ est un élément minimal de $E$. 
+On en déduit que $s = 0$, et donc que $r$ divise $a$. 
+On montre de même, par le même argument et en échangeant les rôles de $a$ et $b$, que $r$ divise $b$. 
+Ainsi, $r$ est un diviseur commun de $a$ et $b$. 
+
+Supposons maintenant par l'absurde qu'il existe un autre diviseur commun à $a$ et $b$, noté $t$, tel que $t > r$. 
+On peut choisir deux entiers naturels $u$ et $v$ tels que $a = u t$ et $b = v t$. 
+Soit $p$ et $q$ deux entiers relatifs tels que $p a + q b = r$. 
+On a: $r = p u t + q v t$, d'où $r = (p u + q v) t$. 
+Puisque $r$ et $t$ sont tous deux strictement positifs, $p u + q v$ doit l'être aussi. 
+Mais un entier strictement positif est supérieur ou égal à $1$, et donc $r \geq t$, en contradiction avec l'hypothèse. 
+On en déduit qu'il n'existe aucun diviseur commun à $a$ et $b$ strictement supérieur à $r$.
+
+Ainsi, $r$, qui est un élément de $E$ et peut donc s'écrire $q a + p b$ avec $(p, q) \in \mathbb{Z}^2$, est le plus grand diviseur commun de $a$ et $b$.
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} 
+Soit $p$ un nombre premier et $a$ et $b$ deux entiers naturels. 
+Si $p$ divise $a b$, alors $p$ divise $a$ ou $p$ divise $b$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+Si $p$ divise $a$, le résultat est vrai. 
+Supposons que $p$ ne divise pas $a$. 
+Puisque les seuls diviseurs de $p$ sont $1$ et lui-même, et car $p$ ne divise pas $a$, $1$ est le seul diviseur commun à $p$ et $a$, et donc leur plus grand diviseur commun. 
+D'après le théorème précédent, on peut donc choisir deux entiers relatifs $q$ et $r$ tels que $q p + r a = 1$. 
+Multiplions cette équation par $b$. 
+Il vient : $q p b + r a b = b$. 
+Puisque $p$ divise $a b$, on peut choisir un entier naturel $k$ tel que $a b = k p$. 
+Donc, $q p b + r k p = b$. 
+Cette équation peut se récrire : $(q b + r k) p = b$. 
+Puisque $p$ et $b$ sont tous deux strictement positifs, $p b + r k$ doit l'être aussi, et $p$ divise donc $b$.
+
+\done
+
+\blank[big]
+\noindent\bold{Corolaire :} 
+Soit $p$ un nombre premier, $N$ un entier naturel, et $a_1$, $a_2$, ..., $a_N$ des entiers naturels (si $N \neq 0$). 
+Si $p$ divise $\prod_{i=1}^N a_i$ (pris égal à $1$ si $N = 0$), alors il existe un élément $i$ de $[\![1,N]\!]$ tel que $p$ divise $a_i$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+On procède par récurrence sur $N$. 
+Soit $P$ le prédicat à un paramètre libre défini par : $P(N): \forall a \in \mathbb{N}^N \, p \vert \prod_{i=1}^N a_i \Rightarrow \exists i \in [\![1,N]\!] \, \vert a_i$.
+
+Puisque $p$ est premier, $p > 1$, donc $p$ ne divise pas $1$. 
+Donc, $P(0)$ est vrai.
+
+Si $N = 1$ et $p \vert \prod_{i = 1}^N a_i$, alors, puisque $ \prod_{i = 1}^N= a_1$, $p \vert a_1$.
+Donc, $P(1)$ est vrai.
+
+Le prédicat $P(2)$ est également vrai d'après le lemme précédent. 
+
+Soit $N$ un entier naturel tel que $P(N)$ est vrai. 
+Si $N = 0$ ou $N = 1$, alors $N+1 = 1$ ou $N+1 = 2$, donc $P(N+1)$ est vrai.
+Supposons maintenant $N \geq 2$.
+
+Soit $a_1$, $a_2$, ..., $a_{N+1}$ des entiers naturels tels que $p \vert a_1 a_2 \cdots a_{N+1}$.
+Puisque $p$ divise $a_1 a_2 \cdots a_{N+1}$, égal à $(a_1 a_2 \cdots a_N) a_{N+1}$, d'après le lemme précédent, il divise $a_1 a_2 \cdots a_N$ ou $a_{N+1}$. 
+Dans le second cas, il existe bien un élément $i$ de $[\![1, N+1]\!]$ ($N+1$) tel que $p \vert a_i$. 
+Dans le premiers, par hypothèse de récurrence, il existe un élément $i$ de $[\![1,N]\!]$, satisfaisant donc $i \in [\![1,N+1]\!]$, tel que $p$ divise $a_i$. 
+Ainsi, $P(N+1)$ est vrai.
+
+Par récurrence, $P(N)$ est donc vrai pour tout entier naturel $N$. 
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Corolaire :} 
+Soit $N$ un entier naturel, $p$ un nombre premier, et $a$ un entier naturel.
+Si $p$ divise $a^N$, alors $p$ divise $a$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+C'est une application directe du corolaire précédent avec $a_1 = a_2 = \cdots = a_N = a$.
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Corolaire :} Soit $a$, $b$, et $c$ trois entiers tels que $a$ et $c$ sont premiers entre eux et $b$ et $c$ sont premiers entre eux. Alors $ab$ et $c$ sont aussi premiers entre eux.
+
+\blank[medium] 
+
+\noindent\bold{Démonstration :} Soit $d$ un diviseur de $ab$ et $c$. 
+On veut montrer que $d$ doit être égal à $1$. 
+Supposons par l'absurde que $d > 1$. 
+Alors, $d$ admet au moins un diviseur premier $e$.
+Puisque $e \vert d$ et $d \vert ab$, on a $e \vert ab$.
+Donc, $e \vert a$ ou $e \vert b$.
+De même, puisque $e \vert d$ et $d \vert c$, on a $e \vert c$.
+Donc, $(e \vert a \wedge e \vert c) \vee (e \vert b \wedge e \vert c)$.
+Cela est impossible puisque $e > 0$, $a$ et $c$ sont premiers entre eux et que $b$ et $c$ sont premiers entre eux. 
+On en déduit que l'hypothèse de départ est fausse et que $d$ doit être égal à $1$. 
+
+Réciproquement, $1$ divise tout entier et donc $ab$ et $c$.
+Donc, $1$ est le pgcd de $ab$ et $c$.
+
+\done
+
+\blank[medium] 
+
+\noindent\bold{Corolaire :} Soit $a$ et $b$ deux entier naturels non nuls, et $c$ un entier naturel non nul premier avec $a$ et avec $b$. 
+Alors, $c$ est premier avec $ab$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :}
+    Soit $d$ un diviseur commun de $c$ et $a b$. 
+    Supposons par l'absurde que $d > 1$.
+    Alors $d$ est un entier naturel strictement supérieur à $1$, donc il admet un diviseur premier $p$. 
+    Puisque $d \vert ab$ et $d \vert c$, $p \vert ab$, donc $p \vert a$ ou $p \vert b$, et $p \vert c$. 
+    Cela est impossible puisque $a$ et $c$ sont premiers entre eux (donc $p \vert a \wedge p \vert c$ est impossible) et $b$ et $c$ sont premiers entre eux (donc $p \vert b \wedge p \vert c$ est impossible). 
+    On en déduit que l'hypothèse est fausse, et donc que $d=1$.
+    
+    \done
+
+\blank[medium] 
+
+\noindent\bold{Corolaire :} Soit $n$ un entier naturel non nul et $a_1$, $a_2$, ..., $a_n$ des entiers naturels non nuls (où $a_n$ est absent si $n \leq 2$ et $a_2$ est absent si $n = 1$). 
+    Soit $b$ un entier naturel non nul premier avec $a_1$, $a_2$, ..., $a_n$.
+    Alors, $b$ est premier avec $a_1 a_2 \dots a_n$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :}
+    On procède par récurrence sur $n$. 
+    Pour $n$ égal à $1$, le résultat est évident puisque $a_1 a_2 \dots a_n = a_1$.
+
+    Soit $m$ un entier naturel non nul et supposons l'énoncé vrai pour $n = m$.
+    Soit $a_1$, $a_2$, ..., $a_m$, $a_{m+1}$ des entiers naturels non nul et $b$ un entier naturel non nul premier avec chacun d'entre eux.
+    Alors, $b$ est premier avec $a_1 a_2 \dots a_m$. 
+    Puisqu'il est également premier avec $a_{m+1}$, on en déduit d'après le corolaire précédent que $b$ est premier avec $a_1 a_2 \dots a_m a_{m+1}$.
+    Donc, l'énoncé est vrai pour $n = m+1$. 
+    
+    Par récurrence, il l'est pour tout entier naturel non nul $n$.
+
+    \done
+
+\blank[medium] 
+
+\noindent\bold{Corolaire :} Soit $a$ et $b$ deux entier premier entre eux, et $c$ un entier. Si $a$ et $b$ divisent $c$, alors $ab$ divise $c$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Soit $a$ et $b$ deux entiers naturels premiers entre eux, et $c$ un entier tel que $a$ et $b$ divisent $c$.
+    D'après le théorème de Bachet-Bézout, on peux choisir deux entiers relatifs $u$ et $v$ tels que $u a + v b = 1$. 
+    Multiplions cette expression par $c$. Il vient : $u a c + v b c = c$. 
+    Puisque $a$ et $b$ divisent $c$, on peut choisir deux entiers naturels $d$ et $e$ tels que $a d = c$ et $b e = c$. 
+    Remplaçant $c$ dans le membre de gauche de l'équation précédente donne alors : $u a b e + v b a d = c$. 
+    Factorisant $a b$, il vient : $(u e + v d) a b = c$. 
+    Puisque $a$, $b$ et $c$ sont positifs, $u e + v d$ l'est aussi. 
+    Cela montre que $a b$ divise $c$. 
+
+\done
+
+\blank[medium] 
+
+\noindent\bold{Corolaire :} Soit $p$ un entier naturel strictement supérieur à $1$, $a_1$, $a_2$, ..., $a_p$ des entiers naturels deux-à-deux premier entre eux, et $b$ un entier. Si $a_i$ divise $b$ pour tout élément $i$ de $[\![1,p]\!]$, alors $a_1 \times a_2 \times \cdots \times a_p$ divise $b$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} On procède par récurrence sur $p$. 
+    Pour $p = 2$, il s'agit du corolaire précédent.
+    Soit $p$ un entier naturel supérieur ou égal à $2$ et supposons l'énoncé vrai pour cette valeur. 
+    Soit $a_1$, $a_2$, ..., $a_p$, $a_{p+1}$ des entiers naturels deux-à-deux premiers entre eux et $b$ un entier tel que : $\forall i \in [\![1, p+1]\!] \, a_i \vert b$. 
+    Montrons que $a_1 \times a_2 \times \cdots \times a_p \times a_{p+1} \vert b$.
+
+    Puisque les nombres $a_1$, $a_2$, ..., $a_p$, $a_{p+1}$ sont deux-à-deux premiers entre eux, $a_1 \times a_2 \times \cdots \times a_p$ et $a_{p+1}$ sont premiers entre eux. 
+    Puisque $a_1 \times a_2 \times \cdots \times a_p \vert b$ (par hypothèse de récurrence) et $a_{p+1} \vert b$, on conclut d'après le corolaire précédent que $a_1 \times a_2 \times \cdots \times a_p \times a_{p+1} \vert b$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $a$, $b$ et $c$ trois entiers naturels tels que $a \vert b c$ et $a$ et $b$ sont premiers entre eux. 
+    Alors, $a \vert c$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Puisque $a$ et $b$ sont premiers entre eux, on peux choisir deux entiers $u$ et $v$ tels que $u a + v b = 1$. 
+    Donc, $u a c + v b c = c$.
+    Puisque $a \vert b c$, on peut choisir un entier naturel $k$ tel que $b c = k a$.
+    On a donc $u a c + v k a = c$, donc $(u c + v k) a = c$.
+    Puisque $a$ et $c$ sont tous deux positifs, $u c + v k$ doit être positif, donc il s'agit d'un entier naturel.
+    Donc, $a \vert c$.
+
+    \done
+
+\stopsubsection
+
+\subsection[title=Plus petit commun multiple]
+
+\noindent\bold{Définition :} Soit $a$ et $b$ deux entiers naturels non nuls. L'ensemble de leurs multiples communs non nuls est un sous-ensemble de $\mathbb{N}$ non vide (il contient au moins $a \times b$). Il admet donc un unique élément minimal, appelé \emph{plus petit commun multiple}, ou \emph{ppcm}\index{PPCM}, de $a$ et $b$. 
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $a$ et $b$ deux entiers naturels non nuls, $c$ leur pgcd, et $d$ leur ppcm.
+    Alors, $c \times d = a \times b$.
+
+\blank[medium]
+
+\noindent\bold{Lemme :}
+    Soit $q$ et $r$ le quotient et le reste de la division Euclidienne de $a \times b$ par $c$.
+    Puisque $c$ est un diviseur de $a$, il est aussi un diviseur de $a \times b$, donc $r = 0$.
+    Donc, $c \times q = a \times b$.
+    Il suffit donc de montrer que $q = d$. 
+
+    Puisque $c$ est un diviseur de $a$ et de $b$, on peut choisir deux entiers naturels $k$ et $l$ tels que $a = k c$ et $b = l c$.
+    On a donc $q c = k b c$ et $q c = l a c$.
+    Puisque $c$ est non nul, cela donne $q = k b$ et $q = l a$.
+    Donc, $q$ est un multiple de $a$ et de $b$. 
+    En outre, puisque $a \neq 0$ et $b \neq 0$, $a \times b \neq 0$, donc $q \neq 0$.
+    Donc, $q$ est un multiple non nul de $a$ et de $b$. 
+
+    Montrons que c'est le plus petit. 
+    Supposons par l'absurde que ce n'est pas le cas. 
+    Soit $m$ un entier naturel non nul et deux entiers naturels non nuls $n$ et $o$ tels que $m = n a$ et $m = o b$.
+    Soit $a'$ et $b'$ les quotients des divisions euclidiennes de $a$ et $b$ par $c$.
+    On a : $m = n c a' = o c b'$. 
+    Puisque $c \neq 0$, cela implique $n a' = o b'$.
+    Donc, $a'$ divise $o b'$.
+    Puisque $a'$ et $b'$ sont premiers entre eux, cela implique que $a$ divise $o$.
+    On peut donc choisir un entier naturel $t$ tel que $o = t a'$. 
+    En outre, $t$ est non nul puisque $o$ l'est.
+    On a alors $m = t c a' b'$.
+    Donc, $m c = t a b$.
+    Puisque $t > 0$, on a donc $m c \geq a b$, donc $m c \geq q c$. 
+    Puisque $c \neq 0$, cela implique $m \geq q$. 
+    Ainsi, $q$ est bien le plus petit multiple commun non nul de $a$ et $b$.
+
+    \done
+
+\stopsubsection
+
+\startsubsection[title=Théorème du reste chinois]
+
+\blank[medium]
+
+\noindent\bold{Théorème :} Soit $p$ un entier naturel strictement supérieur à $1$. Soit $n_1$, $n_2$, ..., $n_p$ des entiers naturels strictement supérieurs à $1$ deux-à-deux premiers entre eux. 
+Soit $N$ l'entier naturel défini par : $N = n_1 n_2 \cdots n_p$. 
+Pour tout $p$-uplet d'entiers naturels $(a_1, a_2, \dots, a_p)$ tel que $a_i < n_i$ pour chaque élément $i$ de $[\![1,p]\!]$, il existe un unique entier naturel $n$ tel que $n < N$ satisfaisant : $\forall i \in [\![1,p]\!] \, n \equiv a_i \, [n_i]$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+\startitemize
+    \item \emph{Unicité :} Supposons avoir deux tels entiers $n$ et $m$. 
+    Sans perte de généralité, on peut supposer $n \geq m$. 
+    (Si ce n'est pas le cas, on se ramène à cette situation en inversant les noms de $n$ et $m$.)
+    Alors, pour tout élément $i$ de $[\![1,p]\!]$, $n-m \equiv 0 \, [n_i]$ ; autrement dit, $n_i$ divise $n-m$. 
+    D'après l'un des corolaires du théorème de Bachet-Bézout, on en déduit que $N$ divise $n-m$. 
+    Puisque $n-m \geq 0$ (par définition d'un entier naturel) et $n-m < N$, on en déduit que $n-m=0$, et donc $n=m$.
+    \item \emph{Existence :} Les deux ensembles $[\![0, N-1]\!]$ et $[\![0, n_1-1]\!] \times [\![0, n_2-1]\!] \times \cdots \times [\![0, n_p-1]\!]$ ont le même cardinal fini $N$. D'après le résultat précédent, la fonction du premier vers le second qui à un entier $n$ appartenant à $[\![0,N-1]\!]$ associe $(n \mathrel{\%} n_1, n \mathrel{\%} n_2, \dots, n \mathrel{\%} n_p)$ est injective. Donc, elle est bijective.
+\stopitemize
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Corolaire :} Soit $a$ et $b$ deux entiers naturels premiers entre eux et strictement supérieurs à $2$. Alors il existe au moins quatre entiers naturels $x_1$, $x_2$, $x_3$ et $x_4$ deux à deux distincts, chacun strictement inférieur à $ab$ et tels que, pour tout élément $i$ de $\lbrace 1, 2, 3, 4 \rbrace$, $x_i^2 \equiv 1 \, [a b]$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    D'après le théorème du reste chinois, on peut choisir quatre entiers $x_1$, $x_2$, $x_3$ et $x_4$ strictement inférieurs à $ab$ tels que $x_1 \equiv 1 \, [a]$, $x_1 \equiv 1 \, [b]$, $x_2 \equiv (a-1) \, [a]$, $x_2 \equiv 1 \, [b]$, $x_3 \equiv 1 \, [a]$, $x_3 \equiv (b-1) \, [b]$, $x_4 \equiv (a-1) \, [a]$, $x_4 \equiv (b-1) \, [b]$. 
+    (Ces quatre entiers sont bien deux à deux distincts car aucune paire de deux d'entre eux n'a les deux mêmes restes par les divisions euclidiennes par $a$ et par $b$ ; en effet, puisque $a>2$ et $b > 2$, $a-1$ n'est pas égal à $1$ modulo $a$ (ce sont deux entiers naturels strictement inférieurs à $a$ et distincts puisque $a-2 > 0$) et $b-1$ n'est pas égal à $1$ modulo $b$.) 
+    Puisque $(a-1) \times (a-1) = a^2 - 2 a + 1$ et $(b-1) \times (b-1) = b^2 - 2 b + 1$, on a $(a-1) \times (a-1) \equiv 1 \, [a]$ et $(b-1) \times (b-1) = 1 \, [b]$.
+    Donc, pour tout élément $i$ de $\lbrace 1, 2, 3, 4 \rbrace$, on a $x_i^2 \equiv 1 \, [a]$ et $x_i^2 \equiv 1 \, [b]$. 
+    
+    Soit $i$ un élément de $\lbrace 1, 2, 3, 4 \rbrace$. 
+    Soit $y$ le reste de la division euclidienne de $x_i^2$ par $ab$. 
+    On a $y \equiv x_i^2 \, [a]$ et $y \equiv x_i^2 \, [b]$. 
+    Donc, $y \equiv 1 \, [a]$ et $y \equiv 1 \, [b]$. 
+    Puisque $1 \equiv 1 \, [a]$ et $1 \equiv 1 \, [b]$ et que $1$ et $y$ sont deux entiers naturels strictement inférieurs à $a b$, on déduit du théorème du reste chinois que $y = 1$.  
+
+    Cela étant vrai pour chaque valeur de $i$, on en déduit : $\forall i \in \lbrace 1, 2, 3, 4 \rbrace \, x_i^2 \equiv 1 \, [a b]$.
+
+\done
+
+
+\stopsubsection
+
+\startsubsection[title=Décomposition en produit de facteurs premiers, reference=sub:dec_fact_prem]
+
+\blank[big]
+
+\noindent\bold{Théorème :} 
+Tout entier naturel non nul peut s'écrire comme un produit de facteurs premiers, \emph{i.e.}, pour tout entier naturel non nul $a$, il existe un entier naturel $N$, un $N$-uplet $\left( p_1, p_2, \dots, p_N \right)$ de nombres premiers deux-à-deux distincts et un $N$-uplet $\left( n_1, n_2, \dots, n_N \right)$ d'entiers naturels non nuls tels que
+\startformula
+    a = \prod_{i=1}^N p_i^{n_i}.
+\stopformula
+Le couple $\left( \left( p_1, p_2, \dots, p_N \right), \left( n_1, n_2, \dots, n_N \right)\right)$ est appelé \emph{décomposition de $a$ en produit de facteurs premiers}.
+
+Cette décomposition est unique à l'ordre près des facteurs : soit $a$ un entier naturel non nul, si $N$ et $M$ sont deux entiers naturels, $\left( p_1, p_2, \dots, p_N \right)$ un $N$-uplet de nombres premiers deux-à-deux distincts, $\left( q_1, q_2, \dots, q_M \right)$ un $M$-uplet de nombres premiers deux-à-deux distincts, $\left( n_1, n_2, \dots, n_N \right)$ un $N$-uplet d'entiers naturels non nuls et $\left( m_1, m_2, \dots, m_m \right)$ un $M$-uplet d'entiers naturels non nuls tels que 
+\startformula
+    a = \prod_{i=1}^N p_i^{n_i} = \prod_{j=1}^M q_j^{m_j},
+\stopformula
+alors, pour tout élément $i$ de $[\![1,N]\!]$, on peut choisir un élément $j$ de $[\![1,M]\!]$ tel que $q_j = p_i$ et $m_j = n_i$.
+
+(Notons que l'entier $j$ ainsi définit est unique, et ne peut être le même pour deux valeurs différentes de $i$. 
+Cela définit donc une injection de $[\![1,N]\!]$ vers $[\![1,M]\!]$. 
+Puisque le premier est de cardinal $N$ et le second de cardinal $M$, cela implique $N \geq M$. 
+En échangeant les rôles des deux décompositions, on montre de même $M \leq N$, et donc $N = M$.)
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+
+\startitemize
+    \item \emph{Existence :} On procède par récurrence forte sur $a$. 
+        Pour $a=1$, $a$ est égal au produit vide, donc $(\emptyset, \emptyset)$ convient. 
+        Supposons maintenant $a > 1$ et le résultat vrai pour tout entier naturel strictement inférieur à $a$. 
+        Alors, on peut choisir un nombre premier $p$ tel que $p \vert a$.
+        On peut donc choisir un entier naturel non nul $q$ tel que $p q = a$. 
+        Puisque $p > 1$, $q < a$ (sans quoi on aurait $p q > a$).
+        Donc, $q$ admet une décomposition en produit de facteurs premiers. 
+        On peut donc choisir un entier naturel $N$, un $N$-uplet de nombres premiers $\left( p_1, p_2, \dots, p_N \right)$ deux-à-deux distincts, et un $N$-uplet d'entiers naturels non nuls $\left( n_1, n_2, \cdots n_N \right)$ tels que $k = \prod_{i=1}^N p_i^{n_i}$.
+        On a donc $p \prod_{i=1}^N p_i^{n_i} = a$. 
+        S'il existe un élément $i_0$ de $[\![1,N]\!]$ tel que $p_{i_0} = p$, alors, définissant, pour tout élément $i$ de $[\![1,N]\!]$, $n_i' = n_i + 1$ si $i = i_0$ et $n_i' = n_i$ sinon, on a : $\prod_{i_1}^N p_i^{n_i'} = p \prod_{i=1}^N p_i^{n_i} = a$, donc $\left(\left( p_1, pi2, \dots, p_N \right), \left(n_1', n_2', \dots, n_N' \right) \right)$ est une décomposition de $a$ et produit de facteurs premiers. 
+        Sinon, $\left( \left( p_1, p_2, \dots, p_N, p \right), \left( n_1, n_2, \dots, n_N, 1 \right) \right)$ est une décomposition de $a$ en produit de facteurs premiers.
+        Dans tous les cas, $a$ admet bien une décomposition en produit de facteurs premiers.
+        Par récurrence forte, on conclut que le résultat est vrai pour tout entier naturel non nul.
+
+    \item \emph{Unicité :} 
+        Supposons par l'absurde que $a$ admette deux décompositions en produits de facteurs premiers différentes (autrement que par l'ordre des facteurs). 
+        Il existe au moins un nombre premier $p$ apparaissant avec des puissances différentes dans ces deux décompositions (cette puissance étant possiblement zéro dans une des deux décompositions si $p$ n'y apparaît pas), c'est-à-dire, avec les notations de l'énoncé, un élément $i$ de $[\![1,N]\!]$ tel que $p_i$ n'apparaisse pas dans la seconde décomposition ou, si $j$ désigne l'élément de $[\![1,M]\!]$ tel que $p_i = q_j$, $n_i \neq m_j$. 
+        Notons ces deux puissances $n_1$ et $n_2$, avec $n_2 > n_1$ (avec $n_1 = 0$ dans le premier cas). 
+        On peut choisir deux entiers naturels $k_1$ et $k_2$ tels que $a = p^{n_1} k_1 = p^{n_2} k_2$ et $k_1$ peut s'écrire comme produit de facteurs premiers distincts de $p$. 
+        On a: $p^{n_2 - n_1} k_2 = k_1$ (puisque $p^{n_1} p^{n_2 - n_1} k_2 = p^{n_2} k_2 = p^{n_1} k_1$ et $p^{n_1} \neq 0$). 
+        Puisque $n_2 > n_1$, $p^{n_2 - n_1} k_2 = p p^{n_2 - n_1 - 1} k_2$ et $p^{n_2 - n_1 - 1} k_2$ est un entier naturel.
+        Donc, $p$ divise $k_1$. 
+        En utilisant le corolaire du lemme du théorème de Bachet-Bézout, on en déduit qu'il divise au moins l'un des facteurs premiers de l'écriture de $k_1$ susmentionnée. 
+        Mais cela est impossible car chacun d'eux est premier et distinct de $p$, et n'admet donc pas $p$ pour diviseur.
+    On en déduit que $a$ ne peut admettre deux décompositions en produits de facteurs premiers différent autrement que par l'ordre des facteurs.
+\stopitemize
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Remarque :} Soit $N$ un entier naturel non nul. 
+    On peut déterminer le nombre de ses diviseurs de la manière suivante. 
+    (Rapellons que $0$ a une infinité de diviseurs : tous les entiers naturels non nuls.) 
+    Soit $n$ un entier naturel, $p_1$, $p_2$, ..., $p_n$ des nombres premiers distincts, et $a_1$, $a_2$, ..., $a_n$ des entiers naturels non nuls tels que $N = \prod_{i=1}^n p_i^{a_i}$. 
+    Alors, $N$ possède exactement $\prod_{i=1}^n (a_i+1)$ diviseurs distincts : il s'agit des nombres de la forme $\prod_{i=1}^n p_i^{b_i}$ où, pout tout élément $i$ de $[\![1,n]\!]$, $b_i$ est un entier naturel inférieur ou égal à $a_i$. 
+    En effet, on montre facilement que tout entier de cette forme divise $N$ (puisque $N = \left( \prod_{i=1}^n p_i^{b_i} \right) \times \left( \prod_{i=1}^n p_i^{a_i-b_i} \right)$) et tout entier naturel non nul n'étant pas de cette forme a soit un facteur premier $q$ qui n'est pas un facteur de $N$ soit a pour facteur $p_i^{b_i}$ avec $b_i > a_i$ pour un élément $i$ de $[\![1,n]\!]$ ; dans les deux cas $N$ ne peut être un de ses multiples (car alors $q$ ou $p_i^c$ avec $c \geq b_i$ apparaitrait dans la décomposition de $N$ en produit de facteurs premiers).
+
+\stopsubsection
+
+\startsubsection[title=Représentation schématique]
+
+(Cette section n'est pas destinée à être rigoureuse, mais seulement à donner une certaine intuition de la décomposition en facteurs premiers.)
+
+Un entier naturel strictement supérieur à $1$ peut être représenté schématiquement par une série de blocs représentant chacun de ses facteurs premiers (avec multiplicité). 
+D'après le résultat précédent, cette représentation est unique à l'ordre près des blocs, qui peuvent (puisque la multiplication est commutative) être réarrangés de manière quelconque. 
+L'entier $1$ pourra être représenté par la série vide.
+Notons que la série représentant un entier a un unique bloc si et seulement si ce nombre est premier.
+Puisque la multiplication est associative, accoler les séries représentant deux entiers naturels non nuls donne la série représentant leur produit.
+
+Quelques exemples : 
+\startcolumns[n=3]
+\startitemize[nowhite]
+    \item $1$: 
+    \item $2$: \inbox{2}
+    \item $3$: \inbox{3}
+    \item $4$: \inbox{2}\inbox{2}
+    \item $5$: \inbox{5}
+    \item $6$: \inbox{2}\inbox{3}
+    \item $7$: \inbox{7}
+    \item $8$: \inbox{2}\inbox{2}\inbox{2}
+    \item $9$: \inbox{3}\inbox{3}
+    \item $10$: \inbox{2}\inbox{5}
+    \item $11$: \inbox{11}
+    \item $12$: \inbox{2}\inbox{2}\inbox{3}
+    \item $13$: \inbox{13}
+    \item $14$: \inbox{2}\inbox{7}
+    \item $15$: \inbox{3}\inbox{5}
+    \item $16$: \inbox{2}\inbox{2}\inbox{2}\inbox{2}
+    \item $17$: \inbox{17}
+    \item $18$: \inbox{2}\inbox{3}\inbox{3}
+    \item $19$: \inbox{19}
+    \item $20$: \inbox{2}\inbox{2}\inbox{5}
+    \item $21$: \inbox{3}\inbox{7}
+    \item $22$: \inbox{2}\inbox{11}
+    \item $23$: \inbox{23}
+    \item $24$: \inbox{2}\inbox{2}\inbox{2}\inbox{3}
+    \item $25$: \inbox{5}\inbox{5}
+    \item $26$: \inbox{2}\inbox{13}
+    \item $27$: \inbox{3}\inbox{3}\inbox{3}
+\stopitemize
+\stopcolumns
+
+Exemples de multiplications : 
+\startcolumns[n=2]
+\startitemize[nowhite]
+    \item $1 \times 2 = 2$: $\times \, \inbox{2} = \inbox{2}$
+    \item $2 \times 2 = 4$: \inbox{2} \times \,\inbox{2} = \inbox{2}\inbox{2}
+    \item $2 \times 3 = 6$: \inbox{2} \times \,\inbox{3} = \inbox{2}\inbox{3}
+    \item $2 \times 4 = 8$: \inbox{2} \times \,\inbox{2}\inbox{2} = \inbox{2}\inbox{2}\inbox{2}
+    \item $6 \times 4 = 24$: \inbox{2}\inbox{3} \times \,\inbox{2}\inbox{2} = \inbox{2}\inbox{3}\inbox{2}\inbox{2} = \inbox{2}\inbox{2}\inbox{2}\inbox{3}
+    \item $7 \times 3 = 21$: \inbox{7} \times \inbox{3} = \inbox{7}\inbox{3} = \inbox{3}\inbox{7}
+\stopitemize
+\stopcolumns
+
+Notons que : 
+\startitemize[nowhite]
+    \item Soit $a$ et $b$ deux entiers naturels non nuls.
+        Alors, $a$ est un multiple de $b$ si et seulement si la représentation schématique de $b$ est (possiblement après réarrangements) incluse dans celle de $a$. \\
+        \emph{Exemple 1 :} $80$ est un multiple de $20$ :
+        \startitemize[nowhite]
+            \item $80$: \inbox[color=blue]{2}\inbox[color=blue]{2}\inbox[color=blue]{5}\inbox{2}\inbox{2}
+            \item $20$: \inbox[color=blue]{2}\inbox[color=blue]{2}\inbox[color=blue]{5}
+        \stopitemize
+        \emph{Exemple 2 :} $80$ n'est pas un multiple de $60$ :
+        \startitemize[nowhite]
+            \item $80$: \inbox[color=blue]{2}\inbox[color=blue]{2}\inbox[color=blue]{5}\inbox{2}\inbox{2}
+            \item $60$: \inbox[color=blue]{2}\inbox[color=blue]{2}\inbox[color=blue]{5}\inbox[color=red]{3}
+        \stopitemize
+    \item Soit $a$ et $b$ deux entiers naturels non nuls et $c$ leur pgcd.
+        Alors, la représentation schématique de $c$ est donnée par la partie commune de celles de $a$ et $b$.
+        \emph{Exemple :} Le pgcd de $100$ et $30$ est $10$
+        \startitemize[nowhite]
+            \item $10$: \inbox[color=blue]{2}\inbox[color=blue]{5}\inbox[color=green!50!black]{2}\inbox[color=green!50!black]{5}
+            \item $30$: \inbox[color=blue]{2}\inbox[color=blue]{5}\inbox[color=red]{3}
+            \item \color[blue]{$2 \times 5 = 10$}
+        \stopitemize
+\stopitemize
+
+\stopsubsection
+
+\startsubsection[title=Nombres premiers particuliers]
+
+\noindent\bold{Définition :}Un \emph{\words{nombre de Fermat}} est un nombre premier $p$ satisfaisant $p = 2^n + 1$ pour un entier naturel $n$.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $n$ un entier naturel tel que $2^n + 1$ est premier (donc un nombre de Fermat). 
+    Alors $n$ est une puissance de $2$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $l$ la puissance de $2$ dans la décomposition de $n$ en produit de facteurs premiers. 
+    Alors $n / 2^l$ est impair. 
+    Soit $k$ l'entier défini par : $k = ((n / 2^l) - 1) / 2$.
+    On a $n = 2^l (2 k + 1)$. 
+    Puisque $2^{2^l} \equiv -1 \; [2^{2^l} +1]$, on a donc $2^n \equiv (- 1)^{2 k + 1} \; [2^{2^l} + 1]$, donc $2^n \equiv - 1 \; [2^{2^l} +1]$, donc $2^{2^l} + 1$ divise $2^n + 1$. 
+    Puisque $2^{2^l} + 1 > 1$, $2^n + 1$ ne peut être premier que si $2^{2^l} + 1 \leq 2^n + 1$, \emph{i.e.} $2^{2^l} \leq 2^{2^l} \times 2^{2^l 2 k}$, ce qui n'est possible que si $k = 0$ (sans quoi $2^l 2  > 0$, et donc, puisque $2^l \geq 1$, $2^{2^l 2 k} > 1$), et donc que si n est une puissance de $2$.
+
+    \done
+
+\stopsubsection
+
+\startsubsection[title=Petit théorème de Fermat]
+
+\noindent\bold{Théorème :} Soit $p$ un nombre premier et $a$ un entier naturel non multiple de $p$. 
+Alors, $a^{p-1} \equiv 1 \, [p]$.
+\index{Fermat (petit théorème)}
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Pour tout élément $i$ de $[\![1, p-1]\!]$, on définit l'entier naturels $a_i$ par $a_i = i a$ et on note $r_i$ le reste de la division euclidienne de $a_i$ par $p$. 
+Montrons d'abords que les $r_i$ ainsi définis sont deux à deux distincts. 
+Cela montrera que la fonction de $p-1$ vers $\lbrace r_1, r_2, \dots, r_{p-1} \rbrace$ associant $r_{i+1}$ à tout élément $i$ de $p-1$ est injective.
+Elle est aussi surjective (pour tout élément $e$ de cet ensemble, il existe par définition un élément $i$ de $[\![1,p-1]\!]$ tel que $e = r_i$ ; en posant $j = i-1$, on a $j \in p-1$ et $e = r_{j+1}$). 
+Donc, cela démontrera qu'il s'agit d'une bijection, et donc que $[\![1, p-1]\!]$ et $\lbrace r_1, r_2, \dots, r_{p-1} \rbrace$ sont de même cardinal $p-1$.
+
+On procède par l'absurde. 
+Soit $i$ et $j$ deux éléments de $[\![1, p-1]\!]$ tels que $j \neq i$ et $r_j = r_i$. 
+On suppose en outre que $j > i$. 
+(Si ce n'est pas le cas, alors $i > j$ et on se ramène à ce cas en échangeant les rôles de $i$ et $j$.)
+On a alors $a_j \equiv a_i \, [p]$, et donc $p$ divise $a_j - a_i$. 
+Puisque $a_j - a_i = a \, (j-i)$ et $p$ et $a$ sont premiers entre eux, d'après de lemme du théorème de Bachet-Bézout, $p$ divise $j-i$. 
+Mais cela est impossible puisque $j-i$ est un entier naturel non nul strictement inférieur à $p$. 
+Cela montre que les $r_i$ pour $i \in [\![1, p-1]\!]$ sont deux à deux distincts. 
+
+En outre, aucun d'eux ne peut être nul d'après le lemme du théorème de Bachet-Bézout puisque, pour chacune des valeur de $i$ dans $[\![1,p-1]\!]$, $p$ ne divise ni $i$ (puisque $i$ est un entier strictement positif et strictement inférieur à $p$) ni $a$, et donc pas $a_i$.
+Donc, chacun d'eux appartient à $[\![1, p-1]\!]$.
+
+Ainsi, l'ensemble $\lbrace r_1, r_2, \dots, r_{p-1} \rbrace$ est inclus dans $[\![1, p-1]\!]$ et a le même cardinal fini. 
+On en déduit que ces deux ensembles sont égaux. 
+On a donc : $\prod_{i=1}^{p-1} r_i = (p-1)!$, et donc, puisque $a_i \equiv r_i \, [p]$ pour tout élément $i$ de $[\![1, p-1]\!]$, $\prod_{i=1}^{p-1} a_i \equiv (p-1)! \, [p]$.
+Puisque $\prod_{i=1}^{p-1} a_i = (p-1)! \, a^{p-1}$, cela donne $(p-1)! \, a^{p-1} \equiv (p-1)! \, [p]$.
+
+Soustrayant puis factorisant $(p-1)!$, il vient : $(p-1)! \left( a^{p-1} - 1 \right) = 0 \, [p]$. 
+Donc, $p$ divise $(p-1)! \left( a^{p-1} - 1 \right)$. 
+Puisque $p$ ne divise ni $1$, ni $2$, ..., ni $p-1$, et d'après le premier corolaire du théorème de Bachet-Bézout, on en déduit que $p$ divise $a^{p-1} - 1$. 
+On a donc $a^{p-1} - 1 \equiv 0 \, [p]$, et donc $a^{p-1} = 1 \, [p]$.
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Remarque :} Avec les mêmes notations, il n'est pas toujours vrai que $p-1$ est le plus petit entier naturel $n$ tel que $a^n \equiv 1 \, [p]$.
+    Un contre-exemple est donné par $p = 17$ et $a = 2$: on a $2^8 = 256 = (15 \times 17) + 1$, donc, bien que $17$ est premier, $2$ n'est pas un multiple de $17$ et $8 < 17 - 1$, $2^8 \equiv 1 \, [17]$. 
+    Une autre classe de contre-exemples est donnée par tout nombre premier $p$ strictement supérieur à $2$ et $a = 1$ : on a alors $a^n = 1 \, [p]$ pour tout entier naturel $p$.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $p$ un nombre premier. 
+    Soit $a$ et $b$ deux entiers naturels tel que $a$ n'est pas un multiplde de $p$ et soit $s$ un entier naturel non nul.
+    Soit $g$ le pgcd de $s$ et $p-1$.
+    On suppose que $a^s \equiv b^s \, [p]$.
+    Alors, $a^g \equiv b^g \, [p]$.
+    
+    \noindent En particulier, si $s$ et $p-1$ sont premiers entre eux, $g = 1$, donc $a \equiv b \, [p]$.
+    Si on impose en outre $a < p$ et $b < p$, cela implique $a = b$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+D'après le théorème de Bachet-Bézout, on peut choisir deux entiers relatifs $l$ et $m$ tels que $g = l s + m (p-1)$. 
+Puisque $a^s \equiv b^s \, [p]$, on a $a^{\abs{l} s} \equiv b^{\abs{l} s} \, [p]$.
+En outre, d'après le petit théorème de Fermat, $a^{p-1} \equiv 1 \, [p]$ et $b^{p-1} \equiv 1 \, [p]$, donc $a^{\abs{m} (p-1)} \equiv 1 \, [p]$ et $b^{\abs{m} (p-1)} \equiv 1 \, [p]$.
+Puisque $g > 0$, $s > 0$ et $p-1 > 0$, on ne peut avoir $l < 0$ et $m < 0$ (ce qui impliquerait $g < 0$).
+
+\startitemize[nowhite]
+    \item Si $l \geq 0$ et $m \geq 0$, on a $a^g = a^{\abs{l} s} \times a^{\abs{m} (p-1)}$, donc $a^g \equiv a^{\abs{l} s} \, [p]$.
+        De même, $b^g \equiv b^{\abs{l} s} \, [p]$.
+        Donc, $a^g \equiv b^g \, [p]$.
+    \item Si $m < 0$, on a $l \geq 0$, $a^g \times a^{\abs{m} (p-1)} = a^{\abs{l} s}$ et $b^g \times b^{\abs{m} (p-1)} = b^{\abs{l} s}$.
+        Donc, $a^g \times a^{\abs{m} (p-1)} \equiv b^g \times b^{\abs{m} (p-1)} \, [p]$. 
+        Puisque $a^{\abs{m} (p-1)} \equiv 1 \, [p]$, $a^g \times a^{\abs{m} (p-1)} \equiv a^g \, [p]$.
+        De même, puisque $b^{\abs{m} (p-1)} \equiv 1 \, [p]$, $b^g \times b^{\abs{m} (p-1)} \equiv b^g \, [p]$.
+        Donc, $a^g \equiv b^g \, [p]$.
+    \item Si $l < 0$, on a $m \geq 0$, $a^g \times a^{\abs{l} s} = a^{\abs{m} (p-1)}$ et $b^g \times b^{\abs{l} s} = b^{\abs{m} (p-1)}$.
+        Donc, $a^g \times a^{\abs{l} s} \equiv 1 \, [p]$ et $b^g \times b^{\abs{l} s} \equiv 1 \, [p]$. 
+        Donc, $p$ divise $a^g \times a^{\abs{l} s} - b^g \times b^{\abs{l} s}$. 
+        En outre, puisque $a^{\abs{l} s} \equiv b^{\abs{l} s} \, [p]$, on peut choisir un entier $k$ tel que $b^{\abs{l} s} = a^{\abs{l} s} + k p$.
+        Donc, $p$ divise $a^g \times a^{\abs{l} s} - b^g \times a^{\abs{l} s}$~\footnote{
+            En effet, on peut choisir un entier $q$ tel que $a^g \times a^{\abs{l} s} - b^g \times b^{\abs{l} s} = q p$, et donc $a^g \times a^{\abs{l} s} - b^g \times a^{\abs{l} s} = q p + b^g \times k \times p = (q + b^g \times k) \times p$.
+        }%
+        , égal à $(a^g - b^g) \times a^{\abs{l} s}$. 
+        Puisque $p$ est premier et puisque $a$ n'est pas un multiple de $p$, $a^{\abs{l} s}$ n'en n'est pas un non plus.
+        Donc, $p$ divise $a^g - b^g$, donc $a^g - b^g \equiv 0 \, [p]$, et donc $a^g \equiv b^g \, [p]$.
+\stopitemize
+
+\done
+
+\blank[medium]
+
+\noindent\bold{Remarque :} Le dernier résultat n'est pas vrai en général si $s$ et $p-1$ ne sont pas premiers entre eux.
+    En effet, soit $g$ leurs pgcd et $l$ et $m$ deux entiers naturels tels que $s = l g$ et $p-1 = m g$, soit $r$ le reste de la division Euclidienne de $a^m$ par $p$ pour tout entier $a$ non multiple de $p$, on a $r^s \equiv 1 \, [p]$. 
+    Puisque $g > 1$, $m < p-1$. 
+    Puisque le groupe $(\mathbb{Z} \divslash (p \mathbb{Z}))^*$ est cyclique (voir \in{section}{}[subsec:cyclicity_Z_pZ]), il admet au moins un générateur. 
+    Choisissant ce générateur pour $a$, on ne peut avoir $a^m \equiv 1 \, [p]$, donc $r \neq 1$, donc $r$ est un élément de $[\![0, p-1]\!]$ distinct de $1$ tel que $r^s \equiv 1 \, [p]$.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $n$ un entier naturel non nul.
+    Soit $p_1$, $p_2$, ..., $p_n$ $n$ nombres premiers deux-à-deux distincts. 
+    On note $q$ leur produit : $q = \prod_{i=1}^n p_i$.
+    Soit $\lambda$ un entier naturel multiple de $p_1-1$, $p_2-1$, ..., $p_n-1$ et $x$ un entier naturel non multiple de $p_1$ ni $p_2$ ni ... ni $p_n$.
+    Alors $x^\lambda \equiv 1 \, [q]$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $i$ un élément de $[\![1, n]\!]$.
+    Puisque $\lambda$ est un multiple de $p_i-1$, on peut choisir un entier naturel $k$ tel que $\lambda = (p_i-1) k$, et donc $x^\lambda = \left( x^{p_i-1} \right)^k$.
+    Puisque $x$ n'est pas un multiple de $p_i$, $x^{p_i-1} \equiv 1 \, [p_i]$ d'après le petit théorème de Fermat.
+    Donc, $x^\lambda \equiv 1^k \, [p_i]$, donc $x^\lambda \equiv 1 \, [p_i]$.
+
+    Soit $r$ le reste de la division Euclidienne de $x^\lambda$ par $q$. 
+    On a $r < q$ et $r \equiv 1 \, [p_i]$ pour tout élément $i$ de $[\![1, n]\!]$. 
+    (En effet, soit $k$ le quotient, on a $x = r + k q$ et, pour tout $i$, $x = \equiv r \, [p_i]$ puisque $q$ est un multiple de $p_i$.)
+    Puisque $p_1$, $p_2$, ..., $p_n$ sont deux-à-deux premiers entre eux, et puisque $r = 1$ satisfait ces propriétés, on en déduit d'après le théorème du reste chinois que $r = 1$.
+    On en conclut que $x^\lambda \equiv 1 \, [q]$.
+
+    \done
+
+\stopsubsection
+
+\stopsection

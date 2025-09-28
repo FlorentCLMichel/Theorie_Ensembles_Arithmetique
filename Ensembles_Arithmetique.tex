@@ -1,0 +1,35 @@
+\input{Ensembles_Arithmetique/Preamble.tex}
+
+\starttext
+
+  \input{Ensembles_Arithmetique/Titlepage.tex}
+
+  \startbodymatter
+    \input{Ensembles_Arithmetique/Theorie_Ensembles.tex} 
+    \input{Ensembles_Arithmetique/Arithmetique.tex} 
+    \input{Ensembles_Arithmetique/Autres_Structures_Nombres.tex}
+  \stopbodymatter
+
+  \startappendices
+    \input{Ensembles_Arithmetique/Codes.tex}
+    \input{Ensembles_Arithmetique/Jeux_Entiers.tex} 
+  \stopappendices
+
+\startnotmode[export] 
+  \startbackmatter
+ 
+    \chapter{Index}
+    
+    \blank[big]
+
+    \placeregister[wordsRegister]
+    
+    \chapter{Index des symboles}
+    
+    \blank[big]
+
+    \placeregister[symbolsRegister]
+  \stopbackmatter
+\stopnotmode
+
+\stoptext

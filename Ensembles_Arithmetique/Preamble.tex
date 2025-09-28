@@ -1,0 +1,510 @@
+\startmode[export] 
+  \setupbackend[export=yes,hyphen=yes]
+  \setupexport[
+      cssfile=Ensembles_Arithmetique/Resources/style.css,
+      width=55em, 
+      firstpage=Ensembles_Arithmetique/Resources/firstpage.png, 
+      author={Florent Michel}]
+  \definereferenceformat[Content][left=,right=,type=title]
+  \define[2]\startchapterRef{\startchapter[title=#1,reference=#2,list=\Content[#2]]}
+  \define\startimageifexport\startimage
+  \define\stopimageifexport\stopimage
+  \define[1]\imagebuffer{
+    \startimage
+      \getbuffer[#1]
+    \stopimage}
+    \define\bimage{\starttextdisplay\startimage}
+    \define\eimage{\stopimage\stoptextdisplay}
+  %\define\startformula{\par$$}
+  %\define\stopformula{$$\par}
+\stopmode
+\startnotmode[export] 
+  \define[2]\startchapterRef{\startchapter[title=#1,reference=#2]}
+  \define\startimageifexport{}
+  \define\stopimageifexport{}
+  \define[1]\imagebuffer{
+    \startimage
+      \typesetbuffer[#1]
+    \stopimage}
+    \define\bimage{\startimage}
+    \define\eimage{\stopimage}
+\stopnotmode
+
+% Variables
+\setvariables[metadata][
+    title=Théorie des Ensembles et Arithmétique,
+    author=Florent Michel
+]
+
+
+% Load resources
+\loadmarkfile{Ensembles_Arithmetique/Resources/buff-imp-cpp}
+\loadmarkfile{Ensembles_Arithmetique/Resources/buff-imp-haskell}
+\loadmarkfile{Ensembles_Arithmetique/Resources/buff-imp-rust}
+
+
+% Set the document language
+\mainlanguage[fr]
+
+
+% Load TiKZ and PGF
+\usemodule[tikz]
+\usetikzlibrary{positioning, automata, calc, arrows.meta}
+\usemodule[pgfplots]
+% To parse points using macros in PGFPlots
+\unprotect
+\let\orig@pgfplots@foreach@plot@coord@NEXT\pgfplots@foreach@plot@coord@NEXT
+\def\pgfplots@foreach@plot@coord@NEXT{%
+    \expandafter\orig@pgfplots@foreach@plot@coord@NEXT\expandafter
+}
+\protect
+
+
+% Document layout
+\setuppapersize[letter,portrait]
+\setuplayout
+  [backspace=2cm,
+   topspace=1cm,
+   header=1cm,
+   footer=1cm,
+   top=1cm,
+   bottom=1cm,
+   margin=2cm,
+   margindistance=0cm,
+   edge=0cm,
+   edgedistance=0cm,
+   width=fit,
+   height=fit]
+\setuppagenumbering[location=bottom]
+
+
+% Interactions
+\setupcolors[state=start]
+\definecolor[linkcolor][r=.1,g=.3,b=.9]
+\setupinteraction[state=start, focus=standard, color=linkcolor, contrastcolor=linkcolor, style=]
+
+% Bookmarks
+\placebookmarks [chapter,section,subject,subsection]
+                [chapter,section,subject]
+
+% Font Setup
+\definefontfamily [myfamily] [serif] [XITS]
+\definefontfamily [myfamily] [math] [XITS Math]
+\definefontfamily [myfamily] [sans] [Lato] [scale=0.9]
+\definefontfamily [myfamily] [mono] [Fira Code] [scale=0.88]
+\setupbodyfont [myfamily, 10pt]
+
+
+% TOC format
+\setupcombinedlist[content][
+    interaction=all,
+    list={chapter,section}, 
+    alternative=c,
+]
+\setuplist[chapter][
+    label=yes,
+    width=fit,
+    distance=0.5em,
+    style=bold,
+    before=\blank[halfline],
+    numbercommand=\ss,
+    textcommand=\ss,
+    pagecommand=\ss,
+]
+\setuplist[section][
+    width=fit,
+    margin=1em,
+    distance=0.5em,
+    before=\blank[0.em],
+    numbercommand=\ss,
+    textcommand=\ss,
+    pagecommand=\ss,
+]
+\startmode[export]
+  \setuplist[chapter][pagenumber=no]
+  \setuplist[section][pagenumber=no]
+  \setuplist[subsection][pagenumber=no]
+\stopmode
+
+
+% Define indices
+\startnotmode[export]
+  \defineregister[wordsRegister][
+    pagestyle=,
+    alternative=A,
+    pageleft=\dotfill,
+    n=3,
+    method={pm,mc,uc}]
+  \defineregister[symbolsRegister][
+    pagestyle=,
+    indicator=no,
+    before=,
+    pageleft=\dotfill,
+    n=4]
+  \define[1]\index{\lua{s = "#1"; context("\\wordsRegister{" .. s:sub(1,1):upper() .. s:sub(2) .. "}")}}
+  \define[1]\words{\index{#1}#1}
+  \define[1]\symbols{$\symbolsRegister{$#1$}$#1}
+\stopnotmode
+\startmode[export]
+  \define[1]\index{}
+  \define[1]\words{#1}
+  \define[1]\symbols{#1}
+  \define[1]\symbolsRegister{}
+\stopmode
+
+% Footnotes style
+\setupnote[footnote][
+  rule=off,
+  before=\blank[line]\hrule\blank[quarterline],
+]
+\setupnotation[footnote][
+  way=bychapter,
+]
+
+% Move footnotes to end of chapters in export mode
+\startmode[export] 
+  \setupnotes[location=none] % Don't show footnotes on each page
+  \define[1]\footnotenumberstyle{\high{\color[black]{#1}}}
+  \setupnotation[footnote][
+      numbercommand=,
+      distance=0.4em,
+      margin=-0.2em,
+      alternative=left, 
+      hang=1,
+  ]
+  \setuphead[chapter][
+    aftersection=\ifcase\rawcountervalue[footnote]\relax\else\blank[4ex]\vfill\hrule\pagebreak[no]\placefootnotes\fi
+  ]
+\stopmode
+
+
+% Style for headers
+\setuphead[title][align=center]
+\setuphead[chapter][
+    page=yes,
+    prefix=Chapitre,
+    numberstyle=\ss\tfc\bf,
+    textstyle=\ss\tfc\bf]
+\setuphead[section][
+    before=\blank[4ex],
+    numberstyle=\ss\tfb\bf,
+    textstyle=\ss\tfb\bf]
+\setuphead[subsection][
+    before=\blank[2ex],
+    numberstyle=\tfa\ss\bf,
+    textstyle=\tfa\ss\bf]
+
+
+% Default style for enumerations
+\setupitemize[
+    before=\setupwhitespace[0pt]\blank[.5ex],
+    inbetween=\blank[.5ex],
+    after=\blank[nowhite]\blank[.5ex],
+    leftmargin=1em,
+    indentnext=auto,
+]
+
+
+% Styles for page numbers
+\definestructureconversionset [frontpart:pagenumber] [] [Romannumerals]
+\definestructureconversionset [bodypart:pagenumber] [] [numbers]
+\definestructureconversionset [backpart:pagenumber] [] [numbers]
+
+
+% Mathematics
+\setupmathematics[
+    autopunctuation=yes,
+    differentiald=upright,
+]
+\setupformula[
+    indentnext=auto,
+]
+\setmathspacing \mathordcode \mathclosecode \allmathstyles 0mu
+\setmathspacing \mathopencode \mathordcode \allmathstyles 0mu
+\redefine{\sum}{\utfchar{"2211}}
+\redefine{\prod}{\utfchar{"220f}}
+\redefine{\ii}{\mathrm{i}}        % root of -1
+\define{\lii}{\utfchar{"27e6}}    % integer interval (left)
+\define{\rii}{\utfchar{"27e7}}    % integer interval (right)
+\define{\ds}{\utfchar{"2215}}     % division slash
+\define{\p}{^\prime}
+
+% Special styles for the frontmatter
+\startsectionblockenvironment[frontmatter]
+  \definestructureconversionset [romannumerals]
+\stopsectionblockenvironment
+
+
+% Format for the TOC at the start of each chapter
+\startluacode
+interfaces.implement {
+  name      = "chaptertoc",
+  public    = true,
+  arguments = { "hash", "argument" },
+  actions   = function(hash, content)
+    hash = hash or {}
+    local bottomruleoffset = hash.bottomruleoffset or "2pt"
+    context(
+      "\\determinelistcharacteristics[section]"
+      .. "\\doifmode{*list}{\\vskip1ex\\hrule\\startcolumns[n=2,internalgrid=halfline]\\placecontent\\stopcolumns\\vskip{-1.5ex}"
+      .. "\\vskip" .. bottomruleoffset
+      .. "\\hrule}"
+    )
+  end
+}
+\stopluacode
+%\define\chaptertoc{%
+%  \determinelistcharacteristics[section]%
+%  \doifmode{*list}{\vskip1ex\hrule\startsimplecolumns[n=2]\placecontent\stopsimplecolumns\blank[2pt]\hrule}%
+%}
+
+
+% Special styles for the main text
+\define[1]\chapnumber{Chapitre~#1~:}
+\startsectionblockenvironment[bodypart]
+  \resetuserpagenumber
+  \setupcombinedlist[content][
+      list={section,subsection}, 
+  ]
+  \setuplist[section][
+      label=yes,
+      width=fit,
+      margin=0em,
+      distance=0.5em,
+      style=bold,
+      before=\blank[halfline],
+      numbercommand=\ss,
+      textcommand=\ss,
+      pagecommand=\ss,
+  ]
+  \setuplist[subsection][
+      width=fit,
+      margin=1em,
+      distance=0.5em,
+      before=\blank[none],
+      numbercommand=\ss,
+      textcommand=\ss,
+      pagecommand=\ss,
+  ]
+  \setuphead[chapter][after=\blank[big],numbercommand=\chapnumber]
+\stopsectionblockenvironment
+
+
+% Special styles for the appendices
+\define[1]\appchapnumber{Appendice~#1~:}
+\startsectionblockenvironment[appendix]
+  \setupcombinedlist[content][
+      list={section,subsection}, 
+  ]
+  \setuplist[section][
+      label=yes,
+      width=fit,
+      margin=0em,
+      distance=0.5em,
+      style=bold,
+      before=\blank[halfline],
+      numbercommand=\ss,
+      textcommand=\ss,
+      pagecommand=\ss,
+  ]
+  \setuplist[subsection][
+      width=fit,
+      margin=1em,
+      distance=0.5em,
+      before=\blank[none],
+      numbercommand=\ss,
+      textcommand=\ss,
+      pagecommand=\ss,
+  ]
+  \setuphead[chapter][after=\blank[big],numbercommand=\appchapnumber]
+\stopsectionblockenvironment
+
+
+% Excursus style
+\definetextbackground
+  [leftbartext]
+  [
+    location=paragraph,
+    mp=mpos:region:leftbar,
+    width=broad,
+    frame=off,
+    rulethickness=0.3em,
+    leftoffset=0.5em,
+    rightoffset=0.5em,
+    topoffset=0ex,
+    bottomoffset=0ex,
+  ]
+\startuseMPgraphic{mpos:region:leftbar}
+  draw_multi_pars;
+  draw_multi_side;
+\stopuseMPgraphic
+\definetextbackground
+  [blocktext]
+  [leftbartext]
+  [
+    framecolor=black,
+    backgroundcolor=white,
+  ]
+\definedescription
+  [excursus]
+  [
+    margin=0.5em,
+    width=broad,
+    before={\startblocktext},
+    after={\stopblocktext},
+  ]
+
+
+% Style for the abstract
+\definenarrower[NarrowerAbstract][middle=1cm]
+\definedescription
+  [abstract]
+  [
+    text=Résumé,
+    alternative=top,
+    headstyle=\tfa\ss\bf,
+    margin=0.5em,
+    width=broad,
+    before={\startNarrowerAbstract\startblocktext},
+    after={\stopblocktext\stopNarrowerAbstract},
+  ]
+
+% text in a box
+\startluacode
+interfaces.implement {
+  name      = "inbox",
+  public    = true,
+  arguments = { "hash", "argument" },
+  actions   = function(hash, content)
+    hash = hash or {}
+    local col = hash.color or "black"
+    context("\\starttikzpicture[baseline=-0.7ex, inner sep=0.5ex, color="
+            .. col
+            .. "] \\node[draw] {" 
+            .. content 
+            .. "\\vphantom{0123456789}}; \\stoptikzpicture")
+  end
+}
+\stopluacode
+%\define[1]\inbox{\starttikzpicture[baseline=-0.7ex, inner sep=0.5ex] \node[draw] {#1\vphantom{0123456789}}; \stoptikzpicture}
+
+% Paragraph indentation
+\setupindenting[yes,medium]
+
+
+% colored box style
+
+\startuseMPgraphic{mp:coloredframe}
+  coloredFrameMargin := EmWidth;
+  begingroup;
+    for i=1 upto nofmultipars :
+      if multikind[i] = "single" :
+        path p;
+        p := ( llcorner multipars[i] + (0, -coloredFrameMargin)
+               -- lrcorner multipars[i] + (0, -coloredFrameMargin)
+               .. lrcorner multipars[i] + (coloredFrameMargin/sqrt(2), -coloredFrameMargin/sqrt(2))
+               .. lrcorner multipars[i] + (coloredFrameMargin, 0)
+               -- urcorner multipars[i] + (coloredFrameMargin, 0)
+               .. urcorner multipars[i] + (coloredFrameMargin/sqrt(2), coloredFrameMargin/sqrt(2))
+               .. urcorner multipars[i] + (0, coloredFrameMargin)
+               -- ulcorner multipars[i] + (0, coloredFrameMargin)
+               .. ulcorner multipars[i] + (-coloredFrameMargin/sqrt(2), coloredFrameMargin/sqrt(2))
+               .. ulcorner multipars[i] + (-coloredFrameMargin, 0)
+               -- llcorner multipars[i] + (-coloredFrameMargin, 0)
+               .. llcorner multipars[i] + (-coloredFrameMargin/sqrt(2), -coloredFrameMargin/sqrt(2))
+               .. llcorner multipars[i] + (0, -coloredFrameMargin)
+               -- cycle ) ;
+        fill p withcolor boxfillcolor ;
+      elseif  multikind[i] = "first"  :
+        path p;
+        p := ( llcorner multipars[i] + (0, -coloredFrameMargin)
+               -- lrcorner multipars[i] + (coloredFrameMargin, -coloredFrameMargin)
+               -- urcorner multipars[i] + (coloredFrameMargin, 0)
+               .. urcorner multipars[i] + (coloredFrameMargin/sqrt(2), coloredFrameMargin/sqrt(2))
+               .. urcorner multipars[i] + (0, coloredFrameMargin)
+               -- ulcorner multipars[i] + (0, coloredFrameMargin)
+               .. ulcorner multipars[i] + (-coloredFrameMargin/sqrt(2), coloredFrameMargin/sqrt(2))
+               .. ulcorner multipars[i] + (-coloredFrameMargin, 0)
+               -- llcorner multipars[i] + (-coloredFrameMargin, -coloredFrameMargin)
+               -- cycle ) ;
+        fill p withcolor boxfillcolor ;
+      elseif  multikind[i] = "middle" :
+        path p;
+        p := ( llcorner multipars[i] + (0, -coloredFrameMargin)
+               -- lrcorner multipars[i] + (coloredFrameMargin, -coloredFrameMargin)
+               -- urcorner multipars[i] + (coloredFrameMargin, coloredFrameMargin)
+               -- ulcorner multipars[i] + (-coloredFrameMargin, coloredFrameMargin)
+               -- llcorner multipars[i] + (-coloredFrameMargin, -coloredFrameMargin)
+               -- cycle ) ;
+        fill p withcolor boxfillcolor ;
+      elseif  multikind[i] = "last"   :
+        path p;
+        p := ( llcorner multipars[i] + (0, -coloredFrameMargin)
+               -- lrcorner multipars[i] + (0, -coloredFrameMargin)
+               .. lrcorner multipars[i] + (coloredFrameMargin/sqrt(2), -coloredFrameMargin/sqrt(2))
+               .. lrcorner multipars[i] + (coloredFrameMargin, 0)
+               -- urcorner multipars[i] + (coloredFrameMargin, coloredFrameMargin)
+               -- ulcorner multipars[i] + (-coloredFrameMargin, coloredFrameMargin)
+               -- llcorner multipars[i] + (-coloredFrameMargin, 0)
+               .. llcorner multipars[i] + (-coloredFrameMargin/sqrt(2), -coloredFrameMargin/sqrt(2))
+               .. llcorner multipars[i] + (0, -coloredFrameMargin)
+               -- cycle ) ;
+        fill p withcolor boxfillcolor ;
+      fi;
+    endfor ;
+  setbounds currentpicture to OverlayBox ;
+  endgroup;
+\stopuseMPgraphic
+
+\definecolor[coloredFrameColor][r=0.4,g=0.8,b=1]
+\definetextbackground
+  [coloredFrame]
+  [mp=mp:coloredframe,
+   location=paragraph,
+   backgroundcolor=coloredFrameColor,
+   framecolor=coloredFrameColor,
+   before={},
+   after={}]
+
+\definestartstop
+  [NoteBox]
+  [before={\blank[2em]\startcoloredFrame},
+   after={\stopcoloredFrame\blank[2em]}]
+
+
+% A simple table style
+\startsetups fTable
+  \setupTABLE[frame=off,rulethickness=1pt,align={middle,lohi}, offset=0.5ex, strut=no]
+  \setupTABLE[r][1][bottomframe=on]
+  \setupTABLE[r][2][toffset=0.5ex+0.25pt]
+  \setupTABLE[c][\getvariable{myvars}{fTableNLeftCols}][rightframe=on,roffset=0.5ex+1pt]
+  \setupTABLE[c][\getvariable{myvars}{fTableNLeftCols}+1][loffset=0.5ex+1pt]
+\stopsetups
+
+% styles
+\definehighlight [bold] [style=bold]
+\definehighlight [emph] [style=italic]
+\definehighlight [sans] [style=\ss]
+
+% Get the height and width of content
+\define[3]\getHWof
+  {\bgroup
+   \setbox\scratchbox\hbox{#1}%
+   \expanded{\egroup\definemeasure[#2][\the\ht\scratchbox]
+                    \definemeasure[#3][\the\wd\scratchbox]}}
+\define[1]\Center{%
+  \getHWof{#1}{tempHeight}{tempWidth}
+  \offset[x=0.5*\hsize-0.5*\measured{tempWidth}]{#1}}
+
+% Math commands
+\define\lb{\left\lbrace}
+\define\rb{\right\rbrace}
+\define\divslash{∕}
+\define\setminus{\mirror{\divslash}} % Required for XITS Math
+\define\ep{\epsilon}
+
+% Miscelanous commands
+\define[2]\href{\goto{\color[linkcolor]{#1}}[url(#2)]}
+\define[1]\lua{\ctxlua{#1}}
+\define[1]\plua{\lua{context(#1)}}
+\define[1]\done{\hfill$\square$}

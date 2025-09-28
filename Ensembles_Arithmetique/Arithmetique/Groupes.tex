@@ -1,0 +1,83 @@
+\startsection[title=Quelques résultats en théorie des groupes finis]
+
+\noindent\bold{Lemme :} Soit $(G, \cdot)$ un groupe abélien fini. 
+    Notons $e$ son élément neutre.
+    Soit $g$ un élément de $G$ et $n$ son ordre. 
+    Soit $k$ un entier naturel tel que $g^k = e$. 
+    Alors, $k$ est un multiple de $n$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Soit $q$ et $r$ le quotient et le reste de la division euclidienne de $k$ par $n$.
+    On a $g^k = e$, donc $g^{q n + r} = e$, donc $g^{q n} \cdot g^r = e$.
+    Puisque $g^{q n} = (g^n)^q = e$, cela implique $g^r = e$.
+    Puisque $r < n$ et puisque $n$ est le plus petit entier naturel $x$ non nul tel que $g^x = e$, on en déduit que $r = 0$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $(G, \cdot)$ un groupe abélien fini. 
+    Soit $g$ un élément de $G$ et $n$ son ordre. 
+    Soit $k$ un diviseur de $n$. 
+    Alors, il existe un élément $h$ de $G$ d'ordre $k$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Puisque $k$ est un diviseur de $n$, $n / k$ est un entier naturel. 
+    En outre, l'ordre d'un élément est toujours non nul, donc $n / k > 0$ (puisque $k \times (n / k)$, égal à $n$, est non nul).
+    Notons $l$ l'entier $n / k$.
+    Soit $h$ l'élément de $G$ définit par : $h = g^l$.
+    Montrons que l'ordre de $h$ est $k$. 
+
+    Tout d'abord, on a $h^k = (g^l)^k = g^{k \times l} = g^n = e$.
+
+    Soit $m$ un entier naturel non nul tel que $h^m = e$. 
+    Alors, $g^{m \times l} = (g^l)^m = h^m = e$. 
+    Par définition de $n$, on a donc $m \times l \geq n$, donc $m \times l \geq k \times l$. 
+    Puisque $l$ est non nul, cela implique $m \geq k$. 
+
+    Ainsi, $k$ est le plus petit entier naturel $x$ non nul tel que $h^x = e$.
+    Donc, $h$ est d'ordre $k$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $(G, \cdot)$ un groupe abélien fini.
+    Soit $a$ et $b$ deux éléments de $G$, d'ordres respectifs $n$ et $m$. 
+    On suppose que $n$ et $m$ sont premiers entre eux. 
+    Alors, $a \cdot b$ est d'ordre $n m$.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Notons $e$ l'élément neutre de $(G, \cdot)$.
+
+    Tout d'abord, $n m$ est bien un entier naturel non nul (puisque $n$ et $m$ en sont) et $(a \cdot b)^{n m} = a^{n m} \cdot b^{n m} = (a^n)^m \cdot (b^m)^n = e^ù \cdot e^n = e \cdot e = e$.
+
+    Soit $l$ un entier naturel non nul tel que $(a \cdot b)^l = e$.
+    Alors, $a^l \cdot b^l = e$, donc $a^l = b^{-l}$. 
+    Donc, $a^{m l} = b^{- l m} = e^{-l} = e$.
+    Donc, $n \vert m l$.
+    Puisque $n$ et $m$ sont premiers entre eux, on en déduit que $n \vert l$. 
+
+    Le même argument en échangeant les rôles de $a$ et $b$ montre que $m \vert l$.
+    Puisque $n$ et $m$ dont premiers entre eux, on en déduit que $n m \vert l$.
+    Donc, $n m \leq l$. 
+
+    Ainsi, $n m$ est le plus petit entier naturel non nul $x$ tel que $(a \cdot b)^x = e$.
+    Donc, l'ordre de $a \cdot b$ est $n m$.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $(G, \cdot)$ un groupe abélien fini.
+    Soit $a$ et $b$ deux éléments de $G$, d'ordres respectifs $n$ et $m$. 
+    Soit $k$ le ppcm de $n$ et $m$. 
+    Alors, il existe un élément de $G$ d'ordre $k$.
+
+\stopsection

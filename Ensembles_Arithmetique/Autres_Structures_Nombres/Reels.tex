@@ -1,0 +1,311 @@
+\startsection[title=Nombres réels]
+
+\startsubsection[title=Suites de Cauchy, reference=sub:Cauchy]
+
+\noindent\bold{Définition :} Soit $u$ une suite de nombres rationnels. 
+    Elle est dite \emph{de Cauchy}\index{Suite de Cauchy} si la propriété suivante est satisfaite : 
+    \startformula
+        \forall \epsilon \in \mathbb{Q} \, 
+        \exists n \in \mathbb{N} \,
+        \forall m \in \mathbb{N} \,
+        \forall k \in \mathbb{N} \,
+        (m \geq n) \wedge (k \geq n)
+        \Rightarrow \abs{u_n - u_k} \leq \epsilon
+        .
+    \stopformula
+
+\blank[medium]
+
+Intuitivement, une suite est de Cauchy si la distance maximale entre un de ses éléments et les suivants tend vers $0$. 
+On pourrait penser qu'une telle suite doit être convergente. 
+Ce n'est en fait pas le cas sur $\mathbb{Q}$, mais c'est là l'intuition menant aux nombres réels, qui peuvent être formellement définis comme limites des suites de Cauchy de rationnels. 
+(On montrera aussi que toute suite de Cauchy de nombres réels converge.)
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Toute suite de nombres rationnels majorée et croissante est de Cauchy. 
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $u$ une suite de nombres rationnels majorée et croissante. 
+    Soit $M$ un majorant de $u$.
+    On suppose par l'absurde que la suite $u$ n'est pas de Cauchy. 
+    On peut donc choisir un nombre rationnel $\epsilon$ strictement positif tel que, pour tout entier naturel $n$, il existe deux entiers naturels $m$ et $k$ supérieurs ou égaux à $n$ tels que $\abs{u_m - u_k} > \epsilon$. 
+    Montrons par récurrence sur $l$ que, pour tout entier naturel $l$, on peut choisir un entier naturel $n$ tel que $u_n \geq u_0 + l \times \epsilon$. 
+    Cela montrera que $u$ tend vers $+\infty$. 
+    En effet, pour tout nombre rationnel $q$, on peut choisir un entier naturel $l$ tel que $u_0 + l \times \epsilon \geq q$~\footnote{
+        On peut montrer cela de la manière suivante. 
+        Soit $v$, $w$ et $x$ les trois suites définies par : pour tout entier naturel $l$, $v_l = l$, $w_l = v_l \times \epsilon$, et $x_l = u_0 + w_l$.
+        Alors, $v$ tend vers $+\infty$ (voir ci-dessus), $w = \epsilon \times v$, et $x = u_0 + w$.
+        Puisque $\epsilon > 0$, on en déduit que $w$ tend vers $+\infty$, et donc que $x$ tend vers $+\infty$. 
+        On peut donc choisir un entier naturel $l$ tel que $x_k \geq q$ pour tout entier naturel $k$ supérieur ou égal à $l$, et donc, en particulier, $x_l \geq q$, et donc $u_0 + l \times \epsilon \geq q$.
+    }, donc $u_n \geq q$ avec le $n$ définit ci-dessus, et donc (puisque $u$ est croissante) $u_m \geq q$ pour tout ntier naturel $m$ supérieur ou égal à $n$.
+    Ainsi, $u$ tendra vers $+\infty$, ce qui est impossible puisque $u$ est majorée.
+    On en déduira que $u$ est de Cauchy.
+
+    Pour $l = 0$, le résultat attendu est évident puisque $u_0 = u_0$, donc $u_0 \geq u_0 + 0 \times \epsilon$, donc $u_n \geq u_0 + l \times \epsilon$ pour $n = 0$.
+
+    Soit $l$ un entuer naturel. 
+    On suppose avoir un netier naturel $n$ tel que $u_n \geq u_0 + l \times \epsilon$.
+    Par hypothèse, on peut choisir deux entiers naturels $a$ et $b$ supérieurs ou égaux à $n$ tels que $\abs{u_a - u_b} > \epsilon$.
+    Sans perte de généralité, on suppose $a \leq b$ (si ce n'est pas le cas, on s'y ramène en échangeant les rôles de $a$ et $b$, ce qui ne change pas le phrase précédente puisque $\abs{u_b - u_a} = \abs{u_a - u_b}$).
+    Puisque $u$ est croissante, $u_a \leq u_b$, donc $\abs{u_a - u_b} = u_b - u_a$.
+    Donc, $u_b - u_a \geq \epsilon$, et donc $u_b \geq u_a + \epsilon$.
+    Puisque $a \geq n$ et puisque $u$ est croissante, $u_a \geq u_n$, donc $u_b \geq u_n + \epsilon$, donc $u_b \geq (l+1) \times \epsilon$.
+    Le résultat attendu est donc vrai au rang $l+1$. 
+
+    Par récurrence, il est vrai pour tout entier naturel $l$; ce qui conclut la preuve.
+
+    \done
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Toute suite de nombres rationnels convergente est de Cauchy. 
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Soit $u$ uns suite de nombres rationnels.
+    On suppose que $u$ est convergente. 
+    Soit $l$ sa limite. 
+    Soit $\epsilon$ un nombre rationnel strictement positif. 
+    Alors, $\epsilon \divslash 2$ est strictement positif.
+    Puisque $u$ tend vers $l$, on peut choisir un entier naturel $n$ tel que, pour tout entier naturel $m$ supérieur ou égal à $n$, $\abs{u_m - l} \leq \epsilon \divslash 2$. 
+    Soit $m$ et $p$ deux entiers naturels supérieurs ou égaux à $n$. 
+    On a : $\abs{u_n - u_m} = \abs{(u_n - l) + (l - u_m)} \leq \abs{u_n - l} + \abs{l - u_m} = \epsilon \divslash 2 + \epsilon \divslash 2 = \epsilon$. 
+    La suite $u$ satisfait donc la définition d'une suite de Cauchy. 
+
+    \done
+
+\blank[medium]
+
+\startNoteBox
+\noindent
+\bold{Remarque :} La réciproque est fausse.
+    Pour montrer cela, considérons la suite $u$ définie par récurrence de la manière suivante : 
+    \startitemize[nowhite]
+        \item $u_0 = 1$
+        \item pour tout entier naturel $n$, $u_{n+1} = u_n + \left(2 - u_n^2 \right) \divslash 4$ .
+    \stopitemize
+   
+    Supposons que la suite $u$ admette une limite $l$. 
+    Définissons les suites $v$ et $w$ par : pour tout entier naturel $n$, $v_n = u_{n+1}$ et $w_n = u_n + \left(2 - u_n^2 \right) \divslash 2$.
+    Alors, $v$ tend vers $l$ et $w$ tend vers $l + (2 - l \times l) \divslash 4$. 
+    Puisque $v_n = u_n$ pour tout entier naturel $n$, on a donc $l = l + (2 - l \times l) \divslash 4$, donc $(2 - l \times l) \divslash 4 = 0$, donc $2 - l \times l = 0$, et donc $l \times l = 2$.
+
+    Montrons que cela est impossible. 
+    On procède par l'absurde. 
+    Supposons qu'il existe un nombre rationnel $q$ tel que $q^2 = 2$. 
+    Sans perte de généralité, on peut supposer $q \geq 0$ (si ce n'est pas le cas, il suffit de remplacer $q$ par $-q$, qui est alors positif et de carré égal à $2$.).
+    Soit $a$ et $b$ deux entiers tels que $(a, b)$ est la représentation irréductible de $q$. 
+    Puisque $q$ est positif, $a$ et $b$ sont tous deux positifs.
+    En outre, $q \neq 0$ (sas quoi on aurait $q^2 = 0$, et donc $q^2 \neq 2$). 
+    Donc, $q \neq 0$. 
+    Donc, $a$ et $b$ sont premiers entre eux.
+    
+    Par ailleurs, on a : $b^2 \times q^2 = a^2$, donc $2 \, b^2 = a^2$. 
+    Cela montre que $2$ divise $a^2$. 
+    Puisque $2$ est premier, on en conclut que $2$ divise $a$. 
+    On peut donc choisir un entier naturel $c$ tel que $a = 2 \, c$.
+    Donc, $a^2 = 4 \, c^2$, et donc $b^2 = 2 \, c$.
+    Donc, $2$ divise $b^2$, et donc $b$.
+    Ainsi, $2$ est un diviseur comun à $a$ et $b$, ce qui est impossible puisque $a$ et $b$ sont premiers entre eux.
+    On en déduit qu'un tel nombre rationnel $q$ ne peut exister.
+
+    \blank[medium]
+
+    Montrons maintenant que la suite $u$ est de Cauchy. 
+    Pour ce faire, on montre d'abord par récurrence que $u_n^2 \leq 2$ pour tout entier naturel $n$. 
+    Cette suite est donc majorée—en effet, pour tout entier naturel $n$, on aura $u_n \leq 2$ (sans quoi on aurait $u_n^2 > 4 > 2$). 
+    Pour tout entier naturel $n$, on aura alors $\left(2 - u_n^2 \right) \divslash 4 \geq 0$, montrant que la suite $u$ est croissante, et donc (car majorée et croissante) de Cauchy.
+
+    Plus préciément, on montre par récurrence sur $n$ que, pour tout entier naturel $n$, $0 \leq u_n$ et $u_n^2 \leq 2$.
+    
+    \blank[medium]
+
+    Pour $n = 0$, on a $u_n = 1$, donc $u_n \geq 0$ et $u_n^2 = 1$, donc $u_n^2 \leq 2$. 
+
+    Soit $n$ un entier naturel et supposons que $u_n \geq 0$ et $u_n^2 \leq 2$. 
+    Alors, $2 - u_n^2 \geq 0$, donc $u_{n+1} \geq u_n$, donc $u_{n+1} \geq 0$.
+    
+    Par ailleurs, on a : 
+    \startformula \startmathalignment
+        \NC u_{n+1} \times u_{n+1} 
+        \NC = u_n^2 + \left(2 - u_n^2 \right) \times u_n \divslash 2 + \left(2 - u_n^2 \right)^2 \divslash 16 \NR
+        \NC\NC = \frac{1}{4} + u_n - \frac{u_n^2}{2} \times u_n + \frac{u_n^4}{16} . \NR
+    \stopmathalignment\stopformula
+    Puisque $u_n^2 \leq 2$, $u_n^4 \leq 4$.
+    En outre, $u_n \leq 3 \divslash 2$ (sans quoi on aurait $u_n^2 > 9 \divslash 4 = 2 + 1 \divslash 4 > 2$).
+    Donc, 
+    \startformula
+        u_{n+1} \times u_{n+1} \leq 2 - \frac{u_n^2}{2} \times u_n.
+    \stopformula
+    Enfin, $u_n \geq 0$, cela donne $u_{n+1} \leq 2$.
+    Le résultat attendu est donc vrai au rang $n+1$.
+    Par récurrence, il l'est pour tout entier naturel $n$, ce qui conclut la preuve.
+\stopNoteBox
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Toute suite de nombres rationnels de Cauchy est bornée. 
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} 
+    Soit $u$ une suite de nombres rationnels. 
+    On suppose que $u$ est de Cauchy. 
+    On peut choisir un entier naturel $n_0$ tel que $\abs{u_n - u_m} \leq 1$ pour tous entiers naturels $n$ et $m$ supérieurs ou égaux à $n_0$. 
+    Soit $E$ l'ensemble $\left\lbrace \abs{u_0}, \abs{u_1}, \dots, \abs{u_{n_0 - 1}}, \abs{u_{n_0}} + 1 \right\rbrace$. 
+    L'ensemble $E$ est fini et non vide (son cardinal est $n_0$). Donc (puisque $\leq$ est une relation d'ordre total sur $\mathbb{Q}$), il admet un maximum, noté $M$ dans la suite de cette démonstration.
+    Soit $n$ un entier naturel quelconque. 
+    Si $n < n_0$, alors $\abs{u_n} \in E$, donc $\abs{u_n} \leq M$.
+    Sinon, on a $\abs{u_n - u_{n_0}} \leq 1$, donc, d'après l'inégalité triangulaire, $\abs{u_n} - \abs{u_{n_0}} \leq 1$, donc $\abs{u_n} \leq \abs{u_{n_0}} + 1$.
+    Puisque $\abs{u_{n_0}} + 1 \in E$, $\abs{u_{n_0}} + 1 \leq M$, donc $u_n \leq M$. 
+
+    Pour tout entier naturel $n$, on a donc $\abs{u_n} \leq M$, et donc $-M \leq u_n \leq M$.
+    Cela montre que la suite $u$ est bornée. 
+
+    \done
+
+\blank[medium]
+
+\emph{À écrire...}
+
+\stopsubsection
+
+\startsubsection[title=Les nombres réels comme limites de suites de Cauchy]
+
+\noindent\bold{Définition :} Soit $\mathcal{U}$ l'ensemble des suites de Cauchy de nombres rationnels.
+    On définit la relation d'équivalence $R$ sur $\mathcal{U}$ par : soit deux élément $u$ et $v$ de $\mathcal{U}$, $u \mathrel{R} v$ si et seulement si $u - v$ tend vers $0$.
+    Un \emph{nombre réel} est une classe d'équivalence de $R$.
+    L'\emph{ensemble des nombres réels}, noté $\symbols{\mathbb{R}}$, est l'ensemble des classes d'équivalences de $R$. 
+
+\blank[medium]
+
+\noindent\bold{Preuve qu'il s'agit bien d'une relation d'équivalence :}
+\startitemize[nowhite]
+    \item \emph{Réflexivité :} Soit $u$ une suite de Cauchy.
+        Alors, $u - u$ est la suite constante égale à $0$, donc tend vers $0$.
+        Donc, $u \mathrel{R} u$.
+    \item \emph{Symétrie :} Soit $u$ et $v$ deux suites de Cauchy telles que $u \mathrel{R} v$.
+        Alors, $u - v$ tend vers $0$.
+        Donc, $v - u$ tend vers $0$.
+        Donc, $v \mathrel{R} u$.
+    \item \emph{Transitivité :} Soit $u$, $v$. et $w$ trois suites de Cauchy telles que $u \mathrel{R} v$ et $v \mathrel{R} w$.
+        Alors, $u - v$ tend vers $0$ et $v - w$ tend vers $0$.
+        Puisque $u - w = (u - v) + (v - w)$~\footnote{
+            En effet, pour tout entier naturel $n$, on a : $((u - v) + (v - w))_n = (u - v)_n + (v - w)_n = (u_n - v_n) + (v_n - w_n) = (u_n + (-v_n)) + (v_n - w_n) = u_n + ((-v_n) + (v_n - w_n)) = u_n + (- w_n) = u_n - w_n = (u - w)_n$.
+        }, on en déduit que $u - w$ tend vers $0$, et donc que $u \mathrel{R} w$.
+\stopitemize
+
+\done
+
+\blank[medium]
+
+\emph{À écrire...}
+
+\stopsubsection
+
+\startsubsection[title=Relation d'ordre]
+
+\emph{À écrire...}
+
+\stopsubsection
+
+\startsubsection[title=Structure de corps]
+
+\emph{À écrire...}
+
+\stopsubsection
+
+\startsubsection[title=Puissances]
+
+\noindent\bold{Définition :} On définit par récurrence les \emph{puissances entières positives} d'un nombre réel $x$ par :
+    \startitemize[nowhite]
+        \item $x^0 = 1$,
+        \item pour tout entier naturel $n$, $x^{n+1} = x \times x^n$.
+    \stopitemize
+    Notons que $x^1 = x$ et $x^n \neq 0$ pour tout entier naturel $n$ (se montre facilement par récurrence).
+    \index{Puissance}
+    Pour tout entier naturel non nul $n$, on définit la \emph{puissance entière négative} $x^{-n}$ comme égale à $1 \divslash z^x$.
+    \index{Puissance négative}
+
+\blank[medium]
+
+\noindent\bold{Définition :} Soit $x$ et $y$ deux nombres réels et $n$ un entier naturel non nul.
+    On dit que $y$ est une \emph{racine $n$e} de $x$ si $x^n = y$.
+    \index{Racine}
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $x$ un nombre réel et $n$ et $m$ deux entiers. 
+    On suppose $q > 0$ ou $n \geq 0$ et $m \geq 0$.
+    Alors, 
+    \startitemize[nowhite]
+        \item $x^n \times x^m = x^{n+m}$,
+        \item $(x^n)^m = x^{n m}$.
+    \stopitemize
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} Voir démonstration du théorème équivalent pour les nombres rationnels \at{page}{}[demo:rel_puissances_q] en remplaçant $q$ par $x$.
+
+\blank[medium]
+
+\noindent\bold{Définition :} Soit $n$ un entier naturel non nul. 
+    Tout nombre réel positif $x$ a exactement une racine $n$e positive, notée $x^{1 \divslash n}$ ou $\sqrt[n]{x}$.
+    (Pour $n = 2$, le nombre $2$ pourra être omis dans cette seconde notation.)
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} ***
+
+\blank[medium]
+
+\emph{À écrire...}
+
+\stopsubsection
+
+\startsubsection[title=Nombres entiers et rationnels comme sous-ensembles des nombres réels]
+\index{Nombre rationnel} \index{Rationnel}
+\index{Nombre entier} \index{Entier}
+
+On dira, quand il n'y a pas d'ambiguité, qu'un nombre réel $x$ est \emph{rationnel} si au moins un de ses éléments converge dans $\mathbb{Q}$.
+On dira que $x$ est \emph{entier} si la limite de cet élément est entière, \emph{i.e.} si le dénominateur de sa représentation irréductible est $1$.
+
+\blank[medium]
+
+\noindent\bold{Lemme :} Soit $x$ un nombre réel. Si $x$ est rationnel selon la définition ci-dessus, alors tous ses éléments convergent dans $\mathbb{Q}$ et leurs limites sont identiques.
+
+\blank[medium]
+
+\noindent\bold{Démonstration :} ***
+
+\stopsubsection
+
+\startsubsection[title=Le tore]
+
+On définit le tore $\symbols{\mathbb{T}}$ par l'ensemble des classe d'équivalences pour la relation $R$ sur $\mathbb{R}$ définie par : pour tous nombres réels $x$ et $y$, $a \mathrel{R} y$ si et seulement si $x - y$ est entier. 
+
+\blank[medium]
+
+\noindent\bold{Preuve qu'il s'agit bien d'une relation d'équivalence :}
+\startitemize[nowhite]
+    \item \emph{Réflexivité :} Soit $x$ un nombre réel.
+        Par définition, $x - x$ a pour représentant la suite constante égale à $0$, qui a pour limite $0$.
+        Donc, $x - x$ est entier, donc $x \mathrel{R} x$.
+    \item \emph{Symétrie :} Soit $x$ et $y$ deux ombres réels.
+        On suppose $x \mathrel{R} y$. 
+        Soit $u$ un représentant de $x$ et $v$ un représentant de $y$.
+        Alors, $u - v$ conerge et sa limite est un entier $n$.
+        Donc, $v - u$ tend vers $-n$, qui est aussi entier.
+        Donc, $y \mathrel{R} x$.
+    \item \emph{Transitivité :} Soit $x$, $y$ et $z$ tels que $x \mathrel{R} y$ et $y \mathrel{R} z$. 
+        Soit $u$ un représentant de $x$, $v$ un représentant de $y$ et $w$ un représentant de $z$.
+        Alors, $u - v$ tend vers un entier $n$ et $v - w$ tend vers un entier $m$.
+        Donc, $u - w$ (égale à $(u - v) + (v - w)$) tend vers $n + m$, qui est entier.
+        Donc, $x \mathrel{R} z$.
+\stopitemize
+
+\done
+ 
+\stopsection

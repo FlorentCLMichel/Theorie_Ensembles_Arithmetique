@@ -1,0 +1,86 @@
+\registerctxluafile{Ensembles_Arithmetique/Resources/buff-imp-rust.lua}{1.001}
+
+\unprotect
+
+\definecolor[rustcodebkgdcol1][r=.92,g=.95,b=.99]
+\definecolor[rustcodebkgdcol2][r=.6,g=.75,b=.95]
+\definecolor[rustcodecommentcol][r=.5,g=.5,b=.5]
+\definecolor[rustcodepreprocesscol][r=.3,g=0,b=.7]
+\definecolor[rustcodestringcol][r=.5,g=.5,b=0]
+\definecolor[rustcodespecialcol][r=0,g=0,b=.7]
+\startuseMPgraphic{CodeOverlay}
+z1 = (0, 0) ;
+z2 = (OverlayWidth, 0) ;
+z3 = (OverlayWidth, OverlayHeight) ;
+z4 = (0, OverlayHeight) ;
+
+path p ;
+p = (z1--z2--z3--z4--cycle) cornered .5cm ;
+fill p withshade (define_linear_shade(z1, z3, \MPcolor{rustcodebkgdcol1}, \MPcolor{rustcodebkgdcol2})) ;
+
+setbounds currentpicture to OverlayBox ;
+
+\stopuseMPgraphic
+\defineoverlay[CodeOverlay][\useMPgraphic{CodeOverlay}]
+
+\definestartstop
+    [RustSnippet]
+    [DefaultSnippet]
+    [before=\setupalign[inner]]
+
+\definestartstop
+    [RustSnippetName]
+
+\definestartstop
+    [RustSnippetNameKeyword]
+    [\c!color=blue]
+
+\definestartstop
+    [RustSnippetBoundary]
+    [\c!color=]
+
+\definestartstop
+    [RustSnippetString]
+    [\c!color=rustcodestringcol]
+
+\definestartstop
+    [RustSnippetQuote]
+    [RustSnippetBoundary]
+
+\definestartstop
+    [RustSnippetSpecial]
+    [\c!color=rustcodespecialcol]
+
+\definestartstop
+    [RustSnippetComment]
+    [\c!color=rustcodecommentcol]
+
+\definestartstop
+    [RustSnippetPreprocess]
+    [\c!color=rustcodepreprocesscol]
+
+\startnotmode[export] 
+\definetyping
+    [Rust]
+    [\c!option=rust,
+    strip=yes,
+    before={\startframedtext[width=\makeupwidth,
+                             offset=0.5em,
+                             frame=none,
+                             background=CodeOverlay,
+                             ] 
+            \setupbodyfont [myfamily,\getvariable{lengths}{codesize}]},
+    after={\stopframedtext}]
+\stopnotmode
+
+\startmode[export] 
+\definetyping
+    [Rust]
+    [strip=yes,
+    before=\setupbodyfont [myfamily,\getvariable{lengths}{codesize}],
+    after=]
+\stopmode
+
+\protect 
+
+\endinput
