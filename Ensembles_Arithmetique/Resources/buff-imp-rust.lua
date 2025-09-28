@@ -19,7 +19,8 @@ local RustSnippetNameKeyword  = verbatim.RustSnippetNameKeyword
 local RustSnippetName         = verbatim.RustSnippetName
 
 local keywords = tohash {
-    "let", "mut", "pub", "fn", "return",
+    "mod", "use", "pub",
+    "let", "mut", "fn", "return",
     "while", "for", "if", "else", "try",
     "usize", "bool",
 }

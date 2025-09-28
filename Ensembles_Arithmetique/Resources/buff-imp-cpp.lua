@@ -19,13 +19,13 @@ local CppSnippetNameKeyword   = verbatim.CppSnippetNameKeyword
 local CppSnippetName          = verbatim.CppSnippetName
 
 local keywords = tohash {
-    "template", "return",
+    "typedef", "template", "return",
     "void", "const", "unsigned", 
     "char", "struct", "bool",
     "int", "long", "float", "double",
     "std", "vector", "iostream", "array",
     "cout", "endl", "cerr",
-    "for", "if", "else", "try", "catch",
+    "while", "do", "for", "if", "else", "try", "catch",
 }
 
 local function visualizename(s)
@@ -43,8 +43,8 @@ local handler = visualizers.newhandler {
     startdisplay = function() startCppSnippet() end,
     stopdisplay  = function() stopCppSnippet() end ,
 
-    boundary     = function(s) CppSnippetBoundary(s) end,
     special      = function(s) CppSnippetSpecial(s) end,
+    boundary     = function(s) CppSnippetBoundary(s) end,
     comment      = function(s) CppSnippetComment(s) end,
     preprocess   = function(s) CppSnippetPreprocess(s) end,
     quote        = function(s) CppSnippetString(s) end,
@@ -55,8 +55,8 @@ local handler = visualizers.newhandler {
 
 local comment     = P("//")
 local name        = (patterns.letter + S("_"))^1
+local special     = S("|&!") + P("::")
 local boundary    = S('()[]:=<>;"')
-local special     = S("|&")
 local punctuation = S("_-+().,;?!")
 
 local grammar = visualizers.newgrammar("default", { "visualizer",
@@ -69,11 +69,11 @@ local grammar = visualizers.newgrammar("default", { "visualizer",
                 * makepattern(handler,"string",patterns.nodquote)
                 * makepattern(handler,"quote",patterns.dquote),
     name        = makepattern(handler,"name",name),
-    boundary    = makepattern(handler,"boundary",boundary),
     special     = makepattern(handler,"special",special),
+    boundary    = makepattern(handler,"boundary",boundary),
 
     pattern     =
-        V("comment") + V("preprocess") + V("dstring") + V("name") + V("boundary") + V("special")
+        V("comment") + V("preprocess") + V("dstring") + V("name") + V("special") + V("boundary")
       + V("newline") * V("emptyline")^0 * V("beginline")
       + V("space")
       + V("default"),

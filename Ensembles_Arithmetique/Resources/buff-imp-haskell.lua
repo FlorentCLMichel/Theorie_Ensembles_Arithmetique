@@ -21,7 +21,8 @@ local HaskellSnippetName          = verbatim.HaskellSnippetName
 local keywords = tohash {
     "let",
     "Integer",
-    "add", "sub", "div", "mod"
+    "add", "sub", "div", "mod",
+    "otherwise"
 }
 
 local function visualizename(s)
