@@ -40,6 +40,7 @@
 % Load resources
 \loadmarkfile{Ensembles_Arithmetique/Resources/buff-imp-cpp}
 \loadmarkfile{Ensembles_Arithmetique/Resources/buff-imp-haskell}
+\loadmarkfile{Ensembles_Arithmetique/Resources/buff-imp-rust}
 
 
 % Set the document language
@@ -151,6 +152,14 @@
   \define[1]\symbolsRegister{}
 \stopmode
 
+% Footnotes style
+\setupnote[footnote][
+  rule=off,
+  before=\blank[line]\hrule\blank[quarterline],
+]
+\setupnotation[footnote][
+  way=bychapter,
+]
 
 % Move footnotes to end of chapters in export mode
 \startmode[export] 
@@ -160,7 +169,6 @@
       numbercommand=,
       distance=0.4em,
       margin=-0.2em,
-      way=bychapter,
       alternative=left, 
       hang=1,
   ]
