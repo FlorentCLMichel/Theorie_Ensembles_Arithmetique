@@ -92,7 +92,22 @@
 \definefontfamily [myfamily] [math] [XITS Math]
 \definefontfamily [myfamily] [sans] [Lato] [scale=0.9]
 \definefontfamily [myfamily] [mono] [Fira Code] [scale=0.88]
+\definebodyfontenvironment[10pt][
+  text=10pt,
+  script=8pt,
+  scriptscript=6pt,
+  x=8pt,
+  xx=6pt,
+  big=12pt,
+  small=8pt,
+]
 \setupbodyfont [myfamily, 10pt]
+
+% Corrections for the math font
+\appendtoks
+  \Umathsubshiftdown\allmathstyles .4ex
+  \Umathsubsupshiftdown\allmathstyles 0ex
+\to \everymathematics
 
 
 % TOC format
@@ -105,20 +120,15 @@
     label=yes,
     width=fit,
     distance=0.5em,
-    style=bold,
     before=\blank[halfline],
-    numbercommand=\ss,
-    textcommand=\ss,
-    pagecommand=\ss,
+    style=sansbold,
 ]
 \setuplist[section][
     width=fit,
     margin=1em,
     distance=0.5em,
     before=\blank[0.em],
-    numbercommand=\ss,
-    textcommand=\ss,
-    pagecommand=\ss,
+    style=sans,
 ]
 \startmode[export]
   \setuplist[chapter][pagenumber=no]
@@ -271,20 +281,15 @@ interfaces.implement {
       width=fit,
       margin=0em,
       distance=0.5em,
-      style=bold,
       before=\blank[halfline],
-      numbercommand=\ss,
-      textcommand=\ss,
-      pagecommand=\ss,
+      style=sansbold,
   ]
   \setuplist[subsection][
       width=fit,
       margin=1em,
       distance=0.5em,
       before=\blank[none],
-      numbercommand=\ss,
-      textcommand=\ss,
-      pagecommand=\ss,
+      style=sans,
   ]
   \setuphead[chapter][after=\blank[big],numbercommand=\chapnumber]
 \stopsectionblockenvironment
@@ -301,20 +306,15 @@ interfaces.implement {
       width=fit,
       margin=0em,
       distance=0.5em,
-      style=bold,
       before=\blank[halfline],
-      numbercommand=\ss,
-      textcommand=\ss,
-      pagecommand=\ss,
+      style=sansbold,
   ]
   \setuplist[subsection][
       width=fit,
       margin=1em,
       distance=0.5em,
       before=\blank[none],
-      numbercommand=\ss,
-      textcommand=\ss,
-      pagecommand=\ss,
+      style=sans,
   ]
   \setuphead[chapter][after=\blank[big],numbercommand=\appchapnumber]
 \stopsectionblockenvironment
