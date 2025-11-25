@@ -257,7 +257,7 @@ interfaces.implement {
     local bottomruleoffset = hash.bottomruleoffset or "2pt"
     context(
       "\\determinelistcharacteristics[section]"
-      .. "\\doifmode{*list}{\\vskip1ex\\hrule\\startcolumns[n=2,internalgrid=halfline]\\placecontent\\stopcolumns\\vskip{-1.5ex}"
+      .. "\\doifmode{*list}{\\vskip1ex\\hrule\\startcolumns[n=2,internalgrid=halfline]\\setuplocalinterlinespace[off]\\placecontent\\stopcolumns\\vskip{-1.5ex}"
       .. "\\vskip" .. bottomruleoffset
       .. "\\hrule}"
     )
@@ -289,7 +289,6 @@ interfaces.implement {
       width=fit,
       margin=1em,
       distance=0.5em,
-      before=\blank[none],
       style=sans,
   ]
   \setuphead[chapter][after=\blank[big],numbercommand=\chapnumber]
