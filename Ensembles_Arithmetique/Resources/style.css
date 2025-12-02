@@ -157,3 +157,20 @@ div.descriptioncontent {
     display     : inline ;
     font-size   : 10pt ;
 }
+
+verbatimline,
+div.verbatimline {
+    display: block ;
+    color : rgb(100%,100%,100%) ;
+}
+
+verbatimblock,
+div.verbatimblock {
+    background-color : rgb(0%,0%,0%) ;
+    display          : block ;
+    padding          : 1em ;
+    margin-bottom    : 1em ;
+    margin-top       : 1em ;
+    font-family      : Mono ;
+    font-style       : normal ;
+}

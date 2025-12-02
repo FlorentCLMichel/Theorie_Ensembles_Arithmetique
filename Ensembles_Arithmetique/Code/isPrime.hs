@@ -11,4 +11,4 @@ testNonDivisible p q | q*q > p = True
 -- check if a non-negative integer p is prime
 isPrime :: Integer -> Bool
 isPrime p | p <= 1 = False
-          |otherwise = testNonDivisible p 2
+          | otherwise = testNonDivisible p 2
