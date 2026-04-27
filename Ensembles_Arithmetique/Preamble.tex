@@ -33,8 +33,11 @@
 
 % Variables
 \setvariables[metadata][
-    title=Théorie des Ensembles et Arithmétique,
-    author=Florent Michel
+  title=Théorie des Ensembles et Arithmétique,
+  author=Florent Michel
+]
+\setvariables[lengths][
+  codesize=10pt,
 ]
 
 
@@ -167,7 +170,7 @@
 % Footnotes style
 \setupnote[footnote][
   rule=off,
-  before=\blank[line]\hrule\blank[quarterline],
+  before=\blank[line]\hrule\blank[quarterline,samepage],
 ]
 \setupnotation[footnote][
   way=bychapter,

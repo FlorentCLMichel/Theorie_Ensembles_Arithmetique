@@ -9,12 +9,25 @@
 
   \page
 
-  \define[2]\PrintCodeFile{%
-    \startframed[frame=off,align=right]
-      \href{\bold{\sans{#2}}}{Ensembles_Arithmetique/Code/#2}
-      \vskip{-3ex}\blank[samepage]
-      \typefile[#1]{Ensembles_Arithmetique/Code/#2}
-    \stopframed}
+  \startnotmode[export] 
+    \define[2]\PrintCodeFile{%
+      \startframed[frame=off,align=right]
+        \offset[y=-1.7ex]{\color[linkcolor]{\bold{\sans{\scale[xscale=1200,yscale=1400]{%
+          \attachment[file={Ensembles_Arithmetique/Code/#2}, 
+          title={#2}, 
+          symbol={#2}]}}}}}
+        \vskip{-3ex}\blank[samepage]
+        \typefile[#1]{Ensembles_Arithmetique/Code/#2}
+      \stopframed}
+  \stopnotmode
+  \startmode[export] 
+    \define[2]\PrintCodeFile{%
+      \startframed[frame=off,align=right]
+        \href{\bold{\sans{#2}}}{file:Ensembles_Arithmetique/Code/#2}
+        \vskip{-3ex}\blank[samepage]
+        \typefile[#1]{Ensembles_Arithmetique/Code/#2}
+      \stopframed}
+  \stopmode
 
   \startsection[title=Écriture d'un entier naturel en base b, reference=app:Haskell_baseb]
     \PrintCodeFile{Haskell}{base.hs}
@@ -30,7 +43,7 @@
     \noindent
     La fonction \mono{findNPrimes} ci-dessous prend un entier naturel $N$ en argument et retourne la liste des $N$ premiers nombres premiers. 
     
-    \PrintCodeFile{Haskell}{findNPrimes.hs}
+    \PrintCodeFile{Haskell}{FindNPrimes.hs}
 
     \blank[medium]
     
