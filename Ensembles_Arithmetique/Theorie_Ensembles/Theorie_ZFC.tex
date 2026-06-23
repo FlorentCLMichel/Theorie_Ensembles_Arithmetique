@@ -510,6 +510,25 @@ On pourra noter ce l'ensemble $a \cup (b \cup c)$ par $a \cup b \cup c$.
 
     \done
 
+\blank[medium]
+
+\noindent
+Soit $E$ un ensemble non vide. On note $\symbols{\cup} E$ l'ensemble $F$ défini par:
+\startformula
+    \forall x \, (
+        (x \in F) \Leftrightarrow (\forall y \, ((y \in E) \Rightarrow (x \in y)))
+    ).
+\stopformula
+Cet ensemble existe d'après le schéma d'axiomes de compréhension, en considérant pour $a$ un élément de $E$ (qui existe puisque $E$ est non vide) et la formule à un paramètre $P x: \forall y  \, (y \in E) \Rightarrow (x \in y)$. 
+Notions que cette définition ne dépends pas du choix de $a$. 
+Pour montrer cela, fixons deux éléments $a$ et $b$ de $E$, et notons $F$ et $G$ les ensembles obtenus en partant de $a$ et de $b$. 
+On veut montrer que $F = G$. 
+Soit $x$ un élément de $F$. 
+On a $x \in a$ et $x \in c$ pour tout élément $c$ de $E$. 
+Puisque $b \in E$, on en déduit que $x \in b$, et donc $x \in G$.
+Ainsi, $F \subset G$. 
+Le même raisonnement en échangeant les rôles de $F$ et $G$ et $a$ et $b$ montre que $G \subset F$; on a donc $F = G$.
+
 \startsubsection[title=Schéma d'axiomes de remplacement]
 
 La théorie de Zermelo plus cet axiome donne la théorie ZF. 
@@ -1425,7 +1444,7 @@ Ainsi, si $f$ est une formule, la formule $\forall x \in a, f$ (éventuellement 
 \stopformula
 et 
 \startformula
-    \forall y \, \forall y' \, ([\exists x \, ((x,y) \in f \wedge (x,y') \in f)] \Rightarrow (y = y')).
+    \forall y \, \forall y\p \, ([\exists x \, ((x,y) \in f \wedge (x,y\p) \in f)] \Rightarrow (y = y\p)).
 \stopformula
 La première condition est équivalente à dire que $f$ est un sous-ensemble de $X \times Y$, \emph{i.e.}, à : $f \subset X \times Y$. 
 La seconde et la troisième sont équivalentes à dire que, pour tout élément $x$ de $X$, il existe un unique élément $y$ de $Y$ tel que $(x,y) \in f$, c'est-à-dire : $\forall x \, [(x \in X) \Rightarrow [\exists ! y \, (x,y) \in f]]$. 
@@ -1476,9 +1495,9 @@ Alors l'ensemble $G$ définit par $G = \lbrace g \in E \times F \vert \exists e 
     \item Soit $e$ un élément de $E$.
         Par définition de $P$, on peut choisir un élément $f$ de $F$ tel que $P e f$ est vrai.
         Alors, $(e,f)$ est un élément de $G$.
-    \item Soit $e$ un élément de $E$ et $y$ et $y'$ deux éléments de $F$ tels que $(e,f) \in G$ et $(e,f') \in G$.
-        Alors, $P e f$ et $P e f'$ sont vrais.
-        Donc, $f = f'$. 
+    \item Soit $e$ un élément de $E$ et $y$ et $y\p$ deux éléments de $F$ tels que $(e,f) \in G$ et $(e,f\p) \in G$.
+        Alors, $P e f$ et $P e f\p$ sont vrais.
+        Donc, $f = f\p$. 
 \stopitemize
 
 \done
@@ -1494,17 +1513,17 @@ Alors l'ensemble $G$ définit par $G = \lbrace g \in E \times F \vert \exists e 
 \noindent\bold{Démonstration :} 
     Soit $z$ un élément de $f$. 
     On peut choisir un élément $x$ de $E$ et un élément $y$ de $F$ tel que $z = (x,y)$. 
-    Puisque $x \in E$, on peut choisir un élément $y'$ de $F$ tel que $(x,y') \in g$. 
-    On a alors $y = f(x)$ et $y' = g(x)$. 
-    Puisque $f(x) = g(x)$, on en déduit $y' = y$. 
+    Puisque $x \in E$, on peut choisir un élément $y\p$ de $F$ tel que $(x,y\p) \in g$. 
+    On a alors $y = f(x)$ et $y\p = g(x)$. 
+    Puisque $f(x) = g(x)$, on en déduit $y\p = y$. 
     Donc, $(x,y) \in g$, et donc $z \in g$. 
     Cela montre que $f \subset g$.
     
     Soit $z$ un élément de $g$. 
     On peut choisir un élément $x$ de $E$ et un élément $y$ de $F$ tel que $z = (x,y)$. 
-    Puisque $x \in E$, on peut choisir un élément $y'$ de $F$ tel que $(x,y') \in f$. 
-    On a alors $y = g(x)$ et $y' = f(x)$. 
-    Puisque $g(x) = f(x)$, on en déduit $y' = y$. 
+    Puisque $x \in E$, on peut choisir un élément $y\p$ de $F$ tel que $(x,y\p) \in f$. 
+    On a alors $y = g(x)$ et $y\p = f(x)$. 
+    Puisque $g(x) = f(x)$, on en déduit $y\p = y$. 
     Donc, $(x,y) \in f$, et donc $z \in f$. 
     Cela montre que $g \subset f$.
 
@@ -1545,11 +1564,11 @@ On dit que
                 On a $(x,x) \in I$. 
                 Donc, il existe un élément $y$ de $E$ (il suffit de prendre $y = x$) tel que $(x,y) \in E$.
                 La deuxième condition est donc satisfaite.
-            \item Soit $y$ et $y'$ deux éléments de $E$ et $x$ un élément de $E$ tel que $(x,y) \in I$ et $(x,y') \in I$.
-                Alors, il existe deux éléments $x'$ et $x''$ de $E$ tels que $(x,y) = (x',x')$ et $(x,y') = (x'',x'')$. 
-                La première égalité donne $x = x'$ et $y = x'$, donc $x = y$.
-                La seconde égalité donne $x = x''$ et $y' = x''$, donc $x = y'$. 
-                Donc, $y = y'$.
+            \item Soit $y$ et $y\p$ deux éléments de $E$ et $x$ un élément de $E$ tel que $(x,y) \in I$ et $(x,y\p) \in I$.
+                Alors, il existe deux éléments $x\p$ et $x\pp$ de $E$ tels que $(x,y) = (x\p,x\p)$ et $(x,y\p) = (x\pp,x\pp)$. 
+                La première égalité donne $x = x\p$ et $y = x\p$, donc $x = y$.
+                La seconde égalité donne $x = x\pp$ et $y\p = x\pp$, donc $x = y\p$. 
+                Donc, $y = y\p$.
                 La troisième condition est donc satisfaite.
         \stopitemize
     \item Soit $x$ un élément de $E$.
@@ -1600,7 +1619,7 @@ Alors,
         Soit $P$ la propriété à deux variables libres définie par : $P y x: [(y \in \mathrm{Im}(f)) \wedge (f(x) = y)] \vee [(y \notin \mathrm{Im}(f)) \wedge (x = a)]$. 
         Alors, l'ensemble $\lbrace z \in F \times E \vert \exists x \, \exists y \, (z = (y,x)) \wedge (P y x) \rbrace$ est une fonction de $F$ vers $E$ et est surjective.
     \item S'il existe une surjection $f$ de $E$ vers $F$, et si l'on admet l'axiome du choix (voir ci-dessous), alors il existe une injection de $F$ vers $E$. 
-        En effet, soit $X$ l'ensemble des $f^{-1}(y)$ pour $y \in F$ (cet ensemble existe d'après l'axiome de l'ensemble des parties et le schéma d'axiome de compréhension : il s'agit de l'ensemble des parties $p$ de $F$ telles que $\exists y \, (y \in F) \wedge (p = f^{-1}(y))$), soit $g$ une fonction qui à chaque élément de cet ensemble associe un de ses éléments\footnote{Cela est possible car, pour tout élément $y$ de $F$, $f^{-1}(y)$ est non vide puisque $f$ est surjective.}, et soit $h$ l'ensemble $\lbrace z \in F \times E \vert \exists x \in E \, \exists y \in F \, (x = g(f^{-1}(y))) \wedge (z=(y,x)) \rbrace$ ; alors $h$ est une fonction injective de $F$ vers $E$. (Elle est bien injective. En effet, si $y$ et $y'$ sont deux élément de $f$ ayant la même image $x$, alors $x \in f^{-1}(y)$ et $x \in f^{-1}(y')$, donc $f(x) = y$ et $f(x) = y'$, donc $y=y'$.)
+        En effet, soit $X$ l'ensemble des $f^{-1}(y)$ pour $y \in F$ (cet ensemble existe d'après l'axiome de l'ensemble des parties et le schéma d'axiome de compréhension : il s'agit de l'ensemble des parties $p$ de $F$ telles que $\exists y \, (y \in F) \wedge (p = f^{-1}(y))$), soit $g$ une fonction qui à chaque élément de cet ensemble associe un de ses éléments\footnote{Cela est possible car, pour tout élément $y$ de $F$, $f^{-1}(y)$ est non vide puisque $f$ est surjective.}, et soit $h$ l'ensemble $\lbrace z \in F \times E \vert \exists x \in E \, \exists y \in F \, (x = g(f^{-1}(y))) \wedge (z=(y,x)) \rbrace$ ; alors $h$ est une fonction injective de $F$ vers $E$. (Elle est bien injective. En effet, si $y$ et $y\p$ sont deux élément de $f$ ayant la même image $x$, alors $x \in f^{-1}(y)$ et $x \in f^{-1}(y\p)$, donc $f(x) = y$ et $f(x) = y\p$, donc $y=y\p$.)
 \stopitemize
 
 Ces deux résultats étant importants, récrivons-les et démontrons-les plus formellement.
@@ -1640,11 +1659,11 @@ Montrons que $g$ est une fonction de $F$ vers $E$ et qu'elle est surjective:
         Donc, $(y,x) \in g$. 
         On a donc montré que $\exists x (y,x) \in g$. 
         La deuxième condition pour être uns fonction est donc bien satisfaite.
-    \item Soit $x$ et $x'$ deux éléments de $E$ et $y$ un élément de $F$ tels que $(y,x) \in g$ et $(y,x') \in g$.
-        Alors, $P x y$ et $P x' y$ sont vraies.
-        Si $y \in \mathrm{Im}(f)$, cela implique $f(x) = y$ et $f(x') = y$, donc $f(x) = f(x')$, et donc (puisque $f$ est injective) $x = x'$.
-        Sinon, cela implique $x = a$ et $x' = a$, donc $x = x'$.
-        Dans tous les cas, on a $x = x'$. 
+    \item Soit $x$ et $x\p$ deux éléments de $E$ et $y$ un élément de $F$ tels que $(y,x) \in g$ et $(y,x\p) \in g$.
+        Alors, $P x y$ et $P x\p y$ sont vraies.
+        Si $y \in \mathrm{Im}(f)$, cela implique $f(x) = y$ et $f(x\p) = y$, donc $f(x) = f(x\p)$, et donc (puisque $f$ est injective) $x = x\p$.
+        Sinon, cela implique $x = a$ et $x\p = a$, donc $x = x\p$.
+        Dans tous les cas, on a $x = x\p$. 
         La troisième condition pour être une fonction est donc satisfaite. 
     \item Soit $x$ un élément de $E$. On a $f(x) \in \mathrm{Im}(f)$ et $f(x) = f(x)$, donc $P x f(x)$ est vraie. 
         Puisque $x \in E$ et $f(x) \in F$, $(f(x),x) \in F \times E$. 
@@ -1703,17 +1722,17 @@ Alors, il existe une injection de $F$ vers $E$.
             Alors, $f^{-1}(\lbrace y \rbrace)$ est un élément de $X$.
             Soit $x$ l'élément de $E$ défini par $x = g(f^{-1}(\lbrace y \rbrace))$.
             On a $(y,x) \in h$.
-        \item Soit $y$ un élément de $F$ et $x$ et $x'$ deux éléments de $E$ tels que $(y,x) \in h$ et $(y,x') \in h$.
-            Alors, $x = g (f^{-1}(\lbrace y \rbrace))$ et $x' = g (f^{-1}(\lbrace y \rbrace))$.
-            Donc, $x = x'$.
+        \item Soit $y$ un élément de $F$ et $x$ et $x\p$ deux éléments de $E$ tels que $(y,x) \in h$ et $(y,x\p) \in h$.
+            Alors, $x = g (f^{-1}(\lbrace y \rbrace))$ et $x\p = g (f^{-1}(\lbrace y \rbrace))$.
+            Donc, $x = x\p$.
     \stopitemize
     L'ensemble $h$ est donc bien une fonction de $F$ vers $E$.
 
     Montrons que $h$ est injective. 
-    Soit $y$ et $y'$ deux éléments de $F$ tels que $h(y) = h(y')$. 
+    Soit $y$ et $y\p$ deux éléments de $F$ tels que $h(y) = h(y\p)$. 
     Puisque $h(y) = g (f^{-1}(\lbrace y \rbrace))$ et $g (f^{-1}(\lbrace y \rbrace)) \in f^{-1}(\lbrace y \rbrace)$, on a $h(y) \in f^{-1}(\lbrace y \rbrace)$, et donc $f(h(y)) = y$.
-    De même, puisque $h(y') = g (f^{-1}(\lbrace y' \rbrace))$ et $g (f^{-1}(\lbrace y' \rbrace)) \in f^{-1}(\lbrace y' \rbrace)$, on a $h(y') \in f^{-1}(\lbrace y' \rbrace)$, et donc $f(h(y')) = y'$.
-    Puisque $h(y) = h(y')$, on en déduit que $y = y'$. 
+    De même, puisque $h(y\p) = g (f^{-1}(\lbrace y\p \rbrace))$ et $g (f^{-1}(\lbrace y\p \rbrace)) \in f^{-1}(\lbrace y\p \rbrace)$, on a $h(y\p) \in f^{-1}(\lbrace y\p \rbrace)$, et donc $f(h(y\p)) = y\p$.
+    Puisque $h(y) = h(y\p)$, on en déduit que $y = y\p$. 
     Ainsi, $h$ est bien injective. 
 
    \done 
@@ -1744,12 +1763,12 @@ Pour simplifier les notations, on note parfois $\lbrace f(x) \vert x \in E' \rbr
         Puisque $g$ est une fonction de $F$ vers $G$, $g(f(x)) \in F$.
         Donc, $z \in E \times G$.
     \item Soit $x$ un élément de $E$. Alors $(x,g(f(x))) \in g \circ f$.
-    \item Soit $y$ et $y'$ deux ensembles. 
-        Soit $x$ un ensemble tel que $(x,y) \in g \circ f$ et $(x,y') \in g \circ f$. 
-        Alors, on peut choisir un élément $x'$ de $E$ tel que $(x,y) \in (x',g(f(x')))$ et un élément $x''$ de $E$ tel que $(x,y') = (x'',g(f(x'')))$. 
-        On a donc $x = x'$, $y = g(f(x'))$, $x = x''$ et $y' = g(f(x''))$. 
-        Donc, $y = g(f(x))$ et $y' = g(f(x))$. 
-        Donc, $y = y'$.
+    \item Soit $y$ et $y\p$ deux ensembles. 
+        Soit $x$ un ensemble tel que $(x,y) \in g \circ f$ et $(x,y\p) \in g \circ f$. 
+        Alors, on peut choisir un élément $x\p$ de $E$ tel que $(x,y) \in (x\p,g(f(x\p)))$ et un élément $x\pp$ de $E$ tel que $(x,y\p) = (x\pp,g(f(x\pp)))$. 
+        On a donc $x = x\p$, $y = g(f(x\p))$, $x = x\pp$ et $y\p = g(f(x\pp))$. 
+        Donc, $y = g(f(x))$ et $y\p = g(f(x))$. 
+        Donc, $y = y\p$.
 \stopitemize
 
 \done
@@ -1816,9 +1835,9 @@ En outre, cette fonction est bijective.
         \item Soit $z$ un élément de $g$. Alors, il existe un élément $y$ de $F$ et un élément $x$ de $E$ tels que $z = (y,x)$.
         \item Soit $y$ un élément de $F$. Puisque $f$ est surjective, on peut choisir un élément $x$ de $E$ tel que $f(x) = y$. 
             Alors, $(y,x) \in F \times E$ et $(x,y) \in f$, donc $(y,x) \in g$. 
-        \item Soit $y$ un élément de $F$ et $x$ et $x'$ deux éléments de $E$ tels que $(y,x) \in g$ et $(y,x') \in g$.
-            Alors, $(x,y) \in f$ et $(x',y) \in f$, donc $f(x) = y$ et $f(x') = y$, donc $f(x) = f(x')$.
-            Puisque $f$ est injective, on en déduit que $x = x'$.
+        \item Soit $y$ un élément de $F$ et $x$ et $x\p$ deux éléments de $E$ tels que $(y,x) \in g$ et $(y,x\p) \in g$.
+            Alors, $(x,y) \in f$ et $(x\p,y) \in f$, donc $f(x) = y$ et $f(x\p) = y$, donc $f(x) = f(x\p)$.
+            Puisque $f$ est injective, on en déduit que $x = x\p$.
     \stopitemize
     Ainsi, $g$ est bien une fonction de $F$ vers $E$.
 
@@ -1832,10 +1851,10 @@ En outre, cette fonction est bijective.
 
     Montrons maintenant que $g$ est bijective.
     \startitemize[nowhite]
-        \item Soit $y$ et $y'$ deux éléments de $F$ tels que $g(y) = g(y')$. 
+        \item Soit $y$ et $y\p$ deux éléments de $F$ tels que $g(y) = g(y\p)$. 
             Puisque $(y,g(y)) \in g$, on a $(g(y),y) \in f$, donc $f(g(y)) = y$.
-            De même, puisque $(y',g(y')) \in g$, on a $(g(y'),y') \in f$, donc $f(g(y')) = y'$.
-            Puisque $g(y') = g(y)$, cela implique $f(g(y)) = y'$, et donc $y = y'$.
+            De même, puisque $(y\p,g(y\p)) \in g$, on a $(g(y\p),y\p) \in f$, donc $f(g(y\p)) = y\p$.
+            Puisque $g(y\p) = g(y)$, cela implique $f(g(y)) = y\p$, et donc $y = y\p$.
             Cela montre que $g$ est injective.
         \item Soit $x$ un élément de $E$. 
             Notons $y$ l'élément de $F$ définit par $y = f(x)$.

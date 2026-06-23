@@ -107,12 +107,12 @@
 ]
 \setupbodyfont [myfamily, 10pt]
 
-% Corrections for the math font
-\appendtoks
-  \Umathsubshiftdown\allmathstyles .5ex
-  \Umathsubsupshiftdown\allmathstyles .5ex
-  \Umathsubsupvgap\allmathstyles .1ex
-\to \everymathematics
+%% Corrections for the math font
+%\appendtoks
+%  \Umathsubshiftdown\allmathstyles .5ex
+%  \Umathsubsupshiftdown\allmathstyles .5ex
+%  \Umathsubsupvgap\allmathstyles .1ex
+%\to \everymathematics
 
 
 % TOC format
@@ -242,7 +242,15 @@
 \define{\lii}{\utfchar{"27e6}}    % integer interval (left)
 \define{\rii}{\utfchar{"27e7}}    % integer interval (right)
 \define{\ds}{\utfchar{"2215}}     % division slash
-\define{\p}{^\prime}
+
+\startnotmode[export] 
+  \define{\p}{^\prime}
+  \define{\pp}{^\prime\kern-.3ex^\prime}
+\stopnotmode
+\startmode[export]
+  \define{\p}{'}
+  \define{\pp}{''}
+\stopmode
 
 % Special styles for the frontmatter
 \startsectionblockenvironment[frontmatter]
