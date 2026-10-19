@@ -1,3 +1,6 @@
+% Redefine some commands as mutable
+\mutable\let\setminus\relax
+
 \startmode[export] 
   \setupbackend[export=yes,hyphen=yes]
   \setupexport[
@@ -32,10 +35,6 @@
 \stopnotmode
 
 % Variables
-\setvariables[metadata][
-  title=Théorie des Ensembles et Arithmétique,
-  author=Florent Michel
-]
 \setvariables[lengths][
   codesize=10pt,
 ]
@@ -85,7 +84,14 @@
 % Interactions
 \setupcolors[state=start]
 \definecolor[linkcolor][r=.1,g=.3,b=.9]
-\setupinteraction[state=start, focus=standard, color=linkcolor, contrastcolor=linkcolor, style=]
+\setupinteraction[
+  state=start, 
+  focus=standard, 
+  color=linkcolor, 
+  contrastcolor=linkcolor, 
+  style=,
+  title=\getvariable{metadata}{title},
+  author=\getvariable{metadata}{author}]
 
 % Bookmarks
 \placebookmarks [chapter,section,subject,subsection]
@@ -110,8 +116,9 @@
 %% Corrections for the math font
 %\appendtoks
 %  \Umathsubshiftdown\allmathstyles .5ex
+%  \Umathsupshiftup\allmathstyles .5ex
 %  \Umathsubsupshiftdown\allmathstyles .5ex
-%  \Umathsubsupvgap\allmathstyles .1ex
+%  \Umathsubsupvgap\allmathstyles .5ex
 %\to \everymathematics
 
 
@@ -243,14 +250,17 @@
 \define{\rii}{\utfchar{"27e7}}    % integer interval (right)
 \define{\ds}{\utfchar{"2215}}     % division slash
 
-\startnotmode[export] 
-  \define{\p}{^\prime}
-  \define{\pp}{^\prime\kern-.3ex^\prime}
-\stopnotmode
-\startmode[export]
-  \define{\p}{'}
-  \define{\pp}{''}
-\stopmode
+%% Correct prime placement if needed
+%\startnotmode[export] 
+%  \define{\p}{^\prime}
+%  \define{\pp}{^\prime\kern-.3ex^\prime}
+%  \define{\ppp}{^\prime\kern-.3ex^\prime\kern-.3ex^\prime}
+%\stopnotmode
+%\startmode[export]
+%  \define{\p}{'}
+%  \define{\pp}{''}
+%  \define{\pp}{'''}
+%\stopmode
 
 % Special styles for the frontmatter
 \startsectionblockenvironment[frontmatter]
@@ -516,6 +526,7 @@ interfaces.implement {
 \define\ep{\epsilon}
 
 % Miscelanous commands
+\define[2]\fref{\goto{\color[linkcolor]{#1}}[program(#2)]}
 \define[2]\href{\goto{\color[linkcolor]{#1}}[url(#2)]}
 \define[1]\lua{\ctxlua{#1}}
 \define[1]\plua{\lua{context(#1)}}
